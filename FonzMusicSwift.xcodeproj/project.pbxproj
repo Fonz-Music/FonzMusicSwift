@@ -1,0 +1,617 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2677029126347ECD00B8BC92 /* FonzMusicSwiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2677029026347ECD00B8BC92 /* FonzMusicSwiftApp.swift */; };
+		2677029326347ECD00B8BC92 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2677029226347ECD00B8BC92 /* ContentView.swift */; };
+		2677029526347ED100B8BC92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2677029426347ED100B8BC92 /* Assets.xcassets */; };
+		2677029826347ED100B8BC92 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2677029726347ED100B8BC92 /* Preview Assets.xcassets */; };
+		26DB9A87263481B10030643D /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 26DB9A81263481B10030643D /* Fonts */; };
+		26DB9A8C263484110030643D /* HostPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9A8B263484110030643D /* HostPage.swift */; };
+		26DB9A8F2634980F0030643D /* GuestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9A8E2634980F0030643D /* GuestView.swift */; };
+		26DB9A92263498390030643D /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9A91263498390030643D /* HomePage.swift */; };
+		26DB9A9C263498CB0030643D /* JoinedParty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9A9B263498CB0030643D /* JoinedParty.swift */; };
+		26DB9A9F263498E00030643D /* SuccessQueueSong.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9A9E263498E00030643D /* SuccessQueueSong.swift */; };
+		26DB9AA2263498F90030643D /* UsedAllQueues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9AA1263498F90030643D /* UsedAllQueues.swift */; };
+		26DB9AA52634990D0030643D /* ErrorOnTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9AA42634990D0030643D /* ErrorOnTap.swift */; };
+		26DB9AA8263499220030643D /* ErrorQueuingSong.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9AA7263499220030643D /* ErrorQueuingSong.swift */; };
+		26DB9AAB263499410030643D /* ErrorDeviceNotNfc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9AAA263499410030643D /* ErrorDeviceNotNfc.swift */; };
+		26DB9AAE2634995B0030643D /* ErrorCoasterHasNoHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9AAD2634995B0030643D /* ErrorCoasterHasNoHost.swift */; };
+		26DB9AB1263499710030643D /* ErrorNotFonzCoaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9AB0263499710030643D /* ErrorNotFonzCoaster.swift */; };
+		26DB9AB4263499AB0030643D /* JoinParty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9AB3263499AB0030643D /* JoinParty.swift */; };
+		26DB9AB7263499CF0030643D /* AlreadyJoinedAddNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9AB6263499CF0030643D /* AlreadyJoinedAddNew.swift */; };
+		26DB9ABA263499F00030643D /* SearchBarNoSuggestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9AB9263499F00030643D /* SearchBarNoSuggestions.swift */; };
+		26DB9ABD26349A1D0030643D /* TracksFromSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9ABC26349A1D0030643D /* TracksFromSearch.swift */; };
+		26DB9AC026349A8F0030643D /* QueueSongSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9ABF26349A8F0030643D /* QueueSongSheet.swift */; };
+		26DB9ACA26349AEA0030643D /* LaunchJoinPartNfc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9AC926349AEA0030643D /* LaunchJoinPartNfc.swift */; };
+		26DB9ACE26349B040030643D /* TryAgainNfc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9ACD26349B040030643D /* TryAgainNfc.swift */; };
+		26DB9AD126349B190030643D /* LaunchQueueSongNfc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9AD026349B190030643D /* LaunchQueueSongNfc.swift */; };
+		26DB9AD426349B2D0030643D /* LaunchQueueSongWriteUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9AD326349B2D0030643D /* LaunchQueueSongWriteUrl.swift */; };
+		26DB9AD826349B610030643D /* GuestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9AD726349B610030643D /* GuestApi.swift */; };
+		26DB9ADE26349EBB0030643D /* ErrorNotSameCoaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9ADD26349EBB0030643D /* ErrorNotSameCoaster.swift */; };
+		26DB9AFC2634A4370030643D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26DB9AFB2634A4370030643D /* GoogleService-Info.plist */; };
+		26DB9B232634A96B0030643D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9B222634A96B0030643D /* Colors.swift */; };
+		E4595E496192AD1C55E93E1F /* libPods-FonzMusicSwift.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B480C69CB1494108CA6C68C /* libPods-FonzMusicSwift.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2677028D26347ECD00B8BC92 /* FonzMusicSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FonzMusicSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2677029026347ECD00B8BC92 /* FonzMusicSwiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FonzMusicSwiftApp.swift; sourceTree = "<group>"; };
+		2677029226347ECD00B8BC92 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2677029426347ED100B8BC92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2677029726347ED100B8BC92 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2677029926347ED100B8BC92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		26DB9A81263481B10030643D /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Fonts; sourceTree = "<group>"; };
+		26DB9A8B263484110030643D /* HostPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostPage.swift; sourceTree = "<group>"; };
+		26DB9A8E2634980F0030643D /* GuestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestView.swift; sourceTree = "<group>"; };
+		26DB9A91263498390030643D /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
+		26DB9A9B263498CB0030643D /* JoinedParty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinedParty.swift; sourceTree = "<group>"; };
+		26DB9A9E263498E00030643D /* SuccessQueueSong.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessQueueSong.swift; sourceTree = "<group>"; };
+		26DB9AA1263498F90030643D /* UsedAllQueues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsedAllQueues.swift; sourceTree = "<group>"; };
+		26DB9AA42634990D0030643D /* ErrorOnTap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorOnTap.swift; sourceTree = "<group>"; };
+		26DB9AA7263499220030643D /* ErrorQueuingSong.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorQueuingSong.swift; sourceTree = "<group>"; };
+		26DB9AAA263499410030643D /* ErrorDeviceNotNfc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorDeviceNotNfc.swift; sourceTree = "<group>"; };
+		26DB9AAD2634995B0030643D /* ErrorCoasterHasNoHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorCoasterHasNoHost.swift; sourceTree = "<group>"; };
+		26DB9AB0263499710030643D /* ErrorNotFonzCoaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorNotFonzCoaster.swift; sourceTree = "<group>"; };
+		26DB9AB3263499AB0030643D /* JoinParty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinParty.swift; sourceTree = "<group>"; };
+		26DB9AB6263499CF0030643D /* AlreadyJoinedAddNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlreadyJoinedAddNew.swift; sourceTree = "<group>"; };
+		26DB9AB9263499F00030643D /* SearchBarNoSuggestions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarNoSuggestions.swift; sourceTree = "<group>"; };
+		26DB9ABC26349A1D0030643D /* TracksFromSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracksFromSearch.swift; sourceTree = "<group>"; };
+		26DB9ABF26349A8F0030643D /* QueueSongSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueSongSheet.swift; sourceTree = "<group>"; };
+		26DB9AC926349AEA0030643D /* LaunchJoinPartNfc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchJoinPartNfc.swift; sourceTree = "<group>"; };
+		26DB9ACD26349B040030643D /* TryAgainNfc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TryAgainNfc.swift; sourceTree = "<group>"; };
+		26DB9AD026349B190030643D /* LaunchQueueSongNfc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchQueueSongNfc.swift; sourceTree = "<group>"; };
+		26DB9AD326349B2D0030643D /* LaunchQueueSongWriteUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchQueueSongWriteUrl.swift; sourceTree = "<group>"; };
+		26DB9AD726349B610030643D /* GuestApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestApi.swift; sourceTree = "<group>"; };
+		26DB9ADD26349EBB0030643D /* ErrorNotSameCoaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorNotSameCoaster.swift; sourceTree = "<group>"; };
+		26DB9AF62634A2850030643D /* FonzMusicSwift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FonzMusicSwift.entitlements; sourceTree = "<group>"; };
+		26DB9AFB2634A4370030643D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		26DB9B222634A96B0030643D /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		4B480C69CB1494108CA6C68C /* libPods-FonzMusicSwift.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FonzMusicSwift.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5045F2117E00BCFEA787D4B1 /* Pods-FonzMusicSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FonzMusicSwift.debug.xcconfig"; path = "Target Support Files/Pods-FonzMusicSwift/Pods-FonzMusicSwift.debug.xcconfig"; sourceTree = "<group>"; };
+		E49150DFE53C30EAB099DB99 /* Pods-FonzMusicSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FonzMusicSwift.release.xcconfig"; path = "Target Support Files/Pods-FonzMusicSwift/Pods-FonzMusicSwift.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2677028A26347ECD00B8BC92 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4595E496192AD1C55E93E1F /* libPods-FonzMusicSwift.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2677028426347ECD00B8BC92 = {
+			isa = PBXGroup;
+			children = (
+				2677028F26347ECD00B8BC92 /* FonzMusicSwift */,
+				2677028E26347ECD00B8BC92 /* Products */,
+				3388F0F5BB427393EA39D144 /* Pods */,
+				674F8D2472614C8E34995D41 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		2677028E26347ECD00B8BC92 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2677028D26347ECD00B8BC92 /* FonzMusicSwift.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2677028F26347ECD00B8BC92 /* FonzMusicSwift */ = {
+			isa = PBXGroup;
+			children = (
+				26DB9B1A2634A61D0030643D /* GlobalComponents */,
+				26DB9AD626349B3E0030643D /* ApiMethods */,
+				26DB9A8A263484020030643D /* MainViews */,
+				26DB9AC826349AD20030643D /* NfcClasses */,
+				26DB9A942634985C0030643D /* GuestPages */,
+				26DB9B1C2634A6CE0030643D /* HostPages */,
+				2677029026347ECD00B8BC92 /* FonzMusicSwiftApp.swift */,
+				2677029226347ECD00B8BC92 /* ContentView.swift */,
+				2677029426347ED100B8BC92 /* Assets.xcassets */,
+				26DB9A81263481B10030643D /* Fonts */,
+				26DB9AF62634A2850030643D /* FonzMusicSwift.entitlements */,
+				26DB9AFB2634A4370030643D /* GoogleService-Info.plist */,
+				2677029926347ED100B8BC92 /* Info.plist */,
+				2677029626347ED100B8BC92 /* Preview Content */,
+			);
+			path = FonzMusicSwift;
+			sourceTree = "<group>";
+		};
+		2677029626347ED100B8BC92 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				2677029726347ED100B8BC92 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		26DB9A8A263484020030643D /* MainViews */ = {
+			isa = PBXGroup;
+			children = (
+				26DB9A8B263484110030643D /* HostPage.swift */,
+				26DB9A8E2634980F0030643D /* GuestView.swift */,
+				26DB9A91263498390030643D /* HomePage.swift */,
+			);
+			path = MainViews;
+			sourceTree = "<group>";
+		};
+		26DB9A942634985C0030643D /* GuestPages */ = {
+			isa = PBXGroup;
+			children = (
+				26DB9A9A263498AC0030643D /* SuccessPages */,
+				26DB9A99263498A60030643D /* ErrorPages */,
+				26DB9A982634989C0030643D /* JoinPartyPages */,
+				26DB9A97263498870030643D /* SearchPages */,
+				26DB9A96263498760030643D /* QueueSongModals */,
+			);
+			path = GuestPages;
+			sourceTree = "<group>";
+		};
+		26DB9A96263498760030643D /* QueueSongModals */ = {
+			isa = PBXGroup;
+			children = (
+				26DB9ABF26349A8F0030643D /* QueueSongSheet.swift */,
+			);
+			path = QueueSongModals;
+			sourceTree = "<group>";
+		};
+		26DB9A97263498870030643D /* SearchPages */ = {
+			isa = PBXGroup;
+			children = (
+				26DB9AB9263499F00030643D /* SearchBarNoSuggestions.swift */,
+				26DB9ABC26349A1D0030643D /* TracksFromSearch.swift */,
+			);
+			path = SearchPages;
+			sourceTree = "<group>";
+		};
+		26DB9A982634989C0030643D /* JoinPartyPages */ = {
+			isa = PBXGroup;
+			children = (
+				26DB9AB3263499AB0030643D /* JoinParty.swift */,
+				26DB9AB6263499CF0030643D /* AlreadyJoinedAddNew.swift */,
+			);
+			path = JoinPartyPages;
+			sourceTree = "<group>";
+		};
+		26DB9A99263498A60030643D /* ErrorPages */ = {
+			isa = PBXGroup;
+			children = (
+				26DB9AA1263498F90030643D /* UsedAllQueues.swift */,
+				26DB9AA7263499220030643D /* ErrorQueuingSong.swift */,
+				26DB9AAD2634995B0030643D /* ErrorCoasterHasNoHost.swift */,
+				26DB9ADD26349EBB0030643D /* ErrorNotSameCoaster.swift */,
+			);
+			path = ErrorPages;
+			sourceTree = "<group>";
+		};
+		26DB9A9A263498AC0030643D /* SuccessPages */ = {
+			isa = PBXGroup;
+			children = (
+				26DB9A9B263498CB0030643D /* JoinedParty.swift */,
+				26DB9A9E263498E00030643D /* SuccessQueueSong.swift */,
+			);
+			path = SuccessPages;
+			sourceTree = "<group>";
+		};
+		26DB9AC826349AD20030643D /* NfcClasses */ = {
+			isa = PBXGroup;
+			children = (
+				26DB9AC926349AEA0030643D /* LaunchJoinPartNfc.swift */,
+				26DB9ACD26349B040030643D /* TryAgainNfc.swift */,
+				26DB9AD026349B190030643D /* LaunchQueueSongNfc.swift */,
+				26DB9AD326349B2D0030643D /* LaunchQueueSongWriteUrl.swift */,
+			);
+			path = NfcClasses;
+			sourceTree = "<group>";
+		};
+		26DB9AD626349B3E0030643D /* ApiMethods */ = {
+			isa = PBXGroup;
+			children = (
+				26DB9AD726349B610030643D /* GuestApi.swift */,
+			);
+			path = ApiMethods;
+			sourceTree = "<group>";
+		};
+		26DB9B1A2634A61D0030643D /* GlobalComponents */ = {
+			isa = PBXGroup;
+			children = (
+				26DB9B212634A95D0030643D /* FrontEnd */,
+				26DB9B1F2634A7BF0030643D /* SignInSpotify */,
+				26DB9B1B2634A6280030643D /* GlobalErrorPages */,
+			);
+			path = GlobalComponents;
+			sourceTree = "<group>";
+		};
+		26DB9B1B2634A6280030643D /* GlobalErrorPages */ = {
+			isa = PBXGroup;
+			children = (
+				26DB9AA42634990D0030643D /* ErrorOnTap.swift */,
+				26DB9AAA263499410030643D /* ErrorDeviceNotNfc.swift */,
+				26DB9AB0263499710030643D /* ErrorNotFonzCoaster.swift */,
+			);
+			path = GlobalErrorPages;
+			sourceTree = "<group>";
+		};
+		26DB9B1C2634A6CE0030643D /* HostPages */ = {
+			isa = PBXGroup;
+			children = (
+				26DB9B1E2634A76D0030643D /* HostAddCoaster */,
+				26DB9B1D2634A6D80030643D /* HostManageCoasters */,
+			);
+			path = HostPages;
+			sourceTree = "<group>";
+		};
+		26DB9B1D2634A6D80030643D /* HostManageCoasters */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HostManageCoasters;
+			sourceTree = "<group>";
+		};
+		26DB9B1E2634A76D0030643D /* HostAddCoaster */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HostAddCoaster;
+			sourceTree = "<group>";
+		};
+		26DB9B1F2634A7BF0030643D /* SignInSpotify */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SignInSpotify;
+			sourceTree = "<group>";
+		};
+		26DB9B212634A95D0030643D /* FrontEnd */ = {
+			isa = PBXGroup;
+			children = (
+				26DB9B222634A96B0030643D /* Colors.swift */,
+			);
+			path = FrontEnd;
+			sourceTree = "<group>";
+		};
+		3388F0F5BB427393EA39D144 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5045F2117E00BCFEA787D4B1 /* Pods-FonzMusicSwift.debug.xcconfig */,
+				E49150DFE53C30EAB099DB99 /* Pods-FonzMusicSwift.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		674F8D2472614C8E34995D41 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4B480C69CB1494108CA6C68C /* libPods-FonzMusicSwift.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2677028C26347ECD00B8BC92 /* FonzMusicSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2677029C26347ED100B8BC92 /* Build configuration list for PBXNativeTarget "FonzMusicSwift" */;
+			buildPhases = (
+				7A25DD1065F23059EFBA7190 /* [CP] Check Pods Manifest.lock */,
+				2677028926347ECD00B8BC92 /* Sources */,
+				2677028A26347ECD00B8BC92 /* Frameworks */,
+				2677028B26347ECD00B8BC92 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FonzMusicSwift;
+			productName = FonzMusicSwift;
+			productReference = 2677028D26347ECD00B8BC92 /* FonzMusicSwift.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2677028526347ECD00B8BC92 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					2677028C26347ECD00B8BC92 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+				};
+			};
+			buildConfigurationList = 2677028826347ECD00B8BC92 /* Build configuration list for PBXProject "FonzMusicSwift" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2677028426347ECD00B8BC92;
+			productRefGroup = 2677028E26347ECD00B8BC92 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2677028C26347ECD00B8BC92 /* FonzMusicSwift */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2677028B26347ECD00B8BC92 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2677029826347ED100B8BC92 /* Preview Assets.xcassets in Resources */,
+				26DB9AFC2634A4370030643D /* GoogleService-Info.plist in Resources */,
+				2677029526347ED100B8BC92 /* Assets.xcassets in Resources */,
+				26DB9A87263481B10030643D /* Fonts in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7A25DD1065F23059EFBA7190 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FonzMusicSwift-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2677028926347ECD00B8BC92 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26DB9AA2263498F90030643D /* UsedAllQueues.swift in Sources */,
+				26DB9A92263498390030643D /* HomePage.swift in Sources */,
+				26DB9ACE26349B040030643D /* TryAgainNfc.swift in Sources */,
+				2677029326347ECD00B8BC92 /* ContentView.swift in Sources */,
+				26DB9A8F2634980F0030643D /* GuestView.swift in Sources */,
+				26DB9A9F263498E00030643D /* SuccessQueueSong.swift in Sources */,
+				26DB9B232634A96B0030643D /* Colors.swift in Sources */,
+				26DB9ABD26349A1D0030643D /* TracksFromSearch.swift in Sources */,
+				26DB9A9C263498CB0030643D /* JoinedParty.swift in Sources */,
+				26DB9AD126349B190030643D /* LaunchQueueSongNfc.swift in Sources */,
+				26DB9AA52634990D0030643D /* ErrorOnTap.swift in Sources */,
+				2677029126347ECD00B8BC92 /* FonzMusicSwiftApp.swift in Sources */,
+				26DB9AB7263499CF0030643D /* AlreadyJoinedAddNew.swift in Sources */,
+				26DB9AB1263499710030643D /* ErrorNotFonzCoaster.swift in Sources */,
+				26DB9ABA263499F00030643D /* SearchBarNoSuggestions.swift in Sources */,
+				26DB9ADE26349EBB0030643D /* ErrorNotSameCoaster.swift in Sources */,
+				26DB9AAE2634995B0030643D /* ErrorCoasterHasNoHost.swift in Sources */,
+				26DB9AB4263499AB0030643D /* JoinParty.swift in Sources */,
+				26DB9AC026349A8F0030643D /* QueueSongSheet.swift in Sources */,
+				26DB9AD426349B2D0030643D /* LaunchQueueSongWriteUrl.swift in Sources */,
+				26DB9AAB263499410030643D /* ErrorDeviceNotNfc.swift in Sources */,
+				26DB9ACA26349AEA0030643D /* LaunchJoinPartNfc.swift in Sources */,
+				26DB9AA8263499220030643D /* ErrorQueuingSong.swift in Sources */,
+				26DB9AD826349B610030643D /* GuestApi.swift in Sources */,
+				26DB9A8C263484110030643D /* HostPage.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		2677029A26347ED100B8BC92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2677029B26347ED100B8BC92 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2677029D26347ED100B8BC92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5045F2117E00BCFEA787D4B1 /* Pods-FonzMusicSwift.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FonzMusicSwift/FonzMusicSwift.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"FonzMusicSwift/Preview Content\"";
+				DEVELOPMENT_TEAM = VW76JQGB68;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = FonzMusicSwift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "fonz-music.FonzMusicSwift";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		2677029E26347ED100B8BC92 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E49150DFE53C30EAB099DB99 /* Pods-FonzMusicSwift.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FonzMusicSwift/FonzMusicSwift.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"FonzMusicSwift/Preview Content\"";
+				DEVELOPMENT_TEAM = VW76JQGB68;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = FonzMusicSwift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "fonz-music.FonzMusicSwift";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2677028826347ECD00B8BC92 /* Build configuration list for PBXProject "FonzMusicSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2677029A26347ED100B8BC92 /* Debug */,
+				2677029B26347ED100B8BC92 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2677029C26347ED100B8BC92 /* Build configuration list for PBXNativeTarget "FonzMusicSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2677029D26347ED100B8BC92 /* Debug */,
+				2677029E26347ED100B8BC92 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2677028526347ECD00B8BC92 /* Project object */;
+}
