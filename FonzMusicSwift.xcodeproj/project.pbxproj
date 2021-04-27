@@ -11,6 +11,10 @@
 		2677029326347ECD00B8BC92 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2677029226347ECD00B8BC92 /* ContentView.swift */; };
 		2677029526347ED100B8BC92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2677029426347ED100B8BC92 /* Assets.xcassets */; };
 		2677029826347ED100B8BC92 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2677029726347ED100B8BC92 /* Preview Assets.xcassets */; };
+		26B65139263844340074F279 /* HostAddCoaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B65138263844340074F279 /* HostAddCoaster.swift */; };
+		26B6513C263845480074F279 /* SuccessAddedCoaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B6513B263845480074F279 /* SuccessAddedCoaster.swift */; };
+		26B65140263846EE0074F279 /* CoasterHasDifferentHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B6513F263846EE0074F279 /* CoasterHasDifferentHost.swift */; };
+		26B65143263848A70074F279 /* ThisIsYourCoaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B65142263848A70074F279 /* ThisIsYourCoaster.swift */; };
 		26DB9A87263481B10030643D /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 26DB9A81263481B10030643D /* Fonts */; };
 		26DB9A8C263484110030643D /* HostPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9A8B263484110030643D /* HostPage.swift */; };
 		26DB9A8F2634980F0030643D /* GuestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9A8E2634980F0030643D /* GuestView.swift */; };
@@ -46,6 +50,10 @@
 		2677029426347ED100B8BC92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2677029726347ED100B8BC92 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2677029926347ED100B8BC92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		26B65138263844340074F279 /* HostAddCoaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostAddCoaster.swift; sourceTree = "<group>"; };
+		26B6513B263845480074F279 /* SuccessAddedCoaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessAddedCoaster.swift; sourceTree = "<group>"; };
+		26B6513F263846EE0074F279 /* CoasterHasDifferentHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoasterHasDifferentHost.swift; sourceTree = "<group>"; };
+		26B65142263848A70074F279 /* ThisIsYourCoaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThisIsYourCoaster.swift; sourceTree = "<group>"; };
 		26DB9A81263481B10030643D /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Fonts; sourceTree = "<group>"; };
 		26DB9A8B263484110030643D /* HostPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostPage.swift; sourceTree = "<group>"; };
 		26DB9A8E2634980F0030643D /* GuestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestView.swift; sourceTree = "<group>"; };
@@ -134,6 +142,14 @@
 				2677029726347ED100B8BC92 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		26B65137263844170074F279 /* HostSuccess */ = {
+			isa = PBXGroup;
+			children = (
+				26B6513B263845480074F279 /* SuccessAddedCoaster.swift */,
+			);
+			path = HostSuccess;
 			sourceTree = "<group>";
 		};
 		26DB9A8A263484020030643D /* MainViews */ = {
@@ -246,6 +262,7 @@
 		26DB9B1C2634A6CE0030643D /* HostPages */ = {
 			isa = PBXGroup;
 			children = (
+				26B65137263844170074F279 /* HostSuccess */,
 				26DB9B1E2634A76D0030643D /* HostAddCoaster */,
 				26DB9B1D2634A6D80030643D /* HostManageCoasters */,
 			);
@@ -262,6 +279,9 @@
 		26DB9B1E2634A76D0030643D /* HostAddCoaster */ = {
 			isa = PBXGroup;
 			children = (
+				26B65138263844340074F279 /* HostAddCoaster.swift */,
+				26B6513F263846EE0074F279 /* CoasterHasDifferentHost.swift */,
+				26B65142263848A70074F279 /* ThisIsYourCoaster.swift */,
 			);
 			path = HostAddCoaster;
 			sourceTree = "<group>";
@@ -397,11 +417,13 @@
 			files = (
 				26DB9AA2263498F90030643D /* UsedAllQueues.swift in Sources */,
 				26DB9A92263498390030643D /* HomePage.swift in Sources */,
+				26B65143263848A70074F279 /* ThisIsYourCoaster.swift in Sources */,
 				26DB9ACE26349B040030643D /* TryAgainNfc.swift in Sources */,
 				2677029326347ECD00B8BC92 /* ContentView.swift in Sources */,
 				26DB9A8F2634980F0030643D /* GuestView.swift in Sources */,
 				26DB9A9F263498E00030643D /* SuccessQueueSong.swift in Sources */,
 				26DB9B232634A96B0030643D /* Colors.swift in Sources */,
+				26B65139263844340074F279 /* HostAddCoaster.swift in Sources */,
 				26DB9ABD26349A1D0030643D /* TracksFromSearch.swift in Sources */,
 				26DB9A9C263498CB0030643D /* JoinedParty.swift in Sources */,
 				26DB9AD126349B190030643D /* LaunchQueueSongNfc.swift in Sources */,
@@ -412,6 +434,7 @@
 				26DB9ABA263499F00030643D /* SearchBarNoSuggestions.swift in Sources */,
 				26DB9ADE26349EBB0030643D /* ErrorNotSameCoaster.swift in Sources */,
 				26DB9AAE2634995B0030643D /* ErrorCoasterHasNoHost.swift in Sources */,
+				26B65140263846EE0074F279 /* CoasterHasDifferentHost.swift in Sources */,
 				26DB9AB4263499AB0030643D /* JoinParty.swift in Sources */,
 				26DB9AC026349A8F0030643D /* QueueSongSheet.swift in Sources */,
 				26DB9AD426349B2D0030643D /* LaunchQueueSongWriteUrl.swift in Sources */,
@@ -419,6 +442,7 @@
 				26DB9ACA26349AEA0030643D /* LaunchJoinPartNfc.swift in Sources */,
 				26DB9AA8263499220030643D /* ErrorQueuingSong.swift in Sources */,
 				26DB9AD826349B610030643D /* GuestApi.swift in Sources */,
+				26B6513C263845480074F279 /* SuccessAddedCoaster.swift in Sources */,
 				26DB9A8C263484110030643D /* HostPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

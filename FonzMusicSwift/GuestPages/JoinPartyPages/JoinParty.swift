@@ -7,8 +7,7 @@
 
 import SwiftUI
 import CoreNFC
-import UIKit
-import Firebase
+
 
 
 struct JoinParty: View {
@@ -45,7 +44,7 @@ struct JoinParty: View {
                 // if the user already has a host, give optipn to connect again
                 if guestHasHost(sessionId: hostCoaster.sessionId) && guestPageNumber == 0 {
                    ZStack {
-                            Color(red: 168 / 255, green: 127 / 255, blue: 169 / 255).ignoresSafeArea()
+                    Color.lilac.ignoresSafeArea()
                             VStack{
                                 Spacer()
                                 // displays view that says youre already connected
@@ -79,7 +78,7 @@ struct JoinParty: View {
                 // if the user has not joined a party yet (default), auto launch nfc prompt
                 else {
                     ZStack {
-                        Color(red: 168 / 255, green: 127 / 255, blue: 169 / 255).ignoresSafeArea()
+                        Color.lilac.ignoresSafeArea()
                         VStack{
                             Text("tap the Fonz Coaster").fonzSubheading().padding(.top, 130)
 //                            Image("tapOneWhite").resizable()
@@ -114,7 +113,7 @@ struct JoinParty: View {
                 // if theres an issue connecting
                 else {
                     ZStack {
-                        Color(red: 168 / 255, green: 127 / 255, blue: 169 / 255).ignoresSafeArea()
+                        Color.lilac.ignoresSafeArea()
                         VStack{
                             Spacer()
                             // if the coaster has no host

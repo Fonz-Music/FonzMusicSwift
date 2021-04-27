@@ -1,14 +1,13 @@
 //
-//  JoinedParty.swift
-//  Fonz Music App Clip
+//  ThisIsYourCoaster.swift
+//  FonzMusicSwift
 //
-//  Created by didi on 2/12/21.
+//  Created by didi on 4/27/21.
 //
 
 import SwiftUI
 
-struct JoinedParty: View {
-    let hostName:String
+struct ThisIsYourCoaster: View {
     let coasterName:String
     
     let imageHeight = UIScreen.screenHeight * 0.15
@@ -22,17 +21,17 @@ struct JoinedParty: View {
                             .frame(width: imageHeight * 0.5, height: imageHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                             
                         
-                        Text("success!").fonzHeading().padding()
-                        Text("joined \(hostName)'s party").fonzParagraphOne()
-                        Text("with \(coasterName)").fonzParagraphOne()
+                        
+                        Text("this is your coaster").fonzParagraphOne()
+                        Text("\(coasterName)").fonzHeading()
                         Spacer()
                     }
                 }
             }
 }
 
-struct JoinedParty_Previews: PreviewProvider {
+struct ThisIsYourCoaster_Previews: PreviewProvider {
     static var previews: some View {
-        JoinedParty(hostName: "benji", coasterName: "meg")
+        ThisIsYourCoaster(coasterName: "kenny guy")
     }
 }
