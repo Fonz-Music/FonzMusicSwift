@@ -1,120 +1,101 @@
 //
-//  GuestView.swift
-//  Fonz Music App Clip
+//  HostView.swift
+//  FonzMusicSwift
 //
-//  Created by didi on 1/31/21.
+//  Created by didi on 4/27/21.
 //
 
 import SwiftUI
 import Combine
 
-
-struct GuestView: View {
+struct HostView: View {
 // ---------------------------------- inherited from parent -----------------------------------------
-    // Bool from parent that determines whether the guest can swipe
-    @Binding var hasHost:Bool
-    // Number of queues the guest has used
-    @Binding var queuesUsed:Int
+
     
 // ---------------------------------- created inside view -------------------------------------------
     // inits the guestTrack, blank
 //    @StateObject var guestTrack = GlobalTrack()
-    // inits the hostCoaster, blank
-    @ObservedObject var hostCoasterDetails = HostCoasterInfo()
+
     // inits the object that determines if the Guest PageView should update
-    @State var guestPagesUpdateDirection = UpdatePageViewVariables()
+    @State var hostPagesUpdateDirection = UpdatePageViewVariables()
     // var that sets the current page and starts it at page 0 (join party)
-    @State var GuestPageActive = 0
+    @State var HostPageActive = 0
     
     var body: some View {
         
         VStack {
-            GuestContainerView(guestPage: [0, 1],
-//                               track: self.guestTrack,
-                               coaster: self.hostCoasterDetails, guestPagesUpdateDirection,
-//                               queueAmount: $queuesUsed,
-                               currentGuestPageIndex: $GuestPageActive
-            ).environmentObject(guestPagesUpdateDirection)
+            HostContainerView(hostPage: [0, 1],
+                               hostPagesUpdateDirection,
+                               currentHostPageIndex: $HostPageActive
+            ).environmentObject(hostPagesUpdateDirection)
         }.ignoresSafeArea()
     }
 }
 
-struct GuestView_Previews: PreviewProvider {
+struct HostView_Previews: PreviewProvider {
     static var previews: some View {
 //        GuestView(hasHost: $true)
         Text("so annoying")
     }
 }
 
-struct GuestPages: View {
+struct HostPages: View {
 // ---------------------------------- inherited from parent -----------------------------------------
     // current page from Controller
-    @State var guestPage: Int
-    // song selected by user
-//    @State var currentSong:GlobalTrack
-    // coaster tapped by user
-    @State var coasterInfo:HostCoasterInfo
+    @State var hostPage: Int
     // boolean if page should be updated + int of WHICH page
     @State var updatePageVars:UpdatePageViewVariables
     // current page from Controller
-    @Binding var currentGuestPageIndex: Int
+    @Binding var currentHostPageIndex: Int
         
 // ---------------------------------- created inside view -------------------------------------------
-    // boolean on has host, always true for this page, needs to be passed into JoinParty
-    @State var hasHost = false
-    // Number of queues the guest has used
-//    @Binding var queuesUsed:Int
+
     
     var body: some View {
         
         // song search
-        if guestPage == 1 {
-            SearchBarFromMedium(determineGuestViewUpdate: $updatePageVars, hostCoaster: coasterInfo, guestPageNumber: $currentGuestPageIndex)
+        if hostPage == 1 {
+            HostAddCoaster(determineHostViewUpdate: $updatePageVars, hostPageNumber: $currentHostPageIndex)
         }
         // Page that prompts user to tap NFC
         else {
-            JoinParty(determineGuestViewUpdate: $updatePageVars, hostCoaster: coasterInfo, hasHostVar: $hasHost, guestPageNumber: $currentGuestPageIndex)
+            CoasterDashboard(hostPageNumber: $currentHostPageIndex)
         }
     }
 }
 
-struct GuestContainerView: View {
+struct HostContainerView: View {
     
-    @Binding var currentGuestPageIndex: Int
+    @Binding var currentHostPageIndex: Int
     
     // asks for controller
-    var guestControllers: [UIHostingController<GuestPages>]
+    var hostControllers: [UIHostingController<HostPages>]
     // environment object that controls whether the view should update and if so, to what page
     @EnvironmentObject var newPageVars: UpdatePageViewVariables
     
-    init( guestPage: [Int],
-//          track: GlobalTrack,
-          coaster: HostCoasterInfo,
-          _ newPage: UpdatePageViewVariables,
-//          queueAmount: Binding<Int>,
-          currentGuestPageIndex: Binding<Int>) {
-        
-        self._currentGuestPageIndex = currentGuestPageIndex
+    init( hostPage: [Int],
 
-        self.guestControllers = guestPage.map {UIHostingController(rootView: GuestPages(guestPage: $0,
-//                        currentSong: track,
-                        coasterInfo: coaster,
+          _ newPage: UpdatePageViewVariables,
+          currentHostPageIndex: Binding<Int>) {
+        
+        self._currentHostPageIndex = currentHostPageIndex
+
+        self.hostControllers = hostPage.map {UIHostingController(rootView: HostPages(hostPage: $0,
                         updatePageVars: newPage,
-                        currentGuestPageIndex: currentGuestPageIndex
-//                        queuesUsed: queueAmount
+                        currentHostPageIndex: currentHostPageIndex
         ))}
     }
     
     // pageView
     var body: some View {
 //        GuestPageViewController(controllers: self.guestControllers, updatePageVars: newPageVars )
-        GuestPageViewController(currentGuestPageIndex: $currentGuestPageIndex, controllers: self.guestControllers, updatePageVars: newPageVars )
+        HostPageViewController(currentHostPageIndex: $currentHostPageIndex, controllers: self.hostControllers, updatePageVars: newPageVars )
     }
 }
 
-struct GuestPageViewController: UIViewControllerRepresentable {
+struct HostPageViewController: UIViewControllerRepresentable {
 
-    @Binding var currentGuestPageIndex: Int
+    @Binding var currentHostPageIndex: Int
     
     var controllers: [UIViewController]
     // passes along environ Object that determines if view should update and if so, to what page
@@ -135,10 +116,10 @@ struct GuestPageViewController: UIViewControllerRepresentable {
         
         if updatePageVars.updatePageReverse {
             updatePageVars.updatePageReverse = false
-            uiViewController.setViewControllers([controllers[currentGuestPageIndex]], direction: .reverse, animated: true)
+            uiViewController.setViewControllers([controllers[currentHostPageIndex]], direction: .reverse, animated: true)
         }
         else {
-            uiViewController.setViewControllers([controllers[currentGuestPageIndex]], direction: .forward, animated: true)
+            uiViewController.setViewControllers([controllers[currentHostPageIndex]], direction: .forward, animated: true)
         }
         
     }
@@ -156,7 +137,7 @@ struct GuestPageViewController: UIViewControllerRepresentable {
         func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
             guard let index = self.parent.controllers.firstIndex(of: viewController) else { return nil }
             if index == 0 {
-                pageViewController.disableSwipeGesture()
+//                pageViewController.disableSwipeGesture()
                 return nil
             }
             return self.parent.controllers[index - 1]
@@ -166,7 +147,7 @@ struct GuestPageViewController: UIViewControllerRepresentable {
         func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
             guard let index = self.parent.controllers.firstIndex(of: viewController) else { return nil }
             if index == 1 {
-                pageViewController.disableSwipeGesture()
+//                pageViewController.disableSwipeGesture()
                 return nil
             }
             else {
@@ -178,31 +159,12 @@ struct GuestPageViewController: UIViewControllerRepresentable {
             }
         }
         
-        var parent: GuestPageViewController
+        var parent: HostPageViewController
         
-        init(_ parent: GuestPageViewController) {
+        init(_ parent: HostPageViewController) {
             self.parent = parent
         }
     }
     
     
 }
-extension UIPageViewController {
-
-    func enableSwipeGesture() {
-        for view in self.view.subviews {
-            if let subView = view as? UIScrollView {
-                subView.isScrollEnabled = true
-            }
-        }
-    }
-
-    func disableSwipeGesture() {
-        for view in self.view.subviews {
-            if let subView = view as? UIScrollView {
-                subView.isScrollEnabled = false
-            }
-        }
-    }
-}
-

@@ -66,7 +66,7 @@ struct MainPage: View {
             #if APPCLIP
             HostPage()
             #else
-            Text("hello")
+            HostView()
             #endif
 //                .onAppear {
 //                updatePageVars.currentPage = 0

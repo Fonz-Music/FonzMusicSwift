@@ -187,13 +187,7 @@ struct SearchBarFromMedium_Previews: PreviewProvider {
     }
 }
 
-// track Object
-struct Track: Hashable {
-    var songName: String
-    var songId: String
-    var artistName: String
-    var albumArt: String
-}
+
 extension UIScreen{
    static let screenWidth = UIScreen.main.bounds.size.width
    static let screenHeight = UIScreen.main.bounds.size.height

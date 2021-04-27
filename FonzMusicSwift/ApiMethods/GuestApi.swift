@@ -13,50 +13,20 @@ struct ErrorResult: Codable {
     var status: Int
 }
 
-struct CoasterResult: Codable {
-    var sessionId: String
-    var displayName: String
-    var coasterName: String
-    var statusCode: Int?
-}
-
-//struct JoinSessionResult: Codable {
-//    var sessionId: String
-//    var hostUserId: String
-//}
 struct QueueSongResult: Codable {
     var status: Int
 }
 
-// this converts the JSON from songSearch into Object
-struct TracksResult: Codable {
-    var tracks: Tracks
-}
-struct Tracks: Codable {
-    var items: Array<Items>
-}
-struct Items: Codable {
-    var album: Album
-    var artists: Array<ArtistArray>
-    var name:String
-    var id:String
-}
 
-// albums
-struct Album: Codable {
-    var images: Array<ImageArray>
-}
-struct ImageArray: Codable {
-    var url:String
-}
-
-// artists
-struct ArtistArray: Codable {
-    var name: String
-}
 
 // all api functions inside
 class GuestApi {
+    
+    let ADDRESS = "https://api.fonzmusic.com/"
+    let GUEST = "guest/"
+    let COASTER = "coaster/"
+    
+    
     @State var results: CoasterResult!
     @Published private (set) var products: [Track] = []
  
@@ -85,7 +55,7 @@ class GuestApi {
                 // set UID to uppercase
                 let uid = coasterUid.uppercased()
                 // create url
-                guard let url = URL(string: "https://api.fonzmusic.com/guest/coaster/" + uid ) else { return }
+                guard let url = URL(string: self.ADDRESS + self.GUEST + self.COASTER + uid ) else { return }
                 
                 var request = URLRequest(url: url)
                 request.httpMethod = "GET"
@@ -154,7 +124,7 @@ class GuestApi {
                 print("the session if id \(sessionId)")
                 print(" the track id is \(trackId)")
                 // set URL
-                guard let url = URL(string: "https://api.fonzmusic.com/guest/" + sessionId + "/spotify/queue/spotify:track:" + trackId) else { return }
+                guard let url = URL(string: self.ADDRESS + self.GUEST + sessionId + "/spotify/queue/spotify:track:" + trackId) else { return }
             
                 
                 print("creating url req")
