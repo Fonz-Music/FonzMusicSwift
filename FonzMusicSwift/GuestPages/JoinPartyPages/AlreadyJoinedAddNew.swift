@@ -33,10 +33,10 @@ struct AlreadyJoinedAddNew: View {
         // standard
 //        if !didSessionChange(existingSessionId: hostCoaster.sessionId, newSessionId: tempCoasterDetails.sessionId) {
             ZStack {
-                Color(red: 168 / 255, green: 127 / 255, blue: 169 / 255).ignoresSafeArea()
+                Color.lilac.ignoresSafeArea()
                 VStack{
                     Spacer()
-                    Image("rockOnWhite").resizable()
+                    Image("rockOn").resizable()
                         .frame(width: imageHeight, height: imageHeight * 1.5, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     Text("you're already connected to \(hostName)'s party").fonzParagraphOne().padding()
                     Spacer()

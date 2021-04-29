@@ -66,6 +66,7 @@ struct MainPage: View {
             #if APPCLIP
             HostPage()
             #else
+//            NameCoaster(coasterUid: "045EDE1AE66C80")
             HostView()
             #endif
 //                .onAppear {

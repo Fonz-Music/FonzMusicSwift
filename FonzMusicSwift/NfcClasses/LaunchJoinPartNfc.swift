@@ -41,7 +41,7 @@ struct LaunchJoinPartyNfcSession: UIViewRepresentable {
         // creates nfcTap icon that can be pressed to launch the nfc as well
         let tapButton = UIButton()
 //        tapButton.isHidden = true
-        tapButton.setImage(UIImage(named: "tapOneWhite"), for: .normal)
+        tapButton.setImage(UIImage(named: "tapOne"), for: .normal)
         tapButton.imageView?.contentMode = .scaleAspectFit
         tapButton.imageEdgeInsets = UIEdgeInsets(top: 10, left: 120, bottom: 120, right: 120)
         tapButton.addTarget(context.coordinator, action: #selector(context.coordinator.beginNfcScan(_:)), for: .touchUpInside)

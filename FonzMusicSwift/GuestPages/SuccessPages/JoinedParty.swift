@@ -18,7 +18,7 @@ struct JoinedParty: View {
                     Color.lilac.ignoresSafeArea()
                     VStack{
                         Spacer()
-                        Image("fonzLogoWhiteF").resizable()
+                        Image("fonzLogoF").resizable()
                             .frame(width: imageHeight * 0.5, height: imageHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                             
                         

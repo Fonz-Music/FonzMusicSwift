@@ -17,7 +17,7 @@ struct ErrorOnTap: View {
 //            Color(red: 168 / 255, green: 127 / 255, blue: 169 / 255).ignoresSafeArea()
             VStack{
                 Spacer()
-                Image("coasterIconWhite").resizable()
+                Image("coasterIcon").resizable()
                     .frame(width: coasterHeight * 1.2, height: coasterHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     
                 

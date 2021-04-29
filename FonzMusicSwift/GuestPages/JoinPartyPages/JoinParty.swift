@@ -68,7 +68,7 @@ struct JoinParty: View {
                                 Button(action: {
                                     self.guestPageNumber = 1
                                 }, label: {
-                                    Image("Arrow Down White").resizable()
+                                    Image("arrowDown").resizable()
                                         .frame(width: imageHeight * 0.4, height: imageHeight * 0.2, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                 }).padding()
                                 Spacer()

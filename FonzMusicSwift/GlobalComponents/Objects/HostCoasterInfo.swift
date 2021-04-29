@@ -20,6 +20,7 @@ struct CoasterInfo: Hashable {
     var hostName: String
     var coasterName: String
     var sessionId: String
+    var active: Bool?
 }
 
 struct CoasterResult: Codable {

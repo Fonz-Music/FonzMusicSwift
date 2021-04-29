@@ -14,10 +14,9 @@ struct SuccessAddedCoaster: View {
     var body: some View {
         ZStack {
             Color.amber.ignoresSafeArea()
-//                    Color(red: 168 / 255, green: 127 / 255, blue: 169 / 255).ignoresSafeArea()
             VStack{
                 Spacer()
-                Image("fonzLogoWhiteF").resizable()
+                Image("fonzLogoF").resizable()
                     .frame(width: imageHeight * 0.5, height: imageHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     
                 

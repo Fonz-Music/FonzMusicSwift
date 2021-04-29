@@ -14,14 +14,14 @@ struct BasicResponse: Codable {
     var status: Int
     var body: String
 }
-
+// ----------------------------------- Coaster Management -----------------------------
 class HostCoasterApi {
     
     let ADDRESS = "https://api.fonzmusic.com/"
     let HOST = "host/"
     let COASTERS = "coasters/"
     
-// ----------------------------------- Coaster Management -----------------------------
+
     // api call to get the Coaster info
     func getSingleOwnedCoaster(coasterUid:String) -> CoasterResult {
         // this allows us to wait before returning value
@@ -222,7 +222,7 @@ class HostCoasterApi {
     }
     
     // api call to rename a coaster
-    func addCoaster(coasterUid:String, newName:String) -> BasicResponse {
+    func renameCoaster(coasterUid:String, newName:String) -> BasicResponse {
         // this allows us to wait before returning value
         let sem = DispatchSemaphore.init(value: 0)
         
@@ -235,32 +235,41 @@ class HostCoasterApi {
         guard let user = Auth.auth().currentUser else {
             print("there was an error getting the user")
             return returnObject}
-
+            print("got user")
             // get access token
             user.getIDToken(){ (idToken, error) in
             if error == nil, let token = idToken {
                 accessToken = token
+//                accessToken = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjRlOWRmNWE0ZjI4YWQwMjUwNjRkNjY1NTNiY2I5YjMzOTY4NWVmOTQiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiZGlkaSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHZ2EyQmxHR3NCYVVweXZlYldwdm1wZ2lCX0ZUUXhCWWRER2x2MjBndz1zOTYtYyIsImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9mb256LW11c2ljLWFwcCIsImF1ZCI6ImZvbnotbXVzaWMtYXBwIiwiYXV0aF90aW1lIjoxNjE0NDY2NzcwLCJ1c2VyX2lkIjoiSWpxVURQNVJKOVdHbkpZbFpYQXJLRmJINzk2MiIsInN1YiI6IklqcVVEUDVSSjlXR25KWWxaWEFyS0ZiSDc5NjIiLCJpYXQiOjE2MTk3MjM3NDEsImV4cCI6MTYxOTcyNzM0MSwiZW1haWwiOiJkaWFybXVpZG1jZ29uYWdsZUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjEwODQwNTQ0NjMzMDM4NzM1OTU0NiJdLCJhcHBsZS5jb20iOlsiMDAwODcxLjJlMGM1MDViZWFiNjQwNjM5Yjc4NTM2ZThlYWQwMDIwLjIzMjkiXSwiZW1haWwiOlsiZGlhcm11aWRtY2dvbmFnbGVAZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.VsYNcXZgfUa1v9tY8jYoSCx-6ifny6lRuK38u48Mg4oxitmCS5zE3jpJWfvSMrokzSq6xvZwYBHnSstuujsj6b4dzCOWaNGkNie93QE_au5LwV4inrzHSXKIhdRKOefyguXTddvuwIQiarUwUR9w3FgNI3-0_cVSW7ikk2AlcV_2hTcCPIxcjLkIYjrVcnN2BU3ZvCsayjig6snazmDnV7JWM9MFEroKPKOnoYEL-BMgD6yDOjCJ8EqCWdHa6MWgYnRY1sHex71tN9hcW1GaIwFhLgiWJWREIHRMW9DcJN66T4j3O-s4XqfXQV9nS3_LAjVpekkLFCwM_GNj_FGteA"
 //                print("token is \(accessToken)" )
                 // set UID to uppercase
                 let uid = coasterUid.uppercased()
                 // create url
                 guard let url = URL(string: self.ADDRESS + self.HOST + self.COASTERS + uid ) else { return }
-                
+                // creates req w url
                 var request = URLRequest(url: url)
+                // sets method as PUT
                 request.httpMethod = "PUT"
-                let parameters: [String: Any] = [
+                // creates Param as Dictionary
+                let parameters = [
                     "name": newName
                 ]
-                request.httpBody = parameters.percentEncoded()
+                // converts param dict to JSON DATA
+                let jsonData = try! JSONSerialization.data(withJSONObject: parameters)
+                // adds JSON DATA to the body
+                request.httpBody = jsonData
+                // adds auth token
                 request.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
+                // tells req that there is a body param
+                request.setValue("application/json", forHTTPHeaderField: "Content-Type")
                 // this is the request
                 URLSession.shared.dataTask(with: request) { data, response, error in
                     // code to defer until this is completed
                     defer { sem.signal() }
                     
                     if let dataResp = data {
-//                        let jsonData = try? JSONSerialization.jsonObject(with: data!, options: [])
-//                        print(jsonData)
+                        let jsonData = try? JSONSerialization.jsonObject(with: data!, options: [])
+                        print(jsonData)
                         if let decodedResponse = try? JSONDecoder().decode(BasicResponse.self, from: dataResp) {
                             
                             // creates new coasterResult from return value
@@ -316,14 +325,22 @@ class HostCoasterApi {
                 let uid = coasterUid.uppercased()
                 // create url
                 guard let url = URL(string: self.ADDRESS + self.HOST + self.COASTERS + uid ) else { return }
-                
+                // creates req w url
                 var request = URLRequest(url: url)
+                // sets method as PUT
                 request.httpMethod = "PUT"
-                let parameters: [String: Bool] = [
-                    "name": paused
+                // creates Param as Dictionary
+                let parameters = [
+                    "active": paused
                 ]
-                request.httpBody = parameters.percentEncoded()
+                // converts param dict to JSON DATA
+                let jsonData = try! JSONSerialization.data(withJSONObject: parameters)
+                // adds JSON DATA to the body
+                request.httpBody = jsonData
+                // adds auth token
                 request.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
+                // tells req that there is a body param
+                request.setValue("application/json", forHTTPHeaderField: "Content-Type")
                 // this is the request
                 URLSession.shared.dataTask(with: request) { data, response, error in
                     // code to defer until this is completed

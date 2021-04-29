@@ -19,7 +19,7 @@ struct ErrorQueuingSong: View {
             Color(red: 168 / 255, green: 127 / 255, blue: 169 / 255).ignoresSafeArea()
             VStack{
                 Spacer()
-                Image("rockOnWhite").resizable()
+                Image("rockOn").resizable()
                     .frame(width: imageHeight, height: imageHeight * 1.5, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)         
                 Text("where's the music?").fonzHeading().padding(5)
                 Text("ensure \(hostName) is actively playing music in the Spotify app.").fonzParagraphOne()

@@ -24,11 +24,11 @@ struct HomePage: View {
             Color(.systemGray5).ignoresSafeArea()
         HStack{
             Capsule()
-                .fill(Color(red: 235 / 255, green: 139 / 255, blue: 55 / 255))
-                .background(RoundedCorners(tl: 0, tr: 1500, bl: 0, br: 1500).fill(Color(red: 235 / 255, green: 139 / 255, blue: 55 / 255)))
+                .fill(Color.amber)
+                .background(RoundedCorners(tl: 0, tr: 1500, bl: 0, br: 1500).fill(Color.amber))
             Rectangle().fill(Color.clear)
-            Capsule().fill(Color(red: 168 / 255, green: 127 / 255, blue: 169 / 255))
-                .background(RoundedCorners(tl: 1500, tr: 0, bl: 1500, br: 0).fill(Color(red: 168 / 255, green: 127 / 255, blue: 169 / 255)))
+            Capsule().fill(Color.lilac)
+                .background(RoundedCorners(tl: 1500, tr: 0, bl: 1500, br: 0).fill(Color.lilac))
         }.ignoresSafeArea()
             HStack{
                 Button(action: {
@@ -42,9 +42,9 @@ struct HomePage: View {
                 }, label: {
                     VStack(){
                         Spacer()
-                        Image("coasterIconWhite").resizable().frame(width: sideGraphicHeight * 1.2, height: sideGraphicHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        Image("coasterIcon").resizable().frame(width: sideGraphicHeight * 1.2, height: sideGraphicHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         Text("host").fonzParagraphOne()
-                        Image("Arrow Left White").resizable().frame(width: arrowGraphicHeight * 1.2, height: arrowGraphicHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        Image("arrowLeft").resizable().frame(width: arrowGraphicHeight * 1.2, height: arrowGraphicHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         Spacer()
                     }
                 })
@@ -59,9 +59,9 @@ struct HomePage: View {
                 }, label: {
                     VStack{
                         Spacer()
-                        Image("queueIconWhite").resizable().frame(width: sideGraphicHeight, height: sideGraphicHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        Image("queueIcon").resizable().frame(width: sideGraphicHeight, height: sideGraphicHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         Text("guest").fonzParagraphOne()
-                        Image("Arrow Right White").resizable().frame(width: arrowGraphicHeight * 1.2, height: arrowGraphicHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        Image("arrowRight").resizable().frame(width: arrowGraphicHeight * 1.2, height: arrowGraphicHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         Spacer()
                     }
                 })

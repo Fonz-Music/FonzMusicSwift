@@ -20,7 +20,7 @@ struct HostPage: View {
             Color(red: 235 / 255, green: 139 / 255, blue: 55 / 255).ignoresSafeArea()
             VStack{
                 Spacer()
-                Image("coasterIconWhite").resizable()
+                Image("coasterIcon").resizable()
                     .frame(width: imageHeight * 1.2, height: imageHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 Text("host").fonzHeading()
                 Text("you need to download the full version to be a host").fonzParagraphOne()

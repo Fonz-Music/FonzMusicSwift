@@ -16,7 +16,7 @@ class CoastersFromApi: ObservableObject {
     var subscription: Set<AnyCancellable> = []
     var tempSession : String = ""
     
-    @Published private (set) var products: [CoasterInfo] = [CoasterInfo(uid: "321fwedsadsa", hostName: "jeff", coasterName: "boston", sessionId: "adsdwqe2w"),CoasterInfo(uid: "321fwedsadsa", hostName: "jeff", coasterName: "dublin", sessionId: "adsdwqe2w"),CoasterInfo(uid: "321fwedsadsa", hostName: "jeff", coasterName: "limerick", sessionId: "adsdwqe2w"),CoasterInfo(uid: "321fwedsadsa", hostName: "jeff", coasterName: "quincy", sessionId: "adsdwqe2w"),CoasterInfo(uid: "321fwedsadsa", hostName: "jeff", coasterName: "trinity", sessionId: "adsdwqe2w"),CoasterInfo(uid: "321fwedsadsa", hostName: "jeff", coasterName: "milton", sessionId: "adsdwqe2w"),]
+    @Published private (set) var products: [CoasterInfo] = [CoasterInfo(uid: "321fwedsadsa", hostName: "jeff", coasterName: "boston", sessionId: "adsdwqe2w"),CoasterInfo(uid: "321fwedsadsa", hostName: "jeff", coasterName: "dublin", sessionId: "adsdwqe2w"),CoasterInfo(uid: "321fwedsadsa", hostName: "jeff", coasterName: "limerick", sessionId: "adsdwqe2w", active: true),CoasterInfo(uid: "321fwedsadsa", hostName: "jeff", coasterName: "quincy", sessionId: "adsdwqe2w"),CoasterInfo(uid: "321fwedsadsa", hostName: "jeff", coasterName: "trinity", sessionId: "adsdwqe2w"),CoasterInfo(uid: "321fwedsadsa", hostName: "jeff", coasterName: "milton", sessionId: "adsdwqe2w"),]
     
     @Published var searchText: String = String()
     

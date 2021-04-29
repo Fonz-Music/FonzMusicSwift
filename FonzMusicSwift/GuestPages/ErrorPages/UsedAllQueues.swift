@@ -16,7 +16,7 @@ struct UsedAllQueues: View {
                 Spacer()
                 Text("uh oh").fonzHeading()
                 Text("you'll need to download the full version to keep queuing").fonzParagraphOne()
-                Image("queueIconWhite").resizable()
+                Image("queueIcon").resizable()
                     .frame(width: imageHeight, height: imageHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 
                 Text("don't worry, it's completely FREE").fonzParagraphOne()

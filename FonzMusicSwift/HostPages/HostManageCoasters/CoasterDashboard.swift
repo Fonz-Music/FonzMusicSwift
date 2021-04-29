@@ -16,10 +16,13 @@ struct CoasterDashboard: View {
 // ---------------------------------- created inside view -------------------------------------------
     // object that stores the songs from the api
     @ObservedObject var coasterFromSearch: CoastersFromApi = CoastersFromApi()
+    // if pressed
+   @State var isExpanded = false
     // for the results of the search bar
     let layout = [
             GridItem(.flexible())
         ]
+    @State private var selection: Set<CoasterInfo> = []
     // scaled height of icon
     let imageHeight = UIScreen.screenHeight * 0.15
     
@@ -47,12 +50,17 @@ struct CoasterDashboard: View {
                     ScrollView(showsIndicators: false) {
                         LazyVGrid(columns: layout, spacing: 12) {
                             ForEach(coasterFromSearch.products, id: \.self) { item in
-                                Button(action: {
-                                    print("button pressed: " )
-                                    
-                                }, label: {
-                                    ManageCoasterView(item: item)
-                                })
+//
+//                                Button(action: {
+//                                    print("button pressed: " )
+//                                    isExpanded = true
+//                                }, label: {
+                                ManageCoasterView(item: item, isExpanded: self.selection.contains(item))
+                                        .onTapGesture {
+                                            self.selectDeselect(item)
+                                        }
+                                        .animation(.linear(duration: 0.3))
+//                                })
                                 // launches queueSongSheet after song is selected
                                 
                             }
@@ -71,13 +79,20 @@ struct CoasterDashboard: View {
                 }, label: {
                     VStack {
                         Text("connect a coaster").fonzParagraphOne()
-                    Image("Arrow Down White").resizable()
+                    Image("arrowDown").resizable()
                         .frame(width: imageHeight * 0.4, height: imageHeight * 0.2, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     }
                 }).padding()
             }
         }
     }
+    private func selectDeselect(_ coaster: CoasterInfo) {
+            if selection.contains(coaster) {
+                selection.remove(coaster)
+            } else {
+                selection.insert(coaster)
+            }
+        }
 }
 
 struct CoasterDashboard_Previews: PreviewProvider {
@@ -90,23 +105,82 @@ struct CoasterDashboard_Previews: PreviewProvider {
 struct ManageCoasterView: View {
     // the song passed in
     let item: CoasterInfo
+    
+    @State var showRenameModal = false
+    @State var showPauseModal = false
+    @State var showDisconnectModal = false
+    
+    var isExpanded: Bool
   
     var body: some View {
         ZStack {
-            HStack(spacing: 5) {
-                // album art
-                Image("coasterIconWhite").resizable()
-                    .frame( width: 60 ,height: 50).padding(5)
-                // title & artist
-                
-                Text(verbatim: item.coasterName)
-                    .fonzParagraphOne()
-                
-                
-                Spacer()
+            VStack {
+                HStack(spacing: 5) {
+                    // album art
+                    Image("coasterIcon").resizable()
+                        .frame( width: 60 ,height: 50).padding(5)
+                    // title & artist
+                    Text(verbatim: item.coasterName)
+                        .fonzParagraphOne()
+                    Spacer()
+                }
+                if isExpanded {
+                    VStack {
+                        Button {
+                            print("rename")
+                            showRenameModal = true
+                        } label: {
+                            HStack(spacing: 5) {
+                                // album art
+                                Image("renameIcon").resizable()
+                                    .frame( width: 30 ,height: 30).padding(.leading, 30)
+                                // title & artist
+                                Text("rename")
+                                    .fonzParagraphTwo()
+                                Spacer()
+                            }.padding(.vertical, 10)
+                        }.sheet(isPresented: $showRenameModal, content: {
+                            NameCoaster(coasterUid: item.uid)
+                        })
+                        // pause button
+                        Button {
+                            print("pause")
+                            showPauseModal = true
+                        } label: {
+                            HStack(spacing: 5) {
+                                // album art
+                                Image("pauseIcon").resizable()
+                                    .frame( width: 30 ,height: 30).padding(.leading, 30)
+                                // title & artist
+                                Text("pause")
+                                    .fonzParagraphTwo()
+                                Spacer()
+                            }.padding(.vertical, 10)
+                        }.sheet(isPresented: $showPauseModal, content: {
+                            PauseCoaster(coasterName: item.coasterName, coasterUid: item.uid, paused: !item.active!, isPresented: $showPauseModal)
+                        })
+                        // disconnect button
+                        Button {
+                            print("disconnect")
+                            showDisconnectModal = true
+                        } label: {
+                            HStack(spacing: 5) {
+                                // album art
+                                Image("disableIcon").resizable()
+                                    .frame( width: 30 ,height: 30).padding(.leading, 30)
+                                // title & artist
+                                Text("disconnect")
+                                    .fonzParagraphTwo()
+                                Spacer()
+                            }.padding(.vertical, 10)
+                        }.sheet(isPresented: $showDisconnectModal, content: {
+                            DisconnectCoaster(coasterName: item.coasterName, coasterUid: item.uid, isPresented: $showDisconnectModal)
+                        })
+                    }
+                }
             }
         }
-        .frame(height: 70)
+        .frame(minHeight: 70, maxHeight: 350)
         .background(
             RoundedRectangle(cornerRadius: 15)
                 .fill(Color.amber)
@@ -116,6 +190,8 @@ struct ManageCoasterView: View {
         .animation(.easeIn)
         
     }
+    
+   
 }
 
 

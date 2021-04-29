@@ -82,7 +82,7 @@ struct QueueSongSheet: View {
                     Text("your selection").fonzHeading().padding(.top, 40)
                     // album art
                     AsyncImage(url: URL(string: self.currentTune.albumArt)!,
-                               placeholder: { Text("loading ...").fonzParagraphTwo() },
+                               placeholder: { Text("...").fonzParagraphTwo() },
                                    image: { Image(uiImage: $0).resizable() })
                         .frame( width: UIScreen.main.bounds.width * 0.4,height: UIScreen.main.bounds.width * 0.4).cornerRadius(15).padding() // 2:3 aspect ratio
                     // song title
