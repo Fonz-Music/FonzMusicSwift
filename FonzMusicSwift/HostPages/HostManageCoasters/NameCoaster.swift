@@ -11,6 +11,7 @@ struct NameCoaster: View {
     @State var coasterName: String = ""
     var coasterUid:String
     @Binding var isPresented:Bool
+    @ObservedObject var coasterFromSearch: CoastersFromApi
     let imageHeight = UIScreen.screenHeight * 0.10
     
     var body: some View {
@@ -42,6 +43,7 @@ struct NameCoaster: View {
                     print("resp is \(resp)")
                     print("\(coasterName)")
                     isPresented = false
+                    coasterFromSearch.reloadCoasters()
                 } label: {
                     Text("enter").fonzSubheading()
                 }.buttonStyle(NeumorphicButtonStyle(bgColor: .amber)).padding()

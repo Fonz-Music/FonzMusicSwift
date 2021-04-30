@@ -11,6 +11,7 @@ struct DisconnectCoaster: View {
     let coasterName:String
     let coasterUid:String
     @Binding var isPresented:Bool
+    @ObservedObject var coasterFromSearch: CoastersFromApi
     let imageHeight = UIScreen.screenHeight * 0.1
     
     var body: some View {
@@ -28,9 +29,10 @@ struct DisconnectCoaster: View {
                 Spacer()
                 HStack {
                     Button(action: {
-                        let HostApi = HostCoasterApi()
-                        let resp = HostApi.disconnectCoaster(coasterUid: coasterUid)
+                       
+                        let resp = HostCoasterApi().disconnectCoaster(coasterUid: coasterUid)
                         isPresented = false
+                        coasterFromSearch.reloadCoasters()
                         print("pressed button")
                     }, label: {
                         Text("yes")

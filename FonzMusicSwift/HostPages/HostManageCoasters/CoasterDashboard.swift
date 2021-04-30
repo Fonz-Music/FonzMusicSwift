@@ -16,13 +16,13 @@ struct CoasterDashboard: View {
 // ---------------------------------- created inside view -------------------------------------------
     // object that stores the songs from the api
     @ObservedObject var coasterFromSearch: CoastersFromApi = CoastersFromApi()
-    // if pressed
-   @State var isExpanded = false
     // for the results of the search bar
     let layout = [
             GridItem(.flexible())
         ]
     @State private var selection: Set<HostCoasterResult> = []
+    
+    @State var reloadDashboard = false
     // scaled height of icon
     let imageHeight = UIScreen.screenHeight * 0.15
     
@@ -49,17 +49,12 @@ struct CoasterDashboard: View {
                 if coasterFromSearch.products.quantity > 0 {
                     ScrollView(showsIndicators: false) {
                         LazyVGrid(columns: layout, spacing: 12) {
-//                            coasterFromSearch.products.coasters.forEach {
-//                                ManageCoasterView(item: $0, isExpanded: self.selection.contains($0))
-//                                        .onTapGesture {
-//                                            self.selectDeselect($0)
-//                                        }
-//                                        .animation(.linear(duration: 0.3))
-//                            }
+
                             ForEach(coasterFromSearch.products.coasters, id: \.self) { item in
-                                ManageCoasterView(item: item, isExpanded: self.selection.contains(item))
+                                ManageCoasterView(item: item, isExpanded: self.selection.contains(item), coasterFromSearch: coasterFromSearch)
                                         .onTapGesture {
                                             self.selectDeselect(item)
+                                            
                                         }
                                         .animation(.linear(duration: 0.3))
 
@@ -83,6 +78,11 @@ struct CoasterDashboard: View {
                         .frame(width: imageHeight * 0.4, height: imageHeight * 0.2, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     }
                 }).padding()
+            }
+        }.onAppear {
+            if reloadDashboard {
+                coasterFromSearch.reloadCoasters()
+                reloadDashboard = false
             }
         }
     }

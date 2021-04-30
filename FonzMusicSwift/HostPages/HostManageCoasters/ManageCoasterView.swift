@@ -10,12 +10,12 @@ import SwiftUI
 struct ManageCoasterView: View {
     // the song passed in
     let item: HostCoasterResult
+    var isExpanded: Bool
+    @ObservedObject var coasterFromSearch: CoastersFromApi
     
     @State var showRenameModal = false
     @State var showPauseModal = false
     @State var showDisconnectModal = false
-    
-    var isExpanded: Bool
   
     var body: some View {
         ZStack {
@@ -26,6 +26,7 @@ struct ManageCoasterView: View {
                         .frame( width: 60 ,height: 50).padding(5)
                     // title & artist
                     Text(verbatim: item.name)
+                        .foregroundColor(determineColorOffPause(paused: item.paused))
                         .fonzParagraphOne()
                     Spacer()
                 }
@@ -45,7 +46,7 @@ struct ManageCoasterView: View {
                                 Spacer()
                             }.padding(.vertical, 10)
                         }.sheet(isPresented: $showRenameModal, content: {
-                            NameCoaster(coasterUid: item.coasterId, isPresented: $showRenameModal)
+                            NameCoaster(coasterUid: item.coasterId, isPresented: $showRenameModal, coasterFromSearch: coasterFromSearch)
                         })
                         // pause button
                         Button {
@@ -57,12 +58,12 @@ struct ManageCoasterView: View {
                                 Image("pauseIcon").resizable()
                                     .frame( width: 30 ,height: 30).padding(.leading, 30)
                                 // title & artist
-                                Text("pause")
+                                Text(determineTextOffPause(paused: item.paused))
                                     .fonzParagraphTwo()
                                 Spacer()
                             }.padding(.vertical, 10)
                         }.sheet(isPresented: $showPauseModal, content: {
-                            PauseCoaster(coasterName: item.name, coasterUid: item.coasterId, paused: !item.active, isPresented: $showPauseModal)
+                            PauseCoaster(coasterName: item.name, coasterUid: item.coasterId, paused: !item.paused, isPresented: $showPauseModal, coasterFromSearch: coasterFromSearch)
                         })
                         // disconnect button
                         Button {
@@ -79,7 +80,7 @@ struct ManageCoasterView: View {
                                 Spacer()
                             }.padding(.vertical, 10)
                         }.sheet(isPresented: $showDisconnectModal, content: {
-                            DisconnectCoaster(coasterName: item.name, coasterUid: item.coasterId, isPresented: $showDisconnectModal)
+                            DisconnectCoaster(coasterName: item.name, coasterUid: item.coasterId, isPresented: $showDisconnectModal, coasterFromSearch: coasterFromSearch)
                         })
                     }
                 }
@@ -94,6 +95,18 @@ struct ManageCoasterView: View {
         .padding(.horizontal, 10)
         .animation(.easeIn)
         
+    }
+    func determineColorOffPause(paused:Bool) -> Color {
+        if paused {
+            return Color.gray
+        }
+        else { return Color(.systemGray5) }
+    }
+    func determineTextOffPause(paused:Bool) -> String {
+        if paused {
+            return "unpause"
+        }
+        else { return "pause" }
     }
     
    

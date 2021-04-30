@@ -12,6 +12,7 @@ struct PauseCoaster: View {
     let coasterUid:String
     let paused:Bool
     @Binding var isPresented:Bool
+    @ObservedObject var coasterFromSearch: CoastersFromApi
     let imageHeight = UIScreen.screenHeight * 0.1
     
     var body: some View {
@@ -29,9 +30,10 @@ struct PauseCoaster: View {
                 Spacer()
                 HStack {
                     Button(action: {
-                        let HostApi = HostCoasterApi()
-                        let resp = HostApi.pauseCoaster(coasterUid: coasterUid, paused: paused)
+                        print("paused is \(paused)")
+                        let resp = HostCoasterApi().pauseCoaster(coasterUid: coasterUid, paused: paused)
                         isPresented = false
+                        coasterFromSearch.reloadCoasters()
                         print("pressed button")
                     }, label: {
                         Text("yes")
