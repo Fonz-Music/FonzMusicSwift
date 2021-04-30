@@ -10,20 +10,21 @@ import SwiftUI
 struct ThisIsYourCoaster: View {
     let coasterName:String
     
-    let imageHeight = UIScreen.screenHeight * 0.15
+    let imageHeight = UIScreen.screenHeight * 0.1
     
     var body: some View {
                 ZStack {
-                    Color.lilac.ignoresSafeArea()
+                    Color.amber.ignoresSafeArea()
                     VStack{
-                        Spacer()
+//                        Spacer()
                         Image("fonzLogoF").resizable()
-                            .frame(width: imageHeight * 0.5, height: imageHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .frame(width: imageHeight * 0.5, height: imageHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).padding(.top, UIScreen.screenHeight * 0.2)
                             
                         
                         
                         Text("this is your coaster").fonzParagraphOne()
-                        Text("\(coasterName)").fonzHeading()
+                 
+                        Text("\(coasterName)").fonzHeading().padding(.top, UIScreen.screenHeight * 0.1)
                         Spacer()
                     }
                 }

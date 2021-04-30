@@ -42,14 +42,17 @@ struct HostAddCoaster: View {
                 ZStack {
                     Color.amber.ignoresSafeArea()
                     VStack{
-                        Text("get coaster details").fonzSubheading().padding(.top, 130)
-                            Image("tapOne").resizable()
-                                .frame(width: imageHeight * 0.8, height: imageHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        Spacer()
+//                        Text("get coaster details").fonzSubheading().padding(.top, 130)
+                        Image("tapOne").resizable()
+                            .frame(width: imageHeight * 0.8, height: imageHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+//                            .padding(.top, 130)
+                        Spacer()
                         Button(action: {
                             pressedButtonToLaunchNfc = true
                             print("pressed button")
                         }, label: {
-                            Text("connect your coaster").fonzSubheading()
+                            Text("add your coaster").fonzSubheading()
                         })
                         .buttonStyle(NeumorphicButtonStyle(bgColor: .amber))
                         .padding(.top, 100)
@@ -70,22 +73,39 @@ struct HostAddCoaster: View {
                 if statusCodeResp == 204 {
                     SuccessAddedCoaster().onAppear {
                         // waits 3.5 seconds before naviagiting to dashboard
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                             print("firing now")
                             launchRenameModal = true
+//                            launchedNfc = false
+                            
+                            // will launch popup to name coaster
+                        }
+                    }.sheet(isPresented: $launchRenameModal, onDismiss: {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                             launchedNfc = false
                             hostPageNumber = 0
                             determineHostViewUpdate.updatePageReverse = true
-                            // will launch popup to name coaster
                         }
-                    }.sheet(isPresented: $launchRenameModal, content: {
+                    }, content: {
                         NameCoaster(coasterUid: tempCoasterDetails.uid, isPresented: $launchRenameModal, coasterFromSearch: hostCoasterList)
                     })
                 }
                 else if statusCodeResp == 200 {
                     CoasterHasDifferentHost(hostName: tempCoasterDetails.hostName, coasterName: tempCoasterDetails.coasterName).onAppear {
                         // waits 3.5 seconds before naviagiting to dashboard
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
+                            print("firing now")
+                            // will nav back to dashboard
+                            launchedNfc = false
+                            hostPageNumber = 0
+                            determineHostViewUpdate.updatePageReverse = true
+                        }
+                    }
+                }
+                else if statusCodeResp == 403 {
+                    ThisIsYourCoaster(coasterName: tempCoasterDetails.coasterName).onAppear {
+                        // waits 3.5 seconds before naviagiting to dashboard
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
                             print("firing now")
                             // will nav back to dashboard
                             launchedNfc = false
@@ -107,10 +127,7 @@ struct HostAddCoaster: View {
                                 ErrorNotFonzCoaster().padding(.top, 40)
                             }
                             //
-                            else if statusCodeResp == 403 {
-                                ThisIsYourCoaster(coasterName: tempCoasterDetails.coasterName)
-            //                    Text("this is your coaster")
-                            }
+                            
                             // any other error (usually nfc didnt work)
                             else {
                                 ErrorOnTap().padding(.top, 40)

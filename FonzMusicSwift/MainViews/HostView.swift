@@ -60,7 +60,7 @@ struct HostPages: View {
         }
         // Page that prompts user to tap NFC
         else {
-            CoasterDashboard(hostPageNumber: $currentHostPageIndex, hostCoasterList: hostCoasterList)
+            CoasterDashboard(determineHostViewUpdate: $updatePageVars, hostPageNumber: $currentHostPageIndex, hostCoasterList: hostCoasterList)
         }
     }
 }

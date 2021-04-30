@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CoasterDashboard: View {
 // ---------------------------------- inherited from parent -----------------------------------------
+    // gets object to determine if the page should be updated
+    @Binding var determineHostViewUpdate: UpdatePageViewVariables
     // inherited from parent to see active page. so that user can change pages at
     // top to add a new coaster
     @Binding var hostPageNumber:Int
@@ -40,12 +42,14 @@ struct CoasterDashboard: View {
                 .buttonStyle(NeumorphicButtonStyle(bgColor: .amber))
                 .padding(.top, 10)
                 .padding(.bottom, 25)
-                //title
-                Text("coasters").fonzHeading()
-                Text("manage your devices").fonzParagraphOne()
+                
                 
                 // list view from searching song
                 if hostCoasterList.products.quantity > 0 {
+                    //title
+                    Text("coasters").fonzHeading()
+                    Text("manage your devices").fonzParagraphOne()
+                    // coasters
                     ScrollView(showsIndicators: false) {
                         LazyVGrid(columns: layout, spacing: 12) {
 
@@ -61,22 +65,24 @@ struct CoasterDashboard: View {
                         }
                     }.frame(width: UIScreen.screenWidth * 0.9, height: UIScreen.screenHeight * 0.5, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     Spacer()
+                    // button to return you to searchbar if you dont want to connect to a new host
+                    Button(action: {
+                        self.hostPageNumber = 1
+                    }, label: {
+                        VStack {
+                            Text("connect a coaster").fonzParagraphOne()
+                        Image("arrowDown").resizable()
+                            .frame(width: imageHeight * 0.4, height: imageHeight * 0.2, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        }
+                    }).padding()
                 }
                 // what is shown if nothing has been searched
                 else {
-                    Spacer()
+                    Text("you have no coasters linked to your account").fonzSubheading().padding()
+                    HostAddCoaster(determineHostViewUpdate: $determineHostViewUpdate, hostPageNumber: $hostPageNumber, hostCoasterList: hostCoasterList)
                 }
                 
-                // button to return you to searchbar if you dont want to connect to a new host
-                Button(action: {
-                    self.hostPageNumber = 1
-                }, label: {
-                    VStack {
-                        Text("connect a coaster").fonzParagraphOne()
-                    Image("arrowDown").resizable()
-                        .frame(width: imageHeight * 0.4, height: imageHeight * 0.2, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    }
-                }).padding()
+                
             }
         }
     }

@@ -102,14 +102,14 @@ struct LaunchConnectCoasterNfc: UIViewRepresentable {
             self.session = NFCTagReaderSession(pollingOption: .iso14443, delegate: self)
             // this createss nfc alert
             self.session?.alertMessage = "scan the Fonz Coaster"
-            print("beginning scan on join party")
+            print("beginning scan on connect coaster")
             // this begins the alert
             self.session?.begin()
         }
 
         func tagReaderSessionDidBecomeActive(_ session: NFCTagReaderSession) {
             print("session begun")
-            
+//            self.pressedButtonToLaunchNfc = false
         }
 
         func tagReaderSession(_ session: NFCTagReaderSession, didInvalidateWithError error: Error) {
