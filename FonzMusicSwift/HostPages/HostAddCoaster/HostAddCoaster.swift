@@ -42,7 +42,7 @@ struct HostAddCoaster: View {
 //                            Image("tapOneWhite").resizable()
 //                                .frame(width: imageHeight * 0.8, height: imageHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         // nfc prompt auto launches, shows tapIcon incase error on launch
-                        LaunchJoinPartyNfcSession(tempCoaster: $tempCoasterDetails, launchedNfc: $launchedNfc, statusCode: $statusCodeResp, guestPageNumber: $hostPageNumber)
+                            LaunchConnectCoasterNfc(launchedNfc: $launchedNfc, statusCode: $statusCodeResp, hostPageNumber: $hostPageNumber)
                             .padding(.bottom, 400)
                         Spacer()
                     }
@@ -71,6 +71,9 @@ struct HostAddCoaster: View {
    
                         }
                     }
+                }
+                else if statusCodeResp == 403 {
+                    Text("this is your coaster")
                 }
                 // if theres an issue connecting
                 else {

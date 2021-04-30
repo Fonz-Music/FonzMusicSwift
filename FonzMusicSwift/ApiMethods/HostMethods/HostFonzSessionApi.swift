@@ -21,7 +21,9 @@ class HostFonzSessionApi {
         let sem = DispatchSemaphore.init(value: 0)
         
         // init value for return
-        var returnObject = BasicResponse(message: "error", status: 400, body: "something brok")
+        var returnObject: BasicResponse = BasicResponse(message: "", status: 0)
+        var returnMessage = ""
+        var returnCode = 0
         
         // init value for token
         var accessToken = ""
@@ -50,22 +52,17 @@ class HostFonzSessionApi {
                     if let dataResp = data {
 //                        let jsonData = try? JSONSerialization.jsonObject(with: data!, options: [])
 //                        print(jsonData)
+                        
+                        returnCode = response?.getStatusCode() ?? 0
+                        
                         if let decodedResponse = try? JSONDecoder().decode(BasicResponse.self, from: dataResp) {
                             
-                            // creates new coasterResult from return value
-//                            let newCoaster = BasicResponse(message: decodedResponse., status: <#T##Int#>, body: <#T##String#>)
-//                            print("newCoaster " + "\(newCoaster)")
-                            // sets return value
-                            returnObject = decodedResponse
+                            returnMessage = decodedResponse.message
                         }
                         else {
                             let decodedResponse = try? JSONDecoder().decode(ErrorResult.self, from: dataResp)
                                 
-                                // creates new coasterResult from return value
-//
-                            let resp = BasicResponse(message: decodedResponse?.message ?? "", status: decodedResponse?.status ?? 400, body: "something broke")
-                            // sets return value
-                            returnObject = resp
+                            returnMessage = decodedResponse!.message
                         }
                     } else {
                         print("fetch failed: \(error?.localizedDescription ?? "unknown error")")
@@ -78,6 +75,7 @@ class HostFonzSessionApi {
         }
         // tells function to wait before returning
         sem.wait()
+        returnObject = BasicResponse(message: returnMessage, status: returnCode)
         return returnObject
     }
     
@@ -87,7 +85,9 @@ class HostFonzSessionApi {
         let sem = DispatchSemaphore.init(value: 0)
         
         // init value for return
-        var returnObject = BasicResponse(message: "error", status: 400, body: "something brok")
+        var returnObject: BasicResponse = BasicResponse(message: "", status: 0)
+        var returnMessage = ""
+        var returnCode = 0
         
         // init value for token
         var accessToken = ""
@@ -116,22 +116,19 @@ class HostFonzSessionApi {
                     if let dataResp = data {
 //                        let jsonData = try? JSONSerialization.jsonObject(with: data!, options: [])
 //                        print(jsonData)
+                        
+                        returnCode = response?.getStatusCode() ?? 0
+                        
                         if let decodedResponse = try? JSONDecoder().decode(BasicResponse.self, from: dataResp) {
                             
-                            // creates new coasterResult from return value
-//                            let newCoaster = BasicResponse(message: decodedResponse., status: <#T##Int#>, body: <#T##String#>)
-//                            print("newCoaster " + "\(newCoaster)")
                             // sets return value
-                            returnObject = decodedResponse
+                            returnMessage = decodedResponse.message
                         }
                         else {
                             let decodedResponse = try? JSONDecoder().decode(ErrorResult.self, from: dataResp)
                                 
-                                // creates new coasterResult from return value
-//
-                            let resp = BasicResponse(message: decodedResponse?.message ?? "", status: decodedResponse?.status ?? 400, body: "something broke")
                             // sets return value
-                            returnObject = resp
+                            returnMessage = decodedResponse!.message
                         }
                     } else {
                         print("fetch failed: \(error?.localizedDescription ?? "unknown error")")
@@ -144,6 +141,7 @@ class HostFonzSessionApi {
         }
         // tells function to wait before returning
         sem.wait()
+        returnObject = BasicResponse(message: returnMessage, status: returnCode)
         return returnObject
     }
     
@@ -153,7 +151,9 @@ class HostFonzSessionApi {
         let sem = DispatchSemaphore.init(value: 0)
         
         // init value for return
-        var returnObject = BasicResponse(message: "error", status: 400, body: "something brok")
+        var returnObject: BasicResponse = BasicResponse(message: "", status: 0)
+        var returnMessage = ""
+        var returnCode = 0
         
         // init value for token
         var accessToken = ""
@@ -195,22 +195,19 @@ class HostFonzSessionApi {
                     if let dataResp = data {
 //                        let jsonData = try? JSONSerialization.jsonObject(with: data!, options: [])
 //                        print(jsonData)
+                        
+                        returnCode = response?.getStatusCode() ?? 0
+                        
                         if let decodedResponse = try? JSONDecoder().decode(BasicResponse.self, from: dataResp) {
                             
-                            // creates new coasterResult from return value
-//                            let newCoaster = BasicResponse(message: decodedResponse., status: <#T##Int#>, body: <#T##String#>)
-//                            print("newCoaster " + "\(newCoaster)")
                             // sets return value
-                            returnObject = decodedResponse
+                            returnMessage = decodedResponse.message
                         }
                         else {
                             let decodedResponse = try? JSONDecoder().decode(ErrorResult.self, from: dataResp)
                                 
-                                // creates new coasterResult from return value
-//
-                            let resp = BasicResponse(message: decodedResponse?.message ?? "", status: decodedResponse?.status ?? 400, body: "something broke")
                             // sets return value
-                            returnObject = resp
+                            returnMessage = decodedResponse!.message
                         }
                     } else {
                         print("fetch failed: \(error?.localizedDescription ?? "unknown error")")
@@ -223,6 +220,7 @@ class HostFonzSessionApi {
         }
         // tells function to wait before returning
         sem.wait()
+        returnObject = BasicResponse(message: returnMessage, status: returnCode)
         return returnObject
     }
     
@@ -232,7 +230,9 @@ class HostFonzSessionApi {
         let sem = DispatchSemaphore.init(value: 0)
         
         // init value for return
-        var returnObject = BasicResponse(message: "error", status: 400, body: "something brok")
+        var returnObject: BasicResponse = BasicResponse(message: "", status: 0)
+        var returnMessage = ""
+        var returnCode = 0
         
         // init value for token
         var accessToken = ""
@@ -261,22 +261,19 @@ class HostFonzSessionApi {
                     if let dataResp = data {
                         let jsonData = try? JSONSerialization.jsonObject(with: data!, options: [])
                         print(jsonData)
+                        
+                        returnCode = response?.getStatusCode() ?? 0
+                        
                         if let decodedResponse = try? JSONDecoder().decode(BasicResponse.self, from: dataResp) {
                             
-                            // creates new coasterResult from return value
-//                            let newCoaster = BasicResponse(message: decodedResponse., status: <#T##Int#>, body: <#T##String#>)
-//                            print("newCoaster " + "\(newCoaster)")
                             // sets return value
-                            returnObject = decodedResponse
+                            returnMessage = decodedResponse.message
                         }
                         else {
                             let decodedResponse = try? JSONDecoder().decode(ErrorResult.self, from: dataResp)
                                 
-                                // creates new coasterResult from return value
-//
-                            let resp = BasicResponse(message: decodedResponse?.message ?? "", status: decodedResponse?.status ?? 400, body: "something broke")
                             // sets return value
-                            returnObject = resp
+                            returnMessage = decodedResponse!.message
                         }
                     } else {
                         print("fetch failed: \(error?.localizedDescription ?? "unknown error")")
@@ -289,6 +286,7 @@ class HostFonzSessionApi {
         }
         // tells function to wait before returning
         sem.wait()
+        returnObject = BasicResponse(message: returnMessage, status: returnCode)
         return returnObject
     }
     
@@ -298,7 +296,9 @@ class HostFonzSessionApi {
         let sem = DispatchSemaphore.init(value: 0)
         
         // init value for return
-        var returnObject = BasicResponse(message: "error", status: 400, body: "something brok")
+        var returnObject: BasicResponse = BasicResponse(message: "", status: 0)
+        var returnMessage = ""
+        var returnCode = 0
         
         // init value for token
         var accessToken = ""
@@ -327,22 +327,19 @@ class HostFonzSessionApi {
                     if let dataResp = data {
                         let jsonData = try? JSONSerialization.jsonObject(with: data!, options: [])
                         print(jsonData)
+                        
+                        returnCode = response?.getStatusCode() ?? 0
+                        
                         if let decodedResponse = try? JSONDecoder().decode(BasicResponse.self, from: dataResp) {
                             
-                            // creates new coasterResult from return value
-//                            let newCoaster = BasicResponse(message: decodedResponse., status: <#T##Int#>, body: <#T##String#>)
-//                            print("newCoaster " + "\(newCoaster)")
                             // sets return value
-                            returnObject = decodedResponse
+                            returnMessage = decodedResponse.message
                         }
                         else {
                             let decodedResponse = try? JSONDecoder().decode(ErrorResult.self, from: dataResp)
                                 
-                                // creates new coasterResult from return value
-//
-                            let resp = BasicResponse(message: decodedResponse?.message ?? "", status: decodedResponse?.status ?? 400, body: "something broke")
                             // sets return value
-                            returnObject = resp
+                            returnMessage = decodedResponse!.message
                         }
                     } else {
                         print("fetch failed: \(error?.localizedDescription ?? "unknown error")")
@@ -355,6 +352,7 @@ class HostFonzSessionApi {
         }
         // tells function to wait before returning
         sem.wait()
+        returnObject = BasicResponse(message: returnMessage, status: returnCode)
         return returnObject
     }
     

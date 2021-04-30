@@ -12,8 +12,21 @@ import Firebase
 struct BasicResponse: Codable {
     var message: String
     var status: Int
-    var body: String
 }
+struct MessageResponse: Codable {
+    var message: String
+}
+
+extension URLResponse {
+
+    func getStatusCode() -> Int? {
+        if let httpResponse = self as? HTTPURLResponse {
+            return httpResponse.statusCode
+        }
+        return nil
+    }
+}
+
 // ----------------------------------- Coaster Management -----------------------------
 class HostCoasterApi {
     
@@ -109,7 +122,7 @@ class HostCoasterApi {
 //            user.getIDToken(){ (idToken, error) in
 //            if error == nil, let token = idToken {
 //                accessToken = token
-                accessToken = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjRlOWRmNWE0ZjI4YWQwMjUwNjRkNjY1NTNiY2I5YjMzOTY4NWVmOTQiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiZGlkaSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHZ2EyQmxHR3NCYVVweXZlYldwdm1wZ2lCX0ZUUXhCWWRER2x2MjBndz1zOTYtYyIsImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9mb256LW11c2ljLWFwcCIsImF1ZCI6ImZvbnotbXVzaWMtYXBwIiwiYXV0aF90aW1lIjoxNjE0NDY2NzcwLCJ1c2VyX2lkIjoiSWpxVURQNVJKOVdHbkpZbFpYQXJLRmJINzk2MiIsInN1YiI6IklqcVVEUDVSSjlXR25KWWxaWEFyS0ZiSDc5NjIiLCJpYXQiOjE2MTk3NDcxMDUsImV4cCI6MTYxOTc1MDcwNSwiZW1haWwiOiJkaWFybXVpZG1jZ29uYWdsZUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjEwODQwNTQ0NjMzMDM4NzM1OTU0NiJdLCJhcHBsZS5jb20iOlsiMDAwODcxLjJlMGM1MDViZWFiNjQwNjM5Yjc4NTM2ZThlYWQwMDIwLjIzMjkiXSwiZW1haWwiOlsiZGlhcm11aWRtY2dvbmFnbGVAZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.c7gxzluMdejEYz-Nc2SOQWg5TSukAuUUfAPlW1w-TRyfOBw8m2awvQGjRixtgvQ-U4vY0ADt2J0_K-3Y-h8GYnjnfRLh3ZGNfhTCZBN6dM4s-Yjc249yu4PlUyqNvowpoNInKn37Lgn4esJtxTSSIS0R5ys6U9pK6bo3lTNB9unMDQckjP1aO9l_jzlQq6AUVe1W7qNWezNzCUDyaYovNyyctqX0v_ISWk_VrwYoUFpm_6uP_JFgLiDDS_5n4JUrH70c9ckO9-t9Zc0YbZOeGq7lNvoWickVZoos-YKRn8XNVQb7XpDD5zyraFhIQFOf_siGNyOGcWAcNlGBYaPtLQ"
+        accessToken = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjRlOWRmNWE0ZjI4YWQwMjUwNjRkNjY1NTNiY2I5YjMzOTY4NWVmOTQiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiZGlkaSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHZ2EyQmxHR3NCYVVweXZlYldwdm1wZ2lCX0ZUUXhCWWRER2x2MjBndz1zOTYtYyIsImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9mb256LW11c2ljLWFwcCIsImF1ZCI6ImZvbnotbXVzaWMtYXBwIiwiYXV0aF90aW1lIjoxNjE0NDY2NzcwLCJ1c2VyX2lkIjoiSWpxVURQNVJKOVdHbkpZbFpYQXJLRmJINzk2MiIsInN1YiI6IklqcVVEUDVSSjlXR25KWWxaWEFyS0ZiSDc5NjIiLCJpYXQiOjE2MTk3NTA3OTcsImV4cCI6MTYxOTc1NDM5NywiZW1haWwiOiJkaWFybXVpZG1jZ29uYWdsZUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjEwODQwNTQ0NjMzMDM4NzM1OTU0NiJdLCJhcHBsZS5jb20iOlsiMDAwODcxLjJlMGM1MDViZWFiNjQwNjM5Yjc4NTM2ZThlYWQwMDIwLjIzMjkiXSwiZW1haWwiOlsiZGlhcm11aWRtY2dvbmFnbGVAZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.hRaFeogmqFDKeRUSBQ_uNulREQ-IrbGkpnQIzKQuURn3HOg81zCMJT6f5TJqA0GP0xk7-IhxL6vBsMgsQJHvH38yZBP-XvNAjlHuD0ZpIKoNI4D3lfoOn3zzOX_QB0TOeQNErrm78B_SWLbLdkXt38fwKfkS8vb4yWHTL6bgli5jn1px1VaoxLoSqNgSIYeD9e8iP0vtMC71RbdUXwAweo9R_Pp6uAJmcNj41ks_kCnxXIt0zxfVTy0WbIedFxLfmiswgMJSuQYoUTF0XCa7xSAOLDYotG5D73P8t-msi2a7rWVAosgqbI8gq9N0accnoi2s-iiK1rD08TJsmD2c8Q"
 //                print("token is \(accessToken)" )
                 // create url
                 guard let url = URL(string: self.ADDRESS + self.HOST + self.COASTERS ) else { return returnObject}
@@ -162,7 +175,9 @@ class HostCoasterApi {
         let sem = DispatchSemaphore.init(value: 0)
         
         // init value for return
-        var returnObject = BasicResponse(message: "error", status: 400, body: "something brok")
+        var returnObject: BasicResponse = BasicResponse(message: "", status: 0)
+        var returnMessage = ""
+        var returnCode = 0
         
         // init value for token
         var accessToken = ""
@@ -172,14 +187,15 @@ class HostCoasterApi {
             return returnObject}
 
             // get access token
-            user.getIDToken(){ (idToken, error) in
-            if error == nil, let token = idToken {
-                accessToken = token
+//            user.getIDToken(){ (idToken, error) in
+//            if error == nil, let token = idToken {
+//                accessToken = token
+        accessToken = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjRlOWRmNWE0ZjI4YWQwMjUwNjRkNjY1NTNiY2I5YjMzOTY4NWVmOTQiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiZGlkaSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHZ2EyQmxHR3NCYVVweXZlYldwdm1wZ2lCX0ZUUXhCWWRER2x2MjBndz1zOTYtYyIsImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9mb256LW11c2ljLWFwcCIsImF1ZCI6ImZvbnotbXVzaWMtYXBwIiwiYXV0aF90aW1lIjoxNjE0NDY2NzcwLCJ1c2VyX2lkIjoiSWpxVURQNVJKOVdHbkpZbFpYQXJLRmJINzk2MiIsInN1YiI6IklqcVVEUDVSSjlXR25KWWxaWEFyS0ZiSDc5NjIiLCJpYXQiOjE2MTk3NTA3OTcsImV4cCI6MTYxOTc1NDM5NywiZW1haWwiOiJkaWFybXVpZG1jZ29uYWdsZUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjEwODQwNTQ0NjMzMDM4NzM1OTU0NiJdLCJhcHBsZS5jb20iOlsiMDAwODcxLjJlMGM1MDViZWFiNjQwNjM5Yjc4NTM2ZThlYWQwMDIwLjIzMjkiXSwiZW1haWwiOlsiZGlhcm11aWRtY2dvbmFnbGVAZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.hRaFeogmqFDKeRUSBQ_uNulREQ-IrbGkpnQIzKQuURn3HOg81zCMJT6f5TJqA0GP0xk7-IhxL6vBsMgsQJHvH38yZBP-XvNAjlHuD0ZpIKoNI4D3lfoOn3zzOX_QB0TOeQNErrm78B_SWLbLdkXt38fwKfkS8vb4yWHTL6bgli5jn1px1VaoxLoSqNgSIYeD9e8iP0vtMC71RbdUXwAweo9R_Pp6uAJmcNj41ks_kCnxXIt0zxfVTy0WbIedFxLfmiswgMJSuQYoUTF0XCa7xSAOLDYotG5D73P8t-msi2a7rWVAosgqbI8gq9N0accnoi2s-iiK1rD08TJsmD2c8Q"
 //                print("token is \(accessToken)" )
                 // set UID to uppercase
                 let uid = coasterUid.uppercased()
                 // create url
-                guard let url = URL(string: self.ADDRESS + self.HOST + self.COASTERS + uid ) else { return }
+                guard let url = URL(string: self.ADDRESS + self.HOST + self.COASTERS + uid ) else { return returnObject}
                 
                 var request = URLRequest(url: url)
                 request.httpMethod = "POST"
@@ -190,36 +206,35 @@ class HostCoasterApi {
                     defer { sem.signal() }
                     
                     if let dataResp = data {
-//                        let jsonData = try? JSONSerialization.jsonObject(with: data!, options: [])
-//                        print(jsonData)
-                        if let decodedResponse = try? JSONDecoder().decode(BasicResponse.self, from: dataResp) {
+                        let jsonData = try? JSONSerialization.jsonObject(with: data!, options: [])
+                        print(jsonData)
+                        print("code is \(response?.getStatusCode())")
+                        
+                        returnCode = response?.getStatusCode() ?? 0
+                        
+                        if let decodedResponse = try? JSONDecoder().decode(MessageResponse.self, from: dataResp) {
                             
-                            // creates new coasterResult from return value
-//                            let newCoaster = BasicResponse(message: decodedResponse., status: <#T##Int#>, body: <#T##String#>)
-//                            print("newCoaster " + "\(newCoaster)")
                             // sets return value
-                            returnObject = decodedResponse
+                            returnMessage = decodedResponse.message
                         }
                         else {
                             let decodedResponse = try? JSONDecoder().decode(ErrorResult.self, from: dataResp)
-                                
-                                // creates new coasterResult from return value
-//
-                            let resp = BasicResponse(message: decodedResponse?.message ?? "", status: decodedResponse?.status ?? 400, body: "something broke")
+
                             // sets return value
-                            returnObject = resp
+                            returnMessage = decodedResponse!.message
                         }
                     } else {
                         print("fetch failed: \(error?.localizedDescription ?? "unknown error")")
                     }
                 }.resume()
-            }else{
-                print("error")
-                //error handling
-            }
-        }
+//            }else{
+//                print("error")
+//                //error handling
+//            }
+//        }
         // tells function to wait before returning
         sem.wait()
+        returnObject = BasicResponse(message: returnMessage, status: returnCode)
         return returnObject
     }
     
@@ -229,7 +244,9 @@ class HostCoasterApi {
         let sem = DispatchSemaphore.init(value: 0)
         
         // init value for return
-        var returnObject = BasicResponse(message: "error", status: 400, body: "something brok")
+        var returnObject: BasicResponse = BasicResponse(message: "", status: 0)
+        var returnMessage = ""
+        var returnCode = 0
         
         // init value for token
         var accessToken = ""
@@ -272,22 +289,20 @@ class HostCoasterApi {
                     if let dataResp = data {
                         let jsonData = try? JSONSerialization.jsonObject(with: data!, options: [])
                         print(jsonData)
+                        
+                        returnCode = response?.getStatusCode() ?? 0
+                        
                         if let decodedResponse = try? JSONDecoder().decode(BasicResponse.self, from: dataResp) {
-                            
-                            // creates new coasterResult from return value
-//                            let newCoaster = BasicResponse(message: decodedResponse., status: <#T##Int#>, body: <#T##String#>)
-//                            print("newCoaster " + "\(newCoaster)")
+
                             // sets return value
-                            returnObject = decodedResponse
+                            returnMessage = decodedResponse.message
                         }
                         else {
                             let decodedResponse = try? JSONDecoder().decode(ErrorResult.self, from: dataResp)
                                 
-                                // creates new coasterResult from return value
-//
-                            let resp = BasicResponse(message: decodedResponse?.message ?? "", status: decodedResponse?.status ?? 400, body: "something broke")
+                        
                             // sets return value
-                            returnObject = resp
+                            returnMessage = decodedResponse!.message
                         }
                     } else {
                         print("fetch failed: \(error?.localizedDescription ?? "unknown error")")
@@ -300,6 +315,7 @@ class HostCoasterApi {
         }
         // tells function to wait before returning
         sem.wait()
+        returnObject = BasicResponse(message: returnMessage, status: returnCode)
         return returnObject
     }
     
@@ -309,8 +325,9 @@ class HostCoasterApi {
         let sem = DispatchSemaphore.init(value: 0)
         print("got here")
         // init value for return
-        var returnObject = BasicResponse(message: "error", status: 400, body: "something brok")
-        
+        var returnObject: BasicResponse = BasicResponse(message: "", status: 0)
+        var returnMessage = ""
+        var returnCode = 0
         // init value for token
         var accessToken = ""
 
@@ -322,7 +339,7 @@ class HostCoasterApi {
 //            user.getIDToken(){ (idToken, error) in
 //            if error == nil, let token = idToken {
 //                accessToken = token
-        accessToken = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjRlOWRmNWE0ZjI4YWQwMjUwNjRkNjY1NTNiY2I5YjMzOTY4NWVmOTQiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiZGlkaSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHZ2EyQmxHR3NCYVVweXZlYldwdm1wZ2lCX0ZUUXhCWWRER2x2MjBndz1zOTYtYyIsImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9mb256LW11c2ljLWFwcCIsImF1ZCI6ImZvbnotbXVzaWMtYXBwIiwiYXV0aF90aW1lIjoxNjE0NDY2NzcwLCJ1c2VyX2lkIjoiSWpxVURQNVJKOVdHbkpZbFpYQXJLRmJINzk2MiIsInN1YiI6IklqcVVEUDVSSjlXR25KWWxaWEFyS0ZiSDc5NjIiLCJpYXQiOjE2MTk3NDcxMDUsImV4cCI6MTYxOTc1MDcwNSwiZW1haWwiOiJkaWFybXVpZG1jZ29uYWdsZUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjEwODQwNTQ0NjMzMDM4NzM1OTU0NiJdLCJhcHBsZS5jb20iOlsiMDAwODcxLjJlMGM1MDViZWFiNjQwNjM5Yjc4NTM2ZThlYWQwMDIwLjIzMjkiXSwiZW1haWwiOlsiZGlhcm11aWRtY2dvbmFnbGVAZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.c7gxzluMdejEYz-Nc2SOQWg5TSukAuUUfAPlW1w-TRyfOBw8m2awvQGjRixtgvQ-U4vY0ADt2J0_K-3Y-h8GYnjnfRLh3ZGNfhTCZBN6dM4s-Yjc249yu4PlUyqNvowpoNInKn37Lgn4esJtxTSSIS0R5ys6U9pK6bo3lTNB9unMDQckjP1aO9l_jzlQq6AUVe1W7qNWezNzCUDyaYovNyyctqX0v_ISWk_VrwYoUFpm_6uP_JFgLiDDS_5n4JUrH70c9ckO9-t9Zc0YbZOeGq7lNvoWickVZoos-YKRn8XNVQb7XpDD5zyraFhIQFOf_siGNyOGcWAcNlGBYaPtLQ"
+        accessToken = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjRlOWRmNWE0ZjI4YWQwMjUwNjRkNjY1NTNiY2I5YjMzOTY4NWVmOTQiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiZGlkaSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHZ2EyQmxHR3NCYVVweXZlYldwdm1wZ2lCX0ZUUXhCWWRER2x2MjBndz1zOTYtYyIsImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9mb256LW11c2ljLWFwcCIsImF1ZCI6ImZvbnotbXVzaWMtYXBwIiwiYXV0aF90aW1lIjoxNjE0NDY2NzcwLCJ1c2VyX2lkIjoiSWpxVURQNVJKOVdHbkpZbFpYQXJLRmJINzk2MiIsInN1YiI6IklqcVVEUDVSSjlXR25KWWxaWEFyS0ZiSDc5NjIiLCJpYXQiOjE2MTk3NTA3OTcsImV4cCI6MTYxOTc1NDM5NywiZW1haWwiOiJkaWFybXVpZG1jZ29uYWdsZUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjEwODQwNTQ0NjMzMDM4NzM1OTU0NiJdLCJhcHBsZS5jb20iOlsiMDAwODcxLjJlMGM1MDViZWFiNjQwNjM5Yjc4NTM2ZThlYWQwMDIwLjIzMjkiXSwiZW1haWwiOlsiZGlhcm11aWRtY2dvbmFnbGVAZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.hRaFeogmqFDKeRUSBQ_uNulREQ-IrbGkpnQIzKQuURn3HOg81zCMJT6f5TJqA0GP0xk7-IhxL6vBsMgsQJHvH38yZBP-XvNAjlHuD0ZpIKoNI4D3lfoOn3zzOX_QB0TOeQNErrm78B_SWLbLdkXt38fwKfkS8vb4yWHTL6bgli5jn1px1VaoxLoSqNgSIYeD9e8iP0vtMC71RbdUXwAweo9R_Pp6uAJmcNj41ks_kCnxXIt0zxfVTy0WbIedFxLfmiswgMJSuQYoUTF0XCa7xSAOLDYotG5D73P8t-msi2a7rWVAosgqbI8gq9N0accnoi2s-iiK1rD08TJsmD2c8Q"
 //                print("token is \(accessToken)" )
                 // set UID to uppercase
                 let uid = coasterUid.uppercased()
@@ -352,22 +369,18 @@ class HostCoasterApi {
                     if let dataResp = data {
                         let jsonData = try? JSONSerialization.jsonObject(with: data!, options: [])
                         print(jsonData)
+                        
+                        returnCode = response?.getStatusCode() ?? 0
+                        
                         if let decodedResponse = try? JSONDecoder().decode(BasicResponse.self, from: dataResp) {
                             
-                            // creates new coasterResult from return value
-//                            let newCoaster = BasicResponse(message: decodedResponse., status: <#T##Int#>, body: <#T##String#>)
-//                            print("newCoaster " + "\(newCoaster)")
                             // sets return value
-                            returnObject = decodedResponse
+//                            returnMessage = decodedResponse.message
                         }
                         else {
                             let decodedResponse = try? JSONDecoder().decode(ErrorResult.self, from: dataResp)
                                 
-                                // creates new coasterResult from return value
-//
-                            let resp = BasicResponse(message: decodedResponse?.message ?? "", status: decodedResponse?.status ?? 400, body: "something broke")
-                            // sets return value
-                            returnObject = resp
+//                            returnMessage = decodedResponse!.message
                         }
                     } else {
                         print("fetch failed: \(error?.localizedDescription ?? "unknown error")")
@@ -380,6 +393,7 @@ class HostCoasterApi {
 //        }
         // tells function to wait before returning
         sem.wait()
+        returnObject = BasicResponse(message: returnMessage, status: returnCode)
         return returnObject
     }
     
@@ -387,10 +401,7 @@ class HostCoasterApi {
     func disconnectCoaster(coasterUid:String) {
         // this allows us to wait before returning value
         let sem = DispatchSemaphore.init(value: 0)
-        
-        // init value for return
-        var returnObject = BasicResponse(message: "error", status: 400, body: "something brok")
-        
+            
         // init value for token
         var accessToken = ""
 
@@ -402,7 +413,7 @@ class HostCoasterApi {
 //            user.getIDToken(){ (idToken, error) in
 //            if error == nil, let token = idToken {
 //                accessToken = token
-        accessToken = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjRlOWRmNWE0ZjI4YWQwMjUwNjRkNjY1NTNiY2I5YjMzOTY4NWVmOTQiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiZGlkaSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHZ2EyQmxHR3NCYVVweXZlYldwdm1wZ2lCX0ZUUXhCWWRER2x2MjBndz1zOTYtYyIsImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9mb256LW11c2ljLWFwcCIsImF1ZCI6ImZvbnotbXVzaWMtYXBwIiwiYXV0aF90aW1lIjoxNjE0NDY2NzcwLCJ1c2VyX2lkIjoiSWpxVURQNVJKOVdHbkpZbFpYQXJLRmJINzk2MiIsInN1YiI6IklqcVVEUDVSSjlXR25KWWxaWEFyS0ZiSDc5NjIiLCJpYXQiOjE2MTk3NDMzOTcsImV4cCI6MTYxOTc0Njk5NywiZW1haWwiOiJkaWFybXVpZG1jZ29uYWdsZUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjEwODQwNTQ0NjMzMDM4NzM1OTU0NiJdLCJhcHBsZS5jb20iOlsiMDAwODcxLjJlMGM1MDViZWFiNjQwNjM5Yjc4NTM2ZThlYWQwMDIwLjIzMjkiXSwiZW1haWwiOlsiZGlhcm11aWRtY2dvbmFnbGVAZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.rUC6XZlunaYP4yCu96uqE4LticeoX9YE9xzB4122adYe1qTuIB-hGJRqLgNzKbZbsU7kTNfhgcabcymaQfBHDI-c7r0x6JljG9ptl2lX4a1hd8L6xCbLryBsYPnrXZeG6Y0EkPHUbtogea_L9utWbBGasW3tZsGhfDlf1QaK5fX-Ra2jxtWzSPDqpxxXdabqOTx1a6e4owirgo-Rpi977bCmeyE_xYrZjIUXfA-TWPGKJZtnB_fbi7GAhseIpU4EQcgiDcqpUBVnVQwi1waakyAoBQbtLxUHpzHzQu2CWIRXUrFZdhXsU0jHfKsgwsbEgwL_u0Lr7mu7jO9mP5NsFA"
+        accessToken = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjRlOWRmNWE0ZjI4YWQwMjUwNjRkNjY1NTNiY2I5YjMzOTY4NWVmOTQiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiZGlkaSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHZ2EyQmxHR3NCYVVweXZlYldwdm1wZ2lCX0ZUUXhCWWRER2x2MjBndz1zOTYtYyIsImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9mb256LW11c2ljLWFwcCIsImF1ZCI6ImZvbnotbXVzaWMtYXBwIiwiYXV0aF90aW1lIjoxNjE0NDY2NzcwLCJ1c2VyX2lkIjoiSWpxVURQNVJKOVdHbkpZbFpYQXJLRmJINzk2MiIsInN1YiI6IklqcVVEUDVSSjlXR25KWWxaWEFyS0ZiSDc5NjIiLCJpYXQiOjE2MTk3NTA3OTcsImV4cCI6MTYxOTc1NDM5NywiZW1haWwiOiJkaWFybXVpZG1jZ29uYWdsZUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjEwODQwNTQ0NjMzMDM4NzM1OTU0NiJdLCJhcHBsZS5jb20iOlsiMDAwODcxLjJlMGM1MDViZWFiNjQwNjM5Yjc4NTM2ZThlYWQwMDIwLjIzMjkiXSwiZW1haWwiOlsiZGlhcm11aWRtY2dvbmFnbGVAZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.hRaFeogmqFDKeRUSBQ_uNulREQ-IrbGkpnQIzKQuURn3HOg81zCMJT6f5TJqA0GP0xk7-IhxL6vBsMgsQJHvH38yZBP-XvNAjlHuD0ZpIKoNI4D3lfoOn3zzOX_QB0TOeQNErrm78B_SWLbLdkXt38fwKfkS8vb4yWHTL6bgli5jn1px1VaoxLoSqNgSIYeD9e8iP0vtMC71RbdUXwAweo9R_Pp6uAJmcNj41ks_kCnxXIt0zxfVTy0WbIedFxLfmiswgMJSuQYoUTF0XCa7xSAOLDYotG5D73P8t-msi2a7rWVAosgqbI8gq9N0accnoi2s-iiK1rD08TJsmD2c8Q"
 //                print("token is \(accessToken)" )
                 // set UID to uppercase
                 let uid = coasterUid.uppercased()
@@ -414,6 +425,8 @@ class HostCoasterApi {
                 request.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
                 // this is the request
                 URLSession.shared.dataTask(with: request) { data, response, error in
+                    
+                    
                     // code to defer until this is completed
                     defer { sem.signal() }
                 }.resume()

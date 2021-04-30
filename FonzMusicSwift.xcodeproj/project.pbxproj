@@ -11,6 +11,7 @@
 		26659BB9263B62F20008FD1F /* PauseCoaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26659BB8263B62F20008FD1F /* PauseCoaster.swift */; };
 		26659BBC263B67040008FD1F /* DisconnectCoaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26659BBB263B67040008FD1F /* DisconnectCoaster.swift */; };
 		26659BBF263B6B4D0008FD1F /* ManageCoasterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26659BBE263B6B4D0008FD1F /* ManageCoasterView.swift */; };
+		26659BC4263BA36B0008FD1F /* LaunchConnectCoasterNfc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26659BC3263BA36B0008FD1F /* LaunchConnectCoasterNfc.swift */; };
 		2677029126347ECD00B8BC92 /* FonzMusicSwiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2677029026347ECD00B8BC92 /* FonzMusicSwiftApp.swift */; };
 		2677029326347ECD00B8BC92 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2677029226347ECD00B8BC92 /* ContentView.swift */; };
 		2677029526347ED100B8BC92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2677029426347ED100B8BC92 /* Assets.xcassets */; };
@@ -62,6 +63,7 @@
 		26659BB8263B62F20008FD1F /* PauseCoaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseCoaster.swift; sourceTree = "<group>"; };
 		26659BBB263B67040008FD1F /* DisconnectCoaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisconnectCoaster.swift; sourceTree = "<group>"; };
 		26659BBE263B6B4D0008FD1F /* ManageCoasterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageCoasterView.swift; sourceTree = "<group>"; };
+		26659BC3263BA36B0008FD1F /* LaunchConnectCoasterNfc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchConnectCoasterNfc.swift; sourceTree = "<group>"; };
 		2677028D26347ECD00B8BC92 /* FonzMusicSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FonzMusicSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2677029026347ECD00B8BC92 /* FonzMusicSwiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FonzMusicSwiftApp.swift; sourceTree = "<group>"; };
 		2677029226347ECD00B8BC92 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -125,6 +127,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		26659BC1263BA32D0008FD1F /* GuestNFc */ = {
+			isa = PBXGroup;
+			children = (
+				26DB9AC926349AEA0030643D /* LaunchJoinPartNfc.swift */,
+				26DB9ACD26349B040030643D /* TryAgainNfc.swift */,
+				26DB9AD026349B190030643D /* LaunchQueueSongNfc.swift */,
+				26DB9AD326349B2D0030643D /* LaunchQueueSongWriteUrl.swift */,
+			);
+			path = GuestNFc;
+			sourceTree = "<group>";
+		};
+		26659BC2263BA34E0008FD1F /* HostNfc */ = {
+			isa = PBXGroup;
+			children = (
+				26659BC3263BA36B0008FD1F /* LaunchConnectCoasterNfc.swift */,
+			);
+			path = HostNfc;
+			sourceTree = "<group>";
+		};
 		2677028426347ECD00B8BC92 = {
 			isa = PBXGroup;
 			children = (
@@ -272,10 +293,8 @@
 		26DB9AC826349AD20030643D /* NfcClasses */ = {
 			isa = PBXGroup;
 			children = (
-				26DB9AC926349AEA0030643D /* LaunchJoinPartNfc.swift */,
-				26DB9ACD26349B040030643D /* TryAgainNfc.swift */,
-				26DB9AD026349B190030643D /* LaunchQueueSongNfc.swift */,
-				26DB9AD326349B2D0030643D /* LaunchQueueSongWriteUrl.swift */,
+				26659BC2263BA34E0008FD1F /* HostNfc */,
+				26659BC1263BA32D0008FD1F /* GuestNFc */,
 			);
 			path = NfcClasses;
 			sourceTree = "<group>";
@@ -502,6 +521,7 @@
 				26DB9ABA263499F00030643D /* SearchBarNoSuggestions.swift in Sources */,
 				26659BBF263B6B4D0008FD1F /* ManageCoasterView.swift in Sources */,
 				26B65159263868E30074F279 /* HostView.swift in Sources */,
+				26659BC4263BA36B0008FD1F /* LaunchConnectCoasterNfc.swift in Sources */,
 				26DB9ADE26349EBB0030643D /* ErrorNotSameCoaster.swift in Sources */,
 				26DB9AAE2634995B0030643D /* ErrorCoasterHasNoHost.swift in Sources */,
 				26B65140263846EE0074F279 /* CoasterHasDifferentHost.swift in Sources */,
