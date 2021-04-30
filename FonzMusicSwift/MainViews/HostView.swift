@@ -49,17 +49,18 @@ struct HostPages: View {
     @Binding var currentHostPageIndex: Int
         
 // ---------------------------------- created inside view -------------------------------------------
-
+    // object that stores the songs from the api
+    @ObservedObject var hostCoasterList: CoastersFromApi = CoastersFromApi()
     
     var body: some View {
         
         // song search
         if hostPage == 1 {
-            HostAddCoaster(determineHostViewUpdate: $updatePageVars, hostPageNumber: $currentHostPageIndex)
+            HostAddCoaster(determineHostViewUpdate: $updatePageVars, hostPageNumber: $currentHostPageIndex, hostCoasterList: hostCoasterList)
         }
         // Page that prompts user to tap NFC
         else {
-            CoasterDashboard(hostPageNumber: $currentHostPageIndex)
+            CoasterDashboard(hostPageNumber: $currentHostPageIndex, hostCoasterList: hostCoasterList)
         }
     }
 }

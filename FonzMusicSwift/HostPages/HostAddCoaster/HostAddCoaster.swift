@@ -14,6 +14,8 @@ struct HostAddCoaster: View {
     @Binding var determineHostViewUpdate: UpdatePageViewVariables
     // app rebuilds on other pages
     @Binding var hostPageNumber:Int
+    
+    @ObservedObject var hostCoasterList: CoastersFromApi
 // ---------------------------------- created in view -----------------------------------------------
     // bool auto set to false, set to true if nfc is launched
     @State var launchedNfc = false
@@ -26,6 +28,8 @@ struct HostAddCoaster: View {
     // local var that when true, launches the nfc prompt. used for connectionErrors
     // or connect to a new host
     @State var pressedButtonToLaunchNfc = false
+    
+    @State var launchRenameModal = false
     // scaled height of icon
     let imageHeight = UIScreen.screenHeight * 0.15
     
@@ -39,11 +43,21 @@ struct HostAddCoaster: View {
                     Color.amber.ignoresSafeArea()
                     VStack{
                         Text("get coaster details").fonzSubheading().padding(.top, 130)
-//                            Image("tapOneWhite").resizable()
-//                                .frame(width: imageHeight * 0.8, height: imageHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        // nfc prompt auto launches, shows tapIcon incase error on launch
-                            LaunchConnectCoasterNfc(launchedNfc: $launchedNfc, statusCode: $statusCodeResp, hostPageNumber: $hostPageNumber)
-                            .padding(.bottom, 400)
+                            Image("tapOne").resizable()
+                                .frame(width: imageHeight * 0.8, height: imageHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        Button(action: {
+                            pressedButtonToLaunchNfc = true
+                            print("pressed button")
+                        }, label: {
+                            Text("connect your coaster").fonzSubheading()
+                        })
+                        .buttonStyle(NeumorphicButtonStyle(bgColor: .amber))
+                        .padding(.top, 100)
+                        .padding(.bottom, 50)
+                        // if that button is pressed, the nfc is launched
+                        if pressedButtonToLaunchNfc {
+                        LaunchConnectCoasterNfc(tempCoaster: $tempCoasterDetails, launchedNfc: $launchedNfc, statusCode: $statusCodeResp, hostPageNumber: $hostPageNumber, pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc).frame(maxWidth: 0, maxHeight: 0, alignment: .center)
+                        }
                         Spacer()
                     }
                     }
@@ -51,16 +65,22 @@ struct HostAddCoaster: View {
             }
             // if user has launched the nfc tap
             else {
+                
                 // if the guest connects to their host properly
                 if statusCodeResp == 204 {
                     SuccessAddedCoaster().onAppear {
                         // waits 3.5 seconds before naviagiting to dashboard
                         DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
                             print("firing now")
+                            launchRenameModal = true
+                            launchedNfc = false
+                            hostPageNumber = 0
+                            determineHostViewUpdate.updatePageReverse = true
                             // will launch popup to name coaster
-   
                         }
-                    }
+                    }.sheet(isPresented: $launchRenameModal, content: {
+                        NameCoaster(coasterUid: tempCoasterDetails.uid, isPresented: $launchRenameModal, coasterFromSearch: hostCoasterList)
+                    })
                 }
                 else if statusCodeResp == 200 {
                     CoasterHasDifferentHost(hostName: tempCoasterDetails.hostName, coasterName: tempCoasterDetails.coasterName).onAppear {
@@ -68,13 +88,13 @@ struct HostAddCoaster: View {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
                             print("firing now")
                             // will nav back to dashboard
-   
+                            launchedNfc = false
+                            hostPageNumber = 0
+                            determineHostViewUpdate.updatePageReverse = true
                         }
                     }
                 }
-                else if statusCodeResp == 403 {
-                    Text("this is your coaster")
-                }
+                
                 // if theres an issue connecting
                 else {
                     ZStack {
@@ -85,6 +105,11 @@ struct HostAddCoaster: View {
                             // if its not in our db
                             if (statusCodeResp == 404 ) {
                                 ErrorNotFonzCoaster().padding(.top, 40)
+                            }
+                            //
+                            else if statusCodeResp == 403 {
+                                ThisIsYourCoaster(coasterName: tempCoasterDetails.coasterName)
+            //                    Text("this is your coaster")
                             }
                             // any other error (usually nfc didnt work)
                             else {
@@ -100,7 +125,7 @@ struct HostAddCoaster: View {
                             }).buttonStyle(NeumorphicButtonStyle(bgColor: .amber)).padding(.vertical, 100)
                             // if they press the button, this launches the nfc prompt
                             if pressedButtonToLaunchNfc {
-                                ShowNfcTryAgainButton(tempCoaster: $tempCoasterDetails, launchedNfc: $launchedNfc, statusCode: $statusCodeResp, pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc).frame(maxWidth: 0, maxHeight: 0, alignment: .center)
+                                LaunchConnectCoasterNfc(tempCoaster: $tempCoasterDetails, launchedNfc: $launchedNfc, statusCode: $statusCodeResp, hostPageNumber: $hostPageNumber, pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc).frame(maxWidth: 0, maxHeight: 0, alignment: .center)
                                 
                             }
 //                            Spacer()

@@ -15,34 +15,44 @@ import UIKit
 
 struct LaunchConnectCoasterNfc: UIViewRepresentable {
     func makeCoordinator() -> LaunchConnectCoasterNfc.Coordinator {
-        return Coordinator(launchedNfc: $launchedNfc, statusCode: $statusCode)
+        return Coordinator(launchedNfc: $launchedNfc, tempCoaster: $tempCoaster, statusCode: $statusCode, pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc)
     }
 
     
-
+    // temp coaster to update page
+    @Binding var tempCoaster:HostCoasterInfo
     // boolean on whether the nfc has finished or not
     @Binding var launchedNfc:Bool
     // takes in status code to return to parent
     @Binding var statusCode:Int
     // takes in active page so that the nfc doenst launch by accident
     @Binding var hostPageNumber:Int
+    // boolean on whether the button has been pressed
+    @Binding var pressedButtonToLaunchNfc:Bool
 
 
     func makeUIView(context: UIViewRepresentableContext<LaunchConnectCoasterNfc>) -> UIButton {
         
         // creates nfcTap icon that can be pressed to launch the nfc as well
         let tapButton = UIButton()
-//        tapButton.isHidden = true
-        tapButton.setImage(UIImage(named: "tapOne"), for: .normal)
-        tapButton.imageView?.contentMode = .scaleAspectFit
-        tapButton.imageEdgeInsets = UIEdgeInsets(top: 10, left: 120, bottom: 120, right: 120)
-        tapButton.addTarget(context.coordinator, action: #selector(context.coordinator.beginNfcScan(_:)), for: .touchUpInside)
+        tapButton.isHidden = true
+//        tapButton.setImage(UIImage(named: "tapOne"), for: .normal)
+//        tapButton.imageView?.contentMode = .scaleAspectFit
+//        tapButton.imageEdgeInsets = UIEdgeInsets(top: 10, left: 120, bottom: 120, right: 120)
+//        tapButton.addTarget(context.coordinator, action: #selector(context.coordinator.beginNfcScan(_:)), for: .touchUpInside)
         // prevents the nfc from launching on other pages when the app is loaded
-        if (hostPageNumber == 1) {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+//        if (hostPageNumber == 1) {
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+//                print("launching nfc scan ")
+//                context.coordinator.launchNfcScanWithoutButton()
+//            }
+//        }
+        if (pressedButtonToLaunchNfc) {
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                 print("launching nfc scan ")
                 context.coordinator.launchNfcScanWithoutButton()
-            }
+            
+//            }
         }
         return tapButton
     }
@@ -54,21 +64,27 @@ struct LaunchConnectCoasterNfc: UIViewRepresentable {
     class Coordinator: NSObject, NFCTagReaderSessionDelegate {
 
         
-        
+        // temp coaster to update page
+        @Binding var tempCoaster:HostCoasterInfo
         // boolean on whether the nfc has finished or not
         @Binding var launchedNfc:Bool
         // takes in status code to return to parent
         @Binding var statusCode:Int
-
+        // boolean on whether the button has been pressed
+        @Binding var pressedButtonToLaunchNfc:Bool
 
         var session: NFCTagReaderSession?
 
         init(
              launchedNfc: Binding<Bool>,
-             statusCode: Binding<Int>) {
+            tempCoaster: Binding<HostCoasterInfo>,
+             statusCode: Binding<Int>,
+            pressedButtonToLaunchNfc: Binding<Bool>) {
 
             _launchedNfc = launchedNfc
+            _tempCoaster = tempCoaster
             _statusCode = statusCode
+            _pressedButtonToLaunchNfc = pressedButtonToLaunchNfc
         }
 
 
@@ -111,6 +127,7 @@ struct LaunchConnectCoasterNfc: UIViewRepresentable {
                 session.alertMessage = "more than one tag detected, please try again"
                 statusCode = 0
                 self.launchedNfc = true
+                self.pressedButtonToLaunchNfc = false
                 session.invalidate()
             }
             // code after coaster scanned
@@ -119,6 +136,7 @@ struct LaunchConnectCoasterNfc: UIViewRepresentable {
                     print("connection failed")
                     session.invalidate(errorMessage: "connection failed")
                     self.launchedNfc = true
+                    self.pressedButtonToLaunchNfc = false
                     self.statusCode = 0
                 }
                 if case let NFCTag.miFare(sTag) = tags.first! {
@@ -132,14 +150,30 @@ struct LaunchConnectCoasterNfc: UIViewRepresentable {
                     session.alertMessage = "properly connected!"
                     // ends nfc session
                     session.invalidate()
+                    
+                    var coasterDetails = GuestApi().getCoasterInfo(coasterUid: coasterUidFromTag)
+                    
+                    if coasterDetails.statusCode == 204 {
+                        let addCoasterResult = HostCoasterApi().addCoaster(coasterUid: coasterUidFromTag)
+                        if addCoasterResult.status != 200 {
+                            coasterDetails.statusCode = addCoasterResult.status
+                        }
+                    }
+                    
                     // gets the coaster info from the api when passing in the uid
-                    let addCoasterResult = HostCoasterApi().addCoaster(coasterUid: coasterUidFromTag)
-                    print("coaster details are \(addCoasterResult)")
+                    
+//                    print("coaster details are \(addCoasterResult)")
            
                     DispatchQueue.main.async {
                         // sets vars to return to user
+                        self.tempCoaster.uid = coasterUidFromTag
+                        if coasterDetails.statusCode == 200 {
+                            self.tempCoaster.coasterName = coasterDetails.coasterName
+                            self.tempCoaster.hostName = coasterDetails.displayName
+                        }
                         self.launchedNfc = true
-                        self.statusCode = addCoasterResult.status
+                        self.statusCode = coasterDetails.statusCode!
+                        self.pressedButtonToLaunchNfc = false
                     }
                 }
             }

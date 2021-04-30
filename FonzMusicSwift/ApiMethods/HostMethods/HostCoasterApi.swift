@@ -16,6 +16,9 @@ struct BasicResponse: Codable {
 struct MessageResponse: Codable {
     var message: String
 }
+struct NameCoasterResponse: Codable {
+    var name: String
+}
 
 extension URLResponse {
 
@@ -122,7 +125,7 @@ class HostCoasterApi {
 //            user.getIDToken(){ (idToken, error) in
 //            if error == nil, let token = idToken {
 //                accessToken = token
-        accessToken = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjRlOWRmNWE0ZjI4YWQwMjUwNjRkNjY1NTNiY2I5YjMzOTY4NWVmOTQiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiZGlkaSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHZ2EyQmxHR3NCYVVweXZlYldwdm1wZ2lCX0ZUUXhCWWRER2x2MjBndz1zOTYtYyIsImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9mb256LW11c2ljLWFwcCIsImF1ZCI6ImZvbnotbXVzaWMtYXBwIiwiYXV0aF90aW1lIjoxNjE0NDY2NzcwLCJ1c2VyX2lkIjoiSWpxVURQNVJKOVdHbkpZbFpYQXJLRmJINzk2MiIsInN1YiI6IklqcVVEUDVSSjlXR25KWWxaWEFyS0ZiSDc5NjIiLCJpYXQiOjE2MTk3NTA3OTcsImV4cCI6MTYxOTc1NDM5NywiZW1haWwiOiJkaWFybXVpZG1jZ29uYWdsZUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjEwODQwNTQ0NjMzMDM4NzM1OTU0NiJdLCJhcHBsZS5jb20iOlsiMDAwODcxLjJlMGM1MDViZWFiNjQwNjM5Yjc4NTM2ZThlYWQwMDIwLjIzMjkiXSwiZW1haWwiOlsiZGlhcm11aWRtY2dvbmFnbGVAZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.hRaFeogmqFDKeRUSBQ_uNulREQ-IrbGkpnQIzKQuURn3HOg81zCMJT6f5TJqA0GP0xk7-IhxL6vBsMgsQJHvH38yZBP-XvNAjlHuD0ZpIKoNI4D3lfoOn3zzOX_QB0TOeQNErrm78B_SWLbLdkXt38fwKfkS8vb4yWHTL6bgli5jn1px1VaoxLoSqNgSIYeD9e8iP0vtMC71RbdUXwAweo9R_Pp6uAJmcNj41ks_kCnxXIt0zxfVTy0WbIedFxLfmiswgMJSuQYoUTF0XCa7xSAOLDYotG5D73P8t-msi2a7rWVAosgqbI8gq9N0accnoi2s-iiK1rD08TJsmD2c8Q"
+        accessToken = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjRlOWRmNWE0ZjI4YWQwMjUwNjRkNjY1NTNiY2I5YjMzOTY4NWVmOTQiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiZGlkaSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHZ2EyQmxHR3NCYVVweXZlYldwdm1wZ2lCX0ZUUXhCWWRER2x2MjBndz1zOTYtYyIsImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9mb256LW11c2ljLWFwcCIsImF1ZCI6ImZvbnotbXVzaWMtYXBwIiwiYXV0aF90aW1lIjoxNjE0NDY2NzcwLCJ1c2VyX2lkIjoiSWpxVURQNVJKOVdHbkpZbFpYQXJLRmJINzk2MiIsInN1YiI6IklqcVVEUDVSSjlXR25KWWxaWEFyS0ZiSDc5NjIiLCJpYXQiOjE2MTk3OTA4NTIsImV4cCI6MTYxOTc5NDQ1MiwiZW1haWwiOiJkaWFybXVpZG1jZ29uYWdsZUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjEwODQwNTQ0NjMzMDM4NzM1OTU0NiJdLCJhcHBsZS5jb20iOlsiMDAwODcxLjJlMGM1MDViZWFiNjQwNjM5Yjc4NTM2ZThlYWQwMDIwLjIzMjkiXSwiZW1haWwiOlsiZGlhcm11aWRtY2dvbmFnbGVAZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.lcYE4yBaoWXcisnpGWT_ZxfqIB1WOHiiD00o7qDCaRa6zRV_XYZ37fPKEVG8nz6jL49C4kfmjRQGMfyuV_G8_ezcq-NCgvmmwEGsacVVFnI9Ub5hUhO4jXtcxyj9s8-r84R84WKbUIcw_PHz-gvAXvnZggTd2JvyWJ3F9Bkxiop5U7tdGdx4baJMEqW2O_UpoLn8xGVhumkhho2WEG0CuYrnk1UHSqkr2nmVo9m0or9ZJ_HQnDeQQmrFL2-lDR_2LqKiyXHlQ6nFYByb3bZg2Xco_0ursA21SVuF7I0GyOEnW7PlMWAxXS1ePW05BMQfzhqzgvVj817_E253UeCy6g"
 //                print("token is \(accessToken)" )
                 // create url
                 guard let url = URL(string: self.ADDRESS + self.HOST + self.COASTERS ) else { return returnObject}
@@ -190,7 +193,7 @@ class HostCoasterApi {
 //            user.getIDToken(){ (idToken, error) in
 //            if error == nil, let token = idToken {
 //                accessToken = token
-        accessToken = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjRlOWRmNWE0ZjI4YWQwMjUwNjRkNjY1NTNiY2I5YjMzOTY4NWVmOTQiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiZGlkaSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHZ2EyQmxHR3NCYVVweXZlYldwdm1wZ2lCX0ZUUXhCWWRER2x2MjBndz1zOTYtYyIsImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9mb256LW11c2ljLWFwcCIsImF1ZCI6ImZvbnotbXVzaWMtYXBwIiwiYXV0aF90aW1lIjoxNjE0NDY2NzcwLCJ1c2VyX2lkIjoiSWpxVURQNVJKOVdHbkpZbFpYQXJLRmJINzk2MiIsInN1YiI6IklqcVVEUDVSSjlXR25KWWxaWEFyS0ZiSDc5NjIiLCJpYXQiOjE2MTk3NTA3OTcsImV4cCI6MTYxOTc1NDM5NywiZW1haWwiOiJkaWFybXVpZG1jZ29uYWdsZUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjEwODQwNTQ0NjMzMDM4NzM1OTU0NiJdLCJhcHBsZS5jb20iOlsiMDAwODcxLjJlMGM1MDViZWFiNjQwNjM5Yjc4NTM2ZThlYWQwMDIwLjIzMjkiXSwiZW1haWwiOlsiZGlhcm11aWRtY2dvbmFnbGVAZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.hRaFeogmqFDKeRUSBQ_uNulREQ-IrbGkpnQIzKQuURn3HOg81zCMJT6f5TJqA0GP0xk7-IhxL6vBsMgsQJHvH38yZBP-XvNAjlHuD0ZpIKoNI4D3lfoOn3zzOX_QB0TOeQNErrm78B_SWLbLdkXt38fwKfkS8vb4yWHTL6bgli5jn1px1VaoxLoSqNgSIYeD9e8iP0vtMC71RbdUXwAweo9R_Pp6uAJmcNj41ks_kCnxXIt0zxfVTy0WbIedFxLfmiswgMJSuQYoUTF0XCa7xSAOLDYotG5D73P8t-msi2a7rWVAosgqbI8gq9N0accnoi2s-iiK1rD08TJsmD2c8Q"
+        accessToken = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjRlOWRmNWE0ZjI4YWQwMjUwNjRkNjY1NTNiY2I5YjMzOTY4NWVmOTQiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiZGlkaSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHZ2EyQmxHR3NCYVVweXZlYldwdm1wZ2lCX0ZUUXhCWWRER2x2MjBndz1zOTYtYyIsImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9mb256LW11c2ljLWFwcCIsImF1ZCI6ImZvbnotbXVzaWMtYXBwIiwiYXV0aF90aW1lIjoxNjE0NDY2NzcwLCJ1c2VyX2lkIjoiSWpxVURQNVJKOVdHbkpZbFpYQXJLRmJINzk2MiIsInN1YiI6IklqcVVEUDVSSjlXR25KWWxaWEFyS0ZiSDc5NjIiLCJpYXQiOjE2MTk3OTA4NTIsImV4cCI6MTYxOTc5NDQ1MiwiZW1haWwiOiJkaWFybXVpZG1jZ29uYWdsZUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjEwODQwNTQ0NjMzMDM4NzM1OTU0NiJdLCJhcHBsZS5jb20iOlsiMDAwODcxLjJlMGM1MDViZWFiNjQwNjM5Yjc4NTM2ZThlYWQwMDIwLjIzMjkiXSwiZW1haWwiOlsiZGlhcm11aWRtY2dvbmFnbGVAZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.lcYE4yBaoWXcisnpGWT_ZxfqIB1WOHiiD00o7qDCaRa6zRV_XYZ37fPKEVG8nz6jL49C4kfmjRQGMfyuV_G8_ezcq-NCgvmmwEGsacVVFnI9Ub5hUhO4jXtcxyj9s8-r84R84WKbUIcw_PHz-gvAXvnZggTd2JvyWJ3F9Bkxiop5U7tdGdx4baJMEqW2O_UpoLn8xGVhumkhho2WEG0CuYrnk1UHSqkr2nmVo9m0or9ZJ_HQnDeQQmrFL2-lDR_2LqKiyXHlQ6nFYByb3bZg2Xco_0ursA21SVuF7I0GyOEnW7PlMWAxXS1ePW05BMQfzhqzgvVj817_E253UeCy6g"
 //                print("token is \(accessToken)" )
                 // set UID to uppercase
                 let uid = coasterUid.uppercased()
@@ -256,15 +259,15 @@ class HostCoasterApi {
             return returnObject}
             print("got user")
             // get access token
-            user.getIDToken(){ (idToken, error) in
-            if error == nil, let token = idToken {
-                accessToken = token
-//                accessToken = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjRlOWRmNWE0ZjI4YWQwMjUwNjRkNjY1NTNiY2I5YjMzOTY4NWVmOTQiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiZGlkaSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHZ2EyQmxHR3NCYVVweXZlYldwdm1wZ2lCX0ZUUXhCWWRER2x2MjBndz1zOTYtYyIsImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9mb256LW11c2ljLWFwcCIsImF1ZCI6ImZvbnotbXVzaWMtYXBwIiwiYXV0aF90aW1lIjoxNjE0NDY2NzcwLCJ1c2VyX2lkIjoiSWpxVURQNVJKOVdHbkpZbFpYQXJLRmJINzk2MiIsInN1YiI6IklqcVVEUDVSSjlXR25KWWxaWEFyS0ZiSDc5NjIiLCJpYXQiOjE2MTk3MjM3NDEsImV4cCI6MTYxOTcyNzM0MSwiZW1haWwiOiJkaWFybXVpZG1jZ29uYWdsZUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjEwODQwNTQ0NjMzMDM4NzM1OTU0NiJdLCJhcHBsZS5jb20iOlsiMDAwODcxLjJlMGM1MDViZWFiNjQwNjM5Yjc4NTM2ZThlYWQwMDIwLjIzMjkiXSwiZW1haWwiOlsiZGlhcm11aWRtY2dvbmFnbGVAZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.VsYNcXZgfUa1v9tY8jYoSCx-6ifny6lRuK38u48Mg4oxitmCS5zE3jpJWfvSMrokzSq6xvZwYBHnSstuujsj6b4dzCOWaNGkNie93QE_au5LwV4inrzHSXKIhdRKOefyguXTddvuwIQiarUwUR9w3FgNI3-0_cVSW7ikk2AlcV_2hTcCPIxcjLkIYjrVcnN2BU3ZvCsayjig6snazmDnV7JWM9MFEroKPKOnoYEL-BMgD6yDOjCJ8EqCWdHa6MWgYnRY1sHex71tN9hcW1GaIwFhLgiWJWREIHRMW9DcJN66T4j3O-s4XqfXQV9nS3_LAjVpekkLFCwM_GNj_FGteA"
+//            user.getIDToken(){ (idToken, error) in
+//            if error == nil, let token = idToken {
+//                accessToken = token
+        accessToken = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjRlOWRmNWE0ZjI4YWQwMjUwNjRkNjY1NTNiY2I5YjMzOTY4NWVmOTQiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiZGlkaSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHZ2EyQmxHR3NCYVVweXZlYldwdm1wZ2lCX0ZUUXhCWWRER2x2MjBndz1zOTYtYyIsImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9mb256LW11c2ljLWFwcCIsImF1ZCI6ImZvbnotbXVzaWMtYXBwIiwiYXV0aF90aW1lIjoxNjE0NDY2NzcwLCJ1c2VyX2lkIjoiSWpxVURQNVJKOVdHbkpZbFpYQXJLRmJINzk2MiIsInN1YiI6IklqcVVEUDVSSjlXR25KWWxaWEFyS0ZiSDc5NjIiLCJpYXQiOjE2MTk3OTA4NTIsImV4cCI6MTYxOTc5NDQ1MiwiZW1haWwiOiJkaWFybXVpZG1jZ29uYWdsZUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjEwODQwNTQ0NjMzMDM4NzM1OTU0NiJdLCJhcHBsZS5jb20iOlsiMDAwODcxLjJlMGM1MDViZWFiNjQwNjM5Yjc4NTM2ZThlYWQwMDIwLjIzMjkiXSwiZW1haWwiOlsiZGlhcm11aWRtY2dvbmFnbGVAZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.lcYE4yBaoWXcisnpGWT_ZxfqIB1WOHiiD00o7qDCaRa6zRV_XYZ37fPKEVG8nz6jL49C4kfmjRQGMfyuV_G8_ezcq-NCgvmmwEGsacVVFnI9Ub5hUhO4jXtcxyj9s8-r84R84WKbUIcw_PHz-gvAXvnZggTd2JvyWJ3F9Bkxiop5U7tdGdx4baJMEqW2O_UpoLn8xGVhumkhho2WEG0CuYrnk1UHSqkr2nmVo9m0or9ZJ_HQnDeQQmrFL2-lDR_2LqKiyXHlQ6nFYByb3bZg2Xco_0ursA21SVuF7I0GyOEnW7PlMWAxXS1ePW05BMQfzhqzgvVj817_E253UeCy6g"
 //                print("token is \(accessToken)" )
                 // set UID to uppercase
                 let uid = coasterUid.uppercased()
                 // create url
-                guard let url = URL(string: self.ADDRESS + self.HOST + self.COASTERS + uid ) else { return }
+                guard let url = URL(string: self.ADDRESS + self.HOST + self.COASTERS + uid ) else { return returnObject}
                 // creates req w url
                 var request = URLRequest(url: url)
                 // sets method as PUT
@@ -292,10 +295,10 @@ class HostCoasterApi {
                         
                         returnCode = response?.getStatusCode() ?? 0
                         
-                        if let decodedResponse = try? JSONDecoder().decode(BasicResponse.self, from: dataResp) {
+                        if let decodedResponse = try? JSONDecoder().decode(NameCoasterResponse.self, from: dataResp) {
 
                             // sets return value
-                            returnMessage = decodedResponse.message
+                            returnMessage = decodedResponse.name
                         }
                         else {
                             let decodedResponse = try? JSONDecoder().decode(ErrorResult.self, from: dataResp)
@@ -308,11 +311,11 @@ class HostCoasterApi {
                         print("fetch failed: \(error?.localizedDescription ?? "unknown error")")
                     }
                 }.resume()
-            }else{
-                print("error")
-                //error handling
-            }
-        }
+//            }else{
+//                print("error")
+//                //error handling
+//            }
+//        }
         // tells function to wait before returning
         sem.wait()
         returnObject = BasicResponse(message: returnMessage, status: returnCode)
@@ -339,7 +342,7 @@ class HostCoasterApi {
 //            user.getIDToken(){ (idToken, error) in
 //            if error == nil, let token = idToken {
 //                accessToken = token
-        accessToken = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjRlOWRmNWE0ZjI4YWQwMjUwNjRkNjY1NTNiY2I5YjMzOTY4NWVmOTQiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiZGlkaSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHZ2EyQmxHR3NCYVVweXZlYldwdm1wZ2lCX0ZUUXhCWWRER2x2MjBndz1zOTYtYyIsImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9mb256LW11c2ljLWFwcCIsImF1ZCI6ImZvbnotbXVzaWMtYXBwIiwiYXV0aF90aW1lIjoxNjE0NDY2NzcwLCJ1c2VyX2lkIjoiSWpxVURQNVJKOVdHbkpZbFpYQXJLRmJINzk2MiIsInN1YiI6IklqcVVEUDVSSjlXR25KWWxaWEFyS0ZiSDc5NjIiLCJpYXQiOjE2MTk3NTA3OTcsImV4cCI6MTYxOTc1NDM5NywiZW1haWwiOiJkaWFybXVpZG1jZ29uYWdsZUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjEwODQwNTQ0NjMzMDM4NzM1OTU0NiJdLCJhcHBsZS5jb20iOlsiMDAwODcxLjJlMGM1MDViZWFiNjQwNjM5Yjc4NTM2ZThlYWQwMDIwLjIzMjkiXSwiZW1haWwiOlsiZGlhcm11aWRtY2dvbmFnbGVAZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.hRaFeogmqFDKeRUSBQ_uNulREQ-IrbGkpnQIzKQuURn3HOg81zCMJT6f5TJqA0GP0xk7-IhxL6vBsMgsQJHvH38yZBP-XvNAjlHuD0ZpIKoNI4D3lfoOn3zzOX_QB0TOeQNErrm78B_SWLbLdkXt38fwKfkS8vb4yWHTL6bgli5jn1px1VaoxLoSqNgSIYeD9e8iP0vtMC71RbdUXwAweo9R_Pp6uAJmcNj41ks_kCnxXIt0zxfVTy0WbIedFxLfmiswgMJSuQYoUTF0XCa7xSAOLDYotG5D73P8t-msi2a7rWVAosgqbI8gq9N0accnoi2s-iiK1rD08TJsmD2c8Q"
+        accessToken = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjRlOWRmNWE0ZjI4YWQwMjUwNjRkNjY1NTNiY2I5YjMzOTY4NWVmOTQiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiZGlkaSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHZ2EyQmxHR3NCYVVweXZlYldwdm1wZ2lCX0ZUUXhCWWRER2x2MjBndz1zOTYtYyIsImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9mb256LW11c2ljLWFwcCIsImF1ZCI6ImZvbnotbXVzaWMtYXBwIiwiYXV0aF90aW1lIjoxNjE0NDY2NzcwLCJ1c2VyX2lkIjoiSWpxVURQNVJKOVdHbkpZbFpYQXJLRmJINzk2MiIsInN1YiI6IklqcVVEUDVSSjlXR25KWWxaWEFyS0ZiSDc5NjIiLCJpYXQiOjE2MTk3OTA4NTIsImV4cCI6MTYxOTc5NDQ1MiwiZW1haWwiOiJkaWFybXVpZG1jZ29uYWdsZUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjEwODQwNTQ0NjMzMDM4NzM1OTU0NiJdLCJhcHBsZS5jb20iOlsiMDAwODcxLjJlMGM1MDViZWFiNjQwNjM5Yjc4NTM2ZThlYWQwMDIwLjIzMjkiXSwiZW1haWwiOlsiZGlhcm11aWRtY2dvbmFnbGVAZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.lcYE4yBaoWXcisnpGWT_ZxfqIB1WOHiiD00o7qDCaRa6zRV_XYZ37fPKEVG8nz6jL49C4kfmjRQGMfyuV_G8_ezcq-NCgvmmwEGsacVVFnI9Ub5hUhO4jXtcxyj9s8-r84R84WKbUIcw_PHz-gvAXvnZggTd2JvyWJ3F9Bkxiop5U7tdGdx4baJMEqW2O_UpoLn8xGVhumkhho2WEG0CuYrnk1UHSqkr2nmVo9m0or9ZJ_HQnDeQQmrFL2-lDR_2LqKiyXHlQ6nFYByb3bZg2Xco_0ursA21SVuF7I0GyOEnW7PlMWAxXS1ePW05BMQfzhqzgvVj817_E253UeCy6g"
 //                print("token is \(accessToken)" )
                 // set UID to uppercase
                 let uid = coasterUid.uppercased()
@@ -413,7 +416,7 @@ class HostCoasterApi {
 //            user.getIDToken(){ (idToken, error) in
 //            if error == nil, let token = idToken {
 //                accessToken = token
-        accessToken = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjRlOWRmNWE0ZjI4YWQwMjUwNjRkNjY1NTNiY2I5YjMzOTY4NWVmOTQiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiZGlkaSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHZ2EyQmxHR3NCYVVweXZlYldwdm1wZ2lCX0ZUUXhCWWRER2x2MjBndz1zOTYtYyIsImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9mb256LW11c2ljLWFwcCIsImF1ZCI6ImZvbnotbXVzaWMtYXBwIiwiYXV0aF90aW1lIjoxNjE0NDY2NzcwLCJ1c2VyX2lkIjoiSWpxVURQNVJKOVdHbkpZbFpYQXJLRmJINzk2MiIsInN1YiI6IklqcVVEUDVSSjlXR25KWWxaWEFyS0ZiSDc5NjIiLCJpYXQiOjE2MTk3NTA3OTcsImV4cCI6MTYxOTc1NDM5NywiZW1haWwiOiJkaWFybXVpZG1jZ29uYWdsZUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjEwODQwNTQ0NjMzMDM4NzM1OTU0NiJdLCJhcHBsZS5jb20iOlsiMDAwODcxLjJlMGM1MDViZWFiNjQwNjM5Yjc4NTM2ZThlYWQwMDIwLjIzMjkiXSwiZW1haWwiOlsiZGlhcm11aWRtY2dvbmFnbGVAZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.hRaFeogmqFDKeRUSBQ_uNulREQ-IrbGkpnQIzKQuURn3HOg81zCMJT6f5TJqA0GP0xk7-IhxL6vBsMgsQJHvH38yZBP-XvNAjlHuD0ZpIKoNI4D3lfoOn3zzOX_QB0TOeQNErrm78B_SWLbLdkXt38fwKfkS8vb4yWHTL6bgli5jn1px1VaoxLoSqNgSIYeD9e8iP0vtMC71RbdUXwAweo9R_Pp6uAJmcNj41ks_kCnxXIt0zxfVTy0WbIedFxLfmiswgMJSuQYoUTF0XCa7xSAOLDYotG5D73P8t-msi2a7rWVAosgqbI8gq9N0accnoi2s-iiK1rD08TJsmD2c8Q"
+        accessToken = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjRlOWRmNWE0ZjI4YWQwMjUwNjRkNjY1NTNiY2I5YjMzOTY4NWVmOTQiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiZGlkaSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHZ2EyQmxHR3NCYVVweXZlYldwdm1wZ2lCX0ZUUXhCWWRER2x2MjBndz1zOTYtYyIsImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9mb256LW11c2ljLWFwcCIsImF1ZCI6ImZvbnotbXVzaWMtYXBwIiwiYXV0aF90aW1lIjoxNjE0NDY2NzcwLCJ1c2VyX2lkIjoiSWpxVURQNVJKOVdHbkpZbFpYQXJLRmJINzk2MiIsInN1YiI6IklqcVVEUDVSSjlXR25KWWxaWEFyS0ZiSDc5NjIiLCJpYXQiOjE2MTk3OTA4NTIsImV4cCI6MTYxOTc5NDQ1MiwiZW1haWwiOiJkaWFybXVpZG1jZ29uYWdsZUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjEwODQwNTQ0NjMzMDM4NzM1OTU0NiJdLCJhcHBsZS5jb20iOlsiMDAwODcxLjJlMGM1MDViZWFiNjQwNjM5Yjc4NTM2ZThlYWQwMDIwLjIzMjkiXSwiZW1haWwiOlsiZGlhcm11aWRtY2dvbmFnbGVAZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.lcYE4yBaoWXcisnpGWT_ZxfqIB1WOHiiD00o7qDCaRa6zRV_XYZ37fPKEVG8nz6jL49C4kfmjRQGMfyuV_G8_ezcq-NCgvmmwEGsacVVFnI9Ub5hUhO4jXtcxyj9s8-r84R84WKbUIcw_PHz-gvAXvnZggTd2JvyWJ3F9Bkxiop5U7tdGdx4baJMEqW2O_UpoLn8xGVhumkhho2WEG0CuYrnk1UHSqkr2nmVo9m0or9ZJ_HQnDeQQmrFL2-lDR_2LqKiyXHlQ6nFYByb3bZg2Xco_0ursA21SVuF7I0GyOEnW7PlMWAxXS1ePW05BMQfzhqzgvVj817_E253UeCy6g"
 //                print("token is \(accessToken)" )
                 // set UID to uppercase
                 let uid = coasterUid.uppercased()
