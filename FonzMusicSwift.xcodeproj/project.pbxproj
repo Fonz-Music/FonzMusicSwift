@@ -10,6 +10,7 @@
 		26659BB6263B32770008FD1F /* NameCoaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26659BB5263B32770008FD1F /* NameCoaster.swift */; };
 		26659BB9263B62F20008FD1F /* PauseCoaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26659BB8263B62F20008FD1F /* PauseCoaster.swift */; };
 		26659BBC263B67040008FD1F /* DisconnectCoaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26659BBB263B67040008FD1F /* DisconnectCoaster.swift */; };
+		26659BBF263B6B4D0008FD1F /* ManageCoasterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26659BBE263B6B4D0008FD1F /* ManageCoasterView.swift */; };
 		2677029126347ECD00B8BC92 /* FonzMusicSwiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2677029026347ECD00B8BC92 /* FonzMusicSwiftApp.swift */; };
 		2677029326347ECD00B8BC92 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2677029226347ECD00B8BC92 /* ContentView.swift */; };
 		2677029526347ED100B8BC92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2677029426347ED100B8BC92 /* Assets.xcassets */; };
@@ -60,6 +61,7 @@
 		26659BB5263B32770008FD1F /* NameCoaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameCoaster.swift; sourceTree = "<group>"; };
 		26659BB8263B62F20008FD1F /* PauseCoaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseCoaster.swift; sourceTree = "<group>"; };
 		26659BBB263B67040008FD1F /* DisconnectCoaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisconnectCoaster.swift; sourceTree = "<group>"; };
+		26659BBE263B6B4D0008FD1F /* ManageCoasterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageCoasterView.swift; sourceTree = "<group>"; };
 		2677028D26347ECD00B8BC92 /* FonzMusicSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FonzMusicSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2677029026347ECD00B8BC92 /* FonzMusicSwiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FonzMusicSwiftApp.swift; sourceTree = "<group>"; };
 		2677029226347ECD00B8BC92 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -327,6 +329,7 @@
 				26659BB5263B32770008FD1F /* NameCoaster.swift */,
 				26659BB8263B62F20008FD1F /* PauseCoaster.swift */,
 				26659BBB263B67040008FD1F /* DisconnectCoaster.swift */,
+				26659BBE263B6B4D0008FD1F /* ManageCoasterView.swift */,
 			);
 			path = HostManageCoasters;
 			sourceTree = "<group>";
@@ -497,6 +500,7 @@
 				26DB9AB7263499CF0030643D /* AlreadyJoinedAddNew.swift in Sources */,
 				26DB9AB1263499710030643D /* ErrorNotFonzCoaster.swift in Sources */,
 				26DB9ABA263499F00030643D /* SearchBarNoSuggestions.swift in Sources */,
+				26659BBF263B6B4D0008FD1F /* ManageCoasterView.swift in Sources */,
 				26B65159263868E30074F279 /* HostView.swift in Sources */,
 				26DB9ADE26349EBB0030643D /* ErrorNotSameCoaster.swift in Sources */,
 				26DB9AAE2634995B0030643D /* ErrorCoasterHasNoHost.swift in Sources */,

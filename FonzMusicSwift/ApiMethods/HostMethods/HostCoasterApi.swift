@@ -28,7 +28,7 @@ class HostCoasterApi {
         let sem = DispatchSemaphore.init(value: 0)
         
         // init value for return
-        var returnObject = CoasterResult(sessionId: "", displayName: "", coasterName: "", statusCode: 0)
+        var returnObject = CoasterResult(sessionId: "", displayName: "", coasterName: "", coasterActive: false, coasterPaused: false, statusCode: 0)
         
         // init value for token
         var accessToken = ""
@@ -61,7 +61,7 @@ class HostCoasterApi {
                         if let decodedResponse = try? JSONDecoder().decode(CoasterResult.self, from: dataResp) {
                             
                             // creates new coasterResult from return value
-                            let newCoaster = CoasterResult(sessionId: decodedResponse.sessionId, displayName: decodedResponse.displayName, coasterName:  decodedResponse.coasterName, statusCode: 200 )
+                            let newCoaster = CoasterResult(sessionId: decodedResponse.sessionId, displayName: decodedResponse.displayName, coasterName:  decodedResponse.coasterName, coasterActive: decodedResponse.coasterActive, coasterPaused: decodedResponse.coasterPaused, statusCode: 200 )
                             print("newCoaster " + "\(newCoaster)")
                             // sets return value
                             returnObject = newCoaster
@@ -70,7 +70,7 @@ class HostCoasterApi {
                             let decodedResponse = try? JSONDecoder().decode(ErrorResult.self, from: dataResp)
                                 
                                 // creates new coasterResult from return value
-                            let newCoaster = CoasterResult(sessionId: "", displayName: "", coasterName:  "", statusCode: decodedResponse?.status ?? 0 )
+                            let newCoaster = CoasterResult(sessionId: "", displayName: "", coasterName:  "", coasterActive: false, coasterPaused: false, statusCode: decodedResponse?.status ?? 0 )
                                 print("newCoaster " + "\(newCoaster)")
                                 // sets return value
                                 returnObject = newCoaster
@@ -90,12 +90,13 @@ class HostCoasterApi {
     }
     
     // api call to get all coasters linked to the host
-    func getOwnedCoasters() -> [CoasterResult] {
+    func getOwnedCoasters() -> HostCoastersMapResult {
         // this allows us to wait before returning value
         let sem = DispatchSemaphore.init(value: 0)
         
         // init value for return
-        var returnObject = [CoasterResult(sessionId: "", displayName: "", coasterName: "", statusCode: 0)]
+        var returnObject = HostCoastersMapResult(coasters: [], quantity: 0)
+//        var returnObject = HostCoastersMapResult(quantity: 0)
         
         // init value for token
         var accessToken = ""
@@ -105,12 +106,13 @@ class HostCoasterApi {
             return  returnObject}
 
             // get access token
-            user.getIDToken(){ (idToken, error) in
-            if error == nil, let token = idToken {
-                accessToken = token
+//            user.getIDToken(){ (idToken, error) in
+//            if error == nil, let token = idToken {
+//                accessToken = token
+                accessToken = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjRlOWRmNWE0ZjI4YWQwMjUwNjRkNjY1NTNiY2I5YjMzOTY4NWVmOTQiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiZGlkaSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHZ2EyQmxHR3NCYVVweXZlYldwdm1wZ2lCX0ZUUXhCWWRER2x2MjBndz1zOTYtYyIsImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9mb256LW11c2ljLWFwcCIsImF1ZCI6ImZvbnotbXVzaWMtYXBwIiwiYXV0aF90aW1lIjoxNjE0NDY2NzcwLCJ1c2VyX2lkIjoiSWpxVURQNVJKOVdHbkpZbFpYQXJLRmJINzk2MiIsInN1YiI6IklqcVVEUDVSSjlXR25KWWxaWEFyS0ZiSDc5NjIiLCJpYXQiOjE2MTk3NDMzOTcsImV4cCI6MTYxOTc0Njk5NywiZW1haWwiOiJkaWFybXVpZG1jZ29uYWdsZUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjEwODQwNTQ0NjMzMDM4NzM1OTU0NiJdLCJhcHBsZS5jb20iOlsiMDAwODcxLjJlMGM1MDViZWFiNjQwNjM5Yjc4NTM2ZThlYWQwMDIwLjIzMjkiXSwiZW1haWwiOlsiZGlhcm11aWRtY2dvbmFnbGVAZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.rUC6XZlunaYP4yCu96uqE4LticeoX9YE9xzB4122adYe1qTuIB-hGJRqLgNzKbZbsU7kTNfhgcabcymaQfBHDI-c7r0x6JljG9ptl2lX4a1hd8L6xCbLryBsYPnrXZeG6Y0EkPHUbtogea_L9utWbBGasW3tZsGhfDlf1QaK5fX-Ra2jxtWzSPDqpxxXdabqOTx1a6e4owirgo-Rpi977bCmeyE_xYrZjIUXfA-TWPGKJZtnB_fbi7GAhseIpU4EQcgiDcqpUBVnVQwi1waakyAoBQbtLxUHpzHzQu2CWIRXUrFZdhXsU0jHfKsgwsbEgwL_u0Lr7mu7jO9mP5NsFA"
 //                print("token is \(accessToken)" )
                 // create url
-                guard let url = URL(string: self.ADDRESS + self.HOST + self.COASTERS ) else { return }
+                guard let url = URL(string: self.ADDRESS + self.HOST + self.COASTERS ) else { return returnObject}
                 
                 var request = URLRequest(url: url)
                 request.httpMethod = "GET"
@@ -121,10 +123,10 @@ class HostCoasterApi {
                     defer { sem.signal() }
                     
                     if let dataResp = data {
-//                        let jsonData = try? JSONSerialization.jsonObject(with: data!, options: [])
-//                        print(jsonData)
-                        if let decodedResponse = try? JSONDecoder().decode([CoasterResult].self, from: dataResp) {
-                            
+                        let jsonData = try? JSONSerialization.jsonObject(with: data!, options: [])
+                        print(jsonData)
+                        if let decodedResponse = try? JSONDecoder().decode(HostCoastersMapResult.self, from: dataResp) {
+                            print("\(decodedResponse)")
                             // creates new coasterResult from return value
 //                            let newCoaster = CoasterResult(sessionId: decodedResponse.sessionId, displayName: decodedResponse.displayName, coasterName:  decodedResponse.coasterName, statusCode: 200 )
 //                            print("newCoaster " + "\(newCoaster)")
@@ -135,20 +137,20 @@ class HostCoasterApi {
                             let decodedResponse = try? JSONDecoder().decode(ErrorResult.self, from: dataResp)
                                 
                                 // creates new coasterResult from return value
-                            let newCoaster = [CoasterResult(sessionId: "", displayName: "", coasterName:  "", statusCode: decodedResponse?.status ?? 0 )]
-                                print("newCoaster " + "\(newCoaster)")
+//                            let newCoaster = [CoasterResult(sessionId: "", displayName: "", coasterName:  "", statusCode: decodedResponse?.status ?? 0 )]
+//                                print("newCoaster " + "\(newCoaster)")
                                 // sets return value
-                                returnObject = newCoaster
+//                                returnObject = decodedResponse
                         }
                     } else {
                         print("fetch failed: \(error?.localizedDescription ?? "unknown error")")
                     }
                 }.resume()
-            }else{
-                print("error")
-                //error handling
-            }
-        }
+//            }else{
+//                print("error")
+//                //error handling
+//            }
+//        }
         // tells function to wait before returning
         sem.wait()
         return returnObject

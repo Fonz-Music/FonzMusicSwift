@@ -16,30 +16,33 @@ class CoastersFromApi: ObservableObject {
     var subscription: Set<AnyCancellable> = []
     var tempSession : String = ""
     
-    @Published private (set) var products: [CoasterInfo] = [CoasterInfo(uid: "321fwedsadsa", hostName: "jeff", coasterName: "boston", sessionId: "adsdwqe2w"),CoasterInfo(uid: "321fwedsadsa", hostName: "jeff", coasterName: "dublin", sessionId: "adsdwqe2w"),CoasterInfo(uid: "321fwedsadsa", hostName: "jeff", coasterName: "limerick", sessionId: "adsdwqe2w", active: true),CoasterInfo(uid: "321fwedsadsa", hostName: "jeff", coasterName: "quincy", sessionId: "adsdwqe2w"),CoasterInfo(uid: "321fwedsadsa", hostName: "jeff", coasterName: "trinity", sessionId: "adsdwqe2w"),CoasterInfo(uid: "321fwedsadsa", hostName: "jeff", coasterName: "milton", sessionId: "adsdwqe2w"),]
+//    @Published private (set) var products: [CoasterInfo] = [CoasterInfo(uid: "321fwedsadsa", hostName: "jeff", coasterName: "boston", sessionId: "adsdwqe2w"),CoasterInfo(uid: "321fwedsadsa", hostName: "jeff", coasterName: "dublin", sessionId: "adsdwqe2w"),CoasterInfo(uid: "321fwedsadsa", hostName: "jeff", coasterName: "limerick", sessionId: "adsdwqe2w", active: true),CoasterInfo(uid: "321fwedsadsa", hostName: "jeff", coasterName: "quincy", sessionId: "adsdwqe2w"),CoasterInfo(uid: "321fwedsadsa", hostName: "jeff", coasterName: "trinity", sessionId: "adsdwqe2w"),CoasterInfo(uid: "321fwedsadsa", hostName: "jeff", coasterName: "milton", sessionId: "adsdwqe2w"),]
+    @Published private (set) var products: HostCoastersMapResult = HostCoastersMapResult(coasters: [], quantity: 0)
     
     @Published var searchText: String = String()
     
     // MARK:- Initiliazer for product via model.
     
     init() {
-//        let apiConnection = GuestApi()
+        let apiConnection = HostCoasterApi()
+        products = HostCoasterApi().getOwnedCoasters()
+//        print("prodct from api \(productsFromApi)")
         print("starting this")
-        $searchText
-            .debounce(for: .milliseconds(800), scheduler: RunLoop.main) // debounces the string publisher, such that it delays the process of sending request to remote server.
-            .removeDuplicates()
-            .map({ (string) -> String? in
-                if string.count < 1 {
-                    self.products = []
-                    return nil
-                }
-                
-                return string
-            }) // prevents sending numerous requests and sends nil if the count of the characters is less than 1.
-            .compactMap{ $0 } // removes the nil values so the search string does not get passed down to the publisher chain
-            .sink { (_) in
-                //
-            }
+//        $searchText
+//            .debounce(for: .milliseconds(800), scheduler: RunLoop.main) // debounces the string publisher, such that it delays the process of sending request to remote server.
+//            .removeDuplicates()
+//            .map({ (string) -> String? in
+//                if string.count < 1 {
+//                    self.products = []
+//                    return nil
+//                }
+//
+//                return string
+//            }) // prevents sending numerous requests and sends nil if the count of the characters is less than 1.
+//            .compactMap{ $0 } // removes the nil values so the search string does not get passed down to the publisher chain
+//            .sink { (_) in
+//                //
+//            }
 //            receiveValue: { [self] (searchField) in
 //                searchSession(sessionId: tempSession, searchTerm: searchField)
 //            }.store(in: &subscription)

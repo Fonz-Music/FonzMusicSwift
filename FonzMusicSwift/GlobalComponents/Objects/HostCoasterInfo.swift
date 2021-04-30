@@ -15,7 +15,7 @@ class HostCoasterInfo: ObservableObject {
     @Published var sessionId = ""
 }
 
-struct CoasterInfo: Hashable {
+struct CoasterInfo: Hashable, Codable {
     var uid: String
     var hostName: String
     var coasterName: String
@@ -27,5 +27,21 @@ struct CoasterResult: Codable {
     var sessionId: String
     var displayName: String
     var coasterName: String
+    var coasterActive: Bool
+    var coasterPaused: Bool
     var statusCode: Int?
+}
+
+struct HostCoasterResult: Codable, Hashable {
+    var active: Bool
+    var coasterId: String
+    var name: String
+    var paused: Bool
+}
+//struct HostCoastersArray:Codable {
+//    var coasters: Array<HostCoasterResult>
+//}
+struct HostCoastersMapResult: Codable {
+    var coasters: Array<HostCoasterResult>
+    var quantity: Int
 }

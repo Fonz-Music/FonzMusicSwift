@@ -10,7 +10,7 @@ import SwiftUI
 struct NameCoaster: View {
     @State var coasterName: String = ""
     var coasterUid:String
-    
+    @Binding var isPresented:Bool
     let imageHeight = UIScreen.screenHeight * 0.10
     
     var body: some View {
@@ -41,6 +41,7 @@ struct NameCoaster: View {
                     let resp = HostApi.renameCoaster(coasterUid: coasterUid, newName: coasterName)
                     print("resp is \(resp)")
                     print("\(coasterName)")
+                    isPresented = false
                 } label: {
                     Text("enter").fonzSubheading()
                 }.buttonStyle(NeumorphicButtonStyle(bgColor: .amber)).padding()
@@ -54,6 +55,7 @@ struct NameCoaster: View {
 
 struct NameCoaster_Previews: PreviewProvider {
     static var previews: some View {
-        NameCoaster(coasterUid: "13215332121")
+//        NameCoaster(coasterUid: "13215332121")
+        Text("ugh")
     }
 }
