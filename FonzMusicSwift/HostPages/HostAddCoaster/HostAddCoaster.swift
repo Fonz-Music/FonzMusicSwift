@@ -38,7 +38,7 @@ struct HostAddCoaster: View {
         if NFCNDEFReaderSession.readingAvailable {
         // if the user has not launched the nfc tap
             if !launchedNfc {
-                
+            
                 ZStack {
                     Color.amber.ignoresSafeArea()
                     VStack{
@@ -48,6 +48,7 @@ struct HostAddCoaster: View {
                             .frame(width: imageHeight * 0.8, height: imageHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
 //                            .padding(.top, 130)
                         Spacer()
+                        // button to launch NFC
                         Button(action: {
                             pressedButtonToLaunchNfc = true
                             print("pressed button")
@@ -63,24 +64,21 @@ struct HostAddCoaster: View {
                         }
                         Spacer()
                     }
-                    }
-                
+                }
             }
             // if user has launched the nfc tap
             else {
-                
                 // if the guest connects to their host properly
                 if statusCodeResp == 204 {
                     SuccessAddedCoaster().onAppear {
-                        // waits 3.5 seconds before naviagiting to dashboard
+                        // waits 1.5 seconds before throwing rename prompt
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                             print("firing now")
                             launchRenameModal = true
-//                            launchedNfc = false
-                            
                             // will launch popup to name coaster
                         }
                     }.sheet(isPresented: $launchRenameModal, onDismiss: {
+                        // when dismissed, nav back to dashboard
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                             launchedNfc = false
                             hostPageNumber = 0
@@ -90,6 +88,7 @@ struct HostAddCoaster: View {
                         NameCoaster(coasterUid: tempCoasterDetails.uid, isPresented: $launchRenameModal, coasterFromSearch: hostCoasterList)
                     })
                 }
+                // if someone else owns the coaster, tell user who
                 else if statusCodeResp == 200 {
                     CoasterHasDifferentHost(hostName: tempCoasterDetails.hostName, coasterName: tempCoasterDetails.coasterName).onAppear {
                         // waits 3.5 seconds before naviagiting to dashboard
@@ -102,17 +101,20 @@ struct HostAddCoaster: View {
                         }
                     }
                 }
+                // if the host is already connected to the coaster
                 else if statusCodeResp == 403 {
-                    ThisIsYourCoaster(coasterName: tempCoasterDetails.coasterName).onAppear {
-                        // waits 3.5 seconds before naviagiting to dashboard
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
-                            print("firing now")
-                            // will nav back to dashboard
-                            launchedNfc = false
-                            hostPageNumber = 0
-                            determineHostViewUpdate.updatePageReverse = true
-                        }
-                    }
+                    ThisIsYourCoaster(coaster: tempCoasterDetails, coasterFromSearch: hostCoasterList)
+//                    ThisIsYourCoaster(coasterName: tempCoasterDetails.coasterName)
+//                        .onAppear {
+//                        // waits 3.5 seconds before naviagiting to dashboard
+//                        DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
+//                            print("firing now")
+//                            // will nav back to dashboard
+//                            launchedNfc = false
+//                            hostPageNumber = 0
+//                            determineHostViewUpdate.updatePageReverse = true
+//                        }
+//                    }
                 }
                 
                 // if theres an issue connecting

@@ -37,6 +37,8 @@ class HostCoasterApi {
     let HOST = "host/"
     let COASTERS = "coasters/"
     
+    let tempToken = ""
+    
 
     // api call to get the Coaster info
     func getSingleOwnedCoaster(coasterUid:String) -> CoasterResult {
@@ -125,7 +127,7 @@ class HostCoasterApi {
 //            user.getIDToken(){ (idToken, error) in
 //            if error == nil, let token = idToken {
 //                accessToken = token
-//        accessToken = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjRlOWRmNWE0ZjI4YWQwMjUwNjRkNjY1NTNiY2I5YjMzOTY4NWVmOTQiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiZGlkaSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHZ2EyQmxHR3NCYVVweXZlYldwdm1wZ2lCX0ZUUXhCWWRER2x2MjBndz1zOTYtYyIsImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9mb256LW11c2ljLWFwcCIsImF1ZCI6ImZvbnotbXVzaWMtYXBwIiwiYXV0aF90aW1lIjoxNjE0NDY2NzcwLCJ1c2VyX2lkIjoiSWpxVURQNVJKOVdHbkpZbFpYQXJLRmJINzk2MiIsInN1YiI6IklqcVVEUDVSSjlXR25KWWxaWEFyS0ZiSDc5NjIiLCJpYXQiOjE2MTk4MTE3MjcsImV4cCI6MTYxOTgxNTMyNywiZW1haWwiOiJkaWFybXVpZG1jZ29uYWdsZUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjEwODQwNTQ0NjMzMDM4NzM1OTU0NiJdLCJhcHBsZS5jb20iOlsiMDAwODcxLjJlMGM1MDViZWFiNjQwNjM5Yjc4NTM2ZThlYWQwMDIwLjIzMjkiXSwiZW1haWwiOlsiZGlhcm11aWRtY2dvbmFnbGVAZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.XiVUSagua2mWld_MDNWDmv7Jk2dKfSUHRPz6NrXwqNCMgp-aG4shsmIucLtD1rRtgxcpd4FJ22ekpDzsf5oDRm1Lg23A36_PGiXPOhW4hvAsxSfLNF13RkQdwLUIxgxM5T75srr3wDQZ7vd9waqmI7wVRJnuJ2_75IJKELxRTi-2ZmKgvThJZzAaX3p9KpyvjjOLhKqQ3tMRInZPxoK2rmLR1VvoD_5LAxH-9zIzAba1bc6LkPqORnaqD42AU436FcfaMQHkbpOQxQ-plOa5MhV0IR423gT9YfKKNieq-jMmb8qDVq7tzzacPR5eBuf_pGX53BsOCdU9-UCaT18_-A"
+                accessToken = tempToken
 //                print("token is \(accessToken)" )
                 // create url
                 guard let url = URL(string: self.ADDRESS + self.HOST + self.COASTERS ) else { return returnObject}
@@ -193,7 +195,7 @@ class HostCoasterApi {
 //            user.getIDToken(){ (idToken, error) in
 //            if error == nil, let token = idToken {
 //                accessToken = token
-        accessToken = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjRlOWRmNWE0ZjI4YWQwMjUwNjRkNjY1NTNiY2I5YjMzOTY4NWVmOTQiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiZGlkaSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHZ2EyQmxHR3NCYVVweXZlYldwdm1wZ2lCX0ZUUXhCWWRER2x2MjBndz1zOTYtYyIsImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9mb256LW11c2ljLWFwcCIsImF1ZCI6ImZvbnotbXVzaWMtYXBwIiwiYXV0aF90aW1lIjoxNjE0NDY2NzcwLCJ1c2VyX2lkIjoiSWpxVURQNVJKOVdHbkpZbFpYQXJLRmJINzk2MiIsInN1YiI6IklqcVVEUDVSSjlXR25KWWxaWEFyS0ZiSDc5NjIiLCJpYXQiOjE2MTk4MTE3MjcsImV4cCI6MTYxOTgxNTMyNywiZW1haWwiOiJkaWFybXVpZG1jZ29uYWdsZUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjEwODQwNTQ0NjMzMDM4NzM1OTU0NiJdLCJhcHBsZS5jb20iOlsiMDAwODcxLjJlMGM1MDViZWFiNjQwNjM5Yjc4NTM2ZThlYWQwMDIwLjIzMjkiXSwiZW1haWwiOlsiZGlhcm11aWRtY2dvbmFnbGVAZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.XiVUSagua2mWld_MDNWDmv7Jk2dKfSUHRPz6NrXwqNCMgp-aG4shsmIucLtD1rRtgxcpd4FJ22ekpDzsf5oDRm1Lg23A36_PGiXPOhW4hvAsxSfLNF13RkQdwLUIxgxM5T75srr3wDQZ7vd9waqmI7wVRJnuJ2_75IJKELxRTi-2ZmKgvThJZzAaX3p9KpyvjjOLhKqQ3tMRInZPxoK2rmLR1VvoD_5LAxH-9zIzAba1bc6LkPqORnaqD42AU436FcfaMQHkbpOQxQ-plOa5MhV0IR423gT9YfKKNieq-jMmb8qDVq7tzzacPR5eBuf_pGX53BsOCdU9-UCaT18_-A"
+        accessToken = tempToken
 //                print("token is \(accessToken)" )
                 // set UID to uppercase
                 let uid = coasterUid.uppercased()
@@ -262,7 +264,7 @@ class HostCoasterApi {
 //            user.getIDToken(){ (idToken, error) in
 //            if error == nil, let token = idToken {
 //                accessToken = token
-        accessToken = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjRlOWRmNWE0ZjI4YWQwMjUwNjRkNjY1NTNiY2I5YjMzOTY4NWVmOTQiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiZGlkaSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHZ2EyQmxHR3NCYVVweXZlYldwdm1wZ2lCX0ZUUXhCWWRER2x2MjBndz1zOTYtYyIsImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9mb256LW11c2ljLWFwcCIsImF1ZCI6ImZvbnotbXVzaWMtYXBwIiwiYXV0aF90aW1lIjoxNjE0NDY2NzcwLCJ1c2VyX2lkIjoiSWpxVURQNVJKOVdHbkpZbFpYQXJLRmJINzk2MiIsInN1YiI6IklqcVVEUDVSSjlXR25KWWxaWEFyS0ZiSDc5NjIiLCJpYXQiOjE2MTk4MTE3MjcsImV4cCI6MTYxOTgxNTMyNywiZW1haWwiOiJkaWFybXVpZG1jZ29uYWdsZUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjEwODQwNTQ0NjMzMDM4NzM1OTU0NiJdLCJhcHBsZS5jb20iOlsiMDAwODcxLjJlMGM1MDViZWFiNjQwNjM5Yjc4NTM2ZThlYWQwMDIwLjIzMjkiXSwiZW1haWwiOlsiZGlhcm11aWRtY2dvbmFnbGVAZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.XiVUSagua2mWld_MDNWDmv7Jk2dKfSUHRPz6NrXwqNCMgp-aG4shsmIucLtD1rRtgxcpd4FJ22ekpDzsf5oDRm1Lg23A36_PGiXPOhW4hvAsxSfLNF13RkQdwLUIxgxM5T75srr3wDQZ7vd9waqmI7wVRJnuJ2_75IJKELxRTi-2ZmKgvThJZzAaX3p9KpyvjjOLhKqQ3tMRInZPxoK2rmLR1VvoD_5LAxH-9zIzAba1bc6LkPqORnaqD42AU436FcfaMQHkbpOQxQ-plOa5MhV0IR423gT9YfKKNieq-jMmb8qDVq7tzzacPR5eBuf_pGX53BsOCdU9-UCaT18_-A"
+        accessToken = tempToken
 //                print("token is \(accessToken)" )
                 // set UID to uppercase
                 let uid = coasterUid.uppercased()
@@ -342,7 +344,7 @@ class HostCoasterApi {
 //            user.getIDToken(){ (idToken, error) in
 //            if error == nil, let token = idToken {
 //                accessToken = token
-        accessToken = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjRlOWRmNWE0ZjI4YWQwMjUwNjRkNjY1NTNiY2I5YjMzOTY4NWVmOTQiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiZGlkaSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHZ2EyQmxHR3NCYVVweXZlYldwdm1wZ2lCX0ZUUXhCWWRER2x2MjBndz1zOTYtYyIsImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9mb256LW11c2ljLWFwcCIsImF1ZCI6ImZvbnotbXVzaWMtYXBwIiwiYXV0aF90aW1lIjoxNjE0NDY2NzcwLCJ1c2VyX2lkIjoiSWpxVURQNVJKOVdHbkpZbFpYQXJLRmJINzk2MiIsInN1YiI6IklqcVVEUDVSSjlXR25KWWxaWEFyS0ZiSDc5NjIiLCJpYXQiOjE2MTk4MTE3MjcsImV4cCI6MTYxOTgxNTMyNywiZW1haWwiOiJkaWFybXVpZG1jZ29uYWdsZUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjEwODQwNTQ0NjMzMDM4NzM1OTU0NiJdLCJhcHBsZS5jb20iOlsiMDAwODcxLjJlMGM1MDViZWFiNjQwNjM5Yjc4NTM2ZThlYWQwMDIwLjIzMjkiXSwiZW1haWwiOlsiZGlhcm11aWRtY2dvbmFnbGVAZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.XiVUSagua2mWld_MDNWDmv7Jk2dKfSUHRPz6NrXwqNCMgp-aG4shsmIucLtD1rRtgxcpd4FJ22ekpDzsf5oDRm1Lg23A36_PGiXPOhW4hvAsxSfLNF13RkQdwLUIxgxM5T75srr3wDQZ7vd9waqmI7wVRJnuJ2_75IJKELxRTi-2ZmKgvThJZzAaX3p9KpyvjjOLhKqQ3tMRInZPxoK2rmLR1VvoD_5LAxH-9zIzAba1bc6LkPqORnaqD42AU436FcfaMQHkbpOQxQ-plOa5MhV0IR423gT9YfKKNieq-jMmb8qDVq7tzzacPR5eBuf_pGX53BsOCdU9-UCaT18_-A"
+        accessToken = tempToken
 //                print("token is \(accessToken)" )
                 // set UID to uppercase
                 let uid = coasterUid.uppercased()
@@ -416,7 +418,7 @@ class HostCoasterApi {
 //            user.getIDToken(){ (idToken, error) in
 //            if error == nil, let token = idToken {
 //                accessToken = token
-        accessToken = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjRlOWRmNWE0ZjI4YWQwMjUwNjRkNjY1NTNiY2I5YjMzOTY4NWVmOTQiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiZGlkaSIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHZ2EyQmxHR3NCYVVweXZlYldwdm1wZ2lCX0ZUUXhCWWRER2x2MjBndz1zOTYtYyIsImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9mb256LW11c2ljLWFwcCIsImF1ZCI6ImZvbnotbXVzaWMtYXBwIiwiYXV0aF90aW1lIjoxNjE0NDY2NzcwLCJ1c2VyX2lkIjoiSWpxVURQNVJKOVdHbkpZbFpYQXJLRmJINzk2MiIsInN1YiI6IklqcVVEUDVSSjlXR25KWWxaWEFyS0ZiSDc5NjIiLCJpYXQiOjE2MTk4MTE3MjcsImV4cCI6MTYxOTgxNTMyNywiZW1haWwiOiJkaWFybXVpZG1jZ29uYWdsZUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjEwODQwNTQ0NjMzMDM4NzM1OTU0NiJdLCJhcHBsZS5jb20iOlsiMDAwODcxLjJlMGM1MDViZWFiNjQwNjM5Yjc4NTM2ZThlYWQwMDIwLjIzMjkiXSwiZW1haWwiOlsiZGlhcm11aWRtY2dvbmFnbGVAZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.XiVUSagua2mWld_MDNWDmv7Jk2dKfSUHRPz6NrXwqNCMgp-aG4shsmIucLtD1rRtgxcpd4FJ22ekpDzsf5oDRm1Lg23A36_PGiXPOhW4hvAsxSfLNF13RkQdwLUIxgxM5T75srr3wDQZ7vd9waqmI7wVRJnuJ2_75IJKELxRTi-2ZmKgvThJZzAaX3p9KpyvjjOLhKqQ3tMRInZPxoK2rmLR1VvoD_5LAxH-9zIzAba1bc6LkPqORnaqD42AU436FcfaMQHkbpOQxQ-plOa5MhV0IR423gT9YfKKNieq-jMmb8qDVq7tzzacPR5eBuf_pGX53BsOCdU9-UCaT18_-A"
+        accessToken = tempToken
 //                print("token is \(accessToken)" )
                 // set UID to uppercase
                 let uid = coasterUid.uppercased()

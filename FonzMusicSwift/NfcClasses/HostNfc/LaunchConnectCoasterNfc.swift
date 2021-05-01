@@ -173,6 +173,7 @@ struct LaunchConnectCoasterNfc: UIViewRepresentable {
                         }
                         self.launchedNfc = true
                         self.statusCode = coasterDetails.statusCode!
+//                        self.statusCode = 403
                         self.pressedButtonToLaunchNfc = false
                     }
                 }

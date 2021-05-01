@@ -33,21 +33,21 @@ struct CoasterDashboard: View {
         
             VStack {
                 // spotify button
-                Button(action: {
-                    print("pressed button")
-                }, label: {
-                    Text("spotify")
-                        .fonzSubheading()
-                })
-                .buttonStyle(NeumorphicButtonStyle(bgColor: .amber))
-                .padding(.top, 10)
-                .padding(.bottom, 25)
+//                Button(action: {
+//                    print("pressed button")
+//                }, label: {
+//                    Text("spotify")
+//                        .fonzSubheading()
+//                })
+//                .buttonStyle(NeumorphicButtonStyle(bgColor: .amber))
+//                .padding(.top, 10)
+//                .padding(.bottom, 25)
                 
                 
                 // list view from searching song
                 if hostCoasterList.products.quantity > 0 {
                     //title
-                    Text("coasters").fonzHeading()
+                    Text("coasters").fonzHeading().padding(.top, 50)
                     Text("manage your devices").fonzParagraphOne()
                     // coasters
                     ScrollView(showsIndicators: false) {
@@ -76,10 +76,18 @@ struct CoasterDashboard: View {
                         }
                     }).padding()
                 }
-                // what is shown if nothing has been searched
-                else {
-                    Text("you have no coasters linked to your account").fonzSubheading().padding()
+//                else if spotifyNotLinked {
+//                    Text("you're not linked to spot'").fonzSubheading().padding()
+//                    // button to link to spot
+//                }
+                // what is shown if host has spotify but not coasters
+                else if hostCoasterList.products.quantity == 0 {
+                    Text("coasters").fonzHeading().padding(.top, 50)
+                    Text("you don't own any coasters").fonzParagraphOne()
                     HostAddCoaster(determineHostViewUpdate: $determineHostViewUpdate, hostPageNumber: $hostPageNumber, hostCoasterList: hostCoasterList)
+                }
+                else {
+                    Text("loading mate")
                 }
                 
                 

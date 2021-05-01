@@ -15,6 +15,8 @@ class HostFonzSessionApi {
     let PROVIDERS = "providers/"
     let SPOTIFY = "spotify/"
     
+    let tempToken = ""
+    
     // api call to create a Fonz session (first time creating an account)
     func createSession() -> BasicResponse {
         // this allows us to wait before returning value
@@ -33,13 +35,13 @@ class HostFonzSessionApi {
             return returnObject}
 
             // get access token
-            user.getIDToken(){ (idToken, error) in
-            if error == nil, let token = idToken {
-                accessToken = token
+//            user.getIDToken(){ (idToken, error) in
+//            if error == nil, let token = idToken {
+//                accessToken = token
 //                print("token is \(accessToken)" )
-                
+        accessToken = tempToken
                 // create url
-                guard let url = URL(string: self.ADDRESS + self.HOST + self.SESSION ) else { return }
+                guard let url = URL(string: self.ADDRESS + self.HOST + self.SESSION ) else { return returnObject}
                 
                 var request = URLRequest(url: url)
                 request.httpMethod = "POST"
@@ -68,11 +70,11 @@ class HostFonzSessionApi {
                         print("fetch failed: \(error?.localizedDescription ?? "unknown error")")
                     }
                 }.resume()
-            }else{
-                print("error")
-                //error handling
-            }
-        }
+//            }else{
+//                print("error")
+//                //error handling
+//            }
+//        }
         // tells function to wait before returning
         sem.wait()
         returnObject = BasicResponse(message: returnMessage, status: returnCode)
@@ -97,13 +99,13 @@ class HostFonzSessionApi {
             return returnObject}
 
             // get access token
-            user.getIDToken(){ (idToken, error) in
-            if error == nil, let token = idToken {
-                accessToken = token
+//            user.getIDToken(){ (idToken, error) in
+//            if error == nil, let token = idToken {
+//                accessToken = token
 //                print("token is \(accessToken)" )
-                
+        accessToken = tempToken
                 // create url
-                guard let url = URL(string: self.ADDRESS + self.HOST + self.SESSION ) else { return }
+                guard let url = URL(string: self.ADDRESS + self.HOST + self.SESSION ) else { return returnObject}
                 
                 var request = URLRequest(url: url)
                 request.httpMethod = "GET"
@@ -134,11 +136,11 @@ class HostFonzSessionApi {
                         print("fetch failed: \(error?.localizedDescription ?? "unknown error")")
                     }
                 }.resume()
-            }else{
-                print("error")
-                //error handling
-            }
-        }
+//            }else{
+//                print("error")
+//                //error handling
+//            }
+//        }
         // tells function to wait before returning
         sem.wait()
         returnObject = BasicResponse(message: returnMessage, status: returnCode)
@@ -163,13 +165,13 @@ class HostFonzSessionApi {
             return returnObject}
 
             // get access token
-            user.getIDToken(){ (idToken, error) in
-            if error == nil, let token = idToken {
-                accessToken = token
+//            user.getIDToken(){ (idToken, error) in
+//            if error == nil, let token = idToken {
+//                accessToken = token
 //                print("token is \(accessToken)" )
-
+                accessToken = tempToken
                 // create url
-                guard let url = URL(string: self.ADDRESS + self.HOST + self.SESSION + sessionId) else { return }
+                guard let url = URL(string: self.ADDRESS + self.HOST + self.SESSION + sessionId) else { return returnObject}
                 // creates req w url
                 var request = URLRequest(url: url)
                 // sets method as PUT
@@ -213,11 +215,11 @@ class HostFonzSessionApi {
                         print("fetch failed: \(error?.localizedDescription ?? "unknown error")")
                     }
                 }.resume()
-            }else{
-                print("error")
-                //error handling
-            }
-        }
+//            }else{
+//                print("error")
+//                //error handling
+//            }
+//        }
         // tells function to wait before returning
         sem.wait()
         returnObject = BasicResponse(message: returnMessage, status: returnCode)
@@ -242,13 +244,13 @@ class HostFonzSessionApi {
             return returnObject}
 
             // get access token
-            user.getIDToken(){ (idToken, error) in
-            if error == nil, let token = idToken {
-                accessToken = token
+//            user.getIDToken(){ (idToken, error) in
+//            if error == nil, let token = idToken {
+//                accessToken = token
 //                print("token is \(accessToken)" )
-                
+                accessToken = tempToken
                 // create url
-                guard let url = URL(string: self.ADDRESS + self.HOST + self.PROVIDERS ) else { return }
+                guard let url = URL(string: self.ADDRESS + self.HOST + self.PROVIDERS ) else { return returnObject}
                 
                 var request = URLRequest(url: url)
                 request.httpMethod = "GET"
@@ -279,11 +281,11 @@ class HostFonzSessionApi {
                         print("fetch failed: \(error?.localizedDescription ?? "unknown error")")
                     }
                 }.resume()
-            }else{
-                print("error")
-                //error handling
-            }
-        }
+//            }else{
+//                print("error")
+//                //error handling
+//            }
+//        }
         // tells function to wait before returning
         sem.wait()
         returnObject = BasicResponse(message: returnMessage, status: returnCode)
@@ -308,13 +310,14 @@ class HostFonzSessionApi {
             return returnObject}
 
             // get access token
-            user.getIDToken(){ (idToken, error) in
-            if error == nil, let token = idToken {
-                accessToken = token
+//            user.getIDToken(){ (idToken, error) in
+//            if error == nil, let token = idToken {
+//                accessToken = token
+                accessToken = tempToken
 //                print("token is \(accessToken)" )
                 
                 // create url
-                guard let url = URL(string: self.ADDRESS + self.HOST + self.PROVIDERS + self.SPOTIFY ) else { return }
+                guard let url = URL(string: self.ADDRESS + self.HOST + self.PROVIDERS + self.SPOTIFY ) else { return returnObject}
                 
                 var request = URLRequest(url: url)
                 request.httpMethod = "DELETE"
@@ -345,11 +348,11 @@ class HostFonzSessionApi {
                         print("fetch failed: \(error?.localizedDescription ?? "unknown error")")
                     }
                 }.resume()
-            }else{
-                print("error")
-                //error handling
-            }
-        }
+//            }else{
+//                print("error")
+//                //error handling
+//            }
+//        }
         // tells function to wait before returning
         sem.wait()
         returnObject = BasicResponse(message: returnMessage, status: returnCode)

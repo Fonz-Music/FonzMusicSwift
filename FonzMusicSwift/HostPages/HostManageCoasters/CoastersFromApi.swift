@@ -21,13 +21,19 @@ class CoastersFromApi: ObservableObject {
     // MARK:- Initiliazer for product via model.
     
     init() {
-        products = HostCoasterApi().getOwnedCoasters()
+//        products = HostCoasterApi().getOwnedCoasters()
         print("starting this")
 
     }
     
     func reloadCoasters() {
         products = HostCoasterApi().getOwnedCoasters()
+    }
+    func firstTimeLoadCoasters() {
+        if products.quantity > 0 {
+            print("reloading")
+            products = HostCoasterApi().getOwnedCoasters()
+        }
     }
     
 }

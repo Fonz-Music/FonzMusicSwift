@@ -21,6 +21,7 @@ struct HostView: View {
     // var that sets the current page and starts it at page 0 (join party)
     @State var HostPageActive = 0
     
+    
     var body: some View {
         
         VStack {
@@ -54,6 +55,7 @@ struct HostPages: View {
     
     var body: some View {
         
+        ZStack {
         // song search
         if hostPage == 1 {
             HostAddCoaster(determineHostViewUpdate: $updatePageVars, hostPageNumber: $currentHostPageIndex, hostCoasterList: hostCoasterList)
@@ -62,6 +64,12 @@ struct HostPages: View {
         else {
             CoasterDashboard(determineHostViewUpdate: $updatePageVars, hostPageNumber: $currentHostPageIndex, hostCoasterList: hostCoasterList)
         }
+        }.onAppear {
+            hostCoasterList.firstTimeLoadCoasters()
+            print("reloaded")
+//            currentHostPageIndex = hostPage
+        }
+        
     }
 }
 
@@ -138,7 +146,7 @@ struct HostPageViewController: UIViewControllerRepresentable {
         func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
             guard let index = self.parent.controllers.firstIndex(of: viewController) else { return nil }
             if index == 0 {
-//                pageViewController.disableSwipeGesture()
+                pageViewController.disableSwipeGesture()
                 return nil
             }
             return self.parent.controllers[index - 1]

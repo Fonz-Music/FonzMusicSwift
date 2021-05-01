@@ -85,7 +85,7 @@ struct JoinParty: View {
 //                                .frame(width: imageHeight * 0.8, height: imageHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                             // nfc prompt auto launches, shows tapIcon incase error on launch
                             LaunchJoinPartyNfcSession(tempCoaster: $tempCoasterDetails, launchedNfc: $launchedNfc, statusCode: $statusCodeResp, guestPageNumber: $guestPageNumber)
-                                .padding(.bottom, 400)
+                                .padding(.bottom, 400).frame(minWidth: 50, maxHeight: 100)
                             Spacer()
                         }
                     }

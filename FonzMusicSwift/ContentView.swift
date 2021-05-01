@@ -62,6 +62,7 @@ struct MainPage: View {
     @Binding var currentPageIndex: Int
 
     var body: some View {
+        
         if pageNumber == 0 {
             #if APPCLIP
             HostPage()

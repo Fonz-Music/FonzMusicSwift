@@ -66,7 +66,7 @@ struct GuestPages: View {
 //    @Binding var queuesUsed:Int
     
     var body: some View {
-        
+        ZStack {
         // song search
         if guestPage == 1 {
             SearchBarFromMedium(determineGuestViewUpdate: $updatePageVars, hostCoaster: coasterInfo, guestPageNumber: $currentGuestPageIndex)
@@ -74,6 +74,9 @@ struct GuestPages: View {
         // Page that prompts user to tap NFC
         else {
             JoinParty(determineGuestViewUpdate: $updatePageVars, hostCoaster: coasterInfo, hasHostVar: $hasHost, guestPageNumber: $currentGuestPageIndex)
+        }
+        }.onAppear {
+//            currentGuestPageIndex = guestPage
         }
     }
 }

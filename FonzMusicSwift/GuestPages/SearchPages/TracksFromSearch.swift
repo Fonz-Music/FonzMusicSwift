@@ -24,6 +24,9 @@ class TracksFromSearch: ObservableObject {
     
     init() {
 //        let apiConnection = GuestApi()
+        if searchText == "" {
+            return
+        }
         print("starting this")
         $searchText
             .debounce(for: .milliseconds(800), scheduler: RunLoop.main) // debounces the string publisher, such that it delays the process of sending request to remote server.
@@ -41,7 +44,8 @@ class TracksFromSearch: ObservableObject {
                 //
             } receiveValue: { [self] (searchField) in
                 searchSession(sessionId: tempSession, searchTerm: searchField)
-            }.store(in: &subscription)
+            }
+            .store(in: &subscription)
     }
     
     

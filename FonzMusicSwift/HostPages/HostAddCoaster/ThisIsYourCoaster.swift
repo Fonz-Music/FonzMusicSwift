@@ -8,7 +8,13 @@
 import SwiftUI
 
 struct ThisIsYourCoaster: View {
-    let coasterName:String
+    let coaster:HostCoasterInfo
+    @ObservedObject var coasterFromSearch: CoastersFromApi
+    
+    
+    @State var showRenameModal = false
+    @State var showPauseModal = false
+    @State var showDisconnectModal = false
     
     let imageHeight = UIScreen.screenHeight * 0.1
     
@@ -24,15 +30,74 @@ struct ThisIsYourCoaster: View {
                         
                         Text("this is your coaster").fonzParagraphOne()
                  
-                        Text("\(coasterName)").fonzHeading().padding(.top, UIScreen.screenHeight * 0.1)
+                        Text("\(coaster.coasterName)").fonzHeading().padding(.top, UIScreen.screenHeight * 0.1)
                         Spacer()
+                        VStack {
+                            Button {
+                                print("rename")
+                                showRenameModal = true
+                            } label: {
+                                HStack(spacing: 5) {
+                                    // album art
+                                    Image("renameIcon").resizable()
+                                        .frame( width: 30 ,height: 30).padding(.leading, 30)
+                                    // title & artist
+                                    Text("rename")
+                                        .fonzParagraphTwo()
+                                    Spacer()
+                                }.padding(.vertical, 10)
+                            }.sheet(isPresented: $showRenameModal, content: {
+                                NameCoaster(coasterUid: coaster.uid, isPresented: $showRenameModal, coasterFromSearch: coasterFromSearch)
+                            })
+                            // pause button
+                            Button {
+                                print("pause")
+                                showPauseModal = true
+                            } label: {
+                                HStack(spacing: 5) {
+                                    // album art
+                                    Image("pauseIcon").resizable()
+                                        .frame( width: 30 ,height: 30).padding(.leading, 30)
+                                    // title & artist
+                                    Text(determineTextOffPause(paused: true))
+                                        .fonzParagraphTwo()
+                                    Spacer()
+                                }.padding(.vertical, 10)
+                            }.sheet(isPresented: $showPauseModal, content: {
+                                PauseCoaster(coasterName: coaster.coasterName, coasterUid: coaster.uid, paused: true, isPresented: $showPauseModal, coasterFromSearch: coasterFromSearch)
+                            })
+                            // disconnect button
+                            Button {
+                                print("disconnect")
+                                showDisconnectModal = true
+                            } label: {
+                                HStack(spacing: 5) {
+                                    // album art
+                                    Image("disableIcon").resizable()
+                                        .frame( width: 30 ,height: 30).padding(.leading, 30)
+                                    // title & artist
+                                    Text("disconnect")
+                                        .fonzParagraphTwo()
+                                    Spacer()
+                                }.padding(.vertical, 10)
+                            }.sheet(isPresented: $showDisconnectModal, content: {
+                                DisconnectCoaster(coasterName: coaster.coasterName, coasterUid: coaster.uid, isPresented: $showDisconnectModal, coasterFromSearch: coasterFromSearch)
+                            })
+                        }.padding(.horizontal, UIScreen.screenWidth * 0.2)
                     }
                 }
             }
-}
-
-struct ThisIsYourCoaster_Previews: PreviewProvider {
-    static var previews: some View {
-        ThisIsYourCoaster(coasterName: "kenny guy")
+    
+    func determineColorOffPause(paused:Bool) -> Color {
+        if paused {
+            return Color.gray
+        }
+        else { return Color(.systemGray5) }
+    }
+    func determineTextOffPause(paused:Bool) -> String {
+        if paused {
+            return "unpause"
+        }
+        else { return "pause" }
     }
 }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2609AD53263DB80400337A02 /* HostAddSpotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2609AD52263DB80400337A02 /* HostAddSpotify.swift */; };
+		2609AD56263DBDBE00337A02 /* SpotifyWebViewWk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2609AD55263DBDBE00337A02 /* SpotifyWebViewWk.swift */; };
+		2609AD59263DC2F900337A02 /* SpotifyViewRep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2609AD58263DC2F900337A02 /* SpotifyViewRep.swift */; };
 		26659BB6263B32770008FD1F /* NameCoaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26659BB5263B32770008FD1F /* NameCoaster.swift */; };
 		26659BB9263B62F20008FD1F /* PauseCoaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26659BB8263B62F20008FD1F /* PauseCoaster.swift */; };
 		26659BBC263B67040008FD1F /* DisconnectCoaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26659BBB263B67040008FD1F /* DisconnectCoaster.swift */; };
@@ -59,6 +62,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2609AD52263DB80400337A02 /* HostAddSpotify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostAddSpotify.swift; sourceTree = "<group>"; };
+		2609AD55263DBDBE00337A02 /* SpotifyWebViewWk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyWebViewWk.swift; sourceTree = "<group>"; };
+		2609AD58263DC2F900337A02 /* SpotifyViewRep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyViewRep.swift; sourceTree = "<group>"; };
 		26659BB5263B32770008FD1F /* NameCoaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameCoaster.swift; sourceTree = "<group>"; };
 		26659BB8263B62F20008FD1F /* PauseCoaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseCoaster.swift; sourceTree = "<group>"; };
 		26659BBB263B67040008FD1F /* DisconnectCoaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisconnectCoaster.swift; sourceTree = "<group>"; };
@@ -127,6 +133,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2609AD51263DB7E200337A02 /* HostAddSpotify */ = {
+			isa = PBXGroup;
+			children = (
+				2609AD52263DB80400337A02 /* HostAddSpotify.swift */,
+			);
+			path = HostAddSpotify;
+			sourceTree = "<group>";
+		};
 		26659BC1263BA32D0008FD1F /* GuestNFc */ = {
 			isa = PBXGroup;
 			children = (
@@ -333,6 +347,7 @@
 		26DB9B1C2634A6CE0030643D /* HostPages */ = {
 			isa = PBXGroup;
 			children = (
+				2609AD51263DB7E200337A02 /* HostAddSpotify */,
 				26B65137263844170074F279 /* HostSuccess */,
 				26DB9B1E2634A76D0030643D /* HostAddCoaster */,
 				26DB9B1D2634A6D80030643D /* HostManageCoasters */,
@@ -366,6 +381,8 @@
 		26DB9B1F2634A7BF0030643D /* SignInSpotify */ = {
 			isa = PBXGroup;
 			children = (
+				2609AD55263DBDBE00337A02 /* SpotifyWebViewWk.swift */,
+				2609AD58263DC2F900337A02 /* SpotifyViewRep.swift */,
 			);
 			path = SignInSpotify;
 			sourceTree = "<group>";
@@ -498,12 +515,14 @@
 				26B65146263863100074F279 /* CoasterDashboard.swift in Sources */,
 				26B651672638A1B30074F279 /* HostFonzSessionApi.swift in Sources */,
 				26B65150263866BE0074F279 /* GlobalTrack.swift in Sources */,
+				2609AD59263DC2F900337A02 /* SpotifyViewRep.swift in Sources */,
 				26659BB6263B32770008FD1F /* NameCoaster.swift in Sources */,
 				26B65143263848A70074F279 /* ThisIsYourCoaster.swift in Sources */,
 				26B651562638671D0074F279 /* Track.swift in Sources */,
 				26DB9ACE26349B040030643D /* TryAgainNfc.swift in Sources */,
 				2677029326347ECD00B8BC92 /* ContentView.swift in Sources */,
 				26DB9A8F2634980F0030643D /* GuestView.swift in Sources */,
+				2609AD56263DBDBE00337A02 /* SpotifyWebViewWk.swift in Sources */,
 				26DB9A9F263498E00030643D /* SuccessQueueSong.swift in Sources */,
 				26DB9B232634A96B0030643D /* Colors.swift in Sources */,
 				26B65139263844340074F279 /* HostAddCoaster.swift in Sources */,
@@ -519,6 +538,7 @@
 				26DB9AB7263499CF0030643D /* AlreadyJoinedAddNew.swift in Sources */,
 				26DB9AB1263499710030643D /* ErrorNotFonzCoaster.swift in Sources */,
 				26DB9ABA263499F00030643D /* SearchBarNoSuggestions.swift in Sources */,
+				2609AD53263DB80400337A02 /* HostAddSpotify.swift in Sources */,
 				26659BBF263B6B4D0008FD1F /* ManageCoasterView.swift in Sources */,
 				26B65159263868E30074F279 /* HostView.swift in Sources */,
 				26659BC4263BA36B0008FD1F /* LaunchConnectCoasterNfc.swift in Sources */,
