@@ -17,6 +17,8 @@ class CoastersFromApi: ObservableObject {
 //    @Published private (set) var products: [CoasterInfo] = [CoasterInfo(uid: "321fwedsadsa", hostName: "jeff", coasterName: "boston", sessionId: "adsdwqe2w"),CoasterInfo(uid: "321fwedsadsa", hostName: "jeff", coasterName: "dublin", sessionId: "adsdwqe2w"),CoasterInfo(uid: "321fwedsadsa", hostName: "jeff", coasterName: "limerick", sessionId: "adsdwqe2w", active: true),CoasterInfo(uid: "321fwedsadsa", hostName: "jeff", coasterName: "quincy", sessionId: "adsdwqe2w"),CoasterInfo(uid: "321fwedsadsa", hostName: "jeff", coasterName: "trinity", sessionId: "adsdwqe2w"),CoasterInfo(uid: "321fwedsadsa", hostName: "jeff", coasterName: "milton", sessionId: "adsdwqe2w"),]
     @Published private (set) var products: HostCoastersMapResult = HostCoastersMapResult(coasters: [], quantity: 0)
     
+    var firstTime = false
+    
     
     // MARK:- Initiliazer for product via model.
     
@@ -30,7 +32,8 @@ class CoastersFromApi: ObservableObject {
         products = HostCoasterApi().getOwnedCoasters()
     }
     func firstTimeLoadCoasters() {
-        if products.quantity > 0 {
+        if products.quantity == 0 && firstTime == false {
+            firstTime = true
             print("reloading")
             products = HostCoasterApi().getOwnedCoasters()
         }

@@ -66,6 +66,7 @@ struct HostPages: View {
         }
         }.onAppear {
             hostCoasterList.firstTimeLoadCoasters()
+//            hostCoasterList.reloadCoasters()
             print("reloaded")
 //            currentHostPageIndex = hostPage
         }
