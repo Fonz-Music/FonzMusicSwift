@@ -7,7 +7,7 @@
 
 import SwiftUI
 import CoreNFC
-
+import Neumorphic
 
 
 struct JoinParty: View {
@@ -57,6 +57,7 @@ struct JoinParty: View {
                                 }, label: {
                                     Text("connect to a new host").fonzSubheading()
                                 })
+//                                .softButtonStyle(RoundedRectangle(cornerRadius: 20), pressedEffect: .flat)
                                 .buttonStyle(NeumorphicButtonStyle(bgColor: .lilac))
                                 .padding(.top, 100)
                                 .padding(.bottom, 50)

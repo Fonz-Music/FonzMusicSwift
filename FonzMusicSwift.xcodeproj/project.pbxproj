@@ -3,13 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		2609AD53263DB80400337A02 /* HostAddSpotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2609AD52263DB80400337A02 /* HostAddSpotify.swift */; };
 		2609AD56263DBDBE00337A02 /* SpotifyWebViewWk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2609AD55263DBDBE00337A02 /* SpotifyWebViewWk.swift */; };
 		2609AD59263DC2F900337A02 /* SpotifyViewRep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2609AD58263DC2F900337A02 /* SpotifyViewRep.swift */; };
+		2634B239264B0B0600BB928B /* Neumorphic in Frameworks */ = {isa = PBXBuildFile; productRef = 2634B238264B0B0600BB928B /* Neumorphic */; };
 		26659BB6263B32770008FD1F /* NameCoaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26659BB5263B32770008FD1F /* NameCoaster.swift */; };
 		26659BB9263B62F20008FD1F /* PauseCoaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26659BB8263B62F20008FD1F /* PauseCoaster.swift */; };
 		26659BBC263B67040008FD1F /* DisconnectCoaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26659BBB263B67040008FD1F /* DisconnectCoaster.swift */; };
@@ -126,6 +127,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2634B239264B0B0600BB928B /* Neumorphic in Frameworks */,
 				E4595E496192AD1C55E93E1F /* libPods-FonzMusicSwift.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -429,6 +431,9 @@
 			dependencies = (
 			);
 			name = FonzMusicSwift;
+			packageProductDependencies = (
+				2634B238264B0B0600BB928B /* Neumorphic */,
+			);
 			productName = FonzMusicSwift;
 			productReference = 2677028D26347ECD00B8BC92 /* FonzMusicSwift.app */;
 			productType = "com.apple.product-type.application";
@@ -456,6 +461,9 @@
 				Base,
 			);
 			mainGroup = 2677028426347ECD00B8BC92;
+			packageReferences = (
+				2634B237264B0B0600BB928B /* XCRemoteSwiftPackageReference "neumorphic" */,
+			);
 			productRefGroup = 2677028E26347ECD00B8BC92 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -748,6 +756,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2634B237264B0B0600BB928B /* XCRemoteSwiftPackageReference "neumorphic" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/costachung/neumorphic/";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2634B238264B0B0600BB928B /* Neumorphic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2634B237264B0B0600BB928B /* XCRemoteSwiftPackageReference "neumorphic" */;
+			productName = Neumorphic;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2677028526347ECD00B8BC92 /* Project object */;
 }
