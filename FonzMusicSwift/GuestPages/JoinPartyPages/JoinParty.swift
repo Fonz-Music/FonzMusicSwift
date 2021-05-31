@@ -7,8 +7,7 @@
 
 import SwiftUI
 import CoreNFC
-import Neumorphic
-
+//import Neumorphic
 
 struct JoinParty: View {
 // ---------------------------------- inherited from parent -----------------------------------------

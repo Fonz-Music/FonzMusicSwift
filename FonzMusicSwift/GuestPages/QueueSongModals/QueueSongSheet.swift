@@ -39,8 +39,9 @@ struct QueueSongSheet: View {
                         // tells popup to dismiss
                         self.queuePopupPresent = false
                     }
-                    
+//                    ShareImageOnInstagram(imageUrl: self.currentTune.albumArt, songTitle: self.currentTune.songName, artistName: self.currentTune.artistName)
                 }
+                
             }
             // if theres an error, show error page
             else if statusCodeQueueSong == 404 || statusCodeQueueSong == 403 || statusCodeQueueSong == 401 || statusCodeQueueSong == 500 {
@@ -95,6 +96,8 @@ struct QueueSongSheet: View {
 //                    LaunchQueueSongWriteUrl(hostCoaster: hostCoaster, songInfo: currentTune, statusCode: $statusCodeQueueSong, launchedNfc: $launchedNfc)
                     Spacer()
                 }
+            }.onAppear {
+                print("\(self.currentTune.albumArt)")
             }
         }
     }
@@ -208,6 +211,8 @@ class ImageLoader: ObservableObject {
     private func cache(_ image: UIImage?) {
         image.map { cache?[url] = $0 }
     }
+    
+    
 }
 
 struct ImageCacheKey: EnvironmentKey {

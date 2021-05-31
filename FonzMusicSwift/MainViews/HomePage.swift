@@ -75,10 +75,13 @@ struct HomePage: View {
                 Spacer()
             }
         }
-//        .onAppear {
-//            currentPageIndex = 1
-//            print("current page is \(currentPageIndex)")
-//        }
+        .onAppear {
+            for family in UIFont.familyNames.sorted() {
+                let names = UIFont.fontNames(forFamilyName: family)
+                print("Family: \(family) Font names: \(names)")
+            }
+
+        }
     }
 }
 

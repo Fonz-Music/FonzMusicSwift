@@ -20,6 +20,11 @@
 		2677029326347ECD00B8BC92 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2677029226347ECD00B8BC92 /* ContentView.swift */; };
 		2677029526347ED100B8BC92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2677029426347ED100B8BC92 /* Assets.xcassets */; };
 		2677029826347ED100B8BC92 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2677029726347ED100B8BC92 /* Preview Assets.xcassets */; };
+		26AC89B42665410C00E1C41E /* ShareOnInstagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AC89B32665410C00E1C41E /* ShareOnInstagram.swift */; };
+		26AC89BC2665745300E1C41E /* MuseoSans-500.otf in Resources */ = {isa = PBXBuildFile; fileRef = 26AC89B82665745300E1C41E /* MuseoSans-500.otf */; };
+		26AC89BD2665745300E1C41E /* MuseoSans-100.otf in Resources */ = {isa = PBXBuildFile; fileRef = 26AC89B92665745300E1C41E /* MuseoSans-100.otf */; };
+		26AC89BE2665745300E1C41E /* MuseoSans-300.otf in Resources */ = {isa = PBXBuildFile; fileRef = 26AC89BA2665745300E1C41E /* MuseoSans-300.otf */; };
+		26AC89BF2665745300E1C41E /* MuseoSans-700.otf in Resources */ = {isa = PBXBuildFile; fileRef = 26AC89BB2665745300E1C41E /* MuseoSans-700.otf */; };
 		26B65139263844340074F279 /* HostAddCoaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B65138263844340074F279 /* HostAddCoaster.swift */; };
 		26B6513C263845480074F279 /* SuccessAddedCoaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B6513B263845480074F279 /* SuccessAddedCoaster.swift */; };
 		26B65140263846EE0074F279 /* CoasterHasDifferentHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B6513F263846EE0074F279 /* CoasterHasDifferentHost.swift */; };
@@ -34,7 +39,6 @@
 		26B6516026389D7B0074F279 /* HostCoasterApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B6515F26389D7B0074F279 /* HostCoasterApi.swift */; };
 		26B651642638A0610074F279 /* GlobalExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B651632638A0610074F279 /* GlobalExtensions.swift */; };
 		26B651672638A1B30074F279 /* HostFonzSessionApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B651662638A1B30074F279 /* HostFonzSessionApi.swift */; };
-		26DB9A87263481B10030643D /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 26DB9A81263481B10030643D /* Fonts */; };
 		26DB9A8C263484110030643D /* HostPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9A8B263484110030643D /* HostPage.swift */; };
 		26DB9A8F2634980F0030643D /* GuestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9A8E2634980F0030643D /* GuestView.swift */; };
 		26DB9A92263498390030643D /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9A91263498390030643D /* HomePage.swift */; };
@@ -77,6 +81,11 @@
 		2677029426347ED100B8BC92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2677029726347ED100B8BC92 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2677029926347ED100B8BC92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		26AC89B32665410C00E1C41E /* ShareOnInstagram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareOnInstagram.swift; sourceTree = "<group>"; };
+		26AC89B82665745300E1C41E /* MuseoSans-500.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MuseoSans-500.otf"; sourceTree = "<group>"; };
+		26AC89B92665745300E1C41E /* MuseoSans-100.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MuseoSans-100.otf"; sourceTree = "<group>"; };
+		26AC89BA2665745300E1C41E /* MuseoSans-300.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MuseoSans-300.otf"; sourceTree = "<group>"; };
+		26AC89BB2665745300E1C41E /* MuseoSans-700.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MuseoSans-700.otf"; sourceTree = "<group>"; };
 		26B65138263844340074F279 /* HostAddCoaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostAddCoaster.swift; sourceTree = "<group>"; };
 		26B6513B263845480074F279 /* SuccessAddedCoaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessAddedCoaster.swift; sourceTree = "<group>"; };
 		26B6513F263846EE0074F279 /* CoasterHasDifferentHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoasterHasDifferentHost.swift; sourceTree = "<group>"; };
@@ -183,6 +192,7 @@
 		2677028F26347ECD00B8BC92 /* FonzMusicSwift */ = {
 			isa = PBXGroup;
 			children = (
+				26AC89B7266573D200E1C41E /* FontResources */,
 				26DB9B1A2634A61D0030643D /* GlobalComponents */,
 				26DB9AD626349B3E0030643D /* ApiMethods */,
 				26DB9A8A263484020030643D /* MainViews */,
@@ -207,6 +217,25 @@
 				2677029726347ED100B8BC92 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		26AC89B2266540F800E1C41E /* ShareOptions */ = {
+			isa = PBXGroup;
+			children = (
+				26AC89B32665410C00E1C41E /* ShareOnInstagram.swift */,
+			);
+			path = ShareOptions;
+			sourceTree = "<group>";
+		};
+		26AC89B7266573D200E1C41E /* FontResources */ = {
+			isa = PBXGroup;
+			children = (
+				26AC89B92665745300E1C41E /* MuseoSans-100.otf */,
+				26AC89BA2665745300E1C41E /* MuseoSans-300.otf */,
+				26AC89B82665745300E1C41E /* MuseoSans-500.otf */,
+				26AC89BB2665745300E1C41E /* MuseoSans-700.otf */,
+			);
+			path = FontResources;
 			sourceTree = "<group>";
 		};
 		26B65137263844170074F279 /* HostSuccess */ = {
@@ -327,6 +356,7 @@
 		26DB9B1A2634A61D0030643D /* GlobalComponents */ = {
 			isa = PBXGroup;
 			children = (
+				26AC89B2266540F800E1C41E /* ShareOptions */,
 				26B6514B263866840074F279 /* Objects */,
 				26DB9B212634A95D0030643D /* FrontEnd */,
 				26DB9B1F2634A7BF0030643D /* SignInSpotify */,
@@ -478,10 +508,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26AC89BC2665745300E1C41E /* MuseoSans-500.otf in Resources */,
 				2677029826347ED100B8BC92 /* Preview Assets.xcassets in Resources */,
+				26AC89BE2665745300E1C41E /* MuseoSans-300.otf in Resources */,
 				26DB9AFC2634A4370030643D /* GoogleService-Info.plist in Resources */,
+				26AC89BD2665745300E1C41E /* MuseoSans-100.otf in Resources */,
+				26AC89BF2665745300E1C41E /* MuseoSans-700.otf in Resources */,
 				2677029526347ED100B8BC92 /* Assets.xcassets in Resources */,
-				26DB9A87263481B10030643D /* Fonts in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -556,6 +589,7 @@
 				26659BB9263B62F20008FD1F /* PauseCoaster.swift in Sources */,
 				26DB9AB4263499AB0030643D /* JoinParty.swift in Sources */,
 				26DB9AC026349A8F0030643D /* QueueSongSheet.swift in Sources */,
+				26AC89B42665410C00E1C41E /* ShareOnInstagram.swift in Sources */,
 				26DB9AD426349B2D0030643D /* LaunchQueueSongWriteUrl.swift in Sources */,
 				26DB9AAB263499410030643D /* ErrorDeviceNotNfc.swift in Sources */,
 				26DB9ACA26349AEA0030643D /* LaunchJoinPartNfc.swift in Sources */,

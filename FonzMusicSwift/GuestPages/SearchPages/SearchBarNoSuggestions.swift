@@ -138,7 +138,7 @@ struct SearchBarFromMedium: View {
                 // passes the sessionId from the host into the results return
                 tracksFromSearch.tempSession = hostCoaster.sessionId
                 // sets the page number to 1 so that the nav button works
-                guestPageNumber = 1
+//                guestPageNumber = 1
         }
     }
 }
