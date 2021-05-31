@@ -13,6 +13,7 @@ struct Track: Hashable {
     var songId: String
     var artistName: String
     var albumArt: String
+    var spotifyUrl:String
 }
 
 // this converts the JSON from songSearch into Object
@@ -27,6 +28,11 @@ struct Items: Codable {
     var artists: Array<ArtistArray>
     var name:String
     var id:String
+    var external_urls: ExternalUrl
+}
+
+struct ExternalUrl: Codable {
+    var spotify:String
 }
 
 // albums

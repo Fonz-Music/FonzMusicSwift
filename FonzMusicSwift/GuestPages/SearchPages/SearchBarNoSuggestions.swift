@@ -99,6 +99,8 @@ struct SearchBarFromMedium: View {
                             ForEach(tracksFromSearch.products, id: \.self) { item in
                                 Button(action: {
                                     print("button pressed: \(queuePopupPresent)" )
+                                    // temp button to send the song to a mate
+//                                    shareButton(urlToShare: item.spotifyUrl)
                                     // sets the current song to song chosen
                                     if !queuePopupPresent {
                                         // bool to launch queueSongSheet set to true
@@ -109,6 +111,7 @@ struct SearchBarFromMedium: View {
                                         self.tempTune.songName = item.songName
                                         self.tempTune.artistName = item.artistName
                                         self.tempTune.songLoaded = true
+                                    self.tempTune.spotifyUrl = item.spotifyUrl
                                     }
                                 }, label: {
                                     ItemView(item: item)

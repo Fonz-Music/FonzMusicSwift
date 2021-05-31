@@ -25,6 +25,7 @@
 		26AC89BD2665745300E1C41E /* MuseoSans-100.otf in Resources */ = {isa = PBXBuildFile; fileRef = 26AC89B92665745300E1C41E /* MuseoSans-100.otf */; };
 		26AC89BE2665745300E1C41E /* MuseoSans-300.otf in Resources */ = {isa = PBXBuildFile; fileRef = 26AC89BA2665745300E1C41E /* MuseoSans-300.otf */; };
 		26AC89BF2665745300E1C41E /* MuseoSans-700.otf in Resources */ = {isa = PBXBuildFile; fileRef = 26AC89BB2665745300E1C41E /* MuseoSans-700.otf */; };
+		26AC89C12665781B00E1C41E /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AC89C02665781B00E1C41E /* ShareSheet.swift */; };
 		26B65139263844340074F279 /* HostAddCoaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B65138263844340074F279 /* HostAddCoaster.swift */; };
 		26B6513C263845480074F279 /* SuccessAddedCoaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B6513B263845480074F279 /* SuccessAddedCoaster.swift */; };
 		26B65140263846EE0074F279 /* CoasterHasDifferentHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B6513F263846EE0074F279 /* CoasterHasDifferentHost.swift */; };
@@ -86,6 +87,7 @@
 		26AC89B92665745300E1C41E /* MuseoSans-100.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MuseoSans-100.otf"; sourceTree = "<group>"; };
 		26AC89BA2665745300E1C41E /* MuseoSans-300.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MuseoSans-300.otf"; sourceTree = "<group>"; };
 		26AC89BB2665745300E1C41E /* MuseoSans-700.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MuseoSans-700.otf"; sourceTree = "<group>"; };
+		26AC89C02665781B00E1C41E /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
 		26B65138263844340074F279 /* HostAddCoaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostAddCoaster.swift; sourceTree = "<group>"; };
 		26B6513B263845480074F279 /* SuccessAddedCoaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessAddedCoaster.swift; sourceTree = "<group>"; };
 		26B6513F263846EE0074F279 /* CoasterHasDifferentHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoasterHasDifferentHost.swift; sourceTree = "<group>"; };
@@ -100,7 +102,6 @@
 		26B6515F26389D7B0074F279 /* HostCoasterApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostCoasterApi.swift; sourceTree = "<group>"; };
 		26B651632638A0610074F279 /* GlobalExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalExtensions.swift; sourceTree = "<group>"; };
 		26B651662638A1B30074F279 /* HostFonzSessionApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostFonzSessionApi.swift; sourceTree = "<group>"; };
-		26DB9A81263481B10030643D /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Fonts; sourceTree = "<group>"; };
 		26DB9A8B263484110030643D /* HostPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostPage.swift; sourceTree = "<group>"; };
 		26DB9A8E2634980F0030643D /* GuestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestView.swift; sourceTree = "<group>"; };
 		26DB9A91263498390030643D /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
@@ -202,7 +203,6 @@
 				2677029026347ECD00B8BC92 /* FonzMusicSwiftApp.swift */,
 				2677029226347ECD00B8BC92 /* ContentView.swift */,
 				2677029426347ED100B8BC92 /* Assets.xcassets */,
-				26DB9A81263481B10030643D /* Fonts */,
 				26DB9AF62634A2850030643D /* FonzMusicSwift.entitlements */,
 				26DB9AFB2634A4370030643D /* GoogleService-Info.plist */,
 				2677029926347ED100B8BC92 /* Info.plist */,
@@ -223,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				26AC89B32665410C00E1C41E /* ShareOnInstagram.swift */,
+				26AC89C02665781B00E1C41E /* ShareSheet.swift */,
 			);
 			path = ShareOptions;
 			sourceTree = "<group>";
@@ -598,6 +599,7 @@
 				26DB9AD826349B610030643D /* GuestApi.swift in Sources */,
 				26B6513C263845480074F279 /* SuccessAddedCoaster.swift in Sources */,
 				26DB9A8C263484110030643D /* HostPage.swift in Sources */,
+				26AC89C12665781B00E1C41E /* ShareSheet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

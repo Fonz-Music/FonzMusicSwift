@@ -73,13 +73,19 @@ class TracksFromSearch: ObservableObject {
                 // makes request
                 URLSession.shared.dataTask(with: request) { data, response, error in
                     if let dataResp = data {
-
+                        // just to see output
+//                        let jsonData = try? JSONSerialization.jsonObject(with: data!, options: [])
+//                        print(jsonData)
+                        
                         if let decodedResponse = try? JSONDecoder().decode(TracksResult.self, from: dataResp) {
                             // object that will store searchResults
                             var searchResults = [Track]()
                             let tracks = decodedResponse.tracks.items
+                            
                             // goes thru json and extracts important info for track
                             for track in tracks {
+//                                print("\(track.external_urls)")
+                            
                                 let albumArt = track.album.images[0].url
                                 let listArtist = track.artists
                                 var listArtistString = ""
@@ -87,8 +93,9 @@ class TracksFromSearch: ObservableObject {
                                     listArtistString += " " + element.name
                                     
                                 }
+                                let spotifyUrl = track.external_urls.spotify
                                 // compiles all info into one track
-                                let newTrack = Track(songName: track.name, songId: track.id, artistName: listArtistString, albumArt: albumArt)
+                                let newTrack = Track(songName: track.name, songId: track.id, artistName: listArtistString, albumArt: albumArt, spotifyUrl: spotifyUrl)
                                 // appends that onto searchResults array
                                 searchResults.append(newTrack)
                             }
