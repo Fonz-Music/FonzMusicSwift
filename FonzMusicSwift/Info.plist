@@ -18,17 +18,55 @@
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fonz-music</string>
+			</array>
+		</dict>
+	</array>
+	<key>CFBundleUrlTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleUrlName</key>
+			<string>fonz-music.FonzMusicSwift</string>
+			<key>CFBundleUrlSchemes</key>
+			<array/>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>instagram</string>
+		<string>instagram-stories</string>
+		<string>spotify</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-        <string>instagram</string>
-        <string>instagram-stories</string>
-    </array>
 	<key>NFCReaderUsageDescription</key>
 	<string>to get the coaster uid to send to our api</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>spotify.com</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+			</dict>
+		</dict>
+	</dict>
 	<key>UIAppFonts</key>
 	<array>
 		<string>MuseoSans-100.otf</string>

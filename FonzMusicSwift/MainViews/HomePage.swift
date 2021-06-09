@@ -9,6 +9,8 @@ import SwiftUI
 
 struct HomePage: View {
     
+//    @StateObject var spotifyController = SpotifyController()
+    
     // gets object to determine if the page should be updated
 //    @Binding var determineMainPageViewUpdate: UpdatePageViewVariables
 //
@@ -71,17 +73,24 @@ struct HomePage: View {
             }.padding()
             VStack{
                 Spacer()
-                Image("Logo Gradiant").resizable().frame(width: mainLogoHeight * 0.5, height: mainLogoHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+//                Link(destination: URL(string: "spotify://")!, label: {
+//                    Image("Logo Gradiant").resizable().frame(width: mainLogoHeight * 0.5, height: mainLogoHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+//                })
+//                Button(action: {
+//                    @StateObject var spotifyController = SpotifyController()
+//                }, label: {
+                    Image("Logo Gradiant").resizable().frame(width: mainLogoHeight * 0.5, height: mainLogoHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+//                     })
                 Spacer()
             }
         }
-        .onAppear {
-            for family in UIFont.familyNames.sorted() {
-                let names = UIFont.fontNames(forFamilyName: family)
-                print("Family: \(family) Font names: \(names)")
-            }
-
-        }
+//        .onAppear {
+//            for family in UIFont.familyNames.sorted() {
+//                let names = UIFont.fontNames(forFamilyName: family)
+//                print("Family: \(family) Font names: \(names)")
+//            }
+//
+//        }
     }
 }
 

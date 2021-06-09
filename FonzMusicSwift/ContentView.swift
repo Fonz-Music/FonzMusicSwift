@@ -64,12 +64,14 @@ struct MainPage: View {
     var body: some View {
         
         if pageNumber == 0 {
-            #if APPCLIP
-            HostPage()
-            #else
-//            NameCoaster(coasterUid: "045EDE1AE66C80")
-            HostView()
-            #endif
+            
+            HostAddSpotify()
+//            #if APPCLIP
+//            HostPage()
+//            #else
+////            NameCoaster(coasterUid: "045EDE1AE66C80")
+//            HostView()
+//            #endif
 //                .onAppear {
 //                updatePageVars.currentPage = 0
 //            }

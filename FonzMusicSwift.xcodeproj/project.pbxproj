@@ -26,6 +26,7 @@
 		26AC89BE2665745300E1C41E /* MuseoSans-300.otf in Resources */ = {isa = PBXBuildFile; fileRef = 26AC89BA2665745300E1C41E /* MuseoSans-300.otf */; };
 		26AC89BF2665745300E1C41E /* MuseoSans-700.otf in Resources */ = {isa = PBXBuildFile; fileRef = 26AC89BB2665745300E1C41E /* MuseoSans-700.otf */; };
 		26AC89C12665781B00E1C41E /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AC89C02665781B00E1C41E /* ShareSheet.swift */; };
+		26AC89CC2669600500E1C41E /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AC89CB2669600500E1C41E /* AsyncImage.swift */; };
 		26B65139263844340074F279 /* HostAddCoaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B65138263844340074F279 /* HostAddCoaster.swift */; };
 		26B6513C263845480074F279 /* SuccessAddedCoaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B6513B263845480074F279 /* SuccessAddedCoaster.swift */; };
 		26B65140263846EE0074F279 /* CoasterHasDifferentHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B6513F263846EE0074F279 /* CoasterHasDifferentHost.swift */; };
@@ -64,6 +65,8 @@
 		26DB9ADE26349EBB0030643D /* ErrorNotSameCoaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9ADD26349EBB0030643D /* ErrorNotSameCoaster.swift */; };
 		26DB9AFC2634A4370030643D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26DB9AFB2634A4370030643D /* GoogleService-Info.plist */; };
 		26DB9B232634A96B0030643D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9B222634A96B0030643D /* Colors.swift */; };
+		26E8CFDF266D393A00CEB1F6 /* SpotifyiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26E8CFDE266D393A00CEB1F6 /* SpotifyiOS.framework */; };
+		26E8CFE1266D3A0F00CEB1F6 /* SpotifyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E8CFE0266D3A0F00CEB1F6 /* SpotifyController.swift */; };
 		E4595E496192AD1C55E93E1F /* libPods-FonzMusicSwift.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B480C69CB1494108CA6C68C /* libPods-FonzMusicSwift.a */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +91,8 @@
 		26AC89BA2665745300E1C41E /* MuseoSans-300.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MuseoSans-300.otf"; sourceTree = "<group>"; };
 		26AC89BB2665745300E1C41E /* MuseoSans-700.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MuseoSans-700.otf"; sourceTree = "<group>"; };
 		26AC89C02665781B00E1C41E /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
+		26AC89C52666C99600E1C41E /* FonzMusic-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FonzMusic-Bridging-Header.h"; sourceTree = "<group>"; };
+		26AC89CB2669600500E1C41E /* AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
 		26B65138263844340074F279 /* HostAddCoaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostAddCoaster.swift; sourceTree = "<group>"; };
 		26B6513B263845480074F279 /* SuccessAddedCoaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessAddedCoaster.swift; sourceTree = "<group>"; };
 		26B6513F263846EE0074F279 /* CoasterHasDifferentHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoasterHasDifferentHost.swift; sourceTree = "<group>"; };
@@ -127,6 +132,8 @@
 		26DB9AF62634A2850030643D /* FonzMusicSwift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FonzMusicSwift.entitlements; sourceTree = "<group>"; };
 		26DB9AFB2634A4370030643D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		26DB9B222634A96B0030643D /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		26E8CFDE266D393A00CEB1F6 /* SpotifyiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyiOS.framework; sourceTree = "<group>"; };
+		26E8CFE0266D3A0F00CEB1F6 /* SpotifyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotifyController.swift; sourceTree = "<group>"; };
 		4B480C69CB1494108CA6C68C /* libPods-FonzMusicSwift.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FonzMusicSwift.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5045F2117E00BCFEA787D4B1 /* Pods-FonzMusicSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FonzMusicSwift.debug.xcconfig"; path = "Target Support Files/Pods-FonzMusicSwift/Pods-FonzMusicSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		E49150DFE53C30EAB099DB99 /* Pods-FonzMusicSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FonzMusicSwift.release.xcconfig"; path = "Target Support Files/Pods-FonzMusicSwift/Pods-FonzMusicSwift.release.xcconfig"; sourceTree = "<group>"; };
@@ -138,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2634B239264B0B0600BB928B /* Neumorphic in Frameworks */,
+				26E8CFDF266D393A00CEB1F6 /* SpotifyiOS.framework in Frameworks */,
 				E4595E496192AD1C55E93E1F /* libPods-FonzMusicSwift.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -175,6 +183,7 @@
 		2677028426347ECD00B8BC92 = {
 			isa = PBXGroup;
 			children = (
+				26AC89C52666C99600E1C41E /* FonzMusic-Bridging-Header.h */,
 				2677028F26347ECD00B8BC92 /* FonzMusicSwift */,
 				2677028E26347ECD00B8BC92 /* Products */,
 				3388F0F5BB427393EA39D144 /* Pods */,
@@ -205,6 +214,7 @@
 				2677029426347ED100B8BC92 /* Assets.xcassets */,
 				26DB9AF62634A2850030643D /* FonzMusicSwift.entitlements */,
 				26DB9AFB2634A4370030643D /* GoogleService-Info.plist */,
+				26E8CFE0266D3A0F00CEB1F6 /* SpotifyController.swift */,
 				2677029926347ED100B8BC92 /* Info.plist */,
 				2677029626347ED100B8BC92 /* Preview Content */,
 			);
@@ -254,6 +264,7 @@
 				26B6514F263866BE0074F279 /* GlobalTrack.swift */,
 				26B65152263866E20074F279 /* UpdatePageviewVars.swift */,
 				26B651552638671D0074F279 /* Track.swift */,
+				26AC89CB2669600500E1C41E /* AsyncImage.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -440,6 +451,7 @@
 		674F8D2472614C8E34995D41 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				26E8CFDE266D393A00CEB1F6 /* SpotifyiOS.framework */,
 				4B480C69CB1494108CA6C68C /* libPods-FonzMusicSwift.a */,
 			);
 			name = Frameworks;
@@ -581,6 +593,7 @@
 				26DB9AB1263499710030643D /* ErrorNotFonzCoaster.swift in Sources */,
 				26DB9ABA263499F00030643D /* SearchBarNoSuggestions.swift in Sources */,
 				2609AD53263DB80400337A02 /* HostAddSpotify.swift in Sources */,
+				26AC89CC2669600500E1C41E /* AsyncImage.swift in Sources */,
 				26659BBF263B6B4D0008FD1F /* ManageCoasterView.swift in Sources */,
 				26B65159263868E30074F279 /* HostView.swift in Sources */,
 				26659BC4263BA36B0008FD1F /* LaunchConnectCoasterNfc.swift in Sources */,
@@ -599,6 +612,7 @@
 				26DB9AD826349B610030643D /* GuestApi.swift in Sources */,
 				26B6513C263845480074F279 /* SuccessAddedCoaster.swift in Sources */,
 				26DB9A8C263484110030643D /* HostPage.swift in Sources */,
+				26E8CFE1266D3A0F00CEB1F6 /* SpotifyController.swift in Sources */,
 				26AC89C12665781B00E1C41E /* ShareSheet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -733,6 +747,12 @@
 				DEVELOPMENT_ASSET_PATHS = "\"FonzMusicSwift/Preview Content\"";
 				DEVELOPMENT_TEAM = VW76JQGB68;
 				ENABLE_PREVIEWS = YES;
+				EXCLUDED_ARCHS = "";
+				"EXCLUDED_ARCHS[sdk=*]" = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = FonzMusicSwift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -741,8 +761,10 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "fonz-music.FonzMusicSwift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FonzMusic-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Debug;
 		};
@@ -757,6 +779,11 @@
 				DEVELOPMENT_ASSET_PATHS = "\"FonzMusicSwift/Preview Content\"";
 				DEVELOPMENT_TEAM = VW76JQGB68;
 				ENABLE_PREVIEWS = YES;
+				EXCLUDED_ARCHS = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = FonzMusicSwift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -765,8 +792,10 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "fonz-music.FonzMusicSwift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FonzMusic-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Release;
 		};

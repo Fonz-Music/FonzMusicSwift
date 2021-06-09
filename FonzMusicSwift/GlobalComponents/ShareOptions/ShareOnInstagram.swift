@@ -11,8 +11,6 @@ import SwiftUI
 
 func ShareImageOnInstagram(imageUrl:String, songTitle:String, artistName:String) {
     
-    
-    
     let urlScheme = URL(string: "instagram-stories://share")
     
     
