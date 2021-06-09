@@ -10,16 +10,16 @@ import Combine
 
 class SpotifyController: NSObject, ObservableObject, SPTSessionManagerDelegate {
     
-    
+    // our client id
     let spotifyClientID = "f0973699a0ef4a44b444027ea5c54daf"
+    // our redirect url
     let spotifyRedirectURL = URL(string:"fonz-music://spotify-login-callback")!
-    
+    // need to set to defauly
     var accessToken: String? = nil
-    
+    // set as any song
     var playURI = "3KapR70eIR6Zm3kJfG4oB3?si=a1f50289d0694473"
     
     private var connectCancellable: AnyCancellable?
-    
     private var disconnectCancellable: AnyCancellable?
     
     //remove scopes you don't need
@@ -29,8 +29,9 @@ class SpotifyController: NSObject, ObservableObject, SPTSessionManagerDelegate {
     .playlistReadCollaborative, .playlistModifyPublic, .playlistReadPrivate, .playlistModifyPrivate,
     .userLibraryModify, .userLibraryRead,
     .userTopRead, .userReadPlaybackState, .userReadCurrentlyPlaying,
-    .userFollowRead, .userFollowModify,]//remove scopes you don't need
+    .userFollowRead, .userFollowModify,]
     
+    //remove scopes you don't need
     let stringScopes = ["user-read-email", "user-read-private",
     "user-read-playback-state", "user-modify-playback-state", "user-read-currently-playing",
     "streaming", "app-remote-control",
@@ -83,49 +84,44 @@ class SpotifyController: NSObject, ObservableObject, SPTSessionManagerDelegate {
     lazy var appRemote: SPTAppRemote = {
         print("creating remote ")
         let appRemote = SPTAppRemote(configuration: configuration, logLevel: .debug)
-//        print("remote is \(appRemote)")
-        print("connection patams are \(String(describing: appRemote.connectionParameters.accessToken))")
         appRemote.connectionParameters.accessToken = self.accessToken
         appRemote.delegate = self
-        
-        
-        
         return appRemote
     }()
     
-    func setAccessToken(from url: URL) {
-        let parameters = appRemote.authorizationParameters(from: url)
-//        print("parameters are \(parameters)" )
-        print("seting tokens ")
-        
-        if let accessToken = parameters?[SPTAppRemoteAccessTokenKey] {
-            appRemote.connectionParameters.accessToken = accessToken
-//            appRemote.connectionParameters.
-            print("got token")
-            print("access token is \(accessToken)")
-            
-            self.accessToken = accessToken
-        } else if let errorDescription = parameters?[SPTAppRemoteErrorDescriptionKey] {
-            print(errorDescription)
-        }
-        
-    }
+    // do not need
+//    func setAccessToken(from url: URL) {
+//        let parameters = appRemote.authorizationParameters(from: url)
+//        print("seting tokens ")
+//
+//        if let accessToken = parameters?[SPTAppRemoteAccessTokenKey] {
+//            appRemote.connectionParameters.accessToken = accessToken
+//            print("access token is \(accessToken)")
+//
+//            self.accessToken = accessToken
+//        } else if let errorDescription = parameters?[SPTAppRemoteErrorDescriptionKey] {
+//            print(errorDescription)
+//        }
+//
+//    }
     
-    func connect() {
-        guard let _ = self.appRemote.connectionParameters.accessToken else {
-            print("connecting ")
-            self.appRemote.authorizeAndPlayURI("")
-            return
-        }
-        
-        appRemote.connect()
-    }
+    // do not need
+//    func connect() {
+//        guard let _ = self.appRemote.connectionParameters.accessToken else {
+//            print("connecting ")
+//            self.appRemote.authorizeAndPlayURI("")
+//            return
+//        }
+//
+//        appRemote.connect()
+//    }
     
-    func disconnect() {
-        if appRemote.isConnected {
-            appRemote.disconnect()
-        }
-    }
+    // do not need
+//    func disconnect() {
+//        if appRemote.isConnected {
+//            appRemote.disconnect()
+//        }
+//    }
 }
 
 extension SpotifyController: SPTAppRemoteDelegate {
@@ -149,13 +145,6 @@ extension SpotifyController: SPTAppRemoteDelegate {
         print("disconnected")
     }
 }
-
-//extension SpotifyController: SPTAppRemotePlayerStateDelegate {
-//    func playerStateDidChange(_ playerState: SPTAppRemotePlayerState) {
-//        debugPrint("Track name: %@", playerState.track.name)
-//    }
-//
-//}
 
 extension SpotifyController: SPTAppRemotePlayerStateDelegate {
     func playerStateDidChange(_ playerState: SPTAppRemotePlayerState) {

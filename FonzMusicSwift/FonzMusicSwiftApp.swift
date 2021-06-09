@@ -44,19 +44,20 @@ struct FonzMusicSwiftApp: App {
         WindowGroup {
             ContentView()
                 .onOpenURL { url in
-//                    if url.absoluteString.contains("spotify") {
-//                    let authCode: String
+                    // get params from return val
                     let parameters = spotifyController.appRemote.authorizationParameters(from: url)
+                    // set the auth code from the params
                     if let code = parameters?["code"] {
                         print("there is a code")
                         authCode = code
                     }
                     print("this is the code \(authCode)")
                     
-                    print("this is called")
-                    print("the url is \(url)")
-//                    @StateObject var spotifyController = SpotifyController()
-                    spotifyController.setAccessToken(from: url)
+                    // send auth code to api
+//                    let resp = SpotifySignInApi().sendAuthCodeToSpotify(authCode: authCode)
+
+//                    print("the resp is \(resp)")
+                    
                     }
 //                }
 //                .onReceive(NotificationCenter.default.publisher(for: UIApplication.didFinishLaunchingNotification), perform: { _ in
