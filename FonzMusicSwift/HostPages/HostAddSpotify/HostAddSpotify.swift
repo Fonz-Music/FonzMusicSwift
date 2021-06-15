@@ -30,8 +30,23 @@ struct HostAddSpotify: View {
                 Button(action: {
                     let sessionManager = spotifyController.sessionManager
                     if #available(iOS 11, *) {
+                        spotifyController.fetchSpotifyCode(completion: { (dictionary, error) in
+                            if let error = error {
+                                print("Fetching token request error \(error)")
+                                return
+                            }
+                            else {
+                                print("got something")
+                            }
+//                            let accessToken = dictionary!["access_token"] as! String
+//                            DispatchQueue.main.async {
+//                                self.appRemote.connectionParameters.accessToken = accessToken
+//                                self.appRemote.connect()
+//                            }
+                        })
                           // Use this on iOS 11 and above to take advantage of SFAuthenticationSession
-                        sessionManager!.initiateSession(with: spotifyController.scopes, options: .clientOnly)
+//                        sessionManager!.initiateSession(with: spotifyController.scopes, options: .default)
+//                        print("session is \(sessionManager?.session)" )
                         } else {
                           // Use this on iOS versions < 11 to use SFSafariViewController
 //                            sessionManager.initiateSession(with: spotifyController.scopes, options: .clientOnly, presenting: self)

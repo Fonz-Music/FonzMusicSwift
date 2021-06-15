@@ -60,11 +60,13 @@ struct MainPage: View {
     @State var updatePageVars:UpdatePageViewVariables
     
     @Binding var currentPageIndex: Int
+    
+    
 
     var body: some View {
         
+        
         if pageNumber == 0 {
-            
             HostAddSpotify()
 //            #if APPCLIP
 //            HostPage()
@@ -80,8 +82,6 @@ struct MainPage: View {
             GuestView(hasHost: $hasHost, queuesUsed: $numberOfQueus)
         }
         else {
-//            HomePage(determineMainPageViewUpdate: $updatePageVars, updatePageBool: updatePageBool, currentPageIndex: $currentPageIndex)
-//            }
             HomePage(currentPageIndex: $currentPageIndex)
             }
             
