@@ -20,12 +20,26 @@ struct ContentView: View {
     // sets launch page to queue route
     @State var MainPageActive = 1
     
+    @State var selectedTab = 2
+    
+    init() {
+//        UITabBar.appearance().backgroundColor = .white
+    }
+    
     // main app
     var body: some View {
-        VStack {
-            MainContainerView([0, 1, 2], determineIfMainViewShouldReload, updatePage: updatePageVar, currentPageIndex: $MainPageActive).environmentObject(determineIfMainViewShouldReload)
-        }
-        .ignoresSafeArea()
+        
+        TabView(selection: $selectedTab) {
+            HostView().tabItem {
+                Label("host", systemImage: "menubar.rectangle")
+            }.tag(1)
+            SearchTab().tabItem {
+                Label("host", systemImage: "magnifyingglass")
+            }.tag(2)
+            SettingsPage().tabItem {
+                Label("host", systemImage: "gear")
+            }.tag(3)
+        }.accentColor(.amber)
     }
 }
 
@@ -66,17 +80,11 @@ struct MainPage: View {
     var body: some View {
         
         
+
+
+        
         if pageNumber == 0 {
             HostAddSpotify()
-//            #if APPCLIP
-//            HostPage()
-//            #else
-////            NameCoaster(coasterUid: "045EDE1AE66C80")
-//            HostView()
-//            #endif
-//                .onAppear {
-//                updatePageVars.currentPage = 0
-//            }
         }
         else if pageNumber == 2 || hasHost {
             GuestView(hasHost: $hasHost, queuesUsed: $numberOfQueus)
