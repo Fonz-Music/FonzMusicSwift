@@ -23,8 +23,6 @@ struct JoinParty: View {
 // ---------------------------------- created in view -----------------------------------------------
     // bool auto set to false, set to true if nfc is launched
     @State var launchedNfc = false
-    // bool auto set to false, set to true if coaster has a host
-    @State var coasterHasHost = false
     // temp Coaster Object so that page does not update BEFORE showing success page
     @State var tempCoasterDetails = HostCoasterInfo()
     // local var that is returned by nfc prompt when getting host from API
@@ -84,7 +82,7 @@ struct JoinParty: View {
 //                            Image("tapOneWhite").resizable()
 //                                .frame(width: imageHeight * 0.8, height: imageHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                             // nfc prompt auto launches, shows tapIcon incase error on launch
-                            LaunchJoinPartyNfcSession(tempCoaster: $tempCoasterDetails, launchedNfc: $launchedNfc, statusCode: $statusCodeResp, guestPageNumber: $guestPageNumber)
+//                            LaunchJoinPartyNfcSession(tempCoaster: $tempCoasterDetails, launchedNfc: $launchedNfc, statusCode: $statusCodeResp, guestPageNumber: $guestPageNumber)
                                 .padding(.bottom, 400).frame(minWidth: 50, maxHeight: 100)
                             Spacer()
                         }

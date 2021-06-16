@@ -14,6 +14,8 @@ struct SearchBar: View {
     // hostCoaster details passed in and will update view when changed
     @ObservedObject var hostCoaster:HostCoasterInfo
     
+    @Binding var hasHostVar : Bool
+    
 // ---------------------------------- created inside view -------------------------------------------
     // checks to see if currently typing in searchbar
     @State private var isEditing = false
@@ -28,10 +30,32 @@ struct SearchBar: View {
     let layout = [
             GridItem(.flexible())
         ]
+    @Environment(\.colorScheme) var colorScheme
     
         var body: some View {
             
             VStack {
+                HStack {
+                    Text("search")
+                        .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
+                        .fonzParagraphOne()
+                        .padding()
+                        .frame(width: UIScreen.screenWidth * 0.5, height: 50, alignment: .topLeading)
+                        .padding(.top, 40)
+                        .padding(.bottom, 20)
+                    Button {
+                        hasHostVar = false
+                    } label: {
+                        Text("leave party").fonzParagraphOne()
+                            .padding()
+                            .frame(width: UIScreen.screenWidth * 0.5, height: 50, alignment: .topTrailing)
+                            .padding(.top, 40)
+                            .padding(.bottom, 20)
+                    }
+                    
+
+
+                }
                 // search bar & results
                 HStack {
                     // search bar
@@ -77,7 +101,7 @@ struct SearchBar: View {
                         .animation(.easeOut)
                     }
                     Spacer()
-                }.padding(.vertical, 10)
+                }.padding(.vertical, 30)
                 .padding(.horizontal, 20)
                 
                 // list view from searching song

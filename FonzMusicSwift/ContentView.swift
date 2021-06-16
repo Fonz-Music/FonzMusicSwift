@@ -12,20 +12,9 @@ class UpdateMainPageView: ObservableObject {
 }
 
 struct ContentView: View {
-    // inits the object that determines if the Main PageView should update
-    @State var determineIfMainViewShouldReload = UpdatePageViewVariables()
-    // variable that when altered, updates the entire app to update current page
-    @ObservedObject var updatePageVar = UpdateMainPageView()
-    
-    // sets launch page to queue route
-    @State var MainPageActive = 1
     
     @State var selectedTab = 2
-    
-    init() {
-//        UITabBar.appearance().backgroundColor = .white
-    }
-    
+
     // main app
     var body: some View {
         
@@ -34,10 +23,10 @@ struct ContentView: View {
                 Label("host", systemImage: "menubar.rectangle")
             }.tag(1)
             SearchTab().tabItem {
-                Label("host", systemImage: "magnifyingglass")
+                Label("search", systemImage: "magnifyingglass")
             }.tag(2)
             SettingsPage().tabItem {
-                Label("host", systemImage: "gear")
+                Label("settings", systemImage: "gear")
             }.tag(3)
         }.accentColor(.amber)
     }
@@ -240,6 +229,14 @@ struct FonzParagraphTwo: ViewModifier {
             .padding(.horizontal)
     }
 }
+struct FonzAmberButtonText: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(Font.custom("MuseoSans-100", size: 12))
+            .foregroundColor(Color.amber)
+            
+    }
+}
 
 // extension so fonts can be used as modifiers
 extension View {
@@ -254,6 +251,9 @@ extension View {
     }
     func fonzParagraphTwo() -> some View {
         self.modifier(FonzParagraphTwo())
+    }
+    func fonzAmberButtonText() -> some View {
+        self.modifier(FonzAmberButtonText())
     }
     
 }

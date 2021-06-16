@@ -22,7 +22,7 @@ extension UIButton {
 
 struct LaunchJoinPartyNfcSession: UIViewRepresentable {
     func makeCoordinator() -> LaunchJoinPartyNfcSession.Coordinator {
-        return Coordinator(launchedNfc: $launchedNfc, tempCoaster: $tempCoaster, statusCode: $statusCode)
+        return Coordinator(launchedNfc: $launchedNfc, tempCoaster: $tempCoaster, statusCode: $statusCode, pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc)
     }
 
     
@@ -32,26 +32,26 @@ struct LaunchJoinPartyNfcSession: UIViewRepresentable {
     @Binding var launchedNfc:Bool
     // takes in status code to return to parent
     @Binding var statusCode:Int
-    // takes in active page so that the nfc doenst launch by accident
-    @Binding var guestPageNumber:Int
-
+    // boolean on whether the button has been pressed
+    @Binding var pressedButtonToLaunchNfc:Bool
 
     func makeUIView(context: UIViewRepresentableContext<LaunchJoinPartyNfcSession>) -> UIButton {
         
+        
         // creates nfcTap icon that can be pressed to launch the nfc as well
         let tapButton = UIButton()
-//        tapButton.isHidden = true
-        tapButton.setImage(UIImage(named: "tapOne"), for: .normal)
-        tapButton.imageView?.contentMode = .scaleAspectFit
-        tapButton.imageEdgeInsets = UIEdgeInsets(top: 10, left: 120, bottom: 120, right: 120)
-        tapButton.addTarget(context.coordinator, action: #selector(context.coordinator.beginNfcScan(_:)), for: .touchUpInside)
-        // prevents the nfc from launching on other pages when the app is loaded
-        if (guestPageNumber == 0) {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+        tapButton.isHidden = true
+//        tapButton.setImage(UIImage(named: "tapOne"), for: .normal)
+//        tapButton.imageView?.contentMode = .scaleAspectFit
+//        tapButton.imageEdgeInsets = UIEdgeInsets(top: 10, left: 120, bottom: 120, right: 120)
+//        tapButton.addTarget(context.coordinator, action: #selector(context.coordinator.beginNfcScan(_:)), for: .touchUpInside)
+//        // prevents the nfc from launching on other pages when the app is loaded
+//        if (guestPageNumber == 0) {
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                 print("launching nfc scan ")
                 context.coordinator.launchNfcScanWithoutButton()
-            }
-        }
+//            }
+//        }
         return tapButton
     }
 
@@ -68,18 +68,21 @@ struct LaunchJoinPartyNfcSession: UIViewRepresentable {
         @Binding var launchedNfc:Bool
         // takes in status code to return to parent
         @Binding var statusCode:Int
-
+        // boolean on whether the button has been pressed
+        @Binding var pressedButtonToLaunchNfc:Bool
 
         var session: NFCTagReaderSession?
 
         init(
              launchedNfc: Binding<Bool>,
              tempCoaster: Binding<HostCoasterInfo>,
-             statusCode: Binding<Int>) {
+             statusCode: Binding<Int>,
+             pressedButtonToLaunchNfc: Binding<Bool>) {
 
             _launchedNfc = launchedNfc
             _tempCoaster = tempCoaster
             _statusCode = statusCode
+            _pressedButtonToLaunchNfc = pressedButtonToLaunchNfc
         }
 
 
@@ -87,7 +90,7 @@ struct LaunchJoinPartyNfcSession: UIViewRepresentable {
         @objc func beginNfcScan(_ sender: Any) {
             self.session = NFCTagReaderSession(pollingOption: .iso14443, delegate: self)
             // this createss nfc alert
-            self.session?.alertMessage = "scan the Fonz Coaster"
+            self.session?.alertMessage = "Tap the Fonz Coaster"
             print("beginning scan on join party")
             // this begins the alert
             self.session?.begin()
@@ -96,7 +99,7 @@ struct LaunchJoinPartyNfcSession: UIViewRepresentable {
         func launchNfcScanWithoutButton() {
             self.session = NFCTagReaderSession(pollingOption: .iso14443, delegate: self)
             // this createss nfc alert
-            self.session?.alertMessage = "scan the Fonz Coaster"
+            self.session?.alertMessage = "Tap the Fonz Coaster"
             print("beginning scan on join party")
             // this begins the alert
             self.session?.begin()
@@ -105,12 +108,14 @@ struct LaunchJoinPartyNfcSession: UIViewRepresentable {
         func tagReaderSessionDidBecomeActive(_ session: NFCTagReaderSession) {
             print("session begun")
             
+            
         }
 
         func tagReaderSession(_ session: NFCTagReaderSession, didInvalidateWithError error: Error) {
             print(Error.self)
             session.invalidate()
             self.launchedNfc = true
+            self.pressedButtonToLaunchNfc = false
         }
 
         // runs when function read is valid
@@ -122,6 +127,7 @@ struct LaunchJoinPartyNfcSession: UIViewRepresentable {
                 session.alertMessage = "more than one tag detected, please try again"
                 statusCode = 0
                 self.launchedNfc = true
+                self.pressedButtonToLaunchNfc = false
                 session.invalidate()
             }
             // code after coaster scanned
@@ -131,6 +137,7 @@ struct LaunchJoinPartyNfcSession: UIViewRepresentable {
                     session.invalidate(errorMessage: "connection failed")
                     self.launchedNfc = true
                     self.statusCode = 0
+                    self.pressedButtonToLaunchNfc = false
                 }
                 if case let NFCTag.miFare(sTag) = tags.first! {
 
@@ -157,6 +164,7 @@ struct LaunchJoinPartyNfcSession: UIViewRepresentable {
                         self.tempCoaster.sessionId = coasterDetails.sessionId
                         self.tempCoaster.uid = UID
                         self.statusCode = coasterDetails.statusCode!
+                        self.pressedButtonToLaunchNfc = false
                     }
                 }
             }

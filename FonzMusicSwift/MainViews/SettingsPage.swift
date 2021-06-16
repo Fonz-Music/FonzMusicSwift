@@ -8,8 +8,131 @@
 import SwiftUI
 
 struct SettingsPage: View {
+    
+    @Environment(\.colorScheme) var colorScheme
+    let sideGraphicHeight = UIScreen.screenHeight * 0.04
+    
     var body: some View {
-        Text("settings page").fonzHeading()
+        ZStack{
+            
+            VStack{
+                
+                Text("settings").foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white).fonzParagraphOne()
+                    .padding()
+                    .frame(width: UIScreen.screenWidth, height: 50, alignment: .topLeading)
+                    .padding(.top, 40)
+                    .padding(.bottom, 20)
+   
+                
+                Button(action: {
+//                    pressedButtonToLaunchNfc = true
+                    print("pressed button")
+                }, label: {
+                    HStack {
+                        HStack(spacing: 5) {
+                            Image("coasterIcon").resizable().frame(width: 30 ,height: 30, alignment: .leading)
+                                
+                            Text("change your name").foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white).fonzParagraphTwo()
+                        }
+                        Spacer()
+                    }.frame(width: UIScreen.screenWidth * 0.8, height: 20)
+                    
+                })
+                .buttonStyle(NeumorphicButtonStyle(bgColor: colorScheme == .light ? Color.white: Color.darkButton))
+                Button(action: {
+//                    pressedButtonToLaunchNfc = true
+                    print("pressed button")
+                }, label: {
+                    HStack {
+                        HStack(spacing: 5) {
+                            Image("coasterIcon").resizable().frame(width: 30 ,height: 30, alignment: .leading)
+                                
+                            Text("buy a coaster").foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white).fonzParagraphTwo()
+                        }
+                        Spacer()
+                    }.frame(width: UIScreen.screenWidth * 0.8, height: 20)
+                    
+                })
+                
+                .buttonStyle(NeumorphicButtonStyle(bgColor: colorScheme == .light ? Color.white: Color.darkButton))
+                Button(action: {
+//                    pressedButtonToLaunchNfc = true
+                    print("pressed button")
+                }, label: {
+                    HStack {
+                        HStack(spacing: 5) {
+                            Image("spotifyIcon").resizable().frame(width: 30 ,height: 30, alignment: .leading)
+                                
+                            Text("spotify account").foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white).fonzParagraphTwo()
+                        }
+                        Spacer()
+                    }.frame(width: UIScreen.screenWidth * 0.8, height: 20)
+                    
+                }).buttonStyle(NeumorphicButtonStyle(bgColor: colorScheme == .light ? Color.white: Color.darkButton))
+                
+                Button(action: {
+//                    pressedButtonToLaunchNfc = true
+                    print("pressed button")
+                }, label: {
+                    HStack {
+                        HStack(spacing: 5) {
+                            Image("disableIcon").resizable().frame(width: 30 ,height: 30, alignment: .leading)
+                                
+                            Text("sign out").foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white).fonzParagraphTwo()
+                        }
+                        Spacer()
+                    }.frame(width: UIScreen.screenWidth * 0.8, height: 20)
+                    
+                }).buttonStyle(NeumorphicButtonStyle(bgColor: colorScheme == .light ? Color.white: Color.darkButton))
+                
+                ZStack {
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill( colorScheme == .light ? Color.white: Color.darkButton)
+                    VStack(spacing: 10){
+                        Text("how many song requests can your guests make?").multilineTextAlignment(.center)
+                            .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
+                            .fonzParagraphTwo()
+                        
+                        HStack(spacing: 5){
+                           
+                            Button(action: {
+                                
+                            }, label: {
+                                VStack {
+                                    Text("a few").fonzAmberButtonText()
+                                }.frame(width: 60)
+                            }).buttonStyle(NeumorphicButtonStyle(bgColor: colorScheme == .light ? Color.white: Color.darkButton))
+                            
+                            
+                            Button(action: {
+                                
+                            }, label: {
+                                VStack {
+                                    Text("a lot").fonzAmberButtonText()
+                                }.frame(width: 60)
+                            }).buttonStyle(NeumorphicButtonStyle(bgColor: colorScheme == .light ? Color.white: Color.darkButton))
+                            
+                            Button(action: {
+                                
+                            }, label: {
+                                VStack {
+                                    Text("unlimited").fonzAmberButtonText()
+                                }.frame(width: 60)
+                            }).buttonStyle(NeumorphicButtonStyle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, selectedOption: true))
+                            
+                        }
+                    }
+                }.frame(width: UIScreen.screenWidth * 0.9, height: 150)
+                
+                Spacer()
+            }
+        }
+        .background(
+            Image("mountainProfile")
+                .opacity(0.5)
+                .frame(maxWidth: UIScreen.screenWidth), alignment: .bottom)
+            
+        .ignoresSafeArea()
     }
 }
 

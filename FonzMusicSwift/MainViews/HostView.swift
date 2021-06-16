@@ -53,18 +53,34 @@ struct HostPages: View {
     // object that stores the songs from the api
     @ObservedObject var hostCoasterList: CoastersFromApi = CoastersFromApi()
     
+    @Environment(\.colorScheme) var colorScheme
+    
     var body: some View {
         
         ZStack {
-        // song search
-        if hostPage == 1 {
-            HostAddCoaster(determineHostViewUpdate: $updatePageVars, hostPageNumber: $currentHostPageIndex, hostCoasterList: hostCoasterList)
+            VStack{
+                ZStack {
+                    Text("host")
+                        .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
+                        
+                        .fonzParagraphOne()
+                        .padding()
+                        .frame(width: UIScreen.screenWidth, height: 50, alignment: .topLeading)
+                        .padding(.top, 40)
+                }.background(Color.amber)
+                // song search
+                if hostPage == 1 {
+                    HostAddCoaster(determineHostViewUpdate: $updatePageVars, hostPageNumber: $currentHostPageIndex, hostCoasterList: hostCoasterList)
+                }
+                // Page that prompts user to tap NFC
+                else {
+                    CoasterDashboard(determineHostViewUpdate: $updatePageVars, hostPageNumber: $currentHostPageIndex, hostCoasterList: hostCoasterList)
+                }
+            }
+        
         }
-        // Page that prompts user to tap NFC
-        else {
-            CoasterDashboard(determineHostViewUpdate: $updatePageVars, hostPageNumber: $currentHostPageIndex, hostCoasterList: hostCoasterList)
-        }
-        }.onAppear {
+        .ignoresSafeArea()
+        .onAppear {
             hostCoasterList.firstTimeLoadCoasters()
 //            hostCoasterList.reloadCoasters()
             print("reloaded")

@@ -48,25 +48,5 @@ struct HostPage_Previews: PreviewProvider {
     }
 }
 
-struct NeumorphicButtonStyle: ButtonStyle {
-    var bgColor: Color
 
-    func makeBody(configuration: Self.Configuration) -> some View {
-        configuration.label
-            .padding(20)
-            .background(
-                ZStack {
-                    RoundedRectangle(cornerRadius: 10, style: .continuous)
-                        .shadow(color: Color(red: 209 / 255, green: 209 / 255, blue: 214 / 255), radius: configuration.isPressed ? 5: 5, x: configuration.isPressed ? -5: -5, y: configuration.isPressed ? -5: -5)
-                        .shadow(color: Color(red: 72 / 255, green: 72 / 255, blue: 74 / 255), radius: configuration.isPressed ? 5: 5, x: configuration.isPressed ? 5: 5, y: configuration.isPressed ? 5: 5)
-                        .blendMode(.overlay)
-                    RoundedRectangle(cornerRadius: 10, style: .continuous)
-                        .fill(bgColor)
-                }
-        )
-            .scaleEffect(configuration.isPressed ? 0.95: 1)
-//            .foregroundColor(Color(red: 235 / 255, green: 139 / 255, blue: 55 / 255))
-            .foregroundColor(bgColor)
-            .animation(.spring())
-    }
-}
+

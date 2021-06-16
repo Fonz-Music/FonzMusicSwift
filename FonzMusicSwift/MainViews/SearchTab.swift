@@ -10,20 +10,15 @@ import SwiftUI
 struct SearchTab: View {
     
     @State var hasHost = false
-    var hostCoaster = HostCoasterInfo()
+    @State var hostCoaster = HostCoasterInfo()
+   
     
     var body: some View {
         if hasHost {
-            SearchBar(hostCoaster: hostCoaster)
+            SearchBar(hostCoaster: hostCoaster, hasHostVar: $hasHost)
         }
         else {
-            HomePageDecision()
+            HomePageDecision(hostCoaster: hostCoaster, hasHostVar: $hasHost)
         }
-    }
-}
-
-struct SearchTab_Previews: PreviewProvider {
-    static var previews: some View {
-        SearchTab()
     }
 }
