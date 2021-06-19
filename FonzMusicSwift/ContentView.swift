@@ -19,10 +19,13 @@ struct ContentView: View {
     var body: some View {
         
         TabView(selection: $selectedTab) {
-            HostView().tabItem {
+//            HostView().tabItem {
+//                Label("host", systemImage: "menubar.rectangle")
+//            }.tag(1)
+            HostTab().tabItem {
                 Label("host", systemImage: "menubar.rectangle")
             }.tag(1)
-            SearchTab().tabItem {
+            SearchTab(selectedTab: $selectedTab).tabItem {
                 Label("search", systemImage: "magnifyingglass")
             }.tag(2)
             SettingsPage().tabItem {
@@ -218,7 +221,7 @@ struct FonzParagraphOne: ViewModifier {
             .font(Font.custom("MuseoSans-300", size: 24))
             .foregroundColor(Color(.systemGray5))
             .multilineTextAlignment(.center)
-            .padding(.horizontal)
+//            .padding(.horizontal)
     }
 }
 struct FonzParagraphTwo: ViewModifier {
@@ -226,7 +229,13 @@ struct FonzParagraphTwo: ViewModifier {
         content
             .font(Font.custom("MuseoSans-300", size: 18))
             .foregroundColor(Color(.systemGray5))
-            .padding(.horizontal)
+//            .padding(.horizontal)
+    }
+}
+struct FonzParagraphThree: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(Font.custom("MuseoSans-100", size: 12))
     }
 }
 struct FonzAmberButtonText: ViewModifier {
@@ -251,6 +260,9 @@ extension View {
     }
     func fonzParagraphTwo() -> some View {
         self.modifier(FonzParagraphTwo())
+    }
+    func fonzParagraphThree() -> some View {
+        self.modifier(FonzParagraphThree())
     }
     func fonzAmberButtonText() -> some View {
         self.modifier(FonzAmberButtonText())

@@ -46,7 +46,7 @@ struct NameCoaster: View {
                     coasterFromSearch.reloadCoasters()
                 } label: {
                     Text("enter").fonzSubheading()
-                }.buttonStyle(NeumorphicButtonStyle(bgColor: .amber)).padding()
+                }.buttonStyle(NeumorphicButtonStyle(bgColor: .amber, secondaryColor: .white)).padding()
 
                 
                 Spacer()

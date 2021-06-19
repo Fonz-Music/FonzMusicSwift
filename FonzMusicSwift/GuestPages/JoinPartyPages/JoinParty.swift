@@ -55,7 +55,7 @@ struct JoinParty: View {
                                     Text("connect to a new host").fonzSubheading()
                                 })
 //                                .softButtonStyle(RoundedRectangle(cornerRadius: 20), pressedEffect: .flat)
-                                .buttonStyle(NeumorphicButtonStyle(bgColor: .lilac))
+                                .buttonStyle(NeumorphicButtonStyle(bgColor: .lilac, secondaryColor: .white))
                                 .padding(.top, 100)
                                 .padding(.bottom, 50)
                                 // if that button is pressed, the nfc is launched
@@ -133,7 +133,7 @@ struct JoinParty: View {
                                 print("pressed button")
                             }, label: {
                                 Text("connect again").fonzSubheading()
-                            }).buttonStyle(NeumorphicButtonStyle(bgColor: .lilac)).padding(.vertical, 100)
+                            }).buttonStyle(NeumorphicButtonStyle(bgColor: .lilac, secondaryColor: .white)).padding(.vertical, 100)
                             // if they press the button, this launches the nfc prompt
                             if pressedButtonToLaunchNfc {
                                 ShowNfcTryAgainButton(tempCoaster: $tempCoasterDetails, launchedNfc: $launchedNfc, statusCode: $statusCodeResp, pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc).frame(maxWidth: 0, maxHeight: 0, alignment: .center)

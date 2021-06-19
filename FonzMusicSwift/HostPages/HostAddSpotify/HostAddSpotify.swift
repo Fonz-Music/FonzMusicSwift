@@ -56,7 +56,7 @@ struct HostAddSpotify: View {
                 }, label: {
                     Text("add your Spotify").fonzSubheading()
                 })
-                .buttonStyle(NeumorphicButtonStyle(bgColor: .amber))
+                .buttonStyle(NeumorphicButtonStyle(bgColor: .amber, secondaryColor: .white))
                 .padding(.top, 100)
                 .padding(.bottom, 50)
                 Spacer()

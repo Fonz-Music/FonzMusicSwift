@@ -29,7 +29,7 @@ struct HostPage: View {
                 label: {
                     Text("take me there")
                         .fonzSubheading()
-                }).buttonStyle(NeumorphicButtonStyle(bgColor: .amber))
+                }).buttonStyle(NeumorphicButtonStyle(bgColor: .amber, secondaryColor: .white))
                 Spacer()
                 Text("App Store Overlay")
                         .hidden()

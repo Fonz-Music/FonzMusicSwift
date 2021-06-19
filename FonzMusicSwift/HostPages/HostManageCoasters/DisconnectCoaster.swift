@@ -38,7 +38,7 @@ struct DisconnectCoaster: View {
                         Text("yes")
                             .fonzSubheading()
                     })
-                    .buttonStyle(NeumorphicButtonStyle(bgColor: .amber))
+                    .buttonStyle(NeumorphicButtonStyle(bgColor: .amber, secondaryColor: .white))
                     .padding()
                     
                     Button(action: {
@@ -48,7 +48,7 @@ struct DisconnectCoaster: View {
                         Text("no")
                             .fonzSubheading()
                     })
-                    .buttonStyle(NeumorphicButtonStyle(bgColor: .amber))
+                    .buttonStyle(NeumorphicButtonStyle(bgColor: .amber, secondaryColor: .white))
                     .padding()
                 }
                 

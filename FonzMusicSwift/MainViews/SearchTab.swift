@@ -8,17 +8,33 @@
 import SwiftUI
 
 struct SearchTab: View {
+    // inherited that indicated the tab the app is on
+    @Binding var selectedTab: Int
     
+    // tells app there is no host
     @State var hasHost = false
+    // hostCoaster details passed in and will update view when changed
     @State var hostCoaster = HostCoasterInfo()
+    
    
     
     var body: some View {
-        if hasHost {
-            SearchBar(hostCoaster: hostCoaster, hasHostVar: $hasHost)
+        VStack {
+            
+            
+            if hasHost {
+                SearchBar(hostCoaster: hostCoaster, hasHostVar: $hasHost)
+                    
+            }
+            else {
+                HomePageDecision(hostCoaster: hostCoaster, hasHostVar: $hasHost, selectedTab: $selectedTab)
+                   
+            }
         }
-        else {
-            HomePageDecision(hostCoaster: hostCoaster, hasHostVar: $hasHost)
-        }
+        .background(
+            Image("mountainProfile")
+                .opacity(0.5)
+                .frame(maxWidth: UIScreen.screenWidth), alignment: .bottom)
+        .ignoresSafeArea()
     }
 }

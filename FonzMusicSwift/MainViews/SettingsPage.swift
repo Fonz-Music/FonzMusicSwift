@@ -16,12 +16,15 @@ struct SettingsPage: View {
         ZStack{
             
             VStack{
+                HStack{
+                    Text("settings")
+                        .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white).fonzParagraphOne()
+                        .padding(25)
+                        .padding(.top, 40)
+                        .padding(.bottom, 20)
+                    Spacer()
+                }
                 
-                Text("settings").foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white).fonzParagraphOne()
-                    .padding()
-                    .frame(width: UIScreen.screenWidth, height: 50, alignment: .topLeading)
-                    .padding(.top, 40)
-                    .padding(.bottom, 20)
    
                 
                 Button(action: {
@@ -38,7 +41,7 @@ struct SettingsPage: View {
                     }.frame(width: UIScreen.screenWidth * 0.8, height: 20)
                     
                 })
-                .buttonStyle(NeumorphicButtonStyle(bgColor: colorScheme == .light ? Color.white: Color.darkButton))
+                .buttonStyle(NeumorphicButtonStyle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .amber))
                 Button(action: {
 //                    pressedButtonToLaunchNfc = true
                     print("pressed button")
@@ -54,7 +57,7 @@ struct SettingsPage: View {
                     
                 })
                 
-                .buttonStyle(NeumorphicButtonStyle(bgColor: colorScheme == .light ? Color.white: Color.darkButton))
+                .buttonStyle(NeumorphicButtonStyle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .amber))
                 Button(action: {
 //                    pressedButtonToLaunchNfc = true
                     print("pressed button")
@@ -68,7 +71,7 @@ struct SettingsPage: View {
                         Spacer()
                     }.frame(width: UIScreen.screenWidth * 0.8, height: 20)
                     
-                }).buttonStyle(NeumorphicButtonStyle(bgColor: colorScheme == .light ? Color.white: Color.darkButton))
+                }).buttonStyle(NeumorphicButtonStyle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .amber))
                 
                 Button(action: {
 //                    pressedButtonToLaunchNfc = true
@@ -83,7 +86,7 @@ struct SettingsPage: View {
                         Spacer()
                     }.frame(width: UIScreen.screenWidth * 0.8, height: 20)
                     
-                }).buttonStyle(NeumorphicButtonStyle(bgColor: colorScheme == .light ? Color.white: Color.darkButton))
+                }).buttonStyle(NeumorphicButtonStyle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .amber))
                 
                 ZStack {
                     RoundedRectangle(cornerRadius: 10)
@@ -101,7 +104,7 @@ struct SettingsPage: View {
                                 VStack {
                                     Text("a few").fonzAmberButtonText()
                                 }.frame(width: 60)
-                            }).buttonStyle(NeumorphicButtonStyle(bgColor: colorScheme == .light ? Color.white: Color.darkButton))
+                            }).buttonStyle(NeumorphicButtonStyle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .amber))
                             
                             
                             Button(action: {
@@ -110,15 +113,16 @@ struct SettingsPage: View {
                                 VStack {
                                     Text("a lot").fonzAmberButtonText()
                                 }.frame(width: 60)
-                            }).buttonStyle(NeumorphicButtonStyle(bgColor: colorScheme == .light ? Color.white: Color.darkButton))
+                            }).buttonStyle(NeumorphicButtonStyle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .amber))
                             
                             Button(action: {
                                 
                             }, label: {
+                                
                                 VStack {
                                     Text("unlimited").fonzAmberButtonText()
                                 }.frame(width: 60)
-                            }).buttonStyle(NeumorphicButtonStyle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, selectedOption: true))
+                            }).buttonStyle(NeumorphicButtonStyle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .amber, selectedOption: true))
                             
                         }
                     }

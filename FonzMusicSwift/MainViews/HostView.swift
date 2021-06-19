@@ -58,26 +58,21 @@ struct HostPages: View {
     var body: some View {
         
         ZStack {
-            VStack{
-                ZStack {
-                    Text("host")
-                        .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
-                        
-                        .fonzParagraphOne()
-                        .padding()
-                        .frame(width: UIScreen.screenWidth, height: 50, alignment: .topLeading)
-                        .padding(.top, 40)
+            ZStack {
+                Text("host")
+                    .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white).fonzParagraphOne()
+                    .padding(.vertical, 25)
+                    .frame(width: UIScreen.screenWidth, height: 50, alignment: .topLeading)
+                    .padding(.top, 40)
                 }.background(Color.amber)
                 // song search
-                if hostPage == 1 {
-                    HostAddCoaster(determineHostViewUpdate: $updatePageVars, hostPageNumber: $currentHostPageIndex, hostCoasterList: hostCoasterList)
-                }
-                // Page that prompts user to tap NFC
-                else {
-                    CoasterDashboard(determineHostViewUpdate: $updatePageVars, hostPageNumber: $currentHostPageIndex, hostCoasterList: hostCoasterList)
-                }
+            if hostPage == 1 {
+                HostAddCoaster(determineHostViewUpdate: $updatePageVars, hostPageNumber: $currentHostPageIndex, hostCoasterList: hostCoasterList)
             }
-        
+            // Page that prompts user to tap NFC
+            else {
+                CoasterDashboard(determineHostViewUpdate: $updatePageVars, hostPageNumber: $currentHostPageIndex, hostCoasterList: hostCoasterList)
+            }
         }
         .ignoresSafeArea()
         .onAppear {
