@@ -100,15 +100,17 @@ struct HomePageDecision: View {
                                 }
                         }
                         else {
-                            Button {
-                                withAnimation{
-                                    pressedButtonToLaunchNfc = true
-                                }
-                                
-                            } label: {
-                                FailPartyJoin(errorMessage: "you did not join the party. press to try again", errorImage: "disableIcon")
-                                    .animation(.easeInOut(duration: 2))
-                            }
+                            FailPartyJoin(pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc, errorMessage: "you did not join the party. press to try again", errorImage: "disableIcon")
+                                .animation(.easeInOut(duration: 2))
+//                            Button {
+//                                withAnimation{
+//                                    pressedButtonToLaunchNfc = true
+//                                }
+//
+//                            } label: {
+//                                FailPartyJoin(errorMessage: "you did not join the party. press to try again", errorImage: "disableIcon")
+//                                    .animation(.easeInOut(duration: 2))
+//                            }
                             if pressedButtonToLaunchNfc {
                                 LaunchJoinPartyNfcSession(
                                     tempCoaster: $tempCoasterDetails,
@@ -130,8 +132,11 @@ struct HomePageDecision: View {
                         // after 5 seconds, resets home page to normal if connection fails
                         DispatchQueue.main.asyncAfter(deadline: .now() + 5.5) {
                             withAnimation {
-                                launchedNfc = false
-                                showHomeButtons = true
+                                if !pressedButtonToLaunchNfc {
+                                    launchedNfc = false
+                                    showHomeButtons = true
+                                }
+                                
                             }
                         }
                     }

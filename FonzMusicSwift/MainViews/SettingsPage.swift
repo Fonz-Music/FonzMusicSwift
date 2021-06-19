@@ -35,7 +35,10 @@ struct SettingsPage: View {
                         HStack(spacing: 5) {
                             Image("coasterIcon").resizable().frame(width: 30 ,height: 30, alignment: .leading)
                                 
-                            Text("change your name").foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white).fonzParagraphTwo()
+                            Text("change your name")
+                                .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
+                                .fonzParagraphTwo()
+                                .padding(.horizontal)
                         }
                         Spacer()
                     }.frame(width: UIScreen.screenWidth * 0.8, height: 20)
@@ -50,8 +53,10 @@ struct SettingsPage: View {
                         HStack(spacing: 5) {
                             Image("coasterIcon").resizable().frame(width: 30 ,height: 30, alignment: .leading)
                                 
-                            Text("buy a coaster").foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white).fonzParagraphTwo()
-                        }
+                            Text("buy a coaster")
+                                .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
+                                .fonzParagraphTwo()
+                                .padding(.horizontal)                        }
                         Spacer()
                     }.frame(width: UIScreen.screenWidth * 0.8, height: 20)
                     
@@ -66,7 +71,10 @@ struct SettingsPage: View {
                         HStack(spacing: 5) {
                             Image("spotifyIcon").resizable().frame(width: 30 ,height: 30, alignment: .leading)
                                 
-                            Text("spotify account").foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white).fonzParagraphTwo()
+                            Text("spotify account")
+                                .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
+                                .fonzParagraphTwo()
+                                .padding(.horizontal)
                         }
                         Spacer()
                     }.frame(width: UIScreen.screenWidth * 0.8, height: 20)
@@ -81,7 +89,10 @@ struct SettingsPage: View {
                         HStack(spacing: 5) {
                             Image("disableIcon").resizable().frame(width: 30 ,height: 30, alignment: .leading)
                                 
-                            Text("sign out").foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white).fonzParagraphTwo()
+                            Text("sign out")
+                                .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
+                                .fonzParagraphTwo()
+                                .padding(.horizontal)
                         }
                         Spacer()
                     }.frame(width: UIScreen.screenWidth * 0.8, height: 20)

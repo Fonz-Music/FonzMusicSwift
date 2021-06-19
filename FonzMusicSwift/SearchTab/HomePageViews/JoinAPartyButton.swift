@@ -31,11 +31,6 @@ struct JoinAPartyButton: View {
             }
         }, label: {
             ZStack{
-//                Circle()
-//                    .strokeBorder(Color.lilac, lineWidth: 3)
-//                    .background(Circle().foregroundColor(colorScheme == .light ? Color.white: Color.darkButton))
-//                    .frame(width: 125, height: 125)
-//                    .shadow(radius: 1)
                 if didTapButton {
                     Image("coasterIcon").resizable().frame(width: sideGraphicHeight, height: sideGraphicHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         .frame(width: 125, height: 125)

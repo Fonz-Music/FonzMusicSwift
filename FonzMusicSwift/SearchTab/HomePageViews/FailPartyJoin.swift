@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FailPartyJoin: View {
-    
+    @Binding var pressedButtonToLaunchNfc:Bool
     let errorMessage:String
     let errorImage:String
     
@@ -17,14 +17,25 @@ struct FailPartyJoin: View {
     
     var body: some View {
         VStack {
-            ZStack{
-                Circle()
-                    .strokeBorder(Color.red, lineWidth: 3)
-                    .background(Circle().foregroundColor(colorScheme == .light ? Color.white: Color.darkButton))
-                    .frame(width: 125, height: 125)
-                    .shadow(radius: 1)
-                Image("\(errorImage)").resizable().frame(width: sideGraphicHeight, height: sideGraphicHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+            Button(action: {
+                withAnimation {
+                    pressedButtonToLaunchNfc = true
+//                    selectedTab = 1
                 }
+                
+            }, label: {
+                Image("\(errorImage)").resizable().frame(width: sideGraphicHeight, height: sideGraphicHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                        .frame(width: 125, height: 125)
+            })
+            .buttonStyle(NeumorphicButtonStyleCircle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .red))
+//            ZStack{
+//                Circle()
+//                    .strokeBorder(Color.red, lineWidth: 3)
+//                    .background(Circle().foregroundColor(colorScheme == .light ? Color.white: Color.darkButton))
+//                    .frame(width: 125, height: 125)
+//                    .shadow(radius: 1)
+//                Image("\(errorImage)").resizable().frame(width: sideGraphicHeight, height: sideGraphicHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+//                }
             Text("\(errorMessage)")
                 .multilineTextAlignment(.center)
                 .foregroundColor(.red)
