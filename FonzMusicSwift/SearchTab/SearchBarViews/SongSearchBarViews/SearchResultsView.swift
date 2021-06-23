@@ -57,7 +57,8 @@ struct SearchResultsView: View {
                                 self.tempTune.spotifyUrl = item.spotifyUrl
                                 }
                             }, label: {
-                                SongResultItemView(item: item)
+                                SongResultFromSearchItemView(item: item)
+                                    
                             })
                             // launches queueSongSheet after song is selected
                             .sheet(isPresented: $queuePopupPresent, onDismiss: {

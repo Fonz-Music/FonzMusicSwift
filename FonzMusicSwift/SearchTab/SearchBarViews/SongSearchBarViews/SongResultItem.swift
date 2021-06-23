@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SongResultItemView: View {
+struct SongResultFromSearchItemView: View {
     @Environment(\.colorScheme) var colorScheme
     // the song passed in
     let item: Track
@@ -40,6 +40,7 @@ struct SongResultItemView: View {
         )
         .padding(.leading, 10)
         .padding(.trailing, 20)
+        
         .animation(.easeIn)
         
     }

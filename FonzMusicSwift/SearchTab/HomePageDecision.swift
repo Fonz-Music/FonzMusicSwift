@@ -129,8 +129,8 @@ struct HomePageDecision: View {
                             showSuccessOrError = true
                             pressedButtonToLaunchNfc = false
                         }
-                        // after 5 seconds, resets home page to normal if connection fails
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 5.5) {
+                        // after 7 seconds, resets home page to normal if connection fails
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 7.5) {
                             withAnimation {
                                 if !pressedButtonToLaunchNfc {
                                     launchedNfc = false

@@ -28,6 +28,8 @@ struct SearchBar: View {
     // checks to see if currently typing in searchbar
     @State var isEditingSearchBar = false
     
+    
+    
         var body: some View {
             // entire page is a scrollView
             ScrollView(showsIndicators: false) {
@@ -71,22 +73,14 @@ struct SearchBar: View {
                     SearchBarView(tracksFromSearch: tracksFromSearch, isEditing: $isEditingSearchBar)
                     ZStack {
                         // now playing + song suggestions
-                        VStack {
-                            Text("now playing")
-                                .foregroundColor(Color.white)
-                                .fonzParagraphTwo()
-                                .padding(25)
-                                .frame(width: UIScreen.screenWidth, height: 50, alignment: .topLeading)
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(colorScheme == .light ? Color.white: Color.darkButton)
-                                .frame(width: UIScreen.screenWidth * 0.9, height: 125, alignment: .center)
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(colorScheme == .light ? Color.white: Color.darkButton)
-                                .frame(height: 1000, alignment: .center)
-                                .padding(.top, 30)
+                        VStack{
+                            ActiveSongView(hostName: $hostCoaster.hostName)
+                            SongSuggestionsView(hostCoaster: hostCoaster)
                         }
                         .isHidden(hideViews)
                         .addOpacity(isEditingSearchBar)
+                        
+                        
                         // search results
                         VStack {
                             SearchResultsView(tracksFromSearch: tracksFromSearch, hostCoaster: hostCoaster)

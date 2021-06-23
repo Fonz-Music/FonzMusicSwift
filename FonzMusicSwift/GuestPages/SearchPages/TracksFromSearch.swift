@@ -97,6 +97,7 @@ class TracksFromSearch: ObservableObject {
                                 // compiles all info into one track
                                 let newTrack = Track(songName: track.name, songId: track.id, artistName: listArtistString, albumArt: albumArt, spotifyUrl: spotifyUrl)
                                 // appends that onto searchResults array
+//                                print(searchResults)
                                 searchResults.append(newTrack)
                             }
                             DispatchQueue.main.async {

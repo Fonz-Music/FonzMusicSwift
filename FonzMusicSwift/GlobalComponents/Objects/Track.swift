@@ -14,6 +14,16 @@ struct Track: Hashable {
     var artistName: String
     var albumArt: String
     var spotifyUrl:String
+    
+    func toGlobalTrack() -> GlobalTrack {
+        var globalTrack = GlobalTrack()
+        globalTrack.songName = self.songName
+        globalTrack.songId = self.songId
+        globalTrack.artistName = self.artistName
+        globalTrack.albumArt = self.albumArt
+        globalTrack.spotifyUrl = self.spotifyUrl
+        return globalTrack
+    }
 }
 
 // this converts the JSON from songSearch into Object

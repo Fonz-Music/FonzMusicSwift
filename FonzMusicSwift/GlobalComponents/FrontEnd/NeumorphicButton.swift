@@ -15,7 +15,7 @@ struct NeumorphicButtonStyle: ButtonStyle {
 
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
-            .padding(20)
+//            .padding(20)
             .background(
                 ZStack {
                     RoundedRectangle(cornerRadius: 10, style: .continuous)
