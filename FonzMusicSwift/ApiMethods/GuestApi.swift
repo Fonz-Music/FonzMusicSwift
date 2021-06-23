@@ -26,6 +26,8 @@ class GuestApi {
     let GUEST = "guest/"
     let COASTER = "coaster/"
     
+//    let accessTokn = "eyJhbGciOiJSUzI1NiIsImtpZCI6Ijg4ZGYxMzgwM2I3NDM2NjExYWQ0ODE0NmE4ZGExYjA3MTg2ZmQxZTkiLCJ0eXAiOiJKV1QifQ.eyJwcm92aWRlcl9pZCI6ImFub255bW91cyIsImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9mb256LW11c2ljLWFwcCIsImF1ZCI6ImZvbnotbXVzaWMtYXBwIiwiYXV0aF90aW1lIjoxNjE5MjkyODM5LCJ1c2VyX2lkIjoiRFpuOUp0dVo4Zlo5QVdxZGo0NUl0UXhwMXM1MyIsInN1YiI6IkRabjlKdHVaOGZaOUFXcWRqNDVJdFF4cDFzNTMiLCJpYXQiOjE2MjQ0NjY0MzQsImV4cCI6MTYyNDQ3MDAzNCwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6e30sInNpZ25faW5fcHJvdmlkZXIiOiJhbm9ueW1vdXMifX0.DlK9CZgPX4Qw4ruYVP_LYxImd9JnxxKlfdtyr9iOmQqJI4DmtLzTxJ2DbETTcYZ8tvqczulBZLN-qOD8ugUZpElqRqHwQaB7AWzjYtFsX1tPPsiIyhmx5Xms3N_xMnHuK9dSGEIMAxsrc2p8H6LZ8y4SDR8eMOAP2mykmfhhakDdUBQIsVYI1nH6-IqbMXt2ShafRuhjAotslNiiYdGC6mWZ30zI1_G8sWTNGxL7SfSEGliG28HUVSw_pA9Q4jKhIHv5g967NAG4ejlPt3MgOjJWnPpx8KWfPWMvA7JmjOFcwPoFivHjaK7wThIq0mZwoPF0z6sIhQoDI-UoQSIsTA"
+    
     
     @State var results: CoasterResult!
     @Published private (set) var products: [Track] = []
@@ -41,21 +43,29 @@ class GuestApi {
         // init value for token
         var accessToken = ""
 
+        print("starting getCoaster")
 
         
         guard let user = Auth.auth().currentUser else {
             print("there was an error getting the user")
             return  returnObject}
+        print("got auth")
 
             // get access token
             user.getIDToken(){ (idToken, error) in
             if error == nil, let token = idToken {
                 accessToken = token
-//                print("token is \(accessToken)" )
+//                accessToken = accessTokn
+                print("got token")
+                print("\(accessToken)" )
                 // set UID to uppercase
                 let uid = coasterUid.uppercased()
                 // create url
-                guard let url = URL(string: self.ADDRESS + self.GUEST + self.COASTER + uid ) else { return }
+                guard let url = URL(string: self.ADDRESS + self.GUEST + self.COASTER + uid )
+                else {
+                    return
+//                    return returnObject
+                }
                 
                 var request = URLRequest(url: url)
                 request.httpMethod = "GET"

@@ -45,52 +45,40 @@ struct FonzMusicSwiftApp: App {
         WindowGroup {
             ContentView()
                 .onOpenURL { url in
+                   print("sending to ole spottie")
                     
-                    // get params from return val
-                    let parameters = spotifyController.appRemote.authorizationParameters(from: url)
-                    print("\(parameters)")
-                    // set the auth code from the params
-                    if let code = parameters?["code"] {
-                        print("there is a code")
-                        authCode = code
+                    if url.absoluteString.range(of: "spotify") != nil {
+                        print ("navs to spot")
                     }
-                    if let token = parameters?[SPTAppRemoteAccessTokenKey] {
-                        print("there is a code")
-                        accessToken = token
+                    if url.absoluteString.range(of: "banana") != nil {
+                        print ("navs to banana")
                     }
-                    print("this is the code \(authCode)")
-                    
-                    spotifyController.responseTypeCode = authCode
-                    
-                    
-//                    spotifyController.fetchSpotifyToken { (dictionary, error) in
-//                        if let error = error {
-//                            print("Fetching token request error \(error)")
-//                            return
-//                        }
-////                        let accessToken = dictionary!["access_token"] as! String
-//                        print("got access")
-//
-//                        DispatchQueue.main.async {
-////                            spotifyController.appRemote.connectionParameters.accessToken = accessToken
-////                            spotifyController.appRemote.connect()
-//                        }
-////                        let refreshToke = dictionary!["refresh_token"] as! String
-////                        print("\(refreshToke)")
-//                    }
-////                    spotifyController.sessionManager?.renewSession()
-                    print("\(spotifyController.sessionManager?.session)")
-//
-//                    // send auth code to api
-////                    let resp = SpotifySignInApi().sendAuthCodeToSpotify(authCode: authCode)
-//
-////                    print("the resp is \(resp)")
-//
-//                    }
                 }
-//                .onReceive(NotificationCenter.default.publisher(for: UIApplication.didFinishLaunchingNotification), perform: { _ in
-//                    spotifyController.connect()
-//                })
+                
         }
     }
 }
+
+// code for getting the spotify refresh + access tokens in app
+// never used, but works properly
+
+//
+//// get params from return val
+//let parameters = spotifyController.appRemote.authorizationParameters(from: url)
+//print("\(parameters)")
+//// set the auth code from the params
+//if let code = parameters?["code"] {
+//    print("there is a code")
+//    authCode = code
+//}
+//if let token = parameters?[SPTAppRemoteAccessTokenKey] {
+//    print("there is a code")
+//    accessToken = token
+//}
+//print("this is the code \(authCode)")
+//
+//spotifyController.responseTypeCode = authCode
+//
+//
+//print("\(spotifyController.sessionManager?.session)")
+//

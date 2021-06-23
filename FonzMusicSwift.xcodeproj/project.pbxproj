@@ -38,6 +38,8 @@
 		2677029326347ECD00B8BC92 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2677029226347ECD00B8BC92 /* ContentView.swift */; };
 		2677029526347ED100B8BC92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2677029426347ED100B8BC92 /* Assets.xcassets */; };
 		2677029826347ED100B8BC92 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2677029726347ED100B8BC92 /* Preview Assets.xcassets */; };
+		268B97A62683843A00984DC4 /* SpotifyInBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268B97A52683843A00984DC4 /* SpotifyInBrowser.swift */; };
+		268B97A926838AFF00984DC4 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268B97A826838AFF00984DC4 /* URL.swift */; };
 		269D0152267182A000A1DFEE /* SpotifySignInApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269D0151267182A000A1DFEE /* SpotifySignInApi.swift */; };
 		26AC89B42665410C00E1C41E /* ShareOnInstagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AC89B32665410C00E1C41E /* ShareOnInstagram.swift */; };
 		26AC89BC2665745300E1C41E /* MuseoSans-500.otf in Resources */ = {isa = PBXBuildFile; fileRef = 26AC89B82665745300E1C41E /* MuseoSans-500.otf */; };
@@ -129,6 +131,8 @@
 		2677029426347ED100B8BC92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2677029726347ED100B8BC92 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2677029926347ED100B8BC92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		268B97A52683843A00984DC4 /* SpotifyInBrowser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyInBrowser.swift; sourceTree = "<group>"; };
+		268B97A826838AFF00984DC4 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		269D0151267182A000A1DFEE /* SpotifySignInApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifySignInApi.swift; sourceTree = "<group>"; };
 		26AC89B32665410C00E1C41E /* ShareOnInstagram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareOnInstagram.swift; sourceTree = "<group>"; };
 		26AC89B82665745300E1C41E /* MuseoSans-500.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MuseoSans-500.otf"; sourceTree = "<group>"; };
@@ -326,6 +330,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		268B97A726838AF400984DC4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				268B97A826838AFF00984DC4 /* URL.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		269D01502671828500A1DFEE /* GlobalMethods */ = {
 			isa = PBXGroup;
 			children = (
@@ -479,6 +491,7 @@
 		26DB9B1A2634A61D0030643D /* GlobalComponents */ = {
 			isa = PBXGroup;
 			children = (
+				268B97A726838AF400984DC4 /* Extensions */,
 				26AC89B2266540F800E1C41E /* ShareOptions */,
 				26B6514B263866840074F279 /* Objects */,
 				26DB9B212634A95D0030643D /* FrontEnd */,
@@ -540,6 +553,7 @@
 			children = (
 				2609AD55263DBDBE00337A02 /* SpotifyWebViewWk.swift */,
 				2609AD58263DC2F900337A02 /* SpotifyViewRep.swift */,
+				268B97A52683843A00984DC4 /* SpotifyInBrowser.swift */,
 			);
 			path = SignInSpotify;
 			sourceTree = "<group>";
@@ -751,8 +765,10 @@
 				2620B8AA26795A8C004FE721 /* NeumorphicButton.swift in Sources */,
 				26691F76267ACA9E00C83696 /* HostTab.swift in Sources */,
 				26659BBF263B6B4D0008FD1F /* ManageCoasterView.swift in Sources */,
+				268B97A926838AFF00984DC4 /* URL.swift in Sources */,
 				26B65159263868E30074F279 /* HostView.swift in Sources */,
 				26659BC4263BA36B0008FD1F /* LaunchConnectCoasterNfc.swift in Sources */,
+				268B97A62683843A00984DC4 /* SpotifyInBrowser.swift in Sources */,
 				26DB9ADE26349EBB0030643D /* ErrorNotSameCoaster.swift in Sources */,
 				26DB9AAE2634995B0030643D /* ErrorCoasterHasNoHost.swift in Sources */,
 				26B65140263846EE0074F279 /* CoasterHasDifferentHost.swift in Sources */,

@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import Foundation
+import Firebase
 
 struct HostSetup: View {
     
@@ -45,23 +47,53 @@ struct HostSetup: View {
 struct ConnectToSpotifyButton: View {
 // ---------------------------------- created in view -----------------------------------------------
 
-//    @Binding var pressedButtonToLaunchNfc : Bool
+    @State var pressedButtonToLaunchSpotifySignIn : Bool = false
 //
 //    @Binding var showHomeButtons: Bool
     @Environment(\.colorScheme) var colorScheme
+    @Environment(\.openURL) var openURL
     let sideGraphicHeight = UIScreen.screenHeight * 0.06
     
     var body: some View {
-        Button(action: {
-            withAnimation {
-//                selectedTab = 1
-            }
-            
-        }, label: {
-            Image("spotifyIcon").resizable().frame(width: sideGraphicHeight, height: sideGraphicHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                    .frame(width: 125, height: 125)
-        })
-        .buttonStyle(NeumorphicButtonStyleCircle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .successGreen))
+        ZStack {
+//            if (pressedButtonToLaunchSpotifySignIn) {
+//                LaunchSpotifyWebview()
+//                    .frame(width: 0, height: 0)
+//            }
+    
+            Button(action: {
+                withAnimation {
+    //                selectedTab = 1
+//                    pressedButtonToLaunchSpotifySignIn = true
+                        
+                   
+                }
+                guard let user = Auth.auth().currentUser else {
+                    print("there was an error getting the user")
+                    return
+                }
+                user.getIDToken(){ (idToken, error) in
+                if error == nil, let token = idToken {
+                    let userToken = token
+                    
+                    guard let url = URL(string: "https://api.fonzmusic.com/auth/spotify?token=\(userToken)") else {
+                        return
+                    }
+                    openURL(url)
+                }
+                }
+                
+//                print(userToken)
+                
+                
+                
+                
+            }, label: {
+                Image("spotifyIcon").resizable().frame(width: sideGraphicHeight, height: sideGraphicHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                        .frame(width: 125, height: 125)
+            })
+            .buttonStyle(NeumorphicButtonStyleCircle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .successGreen))
+        }
     }
 }
 

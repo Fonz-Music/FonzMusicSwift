@@ -14,7 +14,7 @@ struct HomePageDecision: View {
     // inherited from parent and tells you if you have a host
     @Binding var hasHostVar:Bool
     // inherited that indicated the tab the app is on
-    @Binding var selectedTab: Int
+    @Binding var selectedTab: TabIdentifier
 // ---------------------------------- created in view -----------------------------------------------
     // bool auto set to false, set to true if nfc is launched
     @State var launchedNfc = false

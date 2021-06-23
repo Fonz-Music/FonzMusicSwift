@@ -13,7 +13,7 @@ struct JoinSuccessfulCircle: View {
     let coasterName:String
     
     @Environment(\.colorScheme) var colorScheme
-    let sideGraphicHeight = UIScreen.screenHeight * 0.06
+    let sideGraphicHeight = UIScreen.screenHeight * 0.04
     
     var body: some View {
         VStack {
@@ -23,7 +23,7 @@ struct JoinSuccessfulCircle: View {
                     .background(Circle().foregroundColor(colorScheme == .light ? Color.white: Color.darkButton))
                     .frame(width: 125, height: 125)
                     .shadow(radius: 1)
-                Image("queueIcon").resizable().frame(width: sideGraphicHeight, height: sideGraphicHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                Image("checkIconGreen").resizable().frame(width: sideGraphicHeight, height: sideGraphicHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 }
             Text("successfully connected to \(hostName)'s coaster \(coasterName)")
                 .multilineTextAlignment(.center)

@@ -33,7 +33,7 @@ struct SettingsPage: View {
                 }, label: {
                     HStack {
                         HStack(spacing: 5) {
-                            Image("coasterIcon").resizable().frame(width: 30 ,height: 30, alignment: .leading)
+                            Image("changeNameIcon").resizable().frame(width: 27 ,height: 27, alignment: .leading)
                                 
                             Text("change your name")
                                 .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
@@ -54,7 +54,7 @@ struct SettingsPage: View {
                 }, label: {
                     HStack {
                         HStack(spacing: 5) {
-                            Image("coasterIcon").resizable().frame(width: 30 ,height: 30, alignment: .leading)
+                            Image("coasterIconAmber").resizable().frame(width: 30 ,height: 30, alignment: .leading)
                                 
                             Text("buy a coaster")
                                 .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
@@ -73,7 +73,7 @@ struct SettingsPage: View {
                 }, label: {
                     HStack {
                         HStack(spacing: 5) {
-                            Image("spotifyIcon").resizable().frame(width: 30 ,height: 30, alignment: .leading)
+                            Image("spotifyIconAmber").resizable().frame(width: 30 ,height: 30, alignment: .leading)
                                 
                             Text("spotify account")
                                 .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
@@ -92,7 +92,7 @@ struct SettingsPage: View {
                 }, label: {
                     HStack {
                         HStack(spacing: 5) {
-                            Image("disableIcon").resizable().frame(width: 30 ,height: 30, alignment: .leading)
+                            Image("signOutIcon").resizable().frame(width: 30 ,height: 30, alignment: .leading)
                                 
                             Text("sign out")
                                 .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
@@ -120,7 +120,8 @@ struct SettingsPage: View {
                             }, label: {
                                 VStack {
                                     Text("a few").fonzAmberButtonText()
-                                }.frame(width: 60)
+                                    Image("aFewIcon").resizable().frame(width: 30 ,height: 20)
+                                }.frame(width: 60, height: 25)
                                 .padding()
                             }).buttonStyle(NeumorphicButtonStyle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .amber))
                             
@@ -130,7 +131,8 @@ struct SettingsPage: View {
                             }, label: {
                                 VStack {
                                     Text("a lot").fonzAmberButtonText()
-                                }.frame(width: 60)
+                                    Image("aLotIcon").resizable().frame(width: 30 ,height: 20)
+                                }.frame(width: 60, height: 25)
                                 .padding()
                             }).buttonStyle(NeumorphicButtonStyle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .amber))
                             
@@ -140,7 +142,8 @@ struct SettingsPage: View {
                                 
                                 VStack {
                                     Text("unlimited").fonzAmberButtonText()
-                                }.frame(width: 60)
+                                    Image("unlimitedIcon").resizable().frame(width: 30 ,height: 20)
+                                }.frame(width: 60, height: 25)
                                 .padding()
                             }).buttonStyle(NeumorphicButtonStyle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .amber, selectedOption: true))
                             

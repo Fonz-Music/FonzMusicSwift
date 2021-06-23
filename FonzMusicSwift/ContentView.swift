@@ -11,9 +11,13 @@ class UpdateMainPageView: ObservableObject {
     @Published var updatePage = false
 }
 
+enum TabIdentifier: Hashable {
+  case host, search, settings
+}
+
 struct ContentView: View {
     
-    @State var selectedTab = 2
+    @State var selectedTab = TabIdentifier.search
 
     // main app
     var body: some View {
@@ -23,32 +27,44 @@ struct ContentView: View {
 //                Label("host", systemImage: "menubar.rectangle")
 //            }.tag(1)
             HostTab().tabItem {
-                Label("host", systemImage: "menubar.rectangle")
-            }.tag(1)
+//                Label("host", image: "coasterIconMain")
+//                    Image("coasterIconMain")
+//
+//                    Text("host")
+                Label("host", systemImage: "homepod")
+                
+
+            }.tag(TabIdentifier.host)
             SearchTab(selectedTab: $selectedTab).tabItem {
+//                Image("searchIcon")
+//                    .font(.system(size: 4))
+//                Text("search")
                 Label("search", systemImage: "magnifyingglass")
-            }.tag(2)
+            }.tag(TabIdentifier.search)
             SettingsPage().tabItem {
+//                VStack{
+//                Image("settingsIcon")
+//                    .font(.system(size: 10))
+//                Text("settings")
+//                }
+                
                 Label("settings", systemImage: "gear")
-            }.tag(3)
+            }.tag(TabIdentifier.settings)
         }.accentColor(.amber)
+        .onOpenURL { url in
+                guard let tabIdentifier = url.tabIdentifier else {
+                  return
+                }
+
+            selectedTab = tabIdentifier
+              }
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        
-        Group {
-            ContentView(
-                
-               
-            )
-            ContentView(
-                
-                
-            )
-        }
-
+extension UIImage {
+    static func searchSymbol(scale: SymbolScale) -> UIImage {
+        let config = UIImage.SymbolConfiguration(scale: scale)
+        return (UIImage(named: "searchIcon")!.withConfiguration(config).withRenderingMode(.alwaysTemplate))
     }
 }
 
