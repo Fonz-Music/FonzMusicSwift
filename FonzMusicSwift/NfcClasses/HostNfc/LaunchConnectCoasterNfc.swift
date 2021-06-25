@@ -142,9 +142,11 @@ struct LaunchConnectCoasterNfc: UIViewRepresentable {
                     
                     // checks to see if the coaster has a host
                     var coasterDetails = GuestApi().getCoasterInfo(coasterUid: coasterUidFromTag)
+                    print("\(String(describing: coasterDetails.statusCode)) is the code m8")
                     // if the coaster does NOT have a host, add to account
                     if coasterDetails.statusCode == 204 {
                         let addCoasterResult = HostCoasterApi().addCoaster(coasterUid: coasterUidFromTag)
+                        print("\(String(describing: addCoasterResult.status)) is the code m8")
                         // return that resp if its NOT 200
                         if addCoasterResult.status != 200 {
                             coasterDetails.statusCode = addCoasterResult.status

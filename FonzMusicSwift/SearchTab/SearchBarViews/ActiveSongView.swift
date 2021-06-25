@@ -24,9 +24,9 @@ struct ActiveSongView: View {
                 .fonzParagraphTwo()
                 .padding(25)
                 .frame(width: UIScreen.screenWidth, height: 50, alignment: .topLeading)
-            Button {
-                print("pressed me")
-            } label: {
+//            Button {
+//                print("pressed me")
+//            } label: {
 //                ZStack {
 //                    RoundedRectangle(cornerRadius: 10)
 //                        .fill(colorScheme == .light ? Color.white: Color.darkButton)
@@ -74,14 +74,14 @@ struct ActiveSongView: View {
                     }
                 }
                 
-//                .background(
-//                    RoundedRectangle(cornerRadius: 10)
-//                    .fill(colorScheme == .light ? Color.white: Color.darkButton)
-//                    .frame(width: UIScreen.screenWidth * 0.9, height: 125, alignment: .center)
-//                )
-            }
+                .background(
+                    RoundedRectangle(cornerRadius: 10)
+                    .fill(colorScheme == .light ? Color.white: Color.darkButton)
+                    .frame(width: UIScreen.screenWidth * 0.9, height: 125, alignment: .center)
+                )
+//            }
             .frame(width: UIScreen.screenWidth * 0.9, alignment: .center)
-            .buttonStyle(NeumorphicButtonStyle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .lilac))
+//            .buttonStyle(NeumorphicButtonStyle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .lilac))
 
             
            

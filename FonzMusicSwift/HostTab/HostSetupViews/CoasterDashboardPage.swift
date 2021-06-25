@@ -28,30 +28,33 @@ struct CoasterDashboardPage: View {
          
         VStack {
             Spacer()
-                .frame(height: UIScreen.screenHeight * 0.3)
+                .frame(height: UIScreen.screenHeight * 0.2)
             ZStack {
                 RoundedRectangle(cornerRadius: 10)
                     .fill(colorScheme == .light ? Color.white: Color.darkBackground)
                     
                     .shadow(radius: 3)
                     
-                
-                // coasters
-                ScrollView(showsIndicators: true) {
-                    LazyVGrid(columns: layout, spacing: 12) {
+                VStack{
+                    // coasters
+                    ScrollView(showsIndicators: true) {
+                        LazyVGrid(columns: layout, spacing: 12) {
 
-                        ForEach(hostCoasterList.products.coasters, id: \.self) { item in
-                            OwnedCoasterDropItem(item: item, isExpanded: self.selection.contains(item), coasterFromSearch: hostCoasterList)
-                                    .onTapGesture {
-                                        self.selectDeselect(item)
-                                        
-                                    }
-                                    .animation(.linear(duration: 0.3))
+                            ForEach(hostCoasterList.products.coasters, id: \.self) { item in
+                                OwnedCoasterDropItem(item: item, isExpanded: self.selection.contains(item), coasterFromSearch: hostCoasterList)
+                                        .onTapGesture {
+                                            self.selectDeselect(item)
+                                            
+                                        }
+                                        .animation(.linear(duration: 0.3))
 
+                            }
                         }
-                    }
-                }.frame(width: UIScreen.screenWidth * 0.9, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                .padding(.top, 30)
+                    }.frame(width: UIScreen.screenWidth * 0.9, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .padding(.top, 30)
+                    Spacer()
+                }
+                
             }
             
         }

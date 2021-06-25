@@ -29,7 +29,7 @@ struct NeumorphicButtonStyle: ButtonStyle {
 //                        .fill(bgColor)
                 }
         )
-            .scaleEffect(configuration.isPressed ? 0.95: 1)
+//            .scaleEffect(configuration.isPressed ? 0.95: 1)
 //            .foregroundColor(Color(red: 235 / 255, green: 139 / 255, blue: 55 / 255))
             .foregroundColor(configuration.isPressed ? secondaryColor : bgColor)
             .animation(.spring())
@@ -57,7 +57,7 @@ struct NeumorphicButtonStyleCircle: ButtonStyle {
 //                        .fill(bgColor)
                 }
         )
-            .scaleEffect(configuration.isPressed ? 0.9: 1)
+//            .scaleEffect(configuration.isPressed ? 0.9: 1)
 //            .foregroundColor(Color(red: 235 / 255, green: 139 / 255, blue: 55 / 255))
             .foregroundColor(configuration.isPressed ? secondaryColor : bgColor)
             .animation(.spring())
@@ -105,9 +105,9 @@ struct BasicFonzButton: ButtonStyle {
         configuration.label
             .background(
                 ZStack {
-                    RoundedRectangle(cornerRadius: 5)
+                    RoundedRectangle(cornerRadius: 2)
                         .fill(configuration.isPressed ? secondaryColor : bgColor )
-                        .shadow(radius: 5)
+                        .shadow(radius: 1)
 //                        .overlay(
 //                        Circle().stroke(secondaryColor, lineWidth: 3)
 //                    )

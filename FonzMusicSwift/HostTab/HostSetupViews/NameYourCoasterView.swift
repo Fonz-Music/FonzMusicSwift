@@ -27,7 +27,7 @@ struct NameYourCoasterView: View {
                 Image("coasterIcon").resizable().frame(width: sideGraphicHeight * 1.2, height: sideGraphicHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                         .frame(width: 125, height: 125)
             })
-            .buttonStyle(CircleButtonGradiant(bgColorTopLeft: .lilac, bgColorBottomRight: Color.pink, secondaryColor: .white))
+            .buttonStyle(CircleButtonGradiant(bgColorTopLeft: .lilac, bgColorBottomRight: Color.purple, secondaryColor: .white))
             .disabled(true)
             Text("let's name your coaster")
                 .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)

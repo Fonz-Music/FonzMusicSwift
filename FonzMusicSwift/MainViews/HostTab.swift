@@ -13,9 +13,9 @@ struct HostTab: View {
         // object that stores the songs from the api
 //        @ObservedObject var hostCoasterList: CoastersFromApi = CoastersFromApi()
     
-    @State var connectedToSpotify = true
+    @State var connectedToSpotify = false
     
-    @State var hasConnectedCoasters = true
+    @State var hasConnectedCoasters = false
     
     // object that stores the songs from the api
     @ObservedObject var hostCoasterList: CoastersFromApi = CoastersFromApi()
@@ -40,19 +40,15 @@ struct HostTab: View {
             }
             else {
                 HStack{
-                    Text("host")
-                        .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
+                    Text("coasters")
+                        .foregroundColor(.white)
                         .fonzParagraphOne()
                         .padding(25)
                         .padding(.top, 40)
                         .padding(.bottom, 20)
                     Spacer()
                 }
-                
-                    
-//                    CoasterDashboardPage(hostCoasterList: hostCoasterList)
-               
-                
+                CoasterDashboardPage(hostCoasterList: hostCoasterList)
             }
             Spacer()
         }
@@ -60,6 +56,9 @@ struct HostTab: View {
             ZStack{
                 if (connectedToSpotify && hasConnectedCoasters) {
                     Color.lilac
+                }
+                else {
+                    Color(UIColor(colorScheme == .light ? Color.white: Color.darkBackground))
                 }
                 Image("mountainProfile")
                     .opacity(0.4)

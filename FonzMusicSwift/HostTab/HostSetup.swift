@@ -58,7 +58,7 @@ struct HostSetup: View {
                     }
                     else {
                         Spacer()
-                            .frame(height: UIScreen.screenHeight * 0.3)
+                            .frame(height: UIScreen.screenHeight * 0.2)
                     }
                     // connect first coaster button
                     ConnectYourFirstCoasterButton(pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc, connectedToSpotify: $connectedToSpotify)
@@ -83,17 +83,18 @@ struct HostSetup: View {
             }
             // aftermath of attempting to connect their first coaster
             else {
-
+                Spacer()
+                    .frame(height: 100)
                 // if host joins their first coaster propeerly, prompt name
                 if statusCodeResp == 204 {
-                    ZStack {
+                    VStack {
+                        
                         // name coaster
                         NameYourCoasterView(hasConnectedCoasters: $hasConnectedCoasters, coasterUid: tempCoasterDetails.uid)
-                            .padding(.top, 100)
-                            .isHidden(!showSuccessOrError)
                             .onAppear {
 
                             }
+                        Spacer()
                     }
                 }
                 else {
@@ -121,7 +122,7 @@ struct HostSetup: View {
                             }
                         }
                     }
-                    .padding(.top, 100)
+//                    .padding(.top, 100)
                     .isHidden(!showSuccessOrError)
                     .onAppear {
                         // shows success or error view
@@ -139,6 +140,7 @@ struct HostSetup: View {
                             }
                         }
                     }
+                    Spacer()
                 }
 
             }
