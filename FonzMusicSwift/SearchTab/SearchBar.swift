@@ -33,16 +33,7 @@ struct SearchBar: View {
         var body: some View {
             // entire page is a scrollView
             ScrollView(showsIndicators: false) {
-                ZStack {
-                    // background gradient
-                    Rectangle()
-                        .fill(LinearGradient(
-                            gradient: .init(colors: [.amber, .lilac]),
-                            startPoint: .topLeading,
-                              endPoint: .bottomTrailing
-                            ))
-                        // darkens background when typing
-                        .darkenView(isEditingSearchBar)
+                
                 VStack {
                     // top search headar & quit part button
                     ZStack {
@@ -87,7 +78,7 @@ struct SearchBar: View {
                             Spacer()
                         }
                     }
-                }
+                
             }
             .onAppear {
                 // disables bounce
@@ -102,6 +93,25 @@ struct SearchBar: View {
                 }
             }
         }
-            .ignoresSafeArea()
+            .background(
+                ZStack{
+                    Rectangle()
+                        .fill(LinearGradient(
+                            gradient: .init(colors: [.amber, .lilac]),
+                            startPoint: .topLeading,
+                              endPoint: .bottomTrailing
+                            ))
+                        // darkens background when typing
+                        .darkenView(isEditingSearchBar)
+                    Image("mountainProfile")
+                        .opacity(0.4)
+                        .frame(maxWidth: UIScreen.screenWidth, alignment: .bottom)
+                }, alignment: .bottom)
+            
+//        .background(
+//            Image("mountainProfile")
+//                .opacity(0.4)
+//                .frame(maxWidth: UIScreen.screenWidth), alignment: .bottom)
+        
     }
 }

@@ -14,8 +14,15 @@ import Network
 class CoastersFromApi: ObservableObject {
     
 
-//    @Published private (set) var products: [CoasterInfo] = [CoasterInfo(uid: "321fwedsadsa", hostName: "jeff", coasterName: "boston", sessionId: "adsdwqe2w"),CoasterInfo(uid: "321fwedsadsa", hostName: "jeff", coasterName: "dublin", sessionId: "adsdwqe2w"),CoasterInfo(uid: "321fwedsadsa", hostName: "jeff", coasterName: "limerick", sessionId: "adsdwqe2w", active: true),CoasterInfo(uid: "321fwedsadsa", hostName: "jeff", coasterName: "quincy", sessionId: "adsdwqe2w"),CoasterInfo(uid: "321fwedsadsa", hostName: "jeff", coasterName: "trinity", sessionId: "adsdwqe2w"),CoasterInfo(uid: "321fwedsadsa", hostName: "jeff", coasterName: "milton", sessionId: "adsdwqe2w"),]
-    @Published private (set) var products: HostCoastersMapResult = HostCoastersMapResult(coasters: [], quantity: 0)
+    @Published private (set) var products: HostCoastersMapResult = HostCoastersMapResult(coasters: [
+            CoasterInfo(uid: "321fwedsadsa", hostName: "jeff", coasterName: "boston", sessionId: "adsdwqe2w").toHostCoasterResult(),
+            CoasterInfo(uid: "321fwedsadsa", hostName: "jeff", coasterName: "dublin", sessionId: "adsdwqe2w").toHostCoasterResult(),
+            CoasterInfo(uid: "321fwedsadsa", hostName: "jeff", coasterName: "limerick", sessionId: "adsdwqe2w", active: true).toHostCoasterResult(),
+            CoasterInfo(uid: "321fwedsadsa", hostName: "jeff", coasterName: "quincy", sessionId: "adsdwqe2w").toHostCoasterResult(),
+            CoasterInfo(uid: "321fwedsadsa", hostName: "jeff", coasterName: "trinity", sessionId: "adsdwqe2w").toHostCoasterResult(),
+            CoasterInfo(uid: "321fwedsadsa", hostName: "jeff", coasterName: "milton", sessionId: "adsdwqe2w").toHostCoasterResult()
+        ], quantity: 7)
+//    @Published private (set) var products: HostCoastersMapResult = HostCoastersMapResult(coasters: [], quantity: 0)
     
     var firstTime = false
     

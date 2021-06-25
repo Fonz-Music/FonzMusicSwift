@@ -60,7 +60,7 @@ struct HostAddCoaster: View {
                         .padding(.bottom, 50)
                         // if that button is pressed, the nfc is launched
                         if pressedButtonToLaunchNfc {
-                        LaunchConnectCoasterNfc(tempCoaster: $tempCoasterDetails, launchedNfc: $launchedNfc, statusCode: $statusCodeResp, hostPageNumber: $hostPageNumber, pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc).frame(maxWidth: 0, maxHeight: 0, alignment: .center)
+//                        LaunchConnectCoasterNfc(tempCoaster: $tempCoasterDetails, launchedNfc: $launchedNfc, statusCode: $statusCodeResp, hostPageNumber: $hostPageNumber, pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc).frame(maxWidth: 0, maxHeight: 0, alignment: .center)
                         }
                         Spacer()
                     }
@@ -144,7 +144,7 @@ struct HostAddCoaster: View {
                             }).buttonStyle(NeumorphicButtonStyle(bgColor: .amber, secondaryColor: .white)).padding(.vertical, 100)
                             // if they press the button, this launches the nfc prompt
                             if pressedButtonToLaunchNfc {
-                                LaunchConnectCoasterNfc(tempCoaster: $tempCoasterDetails, launchedNfc: $launchedNfc, statusCode: $statusCodeResp, hostPageNumber: $hostPageNumber, pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc).frame(maxWidth: 0, maxHeight: 0, alignment: .center)
+//                                LaunchConnectCoasterNfc(tempCoaster: $tempCoasterDetails, launchedNfc: $launchedNfc, statusCode: $statusCodeResp, hostPageNumber: $hostPageNumber, pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc).frame(maxWidth: 0, maxHeight: 0, alignment: .center)
                                 
                             }
 //                            Spacer()

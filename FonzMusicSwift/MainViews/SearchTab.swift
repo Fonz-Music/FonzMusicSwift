@@ -16,7 +16,7 @@ struct SearchTab: View {
     // hostCoaster details passed in and will update view when changed
     @State var hostCoaster = HostCoasterInfo()
     
-   
+    @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         VStack {
@@ -32,9 +32,14 @@ struct SearchTab: View {
             }
         }
         .background(
-            Image("mountainProfile")
-                .opacity(0.5)
-                .frame(maxWidth: UIScreen.screenWidth), alignment: .bottom)
+            ZStack{
+               
+                Color(UIColor(colorScheme == .light ? Color.white: Color.darkBackground))
+               
+                Image("mountainProfile")
+                    .opacity(0.4)
+                    .frame(maxWidth: UIScreen.screenWidth)
+            }, alignment: .bottom)
         .ignoresSafeArea()
         .onOpenURL { url in
             let dividedUrl = url.absoluteString.split(separator: "/")

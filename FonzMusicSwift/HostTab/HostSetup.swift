@@ -11,113 +11,140 @@ import Firebase
 
 struct HostSetup: View {
     
-    @State var darkenButton = true
     
-    @Environment(\.colorScheme) var colorScheme
+    @Binding var connectedToSpotify : Bool
     
-    var body: some View {
-        VStack {
-            Spacer()
-                .frame(height: 75)
-            VStack {
-                Text("1. connect to spotify")
-                    .foregroundColor(Color.white)
-                    .fonzParagraphOne()
-                    .padding(25)
-                    .frame(width: UIScreen.screenWidth, height: 50, alignment: .topLeading)
-                ConnectToSpotifyButton()
-                    .padding()
-            }
-            .addOpacity(!darkenButton)
-            VStack{
-                Text("2. connect your first coaster")
-                    .foregroundColor(Color.white)
-                    .fonzParagraphOne()
-                    .padding(25)
-                    .frame(width: UIScreen.screenWidth, height: 50, alignment: .topLeading)
-                ConnectYourFirstCoasterButton()
-                    .padding()
-            }
-            .addOpacity(darkenButton)
-            Spacer()
-        }
-    }
-}
-
-struct ConnectToSpotifyButton: View {
+    @Binding var hasConnectedCoasters : Bool
+    
 // ---------------------------------- created in view -----------------------------------------------
-
-    @State var pressedButtonToLaunchSpotifySignIn : Bool = false
-//
-//    @Binding var showHomeButtons: Bool
+    // bool auto set to false, set to true if nfc is launched
+    @State var launchedNfc = false
+    // temp Coaster Object so that page does not update BEFORE showing success page
+    @State var tempCoasterDetails = HostCoasterInfo()
+    // local var that is returned by nfc prompt when getting host from API
+    @State var statusCodeResp = 0
+    
+    @State var pressedButtonToLaunchNfc = false
+    
+    @State var showSuccessOrError = false
+    
+    
+    
     @Environment(\.colorScheme) var colorScheme
-    @Environment(\.openURL) var openURL
-    let sideGraphicHeight = UIScreen.screenHeight * 0.06
+    let tapCoasterWidth = UIScreen.screenHeight * 0.35
     
     var body: some View {
-        ZStack {
-//            if (pressedButtonToLaunchSpotifySignIn) {
-//                LaunchSpotifyWebview()
-//                    .frame(width: 0, height: 0)
-//            }
-    
-            Button(action: {
-                withAnimation {
-    //                selectedTab = 1
-//                    pressedButtonToLaunchSpotifySignIn = true
-                        
-                   
-                }
-                guard let user = Auth.auth().currentUser else {
-                    print("there was an error getting the user")
-                    return
-                }
-                user.getIDToken(){ (idToken, error) in
-                if error == nil, let token = idToken {
-                    let userToken = token
-                    
-                    guard let url = URL(string: "https://api.fonzmusic.com/auth/spotify?token=\(userToken)") else {
-                        return
-                    }
-                    openURL(url)
-                }
-                }
-                
-//                print(userToken)
-                
-                
-                
-                
-            }, label: {
-                Image("spotifyIcon").resizable().frame(width: sideGraphicHeight, height: sideGraphicHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                        .frame(width: 125, height: 125)
-            })
-            .buttonStyle(NeumorphicButtonStyleCircle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .successGreen))
-        }
-    }
-}
-
-struct ConnectYourFirstCoasterButton: View {
-// ---------------------------------- created in view -----------------------------------------------
-
-//    @Binding var pressedButtonToLaunchNfc : Bool
-//
-//    @Binding var showHomeButtons: Bool
-    @Environment(\.colorScheme) var colorScheme
-    let sideGraphicHeight = UIScreen.screenHeight * 0.06
-    
-    var body: some View {
-        Button(action: {
-            withAnimation {
-//                selectedTab = 1
-            }
-            
-        }, label: {
-            Image("coasterIcon").resizable().frame(width: sideGraphicHeight * 1.2, height: sideGraphicHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                    .frame(width: 125, height: 125)
-        })
-        .buttonStyle(NeumorphicButtonStyleCircle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: colorScheme == .light ? Color.darkButton:Color.white))
         
+//        NameYourCoasterView(hasConnectedCoasters: $hasConnectedCoasters, coasterUid: tempCoasterDetails.uid)
+//            .padding(.top, 100)
+////            .isHidden(!showSuccessOrError)
+//            .onAppear {
+//
+//            }
+        
+        VStack {
+
+            // if the user has not tried to connect their first coaster
+            if (!launchedNfc) {
+                // if the nfc is NOT actice
+                if (!pressedButtonToLaunchNfc) {
+                    // if the user has NOT connected to spotify
+                    if (!connectedToSpotify) {
+                        Spacer()
+                            .frame(height: 100)
+                        ConnectSpotifyButtonHomeView(connectedToSpotify: $connectedToSpotify)
+                        Spacer()
+                            .frame(height: 100)
+                    }
+                    else {
+                        Spacer()
+                            .frame(height: UIScreen.screenHeight * 0.3)
+                    }
+                    // connect first coaster button
+                    ConnectYourFirstCoasterButton(pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc, connectedToSpotify: $connectedToSpotify)
+                        .addOpacity(!connectedToSpotify)
+                }
+                // if the nfc IS active, show animation
+                else {
+                    VStack {
+                        Spacer()
+                            .frame(height: 50)
+                        Text("tap your phone to the Fonz")
+                            .foregroundColor(.lilac)
+                            .fonzParagraphOne()
+                        Image("tapCoasterIconLilac").resizable().frame(width: tapCoasterWidth, height: tapCoasterWidth * 0.75, alignment: .center)
+                    }
+                }
+                Spacer()
+                // launches NFC when the user pressed button
+                if pressedButtonToLaunchNfc {
+                    LaunchConnectCoasterNfc(tempCoaster: $tempCoasterDetails, launchedNfc: $launchedNfc, statusCode: $statusCodeResp, pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc).frame(maxWidth: 0, maxHeight: 0, alignment: .center)
+                }
+            }
+            // aftermath of attempting to connect their first coaster
+            else {
+
+                // if host joins their first coaster propeerly, prompt name
+                if statusCodeResp == 204 {
+                    ZStack {
+                        // name coaster
+                        NameYourCoasterView(hasConnectedCoasters: $hasConnectedCoasters, coasterUid: tempCoasterDetails.uid)
+                            .padding(.top, 100)
+                            .isHidden(!showSuccessOrError)
+                            .onAppear {
+
+                            }
+                    }
+                }
+                else {
+                    ZStack {
+                        // coaster belongs to someone else
+                        if statusCodeResp == 200 {
+                            // this is someone else's coaster
+                            Text("this coaster belongs to \(tempCoasterDetails.hostName) & is named \(tempCoasterDetails.coasterName)")
+                        }
+                        // coaster belongs to you (should not appear)
+                        else if statusCodeResp == 403 {
+                            // this is someone else's coaster
+                            Text("this is your coaster \(tempCoasterDetails.coasterName)")
+                        }
+                        else {
+                            FailPartyJoin(pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc, errorMessage: "you did not join the party. press to try again", errorImage: "disableIcon")
+                                .animation(.easeInOut(duration: 2))
+                            if pressedButtonToLaunchNfc {
+                                LaunchJoinPartyNfcSession(
+                                    tempCoaster: $tempCoasterDetails,
+                                    launchedNfc: $launchedNfc,
+                                    statusCode: $statusCodeResp,
+                                    pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc
+                                ).frame(maxWidth: 0, maxHeight: 0, alignment: .center)
+                            }
+                        }
+                    }
+                    .padding(.top, 100)
+                    .isHidden(!showSuccessOrError)
+                    .onAppear {
+                        // shows success or error view
+                        withAnimation {
+                            showSuccessOrError = true
+                            pressedButtonToLaunchNfc = false
+                        }
+                        // after 7 seconds, resets home page to normal if connection fails
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 7.5) {
+                            withAnimation {
+                                if !pressedButtonToLaunchNfc {
+                                    launchedNfc = false
+                                }
+
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
     }
 }
+
+
 

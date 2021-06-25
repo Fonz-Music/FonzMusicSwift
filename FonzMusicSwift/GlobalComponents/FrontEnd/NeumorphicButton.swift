@@ -63,3 +63,56 @@ struct NeumorphicButtonStyleCircle: ButtonStyle {
             .animation(.spring())
     }
 }
+
+struct CircleButtonGradiant: ButtonStyle {
+    var bgColorTopLeft: Color
+    var bgColorBottomRight: Color
+    var secondaryColor: Color
+//    var selectedOption : Bool?
+    @Environment(\.colorScheme) var colorScheme
+
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .background(
+                ZStack {
+                    Circle()
+                        .fill(configuration.isPressed ? LinearGradient(
+                                gradient: .init(colors: [secondaryColor, secondaryColor]),
+                                startPoint: .topLeading,
+                                  endPoint: .bottomTrailing
+                        ) : LinearGradient(
+                            gradient: .init(colors: [bgColorTopLeft, bgColorBottomRight]),
+                            startPoint: .topLeading,
+                              endPoint: .bottomTrailing
+                            ) )
+                        .shadow(radius: 5)
+                        .overlay(
+                        Circle().stroke(secondaryColor, lineWidth: 3)
+                    )
+                }
+        )
+            .animation(.spring())
+    }
+}
+
+struct BasicFonzButton: ButtonStyle {
+    var bgColor: Color
+    var secondaryColor: Color
+//    var selectedOption : Bool?
+    @Environment(\.colorScheme) var colorScheme
+
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .background(
+                ZStack {
+                    RoundedRectangle(cornerRadius: 5)
+                        .fill(configuration.isPressed ? secondaryColor : bgColor )
+                        .shadow(radius: 5)
+//                        .overlay(
+//                        Circle().stroke(secondaryColor, lineWidth: 3)
+//                    )
+                }
+        )
+            .animation(.spring())
+    }
+}

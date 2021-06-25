@@ -73,7 +73,7 @@ struct SongListModal: View {
                 .padding()
                 ZStack {
                     Rectangle()
-                        .fill(colorScheme == .light ? Color.white: Color.darkButton)
+                        .fill(colorScheme == .light ? Color.white: Color.darkBackground)
                         .ignoresSafeArea()
                     VStack {
                         Text("songs")

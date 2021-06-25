@@ -155,10 +155,14 @@ struct SettingsPage: View {
             }
         }
         .background(
-            Image("mountainProfile")
-                .opacity(0.5)
-                .frame(maxWidth: UIScreen.screenWidth), alignment: .bottom)
-            
+            ZStack{
+               
+                Color(UIColor(colorScheme == .light ? Color.white: Color.darkBackground))
+               
+                Image("mountainProfile")
+                    .opacity(0.4)
+                    .frame(maxWidth: UIScreen.screenWidth)
+            }, alignment: .bottom)
         .ignoresSafeArea()
     }
 }

@@ -13,48 +13,58 @@ struct HostTab: View {
         // object that stores the songs from the api
 //        @ObservedObject var hostCoasterList: CoastersFromApi = CoastersFromApi()
     
-    @State var connectedToSpotify = false
+    @State var connectedToSpotify = true
     
-    @State var hasConnectedCoasters = false
+    @State var hasConnectedCoasters = true
+    
+    // object that stores the songs from the api
+    @ObservedObject var hostCoasterList: CoastersFromApi = CoastersFromApi()
+    
     
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
-        ZStack {
-            Rectangle()
-                .fill(Color.amber)
-            VStack {
+        VStack {
+            
+            if (!connectedToSpotify || !hasConnectedCoasters) {
+                HStack{
+                    Text("host")
+                        .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
+                        .fonzParagraphOne()
+                        .padding(25)
+                        .padding(.top, 40)
+                    Spacer()
+                }
                 
-                if (!connectedToSpotify || !hasConnectedCoasters) {
-                    HStack{
-                        Text("host")
-                            .foregroundColor(Color.white)
-                            .fonzParagraphOne()
-                            .padding(25)
-                            .padding(.top, 40)
-                        Spacer()
-                    }
-                    HostSetup()
-                }
-                else {
-                    HStack{
-                        Text("host")
-                            .foregroundColor(Color.white)
-                            .fonzParagraphOne()
-                            .padding(25)
-                            .padding(.top, 40)
-                            .padding(.bottom, 20)
-                        Spacer()
-                    }
-    //                CoasterDashboard()
-                }
-                Spacer()
+                HostSetup(connectedToSpotify: $connectedToSpotify, hasConnectedCoasters: $hasConnectedCoasters)
             }
+            else {
+                HStack{
+                    Text("host")
+                        .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
+                        .fonzParagraphOne()
+                        .padding(25)
+                        .padding(.top, 40)
+                        .padding(.bottom, 20)
+                    Spacer()
+                }
+                
+                    
+//                    CoasterDashboardPage(hostCoasterList: hostCoasterList)
+               
+                
+            }
+            Spacer()
         }
+        .background(
+            ZStack{
+                if (connectedToSpotify && hasConnectedCoasters) {
+                    Color.lilac
+                }
+                Image("mountainProfile")
+                    .opacity(0.4)
+                    .frame(maxWidth: UIScreen.screenWidth)
+            }, alignment: .bottom)
         .ignoresSafeArea()
-        .onAppear {
-//            hostCoasterList.firstTimeLoadCoasters()
-            print("reloaded")
-        }
     }
 }

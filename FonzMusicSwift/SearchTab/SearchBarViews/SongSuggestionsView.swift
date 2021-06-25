@@ -17,7 +17,7 @@ struct SongSuggestionsView: View {
     var body: some View {
         ZStack{
             RoundedRectangle(cornerRadius: 10)
-                .fill(colorScheme == .light ? Color.white: Color.darkButton)
+                .fill(colorScheme == .light ? Color.white: Color.darkBackground)
                 .frame(height: 900, alignment: .center)
                 .shadow(radius: 3)
                 .padding(.top, 30)

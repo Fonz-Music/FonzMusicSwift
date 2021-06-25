@@ -26,8 +26,9 @@ struct LaunchConnectCoasterNfc: UIViewRepresentable {
     // takes in status code to return to parent
     @Binding var statusCode:Int
     // takes in active page so that the nfc doenst launch by accident
-    @Binding var hostPageNumber:Int
-    // boolean on whether the button has been pressed
+//    @Binding var hostPageNumber:Int
+    // boolean on whether the button has been pressed, used
+    // to show animation on nfc launch
     @Binding var pressedButtonToLaunchNfc:Bool
 
 
@@ -36,23 +37,10 @@ struct LaunchConnectCoasterNfc: UIViewRepresentable {
         // creates nfcTap icon that can be pressed to launch the nfc as well
         let tapButton = UIButton()
         tapButton.isHidden = true
-//        tapButton.setImage(UIImage(named: "tapOne"), for: .normal)
-//        tapButton.imageView?.contentMode = .scaleAspectFit
-//        tapButton.imageEdgeInsets = UIEdgeInsets(top: 10, left: 120, bottom: 120, right: 120)
-//        tapButton.addTarget(context.coordinator, action: #selector(context.coordinator.beginNfcScan(_:)), for: .touchUpInside)
-        // prevents the nfc from launching on other pages when the app is loaded
-//        if (hostPageNumber == 1) {
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-//                print("launching nfc scan ")
-//                context.coordinator.launchNfcScanWithoutButton()
-//            }
-//        }
+
         if (pressedButtonToLaunchNfc) {
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                 print("launching nfc scan ")
                 context.coordinator.launchNfcScanWithoutButton()
-            
-//            }
         }
         return tapButton
     }
@@ -116,6 +104,7 @@ struct LaunchConnectCoasterNfc: UIViewRepresentable {
             print(Error.self)
             session.invalidate()
             self.launchedNfc = true
+            self.pressedButtonToLaunchNfc = false
         }
 
         // runs when function read is valid
@@ -151,10 +140,12 @@ struct LaunchConnectCoasterNfc: UIViewRepresentable {
                     // ends nfc session
                     session.invalidate()
                     
+                    // checks to see if the coaster has a host
                     var coasterDetails = GuestApi().getCoasterInfo(coasterUid: coasterUidFromTag)
-                    
+                    // if the coaster does NOT have a host, add to account
                     if coasterDetails.statusCode == 204 {
                         let addCoasterResult = HostCoasterApi().addCoaster(coasterUid: coasterUidFromTag)
+                        // return that resp if its NOT 200
                         if addCoasterResult.status != 200 {
                             coasterDetails.statusCode = addCoasterResult.status
                         }
