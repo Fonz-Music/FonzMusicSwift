@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import Foundation
+import Firebase
 
 struct ConnectSpotifyButtonHomeView: View {
 // ---------------------------------- created in view -----------------------------------------------
@@ -26,20 +28,20 @@ struct ConnectSpotifyButtonHomeView: View {
                     connectedToSpotify = true
                    
                 }
-//                guard let user = Auth.auth().currentUser else {
-//                    print("there was an error getting the user")
-//                    return
-//                }
-//                user.getIDToken(){ (idToken, error) in
-//                    if error == nil, let token = idToken {
-//                        let userToken = token
-//
-//                        guard let url = URL(string: "https://api.fonzmusic.com/auth/spotify?token=\(userToken)") else {
-//                            return
-//                        }
-//                        openURL(url)
-//                    }
-//                }
+                guard let user = Auth.auth().currentUser else {
+                    print("there was an error getting the user")
+                    return
+                }
+                user.getIDToken(){ (idToken, error) in
+                    if error == nil, let token = idToken {
+                        let userToken = token
+
+                        guard let url = URL(string: "https://api.fonzmusic.com/auth/spotify?token=\(userToken)") else {
+                            return
+                        }
+                        openURL(url)
+                    }
+                }
                 
             }, label: {
                 Image("spotifyIcon").resizable().frame(width: sideGraphicHeight, height: sideGraphicHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)

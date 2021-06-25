@@ -1,0 +1,37 @@
+//
+//  DisconnectCoasterButton.swift
+//  FonzMusicSwift
+//
+//  Created by didi on 6/25/21.
+//
+
+import SwiftUI
+
+struct DisconnectCoasterButton: View {
+    
+    @Environment(\.colorScheme) var colorScheme
+    @Binding var showDisconnectModal : Bool
+    
+    var body: some View {
+        
+        Button {
+            print("disconnect")
+            showDisconnectModal = true
+        } label: {
+            HStack(spacing: 5) {
+                // button name
+                Text("disconnect")
+                    .foregroundColor(colorScheme == .light ? Color.darkButton: Color.white)
+                    .fonzParagraphTwo()
+                    .padding(.horizontal, 20)
+                Spacer()
+                Image("disableIcon").resizable()
+                    .frame( width: 25, height: 25)
+                    .padding(.horizontal, 20)
+                
+                
+            }.padding(.vertical, 10)
+        }
+//        .buttonStyle(BasicFonzButton(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .lilac))
+    }
+}

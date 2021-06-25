@@ -21,8 +21,14 @@ struct CoasterDashboardPage: View {
         ]
     @State private var selection: Set<HostCoasterResult> = []
     
+    @State var pressedToCompressButton = false
   
     @Environment(\.colorScheme) var colorScheme
+    
+    @State var showRenameModal = false
+    @State var showPauseModal = false
+    @State var showTroubleShootModal = false
+    @State var showDisconnectModal = false
     
     var body: some View {
          
@@ -41,9 +47,17 @@ struct CoasterDashboardPage: View {
                         LazyVGrid(columns: layout, spacing: 12) {
 
                             ForEach(hostCoasterList.products.coasters, id: \.self) { item in
-                                OwnedCoasterDropItem(item: item, isExpanded: self.selection.contains(item), coasterFromSearch: hostCoasterList)
+                                
+                                OwnedCoasterDropItem(item: item, isExpanded: self.selection.contains(item),  coasterFromSearch: hostCoasterList, showRenameModal: $showRenameModal, showPauseModal: $showPauseModal, showTroubleShootModal: $showTroubleShootModal, showDisconnectModal:  $showDisconnectModal)
                                         .onTapGesture {
-                                            self.selectDeselect(item)
+//                                            if !self.selection.contains(item) {
+                                                self.selectDeselect(item)
+//                                            }
+                                            showRenameModal = false
+                                            showPauseModal = false
+                                            showTroubleShootModal = false
+                                            showDisconnectModal = false
+                                            print("here m8 ")
                                             
                                         }
                                         .animation(.linear(duration: 0.3))

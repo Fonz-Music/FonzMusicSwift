@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "disableIconLightGrey.png",
+      "filename" : "disableIconDarkGrey.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,7 +12,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "disableIconDarkGrey.png",
+      "filename" : "disableIconLightGrey.png",
       "idiom" : "universal",
       "scale" : "1x"
     },

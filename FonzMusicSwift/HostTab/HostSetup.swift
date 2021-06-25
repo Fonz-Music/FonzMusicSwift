@@ -6,8 +6,7 @@
 //
 
 import SwiftUI
-import Foundation
-import Firebase
+
 
 struct HostSetup: View {
     

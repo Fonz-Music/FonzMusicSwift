@@ -101,6 +101,15 @@
 		26ECCFDF2682B0DA0053BE1F /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ECCFDE2682B0DA0053BE1F /* Playlist.swift */; };
 		26ECCFE12682B6960053BE1F /* YourTopPlaylists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ECCFE02682B6960053BE1F /* YourTopPlaylists.swift */; };
 		26ECCFE32682BE210053BE1F /* SongListModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ECCFE22682BE210053BE1F /* SongListModal.swift */; };
+		26FBCCD726866BED00399460 /* DisconnectCoasterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBCCD626866BED00399460 /* DisconnectCoasterButton.swift */; };
+		26FBCCD926866C5800399460 /* TroubleShootCoasterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBCCD826866C5800399460 /* TroubleShootCoasterButton.swift */; };
+		26FBCCDB26866C9E00399460 /* PauseCoasterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBCCDA26866C9E00399460 /* PauseCoasterButton.swift */; };
+		26FBCCDD26866E6500399460 /* RenameCoasterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBCCDC26866E6500399460 /* RenameCoasterButton.swift */; };
+		26FBCCDF26866EF200399460 /* CoasterNameInDashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBCCDE26866EF200399460 /* CoasterNameInDashboard.swift */; };
+		26FBCCE32686701F00399460 /* RenameCoasterField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBCCE22686701F00399460 /* RenameCoasterField.swift */; };
+		26FBCCE526867AB100399460 /* PauseCoasterField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBCCE426867AB100399460 /* PauseCoasterField.swift */; };
+		26FBCCE726867CE000399460 /* DisconnectCoasterField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBCCE626867CE000399460 /* DisconnectCoasterField.swift */; };
+		26FBCCE926867DF800399460 /* TroubleShootCoasterField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBCCE826867DF800399460 /* TroubleShootCoasterField.swift */; };
 		E4595E496192AD1C55E93E1F /* libPods-FonzMusicSwift.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B480C69CB1494108CA6C68C /* libPods-FonzMusicSwift.a */; };
 /* End PBXBuildFile section */
 
@@ -201,6 +210,15 @@
 		26ECCFDE2682B0DA0053BE1F /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		26ECCFE02682B6960053BE1F /* YourTopPlaylists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourTopPlaylists.swift; sourceTree = "<group>"; };
 		26ECCFE22682BE210053BE1F /* SongListModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongListModal.swift; sourceTree = "<group>"; };
+		26FBCCD626866BED00399460 /* DisconnectCoasterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisconnectCoasterButton.swift; sourceTree = "<group>"; };
+		26FBCCD826866C5800399460 /* TroubleShootCoasterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TroubleShootCoasterButton.swift; sourceTree = "<group>"; };
+		26FBCCDA26866C9E00399460 /* PauseCoasterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseCoasterButton.swift; sourceTree = "<group>"; };
+		26FBCCDC26866E6500399460 /* RenameCoasterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenameCoasterButton.swift; sourceTree = "<group>"; };
+		26FBCCDE26866EF200399460 /* CoasterNameInDashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoasterNameInDashboard.swift; sourceTree = "<group>"; };
+		26FBCCE22686701F00399460 /* RenameCoasterField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenameCoasterField.swift; sourceTree = "<group>"; };
+		26FBCCE426867AB100399460 /* PauseCoasterField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseCoasterField.swift; sourceTree = "<group>"; };
+		26FBCCE626867CE000399460 /* DisconnectCoasterField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisconnectCoasterField.swift; sourceTree = "<group>"; };
+		26FBCCE826867DF800399460 /* TroubleShootCoasterField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TroubleShootCoasterField.swift; sourceTree = "<group>"; };
 		4B480C69CB1494108CA6C68C /* libPods-FonzMusicSwift.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FonzMusicSwift.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5045F2117E00BCFEA787D4B1 /* Pods-FonzMusicSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FonzMusicSwift.debug.xcconfig"; path = "Target Support Files/Pods-FonzMusicSwift/Pods-FonzMusicSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		E49150DFE53C30EAB099DB99 /* Pods-FonzMusicSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FonzMusicSwift.release.xcconfig"; path = "Target Support Files/Pods-FonzMusicSwift/Pods-FonzMusicSwift.release.xcconfig"; sourceTree = "<group>"; };
@@ -364,7 +382,10 @@
 		268B97B3268563C700984DC4 /* CoasterDashboardViews */ = {
 			isa = PBXGroup;
 			children = (
+				26FBCCE126866FF800399460 /* CoasterDashboardEditViews */,
+				26FBCCE026866FDE00399460 /* CoasterDashboardButtons */,
 				268B97B4268563EC00984DC4 /* OwnedCoasterDropItem.swift */,
+				26FBCCDE26866EF200399460 /* CoasterNameInDashboard.swift */,
 			);
 			path = CoasterDashboardViews;
 			sourceTree = "<group>";
@@ -620,6 +641,28 @@
 			path = SongSearchBarViews;
 			sourceTree = "<group>";
 		};
+		26FBCCE026866FDE00399460 /* CoasterDashboardButtons */ = {
+			isa = PBXGroup;
+			children = (
+				26FBCCD626866BED00399460 /* DisconnectCoasterButton.swift */,
+				26FBCCDA26866C9E00399460 /* PauseCoasterButton.swift */,
+				26FBCCD826866C5800399460 /* TroubleShootCoasterButton.swift */,
+				26FBCCDC26866E6500399460 /* RenameCoasterButton.swift */,
+			);
+			path = CoasterDashboardButtons;
+			sourceTree = "<group>";
+		};
+		26FBCCE126866FF800399460 /* CoasterDashboardEditViews */ = {
+			isa = PBXGroup;
+			children = (
+				26FBCCE22686701F00399460 /* RenameCoasterField.swift */,
+				26FBCCE426867AB100399460 /* PauseCoasterField.swift */,
+				26FBCCE626867CE000399460 /* DisconnectCoasterField.swift */,
+				26FBCCE826867DF800399460 /* TroubleShootCoasterField.swift */,
+			);
+			path = CoasterDashboardEditViews;
+			sourceTree = "<group>";
+		};
 		3388F0F5BB427393EA39D144 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -747,6 +790,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				26B65153263866E20074F279 /* UpdatePageviewVars.swift in Sources */,
+				26FBCCDF26866EF200399460 /* CoasterNameInDashboard.swift in Sources */,
 				26DB9AA2263498F90030643D /* UsedAllQueues.swift in Sources */,
 				268B97AE26855C7000984DC4 /* ConnectSpotifyButtonHostView.swift in Sources */,
 				26DB9A92263498390030643D /* HomePage.swift in Sources */,
@@ -787,6 +831,8 @@
 				269D0152267182A000A1DFEE /* SpotifySignInApi.swift in Sources */,
 				2677029126347ECD00B8BC92 /* FonzMusicSwiftApp.swift in Sources */,
 				26DB9AB7263499CF0030643D /* AlreadyJoinedAddNew.swift in Sources */,
+				26FBCCE32686701F00399460 /* RenameCoasterField.swift in Sources */,
+				26FBCCE526867AB100399460 /* PauseCoasterField.swift in Sources */,
 				26DB9AB1263499710030643D /* ErrorNotFonzCoaster.swift in Sources */,
 				26DB9ABA263499F00030643D /* SearchBarNoSuggestions.swift in Sources */,
 				2609AD53263DB80400337A02 /* HostAddSpotify.swift in Sources */,
@@ -795,10 +841,12 @@
 				26ECCFD82682A27F0053BE1F /* YourTopSongs.swift in Sources */,
 				26ECCFDF2682B0DA0053BE1F /* Playlist.swift in Sources */,
 				26AC89CC2669600500E1C41E /* AsyncImage.swift in Sources */,
+				26FBCCDD26866E6500399460 /* RenameCoasterButton.swift in Sources */,
 				2620B8AA26795A8C004FE721 /* NeumorphicButton.swift in Sources */,
 				268B97AC26855C0B00984DC4 /* NameYourCoasterView.swift in Sources */,
 				26691F76267ACA9E00C83696 /* HostTab.swift in Sources */,
 				26659BBF263B6B4D0008FD1F /* ManageCoasterView.swift in Sources */,
+				26FBCCD926866C5800399460 /* TroubleShootCoasterButton.swift in Sources */,
 				268B97A926838AFF00984DC4 /* URL.swift in Sources */,
 				26B65159263868E30074F279 /* HostView.swift in Sources */,
 				26659BC4263BA36B0008FD1F /* LaunchConnectCoasterNfc.swift in Sources */,
@@ -819,16 +867,20 @@
 				2620B8A8267926C2004FE721 /* HomePageDecision.swift in Sources */,
 				26DB9AAB263499410030643D /* ErrorDeviceNotNfc.swift in Sources */,
 				26DB9ACA26349AEA0030643D /* LaunchJoinPartNfc.swift in Sources */,
+				26FBCCE726867CE000399460 /* DisconnectCoasterField.swift in Sources */,
 				26DB9AA8263499220030643D /* ErrorQueuingSong.swift in Sources */,
 				26B65149263865D10074F279 /* CoastersFromApi.swift in Sources */,
 				265634C12678341E00FD6F27 /* SettingsPage.swift in Sources */,
 				26DB9AD826349B610030643D /* GuestApi.swift in Sources */,
 				26ECCFD1268294E70053BE1F /* LaunchQueueSongWriteUrl.swift in Sources */,
+				26FBCCD726866BED00399460 /* DisconnectCoasterButton.swift in Sources */,
 				26B6513C263845480074F279 /* SuccessAddedCoaster.swift in Sources */,
 				26DB9A8C263484110030643D /* HostPage.swift in Sources */,
 				2620B8A52679261F004FE721 /* SearchBar.swift in Sources */,
+				26FBCCE926867DF800399460 /* TroubleShootCoasterField.swift in Sources */,
 				26E8CFE1266D3A0F00CEB1F6 /* SpotifyController.swift in Sources */,
 				26AC89C12665781B00E1C41E /* ShareSheet.swift in Sources */,
+				26FBCCDB26866C9E00399460 /* PauseCoasterButton.swift in Sources */,
 				2620B8A326792599004FE721 /* SearchTab.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

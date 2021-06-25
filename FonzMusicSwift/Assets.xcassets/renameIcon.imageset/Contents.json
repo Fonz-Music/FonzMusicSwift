@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "editCoasterLightGrey.png",
+      "filename" : "editIconDarkGrey.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,7 +12,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "editIconDarkGrey.png",
+      "filename" : "editCoasterLightGrey.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
