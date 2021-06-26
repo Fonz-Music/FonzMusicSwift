@@ -26,7 +26,7 @@ struct TroubleShootCoasterButton: View {
                     .padding(.horizontal, 20)
                 Spacer()
                 Image("coasterIcon").resizable()
-                    .frame( width: 25, height: 25)
+                    .frame( width: 25, height: 20)
                     .padding(.horizontal, 20)
             }.padding(.vertical, 10)
         }

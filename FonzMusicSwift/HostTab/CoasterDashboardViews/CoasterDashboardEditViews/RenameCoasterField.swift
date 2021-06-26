@@ -32,7 +32,7 @@ struct RenameCoasterField: View {
                 print("resp is \(resp)")
                 print("\(coasterName)")
                 withAnimation {
-                    showRenameModal = true
+                    showRenameModal = false
                 }
             } label: {
                 Image(systemName: "checkmark")
@@ -44,7 +44,7 @@ struct RenameCoasterField: View {
             }
             .frame(width: 80, height: 40, alignment: .center)
             .buttonStyle(BasicFonzButton(bgColor: .lilac, secondaryColor: colorScheme == .light ? Color.white: Color.darkButton))
-            .padding(.vertical, 15)
+            .padding(.vertical, 5)
         }
     }
 }

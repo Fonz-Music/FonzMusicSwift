@@ -87,7 +87,7 @@ struct TopSongButtonView: View {
             .frame(height: 60)
             .animation(.easeIn)
         }
-        .buttonStyle(NeumorphicButtonStyle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .lilac))
+        .buttonStyle(BasicFonzButton(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .lilac))
         .sheet(isPresented: $queuePopupPresent, onDismiss: {
             print("test")
         }) {

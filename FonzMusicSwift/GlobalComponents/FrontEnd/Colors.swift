@@ -18,6 +18,7 @@ extension Color {
     static let dropLightLight = Color(red: 238 / 255, green: 238 / 255, blue: 238 / 255)
     static let amber = Color(red: 235 / 255, green: 139 / 255, blue: 55 / 255)
     static let lilac = Color(red: 200 / 255, green: 148 / 255, blue: 166 / 255)
+    static let lilacDark = Color(red: 177 / 255, green: 136 / 255, blue: 185 / 255)
     static let successGreen = Color(red: 0 / 255, green: 139 / 255, blue: 9 / 255)
     
     static let darkBackground = Color(red: 64 / 255, green: 64 / 255, blue: 64 / 255)

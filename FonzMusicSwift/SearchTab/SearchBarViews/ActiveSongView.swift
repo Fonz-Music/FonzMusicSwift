@@ -27,14 +27,6 @@ struct ActiveSongView: View {
 //            Button {
 //                print("pressed me")
 //            } label: {
-//                ZStack {
-//                    RoundedRectangle(cornerRadius: 10)
-//                        .fill(colorScheme == .light ? Color.white: Color.darkButton)
-//                        .frame(width: UIScreen.screenWidth * 0.9, height: 125, alignment: .center)
-//                    HStack{
-//
-//                    }
-//                }
                 ZStack {
                     VStack{
                         HStack(spacing: 5) {
@@ -77,7 +69,8 @@ struct ActiveSongView: View {
                 .background(
                     RoundedRectangle(cornerRadius: 10)
                     .fill(colorScheme == .light ? Color.white: Color.darkButton)
-                    .frame(width: UIScreen.screenWidth * 0.9, height: 125, alignment: .center)
+//                        .padding(.vertical, 10)
+                    .frame(width: UIScreen.screenWidth * 0.9, height: 150, alignment: .center)
                 )
 //            }
             .frame(width: UIScreen.screenWidth * 0.9, alignment: .center)

@@ -112,12 +112,7 @@ struct HostSetup: View {
                             FailPartyJoin(pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc, errorMessage: "you did not join the party. press to try again", errorImage: "disableIcon")
                                 .animation(.easeInOut(duration: 2))
                             if pressedButtonToLaunchNfc {
-                                LaunchJoinPartyNfcSession(
-                                    tempCoaster: $tempCoasterDetails,
-                                    launchedNfc: $launchedNfc,
-                                    statusCode: $statusCodeResp,
-                                    pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc
-                                ).frame(maxWidth: 0, maxHeight: 0, alignment: .center)
+                                LaunchConnectCoasterNfc(tempCoaster: $tempCoasterDetails, launchedNfc: $launchedNfc, statusCode: $statusCodeResp, pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc).frame(maxWidth: 0, maxHeight: 0, alignment: .center)
                             }
                         }
                     }
@@ -130,7 +125,7 @@ struct HostSetup: View {
                             pressedButtonToLaunchNfc = false
                         }
                         // after 7 seconds, resets home page to normal if connection fails
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 7.5) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
                             withAnimation {
                                 if !pressedButtonToLaunchNfc {
                                     launchedNfc = false

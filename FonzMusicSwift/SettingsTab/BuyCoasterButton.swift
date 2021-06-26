@@ -1,0 +1,35 @@
+//
+//  BuyCoasterButton.swift
+//  FonzMusicSwift
+//
+//  Created by didi on 6/25/21.
+//
+
+import SwiftUI
+
+struct BuyCoasterButton: View {
+    
+    @Environment(\.colorScheme) var colorScheme
+    
+    var body: some View {
+        Button(action: {
+//                    pressedButtonToLaunchNfc = true
+            print("pressed button")
+        }, label: {
+            HStack {
+                HStack(spacing: 5) {
+                    Image("coasterIconAmber").resizable().frame(width: 30 ,height: 30, alignment: .leading)
+                        
+                    Text("buy a coaster")
+                        .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
+                        .fonzParagraphTwo()
+                        .padding(.horizontal)                        }
+                Spacer()
+            }.frame(width: UIScreen.screenWidth * 0.8, height: 20)
+            .padding()
+            
+        })
+        .buttonStyle(BasicFonzButton(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .amber))
+//        .buttonStyle(NeumorphicButtonStyle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .amber))
+    }
+}

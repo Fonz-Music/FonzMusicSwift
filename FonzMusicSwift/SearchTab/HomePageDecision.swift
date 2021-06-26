@@ -54,7 +54,7 @@ struct HomePageDecision: View {
                     if showHomeButtons {
                         Spacer()
                             .frame(height: 100)
-                        HostAPartyButton(selectedTab: $selectedTab)
+                        HostAPartyButton(selectedTab: $selectedTab, showHomeButtons: $showHomeButtons)
                         Spacer()
                             .frame(height: 100)
                         JoinAPartyButton(pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc, showHomeButtons: $showHomeButtons)
@@ -64,9 +64,9 @@ struct HomePageDecision: View {
                             Spacer()
                                 .frame(height: 50)
                             Text("tap your phone to the Fonz")
-                                .foregroundColor(.lilac)
+                                .foregroundColor(.amber)
                                 .fonzParagraphOne()
-                            Image("tapCoasterIconLilac").resizable().frame(width: tapCoasterWidth, height: tapCoasterWidth * 0.75, alignment: .center)
+                            Image("tapCoasterIconAmber").resizable().frame(width: tapCoasterWidth, height: tapCoasterWidth * 0.75, alignment: .center)
                         }
                     }
                     if pressedButtonToLaunchNfc {
@@ -130,7 +130,7 @@ struct HomePageDecision: View {
                             pressedButtonToLaunchNfc = false
                         }
                         // after 7 seconds, resets home page to normal if connection fails
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 7.5) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) {
                             withAnimation {
                                 if !pressedButtonToLaunchNfc {
                                     launchedNfc = false

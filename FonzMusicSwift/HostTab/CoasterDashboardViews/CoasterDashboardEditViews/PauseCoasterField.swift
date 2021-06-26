@@ -19,6 +19,7 @@ struct PauseCoasterField: View {
         VStack{
             // coaster bane
             Text("are you sure you want to pause this coaster?")
+                .padding(.horizontal, 10)
                 .foregroundColor(colorScheme == .light ? Color.darkButton: Color.white)
                 .multilineTextAlignment(.center)
                 .fonzParagraphTwo()

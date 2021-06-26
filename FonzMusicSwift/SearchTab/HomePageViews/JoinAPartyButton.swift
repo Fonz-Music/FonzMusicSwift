@@ -17,7 +17,7 @@ struct JoinAPartyButton: View {
     @Environment(\.colorScheme) var colorScheme
     let sideGraphicHeight = UIScreen.screenHeight * 0.05
     
-    @State var didTapButton = false;
+   
     
     var body: some View {
         
@@ -27,21 +27,17 @@ struct JoinAPartyButton: View {
             withAnimation {
                 showHomeButtons = false
                 pressedButtonToLaunchNfc = true
-                didTapButton = true
             }
+            
         }, label: {
-            ZStack{
-                if didTapButton {
-                    Image("plusIconAmber").resizable().frame(width: sideGraphicHeight, height: sideGraphicHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        .frame(width: 125, height: 125)
-                }
-                else {
-                    Image("plusIconLilac").resizable().frame(width: sideGraphicHeight, height: sideGraphicHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        .frame(width: 125, height: 125)
-                }
-                
-            }
-        }).buttonStyle(NeumorphicButtonStyleCircle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .lilac))
+            
+       
+            Image("plusIconAmber").resizable().frame(width: sideGraphicHeight, height: sideGraphicHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .frame(width: 125, height: 125)
+
+        })
+        .buttonStyle(BasicFonzButtonCircle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .amber))
+//        .buttonStyle(NeumorphicButtonStyleCircle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .amber))
         Text("i want to queue a song")
             .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
             .fonzParagraphTwo()
