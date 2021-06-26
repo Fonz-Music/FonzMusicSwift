@@ -12,9 +12,15 @@ struct SongListModal: View {
     // hostCoaster details passed in and will update view when changed
     @ObservedObject var hostCoaster:HostCoasterInfo
     
+    
      var resultsTitle : String
      var resultsType : String
      var resultsImage : String
+    
+    // track object to update the song to queue
+    @Binding var currentTune : GlobalTrack
+    // bool that will launch nfc when pressed
+    @Binding var pressedSongToLaunchNfc : Bool
     
     @Environment(\.colorScheme) var colorScheme
     
@@ -58,7 +64,7 @@ struct SongListModal: View {
                     AsyncImage(url: URL(string: resultsImage)!,
                                placeholder: { Text("...").fonzParagraphTwo() },
                                    image: { Image(uiImage: $0).resizable() })
-                        .frame( width: 80 ,height: 80, alignment: .leading).cornerRadius(5)
+                        .frame( width: 80 ,height: 80, alignment: .leading).cornerRadius(.cornerRadiusTasks)
                     // title & artist
                     VStack(alignment: .leading, spacing: 5) {
                         Text(verbatim: resultsTitle)
@@ -85,36 +91,8 @@ struct SongListModal: View {
                             LazyVGrid(columns: layout, spacing: 8) {
                                 ForEach(0..<tracksFromEntry.count) {
                                     
-                                    SongListModalSongButton(hostCoaster: hostCoaster, trackToQueue: tracksFromEntry[$0])
-        //                            Button(action: {
-        //                                print("button pressed: \(queuePopupPresent)" )
-        //                                // temp button to send the song to a mate
-        //    //                                    shareButton(urlToShare: item.spotifyUrl)
-        //                                // sets the current song to song chosen
-        //                                if !queuePopupPresent {
-        //                                    // bool to launch queueSongSheet set to true
-        //                                    self.queuePopupPresent = true
-        //                                    // sets temp tune attributes to pass into sheet
-        //                                    self.tempTune.albumArt = item.albumArt
-        //                                    self.tempTune.songId = item.songId
-        //                                    self.tempTune.songName = item.songName
-        //                                    self.tempTune.artistName = item.artistName
-        //                                    self.tempTune.songLoaded = true
-        //                                self.tempTune.spotifyUrl = item.spotifyUrl
-        //                                }
-        //                            }, label: {
-                                        
-                                            
-        //                            })
-                                    // launches queueSongSheet after song is selected
-        //                            .sheet(isPresented: $queuePopupPresent, onDismiss: {
-        //                                print("test")
-        //    //                                    self.currentTune.songLoaded = false
-        //    //                                    self.queuesLeft += 1
-        //                            }) {
-        //                                QueueSongSheet(currentTune: tempTune, hostCoaster: hostCoaster, queuePopupPresent: $queuePopupPresent)
-        //                            }
-        //                        }
+                                    SongListModalSongButton(hostCoaster: hostCoaster, trackToQueue: tracksFromEntry[$0], currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
+
                             }
                         }
                         .padding(.vertical, 10)
@@ -132,21 +110,25 @@ struct SongListModalSongButton: View {
     // hostCoaster details passed in and will update view when changed
     @ObservedObject var hostCoaster:HostCoasterInfo
     
-    // so the button can only be pressed once
-    @State var queuePopupPresent = false
+
     
     var trackToQueue : Track
+    
+    // track object to update the song to queue
+    @Binding var currentTune : GlobalTrack
+    // bool that will launch nfc when pressed
+    @Binding var pressedSongToLaunchNfc : Bool
     
     
     var body: some View {
         Button {
-            queuePopupPresent = true
+            currentTune.songId = trackToQueue.songId
+            currentTune.artistName = trackToQueue.artistName
+            currentTune.albumArt = trackToQueue.albumArt
+            currentTune.spotifyUrl = trackToQueue.spotifyUrl
+            pressedSongToLaunchNfc = true
         } label: {
             SongResultFromSearchItemView(item: trackToQueue)
-        }.sheet(isPresented: $queuePopupPresent, onDismiss: {
-            print("test")
-        }) {
-            QueueSongSheet(currentTune: trackToQueue.toGlobalTrack(), hostCoaster: hostCoaster, queuePopupPresent: $queuePopupPresent)
         }
 
     }

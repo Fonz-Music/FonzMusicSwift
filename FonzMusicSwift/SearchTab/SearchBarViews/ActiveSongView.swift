@@ -34,7 +34,7 @@ struct ActiveSongView: View {
                             AsyncImage(url: URL(string: activeSong.albumArt)!,
                                        placeholder: { Text("...").fonzParagraphTwo() },
                                            image: { Image(uiImage: $0).resizable() })
-                                .frame( width: 80 ,height: 80, alignment: .leading).cornerRadius(5)
+                                .frame( width: 80 ,height: 80, alignment: .leading).cornerRadius(.cornerRadiusTasks)
                                 .padding(.vertical, 10)
                                 .padding(.horizontal, 15)
                             // title & artist
@@ -67,10 +67,11 @@ struct ActiveSongView: View {
                 }
                 
                 .background(
-                    RoundedRectangle(cornerRadius: 10)
+                    RoundedRectangle(cornerRadius: .cornerRadiusTasks)
                     .fill(colorScheme == .light ? Color.white: Color.darkButton)
 //                        .padding(.vertical, 10)
                     .frame(width: UIScreen.screenWidth * 0.9, height: 150, alignment: .center)
+                        .fonzShadow()
                 )
 //            }
             .frame(width: UIScreen.screenWidth * 0.9, alignment: .center)
@@ -118,6 +119,6 @@ struct ProgressBar: View {
                 Rectangle().frame(width: progressLength, height: 5)
                     .foregroundColor(.lilac)
                     .animation(.linear)
-            }.cornerRadius(10.0)
+            }.cornerRadius(.cornerRadiusTasks)
         }
 }

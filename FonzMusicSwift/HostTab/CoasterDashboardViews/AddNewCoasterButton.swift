@@ -25,7 +25,7 @@ struct AddNewCoasterButton: View {
                 .padding()
 //                        Image("plusIconLilac")
         }
-        .buttonStyle(CircleButtonGradiant(bgColorTopLeft: .lilac, bgColorBottomRight: .lilacDark, secondaryColor: colorScheme == .light ? Color.darkButton: Color.white))
+        .buttonStyle(CircleButtonGradiant(bgColorTopLeft: .lilac, bgColorBottomRight: .lilacDark, secondaryColor: Color.white))
         .padding(.bottom, 100)
         .padding(.top, 10)
     }

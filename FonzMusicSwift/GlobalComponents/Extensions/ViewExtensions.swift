@@ -1,11 +1,19 @@
 //
+//  ViewExtensions.swift
+//  FonzMusicSwift
+//
+//  Created by didi on 6/25/21.
+//
+
+import Foundation
+import SwiftUI
+//
 //  View.swift
 //  FonzMusicSwift
 //
 //  Created by didi on 6/16/21.
 //
 
-import SwiftUI
 
 extension View {
     
@@ -50,4 +58,17 @@ extension View {
         }
     }
     
+    @ViewBuilder func fonzShadow() -> some View {
+        self.shadow(radius: 3, x: 3, y: 3)
+    }
+    
 }
+
+
+#if canImport(UIKit)
+extension View {
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+}
+#endif

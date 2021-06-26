@@ -36,7 +36,7 @@ struct CoasterNameInDashboard: View {
                         .frame( width: 35 ,height: 25).padding(.horizontal, 15)
                 }
                 .background(
-                    RoundedRectangle(cornerRadius: 2)
+                    RoundedRectangle(cornerRadius: .cornerRadiusTasks)
                         .fill(LinearGradient(
                             gradient: .init(colors: [.lilac, Color.lilacDark]),
                             startPoint: .topLeading,
@@ -59,7 +59,7 @@ struct CoasterNameInDashboard: View {
                         .frame( width: 35 ,height: 25).padding(5)
                 }
                 .background(
-                    RoundedRectangle(cornerRadius: 2)
+                    RoundedRectangle(cornerRadius: .cornerRadiusTasks)
                         .fill(LinearGradient(
                             gradient: .init(colors: [.lilac, Color.lilacDark]),
                             startPoint: .topLeading,

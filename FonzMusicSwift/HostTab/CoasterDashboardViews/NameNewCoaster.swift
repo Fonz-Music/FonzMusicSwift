@@ -30,7 +30,7 @@ struct NameNewCoaster: View {
                     Spacer()
                 }
                 .background(
-                    RoundedRectangle(cornerRadius: 2)
+                    RoundedRectangle(cornerRadius: .cornerRadiusTasks)
                         .fill(LinearGradient(
                             gradient: .init(colors: [.lilac, Color.lilacDark]),
                             startPoint: .topLeading,
@@ -47,10 +47,10 @@ struct NameNewCoaster: View {
         }
         .frame(width: UIScreen.screenWidth * 0.8,height: 120)
         .background(
-            RoundedRectangle(cornerRadius: 5)
+            RoundedRectangle(cornerRadius: .cornerRadiusTasks)
                 .fill(colorScheme == .light ? Color.white: Color.darkButton)
                 .frame(height: 100)
-                .shadow(color: Color.black.opacity(0.04), radius: 8, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: 7)
+                .fonzShadow()
         )
         .padding(.horizontal, 10)
         .animation(.easeIn)

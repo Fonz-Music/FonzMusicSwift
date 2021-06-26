@@ -33,7 +33,7 @@ struct FailPartyJoin: View {
 //                    .strokeBorder(Color.red, lineWidth: 3)
 //                    .background(Circle().foregroundColor(colorScheme == .light ? Color.white: Color.darkButton))
 //                    .frame(width: 125, height: 125)
-//                    .shadow(radius: 1)
+//                    .fonzShadow()
 //                Image("\(errorImage)").resizable().frame(width: sideGraphicHeight, height: sideGraphicHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
 //                }
             Text("\(errorMessage)")

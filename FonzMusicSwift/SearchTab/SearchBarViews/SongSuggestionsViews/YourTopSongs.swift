@@ -11,6 +11,10 @@ struct YourTopSongs: View {
     
     // hostCoaster details passed in and will update view when changed
     @ObservedObject var hostCoaster:HostCoasterInfo
+    // track object to update the song to queue
+    @Binding var currentTune : GlobalTrack
+    // bool that will launch nfc when pressed
+    @Binding var pressedSongToLaunchNfc : Bool
     
     @Environment(\.colorScheme) var colorScheme
     
@@ -30,13 +34,13 @@ struct YourTopSongs: View {
                 .frame(width: UIScreen.screenWidth, height: 50, alignment: .topLeading)
             VStack(spacing: 10) {
                 HStack(spacing: 10) {
-                    TopSongButtonView(hostCoaster: hostCoaster, topSong: yourTopSongs[0])
-                    TopSongButtonView(hostCoaster: hostCoaster, topSong: yourTopSongs[1])
+                    TopSongButtonView(hostCoaster: hostCoaster, topSong: yourTopSongs[0], currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
+                    TopSongButtonView(hostCoaster: hostCoaster, topSong: yourTopSongs[1], currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
 
                 }
                 HStack(spacing: 10) {
-                    TopSongButtonView(hostCoaster: hostCoaster, topSong: yourTopSongs[2])
-                    TopSongButtonView(hostCoaster: hostCoaster, topSong: yourTopSongs[3])
+                    TopSongButtonView(hostCoaster: hostCoaster, topSong: yourTopSongs[2], currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
+                    TopSongButtonView(hostCoaster: hostCoaster, topSong: yourTopSongs[3], currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
                     
 
                 }
@@ -52,17 +56,25 @@ struct TopSongButtonView: View {
     
     // hostCoaster details passed in and will update view when changed
     @ObservedObject var hostCoaster:HostCoasterInfo
-    
-    // so the button can only be pressed once
-    @State var queuePopupPresent = false
-    
-    @Environment(\.colorScheme) var colorScheme
     // the song passed in
     let topSong: Track
+    // track object to update the song to queue
+    @Binding var currentTune : GlobalTrack
+    // bool that will launch nfc when pressed
+    @Binding var pressedSongToLaunchNfc : Bool
+    
+   
+    
+    @Environment(\.colorScheme) var colorScheme
+    
   
     var body: some View {
         Button {
-            queuePopupPresent = true
+            currentTune.songId = topSong.songId
+            currentTune.artistName = topSong.artistName
+            currentTune.albumArt = topSong.albumArt
+            currentTune.spotifyUrl = topSong.spotifyUrl
+            pressedSongToLaunchNfc = true
         } label: {
             ZStack {
                 HStack(spacing: 5) {
@@ -70,7 +82,7 @@ struct TopSongButtonView: View {
                     AsyncImage(url: URL(string: topSong.albumArt)!,
                                placeholder: { Text("...").fonzParagraphTwo() },
                                    image: { Image(uiImage: $0).resizable() })
-                        .frame( width: 60 ,height: 60, alignment: .leading).cornerRadius(5)
+                        .frame( width: 60 ,height: 60, alignment: .leading).cornerRadius(.cornerRadiusTasks)
                     // title & artist
                     VStack(alignment: .leading, spacing: 5) {
                         Text(verbatim: topSong.songName)
@@ -88,14 +100,6 @@ struct TopSongButtonView: View {
             .animation(.easeIn)
         }
         .buttonStyle(BasicFonzButton(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .lilac))
-        .sheet(isPresented: $queuePopupPresent, onDismiss: {
-            print("test")
-        }) {
-            QueueSongSheet(currentTune: topSong.toGlobalTrack(), hostCoaster: hostCoaster, queuePopupPresent: $queuePopupPresent)
-        }
-
-        
-        
     }
 }
 

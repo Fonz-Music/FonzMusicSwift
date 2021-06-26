@@ -11,6 +11,10 @@ struct YourFavoriteArtists: View {
     
     // hostCoaster details passed in and will update view when changed
     @ObservedObject var hostCoaster:HostCoasterInfo
+    // track object to update the song to queue
+    @Binding var currentTune : GlobalTrack
+    // bool that will launch nfc when pressed
+    @Binding var pressedSongToLaunchNfc : Bool
     
     @Environment(\.colorScheme) var colorScheme
     
@@ -41,17 +45,17 @@ struct YourFavoriteArtists: View {
                         HStack(spacing: 10) {
                             ForEach(0..<topArtists.count) {
                                 
-                                FavoriteArtistView(hostCoaster: hostCoaster, artistIn: topArtists[$0])
+                                FavoriteArtistView(hostCoaster: hostCoaster, artistIn: topArtists[$0], currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
                             }
                         }
                     }
                     .padding(20)
                 }
                 .background(
-                    RoundedRectangle(cornerRadius: 10)
+                    RoundedRectangle(cornerRadius: .cornerRadiusTasks)
                     .fill(colorScheme == .light ? Color.white: Color.darkButton)
                     .frame(width: UIScreen.screenWidth * 0.9, height: 150, alignment: .center)
-                        .shadow(radius: 3)
+                        .fonzShadow()
                 )
                 .padding(.horizontal)
         }
@@ -62,17 +66,21 @@ struct FavoriteArtistView: View {
     
     // hostCoaster details passed in and will update view when changed
     @ObservedObject var hostCoaster:HostCoasterInfo
-    
-    // so the button can only be pressed once
-    @State var queuePopupPresent = false
-    
-    @Environment(\.colorScheme) var colorScheme
     // the song passed in
     let artistIn: Artist
+    // track object to update the song to queue
+    @Binding var currentTune : GlobalTrack
+    // bool that will launch nfc when pressed
+    @Binding var pressedSongToLaunchNfc : Bool
+    
+    // so the button can only be pressed once
+    @State var launchArtistSongsModal = false
+    
+    @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         Button {
-            queuePopupPresent = true
+            launchArtistSongsModal = true
         } label: {
             VStack {
                 AsyncImage(url: URL(string: artistIn.artistImage)!,
@@ -86,12 +94,12 @@ struct FavoriteArtistView: View {
             }
             .frame(width: 90, height: 105, alignment: .center)
         }
-        .sheet(isPresented: $queuePopupPresent, onDismiss: {
+        .sheet(isPresented: $launchArtistSongsModal, onDismiss: {
             print("test")
 //                                    self.currentTune.songLoaded = false
 //                                    self.queuesLeft += 1
         }) {
-            SongListModal(hostCoaster: hostCoaster, resultsTitle: artistIn.artistName, resultsType: "band", resultsImage: artistIn.artistImage)
+            SongListModal(hostCoaster: hostCoaster, resultsTitle: artistIn.artistName, resultsType: "artist", resultsImage: artistIn.artistImage, currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
         }
 
         

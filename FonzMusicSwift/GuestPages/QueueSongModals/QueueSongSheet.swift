@@ -92,7 +92,7 @@ struct QueueSongSheet: View {
                     Text("\(self.currentTune.artistName)").fonzParagraphOne()
                     Spacer()
                     // launches nfc prompt & queues song
-                    LaunchQueueSongNfcSessionSheet(hostCoaster: hostCoaster, songInfo: currentTune, statusCode: $statusCodeQueueSong, launchedNfc: $launchedNfc)
+//                    LaunchQueueSongNfcSessionSheet(hostCoaster: hostCoaster, songInfo: currentTune, statusCode: $statusCodeQueueSong, launchedNfc: $launchedNfc)
 //                    LaunchQueueSongWriteUrl(hostCoaster: hostCoaster, songInfo: currentTune, statusCode: $statusCodeQueueSong, launchedNfc: $launchedNfc)
                     Spacer()
                 }

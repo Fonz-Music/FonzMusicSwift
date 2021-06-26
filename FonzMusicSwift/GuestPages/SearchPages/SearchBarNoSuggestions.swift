@@ -173,7 +173,7 @@ struct ItemView: View {
         .background(
             RoundedRectangle(cornerRadius: 15)
                 .fill(Color(red: 168 / 255, green: 127 / 255, blue: 169 / 255))
-                .shadow(color: Color.black.opacity(0.04), radius: 8, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: 7)
+                .fonzShadow()
         )
         .padding(.horizontal, 10)
         .animation(.easeIn)

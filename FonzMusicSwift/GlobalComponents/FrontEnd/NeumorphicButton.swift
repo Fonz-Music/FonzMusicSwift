@@ -18,12 +18,12 @@ struct NeumorphicButtonStyle: ButtonStyle {
 //            .padding(20)
             .background(
                 ZStack {
-                    RoundedRectangle(cornerRadius: 10, style: .continuous)
+                    RoundedRectangle(cornerRadius: .cornerRadiusTasks, style: .continuous)
                         .shadow(color: colorScheme == .light ? Color.dropShadowLight: .dropShadow, radius: configuration.isPressed ? 0: 4, x: configuration.isPressed ? 0: -2, y: configuration.isPressed ? 0: -2)
                         .shadow(color: colorScheme == .light ? .dropLightLight: .dropLight, radius: configuration.isPressed ? 0: 4, x: configuration.isPressed ? 0: 2, y: configuration.isPressed ? 0: 2)
                         .blendMode(colorScheme == .light ? .darken: .overlay)
-                    RoundedRectangle(cornerRadius: 10, style: .continuous).overlay(
-                        RoundedRectangle(cornerRadius: 10, style: .continuous).stroke(secondaryColor, lineWidth: selectedOption ?? false ? 1:0)
+                    RoundedRectangle(cornerRadius: .cornerRadiusTasks, style: .continuous).overlay(
+                        RoundedRectangle(cornerRadius: .cornerRadiusTasks, style: .continuous).stroke(secondaryColor, lineWidth: selectedOption ?? false ? 1:0)
                     )
 //                        .stroke(Color.amber, lineWidth: selectedOption ?? false ? 1:0)
 //                        .fill(bgColor)
@@ -108,7 +108,7 @@ struct BasicFonzButtonCircle: ButtonStyle {
                 ZStack {
                     Circle()
                         .fill(configuration.isPressed ? secondaryColor : bgColor )
-                        .shadow(radius: 3, x: 3, y: 3)
+                        .fonzShadow()
                         .overlay(
                         Circle().stroke(secondaryColor, lineWidth: 3)
                     )
@@ -129,9 +129,9 @@ struct BasicFonzButton: ButtonStyle {
         configuration.label
             .background(
                 ZStack {
-                    RoundedRectangle(cornerRadius: 3)
+                    RoundedRectangle(cornerRadius: .cornerRadiusTasks)
                         .fill(configuration.isPressed ? secondaryColor : bgColor )
-                        .shadow(radius: 3, x: 3, y: 3)
+                        .fonzShadow()
 //                        .overlay(
 //                        Circle().stroke(secondaryColor, lineWidth: 3)
 //                    )

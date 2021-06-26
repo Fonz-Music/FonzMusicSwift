@@ -11,6 +11,10 @@ struct YourTopPlaylists: View {
     
     // hostCoaster details passed in and will update view when changed
     @ObservedObject var hostCoaster:HostCoasterInfo
+    // track object to update the song to queue
+    @Binding var currentTune : GlobalTrack
+    // bool that will launch nfc when pressed
+    @Binding var pressedSongToLaunchNfc : Bool
     
     @Environment(\.colorScheme) var colorScheme
     
@@ -38,43 +42,48 @@ struct YourTopPlaylists: View {
                         HStack(spacing: 20) {
                             ForEach(0..<topPlaylists.count) {
                                 
-                                TopArtistsView(hostCoaster: hostCoaster, playlistIn: topPlaylists[$0])
+                                TopPlaylistsView(hostCoaster: hostCoaster, playlistIn: topPlaylists[$0], currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
                             }
                         }
                     }
                     .padding(20)
                 }
                 .background(
-                    RoundedRectangle(cornerRadius: 10)
+                    RoundedRectangle(cornerRadius: .cornerRadiusTasks)
                     .fill(colorScheme == .light ? Color.white: Color.darkButton)
                     .frame(width: UIScreen.screenWidth * 0.9, height: 220, alignment: .center)
-                        .shadow(radius: 3)
+                        .fonzShadow()
                 )
                 .padding(.horizontal)
         }
     }
 }
 
-struct TopArtistsView: View {
+struct TopPlaylistsView: View {
     // hostCoaster details passed in and will update view when changed
     @ObservedObject var hostCoaster:HostCoasterInfo
-    
-    // so the button can only be pressed once
-    @State var queuePopupPresent = false
-    
-    @Environment(\.colorScheme) var colorScheme
     // the song passed in
     let playlistIn: Playlist
+    // track object to update the song to queue
+    @Binding var currentTune : GlobalTrack
+    // bool that will launch nfc when pressed
+    @Binding var pressedSongToLaunchNfc : Bool
+    
+    
+    @Environment(\.colorScheme) var colorScheme
+    
+    @State var launchPlaylistSongsModal = false
+    
     
     var body: some View {
         Button {
-            queuePopupPresent = true
+            launchPlaylistSongsModal = true
         } label: {
             VStack {
                 AsyncImage(url: URL(string: playlistIn.playlistImage)!,
                            placeholder: { Text("...").fonzParagraphTwo() },
                                image: { Image(uiImage: $0).resizable() })
-                    .frame( width: 120 ,height: 120, alignment: .leading).cornerRadius(3)
+                    .frame( width: 120 ,height: 120, alignment: .leading).cornerRadius(.cornerRadiusTasks)
                 Text(playlistIn.playlistName)
                     .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
                     .fonzParagraphTwo()
@@ -86,12 +95,12 @@ struct TopArtistsView: View {
             }
             .frame(width: 120, height: 165, alignment: .center)
         }
-        .sheet(isPresented: $queuePopupPresent, onDismiss: {
+        .sheet(isPresented: $launchPlaylistSongsModal, onDismiss: {
             print("test")
 //                                    self.currentTune.songLoaded = false
 //                                    self.queuesLeft += 1
         }) {
-            SongListModal(hostCoaster: hostCoaster, resultsTitle: playlistIn.playlistName, resultsType: "\(playlistIn.amountOfTracks) tracks", resultsImage: playlistIn.playlistImage)
+            SongListModal(hostCoaster: hostCoaster, resultsTitle: playlistIn.playlistName, resultsType: "\(playlistIn.amountOfTracks) tracks", resultsImage: playlistIn.playlistImage, currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
         }
         
     }

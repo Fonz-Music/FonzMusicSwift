@@ -35,7 +35,7 @@ struct NameYourCoasterView: View {
             TextField("name", text: $coasterName)
                 .foregroundColor(colorScheme == .light ? Color.white : Color.darkBackground)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-                .shadow(radius: 5)
+                .fonzShadow()
                 .padding(.horizontal, UIScreen.screenWidth * 0.18)
                 .padding(.vertical, 10)
                 .multilineTextAlignment(.center)

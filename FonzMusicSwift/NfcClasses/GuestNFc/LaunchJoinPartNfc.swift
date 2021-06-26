@@ -13,7 +13,7 @@ import UIKit
 extension UIButton {
     open override func draw(_ rect: CGRect) {
         //provide custom style
-        self.layer.cornerRadius = 10
+        self.layer.cornerRadius = .cornerRadiusTasks
         self.layer.masksToBounds = true
     }
     

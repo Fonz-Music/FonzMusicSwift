@@ -21,7 +21,7 @@ struct RenameCoasterField: View {
             TextField("name", text: $coasterName)
                 .foregroundColor(colorScheme == .light ? Color.white : Color.darkButton)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-                .shadow(radius: 3, x: 3, y: 3)
+                .fonzShadow()
                 .padding(10)
                 .multilineTextAlignment(.leading)
                 .fonzParagraphTwo()

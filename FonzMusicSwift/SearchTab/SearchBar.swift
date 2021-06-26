@@ -15,6 +15,8 @@ struct SearchBar: View {
     @ObservedObject var hostCoaster:HostCoasterInfo
     // checks if guest has a host
     @Binding var hasHostVar : Bool
+    // track object inherited from song search
+    @State var currentTune:GlobalTrack = GlobalTrack()
     
 // ---------------------------------- created inside view -------------------------------------------
     // object that stores the songs from the api
@@ -27,6 +29,12 @@ struct SearchBar: View {
     
     // checks to see if currently typing in searchbar
     @State var isEditingSearchBar = false
+    // bool auto set to false, set to true if nfc is launched
+    @State var launchedNfc = false
+    // bool auto set to false, set to true if song is selected
+    @State var pressedSongToLaunchNfc = false
+    // init var that keeps status code
+    @State var statusCodeQueueSong = 0
     
     
     
@@ -66,17 +74,25 @@ struct SearchBar: View {
                         // now playing + song suggestions
                         VStack{
                             ActiveSongView(hostName: $hostCoaster.hostName)
-                            SongSuggestionsView(hostCoaster: hostCoaster)
+                            SongSuggestionsView(hostCoaster: hostCoaster, currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
+                                
                         }
                         .isHidden(hideViews)
                         .addOpacity(isEditingSearchBar)
                         
                         
                         // search results
-                        VStack {
-                            SearchResultsView(tracksFromSearch: tracksFromSearch, hostCoaster: hostCoaster)
-                            Spacer()
+                        if isEditingSearchBar {
+                            VStack {
+                                SearchResultsView(tracksFromSearch: tracksFromSearch, hostCoaster: hostCoaster, currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
+                                Spacer()
+                            }
                         }
+                        
+                    }
+                    if pressedSongToLaunchNfc {
+                        LaunchQueueSongNfcSessionSheet(tempCoaster: hostCoaster, songInfo: currentTune, statusCode: $statusCodeQueueSong, launchedNfc: $launchedNfc, pressedButtonToLaunchNfc: $pressedSongToLaunchNfc)
+                            .frame(width: 0, height: 0)
                     }
                 
             }

@@ -22,7 +22,7 @@ struct JoinSuccessfulCircle: View {
                     .strokeBorder(Color.successGreen, lineWidth: 3)
                     .background(Circle().foregroundColor(colorScheme == .light ? Color.white: Color.darkButton))
                     .frame(width: 125, height: 125)
-                    .shadow(radius: 1)
+                    .fonzShadow()
                 Image("checkIconGreen").resizable().frame(width: sideGraphicHeight, height: sideGraphicHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 }
             Text("successfully connected to \(hostName)'s coaster \(coasterName)")

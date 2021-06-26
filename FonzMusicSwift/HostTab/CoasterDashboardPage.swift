@@ -48,9 +48,9 @@ struct CoasterDashboardPage: View {
             // regular coaster dashboard
             if !launchedNfc {
                 ZStack {
-                    RoundedRectangle(cornerRadius: 10)
+                    RoundedRectangle(cornerRadius: .cornerRadiusBlocks)
                         .fill(colorScheme == .light ? Color.white: Color.darkBackground)
-                        .shadow(radius: 3)
+                        .fonzShadow()
                     
                         VStack{
                             // coasters
@@ -74,8 +74,11 @@ struct CoasterDashboardPage: View {
                                                 .animation(.linear(duration: 0.3))
                                     }
                                 }
+                                .padding(.top, 5)
+                                .padding(.bottom, 10)
                             }.frame(width: UIScreen.screenWidth * 0.9, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                            .padding(.top, 30)
+                            .padding(.top, 20)
+                            
                             Spacer()
                             // add new button
                             AddNewCoasterButton(addNewCoasterPressed: $addNewCoasterPressed)

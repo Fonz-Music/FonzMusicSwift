@@ -29,7 +29,7 @@ struct SearchBarView : View {
                 .padding()
                 .padding(.horizontal, 25)
                 .background(colorScheme == .light ? Color.white: Color.darkButton)
-                .cornerRadius(10)
+                .cornerRadius(.cornerRadiusTasks)
                 .overlay(
                     HStack {
                         Image(systemName: "magnifyingglass")
@@ -49,6 +49,7 @@ struct SearchBarView : View {
                         }
                     }
                 )
+                .fonzShadow()
 //                .padding(.horizontal, 10)
                 .onTapGesture {
                     self.isEditing = true
@@ -60,8 +61,9 @@ struct SearchBarView : View {
                 Button(action: {
                     withAnimation {
                         self.isEditing = false
+                        
                     }
-                    
+                    hideKeyboard()
                     
                     self.tracksFromSearch.searchText = ""
  
@@ -76,6 +78,7 @@ struct SearchBarView : View {
         }
         .frame(width: UIScreen.screenWidth * 0.9, alignment: .center)
         .padding(.vertical, 10)
+        
         
         
     }

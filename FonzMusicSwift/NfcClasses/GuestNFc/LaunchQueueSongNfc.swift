@@ -14,25 +14,27 @@ struct LaunchQueueSongNfcSessionSheet: UIViewRepresentable {
 
     
     func makeCoordinator() -> LaunchQueueSongNfcSessionSheet.Coordinator {
-        return Coordinator(hostCoaster, songInfo, statusCode: $statusCode, launchedNfc: $launchedNfc)
+        return Coordinator(tempCoaster, songInfo, statusCode: $statusCode, launchedNfc: $launchedNfc, pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc)
     }
     
-    // coaster info
-    @ObservedObject var hostCoaster:HostCoasterInfo
+    // temp coaster to update page
+    @ObservedObject var tempCoaster:HostCoasterInfo
     // takes in selected song
     @ObservedObject var songInfo:GlobalTrack
     // takes in status code to return to parent
     @Binding var statusCode:Int
     // changes to true when nfc launches
     @Binding var launchedNfc:Bool
-    
+    // boolean on whether the button has been pressed
+    @Binding var pressedButtonToLaunchNfc:Bool
     
     func makeUIView(context: UIViewRepresentableContext<LaunchQueueSongNfcSessionSheet>) -> UIButton {
         let button = UIButton()
+        button.isHidden = true
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             context.coordinator.launchNfcScan()
-        }
+//        }
         return button
     }
     
@@ -43,20 +45,32 @@ struct LaunchQueueSongNfcSessionSheet: UIViewRepresentable {
     }
     
     class Coordinator: NSObject, NFCTagReaderSessionDelegate {
-        @ObservedObject var hostCoaster:HostCoasterInfo
+        // temp coaster to update page
+        @ObservedObject var tempCoaster:HostCoasterInfo
+        // object of the current song
         @ObservedObject var songInfo:GlobalTrack
-        @Binding var statusCode:Int
+        // boolean on whether the nfc has finished or not
         @Binding var launchedNfc:Bool
-//        @Binding var songLoaded:Bool
+        // takes in status code to return to parent
+        @Binding var statusCode:Int
+        // boolean on whether the button has been pressed
+        @Binding var pressedButtonToLaunchNfc:Bool
         
         var session: NFCTagReaderSession?
         
-        init(_ hostCoaster: HostCoasterInfo, _ songInfo: GlobalTrack, statusCode: Binding<Int>, launchedNfc: Binding<Bool>) {
+        init(
+            _ tempCoaster: HostCoasterInfo,
+            _ songInfo: GlobalTrack,
+            statusCode: Binding<Int>,
+            launchedNfc: Binding<Bool>,
+            pressedButtonToLaunchNfc: Binding<Bool>
+        ) {
             
-            self.hostCoaster = hostCoaster
             self.songInfo = songInfo
-            _statusCode = statusCode
             _launchedNfc = launchedNfc
+            self.tempCoaster = tempCoaster
+            _statusCode = statusCode
+            _pressedButtonToLaunchNfc = pressedButtonToLaunchNfc
         }
        
         
@@ -90,6 +104,7 @@ struct LaunchQueueSongNfcSessionSheet: UIViewRepresentable {
             print("yikes")
             session.invalidate()
             self.launchedNfc = true
+            self.pressedButtonToLaunchNfc = false
         }
         
         // if the nfc read connects
@@ -100,12 +115,14 @@ struct LaunchQueueSongNfcSessionSheet: UIViewRepresentable {
                 session.alertMessage = "more than one tag detected, please try again"
                 session.invalidate()
                 self.launchedNfc = true
+                self.pressedButtonToLaunchNfc = false
             }
             session.connect(to: tags.first!) { (error: Error?) in
                 if nil != error{
                     print("connection failed")
                     session.invalidate(errorMessage: "connection failed")
                     self.launchedNfc = true
+                    self.pressedButtonToLaunchNfc = false
                 }
                 if case let NFCTag.miFare(sTag) = tags.first! {
                     // sets uid
@@ -116,12 +133,12 @@ struct LaunchQueueSongNfcSessionSheet: UIViewRepresentable {
                     session.alertMessage = "properly connected!"
                     
                     // if the uid is the same as the host uid
-                    if (UID == self.hostCoaster.uid) {
+                    if (UID == self.tempCoaster.uid) {
                         session.invalidate()
                         // creates apiConnection
                         let apiConnection = GuestApi()
                         // calls function to queue that song from the API
-                        let statusCodeFromApi = apiConnection.queueSong(sessionId: self.hostCoaster.sessionId, trackId: self.songInfo.songId)
+                        let statusCodeFromApi = apiConnection.queueSong(sessionId: self.tempCoaster.sessionId, trackId: self.songInfo.songId)
                         print("status code " + String(statusCodeFromApi))
                         
                         DispatchQueue.main.async {
@@ -129,6 +146,7 @@ struct LaunchQueueSongNfcSessionSheet: UIViewRepresentable {
                             // send the status code
                             self.statusCode = statusCodeFromApi
 //                            self.statusCode = 404
+                            self.pressedButtonToLaunchNfc = false
                         }
                     }
                     // if the uid is different
@@ -139,6 +157,7 @@ struct LaunchQueueSongNfcSessionSheet: UIViewRepresentable {
                             // send the status code
                             self.launchedNfc = true
                             self.statusCode = 1
+                            self.pressedButtonToLaunchNfc = false
                         }
                     }
                 }
