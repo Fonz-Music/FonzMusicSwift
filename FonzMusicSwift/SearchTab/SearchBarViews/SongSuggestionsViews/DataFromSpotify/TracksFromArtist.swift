@@ -1,9 +1,11 @@
 //
-//  ProductViewModel.swift
-//  Fonz Music App Clip
+//  TracksFromArtist.swift
+//  FonzMusicSwift
 //
-//  Created by didi on 2/13/21.
+//  Created by didi on 6/28/21.
 //
+
+
 
 import Foundation
 import Combine
@@ -11,24 +13,21 @@ import Firebase
 //import FirebaseAuth
 import Network
 
-class TracksFromSearch: ObservableObject {
+
+class TracksFromArtist: ObservableObject {
     
     var subscription: Set<AnyCancellable> = []
     var tempSession : String = ""
     
     @Published private (set) var products: [Track] = []
     
-    @Published var searchText: String = String()
+    @Published var artist: String = String()
     
     // MARK:- Initiliazer for product via model.
     
     init() {
-//        let apiConnection = GuestApi()
-//        if searchText == "" {
-//            return
-//        }
         print("starting this")
-        $searchText
+        $artist
             .debounce(for: .milliseconds(800), scheduler: RunLoop.main) // debounces the string publisher, such that it delays the process of sending request to remote server.
             .removeDuplicates()
             .map({ (string) -> String? in
@@ -119,3 +118,4 @@ class TracksFromSearch: ObservableObject {
     }
     
 }
+

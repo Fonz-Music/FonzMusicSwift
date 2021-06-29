@@ -20,6 +20,7 @@ extension Color {
     static let lilac = Color(red: 200 / 255, green: 148 / 255, blue: 166 / 255)
     static let lilacDark = Color(red: 177 / 255, green: 136 / 255, blue: 185 / 255)
     static let successGreen = Color(red: 0 / 255, green: 139 / 255, blue: 9 / 255)
+    static let spotifyGreen = Color(red: 29 / 255, green: 185 / 255, blue: 84 / 255)
     
     static let darkBackground = Color(red: 64 / 255, green: 64 / 255, blue: 64 / 255)
     static let darkButton = Color(red: 71 / 255, green: 71 / 255, blue: 71 / 255)

@@ -128,12 +128,24 @@ struct LaunchConnectCoasterNfc: UIViewRepresentable {
                     self.pressedButtonToLaunchNfc = false
                     self.statusCode = 0
                 }
+               
+                
                 if case let NFCTag.miFare(sTag) = tags.first! {
 
                     // gets the UID from the coaster
                     let coasterUidFromTag = sTag.identifier.map{
                         String(format: "%.2hhx", $0) }.joined()
                     print("UID:" + coasterUidFromTag)
+                    
+
+                
+                
+                    
+//                    NFCTag.miFare(sTag.mifareFami)
+                    
+                    print(session.connectedTag)
+                    print(session.connectedTag.publisher)
+//                    print(sTag.historicalBytes.map{String(format: "%.2hhx", $0) }.joined())
 
                     // note on NFC popup returned to user
                     session.alertMessage = "properly connected!"

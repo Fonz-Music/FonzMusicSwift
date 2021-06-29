@@ -30,6 +30,7 @@ struct TroubleShootCoasterField: View {
                     }
                 } label: {
                     Image(systemName: "xmark")
+                        .foregroundColor(.white)
                         .frame(width: 20 , height: 20, alignment: .center)
                         .padding(.vertical, 5)
                         .padding(.horizontal, 20)
@@ -49,6 +50,7 @@ struct TroubleShootCoasterField: View {
                     }
                 } label: {
                     Image(systemName: "checkmark")
+                        .foregroundColor(.white)
                         .frame(width: 20 , height: 20, alignment: .center)
                         .padding(.vertical, 5)
                         .padding(.horizontal, 20)

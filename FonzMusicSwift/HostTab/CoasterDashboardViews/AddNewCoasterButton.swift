@@ -22,6 +22,7 @@ struct AddNewCoasterButton: View {
             
         } label: {
             Image(systemName: "plus")
+                .foregroundColor(.white)
                 .padding()
 //                        Image("plusIconLilac")
         }

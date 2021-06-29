@@ -6,14 +6,19 @@
 //
 
 import SwiftUI
+import Foundation
 
 struct BuyCoasterButton: View {
     
     @Environment(\.colorScheme) var colorScheme
+    @Environment(\.openURL) var openURL
     
     var body: some View {
         Button(action: {
-//                    pressedButtonToLaunchNfc = true
+            guard let url = URL(string: "https://www.fonzmusic.com/buy") else {
+                return
+            }
+            openURL(url)
             print("pressed button")
         }, label: {
             HStack {

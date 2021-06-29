@@ -44,10 +44,10 @@ struct ConnectSpotifyButtonHomeView: View {
                 }
                 
             }, label: {
-                Image("spotifyIcon").resizable().frame(width: sideGraphicHeight, height: sideGraphicHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                Image("spotifyIconGreen").resizable().frame(width: sideGraphicHeight, height: sideGraphicHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                         .frame(width: 125, height: 125)
             })
-            .buttonStyle(NeumorphicButtonStyleCircle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .successGreen))
+            .buttonStyle(NeumorphicButtonStyleCircle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .spotifyGreen))
             Text("connect your spotify")
                 .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
                 .fonzParagraphTwo()

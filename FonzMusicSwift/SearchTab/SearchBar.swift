@@ -21,6 +21,13 @@ struct SearchBar: View {
 // ---------------------------------- created inside view -------------------------------------------
     // object that stores the songs from the api
     @ObservedObject var tracksFromSearch: TracksFromSearch = TracksFromSearch()
+    // object that stores the songs from the api
+    @ObservedObject var tracksFromPlaylist: TracksFromPlaylist = TracksFromPlaylist()
+    // object that stores the songs from the api
+    @ObservedObject var tracksFromArtist: TracksFromArtist = TracksFromArtist()
+    // object that stores the songs from the api
+    @ObservedObject var trackFromNowPlaying: TrackFromNowPlaying = TrackFromNowPlaying()
+    
     @State var scale: CGFloat = 1
     @Environment(\.colorScheme) var colorScheme
     
@@ -73,8 +80,8 @@ struct SearchBar: View {
                     ZStack {
                         // now playing + song suggestions
                         VStack{
-                            ActiveSongView(hostName: $hostCoaster.hostName)
-                            SongSuggestionsView(hostCoaster: hostCoaster, currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
+                            ActiveSongView(hostName: hostCoaster.hostName, currentSessionId: hostCoaster.sessionId, trackfromNowPlaying: trackFromNowPlaying)
+                            SongSuggestionsView(hostCoaster: hostCoaster, currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc, tracksFromPlaylist: tracksFromPlaylist, tracksFromArtist: tracksFromArtist)
                                 
                         }
                         .isHidden(hideViews)
@@ -101,6 +108,11 @@ struct SearchBar: View {
                 UIScrollView.appearance().bounces = false
                 // passes the sessionId from the host into the results return
                 tracksFromSearch.tempSession = hostCoaster.sessionId
+                tracksFromPlaylist.tempSession = hostCoaster.sessionId
+                tracksFromArtist.tempSession = hostCoaster.sessionId
+                trackFromNowPlaying.tempSession = hostCoaster.sessionId
+            
+                trackFromNowPlaying.nowPlaying = "mac"
                 // waits .5 seconds before showing views
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     withAnimation {

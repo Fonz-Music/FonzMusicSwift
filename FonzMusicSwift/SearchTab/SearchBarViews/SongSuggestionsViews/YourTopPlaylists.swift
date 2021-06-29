@@ -15,6 +15,8 @@ struct YourTopPlaylists: View {
     @Binding var currentTune : GlobalTrack
     // bool that will launch nfc when pressed
     @Binding var pressedSongToLaunchNfc : Bool
+    // object that stores the songs from the api
+    @ObservedObject var tracksFromPlaylist: TracksFromPlaylist
     
     @Environment(\.colorScheme) var colorScheme
     
@@ -42,7 +44,7 @@ struct YourTopPlaylists: View {
                         HStack(spacing: 20) {
                             ForEach(0..<topPlaylists.count) {
                                 
-                                TopPlaylistsView(hostCoaster: hostCoaster, playlistIn: topPlaylists[$0], currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
+                                TopPlaylistsView(hostCoaster: hostCoaster, playlistIn: topPlaylists[$0], currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc, tracksFromPlaylist: tracksFromPlaylist)
                             }
                         }
                     }
@@ -68,6 +70,8 @@ struct TopPlaylistsView: View {
     @Binding var currentTune : GlobalTrack
     // bool that will launch nfc when pressed
     @Binding var pressedSongToLaunchNfc : Bool
+    // object that stores the songs from the api
+    @ObservedObject var tracksFromPlaylist: TracksFromPlaylist
     
     
     @Environment(\.colorScheme) var colorScheme
@@ -78,6 +82,7 @@ struct TopPlaylistsView: View {
     var body: some View {
         Button {
             launchPlaylistSongsModal = true
+            tracksFromPlaylist.playlist = playlistIn.playlistName
         } label: {
             VStack {
                 AsyncImage(url: URL(string: playlistIn.playlistImage)!,
@@ -100,7 +105,7 @@ struct TopPlaylistsView: View {
 //                                    self.currentTune.songLoaded = false
 //                                    self.queuesLeft += 1
         }) {
-            SongListModal(hostCoaster: hostCoaster, resultsTitle: playlistIn.playlistName, resultsType: "\(playlistIn.amountOfTracks) tracks", resultsImage: playlistIn.playlistImage, currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
+            PlaylistSongListModal(hostCoaster: hostCoaster, resultsTitle: playlistIn.playlistName, resultsType: "\(playlistIn.amountOfTracks) tracks", resultsImage: playlistIn.playlistImage, currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc, tracksFromEntry: tracksFromPlaylist)
         }
         
     }

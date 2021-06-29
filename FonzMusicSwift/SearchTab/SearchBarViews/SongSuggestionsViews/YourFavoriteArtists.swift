@@ -15,6 +15,9 @@ struct YourFavoriteArtists: View {
     @Binding var currentTune : GlobalTrack
     // bool that will launch nfc when pressed
     @Binding var pressedSongToLaunchNfc : Bool
+    // object that stores the songs from the api
+    @ObservedObject var tracksFromArtist: TracksFromArtist
+    
     
     @Environment(\.colorScheme) var colorScheme
     
@@ -45,7 +48,7 @@ struct YourFavoriteArtists: View {
                         HStack(spacing: 10) {
                             ForEach(0..<topArtists.count) {
                                 
-                                FavoriteArtistView(hostCoaster: hostCoaster, artistIn: topArtists[$0], currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
+                                FavoriteArtistView(hostCoaster: hostCoaster, artistIn: topArtists[$0], currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc, tracksFromArtist: tracksFromArtist)
                             }
                         }
                     }
@@ -72,6 +75,8 @@ struct FavoriteArtistView: View {
     @Binding var currentTune : GlobalTrack
     // bool that will launch nfc when pressed
     @Binding var pressedSongToLaunchNfc : Bool
+    // object that stores the songs from the api
+    @ObservedObject var tracksFromArtist: TracksFromArtist
     
     // so the button can only be pressed once
     @State var launchArtistSongsModal = false
@@ -81,6 +86,7 @@ struct FavoriteArtistView: View {
     var body: some View {
         Button {
             launchArtistSongsModal = true
+            tracksFromArtist.artist = artistIn.artistName
         } label: {
             VStack {
                 AsyncImage(url: URL(string: artistIn.artistImage)!,
@@ -99,7 +105,7 @@ struct FavoriteArtistView: View {
 //                                    self.currentTune.songLoaded = false
 //                                    self.queuesLeft += 1
         }) {
-            SongListModal(hostCoaster: hostCoaster, resultsTitle: artistIn.artistName, resultsType: "artist", resultsImage: artistIn.artistImage, currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
+            ArtistSongListModal(hostCoaster: hostCoaster, resultsTitle: artistIn.artistName, resultsType: "artist", resultsImage: artistIn.artistImage, currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc, tracksFromEntry: tracksFromArtist)
         }
 
         

@@ -36,6 +36,7 @@ struct RenameCoasterField: View {
                 }
             } label: {
                 Image(systemName: "checkmark")
+                    .foregroundColor(.white)
                     .frame(width: 20 , height: 20, alignment: .center)
                     .padding(.vertical, 5)
                     .padding(.horizontal, 15)
