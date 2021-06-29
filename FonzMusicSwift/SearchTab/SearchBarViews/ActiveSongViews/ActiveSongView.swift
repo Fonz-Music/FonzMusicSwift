@@ -19,8 +19,11 @@ struct ActiveSongView: View {
     @State var activeSongPlace: Double = 1.32
     @State var activeSongLength: Double = 4.00
     
-    @State var activeSong : Track = Track(songName: "Rush Hour", songId: "09VACB0akCnPueTFnjN5Pn", artistName: "Mac Miller", albumArt: "https://i.scdn.co/image/ab67616d0000b273ee0f38410382a255e4fb15f4", spotifyUrl: "https://open.spotify.com/track/09VACB0akCnPueTFnjN5Pn")
+//    @ObservedObject var activeSong : Track = Track(songName: "Rush Hour", songId: "09VACB0akCnPueTFnjN5Pn", artistName: "Mac Miller", albumArt: "https://i.scdn.co/image/ab67616d0000b273ee0f38410382a255e4fb15f4", spotifyUrl: "https://open.spotify.com/track/09VACB0akCnPueTFnjN5Pn")
     
+//    @Binding var activeSong : Track
+    
+//    @ObservedObject var currentImage = ImageLoader(url: URL(string: "https://i.scdn.co/image/ab67616d0000b273ee0f38410382a255e4fb15f4")!)
     
     
     var body: some View {
@@ -34,21 +37,14 @@ struct ActiveSongView: View {
 //                print(trackfromNowPlaying.currentSong)
 //                print(trackfromNowPlaying.nowPlaying)
                 trackfromNowPlaying.getActiveSong(sessionId: currentSessionId)
-                if (trackfromNowPlaying.currentSong.artistName != "") {
-                    
-                    activeSong.artistName = trackfromNowPlaying.currentSong.artistName
-                    activeSong.albumArt = trackfromNowPlaying.currentSong.albumArt
-                    activeSong.songName = trackfromNowPlaying.currentSong.trackName
-                    print(activeSong.albumArt)
-                }
+            
             } label: {
-                ActiveSongUserInterface(activeSong: $activeSong, hostName: hostName)
+                ActiveSongUserInterface(trackfromNowPlaying: trackfromNowPlaying,  hostName: hostName)
                 .onAppear{
-                    if (trackfromNowPlaying.currentSong.artistName != "") {
-                        activeSong.artistName = trackfromNowPlaying.currentSong.artistName
-                        activeSong.albumArt = trackfromNowPlaying.currentSong.albumArt
-                        activeSong.songName = trackfromNowPlaying.currentSong.trackName
-                    }
+                    print(trackfromNowPlaying.currentSong[0].albumArt)
+                    print(trackfromNowPlaying.currentSong[0].trackName)
+                    print(trackfromNowPlaying.currentSong[0].artistName)
+                   
                 }
             }
             .frame(width: UIScreen.screenWidth * 0.9, alignment: .center)
@@ -98,7 +94,12 @@ struct ProgressBar: View {
 struct ActiveSongUserInterface : View {
     
     @Environment(\.colorScheme) var colorScheme
-    @Binding var activeSong : Track
+//    @Binding var activeSong : Track
+    // object that stores the songs from the api
+    @ObservedObject var trackfromNowPlaying: TrackFromNowPlaying
+    
+//    @ObservedObject var currentImage : ImageLoader
+    
     var hostName : String
     
     @State var activeSongPlace: Double = 1.32
@@ -110,21 +111,27 @@ struct ActiveSongUserInterface : View {
                 HStack(spacing: 5) {
                     // album art
                     //                                    activeSong.albumArt
-                    AsyncImage(url: (URL(string:activeSong.albumArt))!,
+//                    AsyncImage(url: (URL(string:activeSong.albumArt))!,
+//                               placeholder: { Text("...").fonzParagraphTwo() },
+//                               image: { Image(uiImage: $0).resizable() })
+                    AsyncImage(url: (URL(string:trackfromNowPlaying.currentSong[0].albumArt))!,
                                placeholder: { Text("...").fonzParagraphTwo() },
-                                   image: { Image(uiImage: $0).resizable() })
+                               image: { Image(uiImage: $0).resizable() })
+//                    AsyncImage(url: currentImage.url,
+//                               placeholder: { Text("...").fonzParagraphTwo() },
+//                               image: { Image(uiImage: $0).resizable() })
                         .frame( width: 80 ,height: 80, alignment: .leading).cornerRadius(.cornerRadiusTasks)
                         .padding(.vertical, 10)
                         .padding(.horizontal, 15)
                     // title & artist
                     VStack(alignment: .leading, spacing: 5) {
                 
-                        Text(verbatim: activeSong.songName)
-//                                Text(verbatim: trackfromNowPlaying.currentSong.trackName)
+//                        Text(verbatim: activeSong.songName)
+                                Text(verbatim: trackfromNowPlaying.currentSong[0].trackName)
                             .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
                             .fonzParagraphOne()
-                        Text(verbatim: activeSong.artistName)
-//                                Text(verbatim: trackfromNowPlaying.currentSong.artistName)
+//                        Text(verbatim: activeSong.artistName)
+                                Text(verbatim: trackfromNowPlaying.currentSong[0].artistName)
                             .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
                             .fonzParagraphTwo()
                         Text("playing on \(hostName)'s Fonz")

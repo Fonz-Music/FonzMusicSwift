@@ -17,14 +17,14 @@ class TrackFromNowPlaying: ObservableObject {
     var subscription: Set<AnyCancellable> = []
     var tempSession : String = ""
     
-    @Published private (set) var currentSong: NowPlayingInfo = NowPlayingInfo(artistName: "", albumArt: "https://i.scdn.co/image/ab67616d0000b273e1225196df3f67528c87c7fd", trackName: "")
+    @Published private (set) var currentSong: [NowPlayingInfo] = [NowPlayingInfo(artistName: "", albumArt: "https://i.scdn.co/image/ab67616d0000b273e1225196df3f67528c87c7fd", trackName: "")]
     
     @Published var nowPlaying: String = String()
     
     // MARK:- Initiliazer for product via model.
     
     init() {
-        print("starting this")
+//        print("starting this")
         $nowPlaying
             .debounce(for: .milliseconds(800), scheduler: RunLoop.main) // debounces the string publisher, such that it delays the process of sending request to remote server.
             .removeDuplicates()
@@ -57,7 +57,7 @@ class TrackFromNowPlaying: ObservableObject {
             // get token
             user.getIDToken(){ (idToken, error) in
             if error == nil, let token = idToken {
-                
+//                print("got token")
                
                 
                 accessToken = token
@@ -72,21 +72,31 @@ class TrackFromNowPlaying: ObservableObject {
                 URLSession.shared.dataTask(with: request) { data, response, error in
                     if let dataResp = data {
                         // just to see output
+//                        print("got json")
                         let jsonData = try? JSONSerialization.jsonObject(with: data!, options: [])
                         print(jsonData)
                         
                         if let decodedResponse = try? JSONDecoder().decode(NowPlayingResult.self, from: dataResp) {
                             // object that will store searchResults
-//                            var searchResults = [NowPlayingInfo]()
+                            var searchResults = [NowPlayingInfo]()
                             
 //                            nowPlayingInfo = NowPlayingInfo(artistName: decodedResponse.artistName, albumArt: decodedResponse.images[0].url, trackName: decodedResponse.trackName)
                             
+                            let newAlbumArt = decodedResponse.images[0].url
+                            print(type(of: newAlbumArt))
                             print("this is the active song img \(decodedResponse.images[0].url)")
+                            
+                            let nowPlaying = NowPlayingInfo(artistName: decodedResponse.artistName, albumArt: newAlbumArt, trackName: decodedResponse.trackName)
 //                                searchResults.append(nowPlaying)
 //                            }
+                            searchResults.append(nowPlaying)
                             DispatchQueue.main.async {
                                 // returns searchResults
-                                self.currentSong = NowPlayingInfo(artistName: decodedResponse.artistName, albumArt: decodedResponse.images[0].url, trackName: decodedResponse.trackName)
+                                self.currentSong = searchResults
+                                
+//                                self.currentSong = NowPlayingInfo(artistName: decodedResponse.artistName, albumArt: newAlbumArt, trackName: decodedResponse.trackName)
+                                print("this is the active song \(decodedResponse)")
+                                print("this is the new song \(self.currentSong)")
                             }
                             return
                         }

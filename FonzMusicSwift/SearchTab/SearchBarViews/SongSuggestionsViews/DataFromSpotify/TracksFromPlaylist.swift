@@ -25,7 +25,7 @@ class TracksFromPlaylist: ObservableObject {
     // MARK:- Initiliazer for product via model.
     
     init() {
-        print("starting this")
+//        print("starting this")
         $playlist
             .debounce(for: .milliseconds(800), scheduler: RunLoop.main) // debounces the string publisher, such that it delays the process of sending request to remote server.
             .removeDuplicates()

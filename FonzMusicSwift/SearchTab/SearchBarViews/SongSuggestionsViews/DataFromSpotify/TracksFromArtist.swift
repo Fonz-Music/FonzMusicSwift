@@ -49,7 +49,7 @@ class TracksFromArtist: ObservableObject {
     
     
     func searchSession(sessionId:String, searchTerm:String) {
-        print("starting search")
+//        print("starting search")
         // init vale for access token
         var accessToken = ""
         guard let user = Auth.auth().currentUser else {
