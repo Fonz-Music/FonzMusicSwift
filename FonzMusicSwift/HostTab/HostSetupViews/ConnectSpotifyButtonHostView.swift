@@ -26,8 +26,10 @@ struct ConnectSpotifyButtonHomeView: View {
     //                selectedTab = 1
 //                    pressedButtonToLaunchSpotifySignIn = true
                     connectedToSpotify = true
+
                    
                 }
+                FirebaseAnalytics.Analytics.logEvent("userTappedConnectSpotify", parameters: ["user":"user", "tab":"host"])
                 guard let user = Auth.auth().currentUser else {
                     print("there was an error getting the user")
                     return

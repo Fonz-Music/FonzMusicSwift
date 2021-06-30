@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct ConnectYourFirstCoasterButton: View {
 // ---------------------------------- created in view -----------------------------------------------
@@ -31,7 +32,7 @@ struct ConnectYourFirstCoasterButton: View {
                     pressedButtonToLaunchNfc = true
     //                selectedTab = 1
                 }
-         
+                FirebaseAnalytics.Analytics.logEvent("userTappedConnectFirstCoaster", parameters: ["user":"user", "tab":"host"])
                 
             }, label: {
                 Image("coasterIcon").resizable().frame(width: sideGraphicHeight * 1.2, height: sideGraphicHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)

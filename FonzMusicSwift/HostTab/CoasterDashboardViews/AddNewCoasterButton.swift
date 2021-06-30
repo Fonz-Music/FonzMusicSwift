@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct AddNewCoasterButton: View {
     
@@ -19,6 +20,7 @@ struct AddNewCoasterButton: View {
             withAnimation{
                 addNewCoasterPressed = true
             }
+            FirebaseAnalytics.Analytics.logEvent("hostTappedConnectNewCoaster", parameters: ["user":"host", "tab":"host"])
             
         } label: {
             Image(systemName: "plus")

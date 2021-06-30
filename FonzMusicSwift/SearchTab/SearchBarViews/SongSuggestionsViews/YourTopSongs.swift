@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct YourTopSongs: View {
     
@@ -75,6 +76,7 @@ struct TopSongButtonView: View {
             currentTune.albumArt = topSong.albumArt
             currentTune.spotifyUrl = topSong.spotifyUrl
             pressedSongToLaunchNfc = true
+            FirebaseAnalytics.Analytics.logEvent("guestSelectedTopSong", parameters: ["user":"guest", "tab":"search"])
         } label: {
             ZStack {
                 HStack(spacing: 5) {

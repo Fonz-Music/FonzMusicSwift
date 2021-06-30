@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct RenameCoasterField: View {
     
@@ -34,6 +35,7 @@ struct RenameCoasterField: View {
                 withAnimation {
                     showRenameModal = false
                 }
+                FirebaseAnalytics.Analytics.logEvent("hostRenamedCoaster", parameters: ["user":"host", "tab":"host"])
             } label: {
                 Image(systemName: "checkmark")
                     .foregroundColor(.white)

@@ -9,5 +9,7 @@ target 'FonzMusicSwift' do
   pod 'Firebase/Auth'
   pod 'Firebase/Core'
 
+  pod ‘Firebase/Crashlytics’
+  pod ‘Firebase/Analytics’
 
 end

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct YourTopPlaylists: View {
     
@@ -83,6 +84,7 @@ struct TopPlaylistsView: View {
         Button {
             launchPlaylistSongsModal = true
             tracksFromPlaylist.playlist = playlistIn.playlistName
+            FirebaseAnalytics.Analytics.logEvent("guestSelectedPlaylist", parameters: ["user":"guest", "tab":"search"])
         } label: {
             VStack {
                 AsyncImage(url: URL(string: playlistIn.playlistImage)!,

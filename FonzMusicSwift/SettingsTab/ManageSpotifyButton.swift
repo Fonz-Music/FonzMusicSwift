@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct ManageSpotifyButton: View {
     
@@ -15,6 +16,7 @@ struct ManageSpotifyButton: View {
         Button(action: {
 
             print("pressed button")
+            FirebaseAnalytics.Analytics.logEvent("userPressedManageSpotify", parameters: ["user":"user", "tab": "settings"])
         }, label: {
             HStack {
                 HStack(spacing: 5) {

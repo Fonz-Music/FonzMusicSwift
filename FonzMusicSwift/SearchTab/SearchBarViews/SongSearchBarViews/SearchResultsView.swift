@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 // list view from searching song
 struct SearchResultsView: View {
@@ -43,6 +44,7 @@ struct SearchResultsView: View {
                     LazyVGrid(columns: layout, spacing: 8) {
                         ForEach(tracksFromSearch.products, id: \.self) { item in
                             Button(action: {
+                                FirebaseAnalytics.Analytics.logEvent("guestSelectedSearchedSong", parameters: ["user":"guest", "tab":"search"])
 
                                 // sets the current song to song chosen
                                 if !pressedSongToLaunchNfc {

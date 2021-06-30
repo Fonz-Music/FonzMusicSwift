@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Foundation
+import Firebase
 
 struct BuyCoasterButton: View {
     
@@ -20,6 +21,7 @@ struct BuyCoasterButton: View {
             }
             openURL(url)
             print("pressed button")
+            FirebaseAnalytics.Analytics.logEvent("userPressedBuyCoaster", parameters: ["user":"user", "tab": "settings"])
         }, label: {
             HStack {
                 HStack(spacing: 5) {

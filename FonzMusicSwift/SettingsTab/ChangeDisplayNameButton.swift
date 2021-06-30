@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct ChangeDisplayNameButton: View {
     
@@ -15,6 +16,7 @@ struct ChangeDisplayNameButton: View {
         Button(action: {
 //                    pressedButtonToLaunchNfc = true
             print("pressed button")
+            FirebaseAnalytics.Analytics.logEvent("userPressedChangeName", parameters: ["user":"user", "tab": "settings"])
         }, label: {
             HStack {
                 HStack(spacing: 5) {

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct HostAPartyButton: View {
 
@@ -22,6 +23,7 @@ struct HostAPartyButton: View {
             withAnimation {
                 showHomeButtons = false
             }
+            FirebaseAnalytics.Analytics.logEvent("userTappedSetupCoaster", parameters: ["user":"user", "tab":"search"])
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
                 withAnimation {
                     selectedTab = TabIdentifier.host

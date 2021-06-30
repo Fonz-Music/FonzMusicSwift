@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct DisconnectCoasterField: View {
     
@@ -29,6 +30,7 @@ struct DisconnectCoasterField: View {
                     withAnimation {
                         showDisconnectModal = false
                     }
+                    FirebaseAnalytics.Analytics.logEvent("hostDisconnectedCoaster", parameters: ["user":"host", "tab":"host"])
                 } label: {
                     Image(systemName: "xmark")
                         .foregroundColor(.white)

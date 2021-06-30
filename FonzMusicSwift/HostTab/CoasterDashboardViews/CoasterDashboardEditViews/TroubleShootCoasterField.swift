@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct TroubleShootCoasterField: View {
     @Environment(\.colorScheme) var colorScheme
@@ -28,6 +29,7 @@ struct TroubleShootCoasterField: View {
                     withAnimation {
                         showTroubleShootModal = false
                     }
+                    FirebaseAnalytics.Analytics.logEvent("hostTroubleShootedCoaster", parameters: ["user":"host", "tab":"host"])
                 } label: {
                     Image(systemName: "xmark")
                         .foregroundColor(.white)

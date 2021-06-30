@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct SignOutButton: View {
     
@@ -13,6 +14,7 @@ struct SignOutButton: View {
     
     var body: some View {
         Button(action: {
+            FirebaseAnalytics.Analytics.logEvent("userPressedSignOut", parameters: ["user":"user", "tab": "settings"])
 //                    pressedButtonToLaunchNfc = true
             print("pressed button")
         }, label: {

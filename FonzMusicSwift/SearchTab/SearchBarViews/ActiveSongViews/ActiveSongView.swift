@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct ActiveSongView: View {
     
@@ -37,7 +38,7 @@ struct ActiveSongView: View {
 //                print(trackfromNowPlaying.currentSong)
 //                print(trackfromNowPlaying.nowPlaying)
                 trackfromNowPlaying.getActiveSong(sessionId: currentSessionId)
-            
+                FirebaseAnalytics.Analytics.logEvent("guestReloadedActiveSong", parameters: ["user":"guest"])
             } label: {
                 ActiveSongUserInterface(trackfromNowPlaying: trackfromNowPlaying,  hostName: hostName)
                 .onAppear{

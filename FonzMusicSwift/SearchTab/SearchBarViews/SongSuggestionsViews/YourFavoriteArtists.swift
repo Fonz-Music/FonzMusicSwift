@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct YourFavoriteArtists: View {
     
@@ -87,6 +88,7 @@ struct FavoriteArtistView: View {
         Button {
             launchArtistSongsModal = true
             tracksFromArtist.artist = artistIn.artistName
+            FirebaseAnalytics.Analytics.logEvent("guestSelectedArtist", parameters: ["user":"guest", "tab":"search"])
         } label: {
             VStack {
                 AsyncImage(url: URL(string: artistIn.artistImage)!,

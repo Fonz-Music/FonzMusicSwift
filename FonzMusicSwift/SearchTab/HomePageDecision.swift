@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct HomePageDecision: View {
 // ---------------------------------- inherited from parent -----------------------------------------
@@ -85,6 +86,7 @@ struct HomePageDecision: View {
                             JoinSuccessfulCircle(hostName: tempCoasterDetails.hostName, coasterName: tempCoasterDetails.coasterName)
                                 .onAppear {
                                     // waits 3.5 seconds before naviagiting to searchbar
+                                    FirebaseAnalytics.Analytics.logEvent("guestJoinPartySuccess", parameters: ["user":"guest"])
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
                                         print("firing now")
                                         withAnimation {
@@ -102,6 +104,9 @@ struct HomePageDecision: View {
                         else {
                             FailPartyJoin(pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc, errorMessage: "you did not join the party. press to try again", errorImage: "disableIcon")
                                 .animation(.easeInOut(duration: 2))
+                                .onAppear {
+                                    FirebaseAnalytics.Analytics.logEvent("guestJoinPartyFail", parameters: ["user":"guest"])
+                                }
 //                            Button {
 //                                withAnimation{
 //                                    pressedButtonToLaunchNfc = true
@@ -112,6 +117,7 @@ struct HomePageDecision: View {
 //                                    .animation(.easeInOut(duration: 2))
 //                            }
                             if pressedButtonToLaunchNfc {
+                                
                                 LaunchJoinPartyNfcSession(
                                     tempCoaster: $tempCoasterDetails,
                                     launchedNfc: $launchedNfc,

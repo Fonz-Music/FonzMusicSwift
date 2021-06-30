@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 
 struct JoinAPartyButton: View {
@@ -28,7 +29,7 @@ struct JoinAPartyButton: View {
                 showHomeButtons = false
                 pressedButtonToLaunchNfc = true
             }
-            
+            FirebaseAnalytics.Analytics.logEvent("guestTappedJoinParty", parameters: ["user":"guest", "tab":"search"])
         }, label: {
             
        
