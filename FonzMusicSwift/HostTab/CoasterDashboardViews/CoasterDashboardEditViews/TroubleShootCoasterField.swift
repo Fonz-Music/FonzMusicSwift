@@ -12,7 +12,11 @@ struct TroubleShootCoasterField: View {
     @Environment(\.colorScheme) var colorScheme
     
     @Binding var showTroubleShootModal : Bool
+   
     var coasterUid:String
+    @Binding var troubleShootCoasterPressed : Bool
+    // temp Coaster Object to pass to trouble shoot to write correct uid
+    @Binding var tempCoasterDetails : HostCoasterInfo
     
     var body: some View {
         VStack{
@@ -29,7 +33,7 @@ struct TroubleShootCoasterField: View {
                     withAnimation {
                         showTroubleShootModal = false
                     }
-                    FirebaseAnalytics.Analytics.logEvent("hostTroubleShootedCoaster", parameters: ["user":"host", "tab":"host"])
+                    
                 } label: {
                     Image(systemName: "xmark")
                         .foregroundColor(.white)
@@ -47,9 +51,12 @@ struct TroubleShootCoasterField: View {
                     // read uid from coaster
                     // then write "domain" + uid
                     print("pressed button")
+                    tempCoasterDetails.uid = coasterUid
                     withAnimation {
                         showTroubleShootModal = false
+                        troubleShootCoasterPressed = true
                     }
+                    FirebaseAnalytics.Analytics.logEvent("hostTroubleShootedCoaster", parameters: ["user":"host", "tab":"host"])
                 } label: {
                     Image(systemName: "checkmark")
                         .foregroundColor(.white)

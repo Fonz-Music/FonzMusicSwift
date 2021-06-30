@@ -30,7 +30,7 @@ struct DisconnectCoasterField: View {
                     withAnimation {
                         showDisconnectModal = false
                     }
-                    FirebaseAnalytics.Analytics.logEvent("hostDisconnectedCoaster", parameters: ["user":"host", "tab":"host"])
+                    
                 } label: {
                     Image(systemName: "xmark")
                         .foregroundColor(.white)
@@ -51,6 +51,7 @@ struct DisconnectCoasterField: View {
                     withAnimation {
                         showDisconnectModal = false
                     }
+                    FirebaseAnalytics.Analytics.logEvent("hostDisconnectedCoaster", parameters: ["user":"host", "tab":"host"])
                 } label: {
                     Image(systemName: "checkmark")
                         .foregroundColor(.white)

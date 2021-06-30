@@ -31,7 +31,7 @@ struct PauseCoasterField: View {
                     withAnimation {
                         showPauseModal = false
                     }
-                    FirebaseAnalytics.Analytics.logEvent("hostPausedCoaster", parameters: ["user":"host", "tab":"host"])
+                    
                 } label: {
                     Image(systemName: "xmark")
                         .foregroundColor(.white)
@@ -53,6 +53,7 @@ struct PauseCoasterField: View {
                     withAnimation {
                         showPauseModal = false
                     }
+                    FirebaseAnalytics.Analytics.logEvent("hostPausedCoaster", parameters: ["user":"host", "tab":"host"])
                 } label: {
                     Image(systemName: "checkmark")
                         .foregroundColor(.white)

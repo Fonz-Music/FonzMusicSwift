@@ -38,6 +38,8 @@ struct CoasterDashboardPage: View {
     
     @State var addNewCoasterPressed = false
     
+    @State var troubleShootCoasterPressed = false
+    
     @State var showSuccessOrError = false
     
     var body: some View {
@@ -59,7 +61,7 @@ struct CoasterDashboardPage: View {
 
                                     ForEach(hostCoasterList.products.coasters, id: \.self) { item in
                                         
-                                        OwnedCoasterDropItem(item: item, isExpanded: self.selection.contains(item),  coasterFromSearch: hostCoasterList, showRenameModal: $showRenameModal, showPauseModal: $showPauseModal, showTroubleShootModal: $showTroubleShootModal, showDisconnectModal:  $showDisconnectModal)
+                                        OwnedCoasterDropItem(item: item, isExpanded: self.selection.contains(item),  coasterFromSearch: hostCoasterList, showRenameModal: $showRenameModal, showPauseModal: $showPauseModal, showTroubleShootModal: $showTroubleShootModal, showDisconnectModal:  $showDisconnectModal, troubleShootCoasterPressed: $troubleShootCoasterPressed, tempCoasterDetails: $tempCoasterDetails)
                                                 .onTapGesture {
         //                                            if !self.selection.contains(item) {
                                                         self.selectDeselect(item)
@@ -85,13 +87,16 @@ struct CoasterDashboardPage: View {
                             if addNewCoasterPressed {
                                 LaunchConnectCoasterNfc(tempCoaster: $tempCoasterDetails, launchedNfc: $launchedNfc, statusCode: $statusCodeResp, pressedButtonToLaunchNfc: $addNewCoasterPressed).frame(maxWidth: 0, maxHeight: 0, alignment: .center)
                             }
+                            if troubleShootCoasterPressed {
+                                LaunchTroubleShootCoasterUrl(tempCoasterUid: $tempCoasterDetails.uid, statusCode: $statusCodeResp, launchedNfc: $launchedNfc, pressedButtonToLaunchNfc: $troubleShootCoasterPressed).frame(maxWidth: 0, maxHeight: 0, alignment: .center)
+                            }
                         }
                     }
             }
             // displays resp from adding new coaster
             else {
-                Spacer()
-                    .frame(height: 75)
+//                Spacer()
+//                    .frame(height: 75)
                 // if host joins their first coaster propeerly, prompt name
                 if statusCodeResp == 204 {
                     VStack {
@@ -106,6 +111,46 @@ struct CoasterDashboardPage: View {
                     // this is someone else's coaster
                     Text("this is your coaster \(tempCoasterDetails.coasterName)")
                 }
+                // coaster has been trouble shooted
+                else if statusCodeResp == 600 {
+                    
+                    VStack {
+                        
+                        // name coaster
+                        SuccessFulTroubleShoot()
+                        Spacer()
+                    }
+                    .onAppear{
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
+                            withAnimation {
+                                if !addNewCoasterPressed {
+                                    launchedNfc = false
+                                }
+
+                            }
+                        }
+                    }
+                }
+                // coaster has been trouble shooted FAIL
+                else if statusCodeResp == 601 {
+                    // this is someone else's coaster
+                    VStack {
+                        
+                        // show user failed coaster
+                        FailCircleResponse(errorMessage: "troubleshoot failed", errorImage: "signOutIcon")
+                        Spacer()
+                    }
+                    .onAppear{
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
+                            withAnimation {
+                                if !addNewCoasterPressed {
+                                    launchedNfc = false
+                                }
+
+                            }
+                        }
+                    }
+                }
                 
                 else {
                     ZStack {
@@ -116,11 +161,11 @@ struct CoasterDashboardPage: View {
                         }
                         
                         else {
-                            FailPartyJoin(pressedButtonToLaunchNfc: $addNewCoasterPressed, errorMessage: "you did not join the party. press to try again", errorImage: "disableIcon")
+                            FailCircleResponse(errorMessage: "adding the new coaster failed", errorImage: "signOutIcon")
                                 .animation(.easeInOut(duration: 2))
-                            if addNewCoasterPressed {
-                                LaunchConnectCoasterNfc(tempCoaster: $tempCoasterDetails, launchedNfc: $launchedNfc, statusCode: $statusCodeResp, pressedButtonToLaunchNfc: $addNewCoasterPressed).frame(maxWidth: 0, maxHeight: 0, alignment: .center)
-                            }
+//                            if addNewCoasterPressed {
+//                                LaunchConnectCoasterNfc(tempCoaster: $tempCoasterDetails, launchedNfc: $launchedNfc, statusCode: $statusCodeResp, pressedButtonToLaunchNfc: $addNewCoasterPressed).frame(maxWidth: 0, maxHeight: 0, alignment: .center)
+//                            }
                         }
                     }
 //                    .padding(.top, 100)

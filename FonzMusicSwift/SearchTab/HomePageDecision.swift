@@ -102,7 +102,7 @@ struct HomePageDecision: View {
                                 }
                         }
                         else {
-                            FailPartyJoin(pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc, errorMessage: "you did not join the party. press to try again", errorImage: "disableIcon")
+                            FailCircleResponse(errorMessage: "you did not join the party :/", errorImage: "signOutIcon")
                                 .animation(.easeInOut(duration: 2))
                                 .onAppear {
                                     FirebaseAnalytics.Analytics.logEvent("guestJoinPartyFail", parameters: ["user":"guest"])

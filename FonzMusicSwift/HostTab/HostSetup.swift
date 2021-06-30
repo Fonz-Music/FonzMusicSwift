@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 
 struct HostSetup: View {
@@ -109,8 +110,11 @@ struct HostSetup: View {
                             Text("this is your coaster \(tempCoasterDetails.coasterName)")
                         }
                         else {
-                            FailPartyJoin(pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc, errorMessage: "you did not join the party. press to try again", errorImage: "disableIcon")
+                            FailCircleResponse(errorMessage: "you did not connect to the coaster :/", errorImage: "signOutIcon")
                                 .animation(.easeInOut(duration: 2))
+                                .onAppear {
+                                    FirebaseAnalytics.Analytics.logEvent("userConnectFirstCoasterFail", parameters: ["user":"user"])
+                                }
                             if pressedButtonToLaunchNfc {
                                 LaunchConnectCoasterNfc(tempCoaster: $tempCoasterDetails, launchedNfc: $launchedNfc, statusCode: $statusCodeResp, pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc).frame(maxWidth: 0, maxHeight: 0, alignment: .center)
                             }
