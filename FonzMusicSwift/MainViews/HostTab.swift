@@ -13,9 +13,9 @@ struct HostTab: View {
         // object that stores the songs from the api
 //        @ObservedObject var hostCoasterList: CoastersFromApi = CoastersFromApi()
     
-    @State var connectedToSpotify = true
+    @Binding var connectedToSpotify : Bool
     
-    @State var hasConnectedCoasters = true
+    @Binding var hasConnectedCoasters : Bool
     
     // object that stores the songs from the api
     @ObservedObject var hostCoasterList: CoastersFromApi = CoastersFromApi()

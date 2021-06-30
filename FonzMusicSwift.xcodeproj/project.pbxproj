@@ -58,6 +58,9 @@
 		26AC89CC2669600500E1C41E /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AC89CB2669600500E1C41E /* AsyncImage.swift */; };
 		26AF07C0268CEE00006A9504 /* LaunchTroubleShootCoasterNfc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AF07BF268CEE00006A9504 /* LaunchTroubleShootCoasterNfc.swift */; };
 		26AF07C2268CEF76006A9504 /* SuccessfulTroubleShoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AF07C1268CEF76006A9504 /* SuccessfulTroubleShoot.swift */; };
+		26AF07C6268D2435006A9504 /* MustUpdateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AF07C5268D2435006A9504 /* MustUpdateApp.swift */; };
+		26AF07C8268D2751006A9504 /* GetVerionApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AF07C7268D2751006A9504 /* GetVerionApi.swift */; };
+		26AF07CA268D2DFB006A9504 /* VersionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AF07C9268D2DFB006A9504 /* VersionResponse.swift */; };
 		26B65139263844340074F279 /* HostAddCoaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B65138263844340074F279 /* HostAddCoaster.swift */; };
 		26B6513C263845480074F279 /* SuccessAddedCoaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B6513B263845480074F279 /* SuccessAddedCoaster.swift */; };
 		26B65140263846EE0074F279 /* CoasterHasDifferentHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B6513F263846EE0074F279 /* CoasterHasDifferentHost.swift */; };
@@ -181,6 +184,9 @@
 		26AC89CB2669600500E1C41E /* AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
 		26AF07BF268CEE00006A9504 /* LaunchTroubleShootCoasterNfc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchTroubleShootCoasterNfc.swift; sourceTree = "<group>"; };
 		26AF07C1268CEF76006A9504 /* SuccessfulTroubleShoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessfulTroubleShoot.swift; sourceTree = "<group>"; };
+		26AF07C5268D2435006A9504 /* MustUpdateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MustUpdateApp.swift; sourceTree = "<group>"; };
+		26AF07C7268D2751006A9504 /* GetVerionApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVerionApi.swift; sourceTree = "<group>"; };
+		26AF07C9268D2DFB006A9504 /* VersionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionResponse.swift; sourceTree = "<group>"; };
 		26B65138263844340074F279 /* HostAddCoaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostAddCoaster.swift; sourceTree = "<group>"; };
 		26B6513B263845480074F279 /* SuccessAddedCoaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessAddedCoaster.swift; sourceTree = "<group>"; };
 		26B6513F263846EE0074F279 /* CoasterHasDifferentHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoasterHasDifferentHost.swift; sourceTree = "<group>"; };
@@ -455,6 +461,7 @@
 			isa = PBXGroup;
 			children = (
 				269D0151267182A000A1DFEE /* SpotifySignInApi.swift */,
+				26AF07C7268D2751006A9504 /* GetVerionApi.swift */,
 			);
 			path = GlobalMethods;
 			sourceTree = "<group>";
@@ -497,6 +504,7 @@
 				26AC89CB2669600500E1C41E /* AsyncImage.swift */,
 				26ECCFDC2682B0A60053BE1F /* Artist.swift */,
 				26ECCFDE2682B0DA0053BE1F /* Playlist.swift */,
+				26AF07C9268D2DFB006A9504 /* VersionResponse.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -520,6 +528,7 @@
 				265634C02678341E00FD6F27 /* SettingsPage.swift */,
 				2620B8A226792599004FE721 /* SearchTab.swift */,
 				26691F75267ACA9E00C83696 /* HostTab.swift */,
+				26AF07C5268D2435006A9504 /* MustUpdateApp.swift */,
 			);
 			path = MainViews;
 			sourceTree = "<group>";
@@ -911,6 +920,7 @@
 				2609AD56263DBDBE00337A02 /* SpotifyWebViewWk.swift in Sources */,
 				26DB9A9F263498E00030643D /* SuccessQueueSong.swift in Sources */,
 				26DB9B232634A96B0030643D /* Colors.swift in Sources */,
+				26AF07CA268D2DFB006A9504 /* VersionResponse.swift in Sources */,
 				26B65139263844340074F279 /* HostAddCoaster.swift in Sources */,
 				26691F70267AC69A00C83696 /* JoinAPartyButton.swift in Sources */,
 				26AF07C0268CEE00006A9504 /* LaunchTroubleShootCoasterNfc.swift in Sources */,
@@ -977,6 +987,7 @@
 				26FBCCF82686A5C500399460 /* LimitSongRequestsButton.swift in Sources */,
 				265634C12678341E00FD6F27 /* SettingsPage.swift in Sources */,
 				26FBCCEB2686914600399460 /* AddNewCoasterButton.swift in Sources */,
+				26AF07C6268D2435006A9504 /* MustUpdateApp.swift in Sources */,
 				26DB9AD826349B610030643D /* GuestApi.swift in Sources */,
 				26ECCFD1268294E70053BE1F /* LaunchQueueSongWriteUrl.swift in Sources */,
 				26FBCCD726866BED00399460 /* DisconnectCoasterButton.swift in Sources */,
@@ -989,6 +1000,7 @@
 				26AC89C12665781B00E1C41E /* ShareSheet.swift in Sources */,
 				26FBCCDB26866C9E00399460 /* PauseCoasterButton.swift in Sources */,
 				2620B8A326792599004FE721 /* SearchTab.swift in Sources */,
+				26AF07C8268D2751006A9504 /* GetVerionApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

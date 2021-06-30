@@ -18,49 +18,80 @@ enum TabIdentifier: Hashable {
 struct ContentView: View {
     
     @State var selectedTab = TabIdentifier.search
+    @State var connectedToSpotify = false
+    @State var hasConnectedCoasters = false
+    @State var needsToUpdate = false
 
     // main app
     var body: some View {
         
-        TabView(selection: $selectedTab) {
-//            HostView().tabItem {
-//                Label("host", systemImage: "menubar.rectangle")
-//            }.tag(1)
-            HostTab().tabItem {
-//                Label("host", image: "coasterIconMain")
-//                    Image("coasterIconMain")
-//
-//                    Text("host")
-                Label("host", systemImage: "homepod")
-                
-
-            }.tag(TabIdentifier.host)
-            SearchTab(selectedTab: $selectedTab).tabItem {
-//                Image("searchIcon")
-//                    .font(.system(size: 4))
-//                Text("search")
-                Label("search", systemImage: "magnifyingglass")
-            }.tag(TabIdentifier.search)
-            SettingsPage().tabItem {
-//                VStack{
-//                Image("settingsIcon")
-//                    .font(.system(size: 10))
-//                Text("settings")
-//                }
-                
-                Label("settings", systemImage: "gear")
-            }.tag(TabIdentifier.settings)
-        }.accentColor(.amber)
-        .onOpenURL { url in
+        
+        if needsToUpdate {
+            MustUpdateApp()
+        }
+        else {
+            TabView(selection: $selectedTab) {
+                HostTab(connectedToSpotify: $connectedToSpotify, hasConnectedCoasters: $hasConnectedCoasters).tabItem {
+                    Label("host", systemImage: "homepod")
+                }.tag(TabIdentifier.host)
+                SearchTab(selectedTab: $selectedTab).tabItem {
+                    Label("search", systemImage: "magnifyingglass")
+                }.tag(TabIdentifier.search)
+                SettingsPage().tabItem {
+                    Label("settings", systemImage: "gear")
+                }.tag(TabIdentifier.settings)
+            }.accentColor(.amber)
+            .onAppear {
+//                let minVersionNumber = GetVersionApi().getMinVersion(device: "iOS")
+//                print("version is \(versionNumber)" )
+                let minVersionNumber = "1.02"
+                print(UIApplication.appVersion)
+                needsToUpdate = determineViewBasedOnVersion(currentVersion: UIApplication.appVersion!, minVersion: minVersionNumber)
+            }
+            .onOpenURL { url in
                 guard let tabIdentifier = url.tabIdentifier else {
                   return
                 }
-
-            selectedTab = tabIdentifier
-              }
+                selectedTab = tabIdentifier
+            }
+        }
+       
     }
+    
+    func determineViewBasedOnVersion(currentVersion:String, minVersion:String) -> Bool {
+//        let currentVersion
+//
+        // puts version into 2 substrings
+        let currentVersionParts = currentVersion.split(separator: ".")
+        // gets first part & puts it in hundreds column
+        let currentVersionFirst = Int(currentVersionParts[0])! * 100
+        // adds parts together to get one number
+        let currentVersionNumber = currentVersionFirst + Int(currentVersionParts[1])!
+        print("current version \(currentVersionNumber)")
+
+        // puts version into 2 substrings
+        let minVersionParts = minVersion.split(separator: ".")
+        // gets first part & puts it in hundreds column
+        let minVersionFirst = Int(minVersionParts[0])! * 100
+        // adds parts together to get one number
+        let minVersionNumber = minVersionFirst + Int(minVersionParts[1])!
+        print("min version \(minVersionNumber)")
+        
+        if minVersionNumber > currentVersionNumber {
+            return true
+        }
+        else {return false }
+        
+        
+    }
+    
 }
 
+extension UIApplication {
+    static var appVersion: String? {
+        return Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
+    }
+}
 extension UIImage {
     static func searchSymbol(scale: SymbolScale) -> UIImage {
         let config = UIImage.SymbolConfiguration(scale: scale)
@@ -205,7 +236,7 @@ struct MainPageViewController: UIViewControllerRepresentable {
 struct FonzTitle: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .font(Font.custom("MuseoSans_700", size: 56))
+            .font(Font.custom("MuseoSans-700", size: 56))
             .foregroundColor(Color(.systemGray5))
             .multilineTextAlignment(.center)
             .padding(.horizontal)
@@ -215,7 +246,7 @@ struct FonzTitle: ViewModifier {
 struct FonzHeading: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .font(Font.custom("MuseoSans_700", size: 40))
+            .font(Font.custom("MuseoSans-700", size: 40))
             .foregroundColor(Color(.systemGray5))
             .multilineTextAlignment(.center)
             .padding(.horizontal, 10)
@@ -225,7 +256,7 @@ struct FonzHeading: ViewModifier {
 struct FonzSubheading: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .font(Font.custom("MuseoSans_500", size: 24))
+            .font(Font.custom("MuseoSans-500", size: 24))
             .foregroundColor(Color(.systemGray5))
             .multilineTextAlignment(.center)
             .padding(.horizontal)

@@ -23,19 +23,11 @@ struct SettingsPage: View {
                         .padding(.bottom, 20)
                     Spacer()
                 }
-                
-   
                 ChangeDisplayNameButton()
                 BuyCoasterButton()
                 ManageSpotifyButton()
                 SignOutButton()
 //                LimitSongRequestsButton()
-                
-                
-                
-                
-         
-                
                 Spacer()
             }
         }
@@ -49,11 +41,5 @@ struct SettingsPage: View {
                     .frame(maxWidth: UIScreen.screenWidth)
             }, alignment: .bottom)
         .ignoresSafeArea()
-    }
-}
-
-struct SettingsPage_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingsPage()
     }
 }

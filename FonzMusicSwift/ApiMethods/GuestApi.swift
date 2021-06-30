@@ -82,7 +82,7 @@ class GuestApi {
                             
                             // creates new coasterResult from return value
                             let newCoaster = CoasterResult(sessionId: decodedResponse.sessionId, displayName: decodedResponse.displayName, coasterName:  decodedResponse.coasterName, coasterActive: decodedResponse.coasterActive, coasterPaused: decodedResponse.coasterPaused, statusCode: 200 )
-                            print("newCoaster " + "\(newCoaster)")
+//                            print("newCoaster " + "\(newCoaster)")
                             // sets return value
                             returnObject = newCoaster
                         }
