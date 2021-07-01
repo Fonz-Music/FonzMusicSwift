@@ -108,7 +108,7 @@ struct HomePageDecision: View {
                                 }
                         }
                         else if (statusCodeResp == 204) {
-                            CoasterDoesNotHaveHost(selectedTab: $selectedTab, hasAccount: $hasAccount, showHomeButtons: $showHomeButtons)
+                            CoasterDoesNotHaveHost(selectedTab: $selectedTab, hasAccount: $hasAccount, showHomeButtons: $showHomeButtons, launchedNfc: $launchedNfc)
                         }
                         else {
                             FailCircleResponse(errorMessage: "you did not join the party :/", errorImage: "signOutIcon")

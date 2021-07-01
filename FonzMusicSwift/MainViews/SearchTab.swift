@@ -24,6 +24,11 @@ struct SearchTab: View {
     // tells app there is no host
     @State var hasHost = false
     
+    // tells app there is no host
+    @State var throwFirstLaunchAlert = false
+    // tells app there is no host
+    @State var throwCreateAccount = false
+    
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
@@ -35,7 +40,26 @@ struct SearchTab: View {
                     
             }
             else {
-                HomePageDecision(hostCoaster: hostCoaster, hasHostVar: $hasHost, selectedTab: $selectedTab, hasAccount: $hasAccount, hasConnectedCoasters: $hasConnectedCoasters)
+                ZStack {
+                    HomePageDecision(hostCoaster: hostCoaster, hasHostVar: $hasHost, selectedTab: $selectedTab, hasAccount: $hasAccount, hasConnectedCoasters: $hasConnectedCoasters)
+                        .actionSheet(isPresented: $throwFirstLaunchAlert) {
+                                        ActionSheet(
+                                            title: Text("have you used the Fonz Music App before?"),
+                                            buttons: [
+                                                .default(Text("yes")) {
+                                                    throwCreateAccount = true
+                                                },
+                                                .default(Text("no").foregroundColor(Color.lilac)) {
+                                                  
+                                                },
+                                            ]
+                                        )
+                                    }
+                }
+                .sheet(isPresented: $throwCreateAccount, content: {
+                    CreateAccountPrompt()
+                })
+                
                    
             }
         }
@@ -49,6 +73,13 @@ struct SearchTab: View {
                     .frame(maxWidth: UIScreen.screenWidth)
             }, alignment: .bottom)
         .ignoresSafeArea()
+        .onAppear {
+            
+            if (UIApplication.isFirstLaunch()) {
+                print("first launch")
+                throwFirstLaunchAlert = true
+            }
+        }
         .onOpenURL { url in
             let dividedUrl = url.absoluteString.split(separator: "/")
             let lastSection = dividedUrl[dividedUrl.count - 1]

@@ -100,135 +100,14 @@ extension UIImage {
     }
 }
 
-
-
-
-struct MainPage: View {
-    // active page number for controller
-    var pageNumber: Int
-    // boolean to determine whether the GuestView allows swiping
-    @State var hasHost = false
-    @State var numberOfQueus = 0
-    @ObservedObject var updatePageBool: UpdateMainPageView
-    // boolean if page should be updated + int of WHICH page
-    @State var updatePageVars:UpdatePageViewVariables
-    
-    @Binding var currentPageIndex: Int
-    
-    
-
-    var body: some View {
-        
-        
-
-
-        
-        if pageNumber == 0 {
-            HostAddSpotify()
-        }
-        else if pageNumber == 2 || hasHost {
-            GuestView(hasHost: $hasHost, queuesUsed: $numberOfQueus)
-        }
-        else {
-            HomePage(currentPageIndex: $currentPageIndex)
-            }
-            
-        
-    }
-}
-
-struct MainContainerView: View {
-
-    @Binding var currentPageIndex: Int
-    
-    // will change TitlePage struct later
-    var mainControllers: [UIHostingController<MainPage>]
-    
-    // environment object that controls whether the view should update and if so, to what page
-    @EnvironmentObject var newPageVars: UpdatePageViewVariables
-    
-    init(_ pageNumber: [Int], _ newPage: UpdatePageViewVariables, updatePage: UpdateMainPageView, currentPageIndex: Binding<Int>) {
-        
-        self._currentPageIndex = currentPageIndex
-        
-//        currentPageIndex = 0
-        
-        // inits the controller for the page view
-        self.mainControllers = pageNumber.map { UIHostingController(rootView: MainPage(pageNumber: $0, updatePageBool: updatePage, updatePageVars: newPage, currentPageIndex: currentPageIndex))}
-    }
-    
-    // creates the pageView
-    var body: some View {
-//        MainPageViewController(controllers: self.mainControllers, updatePageVars: newPageVars)
-        MainPageViewController(currentPageIndex: $currentPageIndex, controllers: self.mainControllers, updatePageVars: newPageVars)
-        
-        
-    }
-    
-    
-}
-
-struct MainPageViewController: UIViewControllerRepresentable {
-    
-    @Binding var currentPageIndex: Int
-    
-    var controllers: [UIViewController]
-    // passes along environ Object that determines if view should update and if so, to what page
-    @State var updatePageVars:UpdatePageViewVariables
-    
-    func makeUIViewController(context: Context) -> UIPageViewController {
-        // this determines the direction of the scroll
-        let mainPageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
-        mainPageViewController.dataSource = context.coordinator
-        
-        return mainPageViewController
-    }
-    
-    func updateUIViewController(_ uiViewController: UIPageViewController, context: Context) {
-        
-        context.coordinator.parent = self
-        
-        if currentPageIndex == 0 {
-            uiViewController.setViewControllers([controllers[currentPageIndex]], direction: .reverse, animated: true)
-        }
-        else {
-            uiViewController.setViewControllers([controllers[currentPageIndex]], direction: .forward, animated: true)
-        }
-    }
-    
-    typealias UIViewControllerType = UIPageViewController
-    
-        // this controlls the swiping function
-    
-    func makeCoordinator() -> Coordinator {
-        Coordinator(self)
-    }
-    
-    
-    // these update view when swiped
-    // also dont allow swiping if out of pages
-    class Coordinator: NSObject, UIPageViewControllerDataSource {
-        func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-            guard let index = self.parent.controllers.firstIndex(of: viewController) else { return nil }
-            if index == 0 {
-                return nil
-            }
-            return self.parent.controllers[index - 1]
-        }
-        
-        func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-            guard let index = self.parent.controllers.firstIndex(of: viewController) else { return nil }
-            if index == self.parent.controllers.count - 1 {
-                return nil
-            }
-            return self.parent.controllers[index + 1]
-        }
-        
-        var parent: MainPageViewController
-        
-        init(_ parent: MainPageViewController) {
-            self.parent = parent
-        }
-    }
-}
+extension UIApplication {
+       class func isFirstLaunch() -> Bool {
+           if !UserDefaults.standard.bool(forKey: "hasBeenLaunchedBeforeFlag") {
+               UserDefaults.standard.set(true, forKey: "hasBeenLaunchedBeforeFlag")
+               UserDefaults.standard.synchronize()
+               return true
+           }
+           return false
+       }
+   }
 

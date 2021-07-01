@@ -17,6 +17,8 @@ struct CoasterDoesNotHaveHost: View {
     
     @Binding var showHomeButtons: Bool
     
+    @Binding var launchedNfc: Bool
+    
     // has user create an account
     @State var throwCreateAccountModal = false
     
@@ -66,6 +68,10 @@ struct CoasterDoesNotHaveHost: View {
                 }
                 else {
                     throwCreateAccountModal = true
+                }
+                
+                withAnimation {
+                    launchedNfc = false
                 }
 
             } label: {
