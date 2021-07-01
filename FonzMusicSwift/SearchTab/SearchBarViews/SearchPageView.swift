@@ -51,9 +51,7 @@ struct SearchPageView: View {
     // bool auto set to false, set to true if song is selected
     @State var pressedSongToLaunchNfc = false
     
-    // do i need this?
-    // bool auto set to false, set to true if nfc is launched
-    @State var launchedNfc = false
+
     
     
     var body: some View {
@@ -114,9 +112,6 @@ struct SearchPageView: View {
                 if pressedSongToLaunchNfc {
                     LaunchQueueSongNfcSessionSheet(tempCoaster: hostCoaster, songInfo: currentTune, statusCode: $statusCodeQueueSong, launchedNfc: $showQueueResponse, pressedButtonToLaunchNfc: $pressedSongToLaunchNfc)
                         .frame(width: 0, height: 0)
-//                        .onAppear {
-//                            showQueueResponse = true
-//                        }
                 }
             
         }

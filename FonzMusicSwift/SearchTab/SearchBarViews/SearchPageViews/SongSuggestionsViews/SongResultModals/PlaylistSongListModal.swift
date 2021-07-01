@@ -18,12 +18,21 @@ struct PlaylistSongListModal: View {
      var resultsType : String
      var resultsImage : String
     
-    // track object to update the song to queue
-    @Binding var currentTune : GlobalTrack
-    // bool that will launch nfc when pressed
-    @Binding var pressedSongToLaunchNfc : Bool
+//    // track object to update the song to queue
+//    @Binding var currentTune : GlobalTrack
+//    // bool that will launch nfc when pressed
+//    @Binding var pressedSongToLaunchNfc : Bool
     // object that stores the songs from the api
     @ObservedObject var tracksFromEntry: TracksFromPlaylist
+    
+    // boolean to change when views should be showed w animation
+    @State var showQueueResponse = false
+    // init var that keeps status code
+    @State var statusCodeQueueSong = 0
+    // track object inherited from song search
+    @State var currentTune:GlobalTrack = GlobalTrack()
+    // bool auto set to false, set to true if song is selected
+    @State var pressedSongToLaunchNfc = false
     
     @Environment(\.colorScheme) var colorScheme
     
@@ -104,9 +113,15 @@ struct PlaylistSongListModal: View {
                     }
                 }
             }
-        }.onAppear {
-            // passes the sessionId from the host into the results return
-            tracksFromEntry.tempSession = hostCoaster.sessionId
+            
+            if pressedSongToLaunchNfc {
+                LaunchQueueSongNfcSessionSheet(tempCoaster: hostCoaster, songInfo: currentTune, statusCode: $statusCodeQueueSong, launchedNfc: $showQueueResponse, pressedButtonToLaunchNfc: $pressedSongToLaunchNfc)
+                    .frame(width: 0, height: 0)
+            }
+            
+            // resps
+            LaunchSongResponsePopup(statusCodeQueueSong: statusCodeQueueSong, showQueueResponse: $showQueueResponse, songSelected: currentTune.songName, currentHost: hostCoaster.hostName)
+            
         }
     }
 }

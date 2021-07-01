@@ -31,11 +31,13 @@ struct HomePageDecision: View {
     
     @State var pressedButtonToLaunchNfc = false
     
-    @State var showSuccessOrError = false
+    
     
     @State var showHomeButtons = true
     
 //    @State var throwCreateAccountModal = false
+    
+    @State var showSuccessOrError = false
     
     
     @Environment(\.colorScheme) var colorScheme
@@ -75,6 +77,15 @@ struct HomePageDecision: View {
                     }
                 }
                 else {
+//                    JoinPartyResponses(hostCoaster: hostCoaster,
+//                        launchedNfc: $launchedNfc,
+//                        tempCoasterDetails: $tempCoasterDetails,
+//                        showHomeButtons: $showHomeButtons,
+//                        statusCodeResp: statusCodeResp,
+//                        pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc,
+//                        hasHostVar: hasHostVar
+//
+//                    )
                     ZStack {
                         // if guest joins properly
                         if statusCodeResp == 200 {
@@ -95,6 +106,9 @@ struct HomePageDecision: View {
                                         }
                                     }
                                 }
+                        }
+                        else if (statusCodeResp == 204) {
+                            CoasterDoesNotHaveHost(selectedTab: $selectedTab, hasAccount: $hasAccount, showHomeButtons: $showHomeButtons)
                         }
                         else {
                             FailCircleResponse(errorMessage: "you did not join the party :/", errorImage: "signOutIcon")
@@ -125,6 +139,7 @@ struct HomePageDecision: View {
                         }
                     }
                 }
+                
                 Spacer()
             }
     }

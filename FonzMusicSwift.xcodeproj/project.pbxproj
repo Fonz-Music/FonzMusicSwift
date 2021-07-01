@@ -51,6 +51,9 @@
 		26916FF0268E476500B7281B /* QueueSongSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26916FEF268E476500B7281B /* QueueSongSuccess.swift */; };
 		26916FF2268E502700B7281B /* QueuedButDelayedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26916FF1268E502700B7281B /* QueuedButDelayedResponse.swift */; };
 		26916FF4268E50EB00B7281B /* QueueSongError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26916FF3268E50EB00B7281B /* QueueSongError.swift */; };
+		26916FF6268E585200B7281B /* LaunchSongResponsePopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26916FF5268E585200B7281B /* LaunchSongResponsePopup.swift */; };
+		26916FF8268E5DFA00B7281B /* CoasterDoesNotHaveHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26916FF7268E5DFA00B7281B /* CoasterDoesNotHaveHost.swift */; };
+		26916FFA268E600700B7281B /* JoinPartyResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26916FF9268E600700B7281B /* JoinPartyResponses.swift */; };
 		269252D3268E1F18001AC98B /* FonzFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269252D2268E1F18001AC98B /* FonzFonts.swift */; };
 		269252D6268E2C37001AC98B /* SearchPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269252D5268E2C37001AC98B /* SearchPageView.swift */; };
 		269D0152267182A000A1DFEE /* SpotifySignInApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269D0151267182A000A1DFEE /* SpotifySignInApi.swift */; };
@@ -186,6 +189,9 @@
 		26916FEF268E476500B7281B /* QueueSongSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueSongSuccess.swift; sourceTree = "<group>"; };
 		26916FF1268E502700B7281B /* QueuedButDelayedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueuedButDelayedResponse.swift; sourceTree = "<group>"; };
 		26916FF3268E50EB00B7281B /* QueueSongError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueSongError.swift; sourceTree = "<group>"; };
+		26916FF5268E585200B7281B /* LaunchSongResponsePopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchSongResponsePopup.swift; sourceTree = "<group>"; };
+		26916FF7268E5DFA00B7281B /* CoasterDoesNotHaveHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoasterDoesNotHaveHost.swift; sourceTree = "<group>"; };
+		26916FF9268E600700B7281B /* JoinPartyResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinPartyResponses.swift; sourceTree = "<group>"; };
 		269252D2268E1F18001AC98B /* FonzFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FonzFonts.swift; sourceTree = "<group>"; };
 		269252D5268E2C37001AC98B /* SearchPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageView.swift; sourceTree = "<group>"; };
 		269D0151267182A000A1DFEE /* SpotifySignInApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifySignInApi.swift; sourceTree = "<group>"; };
@@ -348,6 +354,8 @@
 				26AF07D3268D480E006A9504 /* HomePageButtons */,
 				26691F71267AC6BF00C83696 /* JoinSuccessfulCircle.swift */,
 				26AF07D4268D4851006A9504 /* DetermineHomePageView.swift */,
+				26916FF7268E5DFA00B7281B /* CoasterDoesNotHaveHost.swift */,
+				26916FF9268E600700B7281B /* JoinPartyResponses.swift */,
 			);
 			path = HomePageViews;
 			sourceTree = "<group>";
@@ -493,6 +501,7 @@
 				26ECCFD42682A21C0053BE1F /* SongSuggestionsViews */,
 				26ECCFD92682A6A90053BE1F /* SongSearchBarViews */,
 				2687C734268A9A0A0044AA37 /* ActiveSongViews */,
+				26916FF5268E585200B7281B /* LaunchSongResponsePopup.swift */,
 			);
 			path = SearchPageViews;
 			sourceTree = "<group>";
@@ -992,6 +1001,7 @@
 				26691F6E267AC67400C83696 /* HostAPartyButton.swift in Sources */,
 				26ECCFDD2682B0A60053BE1F /* Artist.swift in Sources */,
 				269D0152267182A000A1DFEE /* SpotifySignInApi.swift in Sources */,
+				26916FF8268E5DFA00B7281B /* CoasterDoesNotHaveHost.swift in Sources */,
 				2677029126347ECD00B8BC92 /* FonzMusicSwiftApp.swift in Sources */,
 				26DB9AB7263499CF0030643D /* AlreadyJoinedAddNew.swift in Sources */,
 				26FBCCE32686701F00399460 /* RenameCoasterField.swift in Sources */,
@@ -1044,9 +1054,11 @@
 				26FBCCE726867CE000399460 /* DisconnectCoasterField.swift in Sources */,
 				26AF07D2268D47C8006A9504 /* TapYourPhoneAmber.swift in Sources */,
 				26DB9AA8263499220030643D /* ErrorQueuingSong.swift in Sources */,
+				26916FFA268E600700B7281B /* JoinPartyResponses.swift in Sources */,
 				26B65149263865D10074F279 /* CoastersFromApi.swift in Sources */,
 				26FBCCF82686A5C500399460 /* LimitSongRequestsButton.swift in Sources */,
 				26916FF4268E50EB00B7281B /* QueueSongError.swift in Sources */,
+				26916FF6268E585200B7281B /* LaunchSongResponsePopup.swift in Sources */,
 				265634C12678341E00FD6F27 /* SettingsPage.swift in Sources */,
 				26FBCCEB2686914600399460 /* AddNewCoasterButton.swift in Sources */,
 				26AF07C6268D2435006A9504 /* MustUpdateApp.swift in Sources */,

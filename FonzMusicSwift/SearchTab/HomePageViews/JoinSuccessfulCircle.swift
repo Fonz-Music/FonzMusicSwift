@@ -30,7 +30,7 @@ struct JoinSuccessfulCircle: View {
                 .foregroundColor(.successGreen)
                 .fonzRoundButtonText()
                 .padding(5)
-                .background(colorScheme == .light ? Color.clear: Color.black)
+                .background(colorScheme == .light ? Color.clear: Color.darkBackground)
         }
     }
     

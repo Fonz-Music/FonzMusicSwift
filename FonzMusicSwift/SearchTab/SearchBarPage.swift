@@ -38,47 +38,14 @@ struct SearchBarPage: View {
     
     
     
-        var body: some View {
-            ZStack {
-               
-                SearchPageView(hostCoaster: hostCoaster, hasHostVar: $hasHostVar, hasAccount: $hasAccount, connectedToSpotify: $connectedToSpotify, showQueueResponse: $showQueueResponse, statusCodeQueueSong: $statusCodeQueueSong, isEditingSearchBar: $isEditingSearchBar, currentTune: $currentTune)
-                    .padding(.horizontal, 30)
-               
-               
-                VStack {
-                    
-                    VStack {
-                        // success
-                        if statusCodeQueueSong == 0 {
-                            QueueSongSuccess(songAddedName: currentTune.songName, currentHost: hostCoaster.hostName)
-                                
-                                .padding(.top, 50)
-                        }
-                        // no active song
-                        else if (statusCodeQueueSong == 404 || statusCodeQueueSong == 403 || statusCodeQueueSong == 401) {
-                            QueuedButDelayedResponse()
-                                .padding(.top, 50)
-                        }
-                        // nfc error
-                        else if statusCodeQueueSong == 500 {
-                            QueueSongError()
-                                .padding(.top, 50)
-                        }
-                        Spacer()
-                    }
-                    .animation(.easeInOut)
-                    .isHidden(!showQueueResponse)
-                    .onAppear {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) {
-                            withAnimation {
-                                showQueueResponse = false
-                            }
-                        }
-                    }
-                    
-                    
-
-                }
+    var body: some View {
+        ZStack {
+           // song page 
+            SearchPageView(hostCoaster: hostCoaster, hasHostVar: $hasHostVar, hasAccount: $hasAccount, connectedToSpotify: $connectedToSpotify, showQueueResponse: $showQueueResponse, statusCodeQueueSong: $statusCodeQueueSong, isEditingSearchBar: $isEditingSearchBar, currentTune: $currentTune)
+                .padding(.horizontal, 30)
+   
+            // resps
+            LaunchSongResponsePopup(statusCodeQueueSong: statusCodeQueueSong, showQueueResponse: $showQueueResponse, songSelected: currentTune.songName, currentHost: hostCoaster.hostName)
         }
         .background(
             ZStack{

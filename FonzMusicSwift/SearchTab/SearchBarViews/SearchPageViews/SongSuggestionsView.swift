@@ -44,8 +44,8 @@ struct SongSuggestionsView: View {
                     ConnectSpotifySearch(throwCreateAccountModal: $throwCreateAccountModal, hasAccount: $hasAccount)
                 }
                 YourTopSongs(hostCoaster: hostCoaster, currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
-                YourFavoriteArtists(hostCoaster: hostCoaster, currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc, tracksFromArtist: tracksFromArtist)
-                YourTopPlaylists(hostCoaster: hostCoaster, currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc, tracksFromPlaylist: tracksFromPlaylist)
+                YourFavoriteArtists(hostCoaster: hostCoaster,  tracksFromArtist: tracksFromArtist)
+                YourTopPlaylists(hostCoaster: hostCoaster,  tracksFromPlaylist: tracksFromPlaylist)
                 Spacer()
                     .frame(height: 30)
             }
