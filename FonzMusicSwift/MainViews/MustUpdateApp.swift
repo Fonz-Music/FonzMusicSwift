@@ -26,7 +26,7 @@ struct MustUpdateApp: View {
                 }
                 Spacer()
                     .frame(height: 100)
-                Text("you must update your app.")
+                Text("you must update your app")
                     .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
                     .font(Font.custom("MuseoSans-500", size: 32))
                     .multilineTextAlignment(.center)

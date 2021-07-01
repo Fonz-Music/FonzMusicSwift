@@ -27,7 +27,7 @@ struct FailCircleResponse: View {
                 Image("\(errorImage)").resizable().frame(width: sideGraphicHeight, height: sideGraphicHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                         .frame(width: 125, height: 125)
             })
-            .buttonStyle(NeumorphicButtonStyleCircle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .red))
+            .buttonStyle(BasicFonzButtonCircle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .red))
             Text("\(errorMessage)")
                 .multilineTextAlignment(.center)
                 .foregroundColor(.red)

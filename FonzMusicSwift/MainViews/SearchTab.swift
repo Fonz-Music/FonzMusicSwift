@@ -11,10 +11,18 @@ struct SearchTab: View {
     // inherited that indicated the tab the app is on
     @Binding var selectedTab: TabIdentifier
     
-    // tells app there is no host
-    @State var hasHost = false
+    @Binding var connectedToSpotify : Bool
+    
+    
+    // determines if current user has an account
+    @Binding var hasAccount : Bool
+    
+    @Binding var hasConnectedCoasters : Bool
+    
     // hostCoaster details passed in and will update view when changed
     @State var hostCoaster = HostCoasterInfo()
+    // tells app there is no host
+    @State var hasHost = false
     
     @Environment(\.colorScheme) var colorScheme
     
@@ -23,11 +31,11 @@ struct SearchTab: View {
             
             
             if hasHost {
-                SearchBar(hostCoaster: hostCoaster, hasHostVar: $hasHost)
+                SearchBarPage(hostCoaster: hostCoaster, hasHostVar: $hasHost, hasAccount: $hasAccount, connectedToSpotify: $connectedToSpotify)
                     
             }
             else {
-                HomePageDecision(hostCoaster: hostCoaster, hasHostVar: $hasHost, selectedTab: $selectedTab)
+                HomePageDecision(hostCoaster: hostCoaster, hasHostVar: $hasHost, selectedTab: $selectedTab, hasAccount: $hasAccount, hasConnectedCoasters: $hasConnectedCoasters)
                    
             }
         }

@@ -6,7 +6,8 @@
 //
 
 import SwiftUI
-import Firebase
+//import Firebase
+import FirebaseAnalytics
 
 struct ConnectYourFirstCoasterButton: View {
 // ---------------------------------- created in view -----------------------------------------------

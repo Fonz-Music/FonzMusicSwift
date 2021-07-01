@@ -6,7 +6,8 @@
 //
 
 import SwiftUI
-import Firebase
+//import Firebase
+import FirebaseAnalytics
 
 struct HomePageDecision: View {
 // ---------------------------------- inherited from parent -----------------------------------------
@@ -16,6 +17,10 @@ struct HomePageDecision: View {
     @Binding var hasHostVar:Bool
     // inherited that indicated the tab the app is on
     @Binding var selectedTab: TabIdentifier
+    // determines if current user has an account
+    @Binding var hasAccount : Bool
+    // determines if current user has connectedCoasters
+    @Binding var hasConnectedCoasters : Bool
 // ---------------------------------- created in view -----------------------------------------------
     // bool auto set to false, set to true if nfc is launched
     @State var launchedNfc = false
@@ -28,17 +33,17 @@ struct HomePageDecision: View {
     
     @State var showSuccessOrError = false
     
+    @State var showHomeButtons = true
+    
+//    @State var throwCreateAccountModal = false
+    
     
     @Environment(\.colorScheme) var colorScheme
-    let sideGraphicHeight = UIScreen.screenHeight * 0.06
-    let tapCoasterWidth = UIScreen.screenHeight * 0.35
     
-    @State var showHomeButtons = true
-    @State var joinPartySuccess = false
+  
     
     var body: some View {
         
-        ZStack{
             VStack{
                 HStack{
                     Text("search")
@@ -53,22 +58,12 @@ struct HomePageDecision: View {
                 if !launchedNfc {
                     
                     if showHomeButtons {
-                        Spacer()
-                            .frame(height: 100)
-                        HostAPartyButton(selectedTab: $selectedTab, showHomeButtons: $showHomeButtons)
-                        Spacer()
-                            .frame(height: 100)
-                        JoinAPartyButton(pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc, showHomeButtons: $showHomeButtons)
+                        
+                        DetermineHomePageView(selectedTab: $selectedTab, hasAccount: $hasAccount, showHomeButtons: $showHomeButtons, pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc, hasConnectedCoasters: $hasConnectedCoasters)
+                        
                     }
                     else if !showHomeButtons && pressedButtonToLaunchNfc {
-                        VStack {
-                            Spacer()
-                                .frame(height: 50)
-                            Text("tap your phone to the Fonz")
-                                .foregroundColor(.amber)
-                                .fonzParagraphOne()
-                            Image("tapCoasterIconAmber").resizable().frame(width: tapCoasterWidth, height: tapCoasterWidth * 0.75, alignment: .center)
-                        }
+                        TapYourPhoneAmber()
                     }
                     if pressedButtonToLaunchNfc {
                         LaunchJoinPartyNfcSession(
@@ -106,25 +101,18 @@ struct HomePageDecision: View {
                                 .animation(.easeInOut(duration: 2))
                                 .onAppear {
                                     FirebaseAnalytics.Analytics.logEvent("guestJoinPartyFail", parameters: ["user":"guest"])
+                                   
+                                    // after 7 seconds, resets home page to normal if connection fails
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) {
+                                        withAnimation {
+                                            if !pressedButtonToLaunchNfc {
+                                                launchedNfc = false
+                                                showHomeButtons = true
+                                            }
+                                            
+                                        }
+                                    }
                                 }
-//                            Button {
-//                                withAnimation{
-//                                    pressedButtonToLaunchNfc = true
-//                                }
-//
-//                            } label: {
-//                                FailPartyJoin(errorMessage: "you did not join the party. press to try again", errorImage: "disableIcon")
-//                                    .animation(.easeInOut(duration: 2))
-//                            }
-                            if pressedButtonToLaunchNfc {
-                                
-                                LaunchJoinPartyNfcSession(
-                                    tempCoaster: $tempCoasterDetails,
-                                    launchedNfc: $launchedNfc,
-                                    statusCode: $statusCodeResp,
-                                    pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc
-                                ).frame(maxWidth: 0, maxHeight: 0, alignment: .center)
-                            }
                         }
                     }
                     .padding(.top, 100)
@@ -135,20 +123,9 @@ struct HomePageDecision: View {
                             showSuccessOrError = true
                             pressedButtonToLaunchNfc = false
                         }
-                        // after 7 seconds, resets home page to normal if connection fails
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) {
-                            withAnimation {
-                                if !pressedButtonToLaunchNfc {
-                                    launchedNfc = false
-                                    showHomeButtons = true
-                                }
-                                
-                            }
-                        }
                     }
                 }
                 Spacer()
             }
-        }
     }
 }

@@ -6,7 +6,8 @@
 //
 
 import SwiftUI
-import Firebase
+//import Firebase
+import FirebaseAnalytics
 
 struct YourTopSongs: View {
     
@@ -47,7 +48,7 @@ struct YourTopSongs: View {
                 }
             }
             .padding()
-        }.padding(.top, 30)
+        }
         
     }
 }

@@ -6,7 +6,8 @@
 //
 
 import SwiftUI
-import Firebase
+//import Firebase
+import FirebaseAnalytics
 
 
 struct HostSetup: View {
@@ -15,6 +16,8 @@ struct HostSetup: View {
     @Binding var connectedToSpotify : Bool
     
     @Binding var hasConnectedCoasters : Bool
+    // determines if current user has an account
+    @Binding var hasAccount : Bool
     
 // ---------------------------------- created in view -----------------------------------------------
     // bool auto set to false, set to true if nfc is launched
@@ -28,7 +31,7 @@ struct HostSetup: View {
     
     @State var showSuccessOrError = false
     
-    
+    @State var throwCreateAccountModal = false
     
     @Environment(\.colorScheme) var colorScheme
     let tapCoasterWidth = UIScreen.screenHeight * 0.35
@@ -50,11 +53,17 @@ struct HostSetup: View {
                 if (!pressedButtonToLaunchNfc) {
                     // if the user has NOT connected to spotify
                     if (!connectedToSpotify) {
-                        Spacer()
-                            .frame(height: 100)
-                        ConnectSpotifyButtonHomeView(connectedToSpotify: $connectedToSpotify)
-                        Spacer()
-                            .frame(height: 100)
+                        VStack {
+                            Spacer()
+                                .frame(height: 100)
+                            ConnectSpotifyButtonHomeView(connectedToSpotify: $connectedToSpotify, hasAccount: $hasAccount, throwCreateAccountModal: $throwCreateAccountModal)
+                            Spacer()
+                                .frame(height: 100)
+                        }
+                        .sheet(isPresented: $throwCreateAccountModal) {
+                            CreateAccountPrompt()
+                        }
+                        
                     }
                     else {
                         Spacer()

@@ -21,6 +21,7 @@ struct ContentView: View {
     @State var connectedToSpotify = false
     @State var hasConnectedCoasters = false
     @State var needsToUpdate = false
+    @State var hasAccount = true
 
     // main app
     var body: some View {
@@ -31,20 +32,20 @@ struct ContentView: View {
         }
         else {
             TabView(selection: $selectedTab) {
-                HostTab(connectedToSpotify: $connectedToSpotify, hasConnectedCoasters: $hasConnectedCoasters).tabItem {
+                HostTab(connectedToSpotify: $connectedToSpotify, hasConnectedCoasters: $hasConnectedCoasters, hasAccount: $hasAccount).tabItem {
                     Label("host", systemImage: "homepod")
                 }.tag(TabIdentifier.host)
-                SearchTab(selectedTab: $selectedTab).tabItem {
+                SearchTab(selectedTab: $selectedTab,connectedToSpotify: $connectedToSpotify, hasAccount: $hasAccount, hasConnectedCoasters: $hasConnectedCoasters).tabItem {
                     Label("search", systemImage: "magnifyingglass")
                 }.tag(TabIdentifier.search)
-                SettingsPage().tabItem {
+                SettingsPage(hasAccount: $hasAccount, hasConnectedCoasters: $hasConnectedCoasters).tabItem {
                     Label("settings", systemImage: "gear")
                 }.tag(TabIdentifier.settings)
             }.accentColor(.amber)
             .onAppear {
 //                let minVersionNumber = GetVersionApi().getMinVersion(device: "iOS")
 //                print("version is \(versionNumber)" )
-                let minVersionNumber = "1.02"
+                let minVersionNumber = "1.00"
                 print(UIApplication.appVersion)
                 needsToUpdate = determineViewBasedOnVersion(currentVersion: UIApplication.appVersion!, minVersion: minVersionNumber)
             }

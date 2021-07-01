@@ -19,7 +19,12 @@ struct SongSuggestionsView: View {
     @ObservedObject var tracksFromPlaylist: TracksFromPlaylist
     // object that stores the songs from the api
     @ObservedObject var tracksFromArtist: TracksFromArtist
+    // determines if current user has an account
+    @Binding var hasAccount : Bool
     
+    @Binding var connectedToSpotify : Bool
+    
+    @State var throwCreateAccountModal = false
     
     @Environment(\.colorScheme) var colorScheme
     
@@ -31,10 +36,19 @@ struct SongSuggestionsView: View {
                 .fonzShadow()
                 .padding(.top, 30)
             VStack{
+                Spacer()
+                    .frame(height: 30)
+                if !hasAccount || !connectedToSpotify {
+                    ConnectSpotifySearch(throwCreateAccountModal: $throwCreateAccountModal, hasAccount: $hasAccount)
+                }
                 YourTopSongs(hostCoaster: hostCoaster, currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
                 YourFavoriteArtists(hostCoaster: hostCoaster, currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc, tracksFromArtist: tracksFromArtist)
                 YourTopPlaylists(hostCoaster: hostCoaster, currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc, tracksFromPlaylist: tracksFromPlaylist)
                 Spacer()
+            }
+            .sheet(isPresented: $throwCreateAccountModal) {
+                    CreateAccountPrompt()
+               
             }
         }
     }

@@ -8,15 +8,20 @@
 
 import SwiftUI
 
-struct SearchBar: View {
+struct SearchBarPage: View {
 // ---------------------------------- inherited from parent -----------------------------------------
 
     // hostCoaster details passed in and will update view when changed
     @ObservedObject var hostCoaster:HostCoasterInfo
     // checks if guest has a host
     @Binding var hasHostVar : Bool
+    // determines if current user has an account
+    @Binding var hasAccount : Bool
+    
+    @Binding var connectedToSpotify : Bool
     // track object inherited from song search
     @State var currentTune:GlobalTrack = GlobalTrack()
+    
     
 // ---------------------------------- created inside view -------------------------------------------
     // object that stores the songs from the api
@@ -82,7 +87,7 @@ struct SearchBar: View {
                         VStack{
                             
                             ActiveSongView(hostName: hostCoaster.hostName, currentSessionId: hostCoaster.sessionId, trackfromNowPlaying: trackFromNowPlaying)
-                            SongSuggestionsView(hostCoaster: hostCoaster, currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc, tracksFromPlaylist: tracksFromPlaylist, tracksFromArtist: tracksFromArtist)
+                            SongSuggestionsView(hostCoaster: hostCoaster, currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc, tracksFromPlaylist: tracksFromPlaylist, tracksFromArtist: tracksFromArtist, hasAccount: $hasAccount, connectedToSpotify: $connectedToSpotify)
                                 
                         }
                         .isHidden(hideViews)

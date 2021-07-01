@@ -1,29 +1,31 @@
 //
-//  SignOutButton.swift
+//  CreateAccountButton.swift
 //  FonzMusicSwift
 //
-//  Created by didi on 6/25/21.
+//  Created by didi on 6/30/21.
 //
 
 import SwiftUI
 //import Firebase
 import FirebaseAnalytics
 
-struct SignOutButton: View {
-    
+struct CreateAccountButton: View {
+
+    // has user create an account
+    @Binding var throwCreateAccountModal : Bool
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         Button(action: {
-            FirebaseAnalytics.Analytics.logEvent("userPressedSignOut", parameters: ["user":"user", "tab": "settings"])
-//                    pressedButtonToLaunchNfc = true
+            throwCreateAccountModal = true
             print("pressed button")
+            FirebaseAnalytics.Analytics.logEvent("userPressedCreateAccountSettings", parameters: ["user":"user", "tab": "settings"])
         }, label: {
             HStack {
                 HStack(spacing: 5) {
-                    Image("signOutIcon").resizable().frame(width: 30 ,height: 30, alignment: .leading)
+                    Image("spotifyIconAmber").resizable().frame(width: 30 ,height: 30, alignment: .leading)
                         
-                    Text("sign out")
+                    Text("create account")
                         .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
                         .fonzParagraphTwo()
                         .padding(.horizontal)
@@ -34,12 +36,5 @@ struct SignOutButton: View {
             
         })
         .buttonStyle(BasicFonzButton(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .amber))
-//        .buttonStyle(NeumorphicButtonStyle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .amber))
-    }
-}
-
-struct SignOutButton_Previews: PreviewProvider {
-    static var previews: some View {
-        SignOutButton()
     }
 }

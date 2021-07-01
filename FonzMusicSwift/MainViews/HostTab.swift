@@ -16,6 +16,8 @@ struct HostTab: View {
     @Binding var connectedToSpotify : Bool
     
     @Binding var hasConnectedCoasters : Bool
+    // determines if current user has an account
+    @Binding var hasAccount : Bool
     
     // object that stores the songs from the api
     @ObservedObject var hostCoasterList: CoastersFromApi = CoastersFromApi()
@@ -36,7 +38,7 @@ struct HostTab: View {
                     Spacer()
                 }
                 
-                HostSetup(connectedToSpotify: $connectedToSpotify, hasConnectedCoasters: $hasConnectedCoasters)
+                HostSetup(connectedToSpotify: $connectedToSpotify, hasConnectedCoasters: $hasConnectedCoasters, hasAccount: $hasAccount)
             }
             else {
                 HStack{

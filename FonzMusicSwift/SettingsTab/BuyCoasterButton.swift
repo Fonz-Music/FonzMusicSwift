@@ -7,7 +7,8 @@
 
 import SwiftUI
 import Foundation
-import Firebase
+//import Firebase
+import FirebaseAnalytics
 
 struct BuyCoasterButton: View {
     

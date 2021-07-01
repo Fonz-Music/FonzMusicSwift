@@ -6,7 +6,8 @@
 //
 
 import SwiftUI
-import Firebase
+//import Firebase
+import FirebaseAnalytics
 
 struct TroubleShootCoasterField: View {
     @Environment(\.colorScheme) var colorScheme

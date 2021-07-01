@@ -14,7 +14,7 @@ struct LimitSongRequestsButton: View {
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: .cornerRadiusTasks)
-                .fill( colorScheme == .light ? Color.white: Color.darkButton)
+                .fill( colorScheme == .light ? Color.white: Color.darkBackground)
             VStack(spacing: 10){
                 Text("how many song requests can your guests make?").multilineTextAlignment(.center)
                     .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
@@ -32,7 +32,7 @@ struct LimitSongRequestsButton: View {
                         .padding()
                     })
                     
-                    .buttonStyle(NeumorphicButtonStyle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .amber))
+                    .buttonStyle(BasicFonzButton(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .amber))
                     
                     
                     Button(action: {
@@ -43,7 +43,7 @@ struct LimitSongRequestsButton: View {
                             Image("aLotIcon").resizable().frame(width: 30 ,height: 20)
                         }.frame(width: 60, height: 25)
                         .padding()
-                    }).buttonStyle(NeumorphicButtonStyle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .amber))
+                    }).buttonStyle(BasicFonzButton(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .amber))
                     
                     Button(action: {
                         
@@ -54,7 +54,7 @@ struct LimitSongRequestsButton: View {
                             Image("unlimitedIcon").resizable().frame(width: 30 ,height: 20)
                         }.frame(width: 60, height: 25)
                         .padding()
-                    }).buttonStyle(NeumorphicButtonStyle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .amber, selectedOption: true))
+                    }).buttonStyle(BasicFonzButton(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .amber, selectedOption: true))
                     
                 }
             }

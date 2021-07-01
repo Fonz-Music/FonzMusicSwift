@@ -9,6 +9,13 @@ import SwiftUI
 
 struct SettingsPage: View {
     
+    // determines if current user has an account
+    @Binding var hasAccount : Bool
+    
+    @Binding var hasConnectedCoasters : Bool
+    
+    @State var throwCreateAccountModal = false
+    
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
@@ -20,14 +27,41 @@ struct SettingsPage: View {
                         .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white).fonzParagraphOne()
                         .padding(25)
                         .padding(.top, 40)
-                        .padding(.bottom, 20)
+//                        .padding(.bottom, 20)
                     Spacer()
                 }
-                ChangeDisplayNameButton()
+                Text("shop")
+                    .foregroundColor(Color.white)
+                    .fonzParagraphTwo()
+                    .padding(25)
+                    .frame(width: UIScreen.screenWidth, height: 50, alignment: .topLeading)
                 BuyCoasterButton()
-                ManageSpotifyButton()
-                SignOutButton()
-//                LimitSongRequestsButton()
+                Text("account")
+                    .foregroundColor(Color.white)
+                    .fonzParagraphTwo()
+                    .padding(25)
+                    .frame(width: UIScreen.screenWidth, height: 50, alignment: .topLeading)
+                if hasAccount {
+                    ChangeDisplayNameButton()
+                    ManageSpotifyButton()
+                    SignOutButton()
+                    if hasConnectedCoasters {
+                        Text("coaster management")
+                            .foregroundColor(Color.white)
+                            .fonzParagraphTwo()
+                            .padding(25)
+                            .frame(width: UIScreen.screenWidth, height: 50, alignment: .topLeading)
+                        LimitSongRequestsButton()
+                    }
+
+                }
+                else {
+                    CreateAccountButton(throwCreateAccountModal: $throwCreateAccountModal)
+                        .sheet(isPresented: $throwCreateAccountModal) {
+                            CreateAccountPrompt()
+                        }
+                }
+
                 Spacer()
             }
         }
