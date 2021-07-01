@@ -41,27 +41,33 @@ struct SearchBarPage: View {
         var body: some View {
             ZStack {
                
-                SearchPageView(hostCoaster: hostCoaster, hasHostVar: $hasHostVar, hasAccount: $hasAccount, connectedToSpotify: $connectedToSpotify, showQueueResponse: $showQueueResponse, statusCodeQueueSong: $statusCodeQueueSong, isEditingSearchBar: $isEditingSearchBar)
+                SearchPageView(hostCoaster: hostCoaster, hasHostVar: $hasHostVar, hasAccount: $hasAccount, connectedToSpotify: $connectedToSpotify, showQueueResponse: $showQueueResponse, statusCodeQueueSong: $statusCodeQueueSong, isEditingSearchBar: $isEditingSearchBar, currentTune: $currentTune)
+                    .padding(.horizontal, 30)
                
                
                 VStack {
-                    ZStack{
+                    
+                    VStack {
                         // success
-                        if statusCodeQueueSong == 200 {
-                            TapYourPhoneAmber()
-                                .padding(50)
+                        if statusCodeQueueSong == 0 {
+                            QueueSongSuccess(songAddedName: currentTune.songName, currentHost: hostCoaster.hostName)
+                                
+                                .padding(.top, 50)
                         }
                         // no active song
                         else if (statusCodeQueueSong == 404 || statusCodeQueueSong == 403 || statusCodeQueueSong == 401) {
-                            TapYourPhoneAmber()
-                                .padding(50)
+                            QueuedButDelayedResponse()
+                                .padding(.top, 50)
                         }
                         // nfc error
-                        else if statusCodeQueueSong == 400 {
-                            TapYourPhoneAmber()
-                                .padding(50)
+                        else if statusCodeQueueSong == 500 {
+                            QueueSongError()
+                                .padding(.top, 50)
                         }
+                        Spacer()
                     }
+                    .animation(.easeInOut)
+                    .isHidden(!showQueueResponse)
                     .onAppear {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) {
                             withAnimation {
@@ -70,15 +76,9 @@ struct SearchBarPage: View {
                         }
                     }
                     
-                    // nfc error
-                    if statusCodeQueueSong == 0 {
-                        TapYourPhoneAmber()
-                            .padding(50)
-                    }
-                    Spacer()
+                    
 
-                }.isHidden(!showQueueResponse)
-                
+                }
         }
         .background(
             ZStack{

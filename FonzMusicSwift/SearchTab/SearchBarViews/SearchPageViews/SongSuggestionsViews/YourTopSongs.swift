@@ -78,6 +78,7 @@ struct TopSongButtonView: View {
             currentTune.artistName = topSong.artistName
             currentTune.albumArt = topSong.albumArt
             currentTune.spotifyUrl = topSong.spotifyUrl
+            currentTune.songName = topSong.songName
             pressedSongToLaunchNfc = true
     
             FirebaseAnalytics.Analytics.logEvent("guestSelectedTopSong", parameters: ["user":"guest", "tab":"search"])

@@ -28,6 +28,7 @@ struct SongListModalSongButton: View {
             currentTune.artistName = trackToQueue.artistName
             currentTune.albumArt = trackToQueue.albumArt
             currentTune.spotifyUrl = trackToQueue.spotifyUrl
+            currentTune.songName = trackToQueue.songName
             pressedSongToLaunchNfc = true
         } label: {
             SongResultFromSearchItemView(item: trackToQueue)
