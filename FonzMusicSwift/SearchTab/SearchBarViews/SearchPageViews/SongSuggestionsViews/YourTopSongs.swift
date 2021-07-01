@@ -18,6 +18,7 @@ struct YourTopSongs: View {
     // bool that will launch nfc when pressed
     @Binding var pressedSongToLaunchNfc : Bool
     
+    
     @Environment(\.colorScheme) var colorScheme
     
     @State var yourTopSongs = [
@@ -65,6 +66,7 @@ struct TopSongButtonView: View {
     // bool that will launch nfc when pressed
     @Binding var pressedSongToLaunchNfc : Bool
     
+    
    
     
     @Environment(\.colorScheme) var colorScheme
@@ -77,6 +79,7 @@ struct TopSongButtonView: View {
             currentTune.albumArt = topSong.albumArt
             currentTune.spotifyUrl = topSong.spotifyUrl
             pressedSongToLaunchNfc = true
+    
             FirebaseAnalytics.Analytics.logEvent("guestSelectedTopSong", parameters: ["user":"guest", "tab":"search"])
         } label: {
             ZStack {

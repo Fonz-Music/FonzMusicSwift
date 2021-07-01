@@ -25,7 +25,7 @@ struct ManageSpotifyButton: View {
                         
                     Text("spotify account")
                         .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
-                        .fonzParagraphTwo()
+                        .fonzButtonText()
                         .padding(.horizontal)
                 }
                 Spacer()

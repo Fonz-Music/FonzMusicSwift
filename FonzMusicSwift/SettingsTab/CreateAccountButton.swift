@@ -27,7 +27,7 @@ struct CreateAccountButton: View {
                         
                     Text("create account")
                         .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
-                        .fonzParagraphTwo()
+                        .fonzButtonText()
                         .padding(.horizontal)
                 }
                 Spacer()

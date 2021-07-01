@@ -24,6 +24,8 @@ struct SongSuggestionsView: View {
     
     @Binding var connectedToSpotify : Bool
     
+    
+    
     @State var throwCreateAccountModal = false
     
     @Environment(\.colorScheme) var colorScheme
@@ -45,6 +47,7 @@ struct SongSuggestionsView: View {
                 YourFavoriteArtists(hostCoaster: hostCoaster, currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc, tracksFromArtist: tracksFromArtist)
                 YourTopPlaylists(hostCoaster: hostCoaster, currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc, tracksFromPlaylist: tracksFromPlaylist)
                 Spacer()
+                    .frame(height: 30)
             }
             .sheet(isPresented: $throwCreateAccountModal) {
                     CreateAccountPrompt()

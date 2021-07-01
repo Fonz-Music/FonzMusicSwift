@@ -42,7 +42,7 @@ struct JoinAPartyButton: View {
 //        .buttonStyle(NeumorphicButtonStyleCircle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .amber))
         Text("i want to queue a song")
             .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
-            .fonzParagraphTwo()
+            .fonzRoundButtonText()
             
     }
     

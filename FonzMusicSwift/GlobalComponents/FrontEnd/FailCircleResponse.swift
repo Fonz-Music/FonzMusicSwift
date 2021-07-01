@@ -31,7 +31,7 @@ struct FailCircleResponse: View {
             Text("\(errorMessage)")
                 .multilineTextAlignment(.center)
                 .foregroundColor(.red)
-                .fonzParagraphOne()
+                .fonzRoundButtonText()
                 .padding(5)
                 .background(colorScheme == .light ? Color.clear: Color.black)
             .disabled(true)

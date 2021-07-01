@@ -25,7 +25,7 @@ struct SignOutButton: View {
                         
                     Text("sign out")
                         .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
-                        .fonzParagraphTwo()
+                        .fonzButtonText()
                         .padding(.horizontal)
                 }
                 Spacer()

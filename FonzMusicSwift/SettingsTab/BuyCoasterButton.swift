@@ -30,7 +30,7 @@ struct BuyCoasterButton: View {
                         
                     Text("buy a coaster")
                         .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
-                        .fonzParagraphTwo()
+                        .fonzButtonText()
                         .padding(.horizontal)                        }
                 Spacer()
             }.frame(width: UIScreen.screenWidth * 0.8, height: 20)

@@ -18,7 +18,7 @@ struct LimitSongRequestsButton: View {
             VStack(spacing: 10){
                 Text("how many song requests can your guests make?").multilineTextAlignment(.center)
                     .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
-                    .fonzParagraphTwo()
+                    .fonzButtonText()
                 
                 HStack(spacing: 5){
                    

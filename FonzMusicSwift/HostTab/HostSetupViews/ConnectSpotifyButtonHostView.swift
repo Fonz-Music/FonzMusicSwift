@@ -50,7 +50,7 @@ struct ConnectSpotifyButtonHomeView: View {
             .buttonStyle(BasicFonzButtonCircle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .spotifyGreen))
             Text("connect your spotify")
                 .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
-                .fonzParagraphTwo()
+                .fonzRoundButtonText()
         }
     }
 }

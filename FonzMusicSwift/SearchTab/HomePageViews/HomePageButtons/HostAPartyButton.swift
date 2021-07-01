@@ -51,7 +51,7 @@ struct HostAPartyButton: View {
                                         .frame(width: 125, height: 125)
             })
             .buttonStyle(BasicFonzButtonCircle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .lilac))
-            Text("i want to setup my coaster").foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white).fonzParagraphTwo()
+            Text("i want to setup my coaster").foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white).fonzRoundButtonText()
         }
         .sheet(isPresented: $throwCreateAccountModal) {
             CreateAccountPrompt()

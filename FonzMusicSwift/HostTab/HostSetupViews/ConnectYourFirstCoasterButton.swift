@@ -43,7 +43,7 @@ struct ConnectYourFirstCoasterButton: View {
             .disabled(!connectedToSpotify)
             Text("connect your first coaster")
                 .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
-                .fonzParagraphTwo()
+                .fonzRoundButtonText()
                 
         }
     }

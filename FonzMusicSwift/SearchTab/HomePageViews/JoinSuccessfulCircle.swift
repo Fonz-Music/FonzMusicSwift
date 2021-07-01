@@ -28,7 +28,7 @@ struct JoinSuccessfulCircle: View {
             Text("successfully connected to \(hostName)'s coaster \(coasterName)")
                 .multilineTextAlignment(.center)
                 .foregroundColor(.successGreen)
-                .fonzParagraphOne()
+                .fonzRoundButtonText()
                 .padding(5)
                 .background(colorScheme == .light ? Color.clear: Color.black)
         }

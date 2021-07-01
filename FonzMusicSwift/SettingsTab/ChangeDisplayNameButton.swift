@@ -25,7 +25,7 @@ struct ChangeDisplayNameButton: View {
                         
                     Text("change your name")
                         .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
-                        .fonzParagraphTwo()
+                        .fonzButtonText()
                         .padding(.horizontal)
                 }
                 Spacer()

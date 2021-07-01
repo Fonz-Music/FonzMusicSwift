@@ -31,7 +31,7 @@ struct NameYourCoasterView: View {
             .disabled(true)
             Text("let's name your coaster")
                 .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
-                .fonzParagraphTwo()
+                .fonzRoundButtonText()
             TextField("name", text: $coasterName)
                 .foregroundColor(colorScheme == .light ? Color.white : Color.darkBackground)
                 .textFieldStyle(RoundedBorderTextFieldStyle())

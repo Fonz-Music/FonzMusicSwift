@@ -48,6 +48,8 @@
 		268B97B026855CA400984DC4 /* ConnectYourFirstCoasterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268B97AF26855CA400984DC4 /* ConnectYourFirstCoasterButton.swift */; };
 		268B97B226855D7E00984DC4 /* CoasterDashboardPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268B97B126855D7E00984DC4 /* CoasterDashboardPage.swift */; };
 		268B97B5268563EC00984DC4 /* OwnedCoasterDropItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268B97B4268563EC00984DC4 /* OwnedCoasterDropItem.swift */; };
+		269252D3268E1F18001AC98B /* FonzFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269252D2268E1F18001AC98B /* FonzFonts.swift */; };
+		269252D6268E2C37001AC98B /* SearchPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269252D5268E2C37001AC98B /* SearchPageView.swift */; };
 		269D0152267182A000A1DFEE /* SpotifySignInApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269D0151267182A000A1DFEE /* SpotifySignInApi.swift */; };
 		26AC89B42665410C00E1C41E /* ShareOnInstagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AC89B32665410C00E1C41E /* ShareOnInstagram.swift */; };
 		26AC89BC2665745300E1C41E /* MuseoSans-500.otf in Resources */ = {isa = PBXBuildFile; fileRef = 26AC89B82665745300E1C41E /* MuseoSans-500.otf */; };
@@ -178,6 +180,8 @@
 		268B97AF26855CA400984DC4 /* ConnectYourFirstCoasterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectYourFirstCoasterButton.swift; sourceTree = "<group>"; };
 		268B97B126855D7E00984DC4 /* CoasterDashboardPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoasterDashboardPage.swift; sourceTree = "<group>"; };
 		268B97B4268563EC00984DC4 /* OwnedCoasterDropItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnedCoasterDropItem.swift; sourceTree = "<group>"; };
+		269252D2268E1F18001AC98B /* FonzFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FonzFonts.swift; sourceTree = "<group>"; };
+		269252D5268E2C37001AC98B /* SearchPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageView.swift; sourceTree = "<group>"; };
 		269D0151267182A000A1DFEE /* SpotifySignInApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifySignInApi.swift; sourceTree = "<group>"; };
 		26AC89B32665410C00E1C41E /* ShareOnInstagram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareOnInstagram.swift; sourceTree = "<group>"; };
 		26AC89B82665745300E1C41E /* MuseoSans-500.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MuseoSans-500.otf"; sourceTree = "<group>"; };
@@ -325,9 +329,7 @@
 		26691F67267AC45100C83696 /* SearchBarViews */ = {
 			isa = PBXGroup;
 			children = (
-				2687C734268A9A0A0044AA37 /* ActiveSongViews */,
-				26ECCFD92682A6A90053BE1F /* SongSearchBarViews */,
-				26ECCFD42682A21C0053BE1F /* SongSuggestionsViews */,
+				269252D4268E2BE4001AC98B /* SearchPageViews */,
 				26ECCFD52682A2350053BE1F /* SongSuggestionsView.swift */,
 			);
 			path = SearchBarViews;
@@ -465,6 +467,17 @@
 				26AF07C1268CEF76006A9504 /* SuccessfulTroubleShoot.swift */,
 			);
 			path = CoasterDashboardViews;
+			sourceTree = "<group>";
+		};
+		269252D4268E2BE4001AC98B /* SearchPageViews */ = {
+			isa = PBXGroup;
+			children = (
+				26ECCFD42682A21C0053BE1F /* SongSuggestionsViews */,
+				26ECCFD92682A6A90053BE1F /* SongSearchBarViews */,
+				2687C734268A9A0A0044AA37 /* ActiveSongViews */,
+				269252D5268E2C37001AC98B /* SearchPageView.swift */,
+			);
+			path = SearchPageViews;
 			sourceTree = "<group>";
 		};
 		269D01502671828500A1DFEE /* GlobalMethods */ = {
@@ -707,6 +720,7 @@
 				2620B8A926795A8B004FE721 /* ButtonStyles.swift */,
 				26FBCCFB2686BE4200399460 /* FrontEndConstants.swift */,
 				26AF07D1268D47C8006A9504 /* TapYourPhoneAmber.swift */,
+				269252D2268E1F18001AC98B /* FonzFonts.swift */,
 			);
 			path = FrontEnd;
 			sourceTree = "<group>";
@@ -970,6 +984,7 @@
 				2609AD53263DB80400337A02 /* HostAddSpotify.swift in Sources */,
 				26691F69267AC46A00C83696 /* SearchResultsView.swift in Sources */,
 				26FBCCF02686A52500399460 /* ChangeDisplayNameButton.swift in Sources */,
+				269252D3268E1F18001AC98B /* FonzFonts.swift in Sources */,
 				26AF07CC268D36C6006A9504 /* CreateAccountPrompt.swift in Sources */,
 				26ECCFD82682A27F0053BE1F /* YourTopSongs.swift in Sources */,
 				26ECCFDF2682B0DA0053BE1F /* Playlist.swift in Sources */,
@@ -1017,6 +1032,7 @@
 				26AF07C6268D2435006A9504 /* MustUpdateApp.swift in Sources */,
 				26DB9AD826349B610030643D /* GuestApi.swift in Sources */,
 				26ECCFD1268294E70053BE1F /* LaunchQueueSongWriteUrl.swift in Sources */,
+				269252D6268E2C37001AC98B /* SearchPageView.swift in Sources */,
 				26AF07D5268D4851006A9504 /* DetermineHomePageView.swift in Sources */,
 				26FBCCD726866BED00399460 /* DisconnectCoasterButton.swift in Sources */,
 				26B6513C263845480074F279 /* SuccessAddedCoaster.swift in Sources */,
