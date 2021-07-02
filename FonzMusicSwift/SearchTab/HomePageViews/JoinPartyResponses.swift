@@ -51,7 +51,7 @@ struct JoinPartyResponses: View {
 //                CoasterDoesNotHaveHost()
             }
             else {
-                FailCircleResponse(errorMessage: "you did not join the party :/", errorImage: "signOutIcon")
+                FailCircleResponse(errorMessage: "you did not join the party :/")
                     .animation(.easeInOut(duration: 2))
                     .onAppear {
                         FirebaseAnalytics.Analytics.logEvent("guestJoinPartyFail", parameters: ["user":"guest"])

@@ -10,7 +10,6 @@ import SwiftUI
 struct FailCircleResponse: View {
 //    @Binding var pressedButtonToLaunchNfc:Bool
     let errorMessage:String
-    let errorImage:String
     
     @Environment(\.colorScheme) var colorScheme
     let sideGraphicHeight = UIScreen.screenHeight * 0.06
@@ -24,7 +23,9 @@ struct FailCircleResponse: View {
 //                }
                 
             }, label: {
-                Image("\(errorImage)").resizable().frame(width: sideGraphicHeight, height: sideGraphicHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                Image(systemName: "xmark")
+                    .foregroundColor(.red)
+                    .font(.system(size: 40))
                                         .frame(width: 125, height: 125)
             })
             .buttonStyle(BasicFonzButtonCircle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .red))

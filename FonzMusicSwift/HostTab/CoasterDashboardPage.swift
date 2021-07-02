@@ -137,7 +137,7 @@ struct CoasterDashboardPage: View {
                     VStack {
                         
                         // show user failed coaster
-                        FailCircleResponse(errorMessage: "troubleshoot failed", errorImage: "signOutIcon")
+                        FailCircleResponse(errorMessage: "troubleshoot failed")
                         Spacer()
                     }
                     .onAppear{
@@ -161,7 +161,7 @@ struct CoasterDashboardPage: View {
                         }
                         
                         else {
-                            FailCircleResponse(errorMessage: "adding the new coaster failed", errorImage: "signOutIcon")
+                            FailCircleResponse(errorMessage: "adding the new coaster failed")
                                 .animation(.easeInOut(duration: 2))
 //                            if addNewCoasterPressed {
 //                                LaunchConnectCoasterNfc(tempCoaster: $tempCoasterDetails, launchedNfc: $launchedNfc, statusCode: $statusCodeResp, pressedButtonToLaunchNfc: $addNewCoasterPressed).frame(maxWidth: 0, maxHeight: 0, alignment: .center)

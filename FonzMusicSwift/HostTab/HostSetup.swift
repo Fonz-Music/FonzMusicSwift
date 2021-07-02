@@ -119,7 +119,7 @@ struct HostSetup: View {
                             Text("this is your coaster \(tempCoasterDetails.coasterName)")
                         }
                         else {
-                            FailCircleResponse(errorMessage: "you did not connect to the coaster :/", errorImage: "signOutIcon")
+                            FailCircleResponse(errorMessage: "you did not connect to the coaster :/")
                                 .animation(.easeInOut(duration: 2))
                                 .onAppear {
                                     FirebaseAnalytics.Analytics.logEvent("userConnectFirstCoasterFail", parameters: ["user":"user"])

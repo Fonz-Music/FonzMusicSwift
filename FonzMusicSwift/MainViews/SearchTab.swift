@@ -40,22 +40,21 @@ struct SearchTab: View {
                     
             }
             else {
-                ZStack {
-                    HomePageDecision(hostCoaster: hostCoaster, hasHostVar: $hasHost, selectedTab: $selectedTab, hasAccount: $hasAccount, hasConnectedCoasters: $hasConnectedCoasters)
-                        .actionSheet(isPresented: $throwFirstLaunchAlert) {
-                                        ActionSheet(
-                                            title: Text("have you used the Fonz Music App before?"),
-                                            buttons: [
-                                                .default(Text("yes")) {
-                                                    throwCreateAccount = true
-                                                },
-                                                .default(Text("no").foregroundColor(Color.lilac)) {
-                                                  
-                                                },
-                                            ]
-                                        )
-                                    }
-                }
+                
+                HomePageDecision(hostCoaster: hostCoaster, hasHostVar: $hasHost, selectedTab: $selectedTab, hasAccount: $hasAccount, hasConnectedCoasters: $hasConnectedCoasters)
+                    .actionSheet(isPresented: $throwFirstLaunchAlert) {
+                                    ActionSheet(
+                                        title: Text("have you used the Fonz Music App before?"),
+                                        buttons: [
+                                            .default(Text("yes")) {
+                                                throwCreateAccount = true
+                                            },
+                                            .default(Text("no").foregroundColor(Color.lilac)) {
+                                              
+                                            },
+                                        ]
+                                    )
+                                }
                 .sheet(isPresented: $throwCreateAccount, content: {
                     CreateAccountPrompt()
                 })

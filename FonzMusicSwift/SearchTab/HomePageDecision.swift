@@ -39,6 +39,8 @@ struct HomePageDecision: View {
     
     @State var showSuccessOrError = false
     
+    @State var errorMessage : String = ""
+    
     
     @Environment(\.colorScheme) var colorScheme
     
@@ -111,13 +113,26 @@ struct HomePageDecision: View {
                             CoasterDoesNotHaveHost(selectedTab: $selectedTab, hasAccount: $hasAccount, showHomeButtons: $showHomeButtons, launchedNfc: $launchedNfc)
                         }
                         else {
-                            FailCircleResponse(errorMessage: "you did not join the party :/", errorImage: "signOutIcon")
-                                .animation(.easeInOut(duration: 2))
+                            
+
+                            
+                            FailCircleResponse(errorMessage: errorMessage)
+                                .animation(.easeInOut)
                                 .onAppear {
+                                    if (statusCodeResp == 404) {
+                                        errorMessage = "your host needs to connect their account to Spotify."
+                                    }
+                                    else if (statusCodeResp == 0) {
+                                        errorMessage = "the nfc or wifi didn't properly work :/"
+                                    }
+                                    else if (statusCodeResp == 500) {
+                                        errorMessage = "something is broken at Fonz HQ :/"
+                                    }
+                                
                                     FirebaseAnalytics.Analytics.logEvent("guestJoinPartyFail", parameters: ["user":"guest"])
                                    
                                     // after 7 seconds, resets home page to normal if connection fails
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) {
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                                         withAnimation {
                                             if !pressedButtonToLaunchNfc {
                                                 launchedNfc = false
