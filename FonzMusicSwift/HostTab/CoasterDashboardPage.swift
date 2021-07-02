@@ -106,11 +106,11 @@ struct CoasterDashboardPage: View {
                         Spacer()
                     }
                 }
-                // coaster belongs to you (should not appear)
-                else if statusCodeResp == 403 {
-                    // this is someone else's coaster
-                    Text("this is your coaster \(tempCoasterDetails.coasterName)")
-                }
+//                // coaster belongs to you (should not appear)
+//                else if statusCodeResp == 403 {
+//                    ThisIsYourCoaster(coasterName: tempCoasterDetails.coasterName)
+//                    // add options
+//                }
                 // coaster has been trouble shooted
                 else if statusCodeResp == 600 {
                     
@@ -157,15 +157,17 @@ struct CoasterDashboardPage: View {
                         // coaster belongs to someone else
                         if statusCodeResp == 200 {
                             // this is someone else's coaster
-                            Text("this coaster belongs to \(tempCoasterDetails.hostName) & is named \(tempCoasterDetails.coasterName)")
+                            SomeoneElsesCoaster(coasterName: tempCoasterDetails.coasterName, hostName: tempCoasterDetails.hostName)
+                        }
+                        // coaster belongs to you (should not appear)
+                        else if statusCodeResp == 403 {
+                            ThisIsYourCoaster(coasterName: tempCoasterDetails.coasterName)
+                            // add options
                         }
                         
                         else {
                             FailCircleResponse(errorMessage: "adding the new coaster failed")
                                 .animation(.easeInOut(duration: 2))
-//                            if addNewCoasterPressed {
-//                                LaunchConnectCoasterNfc(tempCoaster: $tempCoasterDetails, launchedNfc: $launchedNfc, statusCode: $statusCodeResp, pressedButtonToLaunchNfc: $addNewCoasterPressed).frame(maxWidth: 0, maxHeight: 0, alignment: .center)
-//                            }
                         }
                     }
 //                    .padding(.top, 100)

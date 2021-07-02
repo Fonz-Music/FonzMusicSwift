@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ThisIsYourCoaster: View {
+struct ThisIsYourCoasterOld: View {
     let coaster:HostCoasterInfo
     @ObservedObject var coasterFromSearch: CoastersFromApi
     

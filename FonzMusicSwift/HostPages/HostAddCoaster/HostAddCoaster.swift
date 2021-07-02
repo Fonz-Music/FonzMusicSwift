@@ -103,7 +103,7 @@ struct HostAddCoaster: View {
                 }
                 // if the host is already connected to the coaster
                 else if statusCodeResp == 403 {
-                    ThisIsYourCoaster(coaster: tempCoasterDetails, coasterFromSearch: hostCoasterList)
+                    ThisIsYourCoasterOld(coaster: tempCoasterDetails, coasterFromSearch: hostCoasterList)
 //                    ThisIsYourCoaster(coasterName: tempCoasterDetails.coasterName)
 //                        .onAppear {
 //                        // waits 3.5 seconds before naviagiting to dashboard
