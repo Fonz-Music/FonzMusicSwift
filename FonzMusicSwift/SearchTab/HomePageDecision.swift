@@ -28,17 +28,13 @@ struct HomePageDecision: View {
     @State var tempCoasterDetails = HostCoasterInfo()
     // local var that is returned by nfc prompt when getting host from API
     @State var statusCodeResp = 0
-    
+    // launches nfc when set to true
     @State var pressedButtonToLaunchNfc = false
-    
-    
-    
+    // bool to have home buttons disappear when nfc + resps are launched
     @State var showHomeButtons = true
-    
-//    @State var throwCreateAccountModal = false
-    
+    // bool to show the resp views after nfc finishes
     @State var showSuccessOrError = false
-    
+    // var to pass in error message
     @State var errorMessage : String = ""
     
     
@@ -58,17 +54,17 @@ struct HomePageDecision: View {
                     Spacer()
                 }
                     
-                
+                // if the user has NOT finished w nfc nfc (defeault)
                 if !launchedNfc {
-                    
+                    // if home buttons should be shown, depends on nfc
                     if showHomeButtons {
-                        
                         DetermineHomePageView(selectedTab: $selectedTab, hasAccount: $hasAccount, showHomeButtons: $showHomeButtons, pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc, hasConnectedCoasters: $hasConnectedCoasters)
-                        
                     }
+                    // tap phone animation
                     else if !showHomeButtons && pressedButtonToLaunchNfc {
                         TapYourPhoneAmber()
                     }
+                    // launhes nfc when bool changes
                     if pressedButtonToLaunchNfc {
                         LaunchJoinPartyNfcSession(
                             tempCoaster: $tempCoasterDetails,
@@ -79,15 +75,6 @@ struct HomePageDecision: View {
                     }
                 }
                 else {
-//                    JoinPartyResponses(hostCoaster: hostCoaster,
-//                        launchedNfc: $launchedNfc,
-//                        tempCoasterDetails: $tempCoasterDetails,
-//                        showHomeButtons: $showHomeButtons,
-//                        statusCodeResp: statusCodeResp,
-//                        pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc,
-//                        hasHostVar: hasHostVar
-//
-//                    )
                     ZStack {
                         // if guest joins properly
                         if statusCodeResp == 200 {
@@ -109,16 +96,17 @@ struct HomePageDecision: View {
                                     }
                                 }
                         }
+                        // if the coaster lasts a host, give opp to become that host
                         else if (statusCodeResp == 204) {
                             CoasterDoesNotHaveHost(selectedTab: $selectedTab, hasAccount: $hasAccount, showHomeButtons: $showHomeButtons, launchedNfc: $launchedNfc)
                         }
+                        // errors
                         else {
-                            
-
-                            
+                            // display error prompt
                             FailCircleResponse(errorMessage: errorMessage)
                                 .animation(.easeInOut)
                                 .onAppear {
+                                    // sets error message
                                     if (statusCodeResp == 404) {
                                         errorMessage = "your host needs to connect their account to Spotify."
                                     }
@@ -131,7 +119,7 @@ struct HomePageDecision: View {
                                 
                                     FirebaseAnalytics.Analytics.logEvent("guestJoinPartyFail", parameters: ["user":"guest"])
                                    
-                                    // after 7 seconds, resets home page to normal if connection fails
+                                    // after 3 seconds, resets home page to normal if connection fails
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                                         withAnimation {
                                             if !pressedButtonToLaunchNfc {
@@ -154,7 +142,6 @@ struct HomePageDecision: View {
                         }
                     }
                 }
-                
                 Spacer()
             }
     }

@@ -11,11 +11,11 @@ struct SettingsPage: View {
     
     // determines if current user has an account
     @Binding var hasAccount : Bool
-    
+    // bool on if the user has coasters connected
     @Binding var hasConnectedCoasters : Bool
-    
+    // bool to launch create account modal
     @State var throwCreateAccountModal = false
-    
+    // gets dark/light mode
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
@@ -30,31 +30,36 @@ struct SettingsPage: View {
 //                        .padding(.bottom, 20)
                     Spacer()
                 }
+                // shop
                 Text("shop")
                     .foregroundColor(Color.white)
                     .fonzParagraphTwo()
                     .padding(25)
                     .frame(width: UIScreen.screenWidth, height: 50, alignment: .topLeading)
                 BuyCoasterButton()
+                // account
                 Text("account")
                     .foregroundColor(Color.white)
                     .fonzParagraphTwo()
                     .padding(25)
                     .frame(width: UIScreen.screenWidth, height: 50, alignment: .topLeading)
+                // if the user has an account, show options
                 if hasAccount {
                     ChangeDisplayNameButton()
                     ManageSpotifyButton()
                     SignOutButton()
-                    if hasConnectedCoasters {
-                        Text("coaster management")
-                            .foregroundColor(Color.white)
-                            .fonzParagraphTwo()
-                            .padding(25)
-                            .frame(width: UIScreen.screenWidth, height: 50, alignment: .topLeading)
-                        LimitSongRequestsButton()
-                    }
+                    // if the user has connected coasters, give option to limit reqs
+//                    if hasConnectedCoasters {
+//                        Text("coaster management")
+//                            .foregroundColor(Color.white)
+//                            .fonzParagraphTwo()
+//                            .padding(25)
+//                            .frame(width: UIScreen.screenWidth, height: 50, alignment: .topLeading)
+//                        LimitSongRequestsButton()
+//                    }
 
                 }
+                // otherwise, offer to create an account
                 else {
                     CreateAccountButton(throwCreateAccountModal: $throwCreateAccountModal)
                         .sheet(isPresented: $throwCreateAccountModal) {

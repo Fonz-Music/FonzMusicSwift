@@ -17,7 +17,7 @@ struct SearchBarPage: View {
     @Binding var hasHostVar : Bool
     // determines if current user has an account
     @Binding var hasAccount : Bool
-    
+    // bool that determines if the user is connected to spot
     @Binding var connectedToSpotify : Bool
     // track object inherited from song search
     @State var currentTune:GlobalTrack = GlobalTrack()

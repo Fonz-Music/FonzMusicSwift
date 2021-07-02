@@ -17,16 +17,21 @@ enum TabIdentifier: Hashable {
 
 struct ContentView: View {
     
+    // current tab for entire app
     @State var selectedTab = TabIdentifier.search
+    // bool on if the user has spotify
     @State var connectedToSpotify = false
+    // bool on if the user has coasters connected
     @State var hasConnectedCoasters = false
-    @State var needsToUpdate = false
+    // bool on whether the user has an account
     @State var hasAccount = true
+    // bool on whether the user needs to update their app
+    @State var needsToUpdate = false
 
     // main app
     var body: some View {
         
-        
+        // checks version & forces user to update if it's outdated
         if needsToUpdate {
             MustUpdateApp()
         }
@@ -43,13 +48,15 @@ struct ContentView: View {
                 }.tag(TabIdentifier.settings)
             }.accentColor(.amber)
             .onAppear {
+                // fetches the min app version from apu
 //                let minVersionNumber = GetVersionApi().getMinVersion(device: "iOS")
 //                print("version is \(versionNumber)" )
                 let minVersionNumber = "1.00"
-                print(UIApplication.appVersion)
+                // sets bool based on comparing the current version from min version
                 needsToUpdate = determineViewBasedOnVersion(currentVersion: UIApplication.appVersion!, minVersion: minVersionNumber)
             }
             .onOpenURL { url in
+                // if the url contains a tabIdentifier in it, it will go to that page
                 guard let tabIdentifier = url.tabIdentifier else {
                   return
                 }
@@ -60,8 +67,6 @@ struct ContentView: View {
     }
     
     func determineViewBasedOnVersion(currentVersion:String, minVersion:String) -> Bool {
-//        let currentVersion
-//
         // puts version into 2 substrings
         let currentVersionParts = currentVersion.split(separator: ".")
         // gets first part & puts it in hundreds column

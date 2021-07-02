@@ -16,9 +16,8 @@ struct SearchPageView: View {
     @Binding var hasHostVar : Bool
     // determines if current user has an account
     @Binding var hasAccount : Bool
-    
+    // bool that determines if the user is connected to spot
     @Binding var connectedToSpotify : Bool
-    
     // boolean to change when views should be showed w animation
     @Binding var showQueueResponse : Bool
     // init var that keeps status code
@@ -45,9 +44,6 @@ struct SearchPageView: View {
     
     // boolean to change when views should be showed w animation
     @State var hideSearchViews = true
-    
-    
-
     // bool auto set to false, set to true if song is selected
     @State var pressedSongToLaunchNfc = false
     
@@ -123,7 +119,7 @@ struct SearchPageView: View {
             tracksFromPlaylist.tempSession = hostCoaster.sessionId
             tracksFromArtist.tempSession = hostCoaster.sessionId
             trackFromNowPlaying.tempSession = hostCoaster.sessionId
-        
+            // launches now playing check
             trackFromNowPlaying.nowPlaying = "mac"
             // waits .5 seconds before showing views
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
