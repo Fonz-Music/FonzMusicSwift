@@ -58,8 +58,7 @@ struct NameYourCoasterView: View {
                     .fonzParagraphTwo()
                     .frame(width: UIScreen.screenWidth * 0.5, height: 40, alignment: .center)
 //                    .padding()
-            }
-            
+            } 
             .buttonStyle(BasicFonzButton(bgColor: .lilac, secondaryColor: colorScheme == .light ? Color.white: Color.darkButton))
             
             

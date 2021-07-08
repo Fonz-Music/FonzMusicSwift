@@ -61,6 +61,27 @@ struct BasicFonzButtonCircle: ButtonStyle {
             .animation(.spring())
     }
 }
+struct BasicFonzButtonCircleNoBorder: ButtonStyle {
+    var bgColor: Color
+    var secondaryColor: Color
+//    var selectedOption : Bool?
+    @Environment(\.colorScheme) var colorScheme
+
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .background(
+                ZStack {
+                    Circle()
+                        .fill(configuration.isPressed ? secondaryColor : bgColor )
+                        .fonzShadow()
+//                        .overlay(
+//                        Circle().stroke(secondaryColor, lineWidth: 3)
+//                    )
+                }
+        )
+            .animation(.spring())
+    }
+}
 
 
 struct BasicFonzButton: ButtonStyle {

@@ -24,7 +24,7 @@ struct ContentView: View {
     // bool on if the user has coasters connected
     @State var hasConnectedCoasters = false
     // bool on whether the user has an account
-    @State var hasAccount = true
+    @State var hasAccount = false
     // bool on whether the user needs to update their app
     @State var needsToUpdate = false
 

@@ -87,6 +87,14 @@ struct FonzAmberButtonText: ViewModifier {
             
     }
 }
+//struct FonzInsideTextView: ViewModifier {
+//    func body(content: Content) -> some View {
+//        content
+//            .font(Font.custom("MuseoSans-100", size: 16))
+//            .padding(50)
+//
+//    }
+//}
 
 // extension so fonts can be used as modifiers
 extension View {
@@ -114,5 +122,8 @@ extension View {
     func fonzAmberButtonText() -> some View {
         self.modifier(FonzAmberButtonText())
     }
+//    func fonzInsideTextView() -> some View {
+//        self.modifier(FonzInsideTextView())
+//    }
     
 }

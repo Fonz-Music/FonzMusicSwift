@@ -37,7 +37,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct FonzMusicSwiftApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
-    @StateObject var spotifyController = SpotifyController()
     @State var authCode: String = ""
     @State var accessToken: String = ""
     

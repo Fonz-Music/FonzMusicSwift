@@ -15,7 +15,7 @@ extension URL {
   }
 
   var tabIdentifier: TabIdentifier? {
-    guard isDeeplink else { return nil }
+    guard isDeep else { return nil }
 
     switch host {
     case "host": return .host // matches my-url-scheme://home/
@@ -29,7 +29,7 @@ extension URL {
 
 extension URL {
   var isDeep: Bool {
-    return scheme == "www.fonzmusic.com" // matches my-url-scheme://<rest-of-the-url>
+    return scheme == "fonzmusic.com" // matches my-url-scheme://<rest-of-the-url>
   }
 
   var checksCoaster: String? {
