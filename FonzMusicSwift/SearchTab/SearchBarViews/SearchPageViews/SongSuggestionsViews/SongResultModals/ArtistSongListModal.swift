@@ -100,13 +100,13 @@ struct ArtistSongListModal: View {
                             .frame(width: UIScreen.screenWidth, height: 50, alignment: .topLeading)
                         ScrollView() {
                             LazyVGrid(columns: layout, spacing: 8) {
-//                                ForEach(tracksFromEntry.products, id: \.self) { item in
+                                ForEach(tracksFromEntry.products, id: \.self) { item in
+
+                                    SongListModalSongButton(hostCoaster: hostCoaster, trackToQueue: item, currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
+//                                ForEach(tracksFromEntryTwo, id: \.self) { item in
 //
 //                                    SongListModalSongButton(hostCoaster: hostCoaster, trackToQueue: item, currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
-                                ForEach(tracksFromEntryTwo, id: \.self) { item in
-                                    
-                                    SongListModalSongButton(hostCoaster: hostCoaster, trackToQueue: item, currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
-
+//
                             }
                         }
                         .padding(.vertical, 10)

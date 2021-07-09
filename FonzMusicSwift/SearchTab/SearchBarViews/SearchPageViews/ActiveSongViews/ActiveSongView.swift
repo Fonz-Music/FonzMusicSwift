@@ -127,18 +127,23 @@ struct ActiveSongUserInterface : View {
                         .padding(.horizontal, 15)
                     // title & artist
                     VStack(alignment: .leading, spacing: 5) {
-                
-//                        Text(verbatim: activeSong.songName)
-                                Text(verbatim: trackfromNowPlaying.currentSong[0].trackName)
-                            .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
-                            .fonzParagraphOne()
-//                        Text(verbatim: activeSong.artistName)
-                                Text(verbatim: trackfromNowPlaying.currentSong[0].artistName)
-                            .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
-                            .fonzParagraphTwo()
-                        Text("playing on \(hostName)'s Fonz")
-                            .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
-                            .fonzParagraphThree()
+                        if (trackfromNowPlaying.currentSong[0].trackName != ""){
+                            Text(verbatim: trackfromNowPlaying.currentSong[0].trackName)
+                                .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
+                                .fonzParagraphOne()
+                            Text(verbatim: trackfromNowPlaying.currentSong[0].artistName)
+                                .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
+                                .fonzParagraphTwo()
+                            Text("playing on \(hostName)'s Fonz")
+                                .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
+                                .fonzParagraphThree()
+                        }
+                        else {
+                            Text("\(hostName) is not currently playing Spotify")
+                                .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
+                                .fonzParagraphTwo()
+                        }
+                        
                     }
                     Spacer()
                 }

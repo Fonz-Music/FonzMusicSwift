@@ -114,13 +114,14 @@ struct SearchPageView: View {
         .onAppear {
             // disables bounce
             UIScrollView.appearance().bounces = false
-            // passes the sessionId from the host into the results return
-            tracksFromSearch.tempSession = hostCoaster.sessionId
-            tracksFromPlaylist.tempSession = hostCoaster.sessionId
-            tracksFromArtist.tempSession = hostCoaster.sessionId
-            trackFromNowPlaying.tempSession = hostCoaster.sessionId
-            // launches now playing check
-            trackFromNowPlaying.nowPlaying = "mac"
+//            // passes the sessionId from the host into the results return
+//            print("sessionid os \(hostCoaster.sessionId)")
+//            tracksFromSearch.tempSession = hostCoaster.sessionId
+//            tracksFromPlaylist.tempSession = hostCoaster.sessionId
+//            tracksFromArtist.tempSession = hostCoaster.sessionId
+//            trackFromNowPlaying.tempSession = hostCoaster.sessionId
+//            // launches now playing check
+//            trackFromNowPlaying.nowPlaying = "mac"
             // waits .5 seconds before showing views
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 withAnimation {

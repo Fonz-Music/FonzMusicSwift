@@ -14,11 +14,15 @@ import Network
 class TracksFromSearch: ObservableObject {
     
     var subscription: Set<AnyCancellable> = []
-    var tempSession : String = ""
+    var tempSession : String = UserDefaults.standard.string(forKey: "hostSessionId")!
     
     @Published private (set) var products: [Track] = []
     
     @Published var searchText: String = String()
+    
+    let ADDRESS = "https://api.fonzmusic.com/"
+    //    let ADDRESS = "http://beta.api.fonzmusic.com:8080/"
+//        let ADDRESS = "http://52.50.138.97:8080/"
     
     // MARK:- Initiliazer for product via model.
     
@@ -47,6 +51,7 @@ class TracksFromSearch: ObservableObject {
     
     func searchSession(sessionId:String, searchTerm:String) {
         print("starting search")
+        print("sessopmOd os \(sessionId)")
         // init vale for access token
         var accessToken = ""
         guard let user = Auth.auth().currentUser else {
@@ -61,8 +66,8 @@ class TracksFromSearch: ObservableObject {
                 
                 accessToken = token
                 // set URL
-                guard let url = URL(string: "https://api.fonzmusic.com/guest/" + sessionId + "/spotify/search?term=" + searchSong) else { return }
-            
+                guard let url = URL(string: self.ADDRESS + "guest/" + sessionId + "/spotify/search?term=" + searchSong) else { return }
+                print("url \(url)")
                 var request = URLRequest(url: url)
                 request.httpMethod = "GET"
                 request.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
@@ -70,8 +75,8 @@ class TracksFromSearch: ObservableObject {
                 URLSession.shared.dataTask(with: request) { data, response, error in
                     if let dataResp = data {
                         // just to see output
-//                        let jsonData = try? JSONSerialization.jsonObject(with: data!, options: [])
-//                        print(jsonData)
+                        let jsonData = try? JSONSerialization.jsonObject(with: data!, options: [])
+                        print(jsonData)
                         
                         if let decodedResponse = try? JSONDecoder().decode(TracksResult.self, from: dataResp) {
                             // object that will store searchResults

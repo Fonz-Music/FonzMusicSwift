@@ -85,7 +85,7 @@ struct SettingsPage: View {
                             .foregroundColor(colorScheme == .light ? Color.white: Color.darkBackground)
                             .frame(width: UIScreen.screenWidth * 0.9)
                     )
-//                    .frame(width: UIScreen.screenWidth * 0.8)
+                    .frame(width: UIScreen.screenWidth * 0.8)
 //                    .padding(30)
                     
 
@@ -94,30 +94,11 @@ struct SettingsPage: View {
                 Spacer()
             }
             .onAppear {
-//                let query = [
-//                    kSecClass: kSecClassGenericPassword,
-//                    kSecAttrLabel: "accessToken",
-//                    kSecReturnData: true,
-//                    kSecMatchLimit: 5
-//                ] as CFDictionary
+
+//                let keychain = Keychain(service: "api.fonzmusic.com")
+//                let email = UserDefaults.standard.string(forKey: "userEmail")
+//                let password = keychain[email!]
 //
-//                var result: AnyObject?
-//                let status = SecItemCopyMatching(query, &result)
-//
-//                print("Operation finished with status: \(status)")
-//                let array = result as! [NSDictionary]
-//
-//                array.forEach { dic in
-//                  let username = dic[kSecAttrAccount] ?? ""
-//                  let passwordData = dic[kSecValueData] as! Data
-//                  let password = String(data: passwordData, encoding: .utf8)!
-//                  print("Username: \(username)")
-//                  print("Password: \(password)")
-//                }
-                let keychain = Keychain(service: "api.fonzmusic.com")
-                let email = UserDefaults.standard.string(forKey: "userEmail")
-                let password = keychain[email!]
-                
 //                print("password is \(password ?? "null")")
 
 

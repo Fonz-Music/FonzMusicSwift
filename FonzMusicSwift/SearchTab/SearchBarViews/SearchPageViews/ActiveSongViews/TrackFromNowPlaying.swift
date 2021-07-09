@@ -15,7 +15,7 @@ import Network
 class TrackFromNowPlaying: ObservableObject {
     
     var subscription: Set<AnyCancellable> = []
-    var tempSession : String = ""
+    var tempSession : String = UserDefaults.standard.string(forKey: "hostSessionId")!
     
     @Published private (set) var currentSong: [NowPlayingInfo] = [NowPlayingInfo(artistName: "", albumArt: "https://i.scdn.co/image/ab67616d0000b273e1225196df3f67528c87c7fd", trackName: "")]
     

@@ -29,9 +29,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 //        Auth.auth().signInAnonymously() { (authResult, error) in
 //          print("signed in anon")
 //        }
-        
-        // Override point for customization after application launch.
-            let hasAccount = UserDefaults.standard.bool(forKey: "isUserLoggedIn")
+
       return true
     }
 }

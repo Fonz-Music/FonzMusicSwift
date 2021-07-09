@@ -8,6 +8,7 @@
 
 import Foundation
 import Firebase
+import KeychainAccess
 
 struct BasicResponse: Codable {
     var message: String
@@ -33,11 +34,14 @@ extension URLResponse {
 // ----------------------------------- Coaster Management -----------------------------
 class HostCoasterApi {
     
-    let ADDRESS = "https://api.fonzmusic.com/"
+    //    let ADDRESS = "http://beta.api.fonzmusic.com:8080/"
+        let ADDRESS = "http://52.50.138.97:8080/"
     let HOST = "host/"
     let COASTERS = "coasters/"
     
     let tempToken = "eyJhbGciOiJSUzI1NiIsImtpZCI6Ijg4ZGYxMzgwM2I3NDM2NjExYWQ0ODE0NmE4ZGExYjA3MTg2ZmQxZTkiLCJ0eXAiOiJKV1QifQ.eyJwcm92aWRlcl9pZCI6ImFub255bW91cyIsImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9mb256LW11c2ljLWFwcCIsImF1ZCI6ImZvbnotbXVzaWMtYXBwIiwiYXV0aF90aW1lIjoxNjE5MjkyODM5LCJ1c2VyX2lkIjoiRFpuOUp0dVo4Zlo5QVdxZGo0NUl0UXhwMXM1MyIsInN1YiI6IkRabjlKdHVaOGZaOUFXcWRqNDVJdFF4cDFzNTMiLCJpYXQiOjE2MjQ2NjE0MDgsImV4cCI6MTYyNDY2NTAwOCwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6e30sInNpZ25faW5fcHJvdmlkZXIiOiJhbm9ueW1vdXMifX0.EK_k8XuSm_nRGAb0uajNssPiHWgryP8zNg4-65JnjuoQonp6gl_29pxb6Ed9CXkWd-1AA169jNZknH4uqHFgSmZfBE78SRjsJBUJm5_xMlFMBGVKKfkeUKOW1OGyKipcvH7yrxTH0-kpGhYsA3eFN-_Ge9b_24MZbT1YxSg6mIgMKuFW_dMlqoMBAxDXMEOqAckKQhqPHTuzf4TAJHr2Ty9ijJuJds9bROKXF_kfIS_1qaEa3v9uPPukVMYuQlqYBycHWQxztltODAjbLl-GXpdxamK7ArtH-7I579ywCcP3Y6V6cmgpJhyCCGeuPmoOZWhVTI8m6gWkDqZTpgxdgw"
+    
+    let userEmail = UserDefaults.standard.string(forKey: "userEmail")
     
 
     // api call to get the Coaster info
@@ -50,20 +54,18 @@ class HostCoasterApi {
         
         // init value for token
         var accessToken = ""
+        
+        let keychain = Keychain(service: "api.fonzmusic.com")
+        let password = keychain[userEmail!]
 
-        guard let user = Auth.auth().currentUser else {
-            print("there was an error getting the user")
-            return  returnObject}
-
+        accessToken = SignInSignUpApi().loginUser(email: self.userEmail!, password: password!).message
             // get access token
-            user.getIDToken(){ (idToken, error) in
-            if error == nil, let token = idToken {
-                accessToken = token
-//                print("token is \(accessToken)" )
+
+                print("token is \(accessToken)" )
                 // set UID to uppercase
                 let uid = coasterUid.uppercased()
                 // create url
-                guard let url = URL(string: self.ADDRESS + self.HOST + self.COASTERS + uid ) else { return }
+                guard let url = URL(string: self.ADDRESS + self.HOST + self.COASTERS + uid ) else { return returnObject}
                 
                 var request = URLRequest(url: url)
                 request.httpMethod = "GET"
@@ -97,11 +99,11 @@ class HostCoasterApi {
                         print("fetch failed: \(error?.localizedDescription ?? "unknown error")")
                     }
                 }.resume()
-            }else{
-                print("error")
-                //error handling
-            }
-        }
+//            }else{
+//                print("error")
+//                //error handling
+//            }
+//        }
         // tells function to wait before returning
         sem.wait()
         return returnObject

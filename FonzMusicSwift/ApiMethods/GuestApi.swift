@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Firebase
+import KeychainAccess
 
 struct ErrorResult: Codable {
     var message: String
@@ -21,13 +22,13 @@ struct QueueSongResult: Codable {
 
 // all api functions inside
 class GuestApi {
-    
     let ADDRESS = "https://api.fonzmusic.com/"
+    //    let ADDRESS = "http://beta.api.fonzmusic.com:8080/"
+//        let ADDRESS = "http://52.50.138.97:8080/"
     let GUEST = "guest/"
     let COASTER = "coaster/"
     
-//    let accessTokn = "eyJhbGciOiJSUzI1NiIsImtpZCI6Ijg4ZGYxMzgwM2I3NDM2NjExYWQ0ODE0NmE4ZGExYjA3MTg2ZmQxZTkiLCJ0eXAiOiJKV1QifQ.eyJwcm92aWRlcl9pZCI6ImFub255bW91cyIsImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9mb256LW11c2ljLWFwcCIsImF1ZCI6ImZvbnotbXVzaWMtYXBwIiwiYXV0aF90aW1lIjoxNjE5MjkyODM5LCJ1c2VyX2lkIjoiRFpuOUp0dVo4Zlo5QVdxZGo0NUl0UXhwMXM1MyIsInN1YiI6IkRabjlKdHVaOGZaOUFXcWRqNDVJdFF4cDFzNTMiLCJpYXQiOjE2MjQ0NjY0MzQsImV4cCI6MTYyNDQ3MDAzNCwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6e30sInNpZ25faW5fcHJvdmlkZXIiOiJhbm9ueW1vdXMifX0.DlK9CZgPX4Qw4ruYVP_LYxImd9JnxxKlfdtyr9iOmQqJI4DmtLzTxJ2DbETTcYZ8tvqczulBZLN-qOD8ugUZpElqRqHwQaB7AWzjYtFsX1tPPsiIyhmx5Xms3N_xMnHuK9dSGEIMAxsrc2p8H6LZ8y4SDR8eMOAP2mykmfhhakDdUBQIsVYI1nH6-IqbMXt2ShafRuhjAotslNiiYdGC6mWZ30zI1_G8sWTNGxL7SfSEGliG28HUVSw_pA9Q4jKhIHv5g967NAG4ejlPt3MgOjJWnPpx8KWfPWMvA7JmjOFcwPoFivHjaK7wThIq0mZwoPF0z6sIhQoDI-UoQSIsTA"
-    
+    let userEmail = UserDefaults.standard.string(forKey: "userEmail")
     
     @State var results: CoasterResult!
     @Published private (set) var products: [Track] = []
@@ -44,18 +45,22 @@ class GuestApi {
         var accessToken = ""
 
         print("starting getCoaster")
+//
+//        // gets password from keychain
+//        let keychain = Keychain(service: "api.fonzmusic.com")
+//        let password = keychain[userEmail!]
+//        // gets token by passing email + password into api
+//        accessToken = SignInSignUpApi().loginUser(email: self.userEmail!, password: password!).message
 
-        
         guard let user = Auth.auth().currentUser else {
             print("there was an error getting the user")
             return  returnObject}
         print("got auth")
 
-            // get access token
+//             get access token
             user.getIDToken(){ (idToken, error) in
             if error == nil, let token = idToken {
                 accessToken = token
-//                accessToken = accessTokn
                 print("got token")
                 print("\(accessToken)" )
                 // set UID to uppercase

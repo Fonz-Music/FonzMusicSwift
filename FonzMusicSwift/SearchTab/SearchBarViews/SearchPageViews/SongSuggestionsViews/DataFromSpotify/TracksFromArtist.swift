@@ -17,7 +17,7 @@ import Network
 class TracksFromArtist: ObservableObject {
     
     var subscription: Set<AnyCancellable> = []
-    var tempSession : String = ""
+    var tempSession : String = UserDefaults.standard.string(forKey: "hostSessionId")!
     
     @Published private (set) var products: [Track] = []
     
