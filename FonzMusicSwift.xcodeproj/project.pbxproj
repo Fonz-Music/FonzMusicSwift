@@ -503,6 +503,7 @@
 		268B97B3268563C700984DC4 /* CoasterDashboardViews */ = {
 			isa = PBXGroup;
 			children = (
+				26B65148263865D10074F279 /* CoastersFromApi.swift */,
 				26FBCCE126866FF800399460 /* CoasterDashboardEditViews */,
 				26FBCCE026866FDE00399460 /* CoasterDashboardButtons */,
 				268B97B4268563EC00984DC4 /* OwnedCoasterDropItem.swift */,
@@ -747,7 +748,6 @@
 			isa = PBXGroup;
 			children = (
 				26B65145263863100074F279 /* CoasterDashboard.swift */,
-				26B65148263865D10074F279 /* CoastersFromApi.swift */,
 				26659BB5263B32770008FD1F /* NameCoaster.swift */,
 				26659BB8263B62F20008FD1F /* PauseCoaster.swift */,
 				26659BBB263B67040008FD1F /* DisconnectCoaster.swift */,

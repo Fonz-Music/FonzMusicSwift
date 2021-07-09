@@ -49,8 +49,8 @@ struct ContentView: View {
                 }.accentColor(.amber)
                 .onAppear {
                     // fetches the min app version from apu
-    //                let minVersionNumber = GetVersionApi().getMinVersion(device: "iOS")
-    //                print("version is \(versionNumber)" )
+//                    let minVersionNumber = GetVersionApi().getMinVersion(device: "iOS")
+//                    print("version is \(minVersionNumber)" )
                     let minVersionNumber = "1.00"
                     // sets bool based on comparing the current version from min version
                     needsToUpdate = determineViewBasedOnVersion(currentVersion: UIApplication.appVersion!, minVersion: minVersionNumber)
@@ -64,14 +64,18 @@ struct ContentView: View {
                 }
             }
         }.onAppear {
-//            hasAccount = UserDefaults.standard.bool(forKey: "hasAccount")
-//            hasConnectedCoasters = UserDefaults.standard.bool(forKey: "hasConnectedCoasters")
-//            connectedToSpotify = UserDefaults.standard.bool(forKey: "connectedToSpotify")
             
             // to reset (debugging)
-            UserDefaults.standard.set(false, forKey: "connectedToSpotify")
-            UserDefaults.standard.set(false, forKey: "hasConnectedCoasters")
-            UserDefaults.standard.set(false, forKey: "hasAccount")
+//            UserDefaults.standard.set(true, forKey: "connectedToSpotify")
+//            UserDefaults.standard.set(true, forKey: "hasConnectedCoasters")
+//            UserDefaults.standard.set(false, forKey: "hasAccount")
+            
+            // fetches the defaults based on user account
+            hasAccount = UserDefaults.standard.bool(forKey: "hasAccount")
+            hasConnectedCoasters = UserDefaults.standard.bool(forKey: "hasConnectedCoasters")
+            connectedToSpotify = UserDefaults.standard.bool(forKey: "connectedToSpotify")
+            
+            
         }
         
        

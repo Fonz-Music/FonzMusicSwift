@@ -14,7 +14,7 @@ struct CoasterDashboardPage: View {
     
 // ---------------------------------- created inside view -------------------------------------------
     // object that stores the songs from the api
-    @ObservedObject var hostCoasterList: CoastersFromApi
+    @ObservedObject var hostCoasterList: CoastersFromApi = CoastersFromApi()
     // bool auto set to false, set to true if nfc is launched
     @State var launchedNfc = false
     // temp Coaster Object so that page does not update BEFORE showing success page

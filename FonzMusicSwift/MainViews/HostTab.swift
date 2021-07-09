@@ -19,8 +19,7 @@ struct HostTab: View {
     // determines if current user has an account
     @Binding var hasAccount : Bool
     
-    // object that stores the songs from the api
-    @ObservedObject var hostCoasterList: CoastersFromApi = CoastersFromApi()
+    
     
     
     @Environment(\.colorScheme) var colorScheme
@@ -50,7 +49,7 @@ struct HostTab: View {
                         .padding(.bottom, 20)
                     Spacer()
                 }
-                CoasterDashboardPage(hostCoasterList: hostCoasterList)
+                CoasterDashboardPage()
             }
             Spacer()
         }
