@@ -20,7 +20,7 @@ extension URL {
     switch host {
     case "host": return .host // matches my-url-scheme://home/
     case "search": return .search // matches my-url-scheme://search/
-    case "settings": return .settings // matches my-url-scheme://settings/
+    case "account": return .account // matches my-url-scheme://settings/
     default: return nil
     }
   }

@@ -15,12 +15,16 @@ struct ConnectSpotifySearch: View {
     @Binding var throwCreateAccountModal : Bool
     
     @Binding var hasAccount : Bool
+    
+    @Binding var connectedToSpotify : Bool
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         Button(action: {
             if hasAccount {
                 SpotifyInBrowser().launchSpotifyInBrowser()
+                UserDefaults.standard.set(true, forKey: "connectedToSpotify")
+                connectedToSpotify = true
             }
             else {
                 throwCreateAccountModal = true

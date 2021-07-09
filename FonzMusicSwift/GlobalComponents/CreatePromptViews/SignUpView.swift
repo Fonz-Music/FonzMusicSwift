@@ -9,6 +9,10 @@ import SwiftUI
 
 struct SignUpView: View {
     
+    // bool that determines if the user has an account
+    @Binding var hasAccount : Bool
+    // so you can dismiss modal
+    @Binding var showModal : Bool
    
     @State var acceptedPrivacy = false
     @State var acceptedEmail = false
@@ -17,6 +21,9 @@ struct SignUpView: View {
     @State var email: String = ""
     @State var password: String = ""
     @State var confirmPassword: String = ""
+    
+    @State var errorOnPage: Bool = false
+    @State var errorMessage : String = ""
     
     @Environment(\.colorScheme) var colorScheme
     
@@ -120,6 +127,12 @@ struct SignUpView: View {
                         )
                         .multilineTextAlignment(.leading)
                         .padding(.vertical, 5)
+                    if errorOnPage {
+                        Text("\(errorMessage)")
+                            .foregroundColor(.red)
+                            .fonzParagraphTwo()
+                            .padding(.vertical, 5)
+                    }
                 }
                 .animation(.spring())
                 
@@ -148,6 +161,24 @@ struct SignUpView: View {
                 .animation(.spring())
                 // sign up button
                 Button {
+                    
+                    let registerUserResp : BasicResponse = SignInSignUpApi().registerUser(email: email, password: password)
+                    DispatchQueue.main.async {
+                        if registerUserResp.status == 200 {
+                            print("success")
+                            hasAccount = true
+                            UserDefaults.standard.set(true, forKey: "hasAccount")
+                            self.showModal.toggle()
+                        }
+//                        else if registerUserResp.status == 401 {
+//
+//                        }
+                        else {
+                            errorOnPage = true
+                            errorMessage = registerUserResp.message ?? "something went wrong"
+                            print("something went wrong")
+                        }
+                    }
                     
                 } label: {
                     Text("sign up")

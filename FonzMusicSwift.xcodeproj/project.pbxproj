@@ -130,6 +130,10 @@
 		26F5350726975E200055C188 /* SignInWithGoogleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F5350626975E200055C188 /* SignInWithGoogleButton.swift */; };
 		26F5350A26975E770055C188 /* ConsentedToEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F5350926975E770055C188 /* ConsentedToEmail.swift */; };
 		26F5350C26975EDD0055C188 /* ConsentedToPrivacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F5350B26975EDD0055C188 /* ConsentedToPrivacy.swift */; };
+		26F5350F2697AF300055C188 /* SignInSignUpApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F5350E2697AF300055C188 /* SignInSignUpApi.swift */; };
+		26F535112697B68A0055C188 /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26F535102697B68A0055C188 /* AuthenticationServices.framework */; };
+		26F5351326988BA10055C188 /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F5351226988BA10055C188 /* CreateAccountView.swift */; };
+		26F53516269891F60055C188 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 26F53515269891F60055C188 /* KeychainAccess */; };
 		26FBCCD726866BED00399460 /* DisconnectCoasterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBCCD626866BED00399460 /* DisconnectCoasterButton.swift */; };
 		26FBCCD926866C5800399460 /* TroubleShootCoasterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBCCD826866C5800399460 /* TroubleShootCoasterButton.swift */; };
 		26FBCCDB26866C9E00399460 /* PauseCoasterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBCCDA26866C9E00399460 /* PauseCoasterButton.swift */; };
@@ -279,6 +283,9 @@
 		26F5350626975E200055C188 /* SignInWithGoogleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithGoogleButton.swift; sourceTree = "<group>"; };
 		26F5350926975E770055C188 /* ConsentedToEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsentedToEmail.swift; sourceTree = "<group>"; };
 		26F5350B26975EDD0055C188 /* ConsentedToPrivacy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsentedToPrivacy.swift; sourceTree = "<group>"; };
+		26F5350E2697AF300055C188 /* SignInSignUpApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInSignUpApi.swift; sourceTree = "<group>"; };
+		26F535102697B68A0055C188 /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
+		26F5351226988BA10055C188 /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
 		26FBCCD626866BED00399460 /* DisconnectCoasterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisconnectCoasterButton.swift; sourceTree = "<group>"; };
 		26FBCCD826866C5800399460 /* TroubleShootCoasterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TroubleShootCoasterButton.swift; sourceTree = "<group>"; };
 		26FBCCDA26866C9E00399460 /* PauseCoasterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseCoasterButton.swift; sourceTree = "<group>"; };
@@ -307,6 +314,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26F53516269891F60055C188 /* KeychainAccess in Frameworks */,
+				26F535112697B68A0055C188 /* AuthenticationServices.framework in Frameworks */,
 				E4595E496192AD1C55E93E1F /* libPods-FonzMusicSwift.a in Frameworks */,
 				265634BD267815B900FD6F27 /* Crypto in Frameworks */,
 			);
@@ -691,6 +700,7 @@
 		26DB9AD626349B3E0030643D /* ApiMethods */ = {
 			isa = PBXGroup;
 			children = (
+				26F5350D2697AF150055C188 /* AuthMethods */,
 				269D01502671828500A1DFEE /* GlobalMethods */,
 				26B6515E26389D6B0074F279 /* HostMethods */,
 				26DB9AD726349B610030643D /* GuestApi.swift */,
@@ -810,6 +820,7 @@
 				26F5350326975DBD0055C188 /* ThirdPartyButtons */,
 				26F534FF2697500D0055C188 /* SignUpView.swift */,
 				26F5350126975C870055C188 /* SignInView.swift */,
+				26F5351226988BA10055C188 /* CreateAccountView.swift */,
 			);
 			path = CreatePromptViews;
 			sourceTree = "<group>";
@@ -830,6 +841,14 @@
 				26F5350B26975EDD0055C188 /* ConsentedToPrivacy.swift */,
 			);
 			path = SignInSignUpComponents;
+			sourceTree = "<group>";
+		};
+		26F5350D2697AF150055C188 /* AuthMethods */ = {
+			isa = PBXGroup;
+			children = (
+				26F5350E2697AF300055C188 /* SignInSignUpApi.swift */,
+			);
+			path = AuthMethods;
 			sourceTree = "<group>";
 		};
 		26FBCCE026866FDE00399460 /* CoasterDashboardButtons */ = {
@@ -879,6 +898,7 @@
 		674F8D2472614C8E34995D41 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				26F535102697B68A0055C188 /* AuthenticationServices.framework */,
 				26E8CFDE266D393A00CEB1F6 /* SpotifyiOS.framework */,
 				4B480C69CB1494108CA6C68C /* libPods-FonzMusicSwift.a */,
 			);
@@ -905,6 +925,7 @@
 			name = FonzMusicSwift;
 			packageProductDependencies = (
 				265634BC267815B900FD6F27 /* Crypto */,
+				26F53515269891F60055C188 /* KeychainAccess */,
 			);
 			productName = FonzMusicSwift;
 			productReference = 2677028D26347ECD00B8BC92 /* FonzMusicSwift.app */;
@@ -935,6 +956,7 @@
 			mainGroup = 2677028426347ECD00B8BC92;
 			packageReferences = (
 				265634BB267815B900FD6F27 /* XCRemoteSwiftPackageReference "swift-crypto" */,
+				26F53514269891F60055C188 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 			);
 			productRefGroup = 2677028E26347ECD00B8BC92 /* Products */;
 			projectDirPath = "";
@@ -1078,6 +1100,7 @@
 				26ECCFDF2682B0DA0053BE1F /* Playlist.swift in Sources */,
 				26916FF0268E476500B7281B /* QueueSongSuccess.swift in Sources */,
 				26AC89CC2669600500E1C41E /* AsyncImage.swift in Sources */,
+				26F5350F2697AF300055C188 /* SignInSignUpApi.swift in Sources */,
 				26AF07C2268CEF76006A9504 /* SuccessfulTroubleShoot.swift in Sources */,
 				26FBCCF62686A5A100399460 /* SignOutButton.swift in Sources */,
 				26FBCCDD26866E6500399460 /* RenameCoasterButton.swift in Sources */,
@@ -1138,6 +1161,7 @@
 				2620B8A52679261F004FE721 /* SearchBarPage.swift in Sources */,
 				26FBCCE926867DF800399460 /* TroubleShootCoasterField.swift in Sources */,
 				26E8CFE1266D3A0F00CEB1F6 /* SpotifyController.swift in Sources */,
+				26F5351326988BA10055C188 /* CreateAccountView.swift in Sources */,
 				26AC89C12665781B00E1C41E /* ShareSheet.swift in Sources */,
 				26FBCCDB26866C9E00399460 /* PauseCoasterButton.swift in Sources */,
 				2620B8A326792599004FE721 /* SearchTab.swift in Sources */,
@@ -1362,6 +1386,14 @@
 				minimumVersion = 1.1.6;
 			};
 		};
+		26F53514269891F60055C188 /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.2.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1369,6 +1401,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 265634BB267815B900FD6F27 /* XCRemoteSwiftPackageReference "swift-crypto" */;
 			productName = Crypto;
+		};
+		26F53515269891F60055C188 /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 26F53514269891F60055C188 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

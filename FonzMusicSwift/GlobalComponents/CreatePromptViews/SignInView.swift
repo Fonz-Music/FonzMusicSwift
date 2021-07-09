@@ -11,8 +11,16 @@ import SwiftUI
 
 struct SignInView: View {
     
+    // bool that determines if the user has an account
+    @Binding var hasAccount : Bool
+    // so you can dismiss modal
+    @Binding var showModal : Bool
+    
     @State var email: String = ""
     @State var password: String = ""
+    
+    @State var errorOnPage: Bool = false
+    @State var errorMessage : String = ""
     
     @Environment(\.colorScheme) var colorScheme
     
@@ -66,6 +74,12 @@ struct SignInView: View {
                         )
                         .multilineTextAlignment(.leading)
                         .padding(.vertical, 5)
+                    if errorOnPage {
+                        Text("\(errorMessage)")
+                            .foregroundColor(.red)
+                            .fonzParagraphTwo()
+                            .padding(.vertical, 5)
+                    }
                 }
                 
                 
@@ -85,6 +99,7 @@ struct SignInView: View {
 
                 Button {
                     //
+                   
                 } label: {
                     Text("forgot password?")
                         .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
@@ -94,6 +109,26 @@ struct SignInView: View {
                 // sign in button
                 Button {
                     
+                    let registerUserResp : BasicResponse = SignInSignUpApi().loginUser(email: email, password: password)
+                    DispatchQueue.main.async {
+                        if registerUserResp.status == 200 {
+                            print("success")
+                            hasAccount = true
+                            UserDefaults.standard.set(true, forKey: "hasAccount")
+                            self.showModal.toggle()
+                        }
+//                        else if registerUserResp.status == 401 {
+//
+//                        }
+                        else {
+                            errorOnPage = true
+                            errorMessage = registerUserResp.message
+                            if (registerUserResp.message == "") {
+                                errorMessage = "something went wrong"
+                            }
+                            print("something went wrong")
+                        }
+                    }
                 } label: {
                     Text("sign in")
                         .foregroundColor(Color.white)

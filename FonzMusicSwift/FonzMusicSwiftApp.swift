@@ -26,9 +26,12 @@ class AppDelegate: NSObject, UIApplicationDelegate {
       FirebaseApp.configure()
         print("configured FB")
          //This inits an ANON firebase account
-        Auth.auth().signInAnonymously() { (authResult, error) in
-          print("signed in anon")
-        }
+//        Auth.auth().signInAnonymously() { (authResult, error) in
+//          print("signed in anon")
+//        }
+        
+        // Override point for customization after application launch.
+            let hasAccount = UserDefaults.standard.bool(forKey: "isUserLoggedIn")
       return true
     }
 }

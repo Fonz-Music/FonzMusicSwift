@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import KeychainAccess
 
 struct SettingsPage: View {
     
@@ -23,57 +24,111 @@ struct SettingsPage: View {
             
             VStack{
                 HStack{
-                    Text("settings")
+                    Text("account")
                         .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white).fonzParagraphOne()
                         .padding(25)
                         .padding(.top, 40)
+                        .addOpacity(!hasAccount)
 //                        .padding(.bottom, 20)
                     Spacer()
                 }
-                // shop
-                Text("shop")
-                    .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
-                    .fonzParagraphTwo()
-                    .padding(25)
-                    .frame(width: UIScreen.screenWidth, height: 50, alignment: .topLeading)
-                BuyCoasterButton()
-                // account
-                Text("account")
-                    .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
-                    .fonzParagraphTwo()
-                    .padding(25)
-                    .frame(width: UIScreen.screenWidth, height: 50, alignment: .topLeading)
                 // if the user has an account, show options
                 if hasAccount {
-                    ChangeDisplayNameButton()
-                    ManageSpotifyButton()
-                    SignOutButton()
-                    // if the user has connected coasters, give option to limit reqs
-//                    if hasConnectedCoasters {
-//                        Text("coaster management")
-//                            .foregroundColor(Color.white)
-//                            .fonzParagraphTwo()
-//                            .padding(25)
-//                            .frame(width: UIScreen.screenWidth, height: 50, alignment: .topLeading)
-//                        LimitSongRequestsButton()
-//                    }
+                    // shop
+                    Text("shop")
+                        .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
+                        .fonzParagraphTwo()
+                        .padding(25)
+                        .frame(width: UIScreen.screenWidth, height: 50, alignment: .topLeading)
+                    BuyCoasterButton()
+                    // account
+                    Text("account")
+                        .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
+                        .fonzParagraphTwo()
+                        .padding(25)
+                        .frame(width: UIScreen.screenWidth, height: 50, alignment: .topLeading)
+                    
+                        ChangeDisplayNameButton()
+                        ManageSpotifyButton()
+                        SignOutButton()
+                        // if the user has connected coasters, give option to limit reqs
+        //                    if hasConnectedCoasters {
+        //                        Text("coaster management")
+        //                            .foregroundColor(Color.white)
+        //                            .fonzParagraphTwo()
+        //                            .padding(25)
+        //                            .frame(width: UIScreen.screenWidth, height: 50, alignment: .topLeading)
+        //                        LimitSongRequestsButton()
+        //                    }
 
                 }
                 // otherwise, offer to create an account
                 else {
-                    CreateAccountButton(throwCreateAccountModal: $throwCreateAccountModal)
-                        .sheet(isPresented: $throwCreateAccountModal) {
-                            CreateAccountPrompt()
-                        }
+                    VStack{
+//                        HStack{
+//                            Text("create account")
+//                                .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
+//                                .fonzParagraphTwo()
+////                                .padding(.leading, 25)
+//                                .padding(.top, 15)
+//                            Spacer()
+//                        }
+                        
+                            
+                        CreateAccountView(hasAccount: $hasAccount, showModal: $throwCreateAccountModal)
+                            .padding(.horizontal, 20)
+                            .padding(.bottom, 10)
+                    }
+                    
+                    .background(
+                        RoundedRectangle(cornerRadius: .cornerRadiusBlocks)
+                            .foregroundColor(colorScheme == .light ? Color.white: Color.darkBackground)
+                            .frame(width: UIScreen.screenWidth * 0.9)
+                    )
+//                    .frame(width: UIScreen.screenWidth * 0.8)
+//                    .padding(30)
+                    
+
                 }
 
                 Spacer()
+            }
+            .onAppear {
+//                let query = [
+//                    kSecClass: kSecClassGenericPassword,
+//                    kSecAttrLabel: "accessToken",
+//                    kSecReturnData: true,
+//                    kSecMatchLimit: 5
+//                ] as CFDictionary
+//
+//                var result: AnyObject?
+//                let status = SecItemCopyMatching(query, &result)
+//
+//                print("Operation finished with status: \(status)")
+//                let array = result as! [NSDictionary]
+//
+//                array.forEach { dic in
+//                  let username = dic[kSecAttrAccount] ?? ""
+//                  let passwordData = dic[kSecValueData] as! Data
+//                  let password = String(data: passwordData, encoding: .utf8)!
+//                  print("Username: \(username)")
+//                  print("Password: \(password)")
+//                }
+                let keychain = Keychain(service: "api.fonzmusic.com")
+                let email = UserDefaults.standard.string(forKey: "userEmail")
+                let password = keychain[email!]
+                
+//                print("password is \(password ?? "null")")
+
+
+
             }
         }
         .background(
             ZStack{
                
                 Color(UIColor(colorScheme == .light ? Color.white: Color.darkBackground))
+                    .darkenView(!hasAccount)
                
                 Image("mountainProfile")
                     .opacity(0.4)

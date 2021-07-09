@@ -41,7 +41,7 @@ struct SongSuggestionsView: View {
                 Spacer()
                     .frame(height: 30)
                 if !hasAccount || !connectedToSpotify {
-                    ConnectSpotifySearch(throwCreateAccountModal: $throwCreateAccountModal, hasAccount: $hasAccount)
+                    ConnectSpotifySearch(throwCreateAccountModal: $throwCreateAccountModal, hasAccount: $hasAccount, connectedToSpotify: $connectedToSpotify)
                 }
                 YourTopSongs(hostCoaster: hostCoaster, currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
                 YourFavoriteArtists(hostCoaster: hostCoaster,  tracksFromArtist: tracksFromArtist)
@@ -50,7 +50,7 @@ struct SongSuggestionsView: View {
                     .frame(height: 30)
             }
             .sheet(isPresented: $throwCreateAccountModal) {
-                    CreateAccountPrompt()
+                    CreateAccountPrompt(hasAccount: $hasAccount, showModal: $throwCreateAccountModal)
                
             }
         }

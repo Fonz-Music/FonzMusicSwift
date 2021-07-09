@@ -24,11 +24,7 @@ class GetVersionApi {
         // init value for return
         
         var versionNumber = ""
-       
 
-
-        
-       
                 // create url
                 guard let url = URL(string: self.ADDRESS + self.VERSION + "?device=" + device) else { return ""}
                 

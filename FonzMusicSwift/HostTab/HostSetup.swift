@@ -61,7 +61,7 @@ struct HostSetup: View {
                                 .frame(height: 100)
                         }
                         .sheet(isPresented: $throwCreateAccountModal) {
-                            CreateAccountPrompt()
+                            CreateAccountPrompt(hasAccount: $hasAccount, showModal: $throwCreateAccountModal)
                         }
                         
                     }

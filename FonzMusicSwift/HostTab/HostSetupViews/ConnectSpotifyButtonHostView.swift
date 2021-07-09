@@ -33,7 +33,7 @@ struct ConnectSpotifyButtonHomeView: View {
     //                    pressedButtonToLaunchSpotifySignIn = true
                         connectedToSpotify = true
 
-                       
+                        UserDefaults.standard.set(true, forKey: "connectedToSpotify")
                     }
                     FirebaseAnalytics.Analytics.logEvent("userTappedConnectSpotify", parameters: ["user":"user", "tab":"host"])
                     SpotifyInBrowser().launchSpotifyInBrowser()

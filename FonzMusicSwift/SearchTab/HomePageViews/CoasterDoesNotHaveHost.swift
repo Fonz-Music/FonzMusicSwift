@@ -86,7 +86,7 @@ struct CoasterDoesNotHaveHost: View {
             .padding()
         }
         .sheet(isPresented: $throwCreateAccountModal) {
-            CreateAccountPrompt()
+            CreateAccountPrompt(hasAccount: $hasAccount, showModal: $throwCreateAccountModal)
         }
     }
 }

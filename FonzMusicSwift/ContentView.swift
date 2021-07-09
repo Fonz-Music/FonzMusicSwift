@@ -12,7 +12,7 @@ class UpdateMainPageView: ObservableObject {
 }
 
 enum TabIdentifier: Hashable {
-  case host, search, settings
+  case host, search, account
 }
 
 struct ContentView: View {
@@ -30,39 +30,50 @@ struct ContentView: View {
 
     // main app
     var body: some View {
-        
-        // checks version & forces user to update if it's outdated
-        if needsToUpdate {
-            MustUpdateApp()
-        }
-        else {
-            TabView(selection: $selectedTab) {
-                HostTab(connectedToSpotify: $connectedToSpotify, hasConnectedCoasters: $hasConnectedCoasters, hasAccount: $hasAccount).tabItem {
-                    Label("host", systemImage: "homepod")
-                }.tag(TabIdentifier.host)
-                SearchTab(selectedTab: $selectedTab,connectedToSpotify: $connectedToSpotify, hasAccount: $hasAccount, hasConnectedCoasters: $hasConnectedCoasters).tabItem {
-                    Label("search", systemImage: "magnifyingglass")
-                }.tag(TabIdentifier.search)
-                SettingsPage(hasAccount: $hasAccount, hasConnectedCoasters: $hasConnectedCoasters).tabItem {
-                    Label("settings", systemImage: "gear")
-                }.tag(TabIdentifier.settings)
-            }.accentColor(.amber)
-            .onAppear {
-                // fetches the min app version from apu
-//                let minVersionNumber = GetVersionApi().getMinVersion(device: "iOS")
-//                print("version is \(versionNumber)" )
-                let minVersionNumber = "1.00"
-                // sets bool based on comparing the current version from min version
-                needsToUpdate = determineViewBasedOnVersion(currentVersion: UIApplication.appVersion!, minVersion: minVersionNumber)
+        ZStack{
+            // checks version & forces user to update if it's outdated
+            if needsToUpdate {
+                MustUpdateApp()
             }
-            .onOpenURL { url in
-                // if the url contains a tabIdentifier in it, it will go to that page
-                guard let tabIdentifier = url.tabIdentifier else {
-                  return
+            else {
+                TabView(selection: $selectedTab) {
+                    HostTab(connectedToSpotify: $connectedToSpotify, hasConnectedCoasters: $hasConnectedCoasters, hasAccount: $hasAccount).tabItem {
+                        Label("host", systemImage: "homepod")
+                    }.tag(TabIdentifier.host)
+                    SearchTab(selectedTab: $selectedTab,connectedToSpotify: $connectedToSpotify, hasAccount: $hasAccount, hasConnectedCoasters: $hasConnectedCoasters).tabItem {
+                        Label("search", systemImage: "magnifyingglass")
+                    }.tag(TabIdentifier.search)
+                    SettingsPage(hasAccount: $hasAccount, hasConnectedCoasters: $hasConnectedCoasters).tabItem {
+                        Label("account", systemImage: "gear")
+                    }.tag(TabIdentifier.account)
+                }.accentColor(.amber)
+                .onAppear {
+                    // fetches the min app version from apu
+    //                let minVersionNumber = GetVersionApi().getMinVersion(device: "iOS")
+    //                print("version is \(versionNumber)" )
+                    let minVersionNumber = "1.00"
+                    // sets bool based on comparing the current version from min version
+                    needsToUpdate = determineViewBasedOnVersion(currentVersion: UIApplication.appVersion!, minVersion: minVersionNumber)
                 }
-                selectedTab = tabIdentifier
+                .onOpenURL { url in
+                    // if the url contains a tabIdentifier in it, it will go to that page
+                    guard let tabIdentifier = url.tabIdentifier else {
+                      return
+                    }
+                    selectedTab = tabIdentifier
+                }
             }
+        }.onAppear {
+//            hasAccount = UserDefaults.standard.bool(forKey: "hasAccount")
+//            hasConnectedCoasters = UserDefaults.standard.bool(forKey: "hasConnectedCoasters")
+//            connectedToSpotify = UserDefaults.standard.bool(forKey: "connectedToSpotify")
+            
+            // to reset (debugging)
+            UserDefaults.standard.set(false, forKey: "connectedToSpotify")
+            UserDefaults.standard.set(false, forKey: "hasConnectedCoasters")
+            UserDefaults.standard.set(false, forKey: "hasAccount")
         }
+        
        
     }
     

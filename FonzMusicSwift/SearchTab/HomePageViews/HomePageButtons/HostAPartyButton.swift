@@ -54,7 +54,7 @@ struct HostAPartyButton: View {
             Text("i want to setup my coaster").foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white).fonzRoundButtonText()
         }
         .sheet(isPresented: $throwCreateAccountModal) {
-            CreateAccountPrompt()
+            CreateAccountPrompt(hasAccount: $hasAccount, showModal: $throwCreateAccountModal)
         }
         
     }
