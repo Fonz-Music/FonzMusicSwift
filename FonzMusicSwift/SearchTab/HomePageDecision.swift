@@ -46,7 +46,7 @@ struct HomePageDecision: View {
         
             VStack{
                 HStack{
-                    Text("search")
+                    Text("queue")
                         .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white).fonzParagraphOne()
                         .padding(25)
                         .padding(.top, 40)

@@ -38,10 +38,10 @@ struct ContentView: View {
             else {
                 TabView(selection: $selectedTab) {
                     HostTab(connectedToSpotify: $connectedToSpotify, hasConnectedCoasters: $hasConnectedCoasters, hasAccount: $hasAccount).tabItem {
-                        Label("host", systemImage: "homepod")
+                        Label("host", systemImage: "hifispeaker")
                     }.tag(TabIdentifier.host)
                     SearchTab(selectedTab: $selectedTab,connectedToSpotify: $connectedToSpotify, hasAccount: $hasAccount, hasConnectedCoasters: $hasConnectedCoasters).tabItem {
-                        Label("search", systemImage: "magnifyingglass")
+                        Label("queue", systemImage: "plus.magnifyingglass")
                     }.tag(TabIdentifier.search)
                     SettingsPage(hasAccount: $hasAccount, hasConnectedCoasters: $hasConnectedCoasters).tabItem {
                         Label("account", systemImage: "gearshape")
