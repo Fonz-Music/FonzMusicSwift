@@ -74,10 +74,12 @@ struct SettingsPage: View {
 //                            Spacer()
 //                        }
                         
-                            
-                        CreateAccountView(hasAccount: $hasAccount, showModal: $throwCreateAccountModal)
-                            .padding(.horizontal, 20)
-                            .padding(.bottom, 10)
+                        ScrollView{
+                            CreateAccountView(hasAccount: $hasAccount, showModal: $throwCreateAccountModal)
+                                .padding(.horizontal, 20)
+                                .padding(.bottom, 10)
+                        }
+//                        .padding(.bottom, 30)
                     }
                     
                     .background(
