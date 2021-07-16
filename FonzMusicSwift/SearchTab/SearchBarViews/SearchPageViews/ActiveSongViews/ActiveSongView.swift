@@ -20,7 +20,7 @@ struct ActiveSongView: View {
     
     @State var activeSongPlace: Double = 1.32
     @State var activeSongLength: Double = 4.00
-    
+    @State var reloadSong : Bool = false
     
     
 //    @ObservedObject var activeSong : Track = Track(songName: "Rush Hour", songId: "09VACB0akCnPueTFnjN5Pn", artistName: "Mac Miller", albumArt: "https://i.scdn.co/image/ab67616d0000b273ee0f38410382a255e4fb15f4", spotifyUrl: "https://open.spotify.com/track/09VACB0akCnPueTFnjN5Pn")
@@ -41,7 +41,7 @@ struct ActiveSongView: View {
                 Spacer()
             }
             Button {
-//                trackfromNowPlaying.reloadSong()
+//                reloadSong = trackfromNowPlaying.reloadSong()
                 trackfromNowPlaying.resetImage()
                 trackfromNowPlaying.getActiveSong(sessionId: currentSessionId)
                 FirebaseAnalytics.Analytics.logEvent("guestReloadedActiveSong", parameters: ["user":"guest"])
@@ -120,6 +120,7 @@ struct ActiveSongUserInterface : View {
     
     var body: some View {
         ZStack {
+            // shows the reload icon
             VStack{
                 HStack{
                     Spacer()
@@ -129,6 +130,11 @@ struct ActiveSongUserInterface : View {
                         .foregroundColor(.amber)
                     
                 }
+                Spacer()
+            }
+            
+            VStack{
+                Spacer()
                 HStack(spacing: 5) {
                     // album art
                     //                                    activeSong.albumArt
@@ -156,6 +162,8 @@ struct ActiveSongUserInterface : View {
                             Text(verbatim: trackfromNowPlaying.currentSong[0].trackName)
                                 .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
                                 .fonzParagraphOne()
+                                .lineLimit(2)
+                                .allowsTightening(true)
                             Text(verbatim: trackfromNowPlaying.currentSong[0].artistName)
                                 .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
                                 .fonzParagraphTwo()
@@ -173,7 +181,7 @@ struct ActiveSongUserInterface : View {
                     Spacer()
                     
                 }
-//                .padding(.top, 5)
+                .padding(.top, 5)
 //                HStack(spacing: 5){
 //                    Text("\(convertSongPositionToString(songPosition: activeSongPlace))")
 //                        .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)

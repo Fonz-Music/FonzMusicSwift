@@ -84,11 +84,11 @@ class ImageLoader: ObservableObject {
 
         if let image = cache?[url] {
             self.image = image
-            print("same image")
+//            print("same image")
             return
         }
         else {
-            print("different image")
+//            print("different image")
         }
 
         cancellable = URLSession.shared.dataTaskPublisher(for: url)
@@ -134,57 +134,4 @@ extension EnvironmentValues {
         get { self[ImageCacheKey.self] }
         set { self[ImageCacheKey.self] = newValue }
     }
-}
-
-class ImageLoaderNoCache: ObservableObject {
-    @Published var image: UIImage?
-    private let url: URL
-
-    init(url: URL) {
-        self.url = url
-    }
-
-    deinit {
-        cancel()
-    }
-    private var cancellable: AnyCancellable?
-
-        func load() {
-            cancellable = URLSession.shared.dataTaskPublisher(for: url)
-                .map { UIImage(data: $0.data) }
-                .replaceError(with: nil)
-                .receive(on: DispatchQueue.main)
-                .sink { [weak self] in self?.image = $0 }
-        }
-        
-        func cancel() {
-            cancellable?.cancel()
-        }
-}
-
-struct AsyncImageNoCache<Placeholder: View>: View {
-    @StateObject private var loader: ImageLoaderNoCache
-    private let placeholder: Placeholder
-
-    init(url: URL, @ViewBuilder placeholder: () -> Placeholder) {
-        self.placeholder = placeholder()
-        _loader = StateObject(wrappedValue: ImageLoaderNoCache(url: url))
-    }
-
-    var body: some View {
-        content
-            .onAppear(perform: loader.load)
-    }
-
-   
-    private var content: some View {
-            Group {
-                if loader.image != nil {
-                    Image(uiImage: loader.image!)
-                        .resizable()
-                } else {
-                    placeholder
-                }
-            }
-        }
 }

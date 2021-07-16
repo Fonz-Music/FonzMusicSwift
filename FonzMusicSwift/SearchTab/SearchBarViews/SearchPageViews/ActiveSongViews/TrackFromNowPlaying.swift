@@ -49,12 +49,15 @@ class TrackFromNowPlaying: ObservableObject {
     func resetImage() {
         self.currentSong[0].albumArt = ""
     }
-//    func reloadSong() {
+//    func reloadSong() -> Bool {
 //        let previousArt = currentSong[0].albumArt
 //        getActiveSong(sessionId: tempSession)
 //
 //        if previousArt != currentSong[0].albumArt {
-//            resetImage()
+//            return true
+//        }
+//        else {
+//            return false
 //        }
 //    }
     
