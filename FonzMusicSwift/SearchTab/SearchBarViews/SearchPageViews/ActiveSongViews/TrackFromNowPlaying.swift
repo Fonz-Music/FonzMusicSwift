@@ -17,7 +17,8 @@ class TrackFromNowPlaying: ObservableObject {
     var subscription: Set<AnyCancellable> = []
     var tempSession : String = UserDefaults.standard.string(forKey: "hostSessionId")!
     
-    @Published private (set) var currentSong: [NowPlayingInfo] = [NowPlayingInfo(artistName: "", albumArt: "https://i.scdn.co/image/ab67616d0000b273e1225196df3f67528c87c7fd", trackName: "")]
+//    @Published private (set) var currentSong: [NowPlayingInfo] = [NowPlayingInfo(artistName: "", albumArt: "https://i.scdn.co/image/ab67616d0000b273e1225196df3f67528c87c7fd", trackName: "")]
+    @Published private (set) var currentSong: [NowPlayingInfo] = [NowPlayingInfo(artistName: "", albumArt: "", trackName: "")]
     
     @Published var nowPlaying: String = String()
     
@@ -45,6 +46,17 @@ class TrackFromNowPlaying: ObservableObject {
             .store(in: &subscription)
     }
     
+    func resetImage() {
+        self.currentSong[0].albumArt = ""
+    }
+//    func reloadSong() {
+//        let previousArt = currentSong[0].albumArt
+//        getActiveSong(sessionId: tempSession)
+//
+//        if previousArt != currentSong[0].albumArt {
+//            resetImage()
+//        }
+//    }
     
     func getActiveSong(sessionId:String) {
         print("starting search")
@@ -83,8 +95,8 @@ class TrackFromNowPlaying: ObservableObject {
 //                            nowPlayingInfo = NowPlayingInfo(artistName: decodedResponse.artistName, albumArt: decodedResponse.images[0].url, trackName: decodedResponse.trackName)
                             
                             let newAlbumArt = decodedResponse.images[0].url
-                            print(type(of: newAlbumArt))
-                            print("this is the active song img \(decodedResponse.images[0].url)")
+//                            print(type(of: newAlbumArt))
+//                            print("this is the active song img \(decodedResponse.images[0].url)")
                             
                             let nowPlaying = NowPlayingInfo(artistName: decodedResponse.artistName, albumArt: newAlbumArt, trackName: decodedResponse.trackName)
 //                                searchResults.append(nowPlaying)
@@ -95,8 +107,8 @@ class TrackFromNowPlaying: ObservableObject {
                                 self.currentSong = searchResults
                                 
 //                                self.currentSong = NowPlayingInfo(artistName: decodedResponse.artistName, albumArt: newAlbumArt, trackName: decodedResponse.trackName)
-                                print("this is the active song \(decodedResponse)")
-                                print("this is the new song \(self.currentSong)")
+//                                print("this is the active song \(decodedResponse)")
+//                                print("this is the new song \(self.currentSong)")
                             }
                             return
                         }

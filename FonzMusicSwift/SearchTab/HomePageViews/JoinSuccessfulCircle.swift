@@ -29,8 +29,9 @@ struct JoinSuccessfulCircle: View {
                 .multilineTextAlignment(.center)
                 .foregroundColor(.successGreen)
                 .fonzRoundButtonText()
-                .padding()
+                .padding(5)
                 .background(colorScheme == .light ? Color.clear: Color.darkBackground)
+                .padding(5)
         }
     }
     

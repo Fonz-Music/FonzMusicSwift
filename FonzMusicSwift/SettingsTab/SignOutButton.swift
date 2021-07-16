@@ -10,6 +10,8 @@ import SwiftUI
 import FirebaseAnalytics
 
 struct SignOutButton: View {
+    // determines if current user has an account
+    @Binding var hasAccount : Bool
     
     @Environment(\.colorScheme) var colorScheme
     
@@ -18,6 +20,8 @@ struct SignOutButton: View {
             FirebaseAnalytics.Analytics.logEvent("userPressedSignOut", parameters: ["user":"user", "tab": "settings"])
 //                    pressedButtonToLaunchNfc = true
             print("pressed button")
+            UserDefaults.standard.set(false, forKey: "hasAccount")
+            hasAccount = false
         }, label: {
             HStack {
                 HStack(spacing: 5) {
@@ -35,11 +39,5 @@ struct SignOutButton: View {
         })
         .buttonStyle(BasicFonzButton(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .amber))
 //        .buttonStyle(NeumorphicButtonStyle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .amber))
-    }
-}
-
-struct SignOutButton_Previews: PreviewProvider {
-    static var previews: some View {
-        SignOutButton()
     }
 }

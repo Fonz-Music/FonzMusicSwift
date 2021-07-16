@@ -37,14 +37,13 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleUrlName</key>
-            <string>com.fonzmusic</string>
-        <!--    <string>fonz-music.FonzMusicSwift</string>-->
+			<string>com.fonzmusicswift</string>
 			<key>CFBundleUrlSchemes</key>
 			<array/>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>instagram</string>

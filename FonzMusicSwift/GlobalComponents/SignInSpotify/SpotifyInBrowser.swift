@@ -28,6 +28,7 @@ struct SpotifyInBrowser {
                     return
                 }
                 openURL(url)
+                print("launched spotify")
             }
         }
     }

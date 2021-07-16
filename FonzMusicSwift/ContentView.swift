@@ -44,7 +44,7 @@ struct ContentView: View {
                         Label("search", systemImage: "magnifyingglass")
                     }.tag(TabIdentifier.search)
                     SettingsPage(hasAccount: $hasAccount, hasConnectedCoasters: $hasConnectedCoasters).tabItem {
-                        Label("account", systemImage: "gear")
+                        Label("account", systemImage: "gearshape")
                     }.tag(TabIdentifier.account)
                 }.accentColor(.amber)
                 .onAppear {
@@ -66,7 +66,7 @@ struct ContentView: View {
         }.onAppear {
             
             // to reset (debugging)
-//            UserDefaults.standard.set(true, forKey: "connectedToSpotify")
+            UserDefaults.standard.set(false, forKey: "connectedToSpotify")
 //            UserDefaults.standard.set(true, forKey: "hasConnectedCoasters")
 //            UserDefaults.standard.set(false, forKey: "hasAccount")
             

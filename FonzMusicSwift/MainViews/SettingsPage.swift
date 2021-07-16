@@ -50,7 +50,7 @@ struct SettingsPage: View {
                     
                         ChangeDisplayNameButton()
                         ManageSpotifyButton()
-                        SignOutButton()
+                        SignOutButton(hasAccount: $hasAccount)
                         // if the user has connected coasters, give option to limit reqs
         //                    if hasConnectedCoasters {
         //                        Text("coaster management")

@@ -123,7 +123,8 @@ struct ArtistSongListModal: View {
             
             // resps
             LaunchSongResponsePopup(statusCodeQueueSong: statusCodeQueueSong, showQueueResponse: $showQueueResponse, songSelected: currentTune.songName, currentHost: hostCoaster.hostName)
-            
+                .padding(.horizontal)
+                .padding(.top, 30)
         }
     }
 }

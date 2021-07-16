@@ -24,8 +24,10 @@ struct AsyncImage<Placeholder: View>: View {
     ) {
         self.placeholder = placeholder()
         self.image = image
+//        print("url is \(url)")
         _loader = StateObject(wrappedValue: ImageLoader(url: url, cache: Environment(\.imageCache).wrappedValue))
     }
+    
 
     var body: some View {
         content
@@ -80,10 +82,14 @@ class ImageLoader: ObservableObject {
     func load() {
         guard !isLoading else { return }
 
-//        if let image = cache?[url] {
-//            self.image = image
-//            return
-//        }
+        if let image = cache?[url] {
+            self.image = image
+            print("same image")
+            return
+        }
+        else {
+            print("different image")
+        }
 
         cancellable = URLSession.shared.dataTaskPublisher(for: url)
             .map { UIImage(data: $0.data) }
@@ -116,6 +122,9 @@ class ImageLoader: ObservableObject {
     
 }
 
+
+
+
 struct ImageCacheKey: EnvironmentKey {
     static let defaultValue: ImageCache = TemporaryImageCache()
 }
@@ -127,3 +136,55 @@ extension EnvironmentValues {
     }
 }
 
+class ImageLoaderNoCache: ObservableObject {
+    @Published var image: UIImage?
+    private let url: URL
+
+    init(url: URL) {
+        self.url = url
+    }
+
+    deinit {
+        cancel()
+    }
+    private var cancellable: AnyCancellable?
+
+        func load() {
+            cancellable = URLSession.shared.dataTaskPublisher(for: url)
+                .map { UIImage(data: $0.data) }
+                .replaceError(with: nil)
+                .receive(on: DispatchQueue.main)
+                .sink { [weak self] in self?.image = $0 }
+        }
+        
+        func cancel() {
+            cancellable?.cancel()
+        }
+}
+
+struct AsyncImageNoCache<Placeholder: View>: View {
+    @StateObject private var loader: ImageLoaderNoCache
+    private let placeholder: Placeholder
+
+    init(url: URL, @ViewBuilder placeholder: () -> Placeholder) {
+        self.placeholder = placeholder()
+        _loader = StateObject(wrappedValue: ImageLoaderNoCache(url: url))
+    }
+
+    var body: some View {
+        content
+            .onAppear(perform: loader.load)
+    }
+
+   
+    private var content: some View {
+            Group {
+                if loader.image != nil {
+                    Image(uiImage: loader.image!)
+                        .resizable()
+                } else {
+                    placeholder
+                }
+            }
+        }
+}

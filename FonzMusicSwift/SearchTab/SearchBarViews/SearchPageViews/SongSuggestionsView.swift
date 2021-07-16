@@ -38,9 +38,10 @@ struct SongSuggestionsView: View {
                 .fonzShadow()
                 .padding(.top, 30)
             VStack{
-                Spacer()
-                    .frame(height: 30)
+                
                 if !hasAccount || !connectedToSpotify {
+                    Spacer()
+                        .frame(height: 30)
                     ConnectSpotifySearch(throwCreateAccountModal: $throwCreateAccountModal, hasAccount: $hasAccount, connectedToSpotify: $connectedToSpotify)
                 }
                 YourTopSongs(hostCoaster: hostCoaster, currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
@@ -49,6 +50,7 @@ struct SongSuggestionsView: View {
                 Spacer()
                     .frame(height: 30)
             }
+            .padding(.top, 30)
             .sheet(isPresented: $throwCreateAccountModal) {
                     CreateAccountPrompt(hasAccount: $hasAccount, showModal: $throwCreateAccountModal)
                

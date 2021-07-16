@@ -21,6 +21,8 @@ struct ActiveSongView: View {
     @State var activeSongPlace: Double = 1.32
     @State var activeSongLength: Double = 4.00
     
+    
+    
 //    @ObservedObject var activeSong : Track = Track(songName: "Rush Hour", songId: "09VACB0akCnPueTFnjN5Pn", artistName: "Mac Miller", albumArt: "https://i.scdn.co/image/ab67616d0000b273ee0f38410382a255e4fb15f4", spotifyUrl: "https://open.spotify.com/track/09VACB0akCnPueTFnjN5Pn")
     
 //    @Binding var activeSong : Track
@@ -30,14 +32,17 @@ struct ActiveSongView: View {
     
     var body: some View {
         VStack {
-            Text("now playing")
-                .foregroundColor(Color.white)
-                .fonzParagraphTwo()
-                .padding(25)
-                .frame(width: UIScreen.screenWidth, height: 50, alignment: .topLeading)
+            HStack{
+                Text("now playing")
+                    .foregroundColor(Color.white)
+                    .fonzParagraphTwo()
+                    .padding(.horizontal, 25)
+                    .padding(.vertical, 15)
+                Spacer()
+            }
             Button {
-//                print(trackfromNowPlaying.currentSong)
-//                print(trackfromNowPlaying.nowPlaying)
+//                trackfromNowPlaying.reloadSong()
+                trackfromNowPlaying.resetImage()
                 trackfromNowPlaying.getActiveSong(sessionId: currentSessionId)
                 FirebaseAnalytics.Analytics.logEvent("guestReloadedActiveSong", parameters: ["user":"guest"])
             } label: {
@@ -50,6 +55,10 @@ struct ActiveSongView: View {
                 }
             }
             .frame(width: UIScreen.screenWidth * 0.9, alignment: .center)
+            .onAppear {
+                print("this is the active song img \(trackfromNowPlaying.currentSong[0].albumArt)")
+                trackfromNowPlaying.getActiveSong(sessionId: currentSessionId)
+            }
         }
     }
     
@@ -100,6 +109,8 @@ struct ActiveSongUserInterface : View {
     // object that stores the songs from the api
     @ObservedObject var trackfromNowPlaying: TrackFromNowPlaying
     
+   
+    
 //    @ObservedObject var currentImage : ImageLoader
     
     var hostName : String
@@ -110,21 +121,35 @@ struct ActiveSongUserInterface : View {
     var body: some View {
         ZStack {
             VStack{
+                HStack{
+                    Spacer()
+                    Image(systemName: "arrow.clockwise")
+                        .padding(.horizontal, 10)
+                        .padding(.top, 10)
+                        .foregroundColor(.amber)
+                    
+                }
                 HStack(spacing: 5) {
                     // album art
                     //                                    activeSong.albumArt
 //                    AsyncImage(url: (URL(string:activeSong.albumArt))!,
 //                               placeholder: { Text("...").fonzParagraphTwo() },
 //                               image: { Image(uiImage: $0).resizable() })
-                    AsyncImage(url: (URL(string:trackfromNowPlaying.currentSong[0].albumArt))!,
-                               placeholder: { Text("...").fonzParagraphTwo() },
-                               image: { Image(uiImage: $0).resizable() })
-//                    AsyncImage(url: currentImage.url,
-//                               placeholder: { Text("...").fonzParagraphTwo() },
-//                               image: { Image(uiImage: $0).resizable() })
-                        .frame( width: 80 ,height: 80, alignment: .leading).cornerRadius(.cornerRadiusTasks)
-                        .padding(.vertical, 10)
-                        .padding(.horizontal, 15)
+                    if (trackfromNowPlaying.currentSong[0].albumArt == "") {
+                         Image("spotifyIconAmber")
+                            .frame( width: 80 ,height: 80, alignment: .leading).cornerRadius(.cornerRadiusTasks)
+                            .padding(.vertical, 10)
+                            .padding(.horizontal, 15)
+                    }
+                    else {
+                        AsyncImage(url: (URL(string:trackfromNowPlaying.currentSong[0].albumArt))!,
+                                          placeholder: { Image("spotifyIconAmber").resizable().frame(width: 60 ,height: 60, alignment: .center) }
+                                    )
+                            .frame( width: 80 ,height: 80, alignment: .leading).cornerRadius(.cornerRadiusTasks)
+                            .padding(.vertical, 10)
+                            .padding(.horizontal, 15)
+                    }
+                    
                     // title & artist
                     VStack(alignment: .leading, spacing: 5) {
                         if (trackfromNowPlaying.currentSong[0].trackName != ""){
@@ -146,17 +171,18 @@ struct ActiveSongUserInterface : View {
                         
                     }
                     Spacer()
+                    
                 }
-                .padding(.top, 5)
-                HStack(spacing: 5){
-                    Text("\(convertSongPositionToString(songPosition: activeSongPlace))")
-                        .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
-                        .fonzParagraphThree()
-                    ProgressBar(value: $activeSongPlace)
-                    Text("\(convertSongPositionToString(songPosition: activeSongLength))")
-                        .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
-                        .fonzParagraphThree()
-                }.padding(.vertical, 3)
+//                .padding(.top, 5)
+//                HStack(spacing: 5){
+//                    Text("\(convertSongPositionToString(songPosition: activeSongPlace))")
+//                        .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
+//                        .fonzParagraphThree()
+//                    ProgressBar(value: $activeSongPlace)
+//                    Text("\(convertSongPositionToString(songPosition: activeSongLength))")
+//                        .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
+//                        .fonzParagraphThree()
+//                }.padding(.vertical, 3)
                 Spacer()
             }
         }

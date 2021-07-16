@@ -1297,6 +1297,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = FonzMusicSwift/FonzMusicSwift.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"FonzMusicSwift/Preview Content\"";
 				DEVELOPMENT_TEAM = VW76JQGB68;
 				ENABLE_PREVIEWS = YES;
@@ -1313,7 +1314,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fonzmusic;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fonzmusicSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "FonzMusic-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -1330,6 +1331,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = FonzMusicSwift/FonzMusicSwift.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"FonzMusicSwift/Preview Content\"";
 				DEVELOPMENT_TEAM = VW76JQGB68;
 				ENABLE_PREVIEWS = YES;
@@ -1345,7 +1347,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fonzmusic;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fonzmusicSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "FonzMusic-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
