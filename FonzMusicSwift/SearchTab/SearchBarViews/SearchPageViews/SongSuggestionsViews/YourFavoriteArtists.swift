@@ -35,12 +35,14 @@ struct YourFavoriteArtists: View {
     
     var body: some View {
         VStack {
-            Text("your favorite artists")
-                .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
-                .fonzParagraphTwo()
-                .padding(25)
-                .frame(width: UIScreen.screenWidth, height: 50, alignment: .topLeading)
-                .padding(.bottom, 25)
+            HStack{
+                Text("your favorite artists")
+                    .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
+                    .fonzParagraphTwo()
+                    .padding(25)
+
+                Spacer()
+            }
             
                 ZStack {
                     ScrollView(.horizontal, showsIndicators: false) {

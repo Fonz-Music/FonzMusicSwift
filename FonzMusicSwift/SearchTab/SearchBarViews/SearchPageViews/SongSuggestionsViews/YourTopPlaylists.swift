@@ -31,12 +31,14 @@ struct YourTopPlaylists: View {
     
     var body: some View {
         VStack {
-            Text("your top playlists")
-                .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
-                .fonzParagraphTwo()
-                .padding(25)
-                .frame(width: UIScreen.screenWidth, height: 50, alignment: .topLeading)
-                .padding(.bottom, 30)
+            HStack{
+                Text("your top playlists")
+                    .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
+                    .fonzParagraphTwo()
+                    .padding(25)
+                    
+                Spacer()
+            }
             
                 ZStack {
                     ScrollView(.horizontal, showsIndicators: false) {

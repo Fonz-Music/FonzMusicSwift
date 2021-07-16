@@ -38,8 +38,12 @@ struct CreateAccountPrompt: View {
                     .frame(width: 35, height: 75)
                     .padding(.bottom)
                 
-                // shows sign in or sign up
-                CreateAccountView(hasAccount: $hasAccount, showModal: $showModal)
+                ScrollView{
+                    // shows sign in or sign up
+                    CreateAccountView(hasAccount: $hasAccount, showModal: $showModal)
+                        .padding(.bottom, 30)
+                }
+                
                 
                 Spacer()
             }

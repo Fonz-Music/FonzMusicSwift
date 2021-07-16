@@ -30,11 +30,15 @@ struct YourTopSongs: View {
     
     var body: some View {
         VStack{
-            Text("your top songs")
-                .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
-                .fonzParagraphTwo()
-                .padding(25)
-                .frame(width: UIScreen.screenWidth, height: 50, alignment: .topLeading)
+            HStack{
+                Text("your top songs")
+                    .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
+                    .fonzParagraphTwo()
+                    .padding(.horizontal, 25)
+                    .padding(.bottom, 10)
+                Spacer()
+            }
+            
             VStack(spacing: 10) {
                 HStack(spacing: 10) {
                     TopSongButtonView(hostCoaster: hostCoaster, topSong: yourTopSongs[0], currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)

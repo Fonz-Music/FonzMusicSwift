@@ -38,17 +38,17 @@ struct SongSuggestionsView: View {
                 .fonzShadow()
                 .padding(.top, 30)
             VStack{
-                
+                Spacer()
+                    .frame(height: 30)
                 if !hasAccount || !connectedToSpotify {
-                    Spacer()
-                        .frame(height: 30)
+                    
                     ConnectSpotifySearch(throwCreateAccountModal: $throwCreateAccountModal, hasAccount: $hasAccount, connectedToSpotify: $connectedToSpotify)
                 }
                 YourTopSongs(hostCoaster: hostCoaster, currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
                 YourFavoriteArtists(hostCoaster: hostCoaster,  tracksFromArtist: tracksFromArtist)
                 YourTopPlaylists(hostCoaster: hostCoaster,  tracksFromPlaylist: tracksFromPlaylist)
                 Spacer()
-                    .frame(height: 30)
+                    .frame(minHeight: 30)
             }
             .padding(.top, 30)
             .sheet(isPresented: $throwCreateAccountModal) {

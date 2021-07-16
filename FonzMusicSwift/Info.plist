@@ -37,7 +37,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleUrlName</key>
-			<string>com.fonzmusicswift</string>
+			<string>com.fonzmusic</string>
 			<key>CFBundleUrlSchemes</key>
 			<array/>
 		</dict>

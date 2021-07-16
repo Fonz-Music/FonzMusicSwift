@@ -42,7 +42,7 @@ struct SearchBarPage: View {
         ZStack {
            // song page 
             SearchPageView(hostCoaster: hostCoaster, hasHostVar: $hasHostVar, hasAccount: $hasAccount, connectedToSpotify: $connectedToSpotify, showQueueResponse: $showQueueResponse, statusCodeQueueSong: $statusCodeQueueSong, isEditingSearchBar: $isEditingSearchBar, currentTune: $currentTune)
-                .padding(.horizontal, 30)
+//                .padding(.horizontal, 30)
    
             // resps
             LaunchSongResponsePopup(statusCodeQueueSong: statusCodeQueueSong, showQueueResponse: $showQueueResponse, songSelected: currentTune.songName, currentHost: hostCoaster.hostName)
