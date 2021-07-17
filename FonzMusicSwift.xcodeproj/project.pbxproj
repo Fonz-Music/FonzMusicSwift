@@ -7,9 +7,111 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2609AD53263DB80400337A02 /* HostAddSpotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2609AD52263DB80400337A02 /* HostAddSpotify.swift */; };
 		2609AD56263DBDBE00337A02 /* SpotifyWebViewWk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2609AD55263DBDBE00337A02 /* SpotifyWebViewWk.swift */; };
 		2609AD59263DC2F900337A02 /* SpotifyViewRep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2609AD58263DC2F900337A02 /* SpotifyViewRep.swift */; };
+		261752A526A3436E0069C83D /* Fonz_Music_App_ClipApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EBF67E26A33CDE0094FA60 /* Fonz_Music_App_ClipApp.swift */; };
+		261752A726A3448A0069C83D /* ChangeDisplayNameButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBCCEF2686A52500399460 /* ChangeDisplayNameButton.swift */; };
+		261752A826A3448A0069C83D /* BuyCoasterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBCCF12686A55D00399460 /* BuyCoasterButton.swift */; };
+		261752A926A3448A0069C83D /* ManageSpotifyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBCCF32686A57B00399460 /* ManageSpotifyButton.swift */; };
+		261752AA26A3448A0069C83D /* SignOutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBCCF52686A5A100399460 /* SignOutButton.swift */; };
+		261752AB26A3448A0069C83D /* LimitSongRequestsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBCCF72686A5C500399460 /* LimitSongRequestsButton.swift */; };
+		261752AC26A3448A0069C83D /* CreateAccountButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AF07CD268D3794006A9504 /* CreateAccountButton.swift */; };
+		261752AD26A3448A0069C83D /* SomeoneElsesCoaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268FA5F6268E905C00E45AA6 /* SomeoneElsesCoaster.swift */; };
+		261752AE26A3448A0069C83D /* ThisIsYourCoaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268FA5F8268E92DB00E45AA6 /* ThisIsYourCoaster.swift */; };
+		261752BD26A3448A0069C83D /* NameYourCoasterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268B97AB26855C0B00984DC4 /* NameYourCoasterView.swift */; };
+		261752BE26A3448A0069C83D /* ConnectSpotifyButtonHostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268B97AD26855C7000984DC4 /* ConnectSpotifyButtonHostView.swift */; };
+		261752BF26A3448A0069C83D /* ConnectYourFirstCoasterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268B97AF26855CA400984DC4 /* ConnectYourFirstCoasterButton.swift */; };
+		261752C026A3448A0069C83D /* HostSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26691F78267ACB3B00C83696 /* HostSetup.swift */; };
+		261752C226A3448A0069C83D /* JoinSuccessfulCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26691F71267AC6BF00C83696 /* JoinSuccessfulCircle.swift */; };
+		261752C326A3448A0069C83D /* CoasterDoesNotHaveHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26916FF7268E5DFA00B7281B /* CoasterDoesNotHaveHost.swift */; };
+		261752C426A3448A0069C83D /* JoinAPartyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26691F6F267AC69A00C83696 /* JoinAPartyButton.swift */; };
+		261752C526A3448A0069C83D /* HostAPartyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26691F6D267AC67400C83696 /* HostAPartyButton.swift */; };
+		261752C626A3448A0069C83D /* BuyACoasterHomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EBF65C26A32E3C0094FA60 /* BuyACoasterHomeButton.swift */; };
+		261752C726A3448A0069C83D /* ConnectSpotifyHomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EBF65E26A331330094FA60 /* ConnectSpotifyHomeButton.swift */; };
+		261752C826A3448A0069C83D /* DetermineHomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AF07D4268D4851006A9504 /* DetermineHomePageView.swift */; };
+		261752C926A3448A0069C83D /* JoinPartyResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26916FF9268E600700B7281B /* JoinPartyResponses.swift */; };
+		261752CA26A3448A0069C83D /* QueueSongSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26916FEF268E476500B7281B /* QueueSongSuccess.swift */; };
+		261752CB26A3448A0069C83D /* QueuedButDelayedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26916FF1268E502700B7281B /* QueuedButDelayedResponse.swift */; };
+		261752CC26A3448A0069C83D /* QueueSongError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26916FF3268E50EB00B7281B /* QueueSongError.swift */; };
+		261752CD26A3448A0069C83D /* SongSuggestionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ECCFD52682A2350053BE1F /* SongSuggestionsView.swift */; };
+		261752CE26A3448A0069C83D /* ArtistSongListModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ECCFE22682BE210053BE1F /* ArtistSongListModal.swift */; };
+		261752CF26A3448A0069C83D /* PlaylistSongListModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2687C730268A96710044AA37 /* PlaylistSongListModal.swift */; };
+		261752D026A3448A0069C83D /* SongListModalSongButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2687C732268A97610044AA37 /* SongListModalSongButton.swift */; };
+		261752D126A3448A0069C83D /* TracksFromArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2687C72B268A915E0044AA37 /* TracksFromArtist.swift */; };
+		261752D226A3448A0069C83D /* TracksFromPlaylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2687C72E268A96350044AA37 /* TracksFromPlaylist.swift */; };
+		261752D326A3448A0069C83D /* YourTopSongs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ECCFD72682A27F0053BE1F /* YourTopSongs.swift */; };
+		261752D426A3448A0069C83D /* YourFavoriteArtists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ECCFDA2682AA500053BE1F /* YourFavoriteArtists.swift */; };
+		261752D526A3448A0069C83D /* YourTopPlaylists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ECCFE02682B6960053BE1F /* YourTopPlaylists.swift */; };
+		261752D626A3448A0069C83D /* ConnectSpotifySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AF07CF268D3BAD006A9504 /* ConnectSpotifySearch.swift */; };
+		261752D726A3448A0069C83D /* SongResultItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26691F65267AB89A00C83696 /* SongResultItem.swift */; };
+		261752D826A3448A0069C83D /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26691F6A267AC48400C83696 /* SearchBarView.swift */; };
+		261752D926A3448A0069C83D /* SearchResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26691F68267AC46A00C83696 /* SearchResultsView.swift */; };
+		261752DA26A3448B0069C83D /* TracksFromSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9ABC26349A1D0030643D /* TracksFromSearch.swift */; };
+		261752DB26A3448B0069C83D /* ActiveSongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ECCFD2268295510053BE1F /* ActiveSongView.swift */; };
+		261752DC26A3448B0069C83D /* TrackFromNowPlaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2687C735268A9A370044AA37 /* TrackFromNowPlaying.swift */; };
+		261752DD26A3448B0069C83D /* LaunchSongResponsePopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26916FF5268E585200B7281B /* LaunchSongResponsePopup.swift */; };
+		261752DE26A3448B0069C83D /* SearchPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269252D5268E2C37001AC98B /* SearchPageView.swift */; };
+		261752DF26A3448B0069C83D /* SearchBarPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2620B8A42679261F004FE721 /* SearchBarPage.swift */; };
+		261752E026A3448B0069C83D /* HomePageDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2620B8A7267926C2004FE721 /* HomePageDecision.swift */; };
+		261752E126A3448B0069C83D /* MuseoSans-100.otf in Sources */ = {isa = PBXBuildFile; fileRef = 26AC89B92665745300E1C41E /* MuseoSans-100.otf */; };
+		261752E226A3448B0069C83D /* MuseoSans-300.otf in Sources */ = {isa = PBXBuildFile; fileRef = 26AC89BA2665745300E1C41E /* MuseoSans-300.otf */; };
+		261752E326A3448B0069C83D /* MuseoSans-500.otf in Sources */ = {isa = PBXBuildFile; fileRef = 26AC89B82665745300E1C41E /* MuseoSans-500.otf */; };
+		261752E426A3448B0069C83D /* MuseoSans-700.otf in Sources */ = {isa = PBXBuildFile; fileRef = 26AC89BB2665745300E1C41E /* MuseoSans-700.otf */; };
+		261752E526A3448B0069C83D /* ConsentedToEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F5350926975E770055C188 /* ConsentedToEmail.swift */; };
+		261752E626A3448B0069C83D /* ConsentedToPrivacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F5350B26975EDD0055C188 /* ConsentedToPrivacy.swift */; };
+		261752E726A3448B0069C83D /* SignInWithAppleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F5350426975DEA0055C188 /* SignInWithAppleButton.swift */; };
+		261752E826A3448B0069C83D /* SignInWithGoogleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F5350626975E200055C188 /* SignInWithGoogleButton.swift */; };
+		261752E926A3448B0069C83D /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F534FF2697500D0055C188 /* SignUpView.swift */; };
+		261752EA26A3448B0069C83D /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F5350126975C870055C188 /* SignInView.swift */; };
+		261752EB26A3448B0069C83D /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F5351226988BA10055C188 /* CreateAccountView.swift */; };
+		261752EC26A3448B0069C83D /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268B97A826838AFF00984DC4 /* URL.swift */; };
+		261752ED26A3448B0069C83D /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBCCF92686BCE500399460 /* ViewExtensions.swift */; };
+		261752EE26A3448B0069C83D /* DataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265634BE2678163000FD6F27 /* DataExtension.swift */; };
+		261752EF26A3448B0069C83D /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265634B9267814DB00FD6F27 /* StringExtensions.swift */; };
+		261752F026A3448B0069C83D /* GlobalExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B651632638A0610074F279 /* GlobalExtensions.swift */; };
+		261752F126A3448B0069C83D /* TextExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F534FC26973F440055C188 /* TextExtension.swift */; };
+		261752F226A3448B0069C83D /* ShareOnInstagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AC89B32665410C00E1C41E /* ShareOnInstagram.swift */; };
+		261752F326A3448B0069C83D /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AC89C02665781B00E1C41E /* ShareSheet.swift */; };
+		261752F426A3448B0069C83D /* HostCoasterInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B6514C263866950074F279 /* HostCoasterInfo.swift */; };
+		261752F526A3448B0069C83D /* GlobalTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B6514F263866BE0074F279 /* GlobalTrack.swift */; };
+		261752F626A3448B0069C83D /* UpdatePageviewVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B65152263866E20074F279 /* UpdatePageviewVars.swift */; };
+		261752F726A3448B0069C83D /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B651552638671D0074F279 /* Track.swift */; };
+		261752F826A3448B0069C83D /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AC89CB2669600500E1C41E /* AsyncImage.swift */; };
+		261752F926A3448B0069C83D /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ECCFDC2682B0A60053BE1F /* Artist.swift */; };
+		261752FA26A3448B0069C83D /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ECCFDE2682B0DA0053BE1F /* Playlist.swift */; };
+		261752FB26A3448B0069C83D /* VersionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AF07C9268D2DFB006A9504 /* VersionResponse.swift */; };
+		261752FC26A3448B0069C83D /* FailCircleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26691F73267AC6D100C83696 /* FailCircleResponse.swift */; };
+		261752FD26A3448B0069C83D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9B222634A96B0030643D /* Colors.swift */; };
+		261752FE26A3448B0069C83D /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2620B8A926795A8B004FE721 /* ButtonStyles.swift */; };
+		261752FF26A3448B0069C83D /* FrontEndConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBCCFB2686BE4200399460 /* FrontEndConstants.swift */; };
+		2617530026A3448B0069C83D /* TapYourPhoneAmber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AF07D1268D47C8006A9504 /* TapYourPhoneAmber.swift */; };
+		2617530126A3448B0069C83D /* FonzFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269252D2268E1F18001AC98B /* FonzFonts.swift */; };
+		2617530226A3448B0069C83D /* SpotifyWebViewWk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2609AD55263DBDBE00337A02 /* SpotifyWebViewWk.swift */; };
+		2617530326A3448B0069C83D /* SpotifyViewRep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2609AD58263DC2F900337A02 /* SpotifyViewRep.swift */; };
+		2617530426A3448B0069C83D /* SpotifyInBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268B97A52683843A00984DC4 /* SpotifyInBrowser.swift */; };
+		2617530526A3448B0069C83D /* ErrorOnTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9AA42634990D0030643D /* ErrorOnTap.swift */; };
+		2617530626A3448B0069C83D /* ErrorDeviceNotNfc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9AAA263499410030643D /* ErrorDeviceNotNfc.swift */; };
+		2617530726A3448B0069C83D /* ErrorNotFonzCoaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9AB0263499710030643D /* ErrorNotFonzCoaster.swift */; };
+		2617530826A3448B0069C83D /* SignInSignUpApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F5350E2697AF300055C188 /* SignInSignUpApi.swift */; };
+		2617530926A3448B0069C83D /* SpotifySignInApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269D0151267182A000A1DFEE /* SpotifySignInApi.swift */; };
+		2617530A26A3448B0069C83D /* GetVerionApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AF07C7268D2751006A9504 /* GetVerionApi.swift */; };
+		2617530B26A3448B0069C83D /* HostCoasterApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B6515F26389D7B0074F279 /* HostCoasterApi.swift */; };
+		2617530C26A3448B0069C83D /* HostFonzSessionApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B651662638A1B30074F279 /* HostFonzSessionApi.swift */; };
+		2617530D26A3448B0069C83D /* GuestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9AD726349B610030643D /* GuestApi.swift */; };
+		2617531226A3448B0069C83D /* SettingsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265634C02678341E00FD6F27 /* SettingsPage.swift */; };
+		2617531326A3448B0069C83D /* SearchTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2620B8A226792599004FE721 /* SearchTab.swift */; };
+		2617531426A3448B0069C83D /* HostTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26691F75267ACA9E00C83696 /* HostTab.swift */; };
+		2617531526A3448B0069C83D /* MustUpdateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AF07C5268D2435006A9504 /* MustUpdateApp.swift */; };
+		2617531626A3448B0069C83D /* CreateAccountPrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AF07CB268D36C6006A9504 /* CreateAccountPrompt.swift */; };
+		2617531726A3448B0069C83D /* LaunchConnectCoasterNfc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26659BC3263BA36B0008FD1F /* LaunchConnectCoasterNfc.swift */; };
+		2617531826A3448B0069C83D /* LaunchTroubleShootCoasterNfc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AF07BF268CEE00006A9504 /* LaunchTroubleShootCoasterNfc.swift */; };
+		2617531926A3448B0069C83D /* LaunchJoinPartNfc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9AC926349AEA0030643D /* LaunchJoinPartNfc.swift */; };
+		2617531A26A3448B0069C83D /* TryAgainNfc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9ACD26349B040030643D /* TryAgainNfc.swift */; };
+		2617531B26A3448B0069C83D /* LaunchQueueSongNfc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9AD026349B190030643D /* LaunchQueueSongNfc.swift */; };
+		2617531C26A3448B0069C83D /* LaunchQueueSongWriteUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ECCFD0268294E70053BE1F /* LaunchQueueSongWriteUrl.swift */; };
+		2617533126A3448B0069C83D /* FonzMusicSwiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2677029026347ECD00B8BC92 /* FonzMusicSwiftApp.swift */; };
+		2617533226A3448B0069C83D /* Fonz_Music_App_ClipApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EBF67E26A33CDE0094FA60 /* Fonz_Music_App_ClipApp.swift */; };
+		2617533326A3448B0069C83D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2677029226347ECD00B8BC92 /* ContentView.swift */; };
 		2620B8A326792599004FE721 /* SearchTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2620B8A226792599004FE721 /* SearchTab.swift */; };
 		2620B8A52679261F004FE721 /* SearchBarPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2620B8A42679261F004FE721 /* SearchBarPage.swift */; };
 		2620B8A8267926C2004FE721 /* HomePageDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2620B8A7267926C2004FE721 /* HomePageDecision.swift */; };
@@ -18,10 +120,6 @@
 		265634BD267815B900FD6F27 /* Crypto in Frameworks */ = {isa = PBXBuildFile; productRef = 265634BC267815B900FD6F27 /* Crypto */; };
 		265634BF2678163000FD6F27 /* DataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265634BE2678163000FD6F27 /* DataExtension.swift */; };
 		265634C12678341E00FD6F27 /* SettingsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265634C02678341E00FD6F27 /* SettingsPage.swift */; };
-		26659BB6263B32770008FD1F /* NameCoaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26659BB5263B32770008FD1F /* NameCoaster.swift */; };
-		26659BB9263B62F20008FD1F /* PauseCoaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26659BB8263B62F20008FD1F /* PauseCoaster.swift */; };
-		26659BBC263B67040008FD1F /* DisconnectCoaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26659BBB263B67040008FD1F /* DisconnectCoaster.swift */; };
-		26659BBF263B6B4D0008FD1F /* ManageCoasterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26659BBE263B6B4D0008FD1F /* ManageCoasterView.swift */; };
 		26659BC4263BA36B0008FD1F /* LaunchConnectCoasterNfc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26659BC3263BA36B0008FD1F /* LaunchConnectCoasterNfc.swift */; };
 		26691F66267AB89A00C83696 /* SongResultItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26691F65267AB89A00C83696 /* SongResultItem.swift */; };
 		26691F69267AC46A00C83696 /* SearchResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26691F68267AC46A00C83696 /* SearchResultsView.swift */; };
@@ -76,46 +174,38 @@
 		26AF07D0268D3BAD006A9504 /* ConnectSpotifySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AF07CF268D3BAD006A9504 /* ConnectSpotifySearch.swift */; };
 		26AF07D2268D47C8006A9504 /* TapYourPhoneAmber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AF07D1268D47C8006A9504 /* TapYourPhoneAmber.swift */; };
 		26AF07D5268D4851006A9504 /* DetermineHomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AF07D4268D4851006A9504 /* DetermineHomePageView.swift */; };
-		26B65139263844340074F279 /* HostAddCoaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B65138263844340074F279 /* HostAddCoaster.swift */; };
-		26B6513C263845480074F279 /* SuccessAddedCoaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B6513B263845480074F279 /* SuccessAddedCoaster.swift */; };
-		26B65140263846EE0074F279 /* CoasterHasDifferentHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B6513F263846EE0074F279 /* CoasterHasDifferentHost.swift */; };
-		26B65143263848A70074F279 /* ThisIsYourCoasterOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B65142263848A70074F279 /* ThisIsYourCoasterOld.swift */; };
-		26B65146263863100074F279 /* CoasterDashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B65145263863100074F279 /* CoasterDashboard.swift */; };
 		26B65149263865D10074F279 /* CoastersFromApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B65148263865D10074F279 /* CoastersFromApi.swift */; };
 		26B6514D263866950074F279 /* HostCoasterInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B6514C263866950074F279 /* HostCoasterInfo.swift */; };
 		26B65150263866BE0074F279 /* GlobalTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B6514F263866BE0074F279 /* GlobalTrack.swift */; };
 		26B65153263866E20074F279 /* UpdatePageviewVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B65152263866E20074F279 /* UpdatePageviewVars.swift */; };
 		26B651562638671D0074F279 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B651552638671D0074F279 /* Track.swift */; };
-		26B65159263868E30074F279 /* HostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B65158263868E30074F279 /* HostView.swift */; };
 		26B6516026389D7B0074F279 /* HostCoasterApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B6515F26389D7B0074F279 /* HostCoasterApi.swift */; };
 		26B651642638A0610074F279 /* GlobalExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B651632638A0610074F279 /* GlobalExtensions.swift */; };
 		26B651672638A1B30074F279 /* HostFonzSessionApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B651662638A1B30074F279 /* HostFonzSessionApi.swift */; };
-		26DB9A8C263484110030643D /* HostPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9A8B263484110030643D /* HostPage.swift */; };
-		26DB9A8F2634980F0030643D /* GuestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9A8E2634980F0030643D /* GuestView.swift */; };
-		26DB9A92263498390030643D /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9A91263498390030643D /* HomePage.swift */; };
-		26DB9A9C263498CB0030643D /* JoinedParty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9A9B263498CB0030643D /* JoinedParty.swift */; };
-		26DB9A9F263498E00030643D /* SuccessQueueSong.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9A9E263498E00030643D /* SuccessQueueSong.swift */; };
-		26DB9AA2263498F90030643D /* UsedAllQueues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9AA1263498F90030643D /* UsedAllQueues.swift */; };
+		26D0524E26A3471200DDF43C /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 26D0524D26A3471200DDF43C /* KeychainAccess */; };
+		26D0524F26A347F300DDF43C /* MuseoSans-100.otf in Resources */ = {isa = PBXBuildFile; fileRef = 26AC89B92665745300E1C41E /* MuseoSans-100.otf */; };
+		26D0525026A347F300DDF43C /* MuseoSans-300.otf in Resources */ = {isa = PBXBuildFile; fileRef = 26AC89BA2665745300E1C41E /* MuseoSans-300.otf */; };
+		26D0525126A347F300DDF43C /* MuseoSans-500.otf in Resources */ = {isa = PBXBuildFile; fileRef = 26AC89B82665745300E1C41E /* MuseoSans-500.otf */; };
+		26D0525226A347F300DDF43C /* MuseoSans-700.otf in Resources */ = {isa = PBXBuildFile; fileRef = 26AC89BB2665745300E1C41E /* MuseoSans-700.otf */; };
+		26D0525326A347FE00DDF43C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26DB9AFB2634A4370030643D /* GoogleService-Info.plist */; };
+		26D0525526A34B9E00DDF43C /* ScreenExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D0525426A34B9E00DDF43C /* ScreenExtension.swift */; };
+		26D0525626A34BDB00DDF43C /* ScreenExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D0525426A34B9E00DDF43C /* ScreenExtension.swift */; };
+		26D0525826A34D3800DDF43C /* ContentViewClip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D0525726A34D3800DDF43C /* ContentViewClip.swift */; };
 		26DB9AA52634990D0030643D /* ErrorOnTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9AA42634990D0030643D /* ErrorOnTap.swift */; };
-		26DB9AA8263499220030643D /* ErrorQueuingSong.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9AA7263499220030643D /* ErrorQueuingSong.swift */; };
 		26DB9AAB263499410030643D /* ErrorDeviceNotNfc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9AAA263499410030643D /* ErrorDeviceNotNfc.swift */; };
-		26DB9AAE2634995B0030643D /* ErrorCoasterHasNoHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9AAD2634995B0030643D /* ErrorCoasterHasNoHost.swift */; };
 		26DB9AB1263499710030643D /* ErrorNotFonzCoaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9AB0263499710030643D /* ErrorNotFonzCoaster.swift */; };
-		26DB9AB4263499AB0030643D /* JoinParty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9AB3263499AB0030643D /* JoinParty.swift */; };
-		26DB9AB7263499CF0030643D /* AlreadyJoinedAddNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9AB6263499CF0030643D /* AlreadyJoinedAddNew.swift */; };
-		26DB9ABA263499F00030643D /* SearchBarNoSuggestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9AB9263499F00030643D /* SearchBarNoSuggestions.swift */; };
 		26DB9ABD26349A1D0030643D /* TracksFromSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9ABC26349A1D0030643D /* TracksFromSearch.swift */; };
-		26DB9AC026349A8F0030643D /* QueueSongSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9ABF26349A8F0030643D /* QueueSongSheet.swift */; };
 		26DB9ACA26349AEA0030643D /* LaunchJoinPartNfc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9AC926349AEA0030643D /* LaunchJoinPartNfc.swift */; };
 		26DB9ACE26349B040030643D /* TryAgainNfc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9ACD26349B040030643D /* TryAgainNfc.swift */; };
 		26DB9AD126349B190030643D /* LaunchQueueSongNfc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9AD026349B190030643D /* LaunchQueueSongNfc.swift */; };
 		26DB9AD826349B610030643D /* GuestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9AD726349B610030643D /* GuestApi.swift */; };
-		26DB9ADE26349EBB0030643D /* ErrorNotSameCoaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9ADD26349EBB0030643D /* ErrorNotSameCoaster.swift */; };
 		26DB9AFC2634A4370030643D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26DB9AFB2634A4370030643D /* GoogleService-Info.plist */; };
 		26DB9B232634A96B0030643D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9B222634A96B0030643D /* Colors.swift */; };
 		26E8CFE1266D3A0F00CEB1F6 /* SpotifyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E8CFE0266D3A0F00CEB1F6 /* SpotifyController.swift */; };
 		26EBF65D26A32E3C0094FA60 /* BuyACoasterHomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EBF65C26A32E3C0094FA60 /* BuyACoasterHomeButton.swift */; };
 		26EBF65F26A331330094FA60 /* ConnectSpotifyHomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EBF65E26A331330094FA60 /* ConnectSpotifyHomeButton.swift */; };
+		26EBF68326A33CE00094FA60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26EBF68226A33CE00094FA60 /* Assets.xcassets */; };
+		26EBF68B26A33CE00094FA60 /* Fonz Music App Clip.app in Embed App Clips */ = {isa = PBXBuildFile; fileRef = 26EBF67C26A33CDE0094FA60 /* Fonz Music App Clip.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		26ECCFD1268294E70053BE1F /* LaunchQueueSongWriteUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ECCFD0268294E70053BE1F /* LaunchQueueSongWriteUrl.swift */; };
 		26ECCFD3268295510053BE1F /* ActiveSongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ECCFD2268295510053BE1F /* ActiveSongView.swift */; };
 		26ECCFD62682A2350053BE1F /* SongSuggestionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ECCFD52682A2350053BE1F /* SongSuggestionsView.swift */; };
@@ -154,11 +244,35 @@
 		26FBCCF82686A5C500399460 /* LimitSongRequestsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBCCF72686A5C500399460 /* LimitSongRequestsButton.swift */; };
 		26FBCCFA2686BCE500399460 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBCCF92686BCE500399460 /* ViewExtensions.swift */; };
 		26FBCCFC2686BE4200399460 /* FrontEndConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBCCFB2686BE4200399460 /* FrontEndConstants.swift */; };
+		A09E681DF3EE765C53041A4C /* libPods-Fonz Music App Clip.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C09DF94407BA0FCC59508E /* libPods-Fonz Music App Clip.a */; };
 		E4595E496192AD1C55E93E1F /* libPods-FonzMusicSwift.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B480C69CB1494108CA6C68C /* libPods-FonzMusicSwift.a */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		26EBF68926A33CE00094FA60 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2677028526347ECD00B8BC92 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 26EBF67B26A33CDE0094FA60;
+			remoteInfo = "Fonz Music App Clip";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		26EBF67726A339540094FA60 /* Embed App Clips */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/AppClips";
+			dstSubfolderSpec = 16;
+			files = (
+				26EBF68B26A33CE00094FA60 /* Fonz Music App Clip.app in Embed App Clips */,
+			);
+			name = "Embed App Clips";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		2609AD52263DB80400337A02 /* HostAddSpotify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostAddSpotify.swift; sourceTree = "<group>"; };
 		2609AD55263DBDBE00337A02 /* SpotifyWebViewWk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyWebViewWk.swift; sourceTree = "<group>"; };
 		2609AD58263DC2F900337A02 /* SpotifyViewRep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyViewRep.swift; sourceTree = "<group>"; };
 		2620B8A226792599004FE721 /* SearchTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTab.swift; sourceTree = "<group>"; };
@@ -168,10 +282,6 @@
 		265634B9267814DB00FD6F27 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		265634BE2678163000FD6F27 /* DataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtension.swift; sourceTree = "<group>"; };
 		265634C02678341E00FD6F27 /* SettingsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPage.swift; sourceTree = "<group>"; };
-		26659BB5263B32770008FD1F /* NameCoaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameCoaster.swift; sourceTree = "<group>"; };
-		26659BB8263B62F20008FD1F /* PauseCoaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseCoaster.swift; sourceTree = "<group>"; };
-		26659BBB263B67040008FD1F /* DisconnectCoaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisconnectCoaster.swift; sourceTree = "<group>"; };
-		26659BBE263B6B4D0008FD1F /* ManageCoasterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageCoasterView.swift; sourceTree = "<group>"; };
 		26659BC3263BA36B0008FD1F /* LaunchConnectCoasterNfc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchConnectCoasterNfc.swift; sourceTree = "<group>"; };
 		26691F65267AB89A00C83696 /* SongResultItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongResultItem.swift; sourceTree = "<group>"; };
 		26691F68267AC46A00C83696 /* SearchResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsView.swift; sourceTree = "<group>"; };
@@ -229,41 +339,24 @@
 		26AF07CF268D3BAD006A9504 /* ConnectSpotifySearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectSpotifySearch.swift; sourceTree = "<group>"; };
 		26AF07D1268D47C8006A9504 /* TapYourPhoneAmber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapYourPhoneAmber.swift; sourceTree = "<group>"; };
 		26AF07D4268D4851006A9504 /* DetermineHomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetermineHomePageView.swift; sourceTree = "<group>"; };
-		26B65138263844340074F279 /* HostAddCoaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostAddCoaster.swift; sourceTree = "<group>"; };
-		26B6513B263845480074F279 /* SuccessAddedCoaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessAddedCoaster.swift; sourceTree = "<group>"; };
-		26B6513F263846EE0074F279 /* CoasterHasDifferentHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoasterHasDifferentHost.swift; sourceTree = "<group>"; };
-		26B65142263848A70074F279 /* ThisIsYourCoasterOld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThisIsYourCoasterOld.swift; sourceTree = "<group>"; };
-		26B65145263863100074F279 /* CoasterDashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoasterDashboard.swift; sourceTree = "<group>"; };
 		26B65148263865D10074F279 /* CoastersFromApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoastersFromApi.swift; sourceTree = "<group>"; };
 		26B6514C263866950074F279 /* HostCoasterInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostCoasterInfo.swift; sourceTree = "<group>"; };
 		26B6514F263866BE0074F279 /* GlobalTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalTrack.swift; sourceTree = "<group>"; };
 		26B65152263866E20074F279 /* UpdatePageviewVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePageviewVars.swift; sourceTree = "<group>"; };
 		26B651552638671D0074F279 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
-		26B65158263868E30074F279 /* HostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostView.swift; sourceTree = "<group>"; };
 		26B6515F26389D7B0074F279 /* HostCoasterApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostCoasterApi.swift; sourceTree = "<group>"; };
 		26B651632638A0610074F279 /* GlobalExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalExtensions.swift; sourceTree = "<group>"; };
 		26B651662638A1B30074F279 /* HostFonzSessionApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostFonzSessionApi.swift; sourceTree = "<group>"; };
-		26DB9A8B263484110030643D /* HostPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostPage.swift; sourceTree = "<group>"; };
-		26DB9A8E2634980F0030643D /* GuestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestView.swift; sourceTree = "<group>"; };
-		26DB9A91263498390030643D /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
-		26DB9A9B263498CB0030643D /* JoinedParty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinedParty.swift; sourceTree = "<group>"; };
-		26DB9A9E263498E00030643D /* SuccessQueueSong.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessQueueSong.swift; sourceTree = "<group>"; };
-		26DB9AA1263498F90030643D /* UsedAllQueues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsedAllQueues.swift; sourceTree = "<group>"; };
+		26D0525426A34B9E00DDF43C /* ScreenExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenExtension.swift; sourceTree = "<group>"; };
+		26D0525726A34D3800DDF43C /* ContentViewClip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewClip.swift; sourceTree = "<group>"; };
 		26DB9AA42634990D0030643D /* ErrorOnTap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorOnTap.swift; sourceTree = "<group>"; };
-		26DB9AA7263499220030643D /* ErrorQueuingSong.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorQueuingSong.swift; sourceTree = "<group>"; };
 		26DB9AAA263499410030643D /* ErrorDeviceNotNfc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorDeviceNotNfc.swift; sourceTree = "<group>"; };
-		26DB9AAD2634995B0030643D /* ErrorCoasterHasNoHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorCoasterHasNoHost.swift; sourceTree = "<group>"; };
 		26DB9AB0263499710030643D /* ErrorNotFonzCoaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorNotFonzCoaster.swift; sourceTree = "<group>"; };
-		26DB9AB3263499AB0030643D /* JoinParty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinParty.swift; sourceTree = "<group>"; };
-		26DB9AB6263499CF0030643D /* AlreadyJoinedAddNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlreadyJoinedAddNew.swift; sourceTree = "<group>"; };
-		26DB9AB9263499F00030643D /* SearchBarNoSuggestions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarNoSuggestions.swift; sourceTree = "<group>"; };
 		26DB9ABC26349A1D0030643D /* TracksFromSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracksFromSearch.swift; sourceTree = "<group>"; };
-		26DB9ABF26349A8F0030643D /* QueueSongSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueSongSheet.swift; sourceTree = "<group>"; };
 		26DB9AC926349AEA0030643D /* LaunchJoinPartNfc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchJoinPartNfc.swift; sourceTree = "<group>"; };
 		26DB9ACD26349B040030643D /* TryAgainNfc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TryAgainNfc.swift; sourceTree = "<group>"; };
 		26DB9AD026349B190030643D /* LaunchQueueSongNfc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchQueueSongNfc.swift; sourceTree = "<group>"; };
 		26DB9AD726349B610030643D /* GuestApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestApi.swift; sourceTree = "<group>"; };
-		26DB9ADD26349EBB0030643D /* ErrorNotSameCoaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorNotSameCoaster.swift; sourceTree = "<group>"; };
 		26DB9AF62634A2850030643D /* FonzMusicSwift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FonzMusicSwift.entitlements; sourceTree = "<group>"; };
 		26DB9AFB2634A4370030643D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		26DB9B222634A96B0030643D /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -271,6 +364,12 @@
 		26E8CFE0266D3A0F00CEB1F6 /* SpotifyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotifyController.swift; sourceTree = "<group>"; };
 		26EBF65C26A32E3C0094FA60 /* BuyACoasterHomeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyACoasterHomeButton.swift; sourceTree = "<group>"; };
 		26EBF65E26A331330094FA60 /* ConnectSpotifyHomeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectSpotifyHomeButton.swift; sourceTree = "<group>"; };
+		26EBF67C26A33CDE0094FA60 /* Fonz Music App Clip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fonz Music App Clip.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		26EBF67E26A33CDE0094FA60 /* Fonz_Music_App_ClipApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonz_Music_App_ClipApp.swift; sourceTree = "<group>"; };
+		26EBF68026A33CDE0094FA60 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		26EBF68226A33CE00094FA60 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		26EBF68726A33CE00094FA60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		26EBF68826A33CE00094FA60 /* Fonz_Music_App_Clip.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Fonz_Music_App_Clip.entitlements; sourceTree = "<group>"; };
 		26ECCFD0268294E70053BE1F /* LaunchQueueSongWriteUrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchQueueSongWriteUrl.swift; sourceTree = "<group>"; };
 		26ECCFD2268295510053BE1F /* ActiveSongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveSongView.swift; sourceTree = "<group>"; };
 		26ECCFD52682A2350053BE1F /* SongSuggestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongSuggestionsView.swift; sourceTree = "<group>"; };
@@ -310,7 +409,10 @@
 		26FBCCFB2686BE4200399460 /* FrontEndConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontEndConstants.swift; sourceTree = "<group>"; };
 		4B480C69CB1494108CA6C68C /* libPods-FonzMusicSwift.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FonzMusicSwift.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5045F2117E00BCFEA787D4B1 /* Pods-FonzMusicSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FonzMusicSwift.debug.xcconfig"; path = "Target Support Files/Pods-FonzMusicSwift/Pods-FonzMusicSwift.debug.xcconfig"; sourceTree = "<group>"; };
+		77BD7BD4869D54B13DB128BB /* Pods-Fonz Music App Clip.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fonz Music App Clip.debug.xcconfig"; path = "Target Support Files/Pods-Fonz Music App Clip/Pods-Fonz Music App Clip.debug.xcconfig"; sourceTree = "<group>"; };
+		7CD6C85651A36E0AD3B9AD13 /* Pods-Fonz Music App Clip.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fonz Music App Clip.release.xcconfig"; path = "Target Support Files/Pods-Fonz Music App Clip/Pods-Fonz Music App Clip.release.xcconfig"; sourceTree = "<group>"; };
 		E49150DFE53C30EAB099DB99 /* Pods-FonzMusicSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FonzMusicSwift.release.xcconfig"; path = "Target Support Files/Pods-FonzMusicSwift/Pods-FonzMusicSwift.release.xcconfig"; sourceTree = "<group>"; };
+		F8C09DF94407BA0FCC59508E /* libPods-Fonz Music App Clip.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Fonz Music App Clip.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -325,17 +427,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		26EBF67926A33CDE0094FA60 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26D0524E26A3471200DDF43C /* KeychainAccess in Frameworks */,
+				A09E681DF3EE765C53041A4C /* libPods-Fonz Music App Clip.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2609AD51263DB7E200337A02 /* HostAddSpotify */ = {
-			isa = PBXGroup;
-			children = (
-				2609AD52263DB80400337A02 /* HostAddSpotify.swift */,
-			);
-			path = HostAddSpotify;
-			sourceTree = "<group>";
-		};
 		2620B8A62679268E004FE721 /* SearchTab */ = {
 			isa = PBXGroup;
 			children = (
@@ -404,6 +507,7 @@
 			isa = PBXGroup;
 			children = (
 				26AC89C52666C99600E1C41E /* FonzMusic-Bridging-Header.h */,
+				26EBF67D26A33CDE0094FA60 /* Fonz Music App Clip */,
 				2677028F26347ECD00B8BC92 /* FonzMusicSwift */,
 				2677028E26347ECD00B8BC92 /* Products */,
 				3388F0F5BB427393EA39D144 /* Pods */,
@@ -415,6 +519,7 @@
 			isa = PBXGroup;
 			children = (
 				2677028D26347ECD00B8BC92 /* FonzMusicSwift.app */,
+				26EBF67C26A33CDE0094FA60 /* Fonz Music App Clip.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -430,9 +535,8 @@
 				26DB9AD626349B3E0030643D /* ApiMethods */,
 				26DB9A8A263484020030643D /* MainViews */,
 				26DB9AC826349AD20030643D /* NfcClasses */,
-				26DB9A942634985C0030643D /* GuestPages */,
-				26DB9B1C2634A6CE0030643D /* HostPages */,
 				2677029026347ECD00B8BC92 /* FonzMusicSwiftApp.swift */,
+				26EBF67E26A33CDE0094FA60 /* Fonz_Music_App_ClipApp.swift */,
 				2677029226347ECD00B8BC92 /* ContentView.swift */,
 				2677029426347ED100B8BC92 /* Assets.xcassets */,
 				26DB9AF62634A2850030643D /* FonzMusicSwift.entitlements */,
@@ -440,6 +544,7 @@
 				26E8CFE0266D3A0F00CEB1F6 /* SpotifyController.swift */,
 				2677029926347ED100B8BC92 /* Info.plist */,
 				2677029626347ED100B8BC92 /* Preview Content */,
+				26D0525726A34D3800DDF43C /* ContentViewClip.swift */,
 			);
 			path = FonzMusicSwift;
 			sourceTree = "<group>";
@@ -489,6 +594,7 @@
 				265634B9267814DB00FD6F27 /* StringExtensions.swift */,
 				26B651632638A0610074F279 /* GlobalExtensions.swift */,
 				26F534FC26973F440055C188 /* TextExtension.swift */,
+				26D0525426A34B9E00DDF43C /* ScreenExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -589,14 +695,6 @@
 			path = HomePageButtons;
 			sourceTree = "<group>";
 		};
-		26B65137263844170074F279 /* HostSuccess */ = {
-			isa = PBXGroup;
-			children = (
-				26B6513B263845480074F279 /* SuccessAddedCoaster.swift */,
-			);
-			path = HostSuccess;
-			sourceTree = "<group>";
-		};
 		26B6514B263866840074F279 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
@@ -624,10 +722,6 @@
 		26DB9A8A263484020030643D /* MainViews */ = {
 			isa = PBXGroup;
 			children = (
-				26DB9A8B263484110030643D /* HostPage.swift */,
-				26DB9A8E2634980F0030643D /* GuestView.swift */,
-				26DB9A91263498390030643D /* HomePage.swift */,
-				26B65158263868E30074F279 /* HostView.swift */,
 				265634C02678341E00FD6F27 /* SettingsPage.swift */,
 				2620B8A226792599004FE721 /* SearchTab.swift */,
 				26691F75267ACA9E00C83696 /* HostTab.swift */,
@@ -635,63 +729,6 @@
 				26AF07CB268D36C6006A9504 /* CreateAccountPrompt.swift */,
 			);
 			path = MainViews;
-			sourceTree = "<group>";
-		};
-		26DB9A942634985C0030643D /* GuestPages */ = {
-			isa = PBXGroup;
-			children = (
-				26DB9A9A263498AC0030643D /* SuccessPages */,
-				26DB9A99263498A60030643D /* ErrorPages */,
-				26DB9A982634989C0030643D /* JoinPartyPages */,
-				26DB9A97263498870030643D /* SearchPages */,
-				26DB9A96263498760030643D /* QueueSongModals */,
-			);
-			path = GuestPages;
-			sourceTree = "<group>";
-		};
-		26DB9A96263498760030643D /* QueueSongModals */ = {
-			isa = PBXGroup;
-			children = (
-				26DB9ABF26349A8F0030643D /* QueueSongSheet.swift */,
-			);
-			path = QueueSongModals;
-			sourceTree = "<group>";
-		};
-		26DB9A97263498870030643D /* SearchPages */ = {
-			isa = PBXGroup;
-			children = (
-				26DB9AB9263499F00030643D /* SearchBarNoSuggestions.swift */,
-			);
-			path = SearchPages;
-			sourceTree = "<group>";
-		};
-		26DB9A982634989C0030643D /* JoinPartyPages */ = {
-			isa = PBXGroup;
-			children = (
-				26DB9AB3263499AB0030643D /* JoinParty.swift */,
-				26DB9AB6263499CF0030643D /* AlreadyJoinedAddNew.swift */,
-			);
-			path = JoinPartyPages;
-			sourceTree = "<group>";
-		};
-		26DB9A99263498A60030643D /* ErrorPages */ = {
-			isa = PBXGroup;
-			children = (
-				26DB9AA1263498F90030643D /* UsedAllQueues.swift */,
-				26DB9AA7263499220030643D /* ErrorQueuingSong.swift */,
-				26DB9AAD2634995B0030643D /* ErrorCoasterHasNoHost.swift */,
-				26DB9ADD26349EBB0030643D /* ErrorNotSameCoaster.swift */,
-			);
-			path = ErrorPages;
-			sourceTree = "<group>";
-		};
-		26DB9A9A263498AC0030643D /* SuccessPages */ = {
-			isa = PBXGroup;
-			children = (
-				26DB9A9B263498CB0030643D /* JoinedParty.swift */,
-				26DB9A9E263498E00030643D /* SuccessQueueSong.swift */,
-			);
-			path = SuccessPages;
 			sourceTree = "<group>";
 		};
 		26DB9AC826349AD20030643D /* NfcClasses */ = {
@@ -738,39 +775,6 @@
 			path = GlobalErrorPages;
 			sourceTree = "<group>";
 		};
-		26DB9B1C2634A6CE0030643D /* HostPages */ = {
-			isa = PBXGroup;
-			children = (
-				2609AD51263DB7E200337A02 /* HostAddSpotify */,
-				26B65137263844170074F279 /* HostSuccess */,
-				26DB9B1E2634A76D0030643D /* HostAddCoaster */,
-				26DB9B1D2634A6D80030643D /* HostManageCoasters */,
-			);
-			path = HostPages;
-			sourceTree = "<group>";
-		};
-		26DB9B1D2634A6D80030643D /* HostManageCoasters */ = {
-			isa = PBXGroup;
-			children = (
-				26B65145263863100074F279 /* CoasterDashboard.swift */,
-				26659BB5263B32770008FD1F /* NameCoaster.swift */,
-				26659BB8263B62F20008FD1F /* PauseCoaster.swift */,
-				26659BBB263B67040008FD1F /* DisconnectCoaster.swift */,
-				26659BBE263B6B4D0008FD1F /* ManageCoasterView.swift */,
-			);
-			path = HostManageCoasters;
-			sourceTree = "<group>";
-		};
-		26DB9B1E2634A76D0030643D /* HostAddCoaster */ = {
-			isa = PBXGroup;
-			children = (
-				26B65138263844340074F279 /* HostAddCoaster.swift */,
-				26B6513F263846EE0074F279 /* CoasterHasDifferentHost.swift */,
-				26B65142263848A70074F279 /* ThisIsYourCoasterOld.swift */,
-			);
-			path = HostAddCoaster;
-			sourceTree = "<group>";
-		};
 		26DB9B1F2634A7BF0030643D /* SignInSpotify */ = {
 			isa = PBXGroup;
 			children = (
@@ -801,6 +805,17 @@
 				26916FF7268E5DFA00B7281B /* CoasterDoesNotHaveHost.swift */,
 			);
 			path = HomePageResponses;
+			sourceTree = "<group>";
+		};
+		26EBF67D26A33CDE0094FA60 /* Fonz Music App Clip */ = {
+			isa = PBXGroup;
+			children = (
+				26EBF68026A33CDE0094FA60 /* ContentView.swift */,
+				26EBF68226A33CE00094FA60 /* Assets.xcassets */,
+				26EBF68726A33CE00094FA60 /* Info.plist */,
+				26EBF68826A33CE00094FA60 /* Fonz_Music_App_Clip.entitlements */,
+			);
+			path = "Fonz Music App Clip";
 			sourceTree = "<group>";
 		};
 		26ECCFD42682A21C0053BE1F /* SongSuggestionsViews */ = {
@@ -905,6 +920,8 @@
 			children = (
 				5045F2117E00BCFEA787D4B1 /* Pods-FonzMusicSwift.debug.xcconfig */,
 				E49150DFE53C30EAB099DB99 /* Pods-FonzMusicSwift.release.xcconfig */,
+				77BD7BD4869D54B13DB128BB /* Pods-Fonz Music App Clip.debug.xcconfig */,
+				7CD6C85651A36E0AD3B9AD13 /* Pods-Fonz Music App Clip.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -915,6 +932,7 @@
 				26F535102697B68A0055C188 /* AuthenticationServices.framework */,
 				26E8CFDE266D393A00CEB1F6 /* SpotifyiOS.framework */,
 				4B480C69CB1494108CA6C68C /* libPods-FonzMusicSwift.a */,
+				F8C09DF94407BA0FCC59508E /* libPods-Fonz Music App Clip.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -931,10 +949,12 @@
 				2677028A26347ECD00B8BC92 /* Frameworks */,
 				2677028B26347ECD00B8BC92 /* Resources */,
 				26AF07BE268CE772006A9504 /* ShellScript */,
+				26EBF67726A339540094FA60 /* Embed App Clips */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				26EBF68A26A33CE00094FA60 /* PBXTargetDependency */,
 			);
 			name = FonzMusicSwift;
 			packageProductDependencies = (
@@ -945,17 +965,41 @@
 			productReference = 2677028D26347ECD00B8BC92 /* FonzMusicSwift.app */;
 			productType = "com.apple.product-type.application";
 		};
+		26EBF67B26A33CDE0094FA60 /* Fonz Music App Clip */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 26EBF68C26A33CE00094FA60 /* Build configuration list for PBXNativeTarget "Fonz Music App Clip" */;
+			buildPhases = (
+				EE2EADAADF9757A7DF90807A /* [CP] Check Pods Manifest.lock */,
+				26EBF67826A33CDE0094FA60 /* Sources */,
+				26EBF67926A33CDE0094FA60 /* Frameworks */,
+				26EBF67A26A33CDE0094FA60 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Fonz Music App Clip";
+			packageProductDependencies = (
+				26D0524D26A3471200DDF43C /* KeychainAccess */,
+			);
+			productName = "Fonz Music App Clip";
+			productReference = 26EBF67C26A33CDE0094FA60 /* Fonz Music App Clip.app */;
+			productType = "com.apple.product-type.application.on-demand-install-capable";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		2677028526347ECD00B8BC92 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
+				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
 					2677028C26347ECD00B8BC92 = {
 						CreatedOnToolsVersion = 12.4;
+					};
+					26EBF67B26A33CDE0094FA60 = {
+						CreatedOnToolsVersion = 12.5.1;
 					};
 				};
 			};
@@ -977,6 +1021,7 @@
 			projectRoot = "";
 			targets = (
 				2677028C26347ECD00B8BC92 /* FonzMusicSwift */,
+				26EBF67B26A33CDE0094FA60 /* Fonz Music App Clip */,
 			);
 		};
 /* End PBXProject section */
@@ -993,6 +1038,19 @@
 				26AC89BD2665745300E1C41E /* MuseoSans-100.otf in Resources */,
 				26AC89BF2665745300E1C41E /* MuseoSans-700.otf in Resources */,
 				2677029526347ED100B8BC92 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		26EBF67A26A33CDE0094FA60 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26D0525326A347FE00DDF43C /* GoogleService-Info.plist in Resources */,
+				26D0524F26A347F300DDF43C /* MuseoSans-100.otf in Resources */,
+				26D0525026A347F300DDF43C /* MuseoSans-300.otf in Resources */,
+				26D0525126A347F300DDF43C /* MuseoSans-500.otf in Resources */,
+				26D0525226A347F300DDF43C /* MuseoSans-700.otf in Resources */,
+				26EBF68326A33CE00094FA60 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1039,6 +1097,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		EE2EADAADF9757A7DF90807A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Fonz Music App Clip-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1048,10 +1128,7 @@
 			files = (
 				26B65153263866E20074F279 /* UpdatePageviewVars.swift in Sources */,
 				26FBCCDF26866EF200399460 /* CoasterNameInDashboard.swift in Sources */,
-				26DB9AA2263498F90030643D /* UsedAllQueues.swift in Sources */,
 				268B97AE26855C7000984DC4 /* ConnectSpotifyButtonHostView.swift in Sources */,
-				26DB9A92263498390030643D /* HomePage.swift in Sources */,
-				26B65146263863100074F279 /* CoasterDashboard.swift in Sources */,
 				26B651672638A1B30074F279 /* HostFonzSessionApi.swift in Sources */,
 				268FA5F7268E905C00E45AA6 /* SomeoneElsesCoaster.swift in Sources */,
 				268B97B226855D7E00984DC4 /* CoasterDashboardPage.swift in Sources */,
@@ -1060,11 +1137,10 @@
 				26FBCCFC2686BE4200399460 /* FrontEndConstants.swift in Sources */,
 				2609AD59263DC2F900337A02 /* SpotifyViewRep.swift in Sources */,
 				265634BF2678163000FD6F27 /* DataExtension.swift in Sources */,
+				26D0525526A34B9E00DDF43C /* ScreenExtension.swift in Sources */,
 				26ECCFE12682B6960053BE1F /* YourTopPlaylists.swift in Sources */,
 				26FBCCED2686938A00399460 /* NameNewCoaster.swift in Sources */,
-				26659BB6263B32770008FD1F /* NameCoaster.swift in Sources */,
 				26ECCFD3268295510053BE1F /* ActiveSongView.swift in Sources */,
-				26B65143263848A70074F279 /* ThisIsYourCoasterOld.swift in Sources */,
 				26691F6B267AC48400C83696 /* SearchBarView.swift in Sources */,
 				26691F72267AC6BF00C83696 /* JoinSuccessfulCircle.swift in Sources */,
 				26ECCFDB2682AA500053BE1F /* YourFavoriteArtists.swift in Sources */,
@@ -1074,23 +1150,18 @@
 				26DB9ACE26349B040030643D /* TryAgainNfc.swift in Sources */,
 				2677029326347ECD00B8BC92 /* ContentView.swift in Sources */,
 				26AF07D0268D3BAD006A9504 /* ConnectSpotifySearch.swift in Sources */,
-				26DB9A8F2634980F0030643D /* GuestView.swift in Sources */,
 				26691F79267ACB3B00C83696 /* HostSetup.swift in Sources */,
 				2609AD56263DBDBE00337A02 /* SpotifyWebViewWk.swift in Sources */,
-				26DB9A9F263498E00030643D /* SuccessQueueSong.swift in Sources */,
 				26DB9B232634A96B0030643D /* Colors.swift in Sources */,
 				26AF07CA268D2DFB006A9504 /* VersionResponse.swift in Sources */,
-				26B65139263844340074F279 /* HostAddCoaster.swift in Sources */,
 				26691F70267AC69A00C83696 /* JoinAPartyButton.swift in Sources */,
 				26AF07C0268CEE00006A9504 /* LaunchTroubleShootCoasterNfc.swift in Sources */,
 				26DB9ABD26349A1D0030643D /* TracksFromSearch.swift in Sources */,
 				26B651642638A0610074F279 /* GlobalExtensions.swift in Sources */,
 				26AF07CE268D3794006A9504 /* CreateAccountButton.swift in Sources */,
-				26659BBC263B67040008FD1F /* DisconnectCoaster.swift in Sources */,
 				26B6516026389D7B0074F279 /* HostCoasterApi.swift in Sources */,
 				26691F66267AB89A00C83696 /* SongResultItem.swift in Sources */,
 				26B6514D263866950074F279 /* HostCoasterInfo.swift in Sources */,
-				26DB9A9C263498CB0030643D /* JoinedParty.swift in Sources */,
 				26DB9AD126349B190030643D /* LaunchQueueSongNfc.swift in Sources */,
 				26DB9AA52634990D0030643D /* ErrorOnTap.swift in Sources */,
 				26691F6E267AC67400C83696 /* HostAPartyButton.swift in Sources */,
@@ -1098,13 +1169,10 @@
 				269D0152267182A000A1DFEE /* SpotifySignInApi.swift in Sources */,
 				26916FF8268E5DFA00B7281B /* CoasterDoesNotHaveHost.swift in Sources */,
 				2677029126347ECD00B8BC92 /* FonzMusicSwiftApp.swift in Sources */,
-				26DB9AB7263499CF0030643D /* AlreadyJoinedAddNew.swift in Sources */,
 				26FBCCE32686701F00399460 /* RenameCoasterField.swift in Sources */,
 				26FBCCE526867AB100399460 /* PauseCoasterField.swift in Sources */,
 				26916FF2268E502700B7281B /* QueuedButDelayedResponse.swift in Sources */,
 				26DB9AB1263499710030643D /* ErrorNotFonzCoaster.swift in Sources */,
-				26DB9ABA263499F00030643D /* SearchBarNoSuggestions.swift in Sources */,
-				2609AD53263DB80400337A02 /* HostAddSpotify.swift in Sources */,
 				26691F69267AC46A00C83696 /* SearchResultsView.swift in Sources */,
 				26FBCCF02686A52500399460 /* ChangeDisplayNameButton.swift in Sources */,
 				26F5350526975DEA0055C188 /* SignInWithAppleButton.swift in Sources */,
@@ -1120,24 +1188,17 @@
 				26FBCCDD26866E6500399460 /* RenameCoasterButton.swift in Sources */,
 				2620B8AA26795A8C004FE721 /* ButtonStyles.swift in Sources */,
 				268FA5F9268E92DB00E45AA6 /* ThisIsYourCoaster.swift in Sources */,
+				261752A526A3436E0069C83D /* Fonz_Music_App_ClipApp.swift in Sources */,
 				268B97AC26855C0B00984DC4 /* NameYourCoasterView.swift in Sources */,
 				26691F76267ACA9E00C83696 /* HostTab.swift in Sources */,
-				26659BBF263B6B4D0008FD1F /* ManageCoasterView.swift in Sources */,
 				26FBCCD926866C5800399460 /* TroubleShootCoasterButton.swift in Sources */,
 				268B97A926838AFF00984DC4 /* URL.swift in Sources */,
 				26F534FD26973F440055C188 /* TextExtension.swift in Sources */,
 				26FBCCF22686A55D00399460 /* BuyCoasterButton.swift in Sources */,
 				26F5350A26975E770055C188 /* ConsentedToEmail.swift in Sources */,
-				26B65159263868E30074F279 /* HostView.swift in Sources */,
 				26659BC4263BA36B0008FD1F /* LaunchConnectCoasterNfc.swift in Sources */,
 				268B97A62683843A00984DC4 /* SpotifyInBrowser.swift in Sources */,
-				26DB9ADE26349EBB0030643D /* ErrorNotSameCoaster.swift in Sources */,
-				26DB9AAE2634995B0030643D /* ErrorCoasterHasNoHost.swift in Sources */,
-				26B65140263846EE0074F279 /* CoasterHasDifferentHost.swift in Sources */,
-				26659BB9263B62F20008FD1F /* PauseCoaster.swift in Sources */,
-				26DB9AB4263499AB0030643D /* JoinParty.swift in Sources */,
 				26691F74267AC6D100C83696 /* FailCircleResponse.swift in Sources */,
-				26DB9AC026349A8F0030643D /* QueueSongSheet.swift in Sources */,
 				265634BA267814DB00FD6F27 /* StringExtensions.swift in Sources */,
 				26AC89B42665410C00E1C41E /* ShareOnInstagram.swift in Sources */,
 				26ECCFE32682BE210053BE1F /* ArtistSongListModal.swift in Sources */,
@@ -1154,8 +1215,8 @@
 				26DB9ACA26349AEA0030643D /* LaunchJoinPartNfc.swift in Sources */,
 				26FBCCE726867CE000399460 /* DisconnectCoasterField.swift in Sources */,
 				26AF07D2268D47C8006A9504 /* TapYourPhoneAmber.swift in Sources */,
-				26DB9AA8263499220030643D /* ErrorQueuingSong.swift in Sources */,
 				26EBF65D26A32E3C0094FA60 /* BuyACoasterHomeButton.swift in Sources */,
+				26D0525826A34D3800DDF43C /* ContentViewClip.swift in Sources */,
 				26916FFA268E600700B7281B /* JoinPartyResponses.swift in Sources */,
 				26B65149263865D10074F279 /* CoastersFromApi.swift in Sources */,
 				26FBCCF82686A5C500399460 /* LimitSongRequestsButton.swift in Sources */,
@@ -1171,9 +1232,7 @@
 				26EBF65F26A331330094FA60 /* ConnectSpotifyHomeButton.swift in Sources */,
 				26AF07D5268D4851006A9504 /* DetermineHomePageView.swift in Sources */,
 				26FBCCD726866BED00399460 /* DisconnectCoasterButton.swift in Sources */,
-				26B6513C263845480074F279 /* SuccessAddedCoaster.swift in Sources */,
 				2687C731268A96710044AA37 /* PlaylistSongListModal.swift in Sources */,
-				26DB9A8C263484110030643D /* HostPage.swift in Sources */,
 				2620B8A52679261F004FE721 /* SearchBarPage.swift in Sources */,
 				26FBCCE926867DF800399460 /* TroubleShootCoasterField.swift in Sources */,
 				26E8CFE1266D3A0F00CEB1F6 /* SpotifyController.swift in Sources */,
@@ -1186,7 +1245,125 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		26EBF67826A33CDE0094FA60 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26D0525626A34BDB00DDF43C /* ScreenExtension.swift in Sources */,
+				261752A726A3448A0069C83D /* ChangeDisplayNameButton.swift in Sources */,
+				261752A826A3448A0069C83D /* BuyCoasterButton.swift in Sources */,
+				261752A926A3448A0069C83D /* ManageSpotifyButton.swift in Sources */,
+				261752AA26A3448A0069C83D /* SignOutButton.swift in Sources */,
+				261752AB26A3448A0069C83D /* LimitSongRequestsButton.swift in Sources */,
+				261752AC26A3448A0069C83D /* CreateAccountButton.swift in Sources */,
+				261752AD26A3448A0069C83D /* SomeoneElsesCoaster.swift in Sources */,
+				261752AE26A3448A0069C83D /* ThisIsYourCoaster.swift in Sources */,
+				261752BD26A3448A0069C83D /* NameYourCoasterView.swift in Sources */,
+				261752BE26A3448A0069C83D /* ConnectSpotifyButtonHostView.swift in Sources */,
+				261752BF26A3448A0069C83D /* ConnectYourFirstCoasterButton.swift in Sources */,
+				261752C026A3448A0069C83D /* HostSetup.swift in Sources */,
+				261752C226A3448A0069C83D /* JoinSuccessfulCircle.swift in Sources */,
+				261752C326A3448A0069C83D /* CoasterDoesNotHaveHost.swift in Sources */,
+				261752C426A3448A0069C83D /* JoinAPartyButton.swift in Sources */,
+				261752C526A3448A0069C83D /* HostAPartyButton.swift in Sources */,
+				261752C626A3448A0069C83D /* BuyACoasterHomeButton.swift in Sources */,
+				261752C726A3448A0069C83D /* ConnectSpotifyHomeButton.swift in Sources */,
+				261752C826A3448A0069C83D /* DetermineHomePageView.swift in Sources */,
+				261752C926A3448A0069C83D /* JoinPartyResponses.swift in Sources */,
+				261752CA26A3448A0069C83D /* QueueSongSuccess.swift in Sources */,
+				261752CB26A3448A0069C83D /* QueuedButDelayedResponse.swift in Sources */,
+				261752CC26A3448A0069C83D /* QueueSongError.swift in Sources */,
+				261752CD26A3448A0069C83D /* SongSuggestionsView.swift in Sources */,
+				261752CE26A3448A0069C83D /* ArtistSongListModal.swift in Sources */,
+				261752CF26A3448A0069C83D /* PlaylistSongListModal.swift in Sources */,
+				261752D026A3448A0069C83D /* SongListModalSongButton.swift in Sources */,
+				261752D126A3448A0069C83D /* TracksFromArtist.swift in Sources */,
+				261752D226A3448A0069C83D /* TracksFromPlaylist.swift in Sources */,
+				261752D326A3448A0069C83D /* YourTopSongs.swift in Sources */,
+				261752D426A3448A0069C83D /* YourFavoriteArtists.swift in Sources */,
+				261752D526A3448A0069C83D /* YourTopPlaylists.swift in Sources */,
+				261752D626A3448A0069C83D /* ConnectSpotifySearch.swift in Sources */,
+				261752D726A3448A0069C83D /* SongResultItem.swift in Sources */,
+				261752D826A3448A0069C83D /* SearchBarView.swift in Sources */,
+				261752D926A3448A0069C83D /* SearchResultsView.swift in Sources */,
+				261752DA26A3448B0069C83D /* TracksFromSearch.swift in Sources */,
+				261752DB26A3448B0069C83D /* ActiveSongView.swift in Sources */,
+				261752DC26A3448B0069C83D /* TrackFromNowPlaying.swift in Sources */,
+				261752DD26A3448B0069C83D /* LaunchSongResponsePopup.swift in Sources */,
+				261752DE26A3448B0069C83D /* SearchPageView.swift in Sources */,
+				261752DF26A3448B0069C83D /* SearchBarPage.swift in Sources */,
+				261752E026A3448B0069C83D /* HomePageDecision.swift in Sources */,
+				261752E126A3448B0069C83D /* MuseoSans-100.otf in Sources */,
+				261752E226A3448B0069C83D /* MuseoSans-300.otf in Sources */,
+				261752E326A3448B0069C83D /* MuseoSans-500.otf in Sources */,
+				261752E426A3448B0069C83D /* MuseoSans-700.otf in Sources */,
+				261752E526A3448B0069C83D /* ConsentedToEmail.swift in Sources */,
+				261752E626A3448B0069C83D /* ConsentedToPrivacy.swift in Sources */,
+				261752E726A3448B0069C83D /* SignInWithAppleButton.swift in Sources */,
+				261752E826A3448B0069C83D /* SignInWithGoogleButton.swift in Sources */,
+				261752E926A3448B0069C83D /* SignUpView.swift in Sources */,
+				261752EA26A3448B0069C83D /* SignInView.swift in Sources */,
+				261752EB26A3448B0069C83D /* CreateAccountView.swift in Sources */,
+				261752EC26A3448B0069C83D /* URL.swift in Sources */,
+				261752ED26A3448B0069C83D /* ViewExtensions.swift in Sources */,
+				261752EE26A3448B0069C83D /* DataExtension.swift in Sources */,
+				261752EF26A3448B0069C83D /* StringExtensions.swift in Sources */,
+				261752F026A3448B0069C83D /* GlobalExtensions.swift in Sources */,
+				261752F126A3448B0069C83D /* TextExtension.swift in Sources */,
+				261752F226A3448B0069C83D /* ShareOnInstagram.swift in Sources */,
+				261752F326A3448B0069C83D /* ShareSheet.swift in Sources */,
+				261752F426A3448B0069C83D /* HostCoasterInfo.swift in Sources */,
+				261752F526A3448B0069C83D /* GlobalTrack.swift in Sources */,
+				261752F626A3448B0069C83D /* UpdatePageviewVars.swift in Sources */,
+				261752F726A3448B0069C83D /* Track.swift in Sources */,
+				261752F826A3448B0069C83D /* AsyncImage.swift in Sources */,
+				261752F926A3448B0069C83D /* Artist.swift in Sources */,
+				261752FA26A3448B0069C83D /* Playlist.swift in Sources */,
+				261752FB26A3448B0069C83D /* VersionResponse.swift in Sources */,
+				261752FC26A3448B0069C83D /* FailCircleResponse.swift in Sources */,
+				261752FD26A3448B0069C83D /* Colors.swift in Sources */,
+				261752FE26A3448B0069C83D /* ButtonStyles.swift in Sources */,
+				261752FF26A3448B0069C83D /* FrontEndConstants.swift in Sources */,
+				2617530026A3448B0069C83D /* TapYourPhoneAmber.swift in Sources */,
+				2617530126A3448B0069C83D /* FonzFonts.swift in Sources */,
+				2617530226A3448B0069C83D /* SpotifyWebViewWk.swift in Sources */,
+				2617530326A3448B0069C83D /* SpotifyViewRep.swift in Sources */,
+				2617530426A3448B0069C83D /* SpotifyInBrowser.swift in Sources */,
+				2617530526A3448B0069C83D /* ErrorOnTap.swift in Sources */,
+				2617530626A3448B0069C83D /* ErrorDeviceNotNfc.swift in Sources */,
+				2617530726A3448B0069C83D /* ErrorNotFonzCoaster.swift in Sources */,
+				2617530826A3448B0069C83D /* SignInSignUpApi.swift in Sources */,
+				2617530926A3448B0069C83D /* SpotifySignInApi.swift in Sources */,
+				2617530A26A3448B0069C83D /* GetVerionApi.swift in Sources */,
+				2617530B26A3448B0069C83D /* HostCoasterApi.swift in Sources */,
+				2617530C26A3448B0069C83D /* HostFonzSessionApi.swift in Sources */,
+				2617530D26A3448B0069C83D /* GuestApi.swift in Sources */,
+				2617531226A3448B0069C83D /* SettingsPage.swift in Sources */,
+				2617531326A3448B0069C83D /* SearchTab.swift in Sources */,
+				2617531426A3448B0069C83D /* HostTab.swift in Sources */,
+				2617531526A3448B0069C83D /* MustUpdateApp.swift in Sources */,
+				2617531626A3448B0069C83D /* CreateAccountPrompt.swift in Sources */,
+				2617531726A3448B0069C83D /* LaunchConnectCoasterNfc.swift in Sources */,
+				2617531826A3448B0069C83D /* LaunchTroubleShootCoasterNfc.swift in Sources */,
+				2617531926A3448B0069C83D /* LaunchJoinPartNfc.swift in Sources */,
+				2617531A26A3448B0069C83D /* TryAgainNfc.swift in Sources */,
+				2617531B26A3448B0069C83D /* LaunchQueueSongNfc.swift in Sources */,
+				2617531C26A3448B0069C83D /* LaunchQueueSongWriteUrl.swift in Sources */,
+				2617533126A3448B0069C83D /* FonzMusicSwiftApp.swift in Sources */,
+				2617533226A3448B0069C83D /* Fonz_Music_App_ClipApp.swift in Sources */,
+				2617533326A3448B0069C83D /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		26EBF68A26A33CE00094FA60 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 26EBF67B26A33CDE0094FA60 /* Fonz Music App Clip */;
+			targetProxy = 26EBF68926A33CE00094FA60 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		2677029A26347ED100B8BC92 /* Debug */ = {
@@ -1309,6 +1486,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5045F2117E00BCFEA787D4B1 /* Pods-FonzMusicSwift.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = FonzMusicSwift/FonzMusicSwift.entitlements;
@@ -1343,6 +1521,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E49150DFE53C30EAB099DB99 /* Pods-FonzMusicSwift.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = FonzMusicSwift/FonzMusicSwift.entitlements;
@@ -1372,6 +1551,60 @@
 			};
 			name = Release;
 		};
+		26EBF68D26A33CE00094FA60 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77BD7BD4869D54B13DB128BB /* Pods-Fonz Music App Clip.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Fonz Music App Clip/Fonz_Music_App_Clip.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = VW76JQGB68;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Fonz Music App Clip/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fonzmusic.Clip;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG APPCLIP";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		26EBF68E26A33CE00094FA60 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7CD6C85651A36E0AD3B9AD13 /* Pods-Fonz Music App Clip.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Fonz Music App Clip/Fonz_Music_App_Clip.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = VW76JQGB68;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Fonz Music App Clip/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fonzmusic.Clip;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = APPCLIP;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1389,6 +1622,15 @@
 			buildConfigurations = (
 				2677029D26347ED100B8BC92 /* Debug */,
 				2677029E26347ED100B8BC92 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		26EBF68C26A33CE00094FA60 /* Build configuration list for PBXNativeTarget "Fonz Music App Clip" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26EBF68D26A33CE00094FA60 /* Debug */,
+				26EBF68E26A33CE00094FA60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1419,6 +1661,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 265634BB267815B900FD6F27 /* XCRemoteSwiftPackageReference "swift-crypto" */;
 			productName = Crypto;
+		};
+		26D0524D26A3471200DDF43C /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 26F53514269891F60055C188 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
 		};
 		26F53515269891F60055C188 /* KeychainAccess */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Crypto
+//import Crypto
 
 public extension String {
     
@@ -167,20 +167,20 @@ public extension String {
 
      [1]: https://developer.spotify.com/documentation/general/guides/authorization-guide/#authorization-code-flow-with-proof-key-for-code-exchange-pkce
      */
-    static func makeCodeChallenge(codeVerifier: String) -> String {
-        
-        let data = codeVerifier.data(using: .utf8)!
-        
-        // The hash is an array of bytes (UInt8).
-        let hash = SHA256.hash(data: data)
-        
-        // Convert the array of bytes into data.
-        let bytes = Data(hash)
-
-        // Base-64 URL-encode the bytes.
-        return bytes.base64URLEncodedString()
-        
-    }
+//    static func makeCodeChallenge(codeVerifier: String) -> String {
+//
+//        let data = codeVerifier.data(using: .utf8)!
+//
+//        // The hash is an array of bytes (UInt8).
+//        let hash = SHA256.hash(data: data)
+//
+//        // Convert the array of bytes into data.
+//        let bytes = Data(hash)
+//
+//        // Base-64 URL-encode the bytes.
+//        return bytes.base64URLEncodedString()
+//
+//    }
     
     var isValidEmail: Bool {
         let name = "[A-Z0-9a-z]([A-Z0-9a-z._%+-]{0,30}[A-Z0-9a-z])?"

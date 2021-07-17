@@ -49,7 +49,7 @@ struct HostTab: View {
                         .padding(.bottom, 20)
                     Spacer()
                 }
-                CoasterDashboardPage()
+//                CoasterDashboardPage()
             }
             Spacer()
         }

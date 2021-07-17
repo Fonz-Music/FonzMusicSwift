@@ -13,3 +13,16 @@ target 'FonzMusicSwift' do
   pod ‘Firebase/Analytics’
 
 end
+
+target 'Fonz Music App Clip' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  # use_frameworks!
+
+  # Pods for FonzMusicSwift
+  pod 'Firebase/Auth'
+  pod 'Firebase/Core'
+
+  pod ‘Firebase/Crashlytics’
+  pod ‘Firebase/Analytics’
+
+end

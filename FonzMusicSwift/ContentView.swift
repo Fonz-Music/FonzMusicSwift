@@ -30,6 +30,7 @@ struct ContentView: View {
 
     // main app
     var body: some View {
+        
         ZStack{
             // checks version & forces user to update if it's outdated
             if needsToUpdate {
