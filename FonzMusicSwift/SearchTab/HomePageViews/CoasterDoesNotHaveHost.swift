@@ -55,23 +55,24 @@ struct CoasterDoesNotHaveHost: View {
             Button {
                 
                 if hasAccount {
+                    print("has account")
+
                     withAnimation {
-                        showHomeButtons = false
+                        selectedTab = TabIdentifier.host
+                        showHomeButtons = true
+                        launchedNfc = false
                     }
+
                     FirebaseAnalytics.Analytics.logEvent("userTriedJoiningPartyCoasterNoHost", parameters: ["user":"user", "tab":"search"])
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
-                        withAnimation {
-                            selectedTab = TabIdentifier.host
-                            showHomeButtons = true
-                        }
-                    }
+
                 }
                 else {
+                    print("no account")
                     throwCreateAccountModal = true
                 }
                 
                 withAnimation {
-                    launchedNfc = false
+                    
                 }
 
             } label: {
@@ -84,8 +85,34 @@ struct CoasterDoesNotHaveHost: View {
             
             .buttonStyle(BasicFonzButton(bgColor: .lilac, secondaryColor: colorScheme == .light ? Color.white: Color.darkButton))
             .padding()
+            Button {
+                withAnimation {
+                    showHomeButtons = true
+                    launchedNfc = false
+                }
+
+            } label: {
+                Text("no thanks")
+                    .foregroundColor(colorScheme == .light ? Color.darkButton: Color.white)
+                    .fonzParagraphTwo()
+                    .frame(width: UIScreen.screenWidth * 0.5, height: 40, alignment: .center)
+//                    .padding()
+            }
+            
+            .buttonStyle(BasicFonzButton(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .lilac))
+//            .padding()
         }
-        .sheet(isPresented: $throwCreateAccountModal) {
+        .sheet(isPresented: $throwCreateAccountModal, onDismiss: {
+            if hasAccount{
+                selectedTab = TabIdentifier.host
+            }
+            
+            withAnimation {
+                launchedNfc = false
+                showHomeButtons = true
+            }
+            
+        }) {
             CreateAccountPrompt(hasAccount: $hasAccount, showModal: $throwCreateAccountModal)
         }
     }
