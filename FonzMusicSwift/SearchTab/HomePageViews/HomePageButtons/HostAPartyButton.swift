@@ -21,7 +21,7 @@ struct HostAPartyButton: View {
     @State var throwCreateAccountModal = false
     
     @Environment(\.colorScheme) var colorScheme
-    let sideGraphicHeight = UIScreen.screenHeight * 0.06
+    let sideGraphicHeight = UIScreen.screenHeight * 0.04
     
     var body: some View {
         VStack{
@@ -48,10 +48,15 @@ struct HostAPartyButton: View {
                 
             }, label: {
                 Image("coasterIconLilac").resizable().frame(width: sideGraphicHeight * 1.1, height: sideGraphicHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                        .frame(width: 125, height: 125)
+                                        .frame(width: 75, height: 75)
             })
             .buttonStyle(BasicFonzButtonCircle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .lilac))
-            Text("i want to setup my coaster").foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white).fonzRoundButtonText()
+//            Text("i want to setup my coaster")
+//                .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
+//                .fonzRoundButtonText()
+            Text("setup my coaster")
+                .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
+                .fonzParagraphTwo()
         }
         .sheet(isPresented: $throwCreateAccountModal) {
             CreateAccountPrompt(hasAccount: $hasAccount, showModal: $throwCreateAccountModal)

@@ -17,7 +17,7 @@ struct JoinAPartyButton: View {
     
     @Binding var showHomeButtons: Bool
     @Environment(\.colorScheme) var colorScheme
-    let sideGraphicHeight = UIScreen.screenHeight * 0.05
+    let sideGraphicHeight = UIScreen.screenHeight * 0.08
     
    
     
@@ -35,14 +35,18 @@ struct JoinAPartyButton: View {
             
        
             Image("plusIconAmber").resizable().frame(width: sideGraphicHeight, height: sideGraphicHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                .frame(width: 125, height: 125)
+                .frame(width: 250, height: 250)
 
         })
         .buttonStyle(BasicFonzButtonCircle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .amber))
 //        .buttonStyle(NeumorphicButtonStyleCircle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .amber))
-        Text("i want to queue a song")
+//        Text("i want to queue a song")
+//            .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
+////            .fonzRoundButtonText()
+//            .fonzParagraphOne()
+        Text("queue a song")
             .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
-            .fonzRoundButtonText()
+            .fonzParagraphOne()
             
     }
     

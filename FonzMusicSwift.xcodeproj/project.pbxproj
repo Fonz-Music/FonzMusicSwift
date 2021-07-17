@@ -114,6 +114,8 @@
 		26DB9AFC2634A4370030643D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26DB9AFB2634A4370030643D /* GoogleService-Info.plist */; };
 		26DB9B232634A96B0030643D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9B222634A96B0030643D /* Colors.swift */; };
 		26E8CFE1266D3A0F00CEB1F6 /* SpotifyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E8CFE0266D3A0F00CEB1F6 /* SpotifyController.swift */; };
+		26EBF65D26A32E3C0094FA60 /* BuyACoasterHomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EBF65C26A32E3C0094FA60 /* BuyACoasterHomeButton.swift */; };
+		26EBF65F26A331330094FA60 /* ConnectSpotifyHomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EBF65E26A331330094FA60 /* ConnectSpotifyHomeButton.swift */; };
 		26ECCFD1268294E70053BE1F /* LaunchQueueSongWriteUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ECCFD0268294E70053BE1F /* LaunchQueueSongWriteUrl.swift */; };
 		26ECCFD3268295510053BE1F /* ActiveSongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ECCFD2268295510053BE1F /* ActiveSongView.swift */; };
 		26ECCFD62682A2350053BE1F /* SongSuggestionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ECCFD52682A2350053BE1F /* SongSuggestionsView.swift */; };
@@ -267,6 +269,8 @@
 		26DB9B222634A96B0030643D /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		26E8CFDE266D393A00CEB1F6 /* SpotifyiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyiOS.framework; sourceTree = "<group>"; };
 		26E8CFE0266D3A0F00CEB1F6 /* SpotifyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotifyController.swift; sourceTree = "<group>"; };
+		26EBF65C26A32E3C0094FA60 /* BuyACoasterHomeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyACoasterHomeButton.swift; sourceTree = "<group>"; };
+		26EBF65E26A331330094FA60 /* ConnectSpotifyHomeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectSpotifyHomeButton.swift; sourceTree = "<group>"; };
 		26ECCFD0268294E70053BE1F /* LaunchQueueSongWriteUrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchQueueSongWriteUrl.swift; sourceTree = "<group>"; };
 		26ECCFD2268295510053BE1F /* ActiveSongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveSongView.swift; sourceTree = "<group>"; };
 		26ECCFD52682A2350053BE1F /* SongSuggestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongSuggestionsView.swift; sourceTree = "<group>"; };
@@ -376,10 +380,9 @@
 		26691F6C267AC65900C83696 /* HomePageViews */ = {
 			isa = PBXGroup;
 			children = (
+				26EBF65B26A32C870094FA60 /* HomePageResponses */,
 				26AF07D3268D480E006A9504 /* HomePageButtons */,
-				26691F71267AC6BF00C83696 /* JoinSuccessfulCircle.swift */,
 				26AF07D4268D4851006A9504 /* DetermineHomePageView.swift */,
-				26916FF7268E5DFA00B7281B /* CoasterDoesNotHaveHost.swift */,
 				26916FF9268E600700B7281B /* JoinPartyResponses.swift */,
 			);
 			path = HomePageViews;
@@ -580,6 +583,8 @@
 			children = (
 				26691F6F267AC69A00C83696 /* JoinAPartyButton.swift */,
 				26691F6D267AC67400C83696 /* HostAPartyButton.swift */,
+				26EBF65C26A32E3C0094FA60 /* BuyACoasterHomeButton.swift */,
+				26EBF65E26A331330094FA60 /* ConnectSpotifyHomeButton.swift */,
 			);
 			path = HomePageButtons;
 			sourceTree = "<group>";
@@ -787,6 +792,15 @@
 				269252D2268E1F18001AC98B /* FonzFonts.swift */,
 			);
 			path = FrontEnd;
+			sourceTree = "<group>";
+		};
+		26EBF65B26A32C870094FA60 /* HomePageResponses */ = {
+			isa = PBXGroup;
+			children = (
+				26691F71267AC6BF00C83696 /* JoinSuccessfulCircle.swift */,
+				26916FF7268E5DFA00B7281B /* CoasterDoesNotHaveHost.swift */,
+			);
+			path = HomePageResponses;
 			sourceTree = "<group>";
 		};
 		26ECCFD42682A21C0053BE1F /* SongSuggestionsViews */ = {
@@ -1141,6 +1155,7 @@
 				26FBCCE726867CE000399460 /* DisconnectCoasterField.swift in Sources */,
 				26AF07D2268D47C8006A9504 /* TapYourPhoneAmber.swift in Sources */,
 				26DB9AA8263499220030643D /* ErrorQueuingSong.swift in Sources */,
+				26EBF65D26A32E3C0094FA60 /* BuyACoasterHomeButton.swift in Sources */,
 				26916FFA268E600700B7281B /* JoinPartyResponses.swift in Sources */,
 				26B65149263865D10074F279 /* CoastersFromApi.swift in Sources */,
 				26FBCCF82686A5C500399460 /* LimitSongRequestsButton.swift in Sources */,
@@ -1153,6 +1168,7 @@
 				26DB9AD826349B610030643D /* GuestApi.swift in Sources */,
 				26ECCFD1268294E70053BE1F /* LaunchQueueSongWriteUrl.swift in Sources */,
 				269252D6268E2C37001AC98B /* SearchPageView.swift in Sources */,
+				26EBF65F26A331330094FA60 /* ConnectSpotifyHomeButton.swift in Sources */,
 				26AF07D5268D4851006A9504 /* DetermineHomePageView.swift in Sources */,
 				26FBCCD726866BED00399460 /* DisconnectCoasterButton.swift in Sources */,
 				26B6513C263845480074F279 /* SuccessAddedCoaster.swift in Sources */,

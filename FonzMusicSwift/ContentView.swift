@@ -66,7 +66,7 @@ struct ContentView: View {
         }.onAppear {
             
             // to reset (debugging)
-            UserDefaults.standard.set(false, forKey: "connectedToSpotify")
+//            UserDefaults.standard.set(false, forKey: "connectedToSpotify")
 //            UserDefaults.standard.set(true, forKey: "hasConnectedCoasters")
 //            UserDefaults.standard.set(false, forKey: "hasAccount")
             

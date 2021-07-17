@@ -24,11 +24,19 @@ struct DetermineHomePageView: View {
         if !hasConnectedCoasters {
             VStack{
                 Spacer()
-                    .frame(height: 100)
-                HostAPartyButton(selectedTab: $selectedTab, showHomeButtons: $showHomeButtons, hasAccount: $hasAccount)
+                    .frame(height: 30)
+                HStack() {
+                    Spacer()
+                    ConnectSpotifyHomeButton(hasAccount: $hasAccount)
+                    Spacer()
+                    BuyACoasterHomeButton()
+                    Spacer()
+                }
+//                HostAPartyButton(selectedTab: $selectedTab, showHomeButtons: $showHomeButtons, hasAccount: $hasAccount)
                 Spacer()
-                    .frame(height: 100)
+                    .frame(height: 50)
                 JoinAPartyButton(pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc, showHomeButtons: $showHomeButtons)
+                Spacer()
             }
         }
         else {
