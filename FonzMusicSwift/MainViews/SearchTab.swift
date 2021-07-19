@@ -62,22 +62,29 @@ struct SearchTab: View {
                    
             }
         }
+        
         .background(
             ZStack{
                
                 Color(UIColor(colorScheme == .light ? Color.white: Color.darkBackground))
+                VStack{
+                    Spacer()
+                    Image("mountainProfile")
+                        .opacity(0.4)
+                        .frame(maxWidth: UIScreen.screenWidth)
+                }
                
-                Image("mountainProfile")
-                    .opacity(0.4)
-                    .frame(maxWidth: UIScreen.screenWidth)
             }, alignment: .bottom)
         .ignoresSafeArea()
         .onAppear {
+            #if !APPCLIP
             
             if (UIApplication.isFirstLaunch()) {
                 print("first launch")
                 throwFirstLaunchAlert = true
             }
+            
+            #endif
         }
         .onOpenURL { url in
             let dividedUrl = url.absoluteString.split(separator: "/")

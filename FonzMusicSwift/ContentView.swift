@@ -6,10 +6,10 @@
 //
 
 import SwiftUI
-
-class UpdateMainPageView: ObservableObject {
-    @Published var updatePage = false
-}
+//
+//class UpdateMainPageView: ObservableObject {
+//    @Published var updatePage = false
+//}
 
 enum TabIdentifier: Hashable {
   case host, search, account
@@ -108,27 +108,3 @@ struct ContentView: View {
     }
     
 }
-
-extension UIApplication {
-    static var appVersion: String? {
-        return Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
-    }
-}
-extension UIImage {
-    static func searchSymbol(scale: SymbolScale) -> UIImage {
-        let config = UIImage.SymbolConfiguration(scale: scale)
-        return (UIImage(named: "searchIcon")!.withConfiguration(config).withRenderingMode(.alwaysTemplate))
-    }
-}
-
-extension UIApplication {
-       class func isFirstLaunch() -> Bool {
-           if !UserDefaults.standard.bool(forKey: "hasBeenLaunchedBeforeFlag") {
-               UserDefaults.standard.set(true, forKey: "hasBeenLaunchedBeforeFlag")
-               UserDefaults.standard.synchronize()
-               return true
-           }
-           return false
-       }
-   }
-

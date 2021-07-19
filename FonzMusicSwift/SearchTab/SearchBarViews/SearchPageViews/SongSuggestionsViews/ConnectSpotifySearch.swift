@@ -17,10 +17,14 @@ struct ConnectSpotifySearch: View {
     @Binding var hasAccount : Bool
     
     @Binding var connectedToSpotify : Bool
+    
+    // has user download full app if on app clip
+    @State var throwDownlaodFullAppModal = false
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         Button(action: {
+            #if !APPCLIP
             if hasAccount {
                 SpotifyInBrowser().launchSpotifyInBrowser()
                 UserDefaults.standard.set(true, forKey: "connectedToSpotify")
@@ -32,6 +36,13 @@ struct ConnectSpotifySearch: View {
             
             print("pressed button")
             FirebaseAnalytics.Analytics.logEvent("guestPressedConnectSpotify", parameters: ["user":"user", "tab": "search"])
+            
+            #else
+            throwDownlaodFullAppModal = true
+            #endif
+            
+            
+            
         }, label: {
             HStack {
                 HStack{
@@ -59,5 +70,8 @@ struct ConnectSpotifySearch: View {
         })
         .buttonStyle(BasicFonzButton(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .amber))
         .padding()
+        .sheet(isPresented: $throwDownlaodFullAppModal) {
+            DownloadFullAppPrompt()
+        }
     }
 }

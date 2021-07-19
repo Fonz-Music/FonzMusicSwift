@@ -48,11 +48,11 @@ struct YourTopSongs: View {
                 HStack(spacing: 10) {
                     TopSongButtonView(hostCoaster: hostCoaster, topSong: yourTopSongs[2], currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
                     TopSongButtonView(hostCoaster: hostCoaster, topSong: yourTopSongs[3], currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
-                    
-
                 }
             }
-            .padding()
+//            .frame(width: UIScreen.screenWidth * outerContainerFrameWidth)
+            
+            .padding(10)
         }
         
     }

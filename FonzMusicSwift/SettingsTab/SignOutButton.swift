@@ -13,31 +13,96 @@ struct SignOutButton: View {
     // determines if current user has an account
     @Binding var hasAccount : Bool
     
+    @State var isExpanded = false
+    
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
-        Button(action: {
-            FirebaseAnalytics.Analytics.logEvent("userPressedSignOut", parameters: ["user":"user", "tab": "settings"])
-//                    pressedButtonToLaunchNfc = true
-            print("pressed button")
-            UserDefaults.standard.set(false, forKey: "hasAccount")
-            hasAccount = false
-        }, label: {
-            HStack {
-                HStack(spacing: 5) {
-                    Image("signOutIcon").resizable().frame(width: 30 ,height: 30, alignment: .leading)
-                        
-                    Text("sign out")
-                        .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
-                        .fonzButtonText()
-                        .padding(.horizontal)
+        VStack{
+            Button(action: {
+                withAnimation {
+                    isExpanded.toggle()
                 }
-                Spacer()
-            }.frame(width: UIScreen.screenWidth * 0.8, height: 20)
-            .padding()
+
+            }, label: {
+                HStack {
+                    HStack(spacing: 5) {
+                        Image("signOutIcon").resizable().frame(width: 30 ,height: 30, alignment: .leading)
+                            
+                        Text("sign out")
+                            .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
+                            .fonzButtonText()
+                            .padding(.horizontal)
+                    }
+                    Spacer()
+                }
+                .frame(width: UIScreen.screenWidth * .outerContainerFrameWidthSettings, height: 20)
+                .padding()
+                
+            })
+            .buttonStyle(BasicFonzButton(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .amber))
             
-        })
-        .buttonStyle(BasicFonzButton(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .amber))
-//        .buttonStyle(NeumorphicButtonStyle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .amber))
+
+            if isExpanded {
+                VStack{
+                    // coaster bane
+                    Text("are you sure you want to sign out?")
+                        .padding(.horizontal, 10)
+                        .foregroundColor(colorScheme == .light ? Color.darkButton: Color.white)
+                        .multilineTextAlignment(.center)
+                        .fonzParagraphTwo()
+                    HStack{
+                        Spacer()
+                        Button {
+                           
+                            withAnimation {
+                                isExpanded = false
+                            }
+                            
+                        } label: {
+                            Image(systemName: "xmark")
+                                .foregroundColor(.white)
+                                .frame(width: 20 , height: 20, alignment: .center)
+                                .padding(.vertical, 5)
+                                .padding(.horizontal, 20)
+                            
+            //                    .padding()
+                        }
+                        .frame(width: 80, height: 40, alignment: .center)
+                        .buttonStyle(BasicFonzButton(bgColor: .amber, secondaryColor: colorScheme == .light ? Color.white: Color.darkButton))
+                        .padding(.vertical, 5)
+                        Spacer()
+                        Button {
+                            FirebaseAnalytics.Analytics.logEvent("userPressedSignOut", parameters: ["user":"user", "tab": "settings"])
+                //                    pressedButtonToLaunchNfc = true
+                            print("pressed button")
+                            UserDefaults.standard.set(false, forKey: "hasAccount")
+                            withAnimation {
+                                hasAccount = false
+                                isExpanded = false
+                            }
+                            
+                        } label: {
+                            Image(systemName: "checkmark")
+                                .foregroundColor(.white)
+                                .frame(width: 20 , height: 20, alignment: .center)
+                                .padding(.vertical, 5)
+                                .padding(.horizontal, 20)
+                            
+            //                    .padding()
+                        }
+                        .frame(width: 80, height: 40, alignment: .center)
+                        .buttonStyle(BasicFonzButton(bgColor: .amber, secondaryColor: colorScheme == .light ? Color.white: Color.darkButton))
+                        .padding(.vertical, 5)
+                        Spacer()
+                    }
+                }
+                .frame(width: UIScreen.screenWidth * .outerContainerFrameWidthSettings)
+                
+                
+                
+            }
+        }
+        
     }
 }

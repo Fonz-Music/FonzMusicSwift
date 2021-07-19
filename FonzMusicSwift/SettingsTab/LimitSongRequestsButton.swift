@@ -58,7 +58,7 @@ struct LimitSongRequestsButton: View {
                     
                 }
             }
-        }.frame(width: UIScreen.screenWidth * 0.9, height: 150)
+        }.frame(width: UIScreen.screenWidth * .outerContainerFrameWidthSettings, height: 150)
     }
 }
 

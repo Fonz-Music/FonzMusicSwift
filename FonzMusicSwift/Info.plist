@@ -31,17 +31,17 @@
 			</array>
 		</dict>
 	</array>
-	<key>CFBundleUrlTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>CFBundleUrlName</key>
-			<string>com.fonzmusic</string>
-			<key>CFBundleUrlSchemes</key>
-			<array/>
-		</dict>
-	</array>
+<!--	<key>CFBundleUrlTypes</key>-->
+<!--	<array>-->
+<!--		<dict>-->
+<!--			<key>CFBundleTypeRole</key>-->
+<!--			<string>Editor</string>-->
+<!--			<key>CFBundleUrlName</key>-->
+<!--			<string>com.fonzmusic</string>-->
+<!--			<key>CFBundleUrlSchemes</key>-->
+<!--			<array/>-->
+<!--		</dict>-->
+<!--	</array>-->
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSApplicationQueriesSchemes</key>

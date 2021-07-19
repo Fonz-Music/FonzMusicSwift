@@ -33,7 +33,7 @@ struct BuyCoasterButton: View {
                         .fonzButtonText()
                         .padding(.horizontal)                        }
                 Spacer()
-            }.frame(width: UIScreen.screenWidth * 0.8, height: 20)
+            }.frame(width: UIScreen.screenWidth * .outerContainerFrameWidthSettings, height: 20)
             .padding()
             
         })

@@ -52,7 +52,10 @@ struct SearchBarView : View {
                 .fonzShadow()
 //                .padding(.horizontal, 10)
                 .onTapGesture {
-                    self.isEditing = true
+                    withAnimation{
+                        self.isEditing = true
+                    }
+                    
 //                    self.addViewOpacity = true
                 }
             // if actively editing, show cancel button
@@ -76,7 +79,7 @@ struct SearchBarView : View {
             }
             Spacer()
         }
-        .frame(width: UIScreen.screenWidth * 0.9, alignment: .center)
+        .frame(width: UIScreen.screenWidth * 0.95, alignment: .center)
         .padding(.vertical, 10)
         
         

@@ -107,15 +107,19 @@ struct SettingsPage: View {
 
             }
         }
+        
         .background(
             ZStack{
                
                 Color(UIColor(colorScheme == .light ? Color.white: Color.darkBackground))
                     .darkenView(!hasAccount)
                
-                Image("mountainProfile")
-                    .opacity(0.4)
-                    .frame(maxWidth: UIScreen.screenWidth)
+                VStack{
+                    Spacer()
+                    Image("mountainProfile")
+                        .opacity(0.4)
+                        .frame(maxWidth: UIScreen.screenWidth)
+                }
             }, alignment: .bottom)
         .ignoresSafeArea()
     }

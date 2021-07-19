@@ -1,13 +1,13 @@
 //
-//  MustUpdateApp.swift
+//  DownloadFullAppPrompt.swift
 //  FonzMusicSwift
 //
-//  Created by didi on 6/30/21.
+//  Created by didi on 7/18/21.
 //
 
 import SwiftUI
 
-struct MustUpdateApp: View {
+struct DownloadFullAppPrompt: View {
     
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.openURL) var openURL
@@ -18,7 +18,7 @@ struct MustUpdateApp: View {
             VStack{
                 HStack{
                     Text("Fonz Music")
-                        .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white).fonzParagraphOne()
+                        .foregroundColor(.darkButton).fonzParagraphOne()
                         .padding(25)
                         .padding(.top, 40)
                         .padding(.bottom, 20)
@@ -26,8 +26,8 @@ struct MustUpdateApp: View {
                 }
                 Spacer()
                     .frame(height: 100)
-                Text("you must update your app")
-                    .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
+                Text("download the full app to connect to Spotify")
+                    .foregroundColor(.darkButton)
                     .font(Font.custom("MuseoSans-500", size: 32))
                     .multilineTextAlignment(.center)
 //                    .fonzHeading()
@@ -39,18 +39,23 @@ struct MustUpdateApp: View {
                     openURL(url)
                 }, label: {
                     Text("take me there")
-                        .foregroundColor(Color.white)
+                        .foregroundColor(.white)
                         .fonzParagraphOne()
                         .padding(15)
-                }).buttonStyle(BasicFonzButton(bgColor: .lilac, secondaryColor: colorScheme == .light ? Color.white: Color.darkButton))
+                }).buttonStyle(BasicFonzButton(bgColor:  .darkButton, secondaryColor: .white))
                 Spacer()
             }
         }
         .background(
             ZStack{
-               
-                Color(UIColor(colorScheme == .light ? Color.white: Color.darkBackground))
-               
+                Rectangle()
+                    .fill(LinearGradient(
+                        gradient: .init(colors: [.lilac, .lilacDark]),
+                        startPoint: .topLeading,
+                          endPoint: .bottomTrailing
+                        ))
+                    // darkens background when typing
+//                    .darkenView(isEditingSearchBar)
                 VStack{
                     Spacer()
                     Image("mountainProfile")
@@ -60,4 +65,5 @@ struct MustUpdateApp: View {
             }, alignment: .bottom)
         .ignoresSafeArea()
     }
+    
 }

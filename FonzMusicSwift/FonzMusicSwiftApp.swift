@@ -33,7 +33,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
       return true
     }
 }
-#if !APPCLIP
+//#if !APPCLIP
 
 @main
 struct FonzMusicSwiftApp: App {
@@ -59,28 +59,25 @@ struct FonzMusicSwiftApp: App {
         }
     }
 }
-
-#else
-
-@main
-struct Fonz_Music_App_ClipApp: App {
-    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-
-    @State var authCode: String = ""
-    @State var accessToken: String = ""
-
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-                .onOpenURL { url in
-                   
-                }
-
-        }
-    }
-}
-
-#endif
+//
+//#else
+//
+//@main
+//struct Fonz_Music_App_ClipApp: App {
+//    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+//
+//    @State var authCode: String = ""
+//    @State var accessToken: String = ""
+//
+//    var body: some Scene {
+//        WindowGroup {
+//            ContentViewClip()
+//
+//        }
+//    }
+//}
+//
+//#endif
 
 // code for getting the spotify refresh + access tokens in app
 // never used, but works properly

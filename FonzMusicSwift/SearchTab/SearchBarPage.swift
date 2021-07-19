@@ -58,10 +58,13 @@ struct SearchBarPage: View {
                           endPoint: .bottomTrailing
                         ))
                     // darkens background when typing
-                    .darkenView(isEditingSearchBar)
-                Image("mountainProfile")
-                    .opacity(0.4)
-                    .frame(maxWidth: UIScreen.screenWidth, alignment: .bottom)
+//                    .darkenView(isEditingSearchBar)
+                VStack{
+                    Spacer()
+                    Image("mountainProfile")
+                        .opacity(0.4)
+                        .frame(maxWidth: UIScreen.screenWidth)
+                }
             }, alignment: .bottom)
     }
 }

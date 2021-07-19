@@ -54,7 +54,9 @@ struct ActiveSongView: View {
                    
                 }
             }
-            .frame(width: UIScreen.screenWidth * 0.9, alignment: .center)
+            .frame(width: UIScreen.screenWidth * 0.95, alignment: .center)
+//            .frame(width: UIScreen.screenWidth, alignment: .center)
+//            .padding(.horizontal, 10)
             .onAppear {
                 print("this is the active song img \(trackfromNowPlaying.currentSong[0].albumArt)")
                 trackfromNowPlaying.getActiveSong(sessionId: currentSessionId)
@@ -199,7 +201,7 @@ struct ActiveSongUserInterface : View {
             RoundedRectangle(cornerRadius: .cornerRadiusTasks)
             .fill(colorScheme == .light ? Color.white: Color.darkButton)
 //                        .padding(.vertical, 10)
-            .frame(width: UIScreen.screenWidth * 0.9, height: 150, alignment: .center)
+            .frame(width: UIScreen.screenWidth * 0.95, height: 150, alignment: .center)
                 .fonzShadow()
                 
         )

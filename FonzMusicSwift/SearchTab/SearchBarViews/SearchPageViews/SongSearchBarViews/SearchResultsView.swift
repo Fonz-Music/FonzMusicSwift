@@ -71,7 +71,7 @@ struct SearchResultsView: View {
                 }
                 .padding(.vertical, 10)
             }
-            .frame(width: UIScreen.screenWidth * 0.9, height: 450)
+            .frame(width: UIScreen.screenWidth * 0.95, height: UIScreen.screenHeight * 0.6)
         }
     }
     

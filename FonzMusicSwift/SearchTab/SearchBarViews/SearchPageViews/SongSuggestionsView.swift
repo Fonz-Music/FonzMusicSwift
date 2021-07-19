@@ -33,8 +33,10 @@ struct SongSuggestionsView: View {
     var body: some View {
         ZStack{
             RoundedRectangle(cornerRadius: .cornerRadiusBlocks)
+                
                 .fill(colorScheme == .light ? Color.white: Color.darkBackground)
                 .frame(height: 900, alignment: .center)
+//                .frame(width: UIScreen.screenWidth * 0.95, height: 900, alignment: .center)
                 .fonzShadow()
                 .padding(.top, 30)
             VStack{
@@ -51,6 +53,7 @@ struct SongSuggestionsView: View {
                     .frame(minHeight: 30)
             }
             .padding(.top, 30)
+            .frame(width: UIScreen.screenWidth * 0.95)
             .sheet(isPresented: $throwCreateAccountModal) {
                     CreateAccountPrompt(hasAccount: $hasAccount, showModal: $throwCreateAccountModal)
                

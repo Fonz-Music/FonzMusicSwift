@@ -18,6 +18,8 @@ struct ConnectSpotifyHomeButton: View {
     @Binding var hasAccount : Bool
     // has user create an account
     @State var throwCreateAccountModal = false
+    // has user download full app if on app clip
+    @State var throwDownlaodFullAppModal = false
 //
 //    @Binding var showHomeButtons: Bool
     @Environment(\.colorScheme) var colorScheme
@@ -27,22 +29,28 @@ struct ConnectSpotifyHomeButton: View {
     var body: some View {
         VStack {
             Button(action: {
-                if hasAccount {
-                    withAnimation {
-        //                selectedTab = 1
-    //                    pressedButtonToLaunchSpotifySignIn = true
-//                        connectedToSpotify = true
-
-                        UserDefaults.standard.set(true, forKey: "connectedToSpotify")
-                    }
-                    FirebaseAnalytics.Analytics.logEvent("userTappedConnectSpotify", parameters: ["user":"user", "tab":"host"])
-                    SpotifyInBrowser().launchSpotifyInBrowser()
-                }
-                else {
-                    throwCreateAccountModal = true
-                }
-                
-                
+                SpotifySignInApi().addSpotifyToAccount(sessionId: "zPrCa7V0nmk0Np5F55Db")
+//
+//                #if !APPCLIP
+//                if hasAccount {
+//                    withAnimation {
+//        //                selectedTab = 1
+//    //                    pressedButtonToLaunchSpotifySignIn = true
+////                        connectedToSpotify = true
+//
+//                        UserDefaults.standard.set(true, forKey: "connectedToSpotify")
+//                    }
+//                    FirebaseAnalytics.Analytics.logEvent("userTappedConnectSpotify", parameters: ["user":"user", "tab":"host"])
+//                    SpotifyInBrowser().launchSpotifyInBrowser()
+//                }
+//                else {
+//                    throwCreateAccountModal = true
+//                }
+//                #else
+//                throwDownlaodFullAppModal = true
+//                #endif
+//
+//
             }, label: {
                 Image("spotifyIconGreen").resizable().frame(width: sideGraphicHeight, height: sideGraphicHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                         .frame(width: 75, height: 75)
@@ -55,6 +63,9 @@ struct ConnectSpotifyHomeButton: View {
         }
         .sheet(isPresented: $throwCreateAccountModal) {
             CreateAccountPrompt(hasAccount: $hasAccount, showModal: $throwCreateAccountModal)
+        }
+        .sheet(isPresented: $throwDownlaodFullAppModal) {
+            DownloadFullAppPrompt()
         }
     }
 }

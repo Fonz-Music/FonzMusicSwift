@@ -49,7 +49,7 @@ struct HostTab: View {
                         .padding(.bottom, 20)
                     Spacer()
                 }
-//                CoasterDashboardPage()
+                CoasterDashboardPage()
             }
             Spacer()
         }
@@ -61,9 +61,12 @@ struct HostTab: View {
                 else {
                     Color(UIColor(colorScheme == .light ? Color.white: Color.darkBackground))
                 }
-                Image("mountainProfile")
-                    .opacity(0.4)
-                    .frame(maxWidth: UIScreen.screenWidth)
+                VStack{
+                    Spacer()
+                    Image("mountainProfile")
+                        .opacity(0.4)
+                        .frame(maxWidth: UIScreen.screenWidth)
+                }
             }, alignment: .bottom)
         .ignoresSafeArea()
     }
