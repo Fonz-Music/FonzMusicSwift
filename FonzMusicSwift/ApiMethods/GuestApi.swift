@@ -46,17 +46,17 @@ class GuestApi {
 
         print("starting getCoaster")
 
-        accessToken = getJWTAndCheckIfExpired()
+//        accessToken = getJWTAndCheckIfExpired()
 
-//        guard let user = Auth.auth().currentUser else {
-//            print("there was an error getting the user")
-//            return  returnObject}
-//        print("got auth")
-//
-////             get access token
-//            user.getIDToken(){ (idToken, error) in
-//            if error == nil, let token = idToken {
-//                accessToken = token
+        guard let user = Auth.auth().currentUser else {
+            print("there was an error getting the user")
+            return  returnObject}
+        print("got auth")
+
+//             get access token
+            user.getIDToken(){ (idToken, error) in
+            if error == nil, let token = idToken {
+                accessToken = token
                 print("got token")
                 print("\(accessToken)" )
                 // set UID to uppercase
@@ -64,8 +64,8 @@ class GuestApi {
                 // create url
                 guard let url = URL(string: self.ADDRESS + self.GUEST + self.COASTER + uid )
                 else {
-//                    return
-                    return returnObject
+                    return
+//                    return returnObject
                 }
                 
                 var request = URLRequest(url: url)
@@ -79,6 +79,9 @@ class GuestApi {
                     if let dataResp = data {
                         let jsonData = try? JSONSerialization.jsonObject(with: data!, options: [])
                         print(jsonData)
+                        
+                        returnObject.statusCode = response?.getStatusCode() ?? 0
+                        
                         if let decodedResponse = try? JSONDecoder().decode(CoasterResult.self, from: dataResp) {
                             
                             // creates new coasterResult from return value
@@ -89,12 +92,15 @@ class GuestApi {
                         }
                         else {
                             let decodedResponse = try? JSONDecoder().decode(ErrorResult.self, from: dataResp)
+                            print(decodedResponse?.status)
+                            
+                            returnObject.statusCode = decodedResponse?.status ?? 0
                                 
                                 // creates new coasterResult from return value
-                            let newCoaster = CoasterResult(sessionId: "", displayName: "", coasterName:  "", coasterActive: false, coasterPaused: false, statusCode: decodedResponse?.status ?? 0 )
-                                print("newCoaster " + "\(newCoaster)")
-                                // sets return value
-                                returnObject = newCoaster
+//                            let newCoaster = CoasterResult(sessionId: "", displayName: "", coasterName:  "", coasterActive: false, coasterPaused: false, statusCode: decodedResponse?.status ?? 0 )
+//                                print("newCoaster " + "\(newCoaster)")
+//                                // sets return value
+//                                returnObject = newCoaster
                             
                             
                         }
@@ -102,11 +108,11 @@ class GuestApi {
                         print("fetch failed: \(error?.localizedDescription ?? "unknown error")")
                     }
                 }.resume()
-//            }else{
-//                print("error")
-//                //error handling
-//            }
-//        }
+            }else{
+                print("error")
+                //error handling
+            }
+        }
         // tells function to wait before returning
         sem.wait()
         return returnObject
