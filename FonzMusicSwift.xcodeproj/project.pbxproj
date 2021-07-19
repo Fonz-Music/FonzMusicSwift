@@ -104,7 +104,6 @@
 		2676B12826A5C33E00E18E4B /* ProvidersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2676B12626A5C33E00E18E4B /* ProvidersResponse.swift */; };
 		2676B12A26A5CB9F00E18E4B /* URLSessionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2676B12926A5CB9F00E18E4B /* URLSessionExtension.swift */; };
 		2676B12B26A5CB9F00E18E4B /* URLSessionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2676B12926A5CB9F00E18E4B /* URLSessionExtension.swift */; };
-		2676B12E26A5D1DF00E18E4B /* PromiseKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2676B12D26A5D1DF00E18E4B /* PromiseKit */; };
 		2677029126347ECD00B8BC92 /* FonzMusicSwiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2677029026347ECD00B8BC92 /* FonzMusicSwiftApp.swift */; };
 		2677029326347ECD00B8BC92 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2677029226347ECD00B8BC92 /* ContentView.swift */; };
 		2677029526347ED100B8BC92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2677029426347ED100B8BC92 /* Assets.xcassets */; };
@@ -415,7 +414,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2676B12E26A5D1DF00E18E4B /* PromiseKit in Frameworks */,
 				26F53516269891F60055C188 /* KeychainAccess in Frameworks */,
 				26F535112697B68A0055C188 /* AuthenticationServices.framework in Frameworks */,
 				E4595E496192AD1C55E93E1F /* libPods-FonzMusicSwift.a in Frameworks */,
@@ -967,7 +965,6 @@
 			packageProductDependencies = (
 				265634BC267815B900FD6F27 /* Crypto */,
 				26F53515269891F60055C188 /* KeychainAccess */,
-				2676B12D26A5D1DF00E18E4B /* PromiseKit */,
 			);
 			productName = FonzMusicSwift;
 			productReference = 2677028D26347ECD00B8BC92 /* FonzMusicSwift.app */;
@@ -1023,7 +1020,6 @@
 			packageReferences = (
 				265634BB267815B900FD6F27 /* XCRemoteSwiftPackageReference "swift-crypto" */,
 				26F53514269891F60055C188 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
-				2676B12C26A5D1DF00E18E4B /* XCRemoteSwiftPackageReference "PromiseKit" */,
 			);
 			productRefGroup = 2677028E26347ECD00B8BC92 /* Products */;
 			projectDirPath = "";
@@ -1646,14 +1642,6 @@
 				minimumVersion = 1.1.6;
 			};
 		};
-		2676B12C26A5D1DF00E18E4B /* XCRemoteSwiftPackageReference "PromiseKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/mxcl/PromiseKit";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 6.15.3;
-			};
-		};
 		26F53514269891F60055C188 /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess";
@@ -1669,11 +1657,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 265634BB267815B900FD6F27 /* XCRemoteSwiftPackageReference "swift-crypto" */;
 			productName = Crypto;
-		};
-		2676B12D26A5D1DF00E18E4B /* PromiseKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2676B12C26A5D1DF00E18E4B /* XCRemoteSwiftPackageReference "PromiseKit" */;
-			productName = PromiseKit;
 		};
 		26D0524D26A3471200DDF43C /* KeychainAccess */ = {
 			isa = XCSwiftPackageProductDependency;

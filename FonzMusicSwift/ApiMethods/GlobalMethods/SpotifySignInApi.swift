@@ -7,7 +7,6 @@
 
 import SwiftUI
 import Firebase
-import PromiseKit
 
 // all api functions inside
 class SpotifySignInApi {
