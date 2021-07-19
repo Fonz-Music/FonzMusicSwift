@@ -61,7 +61,7 @@ class HostFonzSessionApi {
                 print("returncode is \(returnCode)")
                 if returnCode == 403 {
                     let sessionId = UserDefaults.standard.string(forKey: "userAccountSessionId")
-                    if sessionId!.isEmpty || sessionId == "" {
+                    if sessionId == nil || sessionId == "" {
                         DispatchQueue.main.async {
                             self.getSessionId()
                         }

@@ -77,6 +77,8 @@ struct SignOutButton: View {
                 //                    pressedButtonToLaunchNfc = true
                             print("pressed button")
                             UserDefaults.standard.set(false, forKey: "hasAccount")
+                            UserDefaults.standard.set(false, forKey: "hasConnectedCoasters")
+                            UserDefaults.standard.set(false, forKey: "connectedToSpotify")
                             withAnimation {
                                 hasAccount = false
                                 isExpanded = false

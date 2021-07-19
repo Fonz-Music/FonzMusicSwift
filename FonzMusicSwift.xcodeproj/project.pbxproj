@@ -107,6 +107,8 @@
 		2676B12F26A5DFBC00E18E4B /* HostFonzSessionApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B651662638A1B30074F279 /* HostFonzSessionApi.swift */; };
 		2676B13126A5E0D400E18E4B /* SessionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2676B13026A5E0D400E18E4B /* SessionResponse.swift */; };
 		2676B13226A5E0D400E18E4B /* SessionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2676B13026A5E0D400E18E4B /* SessionResponse.swift */; };
+		2676B13426A60A1400E18E4B /* CheckJWTExpired.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2676B13326A60A1400E18E4B /* CheckJWTExpired.swift */; };
+		2676B13526A60A1400E18E4B /* CheckJWTExpired.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2676B13326A60A1400E18E4B /* CheckJWTExpired.swift */; };
 		2677029126347ECD00B8BC92 /* FonzMusicSwiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2677029026347ECD00B8BC92 /* FonzMusicSwiftApp.swift */; };
 		2677029326347ECD00B8BC92 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2677029226347ECD00B8BC92 /* ContentView.swift */; };
 		2677029526347ED100B8BC92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2677029426347ED100B8BC92 /* Assets.xcassets */; };
@@ -289,6 +291,7 @@
 		2676B12626A5C33E00E18E4B /* ProvidersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvidersResponse.swift; sourceTree = "<group>"; };
 		2676B12926A5CB9F00E18E4B /* URLSessionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionExtension.swift; sourceTree = "<group>"; };
 		2676B13026A5E0D400E18E4B /* SessionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionResponse.swift; sourceTree = "<group>"; };
+		2676B13326A60A1400E18E4B /* CheckJWTExpired.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckJWTExpired.swift; sourceTree = "<group>"; };
 		2677028D26347ECD00B8BC92 /* FonzMusicSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FonzMusicSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2677029026347ECD00B8BC92 /* FonzMusicSwiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FonzMusicSwiftApp.swift; sourceTree = "<group>"; };
 		2677029226347ECD00B8BC92 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -759,6 +762,7 @@
 				269D01502671828500A1DFEE /* GlobalMethods */,
 				26B6515E26389D6B0074F279 /* HostMethods */,
 				26DB9AD726349B610030643D /* GuestApi.swift */,
+				2676B13326A60A1400E18E4B /* CheckJWTExpired.swift */,
 			);
 			path = ApiMethods;
 			sourceTree = "<group>";
@@ -1173,6 +1177,7 @@
 				26691F66267AB89A00C83696 /* SongResultItem.swift in Sources */,
 				26B6514D263866950074F279 /* HostCoasterInfo.swift in Sources */,
 				26DB9AD126349B190030643D /* LaunchQueueSongNfc.swift in Sources */,
+				2676B13426A60A1400E18E4B /* CheckJWTExpired.swift in Sources */,
 				26DB9AA52634990D0030643D /* ErrorOnTap.swift in Sources */,
 				26691F6E267AC67400C83696 /* HostAPartyButton.swift in Sources */,
 				26ECCFDD2682B0A60053BE1F /* Artist.swift in Sources */,
@@ -1291,6 +1296,7 @@
 				2676B13226A5E0D400E18E4B /* SessionResponse.swift in Sources */,
 				261752CA26A3448A0069C83D /* QueueSongSuccess.swift in Sources */,
 				261752CB26A3448A0069C83D /* QueuedButDelayedResponse.swift in Sources */,
+				2676B13526A60A1400E18E4B /* CheckJWTExpired.swift in Sources */,
 				261752CC26A3448A0069C83D /* QueueSongError.swift in Sources */,
 				261752CD26A3448A0069C83D /* SongSuggestionsView.swift in Sources */,
 				261752CE26A3448A0069C83D /* ArtistSongListModal.swift in Sources */,

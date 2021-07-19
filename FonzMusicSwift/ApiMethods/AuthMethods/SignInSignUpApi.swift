@@ -75,12 +75,22 @@ class SignInSignUpApi {
 //                    let accessToken = decodedResponse.accessToken
                     let email = decodedResponse.email
                     DispatchQueue.main.async {
-//                        // creates accessToken as dict to store in keychain
+                        // creates email + password as dict to store in keychain
                         let keychain = Keychain(service: "api.fonzmusic.com")
                         do {
                             try keychain
                                 .label("fonzMusicApi")
                                 .set(password, key: email)
+                        } catch let error {
+                            print("error: \(error)")
+                        }
+                        
+                        // creates accessToken as dict to store in keychain
+                        let keychainAccess = Keychain(service: "api.fonzmusic.com")
+                        do {
+                            try keychainAccess
+                                .label("fonzMusicApiAcesssToken")
+                                .set(decodedResponse.accessToken, key: "accessToken")
                         } catch let error {
                             print("error: \(error)")
                         }
