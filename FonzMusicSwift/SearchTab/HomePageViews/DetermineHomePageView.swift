@@ -19,6 +19,8 @@ struct DetermineHomePageView: View {
     
     @Binding var hasConnectedCoasters : Bool
     
+    @Binding var connectedToSpotify : Bool
+    
     var body: some View {
         
         if !hasConnectedCoasters {
@@ -27,8 +29,11 @@ struct DetermineHomePageView: View {
                     .frame(height: 30)
                 HStack() {
                     Spacer()
-                    ConnectSpotifyHomeButton(hasAccount: $hasAccount)
-                    Spacer()
+                    if !connectedToSpotify{
+                        ConnectSpotifyHomeButton(hasAccount: $hasAccount)
+                        Spacer()
+                    }
+                    
                     BuyACoasterHomeButton()
                     Spacer()
                 }

@@ -41,7 +41,7 @@ struct SearchTab: View {
             }
             else {
                 
-                HomePageDecision(hostCoaster: hostCoaster, hasHostVar: $hasHost, selectedTab: $selectedTab, hasAccount: $hasAccount, hasConnectedCoasters: $hasConnectedCoasters)
+                HomePageDecision(hostCoaster: hostCoaster, hasHostVar: $hasHost, selectedTab: $selectedTab, hasAccount: $hasAccount, hasConnectedCoasters: $hasConnectedCoasters, connectedToSpotify: $connectedToSpotify)
                     .actionSheet(isPresented: $throwFirstLaunchAlert) {
                                     ActionSheet(
                                         title: Text("have you used the Fonz Music App before?"),
@@ -95,8 +95,18 @@ struct SearchTab: View {
             let containsSpotify = url.absoluteString.contains("spotify")
             if containsSpotify {
                 let sessionId = UserDefaults.standard.string(forKey: "userAccountSessionId")
-                SpotifySignInApi().addSpotifyToAccount(sessionId: sessionId ?? "")
-                print("has spot")
+                let spotifySignInResp = SpotifySignInApi().addSpotifyToAccount(sessionId: sessionId ?? "")
+                DispatchQueue.main.async {
+                    
+                
+                    print("has spot status \(spotifySignInResp.status)")
+                    if spotifySignInResp.status == 200 {
+                        print("changing connection now")
+                        connectedToSpotify = true
+                        UserDefaults.standard.set(true, forKey: "connectedToSpotify")
+                    }
+                }
+                
             }
             
             if (lastSection.count == 14) {

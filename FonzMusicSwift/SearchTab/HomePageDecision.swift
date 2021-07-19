@@ -21,6 +21,8 @@ struct HomePageDecision: View {
     @Binding var hasAccount : Bool
     // determines if current user has connectedCoasters
     @Binding var hasConnectedCoasters : Bool
+    // determines if current user is connected to spotify
+    @Binding var connectedToSpotify : Bool
 // ---------------------------------- created in view -----------------------------------------------
     // bool auto set to false, set to true if nfc is launched
     @State var launchedNfc = false
@@ -58,7 +60,7 @@ struct HomePageDecision: View {
                 if !launchedNfc {
                     // if home buttons should be shown, depends on nfc
                     if showHomeButtons {
-                        DetermineHomePageView(selectedTab: $selectedTab, hasAccount: $hasAccount, showHomeButtons: $showHomeButtons, pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc, hasConnectedCoasters: $hasConnectedCoasters)
+                        DetermineHomePageView(selectedTab: $selectedTab, hasAccount: $hasAccount, showHomeButtons: $showHomeButtons, pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc, hasConnectedCoasters: $hasConnectedCoasters, connectedToSpotify: $connectedToSpotify)
                     }
                     // tap phone animation
                     else if !showHomeButtons && pressedButtonToLaunchNfc {

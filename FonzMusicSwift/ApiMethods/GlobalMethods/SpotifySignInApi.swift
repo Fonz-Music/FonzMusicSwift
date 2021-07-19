@@ -20,7 +20,7 @@ class SpotifySignInApi {
     let SPOTIFY = "spotify"
     let PROVIDERS = "providers"
     
-    let tempAccessToken = "eyJhbGciOiJSUzI1NiIsImtpZCI6Ijc3MTBiMDE3ZmQ5YjcxMWUwMDljNmMzNmIwNzNiOGE2N2NiNjgyMTEiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiZGVlciIsInBpY3R1cmUiOiJodHRwczovL2xoNC5nb29nbGV1c2VyY29udGVudC5jb20vLXdIRHZhQXRMWklzL0FBQUFBQUFBQUFJL0FBQUFBQUFBQUFBL0FNWnV1Y256SmJCbk94bWtFcTNuM3BJeE9wUHNDUXZ1dmcvczk2LWMvcGhvdG8uanBnIiwiaXNzIjoiaHR0cHM6Ly9zZWN1cmV0b2tlbi5nb29nbGUuY29tL2ZvbnotbXVzaWMtYXBwIiwiYXVkIjoiZm9uei1tdXNpYy1hcHAiLCJhdXRoX3RpbWUiOjE2MjY3MDQxNjgsInVzZXJfaWQiOiJFMnU5aXJabWtIYkY5ZlBHWDcyZTBFVDJNcjkyIiwic3ViIjoiRTJ1OWlyWm1rSGJGOWZQR1g3MmUwRVQyTXI5MiIsImlhdCI6MTYyNjcwOTcyMywiZXhwIjoxNjI2NzEzMzIzLCJlbWFpbCI6ImRpYXJtdWlkNDlAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsiZGlhcm11aWQ0OUBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.X8oRBcId1Su944dhLie9ga56B57wN4-5vWk9V4KowUU2iYhqLPxEtO2QNRt5kxmh0g5IMS5qWwZ4VK3GryfdNCfu1UzDWd1-bMoZ2JIC4Ze8Gpr0dSk5VUlg-PdRfEdw2vlcBzgcoLpdfyFEBTEWPrOZoZlj2HepVcDsUDc327fK-klsUzlGIJrgCCSKJdj2CKp8YfYejz_yPyNxJVQvZ8iJT4rOgC_AVV34epdw89vNyC2beInx1b808cplcrFq3frWlSenH3Ld-QtqTgtNayyfAym48bkSfCOMnF1ynJxDX1p6_wRDbDLhOkemFmQdpV6Cw4NuKT9YQOdDh51y1A"
+    let tempAccessToken = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjFiYjk2MDVjMzZlOThlMzAxMTdhNjk1MTc1NjkzODY4MzAyMDJiMmQiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiZGVlciIsInBpY3R1cmUiOiJodHRwczovL2xoNC5nb29nbGV1c2VyY29udGVudC5jb20vLXdIRHZhQXRMWklzL0FBQUFBQUFBQUFJL0FBQUFBQUFBQUFBL0FNWnV1Y256SmJCbk94bWtFcTNuM3BJeE9wUHNDUXZ1dmcvczk2LWMvcGhvdG8uanBnIiwiaXNzIjoiaHR0cHM6Ly9zZWN1cmV0b2tlbi5nb29nbGUuY29tL2ZvbnotbXVzaWMtYXBwIiwiYXVkIjoiZm9uei1tdXNpYy1hcHAiLCJhdXRoX3RpbWUiOjE2MjY3MDk3MjQsInVzZXJfaWQiOiJFMnU5aXJabWtIYkY5ZlBHWDcyZTBFVDJNcjkyIiwic3ViIjoiRTJ1OWlyWm1rSGJGOWZQR1g3MmUwRVQyTXI5MiIsImlhdCI6MTYyNjcxMzM1NCwiZXhwIjoxNjI2NzE2OTU0LCJlbWFpbCI6ImRpYXJtdWlkNDlAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsiZGlhcm11aWQ0OUBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.jlOhvrIAhKzmOGzMfmyDOGzp078se8YfX5H4tWzQy4Pt1TseE2Ii5EpBuMi6srev4qeABg-ErhYpzkTLvUG5zmwLDXkRoJQg_-mqyE1UFR795rhCp0imV2nnbuoDNo3CdIgNit_3165YVSeWF2TPa9ArsJwqi4I63jFiv3KJsV4_BAKpxl02VNNYq72UVH15JBp74qRJzmL7FueglG65UcMF0Gs7PoCZBdkZVqfo3eDeOYvcJ6flKMP_wmimA-Iu_j7G1LiI6-Ny_MWmLgDvlGrjnEGOEPNImVDP-xVdLZQTK-WBybUmqsrjxbDs4cPd5nVddOZ8JQqeLzABhFqCjw"
     
     func addSpotifyToAccount(sessionId:String) -> BasicResponse {
         // this allows us to wait before returning value
@@ -78,7 +78,7 @@ class SpotifySignInApi {
                             providerObject.providers = decodedResponse.providers
                             let providerId = decodedResponse.providers[0].id
                             print("id is \(providerId)" )
-                            DispatchQueue.main.async {
+//                            DispatchQueue.main.async {
                                 // this allows us to wait before returning value
                                 let semTwo = DispatchSemaphore.init(value: 0)
                                 
@@ -104,7 +104,7 @@ class SpotifySignInApi {
                                 // this is the request
                                 URLSession.shared.dataTask(with: request) { data, response, error in
                                     // code to defer until this is completed
-                                    defer { semTwo.signal() }
+                                    defer { sem.signal() }
 
                                     if let dataResp = data {
                                         let jsonData = try? JSONSerialization.jsonObject(with: data!, options: [])
@@ -123,17 +123,21 @@ class SpotifySignInApi {
                                             print("fail here")
                 //                            returnMessage = decodedResponse!.message
                                         }
+                                        
+                                        sem.resume()
+                                        
                                     } else {
                                         print("fetch failed: \(error?.localizedDescription ?? "unknown error")")
+                                        sem.resume()
                                     }
+                                    
                                 }.resume()
                         
                         // tells function to wait before returning
-                        semTwo.wait()
+//                        semTwo.wait()
                         returnObject = BasicResponse(message: returnMessage, status: returnCode)
-    //                            returnObject.responseCode = returnCode
-    //                            returnMessage = decodedResponse.message
-                            }
+
+//                            }
                     }
                     else {
                         let decodedResponse = try? JSONDecoder().decode(ErrorResult.self, from: dataResp)
@@ -145,9 +149,10 @@ class SpotifySignInApi {
                 }
             }.resume()
             
+        sem.wait()
         // tells function to wait before returning
         return returnObject
-        sem.wait()
+        
     }
 
     
