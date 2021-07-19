@@ -62,6 +62,10 @@ struct ContentView: View {
                       return
                     }
                     selectedTab = tabIdentifier
+                    
+                    
+                    
+                    
                 }
             }
         }.onAppear {

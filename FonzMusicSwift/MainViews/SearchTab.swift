@@ -92,6 +92,13 @@ struct SearchTab: View {
             
             print(lastSection)
             
+            let containsSpotify = url.absoluteString.contains("spotify")
+            if containsSpotify {
+                let sessionId = UserDefaults.standard.string(forKey: "userAccountSessionId")
+                SpotifySignInApi().addSpotifyToAccount(sessionId: sessionId ?? "")
+                print("has spot")
+            }
+            
             if (lastSection.count == 14) {
                 print("is uid")
                 
@@ -115,8 +122,8 @@ struct SearchTab: View {
                 
             }
             
-            let coasterUid = url.checksCoaster
-            print("coaster uid is \(String(describing: coasterUid))")
+//            let coasterUid = url.checksCoaster
+//            print("coaster uid is \(String(describing: coasterUid))")
         }
     }
 }

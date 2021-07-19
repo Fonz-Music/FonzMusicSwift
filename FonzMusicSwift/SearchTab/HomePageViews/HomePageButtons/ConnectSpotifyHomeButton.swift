@@ -29,7 +29,8 @@ struct ConnectSpotifyHomeButton: View {
     var body: some View {
         VStack {
             Button(action: {
-                SpotifySignInApi().addSpotifyToAccount(sessionId: "zPrCa7V0nmk0Np5F55Db")
+                HostFonzSessionApi().createSession()
+//                SpotifySignInApi().addSpotifyToAccount(sessionId: "zPrCa7V0nmk0Np5F55Db")
 //
 //                #if !APPCLIP
 //                if hasAccount {

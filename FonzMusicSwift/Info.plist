@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>fonz music</string>
+	<string>Fonz Music</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -31,17 +31,6 @@
 			</array>
 		</dict>
 	</array>
-<!--	<key>CFBundleUrlTypes</key>-->
-<!--	<array>-->
-<!--		<dict>-->
-<!--			<key>CFBundleTypeRole</key>-->
-<!--			<string>Editor</string>-->
-<!--			<key>CFBundleUrlName</key>-->
-<!--			<string>com.fonzmusic</string>-->
-<!--			<key>CFBundleUrlSchemes</key>-->
-<!--			<array/>-->
-<!--		</dict>-->
-<!--	</array>-->
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSApplicationQueriesSchemes</key>

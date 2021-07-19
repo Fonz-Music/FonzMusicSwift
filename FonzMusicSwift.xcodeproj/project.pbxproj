@@ -104,6 +104,9 @@
 		2676B12826A5C33E00E18E4B /* ProvidersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2676B12626A5C33E00E18E4B /* ProvidersResponse.swift */; };
 		2676B12A26A5CB9F00E18E4B /* URLSessionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2676B12926A5CB9F00E18E4B /* URLSessionExtension.swift */; };
 		2676B12B26A5CB9F00E18E4B /* URLSessionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2676B12926A5CB9F00E18E4B /* URLSessionExtension.swift */; };
+		2676B12F26A5DFBC00E18E4B /* HostFonzSessionApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B651662638A1B30074F279 /* HostFonzSessionApi.swift */; };
+		2676B13126A5E0D400E18E4B /* SessionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2676B13026A5E0D400E18E4B /* SessionResponse.swift */; };
+		2676B13226A5E0D400E18E4B /* SessionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2676B13026A5E0D400E18E4B /* SessionResponse.swift */; };
 		2677029126347ECD00B8BC92 /* FonzMusicSwiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2677029026347ECD00B8BC92 /* FonzMusicSwiftApp.swift */; };
 		2677029326347ECD00B8BC92 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2677029226347ECD00B8BC92 /* ContentView.swift */; };
 		2677029526347ED100B8BC92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2677029426347ED100B8BC92 /* Assets.xcassets */; };
@@ -285,6 +288,7 @@
 		26691F78267ACB3B00C83696 /* HostSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostSetup.swift; sourceTree = "<group>"; };
 		2676B12626A5C33E00E18E4B /* ProvidersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvidersResponse.swift; sourceTree = "<group>"; };
 		2676B12926A5CB9F00E18E4B /* URLSessionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionExtension.swift; sourceTree = "<group>"; };
+		2676B13026A5E0D400E18E4B /* SessionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionResponse.swift; sourceTree = "<group>"; };
 		2677028D26347ECD00B8BC92 /* FonzMusicSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FonzMusicSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2677029026347ECD00B8BC92 /* FonzMusicSwiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FonzMusicSwiftApp.swift; sourceTree = "<group>"; };
 		2677029226347ECD00B8BC92 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -501,6 +505,7 @@
 			isa = PBXGroup;
 			children = (
 				2676B12626A5C33E00E18E4B /* ProvidersResponse.swift */,
+				2676B13026A5E0D400E18E4B /* SessionResponse.swift */,
 			);
 			path = ApiResponseObjects;
 			sourceTree = "<group>";
@@ -1160,6 +1165,7 @@
 				26AF07CA268D2DFB006A9504 /* VersionResponse.swift in Sources */,
 				26691F70267AC69A00C83696 /* JoinAPartyButton.swift in Sources */,
 				26AF07C0268CEE00006A9504 /* LaunchTroubleShootCoasterNfc.swift in Sources */,
+				2676B13126A5E0D400E18E4B /* SessionResponse.swift in Sources */,
 				26DB9ABD26349A1D0030643D /* TracksFromSearch.swift in Sources */,
 				26B651642638A0610074F279 /* GlobalExtensions.swift in Sources */,
 				26AF07CE268D3794006A9504 /* CreateAccountButton.swift in Sources */,
@@ -1257,6 +1263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2676B12F26A5DFBC00E18E4B /* HostFonzSessionApi.swift in Sources */,
 				2676B12426A5C1C000E18E4B /* SpotifySignInApi.swift in Sources */,
 				268E8F4B26A49EE1006451AE /* ConsentedToEmail.swift in Sources */,
 				268E8F4C26A49EE1006451AE /* ConsentedToPrivacy.swift in Sources */,
@@ -1281,6 +1288,7 @@
 				261752C526A3448A0069C83D /* HostAPartyButton.swift in Sources */,
 				261752C626A3448A0069C83D /* BuyACoasterHomeButton.swift in Sources */,
 				261752C726A3448A0069C83D /* ConnectSpotifyHomeButton.swift in Sources */,
+				2676B13226A5E0D400E18E4B /* SessionResponse.swift in Sources */,
 				261752CA26A3448A0069C83D /* QueueSongSuccess.swift in Sources */,
 				261752CB26A3448A0069C83D /* QueuedButDelayedResponse.swift in Sources */,
 				261752CC26A3448A0069C83D /* QueueSongError.swift in Sources */,
