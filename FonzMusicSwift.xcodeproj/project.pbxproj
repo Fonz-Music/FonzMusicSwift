@@ -85,6 +85,7 @@
 		2620B8A52679261F004FE721 /* SearchBarPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2620B8A42679261F004FE721 /* SearchBarPage.swift */; };
 		2620B8A8267926C2004FE721 /* HomePageDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2620B8A7267926C2004FE721 /* HomePageDecision.swift */; };
 		2620B8AA26795A8C004FE721 /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2620B8A926795A8B004FE721 /* ButtonStyles.swift */; };
+		263545BB26A6FFC400B415C9 /* LinkSpotifySettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263545BA26A6FFC400B415C9 /* LinkSpotifySettingsButton.swift */; };
 		265634BA267814DB00FD6F27 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265634B9267814DB00FD6F27 /* StringExtensions.swift */; };
 		265634BD267815B900FD6F27 /* Crypto in Frameworks */ = {isa = PBXBuildFile; productRef = 265634BC267815B900FD6F27 /* Crypto */; };
 		265634BF2678163000FD6F27 /* DataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265634BE2678163000FD6F27 /* DataExtension.swift */; };
@@ -275,6 +276,7 @@
 		2620B8A42679261F004FE721 /* SearchBarPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarPage.swift; sourceTree = "<group>"; };
 		2620B8A7267926C2004FE721 /* HomePageDecision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageDecision.swift; sourceTree = "<group>"; };
 		2620B8A926795A8B004FE721 /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
+		263545BA26A6FFC400B415C9 /* LinkSpotifySettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkSpotifySettingsButton.swift; sourceTree = "<group>"; };
 		265634B9267814DB00FD6F27 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		265634BE2678163000FD6F27 /* DataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtension.swift; sourceTree = "<group>"; };
 		265634C02678341E00FD6F27 /* SettingsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPage.swift; sourceTree = "<group>"; };
@@ -507,6 +509,7 @@
 		2676B12526A5C31700E18E4B /* ApiResponseObjects */ = {
 			isa = PBXGroup;
 			children = (
+				26AF07C9268D2DFB006A9504 /* VersionResponse.swift */,
 				2676B12626A5C33E00E18E4B /* ProvidersResponse.swift */,
 				2676B13026A5E0D400E18E4B /* SessionResponse.swift */,
 			);
@@ -718,7 +721,6 @@
 				26AC89CB2669600500E1C41E /* AsyncImage.swift */,
 				26ECCFDC2682B0A60053BE1F /* Artist.swift */,
 				26ECCFDE2682B0DA0053BE1F /* Playlist.swift */,
-				26AF07C9268D2DFB006A9504 /* VersionResponse.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -925,6 +927,7 @@
 				26FBCCF52686A5A100399460 /* SignOutButton.swift */,
 				26FBCCF72686A5C500399460 /* LimitSongRequestsButton.swift */,
 				26AF07CD268D3794006A9504 /* CreateAccountButton.swift */,
+				263545BA26A6FFC400B415C9 /* LinkSpotifySettingsButton.swift */,
 			);
 			path = SettingsTab;
 			sourceTree = "<group>";
@@ -1142,6 +1145,7 @@
 				26B65153263866E20074F279 /* UpdatePageviewVars.swift in Sources */,
 				26FBCCDF26866EF200399460 /* CoasterNameInDashboard.swift in Sources */,
 				268B97AE26855C7000984DC4 /* ConnectSpotifyButtonHostView.swift in Sources */,
+				263545BB26A6FFC400B415C9 /* LinkSpotifySettingsButton.swift in Sources */,
 				26B651672638A1B30074F279 /* HostFonzSessionApi.swift in Sources */,
 				268FA5F7268E905C00E45AA6 /* SomeoneElsesCoaster.swift in Sources */,
 				268B97B226855D7E00984DC4 /* CoasterDashboardPage.swift in Sources */,

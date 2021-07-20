@@ -6,9 +6,9 @@
 //
 
 import Foundation
-
+import SwiftUI
 
 struct VersionResponse: Codable {
-    var apiVersion: String
+    var apiVersion: CGFloat
     var minimumAppVersion: String
 }

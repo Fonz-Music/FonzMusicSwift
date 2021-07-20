@@ -15,13 +15,15 @@ struct SettingsPage: View {
     // bool on if the user has coasters connected
     @Binding var hasConnectedCoasters : Bool
     // bool to launch create account modal
+    // determines if current user is connected to Spotify
+    @Binding var connectedToSpotify : Bool
+    
     @State var throwCreateAccountModal = false
     // gets dark/light mode
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         ZStack{
-            
             VStack{
                 HStack{
                     Text("account")
@@ -48,18 +50,26 @@ struct SettingsPage: View {
                         .padding(25)
                         .frame(width: UIScreen.screenWidth, height: 50, alignment: .topLeading)
                     
-                        ChangeDisplayNameButton()
-                        ManageSpotifyButton()
-                        SignOutButton(hasAccount: $hasAccount)
-                        // if the user has connected coasters, give option to limit reqs
-        //                    if hasConnectedCoasters {
-        //                        Text("coaster management")
-        //                            .foregroundColor(Color.white)
-        //                            .fonzParagraphTwo()
-        //                            .padding(25)
-        //                            .frame(width: UIScreen.screenWidth, height: 50, alignment: .topLeading)
-        //                        LimitSongRequestsButton()
-        //                    }
+                    ChangeDisplayNameButton()
+                    if connectedToSpotify {
+                        // option to disconnect
+                        ManageSpotifyButton(connectedToSpotify: $connectedToSpotify)
+                    }
+                    else {
+                        // link spotify
+                        LinkSpotifySettingsButton()
+                    }
+                   
+                    SignOutButton(hasAccount: $hasAccount)
+                    // if the user has connected coasters, give option to limit reqs
+    //                    if hasConnectedCoasters {
+    //                        Text("coaster management")
+    //                            .foregroundColor(Color.white)
+    //                            .fonzParagraphTwo()
+    //                            .padding(25)
+    //                            .frame(width: UIScreen.screenWidth, height: 50, alignment: .topLeading)
+    //                        LimitSongRequestsButton()
+    //                    }
 
                 }
                 // otherwise, offer to create an account

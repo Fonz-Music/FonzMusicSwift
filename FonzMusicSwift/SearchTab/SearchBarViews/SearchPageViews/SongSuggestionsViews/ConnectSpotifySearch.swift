@@ -26,9 +26,9 @@ struct ConnectSpotifySearch: View {
         Button(action: {
             #if !APPCLIP
             if hasAccount {
+                HostFonzSessionApi().createSession()
                 SpotifyInBrowser().launchSpotifyInBrowser()
-                UserDefaults.standard.set(true, forKey: "connectedToSpotify")
-                connectedToSpotify = true
+                
             }
             else {
                 throwCreateAccountModal = true

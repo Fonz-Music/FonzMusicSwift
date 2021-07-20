@@ -77,6 +77,7 @@ class SpotifySignInApi {
                             print("success")
                             providerObject.providers = decodedResponse.providers
                             let providerId = decodedResponse.providers[0].id
+                            UserDefaults.standard.set(decodedResponse.providers[0].spotifyId, forKey: "spotifyId")
                             print("id is \(providerId)" )
 //                            DispatchQueue.main.async {
                                 // this allows us to wait before returning value

@@ -44,15 +44,15 @@ struct ContentView: View {
                     SearchTab(selectedTab: $selectedTab,connectedToSpotify: $connectedToSpotify, hasAccount: $hasAccount, hasConnectedCoasters: $hasConnectedCoasters).tabItem {
                         Label("queue", systemImage: "plus.magnifyingglass")
                     }.tag(TabIdentifier.search)
-                    SettingsPage(hasAccount: $hasAccount, hasConnectedCoasters: $hasConnectedCoasters).tabItem {
+                    SettingsPage(hasAccount: $hasAccount, hasConnectedCoasters: $hasConnectedCoasters, connectedToSpotify: $connectedToSpotify).tabItem {
                         Label("account", systemImage: "gearshape")
                     }.tag(TabIdentifier.account)
                 }.accentColor(.amber)
                 .onAppear {
                     // fetches the min app version from apu
-//                    let minVersionNumber = GetVersionApi().getMinVersion(device: "iOS")
-//                    print("version is \(minVersionNumber)" )
-                    let minVersionNumber = "1.00"
+                    let minVersionNumber = GetVersionApi().getMinVersion(device: "iOS")
+                    print("version is \(minVersionNumber)" )
+//                    let minVersionNumber = "1.00"
                     // sets bool based on comparing the current version from min version
                     needsToUpdate = determineViewBasedOnVersion(currentVersion: UIApplication.appVersion!, minVersion: minVersionNumber)
                 }

@@ -28,13 +28,7 @@ struct ConnectSpotifyButtonHomeView: View {
         VStack {
             Button(action: {
                 if hasAccount {
-                    withAnimation {
-        //                selectedTab = 1
-    //                    pressedButtonToLaunchSpotifySignIn = true
-                        connectedToSpotify = true
-
-                        UserDefaults.standard.set(true, forKey: "connectedToSpotify")
-                    }
+                    HostFonzSessionApi().createSession()
                     FirebaseAnalytics.Analytics.logEvent("userTappedConnectSpotify", parameters: ["user":"user", "tab":"host"])
                     SpotifyInBrowser().launchSpotifyInBrowser()
                 }
