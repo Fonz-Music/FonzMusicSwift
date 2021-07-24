@@ -83,19 +83,19 @@ struct SignInView: View {
                 }
                 
                 
-                Text("or")
-                    .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
-                    .fonzParagraphTwo()
-                    .padding(.vertical, 5)
-                // other sign in options
-                HStack {
-                    Spacer()
-                    // apple button
-                    SignInWithAppleButton()
-                    // google button
-                    SignInWithGoogleButton()
-                    Spacer()
-                }
+//                Text("or")
+//                    .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
+//                    .fonzParagraphTwo()
+//                    .padding(.vertical, 5)
+//                // other sign in options
+//                HStack {
+//                    Spacer()
+//                    // apple button
+//                    SignInWithAppleButton()
+//                    // google button
+//                    SignInWithGoogleButton()
+//                    Spacer()
+//                }
 
                 Button {
                     //

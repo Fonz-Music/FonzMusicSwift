@@ -75,27 +75,21 @@ struct SettingsPage: View {
                 // otherwise, offer to create an account
                 else {
                     VStack{
-//                        HStack{
-//                            Text("create account")
-//                                .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
-//                                .fonzParagraphTwo()
-////                                .padding(.leading, 25)
-//                                .padding(.top, 15)
-//                            Spacer()
-//                        }
-                        
                         ScrollView{
                             CreateAccountView(hasAccount: $hasAccount, showModal: $throwCreateAccountModal)
                                 .padding(.horizontal, 20)
                                 .padding(.bottom, 10)
                         }
+//                        .frame(height: UIScreen.screenHeight * 0.8)
 //                        .padding(.bottom, 30)
                     }
                     
                     .background(
                         RoundedRectangle(cornerRadius: .cornerRadiusBlocks)
                             .foregroundColor(colorScheme == .light ? Color.white: Color.darkBackground)
-                            .frame(width: UIScreen.screenWidth * 0.9)
+                            .frame(width: UIScreen.screenWidth * 0.9, height: UIScreen.screenHeight * 0.7)
+                        , alignment: .top
+                            
                     )
                     .frame(width: UIScreen.screenWidth * 0.8)
 //                    .padding(30)

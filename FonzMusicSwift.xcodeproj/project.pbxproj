@@ -92,8 +92,6 @@
 		265634BD267815B900FD6F27 /* Crypto in Frameworks */ = {isa = PBXBuildFile; productRef = 265634BC267815B900FD6F27 /* Crypto */; };
 		265634BF2678163000FD6F27 /* DataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265634BE2678163000FD6F27 /* DataExtension.swift */; };
 		265634C12678341E00FD6F27 /* SettingsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265634C02678341E00FD6F27 /* SettingsPage.swift */; };
-		2658EC8426ACA4C800077094 /* HandleUserActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2658EC8326ACA4C800077094 /* HandleUserActivity.swift */; };
-		2658EC8526ACA4C800077094 /* HandleUserActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2658EC8326ACA4C800077094 /* HandleUserActivity.swift */; };
 		26659BC4263BA36B0008FD1F /* LaunchConnectCoasterNfc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26659BC3263BA36B0008FD1F /* LaunchConnectCoasterNfc.swift */; };
 		26691F66267AB89A00C83696 /* SongResultItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26691F65267AB89A00C83696 /* SongResultItem.swift */; };
 		26691F69267AC46A00C83696 /* SearchResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26691F68267AC46A00C83696 /* SearchResultsView.swift */; };
@@ -285,7 +283,6 @@
 		265634B9267814DB00FD6F27 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		265634BE2678163000FD6F27 /* DataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtension.swift; sourceTree = "<group>"; };
 		265634C02678341E00FD6F27 /* SettingsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPage.swift; sourceTree = "<group>"; };
-		2658EC8326ACA4C800077094 /* HandleUserActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandleUserActivity.swift; sourceTree = "<group>"; };
 		26659BC3263BA36B0008FD1F /* LaunchConnectCoasterNfc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchConnectCoasterNfc.swift; sourceTree = "<group>"; };
 		26691F65267AB89A00C83696 /* SongResultItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongResultItem.swift; sourceTree = "<group>"; };
 		26691F68267AC46A00C83696 /* SearchResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsView.swift; sourceTree = "<group>"; };
@@ -794,7 +791,6 @@
 				26DB9B212634A95D0030643D /* FrontEnd */,
 				26DB9B1F2634A7BF0030643D /* SignInSpotify */,
 				26DB9B1B2634A6280030643D /* GlobalErrorPages */,
-				2658EC8326ACA4C800077094 /* HandleUserActivity.swift */,
 			);
 			path = GlobalComponents;
 			sourceTree = "<group>";
@@ -1179,7 +1175,6 @@
 				26ECCFDB2682AA500053BE1F /* YourFavoriteArtists.swift in Sources */,
 				26F5350726975E200055C188 /* SignInWithGoogleButton.swift in Sources */,
 				26B651562638671D0074F279 /* Track.swift in Sources */,
-				2658EC8426ACA4C800077094 /* HandleUserActivity.swift in Sources */,
 				2687C733268A97610044AA37 /* SongListModalSongButton.swift in Sources */,
 				26DB9ACE26349B040030643D /* TryAgainNfc.swift in Sources */,
 				2677029326347ECD00B8BC92 /* ContentView.swift in Sources */,
@@ -1333,7 +1328,6 @@
 				261752D526A3448A0069C83D /* YourTopPlaylists.swift in Sources */,
 				261752D626A3448A0069C83D /* ConnectSpotifySearch.swift in Sources */,
 				261752D726A3448A0069C83D /* SongResultItem.swift in Sources */,
-				2658EC8526ACA4C800077094 /* HandleUserActivity.swift in Sources */,
 				261752D826A3448A0069C83D /* SearchBarView.swift in Sources */,
 				261752D926A3448A0069C83D /* SearchResultsView.swift in Sources */,
 				261752DA26A3448B0069C83D /* TracksFromSearch.swift in Sources */,
