@@ -41,7 +41,7 @@ struct SearchTab: View {
             }
             else {
                 
-                HomePageDecision(hostCoaster: hostCoaster, hasHostVar: $hasHost, selectedTab: $selectedTab, hasAccount: $hasAccount, hasConnectedCoasters: $hasConnectedCoasters, connectedToSpotify: $connectedToSpotify)
+                HomePageDecision(hostCoaster: hostCoaster, hasHostVar: $hasHost, selectedTab: $selectedTab, hasAccount: $hasAccount, hasConnectedCoasters: $hasConnectedCoasters, connectedToSpotify: $connectedToSpotify, hasHost: $hasHost)
                     .actionSheet(isPresented: $throwFirstLaunchAlert) {
                                     ActionSheet(
                                         title: Text("have you used the Fonz Music App before?"),
@@ -85,6 +85,12 @@ struct SearchTab: View {
             }
             
             #endif
+            
+//            UserDefaults.standard.set("", forKey: "uidFromTapping")
+            
+            
+            
+            
         }
         .onOpenURL { url in
             let dividedUrl = url.absoluteString.split(separator: "/")
@@ -109,28 +115,7 @@ struct SearchTab: View {
                 
             }
             
-            if (lastSection.count == 14) {
-                print("is uid")
-                
-                let coasterDetails = GuestApi().getCoasterInfo(coasterUid: String(lastSection))
-                DispatchQueue.main.async {
-                    if (coasterDetails.statusCode == 200 || coasterDetails.coasterName != "") {
-                        
-//                        self.uid = uidFromCoaster
-                        // sets vars to return to user
-                        self.hasHost = true
-                        self.hostCoaster.coasterName = coasterDetails.coasterName
-                        self.hostCoaster.hostName = coasterDetails.displayName
-                        self.hostCoaster.sessionId = coasterDetails.sessionId
-                        self.hostCoaster.uid = String(lastSection)
-                        
-                    }
-                    else if (coasterDetails.statusCode == 204) {
-                        // tell user this coaster doesn't have a host, you wanna connect to it?
-                    }
-                }
-                
-            }
+            
             
 //            let coasterUid = url.checksCoaster
 //            print("coaster uid is \(String(describing: coasterUid))")

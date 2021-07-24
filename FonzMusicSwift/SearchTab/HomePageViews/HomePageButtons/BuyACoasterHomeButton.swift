@@ -14,6 +14,8 @@ struct BuyACoasterHomeButton: View {
     @Environment(\.colorScheme) var colorScheme
     let sideGraphicHeight = UIScreen.screenHeight * 0.03
     
+    @State var launchWebview = false
+    
     var body: some View {
         VStack{
             Button(action: {
@@ -22,6 +24,8 @@ struct BuyACoasterHomeButton: View {
                 }
                 openURL(url)
                 print("pressed button")
+                
+//                launchWebview.toggle()
                 FirebaseAnalytics.Analytics.logEvent("userPressedBuyCoaster", parameters: ["user":"user", "tab": "search"])
                 
             }, label: {
@@ -36,6 +40,10 @@ struct BuyACoasterHomeButton: View {
             Text("buy a coaster")
                 .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
                 .fonzParagraphTwo()
+//            if launchWebview {
+//                ShopWebView()
+//                    .frame(width: 0, height: 0, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+//            }
         }
     }
 }

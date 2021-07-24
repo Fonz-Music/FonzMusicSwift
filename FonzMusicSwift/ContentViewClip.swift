@@ -28,22 +28,7 @@ struct ContentView: View {
     var body: some View {
         
     ZStack{
-        // checks version & forces user to update if it's outdated
-//            TabView(selection: $selectedTab) {
-//                HostTab(connectedToSpotify: $connectedToSpotify, hasConnectedCoasters: $hasConnectedCoasters, hasAccount: $hasAccount)
-//                    .tabItem {
-//                    Label("host", systemImage: "hifispeaker")
-//                }.tag(TabIdentifier.host)
-                SearchTab(selectedTab: $selectedTab,connectedToSpotify: $connectedToSpotify, hasAccount: $hasAccount, hasConnectedCoasters: $hasConnectedCoasters)
-//                    .tabItem {
-//                    Label("queue", systemImage: "plus.magnifyingglass")
-//                }.tag(TabIdentifier.search)
-//                SettingsPage(hasAccount: $hasAccount, hasConnectedCoasters: $hasConnectedCoasters)
-//                    .tabItem {
-//                    Label("account", systemImage: "gearshape")
-//                }.tag(TabIdentifier.account)
-//            }.accentColor(.amber)
-            
+        SearchTab(selectedTab: $selectedTab,connectedToSpotify: $connectedToSpotify, hasAccount: $hasAccount, hasConnectedCoasters: $hasConnectedCoasters)
             .onOpenURL { url in
                 // if the url contains a tabIdentifier in it, it will go to that page
                 guard let tabIdentifier = url.tabIdentifier else {
@@ -52,6 +37,7 @@ struct ContentView: View {
                 selectedTab = tabIdentifier
             }
         }
+//        .onContinueUserActivity(NSUserActivityTypeBrowsingWeb, perform: handleUserActivity)
         .onAppear {
             
             // to reset (debugging)
@@ -65,5 +51,7 @@ struct ContentView: View {
             connectedToSpotify = UserDefaults.standard.bool(forKey: "connectedToSpotify")
             
         }
+    
     }
 }
+

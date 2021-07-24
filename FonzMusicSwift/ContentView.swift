@@ -27,6 +27,7 @@ struct ContentView: View {
     @State var hasAccount = false
     // bool on whether the user needs to update their app
     @State var needsToUpdate = false
+    
 
     // main app
     var body: some View {
@@ -56,17 +57,7 @@ struct ContentView: View {
                     // sets bool based on comparing the current version from min version
                     needsToUpdate = determineViewBasedOnVersion(currentVersion: UIApplication.appVersion!, minVersion: minVersionNumber)
                 }
-                .onOpenURL { url in
-                    // if the url contains a tabIdentifier in it, it will go to that page
-                    guard let tabIdentifier = url.tabIdentifier else {
-                      return
-                    }
-                    selectedTab = tabIdentifier
-                    
-                    
-                    
-                    
-                }
+                
             }
         }.onAppear {
             
@@ -82,6 +73,9 @@ struct ContentView: View {
             
             
         }
+//        .onContinueUserActivity(NSUserActivityTypeBrowsingWeb, perform:
+//            handleUserActivity
+//        )
         
        
     }
@@ -112,3 +106,30 @@ struct ContentView: View {
     }
     
 }
+//
+//func handleUserActivity(_ userActivity: NSUserActivity) {
+//    print("handling user act")
+//    print("user activity: \(userActivity.webpageURL)")
+//    guard let incomingUrl = userActivity.webpageURL
+//          else {
+//        return
+//    }
+//    let dividedUrl = incomingUrl.absoluteString.split(separator: "/")
+//    let lastSection = dividedUrl[dividedUrl.count - 1]
+//
+//    print(lastSection)
+//    if (lastSection.count == 14) {
+//        UserDefaults.standard.set(String(lastSection), forKey: "uidFromTapping")
+//    }
+////    UserDefaults.standard.set("", forKey: "uidFromTapping")
+//    print("incoming url is \(incomingUrl)")
+//}
+
+//
+//.onOpenURL { url in
+//    // if the url contains a tabIdentifier in it, it will go to that page
+//    guard let tabIdentifier = url.tabIdentifier else {
+//      return
+//    }
+//    selectedTab = tabIdentifier
+//}

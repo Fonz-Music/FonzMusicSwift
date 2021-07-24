@@ -23,6 +23,8 @@ struct HomePageDecision: View {
     @Binding var hasConnectedCoasters : Bool
     // determines if current user is connected to spotify
     @Binding var connectedToSpotify : Bool
+    // determines if current user is connected to spotify
+    @Binding var hasHost : Bool
 // ---------------------------------- created in view -----------------------------------------------
     // bool auto set to false, set to true if nfc is launched
     @State var launchedNfc = false
@@ -147,5 +149,52 @@ struct HomePageDecision: View {
                 }
                 Spacer()
             }
+            .onContinueUserActivity(NSUserActivityTypeBrowsingWeb, perform:
+                    handleUserActivityReadingUid
+            )
     }
+    
+    // this checks the launch url & if it includes a coasterUid, navigates to the searchbar or has the user connect to the coaster
+    func handleUserActivityReadingUid(_ userActivity: NSUserActivity) {
+
+        // sets the url if there is one
+        guard let incomingUrl = userActivity.webpageURL
+              else {
+            return
+        }
+        // divides it & makes potentional uid = lastSection
+        let dividedUrl = incomingUrl.absoluteString.split(separator: "/")
+        let lastSection = dividedUrl[dividedUrl.count - 1]
+        
+        print(lastSection)
+        // each uid is exactly 14 chars
+        if (lastSection.count == 14) {
+            print("uid is \(String(lastSection))")
+
+            let coasterDetails = GuestApi().getCoasterInfo(coasterUid: String(lastSection))
+            
+            DispatchQueue.main.async {
+                // if the uid is valid
+                if (coasterDetails.statusCode == 200 || coasterDetails.statusCode == 204) {
+
+                    // sets all params
+                    self.hostCoaster.coasterName = coasterDetails.coasterName
+                    self.hostCoaster.hostName = coasterDetails.displayName
+                    self.hostCoaster.sessionId = coasterDetails.sessionId
+                    self.hostCoaster.uid = String(lastSection)
+                    // if it has a host, nav to search
+                    if (coasterDetails.statusCode == 200) {
+                        self.hasHost = true
+                    }
+                    // otherwise have user connect to it as a host
+                    else {
+                        launchedNfc = true
+                        statusCodeResp = 204
+                    }
+                    
+                }
+            }
+        }
+    }
+    
 }

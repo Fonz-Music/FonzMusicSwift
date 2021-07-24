@@ -45,7 +45,7 @@ struct ChangeDisplayNameButton: View {
         if isExpanded {
             HStack{
                 TextField("name", text: $newDisplayName)
-                    .foregroundColor(colorScheme == .light ? Color.white : Color.darkButton)
+                    .foregroundColor(colorScheme == .light ? Color.darkButton : Color.white)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .fonzShadow()
                     .padding(10)

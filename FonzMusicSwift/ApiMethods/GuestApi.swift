@@ -27,6 +27,8 @@ class GuestApi {
 //        let ADDRESS = "http://52.50.138.97:8080/"
     let GUEST = "guest/"
     let COASTER = "coaster/"
+
+    let tempToken = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjFiYjk2MDVjMzZlOThlMzAxMTdhNjk1MTc1NjkzODY4MzAyMDJiMmQiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiZGVlciIsInBpY3R1cmUiOiJodHRwczovL2xoNC5nb29nbGV1c2VyY29udGVudC5jb20vLXdIRHZhQXRMWklzL0FBQUFBQUFBQUFJL0FBQUFBQUFBQUFBL0FNWnV1Y256SmJCbk94bWtFcTNuM3BJeE9wUHNDUXZ1dmcvczk2LWMvcGhvdG8uanBnIiwiaXNzIjoiaHR0cHM6Ly9zZWN1cmV0b2tlbi5nb29nbGUuY29tL2ZvbnotbXVzaWMtYXBwIiwiYXVkIjoiZm9uei1tdXNpYy1hcHAiLCJhdXRoX3RpbWUiOjE2MjcxNTUwMTksInVzZXJfaWQiOiJFMnU5aXJabWtIYkY5ZlBHWDcyZTBFVDJNcjkyIiwic3ViIjoiRTJ1OWlyWm1rSGJGOWZQR1g3MmUwRVQyTXI5MiIsImlhdCI6MTYyNzE1NTAxOSwiZXhwIjoxNjI3MTU4NjE5LCJlbWFpbCI6ImRpYXJtdWlkNDlAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsiZGlhcm11aWQ0OUBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.U2P-748bDxBnkDvLWAK8oa4AU0JM7C4MqMmb8zLpD1kxRZoo3aZQBRK_55gNv1Czn8VJgudcPixyWxGiaq1GtAunI8furiPm-e4GtgnmAtPfaY20lGKJnWTy8Dw0jrX_ho5_PhiKXvImA8ynweC0gcxmoYI9wfzqLkWUcbNgNN4Oz1ZEu-TzSup6fiCiErpV9_jmAq2k018FnSv9ihX--8ezOjYu0XoR2FrVe40CSs2mOGPyCQDU5MkKoiUcELtuGHI-6fqSlUOhEt09mZb0UFyPnRK_pJJVyJCNIphFKF5wKJ4ef2EBeEbNnOzjaZM0KDjqHF2uA6S7KEH__QTXfQ"
     
     let userEmail = UserDefaults.standard.string(forKey: "userEmail")
     
@@ -47,16 +49,18 @@ class GuestApi {
         print("starting getCoaster")
 
 //        accessToken = getJWTAndCheckIfExpired()
+        
 
-        guard let user = Auth.auth().currentUser else {
-            print("there was an error getting the user")
-            return  returnObject}
-        print("got auth")
-
-//             get access token
-            user.getIDToken(){ (idToken, error) in
-            if error == nil, let token = idToken {
-                accessToken = token
+//        guard let user = Auth.auth().currentUser else {
+//            print("there was an error getting the user")
+//            return  returnObject}
+//        print("got auth")
+//
+////             get access token
+//            user.getIDToken(){ (idToken, error) in
+//            if error == nil, let token = idToken {
+//                accessToken = token
+        accessToken = tempToken
                 print("got token")
                 print("\(accessToken)" )
                 // set UID to uppercase
@@ -64,8 +68,8 @@ class GuestApi {
                 // create url
                 guard let url = URL(string: self.ADDRESS + self.GUEST + self.COASTER + uid )
                 else {
-                    return
-//                    return returnObject
+//                    return
+                    return returnObject
                 }
                 
                 var request = URLRequest(url: url)
@@ -108,11 +112,11 @@ class GuestApi {
                         print("fetch failed: \(error?.localizedDescription ?? "unknown error")")
                     }
                 }.resume()
-            }else{
-                print("error")
-                //error handling
-            }
-        }
+//            }else{
+//                print("error")
+//                //error handling
+//            }
+//        }
         // tells function to wait before returning
         sem.wait()
         return returnObject
