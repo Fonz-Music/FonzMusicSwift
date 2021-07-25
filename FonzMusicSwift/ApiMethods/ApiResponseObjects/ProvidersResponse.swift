@@ -18,3 +18,7 @@ struct Provider: Codable {
     var spotifyId : String
     
 }
+
+struct SpotifyUrlResponse: Codable {
+    var authorizeURL : String
+}

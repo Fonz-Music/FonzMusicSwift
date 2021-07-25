@@ -93,10 +93,10 @@ struct SearchTab: View {
             
         }
         .onOpenURL { url in
-            let dividedUrl = url.absoluteString.split(separator: "/")
-            let lastSection = dividedUrl[dividedUrl.count - 1]
-            
-            print(lastSection)
+//            let dividedUrl = url.absoluteString.split(separator: "/")
+//            let lastSection = dividedUrl[dividedUrl.count - 1]
+//
+//            print(lastSection)
             
             let containsSpotify = url.absoluteString.contains("spotify")
             if containsSpotify {
@@ -112,7 +112,7 @@ struct SearchTab: View {
                         UserDefaults.standard.set(true, forKey: "connectedToSpotify")
                     }
                 }
-                
+   
             }
             
             

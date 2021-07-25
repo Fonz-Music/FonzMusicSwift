@@ -14,23 +14,14 @@ struct SpotifyInBrowser {
     
     func launchSpotifyInBrowser() {
         
-        
-        
-        guard let user = Auth.auth().currentUser else {
-            print("there was an error getting the user")
-            return
+        let authorizeUrl = SpotifySignInApi().getSpotifySignInUrl()
+        print("url is \(authorizeUrl)")
+        let url = URL(string: authorizeUrl)
+        if authorizeUrl.count > 20 {
+            openURL(url!)
         }
-        user.getIDToken(){ (idToken, error) in
-            if error == nil, let token = idToken {
-                let userToken = token
-
-                guard let url = URL(string: "https://api.fonzmusic.com/auth/spotify?token=\(userToken)") else {
-                    return
-                }
-                openURL(url)
-                print("launched spotify")
-            }
-        }
+        
+        print("launched spotify")
     }
 
 }
