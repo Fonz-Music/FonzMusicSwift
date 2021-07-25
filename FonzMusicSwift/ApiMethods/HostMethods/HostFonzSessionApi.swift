@@ -95,7 +95,7 @@ class HostFonzSessionApi {
 //                                    UserDefaults.standard.set(decodedResponse.sessionId, forKey: "userAccountSessionId")
 //                                }
 //                                else {
-//                                    let decodedResponse = try? JSONDecoder().decode(ErrorResult.self, from: dataResp)
+//                                    let decodedResponse = try? JSONDecoder().decode(ErrorResponse.self, from: dataResp)
 //
 //                                    // sets return value
 ////                                    returnMessage = decodedResponse!.message
@@ -118,7 +118,7 @@ class HostFonzSessionApi {
                     returnMessage = decodedResponse.message
                 }
                 else {
-                    let decodedResponse = try? JSONDecoder().decode(ErrorResult.self, from: dataResp)
+                    let decodedResponse = try? JSONDecoder().decode(ErrorResponse.self, from: dataResp)
                         
                     returnMessage = decodedResponse!.message
                 }
@@ -180,7 +180,7 @@ class HostFonzSessionApi {
                             UserDefaults.standard.set(decodedResponse.sessionId, forKey: "userAccountSessionId")
                         }
                         else {
-                            let decodedResponse = try? JSONDecoder().decode(ErrorResult.self, from: dataResp)
+                            let decodedResponse = try? JSONDecoder().decode(ErrorResponse.self, from: dataResp)
                                 
                             // sets return value
 //                                    returnMessage = decodedResponse!.message
@@ -245,7 +245,7 @@ class HostFonzSessionApi {
                             returnMessage = decodedResponse.message
                         }
                         else {
-                            let decodedResponse = try? JSONDecoder().decode(ErrorResult.self, from: dataResp)
+                            let decodedResponse = try? JSONDecoder().decode(ErrorResponse.self, from: dataResp)
                                 
                             // sets return value
                             returnMessage = decodedResponse!.message
@@ -313,7 +313,7 @@ class HostFonzSessionApi {
                             returnMessage = decodedResponse.message
                         }
                         else {
-                            let decodedResponse = try? JSONDecoder().decode(ErrorResult.self, from: dataResp)
+                            let decodedResponse = try? JSONDecoder().decode(ErrorResponse.self, from: dataResp)
                                 
                             // sets return value
                             returnMessage = decodedResponse!.message

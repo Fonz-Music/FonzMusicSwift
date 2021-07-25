@@ -116,7 +116,7 @@ class SignInSignUpApi {
                     
                 }
                 else {
-                    let decodedResponse = try? JSONDecoder().decode(ErrorResult.self, from: dataResp)
+                    let decodedResponse = try? JSONDecoder().decode(ErrorResponse.self, from: dataResp)
                     print("didnt worked")
                 
                     // sets return value
@@ -192,7 +192,7 @@ class SignInSignUpApi {
                     UserDefaults.standard.set(email, forKey: "userEmail")
                 }
                 else {
-                    let decodedResponse = try? JSONDecoder().decode(ErrorResult.self, from: dataResp)
+                    let decodedResponse = try? JSONDecoder().decode(ErrorResponse.self, from: dataResp)
 
 
                     // sets return value

@@ -10,10 +10,7 @@ import Foundation
 import Firebase
 import KeychainAccess
 
-struct BasicResponse: Codable {
-    var message: String
-    var status: Int
-}
+
 struct MessageResponse: Codable {
     var message: String
 }
@@ -82,7 +79,7 @@ class HostCoasterApi {
                     returnObject = newCoaster
                 }
                 else {
-                    let decodedResponse = try? JSONDecoder().decode(ErrorResult.self, from: dataResp)
+                    let decodedResponse = try? JSONDecoder().decode(ErrorResponse.self, from: dataResp)
                         
                         // creates new coasterResult from return value
                     let newCoaster = CoasterResult(sessionId: "", displayName: "", coasterName:  "", coasterActive: false, coasterPaused: false, statusCode: decodedResponse?.status ?? 0 )
@@ -133,7 +130,7 @@ class HostCoasterApi {
                         returnObject = decodedResponse
                     }
                     else {
-                        let decodedResponse = try? JSONDecoder().decode(ErrorResult.self, from: dataResp)
+                        let decodedResponse = try? JSONDecoder().decode(ErrorResponse.self, from: dataResp)
                             
                             // creates new coasterResult from return value
 //                            let newCoaster = [CoasterResult(sessionId: "", displayName: "", coasterName:  "", statusCode: decodedResponse?.status ?? 0 )]
@@ -189,7 +186,7 @@ class HostCoasterApi {
                     returnMessage = decodedResponse.message
                 }
                 else {
-                    let decodedResponse = try? JSONDecoder().decode(ErrorResult.self, from: dataResp)
+                    let decodedResponse = try? JSONDecoder().decode(ErrorResponse.self, from: dataResp)
 
                     if decodedResponse != nil {
                         // sets return value
@@ -256,7 +253,7 @@ class HostCoasterApi {
                     returnMessage = decodedResponse.name
                 }
                 else {
-                    let decodedResponse = try? JSONDecoder().decode(ErrorResult.self, from: dataResp)
+                    let decodedResponse = try? JSONDecoder().decode(ErrorResponse.self, from: dataResp)
                         
                 
                     if decodedResponse != nil {
@@ -324,7 +321,7 @@ class HostCoasterApi {
                     }
                 }
                 else {
-                    let decodedResponse = try? JSONDecoder().decode(ErrorResult.self, from: dataResp)
+                    let decodedResponse = try? JSONDecoder().decode(ErrorResponse.self, from: dataResp)
                         
                     if decodedResponse != nil {
                         // sets return value

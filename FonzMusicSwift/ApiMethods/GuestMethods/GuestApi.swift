@@ -9,10 +9,7 @@ import SwiftUI
 import Firebase
 import KeychainAccess
 
-struct ErrorResult: Codable {
-    var message: String
-    var status: Int
-}
+
 
 struct QueueSongResult: Codable {
     var status: Int
@@ -100,7 +97,7 @@ class GuestApi {
                             }
                         }
                         else {
-                            let decodedResponse = try? JSONDecoder().decode(ErrorResult.self, from: dataResp)
+                            let decodedResponse = try? JSONDecoder().decode(ErrorResponse.self, from: dataResp)
                             print(decodedResponse?.status)
                             print("there was an error \(decodedResponse?.message)")
                             

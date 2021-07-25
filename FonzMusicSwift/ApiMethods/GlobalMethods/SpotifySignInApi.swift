@@ -120,7 +120,7 @@ class SpotifySignInApi {
                 //                            returnMessage = decodedResponse.message
                                         }
                                         else {
-                                            let decodedResponse = try? JSONDecoder().decode(ErrorResult.self, from: dataResp)
+                                            let decodedResponse = try? JSONDecoder().decode(ErrorResponse.self, from: dataResp)
 
                                             print("fail here")
                 //                            returnMessage = decodedResponse!.message
@@ -142,7 +142,7 @@ class SpotifySignInApi {
 //                            }
                     }
                     else {
-                        let decodedResponse = try? JSONDecoder().decode(ErrorResult.self, from: dataResp)
+                        let decodedResponse = try? JSONDecoder().decode(ErrorResponse.self, from: dataResp)
 
 //                            returnMessage = decodedResponse!.message
                     }
@@ -227,7 +227,7 @@ class SpotifySignInApi {
 //                            returnMessage = decodedResponse.message
                         }
                         else {
-                            let decodedResponse = try? JSONDecoder().decode(ErrorResult.self, from: dataResp)
+                            let decodedResponse = try? JSONDecoder().decode(ErrorResponse.self, from: dataResp)
 
 //                            returnMessage = decodedResponse!.message
                         }
@@ -304,7 +304,7 @@ class SpotifySignInApi {
 //                            returnMessage = decodedResponse.message
                         }
                         else {
-                            let decodedResponse = try? JSONDecoder().decode(ErrorResult.self, from: dataResp)
+                            let decodedResponse = try? JSONDecoder().decode(ErrorResponse.self, from: dataResp)
 
 //                            returnMessage = decodedResponse!.message
                         }
@@ -359,7 +359,7 @@ class SpotifySignInApi {
 //                            returnMessage = decodedResponse.message
                 }
                 else {
-                    let decodedResponse = try? JSONDecoder().decode(ErrorResult.self, from: dataResp)
+                    let decodedResponse = try? JSONDecoder().decode(ErrorResponse.self, from: dataResp)
 
 //                            returnMessage = decodedResponse!.message
                 }
@@ -441,7 +441,7 @@ class SpotifySignInApi {
 ////                            returnMessage = decodedResponse.message
 //                        }
 //                        else {
-//                            let decodedResponse = try? JSONDecoder().decode(ErrorResult.self, from: dataResp)
+//                            let decodedResponse = try? JSONDecoder().decode(ErrorResponse.self, from: dataResp)
 //
 ////                            returnMessage = decodedResponse!.message
 //                        }
@@ -514,7 +514,7 @@ class SpotifySignInApi {
 ////                            returnMessage = decodedResponse.message
 //                        }
 //                        else {
-//                            let decodedResponse = try? JSONDecoder().decode(ErrorResult.self, from: dataResp)
+//                            let decodedResponse = try? JSONDecoder().decode(ErrorResponse.self, from: dataResp)
 //
 ////                            returnMessage = decodedResponse!.message
 //                        }
