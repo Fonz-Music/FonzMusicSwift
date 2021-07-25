@@ -26,7 +26,7 @@
 		261752D126A3448A0069C83D /* TracksFromArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2687C72B268A915E0044AA37 /* TracksFromArtist.swift */; };
 		261752D226A3448A0069C83D /* TracksFromPlaylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2687C72E268A96350044AA37 /* TracksFromPlaylist.swift */; };
 		261752D326A3448A0069C83D /* YourTopSongs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ECCFD72682A27F0053BE1F /* YourTopSongs.swift */; };
-		261752D426A3448A0069C83D /* YourFavoriteArtists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ECCFDA2682AA500053BE1F /* YourFavoriteArtists.swift */; };
+		261752D426A3448A0069C83D /* YourTopArtists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ECCFDA2682AA500053BE1F /* YourTopArtists.swift */; };
 		261752D526A3448A0069C83D /* YourTopPlaylists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ECCFE02682B6960053BE1F /* YourTopPlaylists.swift */; };
 		261752D626A3448A0069C83D /* ConnectSpotifySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AF07CF268D3BAD006A9504 /* ConnectSpotifySearch.swift */; };
 		261752D726A3448A0069C83D /* SongResultItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26691F65267AB89A00C83696 /* SongResultItem.swift */; };
@@ -209,7 +209,7 @@
 		26ECCFD3268295510053BE1F /* ActiveSongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ECCFD2268295510053BE1F /* ActiveSongView.swift */; };
 		26ECCFD62682A2350053BE1F /* SongSuggestionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ECCFD52682A2350053BE1F /* SongSuggestionsView.swift */; };
 		26ECCFD82682A27F0053BE1F /* YourTopSongs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ECCFD72682A27F0053BE1F /* YourTopSongs.swift */; };
-		26ECCFDB2682AA500053BE1F /* YourFavoriteArtists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ECCFDA2682AA500053BE1F /* YourFavoriteArtists.swift */; };
+		26ECCFDB2682AA500053BE1F /* YourTopArtists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ECCFDA2682AA500053BE1F /* YourTopArtists.swift */; };
 		26ECCFDD2682B0A60053BE1F /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ECCFDC2682B0A60053BE1F /* Artist.swift */; };
 		26ECCFDF2682B0DA0053BE1F /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ECCFDE2682B0DA0053BE1F /* Playlist.swift */; };
 		26ECCFE12682B6960053BE1F /* YourTopPlaylists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ECCFE02682B6960053BE1F /* YourTopPlaylists.swift */; };
@@ -380,7 +380,7 @@
 		26ECCFD2268295510053BE1F /* ActiveSongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveSongView.swift; sourceTree = "<group>"; };
 		26ECCFD52682A2350053BE1F /* SongSuggestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongSuggestionsView.swift; sourceTree = "<group>"; };
 		26ECCFD72682A27F0053BE1F /* YourTopSongs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourTopSongs.swift; sourceTree = "<group>"; };
-		26ECCFDA2682AA500053BE1F /* YourFavoriteArtists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourFavoriteArtists.swift; sourceTree = "<group>"; };
+		26ECCFDA2682AA500053BE1F /* YourTopArtists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourTopArtists.swift; sourceTree = "<group>"; };
 		26ECCFDC2682B0A60053BE1F /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		26ECCFDE2682B0DA0053BE1F /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		26ECCFE02682B6960053BE1F /* YourTopPlaylists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourTopPlaylists.swift; sourceTree = "<group>"; };
@@ -610,6 +610,18 @@
 			path = ActiveSongViews;
 			sourceTree = "<group>";
 		};
+		268B5B2A26AD8BC300A93B9E /* CoasterDashboardItem */ = {
+			isa = PBXGroup;
+			children = (
+				26FBCCE026866FDE00399460 /* CoasterDashboardButtons */,
+				26FBCCE126866FF800399460 /* CoasterDashboardEditViews */,
+				268B97B4268563EC00984DC4 /* OwnedCoasterDropItem.swift */,
+				26FBCCDE26866EF200399460 /* CoasterNameInDashboard.swift */,
+				26B65148263865D10074F279 /* CoastersFromApi.swift */,
+			);
+			path = CoasterDashboardItem;
+			sourceTree = "<group>";
+		};
 		268B97A726838AF400984DC4 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -640,11 +652,7 @@
 		268B97B3268563C700984DC4 /* CoasterDashboardViews */ = {
 			isa = PBXGroup;
 			children = (
-				26B65148263865D10074F279 /* CoastersFromApi.swift */,
-				26FBCCE126866FF800399460 /* CoasterDashboardEditViews */,
-				26FBCCE026866FDE00399460 /* CoasterDashboardButtons */,
-				268B97B4268563EC00984DC4 /* OwnedCoasterDropItem.swift */,
-				26FBCCDE26866EF200399460 /* CoasterNameInDashboard.swift */,
+				268B5B2A26AD8BC300A93B9E /* CoasterDashboardItem */,
 				26FBCCEA2686914600399460 /* AddNewCoasterButton.swift */,
 				26FBCCEC2686938A00399460 /* NameNewCoaster.swift */,
 				26AF07C1268CEF76006A9504 /* SuccessfulTroubleShoot.swift */,
@@ -852,7 +860,7 @@
 				2687C72D268A960F0044AA37 /* SongResultModals */,
 				2687C72A268A91300044AA37 /* DataFromSpotify */,
 				26ECCFD72682A27F0053BE1F /* YourTopSongs.swift */,
-				26ECCFDA2682AA500053BE1F /* YourFavoriteArtists.swift */,
+				26ECCFDA2682AA500053BE1F /* YourTopArtists.swift */,
 				26ECCFE02682B6960053BE1F /* YourTopPlaylists.swift */,
 				26AF07CF268D3BAD006A9504 /* ConnectSpotifySearch.swift */,
 			);
@@ -1172,7 +1180,7 @@
 				26ECCFD3268295510053BE1F /* ActiveSongView.swift in Sources */,
 				26691F6B267AC48400C83696 /* SearchBarView.swift in Sources */,
 				26691F72267AC6BF00C83696 /* JoinSuccessfulCircle.swift in Sources */,
-				26ECCFDB2682AA500053BE1F /* YourFavoriteArtists.swift in Sources */,
+				26ECCFDB2682AA500053BE1F /* YourTopArtists.swift in Sources */,
 				26F5350726975E200055C188 /* SignInWithGoogleButton.swift in Sources */,
 				26B651562638671D0074F279 /* Track.swift in Sources */,
 				2687C733268A97610044AA37 /* SongListModalSongButton.swift in Sources */,
@@ -1324,7 +1332,7 @@
 				261752D126A3448A0069C83D /* TracksFromArtist.swift in Sources */,
 				261752D226A3448A0069C83D /* TracksFromPlaylist.swift in Sources */,
 				261752D326A3448A0069C83D /* YourTopSongs.swift in Sources */,
-				261752D426A3448A0069C83D /* YourFavoriteArtists.swift in Sources */,
+				261752D426A3448A0069C83D /* YourTopArtists.swift in Sources */,
 				261752D526A3448A0069C83D /* YourTopPlaylists.swift in Sources */,
 				261752D626A3448A0069C83D /* ConnectSpotifySearch.swift in Sources */,
 				261752D726A3448A0069C83D /* SongResultItem.swift in Sources */,

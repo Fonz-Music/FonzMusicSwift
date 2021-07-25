@@ -52,8 +52,8 @@ struct HomePageDecision: View {
                 HStack{
                     Text("queue")
                         .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white).fonzParagraphOne()
-                        .padding(25)
-                        .padding(.top, 40)
+                        .padding(.headingFrontIndent)
+                        .padding(.top, .headingTopIndent)
 //                        .padding(.bottom, 20)
                     Spacer()
                 }
@@ -113,19 +113,25 @@ struct HomePageDecision: View {
                                 .onAppear {
                                     // sets error message
                                     if (statusCodeResp == 404) {
+                                        errorMessage = "what have you found?\nthis isn't a Fonz coaster :/"
+                                    }
+                                    else if (statusCodeResp == 403) {
                                         errorMessage = "your host needs to connect their account to Spotify."
                                     }
                                     else if (statusCodeResp == 0) {
-                                        errorMessage = "the nfc or wifi didn't properly work :/"
+                                        errorMessage = "the nfc or wifi didn't work properly :/"
                                     }
                                     else if (statusCodeResp == 500) {
                                         errorMessage = "something is broken at Fonz HQ :/"
+                                    }
+                                    else {
+                                        errorMessage = "you've broken us."
                                     }
                                 
                                     FirebaseAnalytics.Analytics.logEvent("guestJoinPartyFail", parameters: ["user":"guest"])
                                    
                                     // after 3 seconds, resets home page to normal if connection fails
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
                                         withAnimation {
                                             if !pressedButtonToLaunchNfc {
                                                 launchedNfc = false

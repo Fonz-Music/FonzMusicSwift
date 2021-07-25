@@ -18,6 +18,7 @@ struct YourTopSongs: View {
     // bool that will launch nfc when pressed
     @Binding var pressedSongToLaunchNfc : Bool
     
+    @State var connectedToSpotify : Bool = false
     
     @Environment(\.colorScheme) var colorScheme
     
@@ -31,11 +32,11 @@ struct YourTopSongs: View {
     var body: some View {
         VStack{
             HStack{
-                Text("your top songs")
+                Text(connectedToSpotify ? "your top songs" : "spotify top songs")
                     .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
                     .fonzParagraphTwo()
-                    .padding(.horizontal, 25)
-                    .padding(.bottom, 10)
+                    .padding(.horizontal, .headingFrontIndent)
+//                    .padding(.bottom, 10)
                 Spacer()
             }
             
@@ -53,6 +54,10 @@ struct YourTopSongs: View {
 //            .frame(width: UIScreen.screenWidth * outerContainerFrameWidth)
             
             .padding(10)
+        }
+        .onAppear {
+           connectedToSpotify = UserDefaults.standard.bool(forKey: "connectedToSpotify")
+           
         }
         
     }

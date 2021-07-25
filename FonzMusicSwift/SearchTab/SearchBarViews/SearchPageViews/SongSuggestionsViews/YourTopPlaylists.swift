@@ -19,6 +19,8 @@ struct YourTopPlaylists: View {
     
     @Environment(\.colorScheme) var colorScheme
     
+    @State var connectedToSpotify : Bool = false
+    
     var topPlaylists =
     [
         Playlist(playlistName:  "This Is Rush",  playlistId: "37i9dQZF1DX9E92APFiTvV", playlistImage: "https://i.scdn.co/image/ab67706f0000000336834b90af842ac737f7dac3", amountOfTracks: 50),
@@ -32,10 +34,12 @@ struct YourTopPlaylists: View {
     var body: some View {
         VStack {
             HStack{
-                Text("your top playlists")
+                Text(connectedToSpotify ? "your top playlists" : "spotify top playlists")
                     .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
                     .fonzParagraphTwo()
-                    .padding(25)
+                    .padding(.horizontal, .headingFrontIndent)
+                    .padding(.bottom, 10)
+                    .padding(.top, 25)
                     
                 Spacer()
             }
@@ -56,8 +60,13 @@ struct YourTopPlaylists: View {
                     .fill(colorScheme == .light ? Color.white: Color.darkButton)
                     .frame(width: UIScreen.screenWidth * 0.9, height: 220, alignment: .center)
                         .fonzShadow()
+                    , alignment: .top
                 )
                 .padding(.horizontal)
+        }
+        .onAppear {
+           connectedToSpotify = UserDefaults.standard.bool(forKey: "connectedToSpotify")
+           
         }
     }
 }

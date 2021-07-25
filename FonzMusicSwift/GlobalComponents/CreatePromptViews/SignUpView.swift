@@ -18,8 +18,8 @@ struct SignUpView: View {
     @State var acceptedEmail = false
     
     @State var displayName: String = ""
-    @State var email: String = ""
-    @State var password: String = ""
+    @Binding var email: String
+    @Binding var password: String 
     @State var confirmPassword: String = ""
     
     @State var errorOnPage: Bool = false
@@ -29,7 +29,6 @@ struct SignUpView: View {
     
     func determineIfSignUpButtonDisable() -> Bool {
         if (acceptedPrivacy &&
-            acceptedEmail &&
             displayName != "" &&
                 email.isValidEmail &&
             password != "" &&

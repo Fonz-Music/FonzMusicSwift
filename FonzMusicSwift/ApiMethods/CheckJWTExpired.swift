@@ -13,16 +13,13 @@ func getJWTAndCheckIfExpired() -> String {
     var isValid = false
     
     // fetch token from keystore
-        // init keychain
-        let keychainAccess = Keychain(service: "api.fonzmusic.com")
-        // retrive accessToken
+    // init keychain
+    let keychainAccess = Keychain(service: "api.fonzmusic.com")
+    // retrive accessToken
     var accessToken = keychainAccess["accessToken"]
-    
-    
-    
     // check that its not empty
     if accessToken != nil {
-        print("token is not empty")
+//        print("token is not empty")
         // convert token to base 64
             var payload64 = accessToken!.components(separatedBy: ".")[1]
             // need to pad the string with = to make it divisible by 4,
@@ -30,20 +27,17 @@ func getJWTAndCheckIfExpired() -> String {
             while payload64.count % 4 != 0 {
                 payload64 += "="
             }
-
-            print("base64 encoded payload: \(payload64)")
+//            print("base64 encoded payload: \(payload64)")
             let payloadData = Data(base64Encoded: payload64,
                                    options:.ignoreUnknownCharacters)!
             let payload = String(data: payloadData, encoding: .utf8)!
-            print(payload)
+//            print(payload)
         // parse json to retreive exp
             let json = try! JSONSerialization.jsonObject(with: payloadData, options: []) as! [String:Any]
             let exp = json["exp"] as! Int
             let expDate = Date(timeIntervalSince1970: TimeInterval(exp))
             isValid = expDate.compare(Date()) == .orderedDescending
     }
-    
-    
     // check if its valid
     if !isValid {
         print("token is not valid")
@@ -68,14 +62,8 @@ func getJWTAndCheckIfExpired() -> String {
             }
     }
     else {
-        print("token is valid ")
+//        print("token is valid ")
     }
     
-    
-    // else,
-    
-    
     return accessToken!
-    
-    
 }

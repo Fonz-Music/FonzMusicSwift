@@ -21,7 +21,7 @@ struct SongSuggestionsView: View {
     @ObservedObject var tracksFromArtist: TracksFromArtist
     // determines if current user has an account
     @Binding var hasAccount : Bool
-    
+    // determines if current user is connected to Spotify
     @Binding var connectedToSpotify : Bool
     
     
@@ -41,13 +41,13 @@ struct SongSuggestionsView: View {
                 .padding(.top, 30)
             VStack{
                 Spacer()
-                    .frame(height: 30)
+                    .frame(height: 20)
                 if !hasAccount || !connectedToSpotify {
                     
                     ConnectSpotifySearch(throwCreateAccountModal: $throwCreateAccountModal, hasAccount: $hasAccount, connectedToSpotify: $connectedToSpotify)
                 }
                 YourTopSongs(hostCoaster: hostCoaster, currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
-                YourFavoriteArtists(hostCoaster: hostCoaster,  tracksFromArtist: tracksFromArtist)
+                YourTopArtists(hostCoaster: hostCoaster,  tracksFromArtist: tracksFromArtist)
                 YourTopPlaylists(hostCoaster: hostCoaster,  tracksFromPlaylist: tracksFromPlaylist)
                 Spacer()
                     .frame(minHeight: 30)

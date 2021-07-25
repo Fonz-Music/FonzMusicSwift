@@ -9,7 +9,7 @@ import SwiftUI
 //import Firebase
 import FirebaseAnalytics
 
-struct YourFavoriteArtists: View {
+struct YourTopArtists: View {
     
     // hostCoaster details passed in and will update view when changed
     @ObservedObject var hostCoaster:HostCoasterInfo
@@ -17,6 +17,7 @@ struct YourFavoriteArtists: View {
     // object that stores the songs from the api
     @ObservedObject var tracksFromArtist: TracksFromArtist
     
+    @State var connectedToSpotify : Bool = false
     
     @Environment(\.colorScheme) var colorScheme
     
@@ -36,10 +37,12 @@ struct YourFavoriteArtists: View {
     var body: some View {
         VStack {
             HStack{
-                Text("your favorite artists")
+                Text(connectedToSpotify ? "your top artists" : "spotify top artists")
                     .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
                     .fonzParagraphTwo()
-                    .padding(25)
+                    .padding(.horizontal, .headingFrontIndent)
+                    .padding(.bottom, 10)
+                    .padding(.top, 25)
 
                 Spacer()
             }
@@ -60,8 +63,13 @@ struct YourFavoriteArtists: View {
                     .fill(colorScheme == .light ? Color.white: Color.darkButton)
                     .frame(width: UIScreen.screenWidth * 0.9, height: 150, alignment: .center)
                         .fonzShadow()
+                    , alignment: .top
                 )
                 .padding(.horizontal)
+        }
+        .onAppear {
+           connectedToSpotify = UserDefaults.standard.bool(forKey: "connectedToSpotify")
+           
         }
     }
 }

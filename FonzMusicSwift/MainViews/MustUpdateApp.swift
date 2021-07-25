@@ -19,8 +19,8 @@ struct MustUpdateApp: View {
                 HStack{
                     Text("Fonz Music")
                         .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white).fonzParagraphOne()
-                        .padding(25)
-                        .padding(.top, 40)
+                        .padding(.headingFrontIndent)
+                        .padding(.top, .headingTopIndent)
                         .padding(.bottom, 20)
                     Spacer()
                 }
@@ -31,7 +31,7 @@ struct MustUpdateApp: View {
                     .font(Font.custom("MuseoSans-500", size: 32))
                     .multilineTextAlignment(.center)
 //                    .fonzHeading()
-                    .padding(25)
+                    .padding(.headingFrontIndent)
                 Button(action: {
                     guard let url = URL(string: "https://apps.apple.com/us/app/fonz-music/id1537308329") else {
                         return

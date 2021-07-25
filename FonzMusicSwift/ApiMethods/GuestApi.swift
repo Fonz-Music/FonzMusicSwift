@@ -97,6 +97,7 @@ class GuestApi {
                         else {
                             let decodedResponse = try? JSONDecoder().decode(ErrorResult.self, from: dataResp)
                             print(decodedResponse?.status)
+                            print("there was an error \(decodedResponse?.message)")
                             
                             returnObject.statusCode = decodedResponse?.status ?? 0
                                 

@@ -15,6 +15,8 @@ struct CreateAccountView: View {
     @Binding var showModal : Bool
     
     @State var onSignUp : Bool = true
+    @State var email : String = ""
+    @State var password : String = ""
     
     @Environment(\.colorScheme) var colorScheme
     
@@ -51,10 +53,10 @@ struct CreateAccountView: View {
             }
             .padding()
             if onSignUp {
-                SignUpView(hasAccount: $hasAccount, showModal: $showModal).padding(.horizontal, 30)
+                SignUpView(hasAccount: $hasAccount, showModal: $showModal, email: $email, password: $password).padding(.horizontal, 30)
             }
             else {
-                SignInView(hasAccount: $hasAccount, showModal: $showModal).padding(.horizontal, 30)
+                SignInView(hasAccount: $hasAccount, showModal: $showModal, email: $email, password: $password).padding(.horizontal, 30)
             }
         }
     }

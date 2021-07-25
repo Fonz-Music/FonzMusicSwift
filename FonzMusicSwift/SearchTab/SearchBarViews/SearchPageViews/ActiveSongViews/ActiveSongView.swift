@@ -36,7 +36,7 @@ struct ActiveSongView: View {
                 Text("now playing")
                     .foregroundColor(Color.white)
                     .fonzParagraphTwo()
-                    .padding(.horizontal, 25)
+                    .padding(.horizontal, .headingFrontIndent)
                     .padding(.vertical, 15)
                 Spacer()
             }
@@ -144,18 +144,29 @@ struct ActiveSongUserInterface : View {
 //                               placeholder: { Text("...").fonzParagraphTwo() },
 //                               image: { Image(uiImage: $0).resizable() })
                     if (trackfromNowPlaying.currentSong[0].albumArt == "") {
-                         Image("spotifyIconAmber")
-                            .frame( width: 80 ,height: 80, alignment: .leading).cornerRadius(.cornerRadiusTasks)
-                            .padding(.vertical, 10)
-                            .padding(.horizontal, 15)
+                        HStack{
+                            Spacer()
+                            Image("spotifyIconAmber")
+                            Spacer()
+                        }
+                        .frame( width: 80 ,height: 80, alignment: .leading)
+                        .padding(.vertical, 10)
+                        .padding(.horizontal, 15)
                     }
                     else {
                         AsyncImage(url: (URL(string:trackfromNowPlaying.currentSong[0].albumArt))!,
-                                          placeholder: { Image("spotifyIconAmber").resizable().frame(width: 60 ,height: 60, alignment: .center) }
-                                    )
-                            .frame( width: 80 ,height: 80, alignment: .leading).cornerRadius(.cornerRadiusTasks)
-                            .padding(.vertical, 10)
-                            .padding(.horizontal, 15)
+                            placeholder: {
+                                HStack{
+                                    Spacer()
+                                    Image("spotifyIconAmber")
+                                    Spacer()
+                                }
+                            }
+                        )
+                        .frame( width: 80 ,height: 80, alignment: .leading)
+                        .cornerRadius(.cornerRadiusTasks)
+                        .padding(.vertical, 10)
+                        .padding(.horizontal, 15)
                     }
                     
                     // title & artist
@@ -163,19 +174,22 @@ struct ActiveSongUserInterface : View {
                         if (trackfromNowPlaying.currentSong[0].trackName != ""){
                             Text(verbatim: trackfromNowPlaying.currentSong[0].trackName)
                                 .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
+                                .multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
                                 .fonzParagraphOne()
                                 .lineLimit(2)
+                                
                                 .allowsTightening(true)
                             Text(verbatim: trackfromNowPlaying.currentSong[0].artistName)
                                 .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
                                 .fonzParagraphTwo()
-                            Text("playing on \(hostName)'s Fonz")
+                            Text("playing with \(hostName)'s Fonz")
                                 .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
                                 .fonzParagraphThree()
                         }
                         else {
                             Text("\(hostName) is not currently playing Spotify")
                                 .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
+                                .multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
                                 .fonzParagraphTwo()
                         }
                         

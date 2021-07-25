@@ -61,9 +61,10 @@ struct SearchPageView: View {
                         Text("search")
                             .foregroundColor(Color.white)
                             .fonzParagraphOne()
-                            .padding(25)
+                            .padding(.headingFrontIndent)
+                            
                         Spacer()
-                    }.padding(.top, 40)
+                    }.padding(.top, .headingTopIndent)
                     HStack{
                         Spacer()
                         Button {
@@ -73,10 +74,10 @@ struct SearchPageView: View {
                         } label: {
                             Text("leave party")
                                 .fonzParagraphTwo()
-                                .padding(25)
+                                .padding(.headingFrontIndent)
 
                         }
-                    }.padding(.top, 40)
+                    }.padding(.top, .headingTopIndent)
                     
                     
                 }

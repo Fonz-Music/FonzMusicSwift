@@ -52,9 +52,9 @@ class HostCoasterApi {
         // init value for return
         var returnObject = CoasterResult(sessionId: "", displayName: "", coasterName: "", coasterActive: false, coasterPaused: false, statusCode: 0)
         
-
+        // get access token
         let accessToken = getJWTAndCheckIfExpired()
-            // get access token
+            
 
         print("token is \(accessToken)" )
         // set UID to uppercase

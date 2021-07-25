@@ -16,8 +16,8 @@ struct SignInView: View {
     // so you can dismiss modal
     @Binding var showModal : Bool
     
-    @State var email: String = ""
-    @State var password: String = ""
+    @Binding var email: String
+    @Binding var password: String 
     
     @State var errorOnPage: Bool = false
     @State var errorMessage : String = ""

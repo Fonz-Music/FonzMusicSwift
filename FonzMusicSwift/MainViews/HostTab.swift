@@ -32,8 +32,8 @@ struct HostTab: View {
                     Text("host")
                         .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
                         .fonzParagraphOne()
-                        .padding(25)
-                        .padding(.top, 40)
+                        .padding(.headingFrontIndent)
+                        .padding(.top, .headingTopIndent)
                     Spacer()
                 }
                 
@@ -44,8 +44,8 @@ struct HostTab: View {
                     Text("coasters")
                         .foregroundColor(.white)
                         .fonzParagraphOne()
-                        .padding(25)
-                        .padding(.top, 40)
+                        .padding(.headingFrontIndent)
+                        .padding(.top, .headingTopIndent)
                         .padding(.bottom, 20)
                     Spacer()
                 }

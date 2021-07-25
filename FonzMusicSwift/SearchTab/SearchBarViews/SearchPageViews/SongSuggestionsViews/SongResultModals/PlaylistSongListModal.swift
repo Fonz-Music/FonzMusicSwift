@@ -97,7 +97,7 @@ struct PlaylistSongListModal: View {
                         Text("songs")
                             .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
                             .fonzParagraphTwo()
-                            .padding(25)
+                            .padding(.headingFrontIndent)
                             .frame(width: UIScreen.screenWidth, height: 50, alignment: .topLeading)
                         ScrollView() {
                             LazyVGrid(columns: layout, spacing: 8) {

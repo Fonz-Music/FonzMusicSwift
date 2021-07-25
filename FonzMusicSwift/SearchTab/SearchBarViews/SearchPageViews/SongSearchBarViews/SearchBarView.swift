@@ -27,7 +27,7 @@ struct SearchBarView : View {
                 .foregroundColor(colorScheme == .light ? Color.darkButton: Color.white)
                 .fonzParagraphTwo()
                 .padding()
-                .padding(.horizontal, 25)
+                .padding(.horizontal, .headingFrontIndent)
                 .background(colorScheme == .light ? Color.white: Color.darkButton)
                 .cornerRadius(.cornerRadiusTasks)
                 .overlay(

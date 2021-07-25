@@ -11,9 +11,9 @@ import Firebase
 // all api functions inside
 class SpotifySignInApi {
     
-    let ADDRESS = "https://api.fonzmusic.com/"
+//    let ADDRESS = "https://api.fonzmusic.com/"
     //    let ADDRESS = "http://beta.api.fonzmusic.com:8080/"
-//        let ADDRESS = "http://52.50.138.97:8080/"
+        let ADDRESS = "http://52.50.138.97:8080/"
     let CALLBACK = "callback/"
     let SESSION = "session/"
     let HOST = "host/"
@@ -33,8 +33,9 @@ class SpotifySignInApi {
         var returnObject: BasicResponse = BasicResponse(message: "", status: 0)
         var returnMessage = ""
         var returnCode = 0
-        // init value for token
-        var accessToken = ""
+        
+        // get access token
+        let accessToken = getJWTAndCheckIfExpired()
 
 //
 //        // gets password from keychain
@@ -43,11 +44,11 @@ class SpotifySignInApi {
 //        // gets token by passing email + password into api
 //        accessToken = SignInSignUpApi().loginUser(email: self.userEmail!, password: password!).message
 
-        guard let user = Auth.auth().currentUser else {
-            print("there was an error getting the user")
-            return  returnObject}
+//        guard let user = Auth.auth().currentUser else {
+//            print("there was an error getting the user")
+//            return  returnObject}
 
-        accessToken = tempAccessToken
+//        accessToken = tempAccessToken
 //                print("token is \(accessToken)" )
                 // create url
         guard let url = URL(string: self.ADDRESS + self.HOST + self.PROVIDERS ) else { return returnObject}
@@ -166,8 +167,10 @@ class SpotifySignInApi {
         var returnObject: BasicResponse = BasicResponse(message: "", status: 0)
         var returnMessage = ""
         var returnCode = 0
-        // init value for token
-        var accessToken = ""
+        
+        
+        // get access token
+        let accessToken = getJWTAndCheckIfExpired()
 
 //
 //        // gets password from keychain
@@ -176,17 +179,21 @@ class SpotifySignInApi {
 //        // gets token by passing email + password into api
 //        accessToken = SignInSignUpApi().loginUser(email: self.userEmail!, password: password!).message
 
-        guard let user = Auth.auth().currentUser else {
-            print("there was an error getting the user")
-            return  returnObject}
-
-            // get access token
-            user.getIDToken(){ (idToken, error) in
-            if error == nil, let token = idToken {
-                accessToken = token
+//        guard let user = Auth.auth().currentUser else {
+//            print("there was an error getting the user")
+//            return  returnObject}
+//
+//            // get access token
+//            user.getIDToken(){ (idToken, error) in
+//            if error == nil, let token = idToken {
+//                accessToken = token
 //                print("token is \(accessToken)" )
                 // create url
-                guard let url = URL(string: self.ADDRESS + self.HOST + self.SESSION + sessionId ) else { return }
+                guard let url = URL(string: self.ADDRESS + self.HOST + self.SESSION + sessionId )
+                else {
+//                    return
+                    return returnObject
+                }
 
                 // creates req w url
                 var request = URLRequest(url: url)
@@ -228,11 +235,11 @@ class SpotifySignInApi {
                         print("fetch failed: \(error?.localizedDescription ?? "unknown error")")
                     }
                 }.resume()
-            }else{
-                print("error")
-                //error handling
-            }
-        }
+//            }else{
+//                print("error")
+//                //error handling
+//            }
+//        }
         // tells function to wait before returning
         sem.wait()
         returnObject = BasicResponse(message: returnMessage, status: returnCode)
@@ -250,8 +257,8 @@ class SpotifySignInApi {
         )
         var returnMessage = ""
         var returnCode = 0
-        // init value for token
-        var accessToken = ""
+        // get access token
+        let accessToken = getJWTAndCheckIfExpired()
 
 //
 //        // gets password from keychain
@@ -260,11 +267,11 @@ class SpotifySignInApi {
 //        // gets token by passing email + password into api
 //        accessToken = SignInSignUpApi().loginUser(email: self.userEmail!, password: password!).message
 
-        guard let user = Auth.auth().currentUser else {
-            print("there was an error getting the user")
-            return  returnObject}
-
-        accessToken = tempAccessToken
+//        guard let user = Auth.auth().currentUser else {
+//            print("there was an error getting the user")
+//            return  returnObject}
+//
+//        accessToken = tempAccessToken
 //                print("token is \(accessToken)" )
                 // create url
         guard let url = URL(string: self.ADDRESS + self.HOST + self.PROVIDERS ) else { return returnObject}
