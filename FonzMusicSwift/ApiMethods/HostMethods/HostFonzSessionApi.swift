@@ -34,9 +34,9 @@ class HostFonzSessionApi {
         // init value for token
         var accessToken = ""
 
-        guard let user = Auth.auth().currentUser else {
-            print("there was an error getting the user")
-            return returnObject}
+//        guard let user = Auth.auth().currentUser else {
+//            print("there was an error getting the user")
+//            return returnObject}
 
             // get access token
             accessToken = getJWTAndCheckIfExpired()
@@ -58,7 +58,7 @@ class HostFonzSessionApi {
             
             if let dataResp = data {
                         let jsonData = try? JSONSerialization.jsonObject(with: data!, options: [])
-                        print(jsonData)
+                print(jsonData as Any)
                 
                 returnCode = response?.getStatusCode() ?? 0
                 print("returncode is \(returnCode)")
@@ -70,7 +70,7 @@ class HostFonzSessionApi {
                         }
                         
                     }
-                    print("session from user def is \(sessionId)")
+                    print("session from user def is \(String(describing: sessionId))")
 //                    DispatchQueue.main.async {
 //                        guard let url = URL(string: self.ADDRESS + self.HOST + self.SESSION ) else { return }
 //
@@ -145,9 +145,9 @@ class HostFonzSessionApi {
         // init value for token
         var accessToken = ""
 
-        guard let user = Auth.auth().currentUser else {
-            print("there was an error getting the user")
-            return returnObject}
+//        guard let user = Auth.auth().currentUser else {
+//            print("there was an error getting the user")
+//            return returnObject}
 
             // get access token
         accessToken = getJWTAndCheckIfExpired()
@@ -169,7 +169,7 @@ class HostFonzSessionApi {
                     
                     if let dataResp = data {
                         let jsonData = try? JSONSerialization.jsonObject(with: data!, options: [])
-                        print(jsonData)
+                        print(jsonData as Any)
                         
                         returnCode = response?.getStatusCode() ?? 0
                         

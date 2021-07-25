@@ -120,7 +120,7 @@ class HostCoasterApi {
                 
                 if let dataResp = data {
                     let jsonData = try? JSONSerialization.jsonObject(with: data!, options: [])
-                    print(jsonData)
+                    print(jsonData as Any)
                     if let decodedResponse = try? JSONDecoder().decode(HostCoastersMapResult.self, from: dataResp) {
                         print("\(decodedResponse)")
                         // creates new coasterResult from return value
@@ -175,8 +175,8 @@ class HostCoasterApi {
             
             if let dataResp = data {
                 let jsonData = try? JSONSerialization.jsonObject(with: data!, options: [])
-                print(jsonData)
-                print("code is \(response?.getStatusCode())")
+                print(jsonData as Any)
+                print("code is \(String(describing: response?.getStatusCode()))")
                 
                 returnCode = response?.getStatusCode() ?? 0
                 
@@ -243,7 +243,7 @@ class HostCoasterApi {
             
             if let dataResp = data {
                 let jsonData = try? JSONSerialization.jsonObject(with: data!, options: [])
-                print(jsonData)
+                print(jsonData as Any)
                 
                 returnCode = response?.getStatusCode() ?? 0
                 
@@ -309,7 +309,7 @@ class HostCoasterApi {
             
             if let dataResp = data {
                 let jsonData = try? JSONSerialization.jsonObject(with: data!, options: [])
-                print(jsonData)
+                print(jsonData as Any)
                 
                 returnCode = response?.getStatusCode() ?? 0
                 
