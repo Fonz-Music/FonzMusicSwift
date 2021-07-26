@@ -70,6 +70,16 @@ struct SearchResultsView: View {
                     .padding(.bottom, 10)
                 }
                 .padding(.vertical, 10)
+//                .simultaneousGesture(
+//                    DragGesture().onChanged { value in
+//                        hideKeyboard()
+//                    }
+//                )
+//                .gesture(
+//                    DragGesture().onChanged { value in
+//                        hideKeyboard()
+//                    }
+//                )
             }
             .frame(width: UIScreen.screenWidth * 0.95, height: UIScreen.screenHeight * 0.6)
         }

@@ -48,16 +48,16 @@ class GuestApi {
 //        accessToken = getJWTAndCheckIfExpired()
         
 
-//        guard let user = Auth.auth().currentUser else {
-//            print("there was an error getting the user")
-//            return  returnObject}
-//        print("got auth")
-//
-////             get access token
-//            user.getIDToken(){ (idToken, error) in
-//            if error == nil, let token = idToken {
-//                accessToken = token
-        accessToken = tempToken
+        guard let user = Auth.auth().currentUser else {
+            print("there was an error getting the user")
+            return  returnObject}
+        print("got auth")
+
+//             get access token
+            user.getIDToken(){ (idToken, error) in
+            if error == nil, let token = idToken {
+                accessToken = token
+//        accessToken = tempToken
                 print("got token")
                 print("\(accessToken)" )
                 // set UID to uppercase
@@ -65,8 +65,8 @@ class GuestApi {
                 // create url
                 guard let url = URL(string: self.ADDRESS + self.GUEST + self.COASTER + uid )
                 else {
-//                    return
-                    return returnObject
+                    return
+//                    return returnObject
                 }
                 
                 var request = URLRequest(url: url)
@@ -115,11 +115,11 @@ class GuestApi {
                         print("fetch failed: \(error?.localizedDescription ?? "unknown error")")
                     }
                 }.resume()
-//            }else{
-//                print("error")
-//                //error handling
-//            }
-//        }
+            }else{
+                print("error")
+                //error handling
+            }
+        }
         // tells function to wait before returning
         sem.wait()
         return returnObject

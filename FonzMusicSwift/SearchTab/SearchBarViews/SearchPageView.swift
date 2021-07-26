@@ -81,6 +81,15 @@ struct SearchPageView: View {
                     
                     
                 }
+                .simultaneousGesture(
+                    DragGesture().onChanged { value in
+                        hideKeyboard()
+                        withAnimation {
+                            isEditingSearchBar = false
+                        }
+                        
+                    }
+                )
                 // search bar widget
                 SearchBarView(tracksFromSearch: tracksFromSearch, isEditing: $isEditingSearchBar)
                 ZStack {
@@ -133,6 +142,15 @@ struct SearchPageView: View {
             }
         }
     }
+        .simultaneousGesture(
+            DragGesture().onChanged { value in
+                hideKeyboard()
+//                withAnimation {
+//                    isEditingSearchBar = false
+//                }
+                
+            }
+        )
     }
 }
 
