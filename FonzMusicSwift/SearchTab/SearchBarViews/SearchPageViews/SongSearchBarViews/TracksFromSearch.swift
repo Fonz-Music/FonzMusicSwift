@@ -76,7 +76,7 @@ class TracksFromSearch: ObservableObject {
                     if let dataResp = data {
                         // just to see output
                         let jsonData = try? JSONSerialization.jsonObject(with: data!, options: [])
-                        print(jsonData)
+//                        print(jsonData)
                         
                         if let decodedResponse = try? JSONDecoder().decode(TracksResult.self, from: dataResp) {
                             // object that will store searchResults
@@ -104,6 +104,7 @@ class TracksFromSearch: ObservableObject {
                             DispatchQueue.main.async {
                                 // returns searchResults
                                 self.products = searchResults
+                                print(searchResults)
                             }
                             return
                         }

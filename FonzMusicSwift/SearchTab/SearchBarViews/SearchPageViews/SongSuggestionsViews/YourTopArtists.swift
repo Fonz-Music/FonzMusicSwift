@@ -107,6 +107,9 @@ struct FavoriteArtistView: View {
             }
             .frame(width: 90, height: 105, alignment: .center)
         }
+//        .onTapGesture {
+//            self.foregroundColor(.lilac)
+//        }
         .sheet(isPresented: $launchArtistSongsModal, onDismiss: {
             print("test")
 //                                    self.currentTune.songLoaded = false

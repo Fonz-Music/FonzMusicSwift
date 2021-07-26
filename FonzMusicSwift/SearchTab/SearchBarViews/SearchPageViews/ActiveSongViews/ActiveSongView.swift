@@ -128,7 +128,7 @@ struct ActiveSongUserInterface : View {
                     Spacer()
                     Image(systemName: "arrow.clockwise")
                         .padding(.horizontal, 10)
-                        .padding(.top, 10)
+                        .padding(.top, 5)
                         .foregroundColor(.amber)
                     
                 }
