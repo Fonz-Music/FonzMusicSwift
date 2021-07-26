@@ -71,6 +71,10 @@ struct ContentView: View {
             hasConnectedCoasters = UserDefaults.standard.bool(forKey: "hasConnectedCoasters")
             connectedToSpotify = UserDefaults.standard.bool(forKey: "connectedToSpotify")
             
+//            hasAccount = true
+//            hasConnectedCoasters = true
+//            connectedToSpotify = true
+            
             
         }
 //        .onContinueUserActivity(NSUserActivityTypeBrowsingWeb, perform:

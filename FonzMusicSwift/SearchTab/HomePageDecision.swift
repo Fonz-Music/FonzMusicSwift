@@ -103,7 +103,7 @@ struct HomePageDecision: View {
                         }
                         // if the coaster lasts a host, give opp to become that host
                         else if (statusCodeResp == 204) {
-                            CoasterDoesNotHaveHost(selectedTab: $selectedTab, hasAccount: $hasAccount, showHomeButtons: $showHomeButtons, launchedNfc: $launchedNfc)
+                            CoasterDoesNotHaveHost(selectedTab: $selectedTab, hasAccount: $hasAccount, connectedToSpotify: connectedToSpotify, showHomeButtons: $showHomeButtons, launchedNfc: $launchedNfc, statusCode: $statusCodeResp, tempCoasterDetails: $tempCoasterDetails)
                         }
                         // errors
                         else {
@@ -123,6 +123,9 @@ struct HomePageDecision: View {
                                     }
                                     else if (statusCodeResp == 500) {
                                         errorMessage = "something is broken at Fonz HQ :/"
+                                    }
+                                    else if (statusCodeResp == 405) {
+                                        errorMessage = "the coaster wasn't properly linked to your account."
                                     }
                                     else {
                                         errorMessage = "you've broken us."

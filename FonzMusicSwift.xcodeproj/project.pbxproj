@@ -197,6 +197,10 @@
 		26D0525326A347FE00DDF43C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26DB9AFB2634A4370030643D /* GoogleService-Info.plist */; };
 		26D0525526A34B9E00DDF43C /* ScreenExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D0525426A34B9E00DDF43C /* ScreenExtension.swift */; };
 		26D0525626A34BDB00DDF43C /* ScreenExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D0525426A34B9E00DDF43C /* ScreenExtension.swift */; };
+		26D9BC2326AED4E1000C8739 /* NameNewCoaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBCCEC2686938A00399460 /* NameNewCoaster.swift */; };
+		26D9BC2426AED507000C8739 /* RenameCoasterField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBCCE22686701F00399460 /* RenameCoasterField.swift */; };
+		26D9BC2626AED6B0000C8739 /* AskUserToConnectSpotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D9BC2526AED6B0000C8739 /* AskUserToConnectSpotify.swift */; };
+		26D9BC2726AED6B0000C8739 /* AskUserToConnectSpotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D9BC2526AED6B0000C8739 /* AskUserToConnectSpotify.swift */; };
 		26DB9AA52634990D0030643D /* ErrorOnTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9AA42634990D0030643D /* ErrorOnTap.swift */; };
 		26DB9AAB263499410030643D /* ErrorDeviceNotNfc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9AAA263499410030643D /* ErrorDeviceNotNfc.swift */; };
 		26DB9AB1263499710030643D /* ErrorNotFonzCoaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9AB0263499710030643D /* ErrorNotFonzCoaster.swift */; };
@@ -366,6 +370,7 @@
 		26B651662638A1B30074F279 /* HostFonzSessionApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostFonzSessionApi.swift; sourceTree = "<group>"; };
 		26D0525426A34B9E00DDF43C /* ScreenExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenExtension.swift; sourceTree = "<group>"; };
 		26D0525726A34D3800DDF43C /* ContentViewClip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewClip.swift; sourceTree = "<group>"; };
+		26D9BC2526AED6B0000C8739 /* AskUserToConnectSpotify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskUserToConnectSpotify.swift; sourceTree = "<group>"; };
 		26DB9AA42634990D0030643D /* ErrorOnTap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorOnTap.swift; sourceTree = "<group>"; };
 		26DB9AAA263499410030643D /* ErrorDeviceNotNfc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorDeviceNotNfc.swift; sourceTree = "<group>"; };
 		26DB9AB0263499710030643D /* ErrorNotFonzCoaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorNotFonzCoaster.swift; sourceTree = "<group>"; };
@@ -510,6 +515,7 @@
 				26AF07D3268D480E006A9504 /* HomePageButtons */,
 				26AF07D4268D4851006A9504 /* DetermineHomePageView.swift */,
 				26916FF9268E600700B7281B /* JoinPartyResponses.swift */,
+				26D9BC2526AED6B0000C8739 /* AskUserToConnectSpotify.swift */,
 			);
 			path = HomePageViews;
 			sourceTree = "<group>";
@@ -1231,6 +1237,7 @@
 				2677029126347ECD00B8BC92 /* FonzMusicSwiftApp.swift in Sources */,
 				26FBCCE32686701F00399460 /* RenameCoasterField.swift in Sources */,
 				268B5B2C26ADFF1B00A93B9E /* BasicResponseWithCode.swift in Sources */,
+				26D9BC2626AED6B0000C8739 /* AskUserToConnectSpotify.swift in Sources */,
 				26FBCCE526867AB100399460 /* PauseCoasterField.swift in Sources */,
 				26916FF2268E502700B7281B /* QueuedButDelayedResponse.swift in Sources */,
 				26DB9AB1263499710030643D /* ErrorNotFonzCoaster.swift in Sources */,
@@ -1316,6 +1323,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26D9BC2426AED507000C8739 /* RenameCoasterField.swift in Sources */,
+				26D9BC2326AED4E1000C8739 /* NameNewCoaster.swift in Sources */,
 				268B5B3126AE020300A93B9E /* ErrorResponse.swift in Sources */,
 				268B5B2E26AE005000A93B9E /* BasicResponseWithCode.swift in Sources */,
 				263545BF26A7086D00B415C9 /* ShopWebView.swift in Sources */,
@@ -1384,6 +1393,7 @@
 				261752F326A3448B0069C83D /* ShareSheet.swift in Sources */,
 				261752F426A3448B0069C83D /* HostCoasterInfo.swift in Sources */,
 				261752F526A3448B0069C83D /* GlobalTrack.swift in Sources */,
+				26D9BC2726AED6B0000C8739 /* AskUserToConnectSpotify.swift in Sources */,
 				261752F626A3448B0069C83D /* UpdatePageviewVars.swift in Sources */,
 				261752F726A3448B0069C83D /* Track.swift in Sources */,
 				2676B12826A5C33E00E18E4B /* ProvidersResponse.swift in Sources */,

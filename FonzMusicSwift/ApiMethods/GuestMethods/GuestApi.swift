@@ -19,13 +19,13 @@ struct QueueSongResult: Codable {
 
 // all api functions inside
 class GuestApi {
-//    let ADDRESS = "https://api.fonzmusic.com/"
+    let ADDRESS = "https://api.fonzmusic.com/"
     //    let ADDRESS = "http://beta.api.fonzmusic.com:8080/"
-        let ADDRESS = "http://52.50.138.97:8080/"
+//        let ADDRESS = "http://52.50.138.97:8080/"
     let GUEST = "guest/"
     let COASTER = "coaster/"
 
-    let tempToken = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjFiYjk2MDVjMzZlOThlMzAxMTdhNjk1MTc1NjkzODY4MzAyMDJiMmQiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiZGVlciIsInBpY3R1cmUiOiJodHRwczovL2xoNC5nb29nbGV1c2VyY29udGVudC5jb20vLXdIRHZhQXRMWklzL0FBQUFBQUFBQUFJL0FBQUFBQUFBQUFBL0FNWnV1Y256SmJCbk94bWtFcTNuM3BJeE9wUHNDUXZ1dmcvczk2LWMvcGhvdG8uanBnIiwiaXNzIjoiaHR0cHM6Ly9zZWN1cmV0b2tlbi5nb29nbGUuY29tL2ZvbnotbXVzaWMtYXBwIiwiYXVkIjoiZm9uei1tdXNpYy1hcHAiLCJhdXRoX3RpbWUiOjE2MjcyNDI3MDAsInVzZXJfaWQiOiJFMnU5aXJabWtIYkY5ZlBHWDcyZTBFVDJNcjkyIiwic3ViIjoiRTJ1OWlyWm1rSGJGOWZQR1g3MmUwRVQyTXI5MiIsImlhdCI6MTYyNzI0MjcwMCwiZXhwIjoxNjI3MjQ2MzAwLCJlbWFpbCI6ImRpYXJtdWlkNDlAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsiZGlhcm11aWQ0OUBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.lmM4hpgNo3Nfxj7n5bhkK0w6AReJtgPpz9KJssGC-zpkpX70X_4scS8B-5xKlF5ZoqwtrMTwetBXOAxQBJODyVBkQ74AFnoRgmmRVt7CU9tngk6oblp1s71LwT_mdtaWdlnQ3Kd75UlI1RuPnhZWyfEflGupAcIXBGkRQaXS4HaMuM9sEzJmV8bjkKXjz1piXqAn6qhnr6KtG9QbHTJUNJ3LtKMAQaWInqqaKpRffq5Wk-qhPyiKoanRCmKn42UqfBAZPwN2seVUe_gsFFO4RPdyE0WwMzVtfYAhE_Ft0ScdwyOZjH0GY4kAQuVHK-t8LQQKzqVU5dqhlWtm6WOELw"
+    let tempToken = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjFiYjk2MDVjMzZlOThlMzAxMTdhNjk1MTc1NjkzODY4MzAyMDJiMmQiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiZGVlciIsInBpY3R1cmUiOiJodHRwczovL2xoNC5nb29nbGV1c2VyY29udGVudC5jb20vLXdIRHZhQXRMWklzL0FBQUFBQUFBQUFJL0FBQUFBQUFBQUFBL0FNWnV1Y256SmJCbk94bWtFcTNuM3BJeE9wUHNDUXZ1dmcvczk2LWMvcGhvdG8uanBnIiwiaXNzIjoiaHR0cHM6Ly9zZWN1cmV0b2tlbi5nb29nbGUuY29tL2ZvbnotbXVzaWMtYXBwIiwiYXVkIjoiZm9uei1tdXNpYy1hcHAiLCJhdXRoX3RpbWUiOjE2MjcyOTc2OTYsInVzZXJfaWQiOiJFMnU5aXJabWtIYkY5ZlBHWDcyZTBFVDJNcjkyIiwic3ViIjoiRTJ1OWlyWm1rSGJGOWZQR1g3MmUwRVQyTXI5MiIsImlhdCI6MTYyNzI5NzY5NiwiZXhwIjoxNjI3MzAxMjk2LCJlbWFpbCI6ImRpYXJtdWlkNDlAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsiZGlhcm11aWQ0OUBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.hsoe53Wu0h2GWBWp0AKEXqQ4rK9g6ZTqmEcgxPepM5tacLLDqOVTlVKYZIki98o8hp6gQ9aBUNFEbcDET08AguLPwwH147Qw8LuvLaSKm9S8J4k9hO1kfWHIiMpcLSxdEFQpnB7ftf-OGpDf-2iCU9gTu1yCVxqtXujebPKEzD5bVDfnFGKdiSj5Y8ZAUiURHAw-dN9S92IQoA28yM0R0Fz5zB_biGMNpjbFR0COhccU4JI4Tbr9yilkCJQs4o_Qkg6Otvm5mXmnHC-TlLwquE2xQy-GZoZtIXQrwDlnyFkpWe6Fc7NBIkrJ4Jxz2rIfYtUzOUnnotY6_q198q7prw"
     
     let userEmail = UserDefaults.standard.string(forKey: "userEmail")
     
@@ -45,7 +45,7 @@ class GuestApi {
 
         print("starting getCoaster")
 
-        accessToken = getJWTAndCheckIfExpired()
+//        accessToken = getJWTAndCheckIfExpired()
         
 
 //        guard let user = Auth.auth().currentUser else {
@@ -57,7 +57,7 @@ class GuestApi {
 //            user.getIDToken(){ (idToken, error) in
 //            if error == nil, let token = idToken {
 //                accessToken = token
-//        accessToken = tempToken
+        accessToken = tempToken
                 print("got token")
                 print("\(accessToken)" )
                 // set UID to uppercase

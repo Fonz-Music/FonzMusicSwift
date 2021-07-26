@@ -14,13 +14,29 @@ struct CoasterDoesNotHaveHost: View {
     @Binding var selectedTab: TabIdentifier
     // determines if current user has an account
     @Binding var hasAccount : Bool
+    // determines if current user is connected to Spotify
+    var connectedToSpotify : Bool
     
     @Binding var showHomeButtons: Bool
     
     @Binding var launchedNfc: Bool
     
+    @Binding var statusCode: Int
+    
+    // temp Coaster Object so that page does not update BEFORE showing success page
+    @Binding var tempCoasterDetails : HostCoasterInfo
+    
     // has user create an account
     @State var throwCreateAccountModal = false
+    
+    // has user download the full app
+    @State var throwDownlaodFullAppModal = false
+    
+    // has user name their new coaster
+    @State var throwNameNewCoasterModal = false
+    
+    // gives user option to connect their spotify
+    @State var throwConnectSpotifyPrompt = false
     
     @Environment(\.colorScheme) var colorScheme
     let sideGraphicHeight = UIScreen.screenHeight * 0.04
@@ -53,15 +69,45 @@ struct CoasterDoesNotHaveHost: View {
             }
             .background(colorScheme == .light ? Color.clear: Color.darkBackground)
             Button {
-                
+                #if APPCLIP
+                throwDownlaodFullAppModal = true
+                #else
                 if hasAccount {
                     print("has account")
-
-                    withAnimation {
-                        selectedTab = TabIdentifier.host
-                        showHomeButtons = true
-                        launchedNfc = false
+                    
+                    // if has spotify, add coaster
+                    if connectedToSpotify {
+                        // add coaster to this users account
+                        let addCoasterResult = HostCoasterApi().addCoaster(coasterUid: tempCoasterDetails.uid)
+                            print("\(String(describing: addCoasterResult.status)) is the code m8")
+                            // return that resp if its NOT 200
+                            if addCoasterResult.status == 200 {
+                                // have user name coaster
+                                throwNameNewCoasterModal = true
+                                withAnimation {
+                                    showHomeButtons = true
+                                    launchedNfc = false
+                                }
+                            }
+                            else {
+                                // tell user something went wrong connecting
+                                statusCode = 405
+                            }
+                        
+                        
+                        
                     }
+                    // if they DONT have spotify
+                    else {
+                        // ask if they wanna launch spotify
+                        throwConnectSpotifyPrompt = true
+                    }
+
+//                    withAnimation {
+//                        selectedTab = TabIdentifier.host
+//                        showHomeButtons = true
+//                        launchedNfc = false
+//                    }
 
                     FirebaseAnalytics.Analytics.logEvent("userTriedJoiningPartyCoasterNoHost", parameters: ["user":"user", "tab":"search"])
 
@@ -70,6 +116,12 @@ struct CoasterDoesNotHaveHost: View {
                     print("no account")
                     throwCreateAccountModal = true
                 }
+                
+                #endif
+                
+            
+                
+               
                 
                 withAnimation {
                     
@@ -103,17 +155,35 @@ struct CoasterDoesNotHaveHost: View {
 //            .padding()
         }
         .sheet(isPresented: $throwCreateAccountModal, onDismiss: {
-            if hasAccount{
-                selectedTab = TabIdentifier.host
-            }
+//            if hasAccount{
+//                selectedTab = TabIdentifier.host
+//            }
             
-            withAnimation {
-                launchedNfc = false
-                showHomeButtons = true
-            }
+//            withAnimation {
+//                launchedNfc = false
+//                showHomeButtons = true
+//            }
             
         }) {
             CreateAccountPrompt(hasAccount: $hasAccount, showModal: $throwCreateAccountModal)
+        }
+        .sheet(isPresented: $throwDownlaodFullAppModal) {
+            DownloadFullAppPrompt()
+        }
+        .sheet(isPresented: $throwConnectSpotifyPrompt, onDismiss: {
+            
+            if !connectedToSpotify {
+                withAnimation {
+                    launchedNfc = false
+                    showHomeButtons = true
+                }
+            }
+            
+        }) {
+            AskUserToConnectSpotify()
+        }
+        .sheet(isPresented: $throwNameNewCoasterModal) {
+            NameNewCoaster(launchedNfc: $launchedNfc, coasterUid: tempCoasterDetails.uid)
         }
     }
 }

@@ -18,7 +18,7 @@ struct ManageSpotifyButton: View {
     
     @Environment(\.colorScheme) var colorScheme
     
-    @State var spotifyId : String = "Spotify Account"
+    @State var spotifyId : String = "spotify account"
     
     var body: some View {
         VStack{
@@ -45,7 +45,7 @@ struct ManageSpotifyButton: View {
             })
             .buttonStyle(BasicFonzButton(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .amber))
             .onAppear {
-                spotifyId = UserDefaults.standard.string(forKey: "spotifyId") ?? "Spotify Account"
+                spotifyId = UserDefaults.standard.string(forKey: "spotifyId") ?? "spotify account"
             }
             if isExpanded {
                 VStack{
