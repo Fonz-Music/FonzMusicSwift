@@ -161,8 +161,6 @@ struct SignUpView: View {
                     }
                 }
                 .animation(.spring())
-                
-                    
 //                Text("or")
 ////                    .foregroundColor(colorScheme == .light ? Color.darkButton: Color.white)
 //                                    .foregroundColor(Color.white)
@@ -183,7 +181,6 @@ struct SignUpView: View {
                         .padding(5)
                     ConsentedToPrivacy(acceptedPrivacy: $acceptedPrivacy)
                         .padding(5)
-                    
                 }
                 .animation(.spring())
                 // sign up button
@@ -206,7 +203,6 @@ struct SignUpView: View {
                             print("something went wrong")
                         }
                     }
-                    
                 } label: {
                     Text("sign up")
                         .foregroundColor(Color.white)
@@ -219,7 +215,6 @@ struct SignUpView: View {
                 .addOpacity(determineIfSignUpButtonDisable())
                 .padding(.top)
             }
-            
         }
     }
 }

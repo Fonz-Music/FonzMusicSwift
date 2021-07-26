@@ -52,7 +52,6 @@ struct CreateAccountPrompt: View {
 //            )
             .background(
                 ZStack{
-
                     VStack{
                         Spacer()
                         Image("peoplePartyingBackdrop")

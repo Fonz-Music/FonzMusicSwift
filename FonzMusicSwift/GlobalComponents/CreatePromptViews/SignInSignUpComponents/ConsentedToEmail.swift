@@ -24,9 +24,7 @@ struct ConsentedToEmail: View {
                     .fonzParagraphThree()
                     .padding(.leading, 5)
                 Spacer()
+            }
         }
-        }
-
-        
-}
+    }
 }

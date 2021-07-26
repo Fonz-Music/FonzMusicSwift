@@ -82,8 +82,6 @@ struct SignInView: View {
 //                                    .fill(colorScheme == .light ? Color.white : Color.darkButton )
                                     .fill(Color.white)
                                     .fonzShadow()
-                            
-                                
                             }
                         )
                         .multilineTextAlignment(.leading)
@@ -95,8 +93,6 @@ struct SignInView: View {
                             .padding(.vertical, 5)
                     }
                 }
-                
-                
 //                Text("or")
 ////                    .foregroundColor(colorScheme == .light ? Color.darkButton: Color.white)
 //                                    .foregroundColor(Color.white)
@@ -111,10 +107,9 @@ struct SignInView: View {
 //                    SignInWithGoogleButton()
 //                    Spacer()
 //                }
-
                 Button {
-                    //
-                   
+                    // link to forgot password
+                    
                 } label: {
                     Text("forgot password?")
                         .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
@@ -123,7 +118,6 @@ struct SignInView: View {
                 }
                 // sign in button
                 Button {
-                    
                     let registerUserResp : BasicResponse = SignInSignUpApi().loginUser(email: email, password: password)
                     DispatchQueue.main.async {
                         if registerUserResp.status == 200 {

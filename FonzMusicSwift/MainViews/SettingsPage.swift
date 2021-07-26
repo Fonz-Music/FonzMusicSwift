@@ -59,7 +59,7 @@ struct SettingsPage: View {
                         // link spotify
                         LinkSpotifySettingsButton()
                     }
-                   
+                
                     SignOutButton(hasAccount: $hasAccount)
                     // if the user has connected coasters, give option to limit reqs
     //                    if hasConnectedCoasters {
@@ -75,16 +75,11 @@ struct SettingsPage: View {
                 // otherwise, offer to create an account
                 else {
                     ZStack{
-                        
                         ScrollView{
                             CreateAccountView(hasAccount: $hasAccount, showModal: $throwCreateAccountModal)
                                 .padding(.horizontal, 20)
                                 .padding(.bottom, 10)
-                                
-                                   
-                              
                         }
-                        
 //                        .frame(height: UIScreen.screenHeight * 0.8)
 //                        .padding(.bottom, 30)
                     }
@@ -94,43 +89,33 @@ struct SettingsPage: View {
                                 .foregroundColor(colorScheme == .light ? Color.white: Color.darkBackground)
                                 .frame(width: UIScreen.screenWidth * 0.9, height: UIScreen.screenHeight * 0.7)
                             
-                                
                             Image("peoplePartyingBackdrop")
                                 .resizable()
                                 .cornerRadius(.cornerRadiusBlocks)
                                 .frame(width: UIScreen.screenWidth * 0.9, height: UIScreen.screenHeight * 0.7)
                                 .opacity(0.4)
-                                
                         }
                         , alignment: .top
                     )
                     .frame(width: UIScreen.screenWidth * 0.8)
 //                    .padding(30)
-                    
-
                 }
 
                 Spacer()
             }
             .onAppear {
-
 //                let keychain = Keychain(service: "api.fonzmusic.com")
 //                let email = UserDefaults.standard.string(forKey: "userEmail")
 //                let password = keychain[email!]
 //
 //                print("password is \(password ?? "null")")
 
-
-
             }
         }
-        
         .background(
             ZStack{
-               
                 Color(UIColor(colorScheme == .light ? Color.white: Color.darkBackground))
                     .darkenView(!hasAccount)
-               
                 VStack{
                     Spacer()
                     Image("mountainProfile")

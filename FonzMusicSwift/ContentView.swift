@@ -70,18 +70,8 @@ struct ContentView: View {
             hasAccount = UserDefaults.standard.bool(forKey: "hasAccount")
             hasConnectedCoasters = UserDefaults.standard.bool(forKey: "hasConnectedCoasters")
             connectedToSpotify = UserDefaults.standard.bool(forKey: "connectedToSpotify")
-            
-//            hasAccount = true
-//            hasConnectedCoasters = true
-//            connectedToSpotify = true
-            
-            
+
         }
-//        .onContinueUserActivity(NSUserActivityTypeBrowsingWeb, perform:
-//            handleUserActivity
-//        )
-        
-       
     }
     
     func determineViewBasedOnVersion(currentVersion:String, minVersion:String) -> Bool {
