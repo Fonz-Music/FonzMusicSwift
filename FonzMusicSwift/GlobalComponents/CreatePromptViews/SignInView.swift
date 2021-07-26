@@ -39,14 +39,21 @@ struct SignInView: View {
             VStack{
                 VStack{
                     // email
-                    TextField("email", text: $email)
-                        .foregroundColor(colorScheme == .light ? Color.darkButton: Color.white)
+                    TextField("", text: $email)
+                        .placeholder(when: email.isEmpty, placeholder: {
+                            Text("email")
+                                .foregroundColor(.gray)
+                                .fonzButtonText()
+                        })
+//                        .foregroundColor(colorScheme == .light ? Color.darkButton: Color.white)
+                        .foregroundColor(.darkButton)
                         .fonzButtonText()
                         .padding(10)
                         .background(
                             ZStack {
                                 RoundedRectangle(cornerRadius: .cornerRadiusTasks)
-                                    .fill(colorScheme == .light ? Color.white : Color.darkButton )
+//                                    .fill(colorScheme == .light ? Color.white : Color.darkButton )
+                                    .fill(Color.white)
                                     .fonzShadow()
                                 // is red if not entered or not valid email
                                 if ((email == "" || !email.isValidEmail) && password != "") {
@@ -59,14 +66,21 @@ struct SignInView: View {
                         .multilineTextAlignment(.leading)
                         .padding(.vertical, 5)
                     // password
-                    SecureField("password", text: $password)
-                        .foregroundColor(colorScheme == .light ? Color.darkButton: Color.white)
+                    SecureField("", text: $password)
+                        .placeholder(when: password.isEmpty, placeholder: {
+                            Text("password")
+                                .foregroundColor(.gray)
+                                .fonzButtonText()
+                        })
+//                        .foregroundColor(colorScheme == .light ? Color.darkButton: Color.white)
+                        .foregroundColor(.darkButton)
                         .fonzButtonText()
                         .padding(10)
                         .background(
                             ZStack {
                                 RoundedRectangle(cornerRadius: .cornerRadiusTasks)
-                                    .fill(colorScheme == .light ? Color.white : Color.darkButton )
+//                                    .fill(colorScheme == .light ? Color.white : Color.darkButton )
+                                    .fill(Color.white)
                                     .fonzShadow()
                             
                                 
@@ -84,7 +98,8 @@ struct SignInView: View {
                 
                 
 //                Text("or")
-//                    .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
+////                    .foregroundColor(colorScheme == .light ? Color.darkButton: Color.white)
+//                                    .foregroundColor(Color.white)
 //                    .fonzParagraphTwo()
 //                    .padding(.vertical, 5)
 //                // other sign in options

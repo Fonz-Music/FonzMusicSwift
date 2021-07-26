@@ -19,7 +19,8 @@ struct ConsentedToPrivacy: View {
             HStack{
                 CheckBoxView(checked: $acceptedPrivacy, bgColor: colorScheme == .light ? Color.darkButton: Color.white, secondaryColor: .amber)
                 Text("i accept Fonz's privacy policy")
-                    .foregroundColor(colorScheme == .light ? Color.darkButton: Color.white)
+//                    .foregroundColor(colorScheme == .light ? Color.darkButton: Color.white)
+                    .foregroundColor(Color.white)
                     .fonzParagraphThree()
                     .padding(.leading, 5)
                 Spacer()

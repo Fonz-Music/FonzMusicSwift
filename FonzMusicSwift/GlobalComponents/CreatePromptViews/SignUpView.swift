@@ -45,15 +45,21 @@ struct SignUpView: View {
             VStack{
                 VStack{
                     // username
-                    TextField("display name", text: $displayName)
-                        .foregroundColor(colorScheme == .light ? Color.darkButton: Color.white)
+                    TextField("", text: $displayName)
+                        .placeholder(when: displayName.isEmpty, placeholder: {
+                            Text("name")
+                                .foregroundColor(.gray)
+                                .fonzButtonText()
+                        })
+//                        .foregroundColor(colorScheme == .light ? Color.darkButton: Color.white)
+                        .foregroundColor(.darkButton)
                         .fonzButtonText()
-                        .foregroundColor(colorScheme == .light ? Color.darkButton: Color.white)
                         .padding(10)
                         .background(
                             ZStack {
                                 RoundedRectangle(cornerRadius: .cornerRadiusTasks)
-                                    .fill(colorScheme == .light ? Color.white : Color.darkButton )
+//                                    .fill(colorScheme == .light ? Color.white : Color.darkButton )
+                                    .fill(Color.white)
                                     .fonzShadow()
                                 // is red if not entered
                                 if (displayName == "" && acceptedPrivacy) {
@@ -67,14 +73,21 @@ struct SignUpView: View {
                         .multilineTextAlignment(.leading)
                         .padding(.vertical, 5)
                     // email
-                    TextField("email", text: $email)
-                        .foregroundColor(colorScheme == .light ? Color.darkButton: Color.white)
+                    TextField("", text: $email)
+                        .placeholder(when: email.isEmpty, placeholder: {
+                            Text("email")
+                                .foregroundColor(.gray)
+                                .fonzButtonText()
+                        })
+//                        .foregroundColor(colorScheme == .light ? Color.darkButton: Color.white)
+                        .foregroundColor(.darkButton)
                         .fonzButtonText()
                         .padding(10)
                         .background(
                             ZStack {
                                 RoundedRectangle(cornerRadius: .cornerRadiusTasks)
-                                    .fill(colorScheme == .light ? Color.white : Color.darkButton )
+//                                    .fill(colorScheme == .light ? Color.white : Color.darkButton )
+                                    .fill(Color.white)
                                     .fonzShadow()
                                 // is red if not entered or not valid email
                                 if ((email == "" || !email.isValidEmail) && acceptedPrivacy) {
@@ -87,14 +100,21 @@ struct SignUpView: View {
                         .multilineTextAlignment(.leading)
                         .padding(.vertical, 5)
                     // password
-                    SecureField("password", text: $password)
-                        .foregroundColor(colorScheme == .light ? Color.darkButton: Color.white)
+                    SecureField("", text: $password)
+                        .placeholder(when: password.isEmpty, placeholder: {
+                            Text("password")
+                                .foregroundColor(.gray)
+                                .fonzButtonText()
+                        })
+//                        .foregroundColor(colorScheme == .light ? Color.darkButton: Color.white)
+                        .foregroundColor(.darkButton)
                         .fonzButtonText()
                         .padding(10)
                         .background(
                             ZStack {
                                 RoundedRectangle(cornerRadius: .cornerRadiusTasks)
-                                    .fill(colorScheme == .light ? Color.white : Color.darkButton )
+//                                    .fill(colorScheme == .light ? Color.white : Color.darkButton )
+                                    .fill(Color.white)
                                     .fonzShadow()
                                 // is red if not entered or not equal to confirm
                                 if ((password == "" || password != confirmPassword) && acceptedPrivacy) {
@@ -107,14 +127,21 @@ struct SignUpView: View {
                         .multilineTextAlignment(.leading)
                         .padding(.vertical, 5)
                     // confirm password
-                    SecureField("confirm password", text: $confirmPassword)
-                        .foregroundColor(colorScheme == .light ? Color.darkButton: Color.white)
+                    SecureField("", text: $confirmPassword)
+                        .placeholder(when: confirmPassword.isEmpty, placeholder: {
+                            Text("confirm password")
+                                .foregroundColor(.gray)
+                                .fonzButtonText()
+                        })
+//                        .foregroundColor(colorScheme == .light ? Color.darkButton: Color.white)
+                        .foregroundColor(.darkButton)
                         .fonzButtonText()
                         .padding(10)
                         .background(
                             ZStack {
                                 RoundedRectangle(cornerRadius: .cornerRadiusTasks)
-                                    .fill(colorScheme == .light ? Color.white : Color.darkButton )
+//                                    .fill(colorScheme == .light ? Color.white : Color.darkButton )
+                                    .fill(Color.white)
                                     .fonzShadow()
                                 // is red if not entered or not equal to confirm
                                 if ((confirmPassword == "" || password != confirmPassword) && acceptedPrivacy) {
@@ -137,7 +164,8 @@ struct SignUpView: View {
                 
                     
 //                Text("or")
-//                    .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
+////                    .foregroundColor(colorScheme == .light ? Color.darkButton: Color.white)
+//                                    .foregroundColor(Color.white)
 //                    .fonzParagraphTwo()
 //                    .padding(.vertical, 5)
 //                // other sign in options
@@ -152,9 +180,9 @@ struct SignUpView: View {
                 // terms
                 VStack {
                     ConsentedToEmail(acceptedEmail: $acceptedEmail)
-                    .padding(5)
-                   ConsentedToPrivacy(acceptedPrivacy: $acceptedPrivacy)
-                    .padding(5)
+                        .padding(5)
+                    ConsentedToPrivacy(acceptedPrivacy: $acceptedPrivacy)
+                        .padding(5)
                     
                 }
                 .animation(.spring())

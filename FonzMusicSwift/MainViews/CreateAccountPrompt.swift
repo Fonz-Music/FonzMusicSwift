@@ -47,9 +47,20 @@ struct CreateAccountPrompt: View {
                 
                 Spacer()
             }
+//            .background(
+//                Color(UIColor(colorScheme == .light ? Color.white: Color.darkBackground))
+//            )
             .background(
-                Color(UIColor(colorScheme == .light ? Color.white: Color.darkBackground))
-            )
+                ZStack{
+
+                    VStack{
+                        Spacer()
+                        Image("peoplePartyingBackdrop")
+                            .opacity(0.4)
+                            .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight)
+                    }
+                }, alignment: .bottom)
+           
             .ignoresSafeArea()
         }
     }
