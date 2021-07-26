@@ -29,7 +29,7 @@ struct ConnectYourFirstCoasterButton: View {
                 
             
                 withAnimation {
-                    
+//                    connectedToSpotify = false
                     pressedButtonToLaunchNfc = true
     //                selectedTab = 1
                 }
@@ -37,13 +37,13 @@ struct ConnectYourFirstCoasterButton: View {
                 
             }, label: {
                 Image("coasterIcon").resizable().frame(width: sideGraphicHeight * 1.2, height: sideGraphicHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                        .frame(width: 125, height: 125)
+                    .frame(width: 200, height: 200)
             })
             .buttonStyle(CircleButtonGradiant(bgColorTopLeft: .lilac, bgColorBottomRight: Color.lilacDark, secondaryColor: .white))
             .disabled(!connectedToSpotify)
             Text("connect your first coaster")
                 .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
-                .fonzRoundButtonText()
+                .fonzParagraphOne()
                 
         }
     }

@@ -65,6 +65,14 @@ extension View {
         self.shadow(radius: 3, x: 3, y: 3)
     }
     
+    @ViewBuilder func determineHostButtonSize(connectedToSpotify : Bool) -> some View {
+        if connectedToSpotify {
+            self.frame(width: 250, height: 250)
+        }
+        else {
+            self.frame(width: 75, height: 75)
+        }
+    }
     
     
 }

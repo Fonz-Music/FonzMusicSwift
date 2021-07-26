@@ -52,26 +52,39 @@ struct HostSetup: View {
                 // if the nfc is NOT actice
                 if (!pressedButtonToLaunchNfc) {
                     // if the user has NOT connected to spotify
-                    if (!connectedToSpotify) {
+//                    if (!connectedToSpotify) {
                         VStack {
-                            Spacer()
-                                .frame(height: 100)
+//                            if (!connectedToSpotify) {
+//                            Spacer()
+//                                .frame(height: 100)
+//                            }
+//                            else {
+                                Spacer()
+                                    .frame(height: 30)
+//                            }
                             ConnectSpotifyButtonHomeView(connectedToSpotify: $connectedToSpotify, hasAccount: $hasAccount, throwCreateAccountModal: $throwCreateAccountModal)
-                            Spacer()
-                                .frame(height: 100)
+                                .addOpacity(connectedToSpotify)
+                                .animation(.easeInOut(duration: 2.0))
+                                .scaleEffect(connectedToSpotify ? 0.5 : 1.0)
+//                            Spacer()
+//                                .frame(height: 50)
                         }
                         .sheet(isPresented: $throwCreateAccountModal) {
                             CreateAccountPrompt(hasAccount: $hasAccount, showModal: $throwCreateAccountModal)
                         }
                         
-                    }
-                    else {
-                        Spacer()
-                            .frame(height: UIScreen.screenHeight * 0.2)
-                    }
+//                    }
+//                    else {
+//                        Spacer()
+//                            .frame(height: UIScreen.screenHeight * 0.2)
+//                    }
                     // connect first coaster button
+                    
                     ConnectYourFirstCoasterButton(pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc, connectedToSpotify: $connectedToSpotify)
                         .addOpacity(!connectedToSpotify)
+//                        .animation(.easeInOut(duration: 4))
+                        .animation(.easeInOut(duration: 2.0))
+                        .scaleEffect(!connectedToSpotify ? 0.5 : 1.0)
                 }
                 // if the nfc IS active, show animation
                 else {

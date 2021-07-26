@@ -22,15 +22,22 @@ struct ConnectSpotifyButtonHomeView: View {
 //    @Binding var showHomeButtons: Bool
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.openURL) var openURL
-    let sideGraphicHeight = UIScreen.screenHeight * 0.06
+    let sideGraphicHeight = UIScreen.screenHeight * 0.08
     
     var body: some View {
         VStack {
             Button(action: {
                 if hasAccount {
+                    // create session/fetch it
                     HostFonzSessionApi().createSession()
                     FirebaseAnalytics.Analytics.logEvent("userTappedConnectSpotify", parameters: ["user":"user", "tab":"host"])
+                    // open browser
                     SpotifyInBrowser().launchSpotifyInBrowser()
+                    // only for testing
+//                    withAnimation {
+//                        connectedToSpotify = true
+//                    }
+                    
                 }
                 else {
                     throwCreateAccountModal = true
@@ -39,12 +46,16 @@ struct ConnectSpotifyButtonHomeView: View {
                 
             }, label: {
                 Image("spotifyIconGreen").resizable().frame(width: sideGraphicHeight, height: sideGraphicHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                        .frame(width: 125, height: 125)
+                    .frame(width: 200, height: 200)
             })
             .buttonStyle(BasicFonzButtonCircle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .spotifyGreen))
             Text("connect your spotify")
                 .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
-                .fonzRoundButtonText()
+                .fonzParagraphOne()
         }
+        
     }
+    
+    
+    
 }

@@ -108,7 +108,10 @@ struct SearchTab: View {
                     print("has spot status \(spotifySignInResp.status)")
                     if spotifySignInResp.status == 200 {
                         print("changing connection now")
-                        connectedToSpotify = true
+                        withAnimation {
+                            connectedToSpotify = true
+                        }
+                        
                         UserDefaults.standard.set(true, forKey: "connectedToSpotify")
                     }
                 }
