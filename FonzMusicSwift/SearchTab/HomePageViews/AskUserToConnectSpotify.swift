@@ -35,7 +35,7 @@ struct AskUserToConnectSpotify: View {
 //                    .fonzHeading()
                     .padding(.headingFrontIndent)
                 Button(action: {
-                    HostFonzSessionApi().createSession()
+//                    HostFonzSessionApi().getAllSessions()
 
                     FirebaseAnalytics.Analytics.logEvent("userTappedConnectSpotify", parameters: ["user":"user", "tab":"host"])
                     SpotifyInBrowser().launchSpotifyInBrowser()

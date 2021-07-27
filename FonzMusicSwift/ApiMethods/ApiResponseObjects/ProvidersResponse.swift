@@ -22,3 +22,9 @@ struct Provider: Codable {
 struct SpotifyUrlResponse: Codable {
     var authorizeURL : String
 }
+
+struct AddProviderResponse: Codable {
+    var message : String
+    var session : SessionResponse
+//    var responseCode : Int
+}

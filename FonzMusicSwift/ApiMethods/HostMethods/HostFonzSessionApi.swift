@@ -51,15 +51,15 @@ class HostFonzSessionApi {
                 
                 returnCode = response?.getStatusCode() ?? 0
                 print("returncode is \(returnCode)")
-                if let decodedResponse = try? JSONDecoder().decode(GetAllSessionsResponse.self, from: dataResp) {
-                    print("success creating provider")
-                    if decodedResponse.sessions.count == 0 {
+                if let decodedResponse = try? JSONDecoder().decode([SessionResponse].self, from: dataResp) {
+                    print("success getting sessions")
+                    if decodedResponse.count == 0 {
                         print("creating new session")
                         self.createSession()
                     }
                     else {
                         print("has sessions")
-                        UserDefaults.standard.set(decodedResponse.sessions[0].sessionId, forKey: "userAccountSessionId")
+                        UserDefaults.standard.set(decodedResponse[0].sessionId, forKey: "userAccountSessionId")
                         returnMessage = "success"
                     }
                     

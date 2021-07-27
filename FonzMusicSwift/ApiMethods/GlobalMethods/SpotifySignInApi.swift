@@ -36,21 +36,7 @@ class SpotifySignInApi {
         
         // get access token
         let accessToken = getJWTAndCheckIfExpired()
-
-//
-//        // gets password from keychain
-//        let keychain = Keychain(service: "api.fonzmusic.com")
-//        let password = keychain[userEmail!]
-//        // gets token by passing email + password into api
-//        accessToken = SignInSignUpApi().loginUser(email: self.userEmail!, password: password!).message
-
-//        guard let user = Auth.auth().currentUser else {
-//            print("there was an error getting the user")
-//            return  returnObject}
-
-//        accessToken = tempAccessToken
-//                print("token is \(accessToken)" )
-                // create url
+        // create url
         guard let url = URL(string: self.ADDRESS + self.PROVIDERS ) else { return returnObject}
 
                 // creates req w url
@@ -72,13 +58,17 @@ class SpotifySignInApi {
 
                         // sets resp code
                         returnCode = response?.getStatusCode() ?? 0
+                        print("status code so far is \(response?.getStatusCode())")
 
-                        if let decodedResponse = try? JSONDecoder().decode(ProviderResponse.self, from: dataResp) {
+                        if let decodedResponse = try? JSONDecoder().decode([Provider].self, from: dataResp) {
                             // sets return value
                             print("success")
-                            providerObject.providers = decodedResponse.providers
-                            let providerId = decodedResponse.providers[0].providerId
-                            UserDefaults.standard.set(decodedResponse.providers[0].providerId, forKey: "spotifyId")
+//                            providerObject.providers = decodedResponse.providers
+//                            let providerId = decodedResponse.providers[0].providerId
+//                            UserDefaults.standard.set(decodedResponse.providers[0].providerId, forKey: "spotifyDisplayName")
+                            providerObject.providers = decodedResponse
+                            let providerId = decodedResponse[0].providerId
+                            UserDefaults.standard.set(decodedResponse[0].displayName, forKey: "spotifyDisplayName")
                             print("id is \(providerId)" )
 //                            DispatchQueue.main.async {
                                 // this allows us to wait before returning value
@@ -114,10 +104,10 @@ class SpotifySignInApi {
     print("running 2nd call")
                                         returnCode = response?.getStatusCode() ?? 0
 
-                                        if let decodedResponse = try? JSONDecoder().decode(BasicResponse.self, from: dataResp) {
+                                        if let decodedResponse = try? JSONDecoder().decode(AddProviderResponse.self, from: dataResp) {
                                             print("success here")
                                             // sets return value
-                //                            returnMessage = decodedResponse.message
+                                            returnMessage = decodedResponse.message
                                         }
                                         else {
                                             let decodedResponse = try? JSONDecoder().decode(ErrorResponse.self, from: dataResp)

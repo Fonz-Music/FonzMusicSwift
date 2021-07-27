@@ -18,7 +18,7 @@ struct ManageSpotifyButton: View {
     
     @Environment(\.colorScheme) var colorScheme
     
-    @State var spotifyId : String = "spotify account"
+    @State var spotifyDisplayName : String = "spotify account"
     
     var body: some View {
         VStack{
@@ -33,7 +33,7 @@ struct ManageSpotifyButton: View {
                     HStack(spacing: 5) {
                         Image("spotifyIconAmber").resizable().frame(width: 30 ,height: 30, alignment: .leading)
                             
-                        Text(spotifyId)
+                        Text(spotifyDisplayName)
                             .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
                             .fonzButtonText()
                             .padding(.horizontal)
@@ -45,7 +45,7 @@ struct ManageSpotifyButton: View {
             })
             .buttonStyle(BasicFonzButton(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .amber))
             .onAppear {
-                spotifyId = UserDefaults.standard.string(forKey: "spotifyId") ?? "spotify account"
+                spotifyDisplayName = UserDefaults.standard.string(forKey: "spotifyDisplayName") ?? "spotify account"
             }
             if isExpanded {
                 VStack{
