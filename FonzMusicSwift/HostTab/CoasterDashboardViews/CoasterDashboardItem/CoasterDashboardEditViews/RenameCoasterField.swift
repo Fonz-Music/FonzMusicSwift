@@ -27,7 +27,7 @@ struct RenameCoasterField: View {
     var body: some View {
         HStack{
             TextField("name", text: $coasterName)
-                .foregroundColor(colorScheme == .light ? Color.white : Color.darkButton)
+                .foregroundColor(colorScheme == .light ? Color.darkButton : Color.white)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .fonzShadow()
                 .padding(10)
@@ -42,7 +42,7 @@ struct RenameCoasterField: View {
                     showRenameModal = false
                     
                 }
-                coastersConnectedToHost.reloadCoasters()
+                
                 FirebaseAnalytics.Analytics.logEvent("hostRenamedCoaster", parameters: ["user":"host", "tab":"host"])
             } label: {
                 Image(systemName: "checkmark")

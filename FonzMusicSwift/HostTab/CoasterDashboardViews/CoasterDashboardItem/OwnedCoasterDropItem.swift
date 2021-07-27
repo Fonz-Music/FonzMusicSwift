@@ -30,6 +30,7 @@ struct OwnedCoasterDropItem: View {
     @Binding var troubleShootCoasterPressed : Bool
     // temp Coaster Object to pass to trouble shoot to write correct uid
     @Binding var tempCoasterDetails : HostCoasterInfo
+    @Binding var hasConnectedCoasters : Bool
     
     
     @Environment(\.colorScheme) var colorScheme
@@ -45,13 +46,13 @@ struct OwnedCoasterDropItem: View {
                         RenameCoasterField(showRenameModal: $showRenameModal,  coasterUid: item.coasterId, coastersConnectedToHost: coastersConnectedToHost)
                     }
                     else if showPauseModal {
-                        PauseCoasterField(showPauseModal: $showPauseModal, paused: item.active, coasterUid: item.coasterId, coastersConnectedToHost: coastersConnectedToHost)
+                        PauseCoasterField(showPauseModal: $showPauseModal, active: item.active, coasterUid: item.coasterId, coastersConnectedToHost: coastersConnectedToHost)
                     }
                     else if showTroubleShootModal {
                         TroubleShootCoasterField(showTroubleShootModal: $showTroubleShootModal, coasterUid: item.coasterId, troubleShootCoasterPressed: $troubleShootCoasterPressed, tempCoasterDetails: $tempCoasterDetails)
                     }
                     else if showDisconnectModal {
-                        DisconnectCoasterField(showDisconnectModal: $showDisconnectModal, coasterUid: item.coasterId, coastersConnectedToHost: coastersConnectedToHost)
+                        DisconnectCoasterField(showDisconnectModal: $showDisconnectModal, coasterUid: item.coasterId, coastersConnectedToHost: coastersConnectedToHost, hasConnectedCoasters: $hasConnectedCoasters)
                     }
                     // all options
                     else {

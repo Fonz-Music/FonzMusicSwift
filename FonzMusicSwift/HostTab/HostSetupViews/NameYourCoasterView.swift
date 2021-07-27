@@ -33,7 +33,7 @@ struct NameYourCoasterView: View {
                 .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
                 .fonzRoundButtonText()
             TextField("name", text: $coasterName)
-                .foregroundColor(colorScheme == .light ? Color.white : Color.darkBackground)
+                .foregroundColor(colorScheme == .light ? Color.darkButton : Color.white)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .fonzShadow()
                 .padding(.horizontal, UIScreen.screenWidth * 0.18)

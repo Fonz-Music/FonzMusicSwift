@@ -14,7 +14,7 @@ struct PauseCoasterField: View {
     @Environment(\.colorScheme) var colorScheme
     
     @Binding var showPauseModal : Bool
-    var paused: Bool
+    var active: Bool
     var coasterUid:String
     @ObservedObject var coastersConnectedToHost: CoastersFromApi
     
@@ -48,14 +48,15 @@ struct PauseCoasterField: View {
                 .padding(.vertical, 5)
                 Spacer()
                 Button {
-                    print("paused is \(paused)")
-                    let resp = HostCoasterApi().pauseCoaster(coasterUid: coasterUid, paused: paused)
+                    print("active is \(active)")
+                    let resp = HostCoasterApi().pauseCoaster(coasterUid: coasterUid, active: active)
 //                    coasterFromSearch.reloadCoasters()
                     print("pressed button")
                     withAnimation {
                         showPauseModal = false
+                        coastersConnectedToHost.reloadCoasters()
                     }
-                    coastersConnectedToHost.reloadCoasters()
+                    
                     FirebaseAnalytics.Analytics.logEvent("hostPausedCoaster", parameters: ["user":"host", "tab":"host"])
                 } label: {
                     Image(systemName: "checkmark")

@@ -23,7 +23,7 @@ struct PauseCoasterButton: View {
     } label: {
         HStack(spacing: 5) {
             // button name
-            Text(determineTextOffPause(paused: item.active))
+            Text(determineTextOffPause(active: item.active))
                 .foregroundColor(colorScheme == .light ? Color.darkButton: Color.white)
                 .fonzParagraphTwo()
                 .padding(.horizontal, 20)
@@ -36,16 +36,16 @@ struct PauseCoasterButton: View {
 //    .buttonStyle(BasicFonzButton(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .lilac))
     }
     
-    func determineColorOffPause(paused:Bool) -> Color {
-        if paused {
+    func determineColorOffPause(active:Bool) -> Color {
+        if !active {
             return Color.gray
         }
         else { return colorScheme == .light ? Color.darkButton  : Color.white}
     }
-    func determineTextOffPause(paused:Bool) -> String {
-        if paused {
-            return "unpause"
+    func determineTextOffPause(active:Bool) -> String {
+        if active {
+            return "pause"
         }
-        else { return "pause" }
+        else { return "unpause" }
     }
 }

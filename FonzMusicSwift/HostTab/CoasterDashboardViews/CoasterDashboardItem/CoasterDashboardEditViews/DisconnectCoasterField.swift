@@ -18,6 +18,8 @@ struct DisconnectCoasterField: View {
     
     @ObservedObject var coastersConnectedToHost: CoastersFromApi
     
+    @Binding var hasConnectedCoasters : Bool
+    
     var body: some View {
         VStack{
             // coaster bane
@@ -53,8 +55,15 @@ struct DisconnectCoasterField: View {
                     print("pressed button")
                     withAnimation {
                         showDisconnectModal = false
+                        if coastersConnectedToHost.products.quantity == 1 {
+                            // sets app to NOT have coasters if the user lacks them
+                            UserDefaults.standard.set(false, forKey: "hasConnectedCoasters")
+                            hasConnectedCoasters = false
+                        }
+                        coastersConnectedToHost.reloadCoasters()
+                    
                     }
-                    coastersConnectedToHost.reloadCoasters()
+                    
                     FirebaseAnalytics.Analytics.logEvent("hostDisconnectedCoaster", parameters: ["user":"host", "tab":"host"])
                 } label: {
                     Image(systemName: "checkmark")

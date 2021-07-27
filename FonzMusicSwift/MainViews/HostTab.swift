@@ -50,7 +50,7 @@ struct HostTab: View {
                         .padding(.bottom, 20)
                     Spacer()
                 }
-                CoasterDashboardPage()
+                CoasterDashboardPage(hasConnectedCoasters: $hasConnectedCoasters)
             }
             Spacer()
         }

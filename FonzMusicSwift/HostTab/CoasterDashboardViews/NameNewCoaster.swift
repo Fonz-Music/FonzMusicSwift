@@ -44,8 +44,7 @@ struct NameNewCoaster: View {
                 
                 
                 
-            RenameCoasterField(showRenameModal: $launchedNfc, coasterUid: coasterUid, reloadCoasters:
-                                $reloadCoaster, coasterFromSearch: CoastersFromApi())
+            RenameCoasterField(showRenameModal: $launchedNfc, coasterUid: coasterUid, coastersConnectedToHost: CoastersFromApi())
             Spacer()
         }
         .frame(width: UIScreen.screenWidth * 0.8,height: 120)

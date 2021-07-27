@@ -10,7 +10,7 @@ import SwiftUI
 struct CoasterDashboardPage: View {
 
 // ---------------------------------- inherited from parent -----------------------------------------
-
+    @Binding var hasConnectedCoasters : Bool
     
 // ---------------------------------- created inside view -------------------------------------------
     // object that stores the songs from the api
@@ -47,7 +47,7 @@ struct CoasterDashboardPage: View {
          
         VStack {
             Spacer()
-                .frame(height: UIScreen.screenHeight * 0.2)
+                .frame(height: UIScreen.screenHeight * 0.15)
             // regular coaster dashboard
             if !launchedNfc {
                 ZStack {
@@ -62,7 +62,7 @@ struct CoasterDashboardPage: View {
 
                                     ForEach(hostCoasterList.products.coasters, id: \.self) { item in
                                         
-                                        OwnedCoasterDropItem(item: item, isExpanded: self.selection.contains(item),  coastersConnectedToHost: hostCoasterList, showRenameModal: $showRenameModal, showPauseModal: $showPauseModal, showTroubleShootModal: $showTroubleShootModal, showDisconnectModal:  $showDisconnectModal, troubleShootCoasterPressed: $troubleShootCoasterPressed, tempCoasterDetails: $tempCoasterDetails)
+                                        OwnedCoasterDropItem(item: item, isExpanded: self.selection.contains(item),  coastersConnectedToHost: hostCoasterList, showRenameModal: $showRenameModal, showPauseModal: $showPauseModal, showTroubleShootModal: $showTroubleShootModal, showDisconnectModal:  $showDisconnectModal, troubleShootCoasterPressed: $troubleShootCoasterPressed, tempCoasterDetails: $tempCoasterDetails, hasConnectedCoasters: $hasConnectedCoasters)
                                                 .onTapGesture {
         //                                            if !self.selection.contains(item) {
                                                         self.selectDeselect(item)

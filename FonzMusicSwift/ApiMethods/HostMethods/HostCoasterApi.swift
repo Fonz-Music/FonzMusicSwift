@@ -273,7 +273,7 @@ class HostCoasterApi {
     }
     
     // api call to pause a coaster
-    func pauseCoaster(coasterUid:String, paused:Bool) -> BasicResponse {
+    func pauseCoaster(coasterUid:String, active:Bool) -> BasicResponse {
         // this allows us to wait before returning value
         let sem = DispatchSemaphore.init(value: 0)
         print("got here")
@@ -293,7 +293,7 @@ class HostCoasterApi {
         request.httpMethod = "PUT"
         // creates Param as Dictionary
         let parameters = [
-            "active": paused
+            "active": active
         ]
         // converts param dict to JSON DATA
         let jsonData = try! JSONSerialization.data(withJSONObject: parameters)

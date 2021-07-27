@@ -27,13 +27,14 @@ class CoastersFromApi: ObservableObject {
     var firstTime = false
     
     
+    
     // MARK:- Initiliazer for product via model.
     
     init() {
         products = HostCoasterApi().getOwnedCoasters()
         if (products.quantity == 0 ) {
             // sets app to NOT have coasters if the user lacks them
-//            UserDefaults.standard.set(false, forKey: "hasConnectedCoasters")
+            UserDefaults.standard.set(false, forKey: "hasConnectedCoasters")
         }
         print("starting this")
 
