@@ -16,6 +16,8 @@ struct DisconnectCoasterField: View {
     @Binding var showDisconnectModal : Bool
     var coasterUid:String
     
+    @ObservedObject var coastersConnectedToHost: CoastersFromApi
+    
     var body: some View {
         VStack{
             // coaster bane
@@ -52,6 +54,7 @@ struct DisconnectCoasterField: View {
                     withAnimation {
                         showDisconnectModal = false
                     }
+                    coastersConnectedToHost.reloadCoasters()
                     FirebaseAnalytics.Analytics.logEvent("hostDisconnectedCoaster", parameters: ["user":"host", "tab":"host"])
                 } label: {
                     Image(systemName: "checkmark")

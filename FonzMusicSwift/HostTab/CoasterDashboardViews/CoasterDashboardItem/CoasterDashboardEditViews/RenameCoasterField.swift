@@ -13,8 +13,14 @@ struct RenameCoasterField: View {
     
     @Binding var showRenameModal : Bool
     
-    @State var coasterName: String = ""
     var coasterUid:String
+    
+   
+    
+    @ObservedObject var coastersConnectedToHost: CoastersFromApi
+    
+    @State var coasterName: String = ""
+    
     
     @Environment(\.colorScheme) var colorScheme
     
@@ -32,10 +38,11 @@ struct RenameCoasterField: View {
                 let HostApi = HostCoasterApi()
                 let resp = HostApi.renameCoaster(coasterUid: coasterUid, newName: coasterName)
                 print("resp is \(resp)")
-                print("\(coasterName)")
                 withAnimation {
                     showRenameModal = false
+                    
                 }
+                coastersConnectedToHost.reloadCoasters()
                 FirebaseAnalytics.Analytics.logEvent("hostRenamedCoaster", parameters: ["user":"host", "tab":"host"])
             } label: {
                 Image(systemName: "checkmark")

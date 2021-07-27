@@ -26,8 +26,8 @@ struct CoasterInfo: Hashable, Codable {
         let newHostCoasterResult = HostCoasterResult(
             active: self.active ?? true,
             coasterId: self.uid,
-            name: self.coasterName,
-            paused: self.active ?? true)
+            name: self.coasterName
+            )
         return newHostCoasterResult
     }
 }
@@ -37,7 +37,6 @@ struct CoasterResult: Codable {
     var displayName: String
     var coasterName: String
     var coasterActive: Bool
-    var coasterPaused: Bool
     var statusCode: Int?
     
     
@@ -47,15 +46,15 @@ struct HostCoasterResult: Codable, Hashable {
     var active: Bool
     var coasterId: String
     var name: String
-    var paused: Bool
+    
     
     func toCoasterInfo() -> CoasterInfo {
         let newCoasterInfo = CoasterInfo(
             uid: self.coasterId,
             hostName: "",
             coasterName: self.name,
-            sessionId: "",
-            active: self.paused)
+            sessionId: ""
+            )
         return newCoasterInfo
     }
 }

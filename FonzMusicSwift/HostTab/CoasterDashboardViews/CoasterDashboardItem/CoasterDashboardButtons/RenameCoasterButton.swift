@@ -14,6 +14,7 @@ struct RenameCoasterButton: View {
     @Binding var showRenameModal : Bool
     
     
+    
     var body: some View {
         
         

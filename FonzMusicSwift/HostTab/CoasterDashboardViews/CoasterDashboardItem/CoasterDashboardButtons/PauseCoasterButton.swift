@@ -23,7 +23,7 @@ struct PauseCoasterButton: View {
     } label: {
         HStack(spacing: 5) {
             // button name
-            Text(determineTextOffPause(paused: item.paused))
+            Text(determineTextOffPause(paused: item.active))
                 .foregroundColor(colorScheme == .light ? Color.darkButton: Color.white)
                 .fonzParagraphTwo()
                 .padding(.horizontal, 20)

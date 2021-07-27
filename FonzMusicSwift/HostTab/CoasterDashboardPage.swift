@@ -42,6 +42,7 @@ struct CoasterDashboardPage: View {
     
     @State var showSuccessOrError = false
     
+    
     var body: some View {
          
         VStack {
@@ -61,7 +62,7 @@ struct CoasterDashboardPage: View {
 
                                     ForEach(hostCoasterList.products.coasters, id: \.self) { item in
                                         
-                                        OwnedCoasterDropItem(item: item, isExpanded: self.selection.contains(item),  coasterFromSearch: hostCoasterList, showRenameModal: $showRenameModal, showPauseModal: $showPauseModal, showTroubleShootModal: $showTroubleShootModal, showDisconnectModal:  $showDisconnectModal, troubleShootCoasterPressed: $troubleShootCoasterPressed, tempCoasterDetails: $tempCoasterDetails)
+                                        OwnedCoasterDropItem(item: item, isExpanded: self.selection.contains(item),  coastersConnectedToHost: hostCoasterList, showRenameModal: $showRenameModal, showPauseModal: $showPauseModal, showTroubleShootModal: $showTroubleShootModal, showDisconnectModal:  $showDisconnectModal, troubleShootCoasterPressed: $troubleShootCoasterPressed, tempCoasterDetails: $tempCoasterDetails)
                                                 .onTapGesture {
         //                                            if !self.selection.contains(item) {
                                                         self.selectDeselect(item)
@@ -80,6 +81,9 @@ struct CoasterDashboardPage: View {
                                 .padding(.bottom, 10)
                             }.frame(width: UIScreen.screenWidth * 0.9, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                             .padding(.top, 20)
+                            .onAppear {
+                                print("coasters are \(hostCoasterList.products.coasters)")
+                            }
                             
                             Spacer()
                             // add new button

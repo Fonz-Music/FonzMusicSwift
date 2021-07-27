@@ -19,6 +19,7 @@ struct HostTab: View {
     // determines if current user has an account
     @Binding var hasAccount : Bool
     
+   
     
     
     

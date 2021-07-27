@@ -47,7 +47,7 @@ class HostCoasterApi {
         let sem = DispatchSemaphore.init(value: 0)
         
         // init value for return
-        var returnObject = CoasterResult(sessionId: "", displayName: "", coasterName: "", coasterActive: false, coasterPaused: false, statusCode: 0)
+        var returnObject = CoasterResult(sessionId: "", displayName: "", coasterName: "", coasterActive: false, statusCode: 0)
         
         // get access token
         let accessToken = getJWTAndCheckIfExpired()
@@ -73,7 +73,7 @@ class HostCoasterApi {
                 if let decodedResponse = try? JSONDecoder().decode(CoasterResult.self, from: dataResp) {
                     
                     // creates new coasterResult from return value
-                    let newCoaster = CoasterResult(sessionId: decodedResponse.sessionId, displayName: decodedResponse.displayName, coasterName:  decodedResponse.coasterName, coasterActive: decodedResponse.coasterActive, coasterPaused: decodedResponse.coasterPaused, statusCode: 200 )
+                    let newCoaster = CoasterResult(sessionId: decodedResponse.sessionId, displayName: decodedResponse.displayName, coasterName:  decodedResponse.coasterName, coasterActive: decodedResponse.coasterActive,  statusCode: 200 )
                     print("newCoaster " + "\(newCoaster)")
                     // sets return value
                     returnObject = newCoaster
@@ -82,7 +82,7 @@ class HostCoasterApi {
                     let decodedResponse = try? JSONDecoder().decode(ErrorResponse.self, from: dataResp)
                         
                         // creates new coasterResult from return value
-                    let newCoaster = CoasterResult(sessionId: "", displayName: "", coasterName:  "", coasterActive: false, coasterPaused: false, statusCode: decodedResponse?.status ?? 0 )
+                    let newCoaster = CoasterResult(sessionId: "", displayName: "", coasterName:  "", coasterActive: false,  statusCode: decodedResponse?.status ?? 0 )
                         print("newCoaster " + "\(newCoaster)")
                         // sets return value
                         returnObject = newCoaster
@@ -226,8 +226,9 @@ class HostCoasterApi {
         request.httpMethod = "PUT"
         // creates Param as Dictionary
         let parameters = [
-            "name": newName
-        ]
+            "name": newName,
+            "active" : true
+        ] as [String : Any]
         // converts param dict to JSON DATA
         let jsonData = try! JSONSerialization.data(withJSONObject: parameters)
         // adds JSON DATA to the body

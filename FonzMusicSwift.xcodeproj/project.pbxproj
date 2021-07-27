@@ -85,6 +85,9 @@
 		261EC1DD26B0907600202D24 /* CreateSessionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261EC1DB26B0907600202D24 /* CreateSessionResponse.swift */; };
 		261EC1DF26B098A400202D24 /* GetAllSessionsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261EC1DE26B098A400202D24 /* GetAllSessionsResponse.swift */; };
 		261EC1E026B098A400202D24 /* GetAllSessionsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261EC1DE26B098A400202D24 /* GetAllSessionsResponse.swift */; };
+		261EC1E126B0BC5900202D24 /* NameNewCoaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBCCEC2686938A00399460 /* NameNewCoaster.swift */; };
+		261EC1E226B0BC5B00202D24 /* RenameCoasterField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBCCE22686701F00399460 /* RenameCoasterField.swift */; };
+		261EC1E326B0BC5E00202D24 /* CoastersFromApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B65148263865D10074F279 /* CoastersFromApi.swift */; };
 		2620B8A326792599004FE721 /* SearchTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2620B8A226792599004FE721 /* SearchTab.swift */; };
 		2620B8A52679261F004FE721 /* SearchBarPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2620B8A42679261F004FE721 /* SearchBarPage.swift */; };
 		2620B8A8267926C2004FE721 /* HomePageDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2620B8A7267926C2004FE721 /* HomePageDecision.swift */; };
@@ -201,8 +204,6 @@
 		26D0525326A347FE00DDF43C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26DB9AFB2634A4370030643D /* GoogleService-Info.plist */; };
 		26D0525526A34B9E00DDF43C /* ScreenExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D0525426A34B9E00DDF43C /* ScreenExtension.swift */; };
 		26D0525626A34BDB00DDF43C /* ScreenExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D0525426A34B9E00DDF43C /* ScreenExtension.swift */; };
-		26D9BC2326AED4E1000C8739 /* NameNewCoaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBCCEC2686938A00399460 /* NameNewCoaster.swift */; };
-		26D9BC2426AED507000C8739 /* RenameCoasterField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBCCE22686701F00399460 /* RenameCoasterField.swift */; };
 		26D9BC2626AED6B0000C8739 /* AskUserToConnectSpotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D9BC2526AED6B0000C8739 /* AskUserToConnectSpotify.swift */; };
 		26D9BC2726AED6B0000C8739 /* AskUserToConnectSpotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D9BC2526AED6B0000C8739 /* AskUserToConnectSpotify.swift */; };
 		26DB9AA52634990D0030643D /* ErrorOnTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9AA42634990D0030643D /* ErrorOnTap.swift */; };
@@ -1333,8 +1334,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26D9BC2426AED507000C8739 /* RenameCoasterField.swift in Sources */,
-				26D9BC2326AED4E1000C8739 /* NameNewCoaster.swift in Sources */,
 				268B5B3126AE020300A93B9E /* ErrorResponse.swift in Sources */,
 				268B5B2E26AE005000A93B9E /* BasicResponseWithCode.swift in Sources */,
 				263545BF26A7086D00B415C9 /* ShopWebView.swift in Sources */,
@@ -1345,6 +1344,7 @@
 				268E8F4A26A49EC5006451AE /* HostCoasterApi.swift in Sources */,
 				268E8F4926A49E94006451AE /* SignInSignUpApi.swift in Sources */,
 				268E8F4526A49E8A006451AE /* SignInWithAppleButton.swift in Sources */,
+				261EC1E326B0BC5E00202D24 /* CoastersFromApi.swift in Sources */,
 				268E8F4626A49E8A006451AE /* SignInWithGoogleButton.swift in Sources */,
 				268E8F4726A49E8A006451AE /* SignUpView.swift in Sources */,
 				268E8F4826A49E8A006451AE /* SignInView.swift in Sources */,
@@ -1415,6 +1415,7 @@
 				261752FB26A3448B0069C83D /* VersionResponse.swift in Sources */,
 				261752FC26A3448B0069C83D /* FailCircleResponse.swift in Sources */,
 				261752FD26A3448B0069C83D /* Colors.swift in Sources */,
+				261EC1E226B0BC5B00202D24 /* RenameCoasterField.swift in Sources */,
 				261752FE26A3448B0069C83D /* ButtonStyles.swift in Sources */,
 				261752FF26A3448B0069C83D /* FrontEndConstants.swift in Sources */,
 				2617530026A3448B0069C83D /* TapYourPhoneAmber.swift in Sources */,
@@ -1428,6 +1429,7 @@
 				2617530726A3448B0069C83D /* ErrorNotFonzCoaster.swift in Sources */,
 				2617530A26A3448B0069C83D /* GetVerionApi.swift in Sources */,
 				2617530D26A3448B0069C83D /* GuestApi.swift in Sources */,
+				261EC1E126B0BC5900202D24 /* NameNewCoaster.swift in Sources */,
 				2617531326A3448B0069C83D /* SearchTab.swift in Sources */,
 				2617531826A3448B0069C83D /* LaunchTroubleShootCoasterNfc.swift in Sources */,
 				2617531926A3448B0069C83D /* LaunchJoinPartNfc.swift in Sources */,

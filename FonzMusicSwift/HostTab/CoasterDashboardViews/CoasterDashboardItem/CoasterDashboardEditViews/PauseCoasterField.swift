@@ -16,6 +16,7 @@ struct PauseCoasterField: View {
     @Binding var showPauseModal : Bool
     var paused: Bool
     var coasterUid:String
+    @ObservedObject var coastersConnectedToHost: CoastersFromApi
     
     var body: some View {
         VStack{
@@ -54,6 +55,7 @@ struct PauseCoasterField: View {
                     withAnimation {
                         showPauseModal = false
                     }
+                    coastersConnectedToHost.reloadCoasters()
                     FirebaseAnalytics.Analytics.logEvent("hostPausedCoaster", parameters: ["user":"host", "tab":"host"])
                 } label: {
                     Image(systemName: "checkmark")

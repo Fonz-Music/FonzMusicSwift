@@ -48,9 +48,9 @@ struct NameYourCoasterView: View {
                 let HostApi = HostCoasterApi()
                 let resp = HostApi.renameCoaster(coasterUid: coasterUid, newName: coasterName)
                 print("resp is \(resp)")
-                print("\(coasterName)")
                 withAnimation {
                     hasConnectedCoasters = true
+                    UserDefaults.standard.set(true, forKey: "hasConnectedCoasters")
                 }
             } label: {
                 Text("continue")

@@ -38,7 +38,7 @@ class GuestApi {
         let sem = DispatchSemaphore.init(value: 0)
         
         // init value for return
-        var returnObject = CoasterResult(sessionId: "", displayName: "", coasterName: "", coasterActive: false, coasterPaused: false, statusCode: 0)
+        var returnObject = CoasterResult(sessionId: "", displayName: "", coasterName: "", coasterActive: false, statusCode: 0)
         
         // init value for token
         var accessToken = ""
@@ -86,7 +86,7 @@ class GuestApi {
                         if let decodedResponse = try? JSONDecoder().decode(CoasterResult.self, from: dataResp) {
                             
                             // creates new coasterResult from return value
-                            let newCoaster = CoasterResult(sessionId: decodedResponse.sessionId, displayName: decodedResponse.displayName, coasterName:  decodedResponse.coasterName, coasterActive: decodedResponse.coasterActive, coasterPaused: decodedResponse.coasterPaused, statusCode: 200 )
+                            let newCoaster = CoasterResult(sessionId: decodedResponse.sessionId, displayName: decodedResponse.displayName, coasterName:  decodedResponse.coasterName, coasterActive: decodedResponse.coasterActive,  statusCode: 200 )
 //                            print("newCoaster " + "\(newCoaster)")
                             // sets return value
                             returnObject = newCoaster

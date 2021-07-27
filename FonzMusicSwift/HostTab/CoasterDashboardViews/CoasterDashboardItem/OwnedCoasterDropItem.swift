@@ -15,7 +15,7 @@ struct OwnedCoasterDropItem: View {
     let item: HostCoasterResult
     var isExpanded: Bool
 
-    @ObservedObject var coasterFromSearch: CoastersFromApi
+    @ObservedObject var coastersConnectedToHost: CoastersFromApi
  
     
 //    @State var showRenameModal = false
@@ -31,6 +31,7 @@ struct OwnedCoasterDropItem: View {
     // temp Coaster Object to pass to trouble shoot to write correct uid
     @Binding var tempCoasterDetails : HostCoasterInfo
     
+    
     @Environment(\.colorScheme) var colorScheme
   
     var body: some View {
@@ -41,16 +42,16 @@ struct OwnedCoasterDropItem: View {
                 if isExpanded {
                     ZStack {
                     if showRenameModal {
-                        RenameCoasterField(showRenameModal: $showRenameModal, coasterUid: item.coasterId)
+                        RenameCoasterField(showRenameModal: $showRenameModal,  coasterUid: item.coasterId, coastersConnectedToHost: coastersConnectedToHost)
                     }
                     else if showPauseModal {
-                        PauseCoasterField(showPauseModal: $showPauseModal, paused: item.active, coasterUid: item.coasterId)
+                        PauseCoasterField(showPauseModal: $showPauseModal, paused: item.active, coasterUid: item.coasterId, coastersConnectedToHost: coastersConnectedToHost)
                     }
                     else if showTroubleShootModal {
                         TroubleShootCoasterField(showTroubleShootModal: $showTroubleShootModal, coasterUid: item.coasterId, troubleShootCoasterPressed: $troubleShootCoasterPressed, tempCoasterDetails: $tempCoasterDetails)
                     }
                     else if showDisconnectModal {
-                        DisconnectCoasterField(showDisconnectModal: $showDisconnectModal, coasterUid: item.coasterId)
+                        DisconnectCoasterField(showDisconnectModal: $showDisconnectModal, coasterUid: item.coasterId, coastersConnectedToHost: coastersConnectedToHost)
                     }
                     // all options
                     else {

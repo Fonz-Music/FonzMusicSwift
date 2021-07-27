@@ -13,6 +13,8 @@ struct NameNewCoaster: View {
    
     var coasterUid:String
     
+    @State var reloadCoaster = false
+    
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
@@ -42,7 +44,8 @@ struct NameNewCoaster: View {
                 
                 
                 
-            RenameCoasterField(showRenameModal: $launchedNfc, coasterUid: coasterUid)
+            RenameCoasterField(showRenameModal: $launchedNfc, coasterUid: coasterUid, reloadCoasters:
+                                $reloadCoaster, coasterFromSearch: CoastersFromApi())
             Spacer()
         }
         .frame(width: UIScreen.screenWidth * 0.8,height: 120)
