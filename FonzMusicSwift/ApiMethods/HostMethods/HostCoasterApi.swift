@@ -42,12 +42,12 @@ class HostCoasterApi {
     
 
     // api call to get the Coaster info
-    func getSingleOwnedCoaster(coasterUid:String) -> CoasterResult {
+    func getSingleOwnedCoaster(coasterUid:String) -> CoasterResponse {
         // this allows us to wait before returning value
         let sem = DispatchSemaphore.init(value: 0)
         
         // init value for return
-        var returnObject = CoasterResult(sessionId: "", displayName: "", coasterName: "", coasterActive: false, statusCode: 0)
+        var returnObject = CoasterResponse(active: false, coasterId: "", name: "")
         
         // get access token
         let accessToken = getJWTAndCheckIfExpired()
@@ -70,22 +70,25 @@ class HostCoasterApi {
             if let dataResp = data {
 //                        let jsonData = try? JSONSerialization.jsonObject(with: data!, options: [])
 //                        print(jsonData)
-                if let decodedResponse = try? JSONDecoder().decode(CoasterResult.self, from: dataResp) {
+                
+                returnObject.statusCode = response?.getStatusCode() ?? 0
+                
+                if let decodedResponse = try? JSONDecoder().decode(CoasterResponse.self, from: dataResp) {
                     
                     // creates new coasterResult from return value
-                    let newCoaster = CoasterResult(sessionId: decodedResponse.sessionId, displayName: decodedResponse.displayName, coasterName:  decodedResponse.coasterName, coasterActive: decodedResponse.coasterActive,  statusCode: 200 )
+                    let newCoaster = decodedResponse
                     print("newCoaster " + "\(newCoaster)")
                     // sets return value
                     returnObject = newCoaster
                 }
                 else {
                     let decodedResponse = try? JSONDecoder().decode(ErrorResponse.self, from: dataResp)
-                        
+                        print("failed")
                         // creates new coasterResult from return value
-                    let newCoaster = CoasterResult(sessionId: "", displayName: "", coasterName:  "", coasterActive: false,  statusCode: decodedResponse?.status ?? 0 )
-                        print("newCoaster " + "\(newCoaster)")
-                        // sets return value
-                        returnObject = newCoaster
+//                    let newCoaster = CoasterResult(sessionId: "", displayName: "", coasterName:  "", coasterActive: false,  statusCode: decodedResponse?.status ?? 0 )
+//                        print("newCoaster " + "\(newCoaster)")
+//                        // sets return value
+//                        returnObject = newCoaster
                 }
             } else {
                 print("fetch failed: \(error?.localizedDescription ?? "unknown error")")

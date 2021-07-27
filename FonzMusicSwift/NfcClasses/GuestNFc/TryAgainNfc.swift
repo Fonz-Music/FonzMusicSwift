@@ -160,9 +160,10 @@ struct ShowNfcTryAgainButton: UIViewRepresentable {
 //                        self.uid = uidFromCoaster
                         // sets vars to return to user
                         self.launchedNfc = true
-                        self.tempCoaster.coasterName = coasterDetails.coasterName
-                        self.tempCoaster.hostName = coasterDetails.displayName
-                        self.tempCoaster.sessionId = coasterDetails.sessionId
+                        self.tempCoaster.coasterName = coasterDetails.coaster.name
+                        self.tempCoaster.hostName = "host"
+//                        self.tempCoaster.hostName = coasterDetails.coaster.displayName
+                        self.tempCoaster.sessionId = coasterDetails.session.sessionId
                         self.tempCoaster.uid = uidFromCoaster
                         self.statusCode = coasterDetails.statusCode!
                     }

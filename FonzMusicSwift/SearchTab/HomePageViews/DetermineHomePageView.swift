@@ -33,8 +33,10 @@ struct DetermineHomePageView: View {
                         ConnectSpotifyHomeButton(hasAccount: $hasAccount)
                         Spacer()
                     }
+                    if !hasConnectedCoasters {
+                        BuyACoasterHomeButton()
+                    }
                     
-                    BuyACoasterHomeButton()
                     Spacer()
                 }
 //                HostAPartyButton(selectedTab: $selectedTab, showHomeButtons: $showHomeButtons, hasAccount: $hasAccount)

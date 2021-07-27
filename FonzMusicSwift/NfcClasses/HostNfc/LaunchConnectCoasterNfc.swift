@@ -173,8 +173,9 @@ struct LaunchConnectCoasterNfc: UIViewRepresentable {
                         // sets vars to return to user
                         self.tempCoaster.uid = coasterUidFromTag
                         if coasterDetails.statusCode == 200 {
-                            self.tempCoaster.coasterName = coasterDetails.coasterName
-                            self.tempCoaster.hostName = coasterDetails.displayName
+                            self.tempCoaster.coasterName = coasterDetails.coaster.name
+                            self.tempCoaster.hostName = "host"
+    //                        self.tempCoaster.hostName = coasterDetails.coaster.displayName
                         }
                         self.launchedNfc = true
                         self.statusCode = coasterDetails.statusCode!

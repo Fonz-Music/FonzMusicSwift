@@ -62,13 +62,15 @@ class HostFonzSessionApi {
                         UserDefaults.standard.set(decodedResponse[0].sessionId, forKey: "userAccountSessionId")
                         returnMessage = "success"
                     }
-                    
+                    sem.resume()
                 }
                 else {
                     let decodedResponse = try? JSONDecoder().decode(ErrorResponse.self, from: dataResp)
                         
                     returnMessage = decodedResponse!.message
+                    sem.resume()
                 }
+                
             } else {
                 print("fetch failed: \(error?.localizedDescription ?? "unknown error")")
             }

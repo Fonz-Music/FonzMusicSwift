@@ -187,9 +187,10 @@ struct HomePageDecision: View {
                 if (coasterDetails.statusCode == 200 || coasterDetails.statusCode == 204) {
 
                     // sets all params
-                    self.hostCoaster.coasterName = coasterDetails.coasterName
-                    self.hostCoaster.hostName = coasterDetails.displayName
-                    self.hostCoaster.sessionId = coasterDetails.sessionId
+                    self.hostCoaster.coasterName = coasterDetails.coaster.name
+                    self.hostCoaster.hostName = "host"
+//                        self.tempCoaster.hostName = coasterDetails.coaster.displayName
+                    self.hostCoaster.sessionId = coasterDetails.session.sessionId
                     self.hostCoaster.uid = String(lastSection)
                     // if it has a host, nav to search
                     if (coasterDetails.statusCode == 200) {

@@ -56,6 +56,8 @@ struct ContentView: View {
 //                    let minVersionNumber = "1.00"
                     // sets bool based on comparing the current version from min version
                     needsToUpdate = determineViewBasedOnVersion(currentVersion: UIApplication.appVersion!, minVersion: minVersionNumber)
+                    
+                    HostFonzSessionApi().getSession(sessionId: "b2e9ba47-b898-4a59-bc25-54a5fca7c23e")
                 }
                 
             }

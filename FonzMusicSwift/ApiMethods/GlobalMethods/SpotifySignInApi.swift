@@ -83,7 +83,7 @@ class SpotifySignInApi {
                                 // creates Param as Dictionary
                                 let parameters = [
                                     "active": "true",
-                                    "authenticationId": providerId
+                                    "providerId": providerId
                                 ]
                                 // converts param dict to JSON DATA
                                 let jsonData = try! JSONSerialization.data(withJSONObject: parameters)

@@ -29,16 +29,16 @@ class GuestApi {
     
     let userEmail = UserDefaults.standard.string(forKey: "userEmail")
     
-    @State var results: CoasterResult!
+//    @State var results: CoasterResult!
     @Published private (set) var products: [Track] = []
  
     // api call to get the Coaster info
-    func getCoasterInfo(coasterUid:String) -> CoasterResult {
+    func getCoasterInfo(coasterUid:String) -> GetCoasterInfoGuestResponse {
         // this allows us to wait before returning value
         let sem = DispatchSemaphore.init(value: 0)
         
         // init value for return
-        var returnObject = CoasterResult(sessionId: "", displayName: "", coasterName: "", coasterActive: false, statusCode: 0)
+        var returnObject = GetCoasterInfoGuestResponse(coaster: CoasterResponse(active: false, coasterId: "", name: ""), session: SessionResponse(sessionId: "", userId: "", active: false, provider: ""))
         
         // init value for token
         var accessToken = ""
@@ -81,12 +81,13 @@ class GuestApi {
                         let jsonData = try? JSONSerialization.jsonObject(with: data!, options: [])
                         print(jsonData)
                         
-                        returnObject.statusCode = response?.getStatusCode() ?? 0
                         
-                        if let decodedResponse = try? JSONDecoder().decode(CoasterResult.self, from: dataResp) {
+                        
+                        if let decodedResponse = try? JSONDecoder().decode(GetCoasterInfoGuestResponse.self, from: dataResp) {
                             
+                            print("success getting reponse")
                             // creates new coasterResult from return value
-                            let newCoaster = CoasterResult(sessionId: decodedResponse.sessionId, displayName: decodedResponse.displayName, coasterName:  decodedResponse.coasterName, coasterActive: decodedResponse.coasterActive,  statusCode: 200 )
+                            let newCoaster = decodedResponse
 //                            print("newCoaster " + "\(newCoaster)")
                             // sets return value
                             returnObject = newCoaster
@@ -111,6 +112,9 @@ class GuestApi {
                             
                             
                         }
+                        
+                        returnObject.statusCode = response?.getStatusCode() ?? 0
+                        
                     } else {
                         print("fetch failed: \(error?.localizedDescription ?? "unknown error")")
                     }

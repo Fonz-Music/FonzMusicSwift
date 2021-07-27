@@ -32,15 +32,7 @@ struct CoasterInfo: Hashable, Codable {
     }
 }
 
-struct CoasterResult: Codable {
-    var sessionId: String
-    var displayName: String
-    var coasterName: String
-    var coasterActive: Bool
-    var statusCode: Int?
-    
-    
-}
+
 
 struct HostCoasterResult: Codable, Hashable {
     var active: Bool
