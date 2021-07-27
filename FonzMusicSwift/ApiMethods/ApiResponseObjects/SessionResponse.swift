@@ -8,8 +8,10 @@
 import Foundation
 
 struct SessionResponse: Codable {
-    var active : Bool
-    var authenticationId : String
-    var provider : String
     var sessionId : String
+    var userId : String
+    var active : Bool
+    var provider : String
+    
+    
 }

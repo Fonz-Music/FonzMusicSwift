@@ -72,6 +72,29 @@ struct ContentView: View {
             connectedToSpotify = UserDefaults.standard.bool(forKey: "connectedToSpotify")
 
         }
+        .onOpenURL { url in
+            let containsSpotify = url.absoluteString.contains("spotify")
+            if containsSpotify {
+                print("adding spotify to acc")
+                // fetching sessionId
+                let sessionId = UserDefaults.standard.string(forKey: "userAccountSessionId")
+                // adding spot to the session
+                let spotifySignInResp = SpotifySignInApi().addSpotifyToAccount(sessionId: sessionId ?? "")
+                DispatchQueue.main.async {
+                    print("has spot status \(spotifySignInResp.status)")
+                    // if successful
+                    if spotifySignInResp.status == 200 {
+                        print("changing connection now")
+                        withAnimation {
+                            connectedToSpotify = true
+                        }
+                        // set local var
+                        UserDefaults.standard.set(true, forKey: "connectedToSpotify")
+                    }
+                }
+            }
+        }
+
     }
     
     func determineViewBasedOnVersion(currentVersion:String, minVersion:String) -> Bool {

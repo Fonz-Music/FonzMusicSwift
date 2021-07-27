@@ -17,6 +17,8 @@ class TrackFromNowPlaying: ObservableObject {
     var subscription: Set<AnyCancellable> = []
     var tempSession : String = UserDefaults.standard.string(forKey: "hostSessionId")!
     
+    let ADDRESS = "http://52.50.138.97:8080/"
+    
 //    @Published private (set) var currentSong: [NowPlayingInfo] = [NowPlayingInfo(artistName: "", albumArt: "https://i.scdn.co/image/ab67616d0000b273e1225196df3f67528c87c7fd", trackName: "")]
     @Published private (set) var currentSong: [NowPlayingInfo] = [NowPlayingInfo(artistName: "", albumArt: "", trackName: "")]
     
@@ -65,19 +67,21 @@ class TrackFromNowPlaying: ObservableObject {
         print("starting search")
         // init vale for access token
         var accessToken = ""
+        // get access token
+        accessToken = getJWTAndCheckIfExpired()
         
-        guard let user = Auth.auth().currentUser else {
-            print("there was an error getting the user")
-            return }
-            // get token
-            user.getIDToken(){ (idToken, error) in
-            if error == nil, let token = idToken {
-//                print("got token")
-               
-                
-                accessToken = token
+//        guard let user = Auth.auth().currentUser else {
+//            print("there was an error getting the user")
+//            return }
+//            // get token
+//            user.getIDToken(){ (idToken, error) in
+//            if error == nil, let token = idToken {
+////                print("got token")
+//
+//
+//                accessToken = token
                 // set URL
-                guard let url = URL(string: "https://api.fonzmusic.com/guest/" + sessionId + "/spotify/state") else { return }
+                guard let url = URL(string: self.ADDRESS + "guest/" + sessionId + "/spotify/state") else { return }
                 
             
                 var request = URLRequest(url: url)
@@ -120,11 +124,11 @@ class TrackFromNowPlaying: ObservableObject {
                     }
                 }.resume()
                 
-            }else{
-                print("error")
-                //error handling
-            }
-        }
+//            }else{
+//                print("error")
+//                //error handling
+//            }
+//        }
     }
     
 }

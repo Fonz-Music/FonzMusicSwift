@@ -26,7 +26,7 @@ struct ConnectSpotifySearch: View {
         Button(action: {
             #if !APPCLIP
             if hasAccount {
-                HostFonzSessionApi().createSession()
+//                HostFonzSessionApi().getAllSessions()
                 SpotifyInBrowser().launchSpotifyInBrowser()
                 
             }

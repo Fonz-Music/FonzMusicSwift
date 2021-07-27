@@ -19,9 +19,9 @@ struct QueueSongResult: Codable {
 
 // all api functions inside
 class GuestApi {
-    let ADDRESS = "https://api.fonzmusic.com/"
+//    let ADDRESS = "https://api.fonzmusic.com/"
     //    let ADDRESS = "http://beta.api.fonzmusic.com:8080/"
-//        let ADDRESS = "http://52.50.138.97:8080/"
+        let ADDRESS = "http://52.50.138.97:8080/"
     let GUEST = "guest/"
     let COASTER = "coaster/"
 
@@ -45,18 +45,18 @@ class GuestApi {
 
         print("starting getCoaster")
 
-//        accessToken = getJWTAndCheckIfExpired()
+        accessToken = getJWTAndCheckIfExpired()
         
 
-        guard let user = Auth.auth().currentUser else {
-            print("there was an error getting the user")
-            return  returnObject}
-        print("got auth")
-
-//             get access token
-            user.getIDToken(){ (idToken, error) in
-            if error == nil, let token = idToken {
-                accessToken = token
+//        guard let user = Auth.auth().currentUser else {
+//            print("there was an error getting the user")
+//            return  returnObject}
+//        print("got auth")
+//
+////             get access token
+//            user.getIDToken(){ (idToken, error) in
+//            if error == nil, let token = idToken {
+//                accessToken = token
 //        accessToken = tempToken
                 print("got token")
                 print("\(accessToken)" )
@@ -65,8 +65,8 @@ class GuestApi {
                 // create url
                 guard let url = URL(string: self.ADDRESS + self.GUEST + self.COASTER + uid )
                 else {
-                    return
-//                    return returnObject
+//                    return
+                    return returnObject
                 }
                 
                 var request = URLRequest(url: url)
@@ -115,11 +115,11 @@ class GuestApi {
                         print("fetch failed: \(error?.localizedDescription ?? "unknown error")")
                     }
                 }.resume()
-            }else{
-                print("error")
-                //error handling
-            }
-        }
+//            }else{
+//                print("error")
+//                //error handling
+//            }
+//        }
         // tells function to wait before returning
         sem.wait()
         return returnObject
@@ -136,19 +136,26 @@ class GuestApi {
         print("strting to queue song")
         // init token
         var accessToken = ""
-        guard let user = Auth.auth().currentUser else {
-            print("there was an error getting the user")
-            return returnInt}
-        print("no error getting user")
-            // get access token
-            user.getIDToken(){ (idToken, error) in
-            if error == nil, let token = idToken {
-                accessToken = token
+        
+        accessToken = getJWTAndCheckIfExpired()
+        
+//        guard let user = Auth.auth().currentUser else {
+//            print("there was an error getting the user")
+//            return returnInt}
+//        print("no error getting user")
+//            // get access token
+//            user.getIDToken(){ (idToken, error) in
+//            if error == nil, let token = idToken {
+//                accessToken = token
                 print("got token")
                 print("the session if id \(sessionId)")
                 print(" the track id is \(trackId)")
                 // set URL
-                guard let url = URL(string: self.ADDRESS + self.GUEST + sessionId + "/spotify/queue/spotify:track:" + trackId) else { return }
+                guard let url = URL(string: self.ADDRESS + self.GUEST + sessionId + "/spotify/queue/spotify:track:" + trackId) else {
+//                    return
+                    return returnInt
+                    
+                }
             
                 
                 print("creating url req")
@@ -173,11 +180,11 @@ class GuestApi {
                     }
                 }.resume()
                 
-            }else{
-                print("error")
-                //error handling
-            }
-        }
+//            }else{
+//                print("error")
+//                //error handling
+//            }
+//        }
         // tells function to wait before returning
         sem.wait()
         return returnInt

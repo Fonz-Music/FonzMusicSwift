@@ -29,7 +29,7 @@ struct ConnectSpotifyButtonHomeView: View {
             Button(action: {
                 if hasAccount {
                     // create session/fetch it
-                    HostFonzSessionApi().createSession()
+//                    HostFonzSessionApi().getAllSessions()
                     FirebaseAnalytics.Analytics.logEvent("userTappedConnectSpotify", parameters: ["user":"user", "tab":"host"])
                     // open browser
                     SpotifyInBrowser().launchSpotifyInBrowser()

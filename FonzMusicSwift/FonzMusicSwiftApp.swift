@@ -24,11 +24,11 @@ class AppDelegate: NSObject, UIApplicationDelegate {
           [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
       // dont need anymore?
       FirebaseApp.configure()
-        print("configured FB")
+        print("configured firebase for analytics")
          //This inits an ANON firebase account
-        Auth.auth().signInAnonymously() { (authResult, error) in
-          print("signed in anon")
-        }
+//        Auth.auth().signInAnonymously() { (authResult, error) in
+//          print("signed in anon")
+//        }
 
       return true
     }
@@ -45,17 +45,6 @@ struct FonzMusicSwiftApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .onOpenURL { url in
-                   print("sending to ole spottie")
-                    
-                    if url.absoluteString.range(of: "spotify") != nil {
-                        print ("navs to spot")
-                    }
-                    if url.absoluteString.range(of: "banana") != nil {
-                        print ("navs to banana")
-                    }
-                }
-                
         }
     }
 }

@@ -27,7 +27,7 @@ class SpotifySignInApi {
         let sem = DispatchSemaphore.init(value: 0)
 
         // init value for return
-        var providerObject: ProviderResponse = ProviderResponse(providers: [Provider(display_name: "", id: "", provider: "", spotifyId: "")]
+        var providerObject: ProviderResponse = ProviderResponse(providers: [Provider(displayName: "", provider: "", providerId: "", userId: "")]
 //                                                              , responseCode: 0
         )
         var returnObject: BasicResponse = BasicResponse(message: "", status: 0)
@@ -51,7 +51,7 @@ class SpotifySignInApi {
 //        accessToken = tempAccessToken
 //                print("token is \(accessToken)" )
                 // create url
-        guard let url = URL(string: self.ADDRESS + self.HOST + self.PROVIDERS ) else { return returnObject}
+        guard let url = URL(string: self.ADDRESS + self.PROVIDERS ) else { return returnObject}
 
                 // creates req w url
                 var request = URLRequest(url: url)
@@ -77,8 +77,8 @@ class SpotifySignInApi {
                             // sets return value
                             print("success")
                             providerObject.providers = decodedResponse.providers
-                            let providerId = decodedResponse.providers[0].id
-                            UserDefaults.standard.set(decodedResponse.providers[0].spotifyId, forKey: "spotifyId")
+                            let providerId = decodedResponse.providers[0].providerId
+                            UserDefaults.standard.set(decodedResponse.providers[0].providerId, forKey: "spotifyId")
                             print("id is \(providerId)" )
 //                            DispatchQueue.main.async {
                                 // this allows us to wait before returning value
@@ -252,7 +252,7 @@ class SpotifySignInApi {
         let sem = DispatchSemaphore.init(value: 0)
 
         // init value for return
-        var returnObject: ProviderResponse = ProviderResponse(providers: [Provider(display_name: "", id: "", provider: "", spotifyId: "")]
+        var providerObject: ProviderResponse = ProviderResponse(providers: [Provider(displayName: "", provider: "", providerId: "", userId: "")]
 //                                                              , responseCode: 0
         )
         var returnMessage = ""
@@ -274,7 +274,7 @@ class SpotifySignInApi {
 //        accessToken = tempAccessToken
 //                print("token is \(accessToken)" )
                 // create url
-        guard let url = URL(string: self.ADDRESS + self.HOST + self.PROVIDERS ) else { return returnObject}
+        guard let url = URL(string: self.ADDRESS + self.HOST + self.PROVIDERS ) else { return providerObject}
 
                 // creates req w url
                 var request = URLRequest(url: url)
@@ -299,7 +299,7 @@ class SpotifySignInApi {
                         if let decodedResponse = try? JSONDecoder().decode(ProviderResponse.self, from: dataResp) {
                             // sets return value
                             print("success")
-                            returnObject.providers = decodedResponse.providers
+                            providerObject.providers = decodedResponse.providers
 //                            returnObject.responseCode = returnCode
 //                            returnMessage = decodedResponse.message
                         }
@@ -316,7 +316,7 @@ class SpotifySignInApi {
         // tells function to wait before returning
         sem.wait()
         
-        return returnObject
+        return providerObject
     }
     
     // api call to get the Coaster info

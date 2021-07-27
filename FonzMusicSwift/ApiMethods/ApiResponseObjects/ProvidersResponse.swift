@@ -12,12 +12,12 @@ struct ProviderResponse: Codable {
 //    var responseCode : Int
 }
 struct Provider: Codable {
-    var display_name : String
-    var id : String
+    var displayName : String
     var provider : String
-    var spotifyId : String
+    var providerId : String
+    var userId : String
     
-}
+} 
 
 struct SpotifyUrlResponse: Codable {
     var authorizeURL : String

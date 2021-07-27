@@ -13,6 +13,7 @@ struct SpotifyInBrowser {
     @Environment(\.openURL) var openURL
     
     func launchSpotifyInBrowser() {
+        HostFonzSessionApi().getAllSessions()
         
         let authorizeUrl = SpotifySignInApi().getSpotifySignInUrl()
         print("url is \(authorizeUrl)")

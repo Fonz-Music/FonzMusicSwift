@@ -34,7 +34,7 @@ struct ConnectSpotifyHomeButton: View {
 //
                 #if !APPCLIP
                 if hasAccount {
-                    HostFonzSessionApi().createSession()
+//                    HostFonzSessionApi().getAllSessions()
 
                     FirebaseAnalytics.Analytics.logEvent("userTappedConnectSpotify", parameters: ["user":"user", "tab":"host"])
                     SpotifyInBrowser().launchSpotifyInBrowser()

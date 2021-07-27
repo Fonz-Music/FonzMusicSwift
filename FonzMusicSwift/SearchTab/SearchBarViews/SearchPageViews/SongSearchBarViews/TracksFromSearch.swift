@@ -20,9 +20,9 @@ class TracksFromSearch: ObservableObject {
     
     @Published var searchText: String = String()
     
-    let ADDRESS = "https://api.fonzmusic.com/"
+//    let ADDRESS = "https://api.fonzmusic.com/"
     //    let ADDRESS = "http://beta.api.fonzmusic.com:8080/"
-//        let ADDRESS = "http://52.50.138.97:8080/"
+        let ADDRESS = "http://52.50.138.97:8080/"
     
     // MARK:- Initiliazer for product via model.
     
@@ -54,17 +54,21 @@ class TracksFromSearch: ObservableObject {
         print("sessopmOd os \(sessionId)")
         // init vale for access token
         var accessToken = ""
-        guard let user = Auth.auth().currentUser else {
-            print("there was an error getting the user")
-            return }
-            // get token
-            user.getIDToken(){ (idToken, error) in
-            if error == nil, let token = idToken {
-                
+        
+        // get access token
+        accessToken = getJWTAndCheckIfExpired()
+        
+//        guard let user = Auth.auth().currentUser else {
+//            print("there was an error getting the user")
+//            return }
+//            // get token
+//            user.getIDToken(){ (idToken, error) in
+//            if error == nil, let token = idToken {
+//
                 // replaces spaces with underscore
                 let searchSong = searchTerm.replacingOccurrences(of: " ", with: "_")
                 
-                accessToken = token
+//                accessToken = token
                 // set URL
                 guard let url = URL(string: self.ADDRESS + "guest/" + sessionId + "/spotify/search?term=" + searchSong) else { return }
                 print("url \(url)")
@@ -113,11 +117,11 @@ class TracksFromSearch: ObservableObject {
                     }
                 }.resume()
                 
-            }else{
-                print("error")
-                //error handling
-            }
-        }
+//            }else{
+//                print("error")
+//                //error handling
+//            }
+//        }
     }
     
 }
