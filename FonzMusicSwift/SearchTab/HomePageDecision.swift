@@ -103,7 +103,7 @@ struct HomePageDecision: View {
                         }
                         // if the coaster lasts a host, give opp to become that host
                         else if (statusCodeResp == 204) {
-                            CoasterDoesNotHaveHost(selectedTab: $selectedTab, hasAccount: $hasAccount, connectedToSpotify: connectedToSpotify, showHomeButtons: $showHomeButtons, launchedNfc: $launchedNfc, statusCode: $statusCodeResp, tempCoasterDetails: $tempCoasterDetails)
+                            CoasterDoesNotHaveHost(selectedTab: $selectedTab, hasAccount: $hasAccount, connectedToSpotify: connectedToSpotify, hasConnectedCoasters: $hasConnectedCoasters, showHomeButtons: $showHomeButtons, launchedNfc: $launchedNfc, statusCode: $statusCodeResp, tempCoasterDetails: $tempCoasterDetails)
                         }
                         // errors
                         else {

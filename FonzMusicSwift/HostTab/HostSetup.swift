@@ -114,6 +114,7 @@ struct HostSetup: View {
                         // name coaster
                         NameYourCoasterView(hasConnectedCoasters: $hasConnectedCoasters, coasterUid: tempCoasterDetails.uid)
                             .onAppear {
+                                
 
                             }
                         Spacer()

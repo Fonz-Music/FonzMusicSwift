@@ -16,6 +16,8 @@ struct CoasterDoesNotHaveHost: View {
     @Binding var hasAccount : Bool
     // determines if current user is connected to Spotify
     var connectedToSpotify : Bool
+    // determines if current user is connected to Spotify
+    @Binding var hasConnectedCoasters : Bool
     
     @Binding var showHomeButtons: Bool
     
@@ -81,34 +83,22 @@ struct CoasterDoesNotHaveHost: View {
                         let addCoasterResult = HostCoasterApi().addCoaster(coasterUid: tempCoasterDetails.uid)
                             print("\(String(describing: addCoasterResult.status)) is the code m8")
                             // return that resp if its NOT 200
+                        print("status here is \(addCoasterResult.status)")
                             if addCoasterResult.status == 200 {
                                 // have user name coaster
                                 throwNameNewCoasterModal = true
-                                withAnimation {
-                                    showHomeButtons = true
-                                    launchedNfc = false
-                                }
+                                
                             }
                             else {
                                 // tell user something went wrong connecting
                                 statusCode = 405
                             }
-                        
-                        
-                        
                     }
                     // if they DONT have spotify
                     else {
                         // ask if they wanna launch spotify
                         throwConnectSpotifyPrompt = true
                     }
-
-//                    withAnimation {
-//                        selectedTab = TabIdentifier.host
-//                        showHomeButtons = true
-//                        launchedNfc = false
-//                    }
-
                     FirebaseAnalytics.Analytics.logEvent("userTriedJoiningPartyCoasterNoHost", parameters: ["user":"user", "tab":"search"])
 
                 }
@@ -118,14 +108,6 @@ struct CoasterDoesNotHaveHost: View {
                 }
                 
                 #endif
-                
-            
-                
-               
-                
-                withAnimation {
-                    
-                }
 
             } label: {
                 Text("connect")
@@ -182,7 +164,14 @@ struct CoasterDoesNotHaveHost: View {
         }) {
             AskUserToConnectSpotify()
         }
-        .sheet(isPresented: $throwNameNewCoasterModal) {
+        .sheet(isPresented: $throwNameNewCoasterModal, onDismiss: {
+            withAnimation {
+                showHomeButtons = true
+                launchedNfc = false
+                hasConnectedCoasters = true
+            }
+            UserDefaults.standard.set(true, forKey: "hasConnectedCoasters")
+        }) {
             NameNewCoaster(launchedNfc: $launchedNfc, coasterUid: tempCoasterDetails.uid, coastersConnectedToHost: CoastersFromApi())
         }
     }

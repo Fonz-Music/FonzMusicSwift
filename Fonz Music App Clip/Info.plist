@@ -18,32 +18,31 @@
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
 	<string>$(MARKETING_VERSION)</string>
-    <key>CFBundleURLTypes</key>
-    <array>
-        <dict>
-            <key>CFBundleTypeRole</key>
-            <string>Editor</string>
-            <key>CFBundleURLName</key>
-            <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
-            <key>CFBundleURLSchemes</key>
-            <array>
-                <string>fonz-music</string>
-            </array>
-        </dict>
-    </array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fonz-music</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-        <string>instagram</string>
-        <string>instagram-stories</string>
-        <string>spotify</string>
-    </array>
-    <key>LSRequiresIPhoneOS</key>
-    <true/>
-    <key>NFCReaderUsageDescription</key>
-    <string>to get the coaster uid to send to our api</string>
-	
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>instagram</string>
+		<string>instagram-stories</string>
+		<string>spotify</string>
+	</array>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>NFCReaderUsageDescription</key>
+	<string>to get the coaster uid to send to our api</string>
 	<key>NSAppClip</key>
 	<dict>
 		<key>NSAppClipRequestEphemeralUserNotification</key>
@@ -51,6 +50,13 @@
 		<key>NSAppClipRequestLocationConfirmation</key>
 		<false/>
 	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>MuseoSans-100.otf</string>
+		<string>MuseoSans-300.otf</string>
+		<string>MuseoSans-500.otf</string>
+		<string>MuseoSans-700.otf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
