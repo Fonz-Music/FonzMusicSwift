@@ -23,17 +23,23 @@ struct SearchBarView : View {
         
         HStack {
             // search bar
-            TextField("queue a song", text: $tracksFromSearch.searchText)
+            TextField("", text: $tracksFromSearch.searchText)
+                .placeholder(when: tracksFromSearch.searchText.isEmpty, placeholder: {
+                    Text("queue a song")
+                        .foregroundColor(.gray)
+                        .fonzButtonText()
+                })
                 .foregroundColor(colorScheme == .light ? Color.darkButton: Color.white)
                 .fonzParagraphTwo()
                 .padding()
                 .padding(.horizontal, .headingFrontIndent)
                 .background(colorScheme == .light ? Color.white: Color.darkButton)
                 .cornerRadius(.cornerRadiusTasks)
+                .fonzShadow()
                 .overlay(
                     HStack {
                         Image(systemName: "magnifyingglass")
-                            .foregroundColor(colorScheme == .light ? Color.darkButton: Color.white)
+                            .foregroundColor(.gray)
                             .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                             .padding(.leading, 16)
                         // if actively editing, show x button to clear
@@ -49,7 +55,7 @@ struct SearchBarView : View {
                         }
                     }
                 )
-                .fonzShadow()
+                
 //                .padding(.horizontal, 10)
                 .onTapGesture {
                     withAnimation{

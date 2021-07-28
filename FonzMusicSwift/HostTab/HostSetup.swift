@@ -54,20 +54,29 @@ struct HostSetup: View {
                     // if the user has NOT connected to spotify
 //                    if (!connectedToSpotify) {
                         VStack {
-//                            if (!connectedToSpotify) {
-//                            Spacer()
-//                                .frame(height: 100)
-//                            }
-//                            else {
                                 Spacer()
                                     .frame(height: 30)
 //                            }
                             ConnectSpotifyButtonHomeView(connectedToSpotify: $connectedToSpotify, hasAccount: $hasAccount, throwCreateAccountModal: $throwCreateAccountModal)
                                 .addOpacity(connectedToSpotify)
                                 .animation(.easeInOut(duration: 2.0))
-                                .scaleEffect(connectedToSpotify ? 0.5 : 1.0)
-//                            Spacer()
-//                                .frame(height: 50)
+                                .scaleEffect(connectedToSpotify ? 0.7 : 1.2)
+                            if connectedToSpotify {
+                                Spacer()
+                            }
+                            else {
+                                Spacer()
+                                    .frame(minHeight: 50, maxHeight: 80)
+                            }
+                           
+                                
+                            ConnectYourFirstCoasterButton(pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc, connectedToSpotify: $connectedToSpotify)
+                                .addOpacity(!connectedToSpotify)
+        //                        .animation(.easeInOut(duration: 4))
+                                .animation(.easeInOut(duration: 2.0))
+                                .scaleEffect(!connectedToSpotify ? 0.7 : 1.2)
+                            Spacer()
+                                .frame(minHeight: 70)
                         }
                         .sheet(isPresented: $throwCreateAccountModal) {
                             CreateAccountPrompt(hasAccount: $hasAccount, showModal: $throwCreateAccountModal)
@@ -80,11 +89,7 @@ struct HostSetup: View {
 //                    }
                     // connect first coaster button
                     
-                    ConnectYourFirstCoasterButton(pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc, connectedToSpotify: $connectedToSpotify)
-                        .addOpacity(!connectedToSpotify)
-//                        .animation(.easeInOut(duration: 4))
-                        .animation(.easeInOut(duration: 2.0))
-                        .scaleEffect(!connectedToSpotify ? 0.5 : 1.0)
+                   
                 }
                 // if the nfc IS active, show animation
                 else {
