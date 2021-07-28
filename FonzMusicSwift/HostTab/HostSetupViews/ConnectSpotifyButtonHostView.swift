@@ -46,7 +46,7 @@ struct ConnectSpotifyButtonHomeView: View {
                 
             }, label: {
                 Image("spotifyIconGreen").resizable().frame(width: sideGraphicHeight, height: sideGraphicHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    .frame(width: 200, height: 200)
+                    .frame(width: 150, height: 150)
             })
             .buttonStyle(BasicFonzButtonCircle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .spotifyGreen))
             Text("connect your spotify")

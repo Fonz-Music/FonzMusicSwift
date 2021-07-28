@@ -37,7 +37,7 @@ struct ConnectYourFirstCoasterButton: View {
                 
             }, label: {
                 Image("coasterIcon").resizable().frame(width: sideGraphicHeight * 1.2, height: sideGraphicHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    .frame(width: 200, height: 200)
+                    .frame(width: 150, height: 150)
             })
             .buttonStyle(CircleButtonGradiant(bgColorTopLeft: .lilac, bgColorBottomRight: Color.lilacDark, secondaryColor: .white))
             .disabled(!connectedToSpotify)

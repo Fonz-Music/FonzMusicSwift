@@ -122,7 +122,10 @@ struct SignInView: View {
                     DispatchQueue.main.async {
                         if registerUserResp.status == 200 {
                             print("success")
-                            hasAccount = true
+                            withAnimation {
+                                hasAccount = true
+                            }
+                            
                             UserDefaults.standard.set(true, forKey: "hasAccount")
                             self.showModal.toggle()
                         }

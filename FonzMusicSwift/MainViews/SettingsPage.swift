@@ -9,7 +9,8 @@ import SwiftUI
 import KeychainAccess
 
 struct SettingsPage: View {
-    
+    // inherited that indicated the tab the app is on
+    @Binding var selectedTab: TabIdentifier
     // determines if current user has an account
     @Binding var hasAccount : Bool
     // bool on if the user has coasters connected
@@ -25,92 +26,62 @@ struct SettingsPage: View {
     var body: some View {
         ZStack{
             VStack{
-                HStack{
-                    Text("account")
-                        .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white).fonzParagraphOne()
-                        .padding(.headingFrontIndent)
-                        .padding(.top, .headingTopIndent)
-                        .addOpacity(!hasAccount)
-//                        .padding(.bottom, 20)
+                if hasAccount {
+                    HStack{
+                        Text("account")
+                            .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white).fonzParagraphOne()
+                            .padding(.headingFrontIndent)
+                            .padding(.top, .headingTopIndent)
+                            .addOpacity(!hasAccount)
+        //                        .padding(.bottom, 20)
+                        Spacer()
+                    }
+                    // if the user has an account, show options
+        //                if hasAccount {
+                        // shop
+                        Text("shop")
+                            .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
+                            .fonzParagraphTwo()
+                            .padding(.headingFrontIndent)
+                            .frame(width: UIScreen.screenWidth, height: 50, alignment: .topLeading)
+                        BuyCoasterButton()
+                        // account
+                        Text("account")
+                            .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
+                            .fonzParagraphTwo()
+                            .padding(.headingFrontIndent)
+                            .frame(width: UIScreen.screenWidth, height: 50, alignment: .topLeading)
+                        
+                        ChangeDisplayNameButton()
+                        if connectedToSpotify {
+                            // option to disconnect
+                            ManageSpotifyButton(connectedToSpotify: $connectedToSpotify)
+                        }
+                        else {
+                            // link spotify
+                            LinkSpotifySettingsButton()
+                        }
+                    
+                        SignOutButton(hasAccount: $hasAccount)
+                        // if the user has connected coasters, give option to limit reqs
+        //                    if hasConnectedCoasters {
+        //                        Text("coaster management")
+        //                            .foregroundColor(Color.white)
+        //                            .fonzParagraphTwo()
+        //                            .padding(25)
+        //                            .frame(width: UIScreen.screenWidth, height: 50, alignment: .topLeading)
+        //                        LimitSongRequestsButton()
+        //                    }
+
+        //                }
                     Spacer()
                 }
-                // if the user has an account, show options
-                if hasAccount {
-                    // shop
-                    Text("shop")
-                        .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
-                        .fonzParagraphTwo()
-                        .padding(.headingFrontIndent)
-                        .frame(width: UIScreen.screenWidth, height: 50, alignment: .topLeading)
-                    BuyCoasterButton()
-                    // account
-                    Text("account")
-                        .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
-                        .fonzParagraphTwo()
-                        .padding(.headingFrontIndent)
-                        .frame(width: UIScreen.screenWidth, height: 50, alignment: .topLeading)
-                    
-                    ChangeDisplayNameButton()
-                    if connectedToSpotify {
-                        // option to disconnect
-                        ManageSpotifyButton(connectedToSpotify: $connectedToSpotify)
-                    }
-                    else {
-                        // link spotify
-                        LinkSpotifySettingsButton()
-                    }
-                
-                    SignOutButton(hasAccount: $hasAccount)
-                    // if the user has connected coasters, give option to limit reqs
-    //                    if hasConnectedCoasters {
-    //                        Text("coaster management")
-    //                            .foregroundColor(Color.white)
-    //                            .fonzParagraphTwo()
-    //                            .padding(25)
-    //                            .frame(width: UIScreen.screenWidth, height: 50, alignment: .topLeading)
-    //                        LimitSongRequestsButton()
-    //                    }
-
-                }
-                // otherwise, offer to create an account
+                // if user needs to create an acc
                 else {
-                    ZStack{
-                        ScrollView{
-                            CreateAccountView(hasAccount: $hasAccount, showModal: $throwCreateAccountModal)
-                                .padding(.horizontal, 20)
-                                .padding(.bottom, 10)
-                        }
-//                        .frame(height: UIScreen.screenHeight * 0.8)
-//                        .padding(.bottom, 30)
-                    }
-                    .background(
-                        ZStack{
-                            RoundedRectangle(cornerRadius: .cornerRadiusBlocks)
-                                .foregroundColor(colorScheme == .light ? Color.white: Color.darkBackground)
-                                .frame(width: UIScreen.screenWidth * 0.9, height: UIScreen.screenHeight * 0.7)
-                            
-                            Image("peoplePartyingBackdrop")
-                                .resizable()
-                                .cornerRadius(.cornerRadiusBlocks)
-                                .frame(width: UIScreen.screenWidth * 0.9, height: UIScreen.screenHeight * 0.7)
-                                .opacity(0.4)
-                        }
-                        , alignment: .top
-                    )
-                    .frame(width: UIScreen.screenWidth * 0.8)
-//                    .padding(30)
+                    CreateAccountPrompt(hasAccount: $hasAccount, showModal: $throwCreateAccountModal)
                 }
-
-                Spacer()
             }
-            .onAppear {
-//                let keychain = Keychain(service: "api.fonzmusic.com")
-//                let email = UserDefaults.standard.string(forKey: "userEmail")
-//                let password = keychain[email!]
-//
-//                print("password is \(password ?? "null")")
-
-            }
+            
         }
         .background(
             ZStack{

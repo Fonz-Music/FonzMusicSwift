@@ -45,7 +45,7 @@ struct ContentView: View {
                     SearchTab(selectedTab: $selectedTab,connectedToSpotify: $connectedToSpotify, hasAccount: $hasAccount, hasConnectedCoasters: $hasConnectedCoasters).tabItem {
                         Label("queue", systemImage: "plus.magnifyingglass")
                     }.tag(TabIdentifier.search)
-                    SettingsPage(hasAccount: $hasAccount, hasConnectedCoasters: $hasConnectedCoasters, connectedToSpotify: $connectedToSpotify).tabItem {
+                    SettingsPage(selectedTab: $selectedTab, hasAccount: $hasAccount, hasConnectedCoasters: $hasConnectedCoasters, connectedToSpotify: $connectedToSpotify).tabItem {
                         Label("account", systemImage: "gearshape")
                     }.tag(TabIdentifier.account)
                 }.accentColor(.amber)

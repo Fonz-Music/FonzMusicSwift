@@ -137,15 +137,6 @@ struct CoasterDoesNotHaveHost: View {
 //            .padding()
         }
         .sheet(isPresented: $throwCreateAccountModal, onDismiss: {
-//            if hasAccount{
-//                selectedTab = TabIdentifier.host
-//            }
-            
-//            withAnimation {
-//                launchedNfc = false
-//                showHomeButtons = true
-//            }
-            
         }) {
             CreateAccountPrompt(hasAccount: $hasAccount, showModal: $throwCreateAccountModal)
         }
