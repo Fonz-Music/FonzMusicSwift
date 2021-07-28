@@ -112,7 +112,7 @@ struct SignInView: View {
                     
                 } label: {
                     Text("forgot password?")
-                        .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
+                        .foregroundColor(Color.white)
                         .fonzButtonText()
                         .padding(.vertical, 10)
                 }

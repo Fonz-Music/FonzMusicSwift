@@ -32,7 +32,7 @@ struct CreateAccountView: View {
                 } label: {
                     Text("sign in")
                         .addUnderline(active: !onSignUp, color: .amber)
-                        .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
+                        .foregroundColor(Color.white)
                         .fonzParagraphTwo()
                         .padding(.horizontal)
                     
@@ -44,7 +44,7 @@ struct CreateAccountView: View {
                 } label: {
                     Text("sign up")
                         .addUnderline(active: onSignUp, color: .amber)
-                        .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
+                        .foregroundColor(Color.white)
                         .fonzParagraphTwo()
                         .padding(.horizontal)
                     

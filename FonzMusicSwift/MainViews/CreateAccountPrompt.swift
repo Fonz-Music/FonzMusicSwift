@@ -52,6 +52,7 @@ struct CreateAccountPrompt: View {
 //            )
             .background(
                 ZStack{
+                    Color(UIColor(Color.darkBackground))
                     VStack{
                         Spacer()
                         Image("peoplePartyingBackdrop")
