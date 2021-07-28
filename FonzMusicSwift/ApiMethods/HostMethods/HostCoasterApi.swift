@@ -188,6 +188,11 @@ class HostCoasterApi {
                     // sets return value
                     returnMessage = decodedResponse.message
                 }
+                else if let decodedResponse = try? JSONDecoder().decode(BasicResponseWithCode.self, from: dataResp) {
+                    if decodedResponse.code == "COASTER_NO_HOST" {
+                        returnCode = 204
+                    }
+                }
                 else {
                     let decodedResponse = try? JSONDecoder().decode(ErrorResponse.self, from: dataResp)
 

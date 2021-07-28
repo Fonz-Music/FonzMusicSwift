@@ -40,6 +40,7 @@ struct RenameCoasterField: View {
                 print("resp is \(resp)")
                 withAnimation {
                     showRenameModal = false
+                    coastersConnectedToHost.reloadCoasters()
                     
                 }
                 

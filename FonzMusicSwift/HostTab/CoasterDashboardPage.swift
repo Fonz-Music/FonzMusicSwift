@@ -106,7 +106,7 @@ struct CoasterDashboardPage: View {
                     VStack {
                         
                         // name coaster
-                        NameNewCoaster(launchedNfc: $launchedNfc, coasterUid: tempCoasterDetails.uid)
+                        NameNewCoaster(launchedNfc: $launchedNfc, coasterUid: tempCoasterDetails.uid, coastersConnectedToHost: hostCoasterList)
                         Spacer()
                     }
                 }

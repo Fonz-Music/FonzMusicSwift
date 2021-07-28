@@ -111,7 +111,7 @@ struct SearchPageView: View {
                     // search results
                     if isEditingSearchBar {
                         VStack {
-                            SearchResultsView(tracksFromSearch: tracksFromSearch, hostCoaster: hostCoaster, currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
+                            SearchResultsView(tracksFromSearch: tracksFromSearch, hostCoaster: hostCoaster, currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc, isEditing: $isEditingSearchBar)
                             Spacer()
                         }
                     }

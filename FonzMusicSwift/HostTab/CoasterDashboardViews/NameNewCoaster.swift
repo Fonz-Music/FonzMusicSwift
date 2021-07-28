@@ -13,38 +13,28 @@ struct NameNewCoaster: View {
    
     var coasterUid:String
     
-    @State var reloadCoaster = false
+    @ObservedObject var coastersConnectedToHost: CoastersFromApi
     
     @Environment(\.colorScheme) var colorScheme
+    let sideGraphicHeight = UIScreen.screenHeight * 0.06
     
     var body: some View {
         VStack{
            
-                // coaster w lilac gradiant
-                HStack{
-                    // coaster bane
-                    Image("coasterIconAlwaysWhite").resizable()
-                        .frame( width: 35 ,height: 25).padding(.horizontal, 10)
-                    Text("name your new coaster")
-                        .foregroundColor(.white)
-                        .fonzParagraphTwo()
-                        .padding(.leading, 5)
-                    Spacer()
-                }
-                .background(
-                    RoundedRectangle(cornerRadius: .cornerRadiusTasks)
-                        .fill(LinearGradient(
-                            gradient: .init(colors: [.lilac, Color.lilacDark]),
-                            startPoint: .topLeading,
-                              endPoint: .bottomTrailing
-                            ))
-                        .frame(height: 50)
-                )
-                .frame(height: 50)
+            Button(action: {
+                // nothing
+            }, label: {
+                Image("coasterIcon").resizable().frame(width: sideGraphicHeight * 1.2, height: sideGraphicHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                        .frame(width: 125, height: 125)
+            })
+            .buttonStyle(CircleButtonGradiant(bgColorTopLeft: .lilac, bgColorBottomRight: Color.lilacDark, secondaryColor: .white))
+            .disabled(true)
+            Text("let's name your coaster")
+                .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
+                .fonzRoundButtonText()
                 
                 
-                
-            RenameCoasterField(showRenameModal: $launchedNfc, coasterUid: coasterUid, coastersConnectedToHost: CoastersFromApi())
+            RenameCoasterField(showRenameModal: $launchedNfc, coasterUid: coasterUid, coastersConnectedToHost: coastersConnectedToHost)
             Spacer()
         }
         .frame(width: UIScreen.screenWidth * 0.8,height: 120)

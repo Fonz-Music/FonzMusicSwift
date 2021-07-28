@@ -30,6 +30,19 @@ struct Track: Hashable {
 struct TracksResult: Codable {
     var tracks: Tracks
 }
+
+struct SearchResults : Codable {
+    var searchResults : Body
+}
+
+struct Body : Codable {
+    var body : TrackBody
+}
+
+struct TrackBody : Codable {
+    var tracks : Tracks
+}
+
 struct Tracks: Codable {
     var items: Array<Items>
 }

@@ -183,7 +183,7 @@ struct CoasterDoesNotHaveHost: View {
             AskUserToConnectSpotify()
         }
         .sheet(isPresented: $throwNameNewCoasterModal) {
-            NameNewCoaster(launchedNfc: $launchedNfc, coasterUid: tempCoasterDetails.uid)
+            NameNewCoaster(launchedNfc: $launchedNfc, coasterUid: tempCoasterDetails.uid, coastersConnectedToHost: CoastersFromApi())
         }
     }
 }

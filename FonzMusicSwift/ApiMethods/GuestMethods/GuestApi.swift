@@ -91,10 +91,15 @@ class GuestApi {
 //                            print("newCoaster " + "\(newCoaster)")
                             // sets return value
                             returnObject = newCoaster
+                            returnObject.statusCode = response?.getStatusCode() ?? 0
                         }
                         else if let decodedResponse = try? JSONDecoder().decode(BasicResponseWithCode.self, from: dataResp) {
+                            
                             if decodedResponse.code == "COASTER_NO_HOST" {
                                 returnObject.statusCode = 204
+                            }
+                            else {
+                                returnObject.statusCode = response?.getStatusCode() ?? 0
                             }
                         }
                         else {
@@ -113,7 +118,7 @@ class GuestApi {
                             
                         }
                         
-                        returnObject.statusCode = response?.getStatusCode() ?? 0
+                        
                         
                     } else {
                         print("fetch failed: \(error?.localizedDescription ?? "unknown error")")

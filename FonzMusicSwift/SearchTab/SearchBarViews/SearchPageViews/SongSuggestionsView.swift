@@ -40,8 +40,15 @@ struct SongSuggestionsView: View {
                 .fonzShadow()
                 .padding(.top, 30)
             VStack{
-                Spacer()
-                    .frame(height: 20)
+                if !connectedToSpotify {
+                    Spacer()
+                        .frame(height: 20)
+                }
+                else {
+                    Spacer()
+                        .frame(height: 40)
+                }
+                
                 if !hasAccount || !connectedToSpotify {
                     
                     ConnectSpotifySearch(throwCreateAccountModal: $throwCreateAccountModal, hasAccount: $hasAccount, connectedToSpotify: $connectedToSpotify)

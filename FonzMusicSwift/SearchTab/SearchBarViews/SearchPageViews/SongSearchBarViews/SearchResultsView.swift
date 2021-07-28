@@ -21,6 +21,8 @@ struct SearchResultsView: View {
     @Binding var currentTune : GlobalTrack
     // bool that will launch nfc when pressed
     @Binding var pressedSongToLaunchNfc : Bool
+    // checks to see if currently typing in searchbar
+    @Binding var isEditing : Bool
     
     
 // --------------------- created in view -------------------------------------------
@@ -59,6 +61,9 @@ struct SearchResultsView: View {
                                     currentTune.songLoaded = true
                                     currentTune.spotifyUrl = item.spotifyUrl
                                 }
+                                
+                                isEditing = false
+                                
                             }, label: {
                                 SongResultFromSearchItemView(item: item)
                                     
