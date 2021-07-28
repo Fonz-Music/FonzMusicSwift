@@ -35,19 +35,21 @@ struct SongSuggestionsView: View {
             RoundedRectangle(cornerRadius: .cornerRadiusBlocks)
                 
                 .fill(colorScheme == .light ? Color.white: Color.darkBackground)
-                .frame(height: 900, alignment: .center)
+                .frame(height: determineSongSugsSize(), alignment: .center)
 //                .frame(width: UIScreen.screenWidth * 0.95, height: 900, alignment: .center)
                 .fonzShadow()
                 .padding(.top, 30)
             VStack{
-                if !connectedToSpotify {
-                    Spacer()
-                        .frame(height: 20)
-                }
-                else {
-                    Spacer()
-                        .frame(height: 40)
-                }
+//                if !connectedToSpotify {
+//                    Spacer()
+//                        .frame(height: 20)
+//                }
+//                else {
+//                    Spacer()
+//                        .frame(height: 40)
+//                }
+                Spacer()
+                    .frame(height: 20)
                 
                 if !hasAccount || !connectedToSpotify {
                     
@@ -57,7 +59,7 @@ struct SongSuggestionsView: View {
                 YourTopArtists(hostCoaster: hostCoaster,  tracksFromArtist: tracksFromArtist)
                 YourTopPlaylists(hostCoaster: hostCoaster,  tracksFromPlaylist: tracksFromPlaylist)
                 Spacer()
-                    .frame(minHeight: 30)
+                    .frame(minHeight: 50)
             }
             .padding(.top, 30)
             .frame(width: UIScreen.screenWidth * 0.95)
@@ -65,6 +67,15 @@ struct SongSuggestionsView: View {
                     CreateAccountPrompt(hasAccount: $hasAccount, showModal: $throwCreateAccountModal)
                
             }
+        }
+    }
+    
+    func determineSongSugsSize() -> CGFloat {
+        if connectedToSpotify {
+            return 850.0
+        }
+        else {
+            return 910.0
         }
     }
 }

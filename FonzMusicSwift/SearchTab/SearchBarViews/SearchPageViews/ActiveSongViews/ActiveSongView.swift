@@ -20,8 +20,8 @@ struct ActiveSongView: View {
     
     @State var activeSongPlace: Double = 1.32
     @State var activeSongLength: Double = 4.00
-    @State var reloadSong : Bool = false
     
+    @Environment(\.colorScheme) var colorScheme
     
 //    @ObservedObject var activeSong : Track = Track(songName: "Rush Hour", songId: "09VACB0akCnPueTFnjN5Pn", artistName: "Mac Miller", albumArt: "https://i.scdn.co/image/ab67616d0000b273ee0f38410382a255e4fb15f4", spotifyUrl: "https://open.spotify.com/track/09VACB0akCnPueTFnjN5Pn")
     
@@ -36,7 +36,7 @@ struct ActiveSongView: View {
                 Text("now playing")
                     .foregroundColor(Color.white)
                     .fonzParagraphTwo()
-                    .padding(.horizontal, .headingFrontIndent)
+                    .padding(.horizontal, .subHeadingFrontIndent)
                     .padding(.vertical, 15)
                 Spacer()
             }
@@ -54,7 +54,17 @@ struct ActiveSongView: View {
                    
                 }
             }
-            .frame(width: UIScreen.screenWidth * 0.95, alignment: .center)
+            .padding(.horizontal, .subHeadingFrontIndent)
+            .frame(width: UIScreen.screenWidth, height: 140, alignment: .center)
+            .background(
+                RoundedRectangle(cornerRadius: .cornerRadiusTasks)
+                    .fill(colorScheme == .light ? Color.white: Color.darkButton)
+                    .padding(.horizontal, .subHeadingFrontIndent)
+                    .frame(width: UIScreen.screenWidth, height: 140, alignment: .center)
+                    .fonzShadow()
+                    
+            )
+            
 //            .frame(width: UIScreen.screenWidth, alignment: .center)
 //            .padding(.horizontal, 10)
             .onAppear {
@@ -102,138 +112,4 @@ struct ProgressBar: View {
                     .animation(.linear)
             }.cornerRadius(.cornerRadiusTasks)
         }
-}
-
-struct ActiveSongUserInterface : View {
-    
-    @Environment(\.colorScheme) var colorScheme
-//    @Binding var activeSong : Track
-    // object that stores the songs from the api
-    @ObservedObject var trackfromNowPlaying: TrackFromNowPlaying
-    
-   
-    
-//    @ObservedObject var currentImage : ImageLoader
-    
-    var hostName : String
-    
-    @State var activeSongPlace: Double = 1.32
-    @State var activeSongLength: Double = 4.00
-    
-    var body: some View {
-        ZStack {
-            // shows the reload icon
-            VStack{
-                HStack{
-                    Spacer()
-                    Image(systemName: "arrow.clockwise")
-                        .padding(.horizontal, 10)
-                        .padding(.top, 5)
-                        .foregroundColor(.amber)
-                    
-                }
-                Spacer()
-            }
-            
-            VStack{
-                Spacer()
-                HStack(spacing: 5) {
-                    // album art
-                    //                                    activeSong.albumArt
-//                    AsyncImage(url: (URL(string:activeSong.albumArt))!,
-//                               placeholder: { Text("...").fonzParagraphTwo() },
-//                               image: { Image(uiImage: $0).resizable() })
-                    if (trackfromNowPlaying.currentSong[0].albumArt == "") {
-                        HStack{
-                            Spacer()
-                            Image("spotifyIconAmber")
-                            Spacer()
-                        }
-                        .frame( width: 80 ,height: 80, alignment: .leading)
-                        .padding(.vertical, 10)
-                        .padding(.horizontal, 15)
-                    }
-                    else {
-                        AsyncImage(url: (URL(string:trackfromNowPlaying.currentSong[0].albumArt))!,
-                            placeholder: {
-                                HStack{
-                                    Spacer()
-                                    Image("spotifyIconAmber")
-                                    Spacer()
-                                }
-                            }
-                        )
-                        .frame( width: 80 ,height: 80, alignment: .leading)
-                        .cornerRadius(.cornerRadiusTasks)
-                        .padding(.vertical, 10)
-                        .padding(.horizontal, 15)
-                    }
-                    
-                    // title & artist
-                    VStack(alignment: .leading, spacing: 5) {
-                        if (trackfromNowPlaying.currentSong[0].trackName != ""){
-                            Text(verbatim: trackfromNowPlaying.currentSong[0].trackName)
-                                .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
-                                .multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
-                                .fonzParagraphOne()
-                                .lineLimit(2)
-                                
-                                .allowsTightening(true)
-                            Text(verbatim: trackfromNowPlaying.currentSong[0].artistName)
-                                .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
-                                .fonzParagraphTwo()
-                            Text("playing with \(hostName)'s Fonz")
-                                .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
-                                .fonzParagraphThree()
-                        }
-                        else {
-                            Text("\(hostName) is not currently playing Spotify")
-                                .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
-                                .multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
-                                .fonzParagraphTwo()
-                        }
-                        
-                    }
-                    Spacer()
-                    
-                }
-                .padding(.top, 5)
-//                HStack(spacing: 5){
-//                    Text("\(convertSongPositionToString(songPosition: activeSongPlace))")
-//                        .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
-//                        .fonzParagraphThree()
-//                    ProgressBar(value: $activeSongPlace)
-//                    Text("\(convertSongPositionToString(songPosition: activeSongLength))")
-//                        .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
-//                        .fonzParagraphThree()
-//                }.padding(.vertical, 3)
-                Spacer()
-            }
-        }
-        
-        .background(
-            RoundedRectangle(cornerRadius: .cornerRadiusTasks)
-            .fill(colorScheme == .light ? Color.white: Color.darkButton)
-//                        .padding(.vertical, 10)
-            .frame(width: UIScreen.screenWidth * 0.95, height: 150, alignment: .center)
-                .fonzShadow()
-                
-        )
-    }
-    func convertSongPositionToString(songPosition : Double) -> String {
-        // make double only 2 decimals
-        let twoDecimals = Double(round(100*songPosition)/100)
-        // creates a string
-        var newSongString = String(twoDecimals)
-        // replaces all periods w colons for time
-        newSongString = newSongString.replacingOccurrences(of: ".", with: ":")
-        // creates a sub string of the seconds
-        let substring = newSongString.split(separator: ":")
-        // if the seconds is 1 digit, adds a zero so time is 4:00 & not 4:0
-        if (substring[1].count < 2) {
-            newSongString = newSongString + "0"
-        }
-         
-        return newSongString
-    }
 }

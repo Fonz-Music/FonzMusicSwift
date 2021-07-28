@@ -190,5 +190,9 @@ public extension String {
         return emailPredicate.evaluate(with: self)
       }
     
+    func removeSpaceBefore() -> String {
+        return self.trimmingCharacters(in: .whitespaces)
+    }
+    
 }
 

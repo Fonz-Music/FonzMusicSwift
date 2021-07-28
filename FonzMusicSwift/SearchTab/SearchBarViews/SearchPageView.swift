@@ -98,10 +98,10 @@ struct SearchPageView: View {
                         
                         ActiveSongView(hostName: hostCoaster.hostName, currentSessionId: hostCoaster.sessionId, trackfromNowPlaying: trackFromNowPlaying)
                         SongSuggestionsView(hostCoaster: hostCoaster, currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc, tracksFromPlaylist: tracksFromPlaylist, tracksFromArtist: tracksFromArtist, hasAccount: $hasAccount, connectedToSpotify: $connectedToSpotify)
-                        #if !APPCLIP
-                        Spacer()
-                            .frame(height: 50)
-                        #endif
+//                        #if !APPCLIP
+//                        Spacer()
+//                            .frame(height: 50)
+//                        #endif
                             
                     }
                     .isHidden(hideSearchViews)

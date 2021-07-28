@@ -42,14 +42,14 @@ struct SettingsPage: View {
                         Text("shop")
                             .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
                             .fonzParagraphTwo()
-                            .padding(.headingFrontIndent)
+                            .padding(.subHeadingFrontIndent)
                             .frame(width: UIScreen.screenWidth, height: 50, alignment: .topLeading)
                         BuyCoasterButton()
                         // account
                         Text("account")
                             .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
                             .fonzParagraphTwo()
-                            .padding(.headingFrontIndent)
+                            .padding(.subHeadingFrontIndent)
                             .frame(width: UIScreen.screenWidth, height: 50, alignment: .topLeading)
                         
                         ChangeDisplayNameButton()

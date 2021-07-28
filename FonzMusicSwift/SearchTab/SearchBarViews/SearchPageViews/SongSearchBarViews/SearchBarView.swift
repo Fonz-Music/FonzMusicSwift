@@ -83,9 +83,11 @@ struct SearchBarView : View {
                 .transition(.opacity)
                 .animation(.easeOut)
             }
-            Spacer()
+//            Spacer()
         }
-        .frame(width: UIScreen.screenWidth * 0.95, alignment: .center)
+//        .frame(width: UIScreen.screenWidth * 0.9, alignment: .center)
+        .padding(.horizontal, .subHeadingFrontIndent)
+        .frame(width: UIScreen.screenWidth, alignment: .center)
         .padding(.vertical, 10)
         
         

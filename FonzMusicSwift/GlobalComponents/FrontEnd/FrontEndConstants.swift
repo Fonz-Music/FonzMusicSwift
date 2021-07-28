@@ -16,6 +16,8 @@ extension CGFloat {
     static let headingFrontIndent : CGFloat = 25
     static let headingTopIndent : CGFloat = 40
     
+    static let subHeadingFrontIndent : CGFloat = 15
+    
     static let outerContainerPadding : CGFloat = 10.0
     static let outerContainerFrameWidthSettings : CGFloat = 0.85
 }

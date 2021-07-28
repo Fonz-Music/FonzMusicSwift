@@ -55,7 +55,7 @@ struct HostSetup: View {
 //                    if (!connectedToSpotify) {
                         VStack {
                                 Spacer()
-                                    .frame(height: 30)
+                                    .frame(minHeight: 30)
 //                            }
                             ConnectSpotifyButtonHomeView(connectedToSpotify: $connectedToSpotify, hasAccount: $hasAccount, throwCreateAccountModal: $throwCreateAccountModal)
                                 .addOpacity(connectedToSpotify)

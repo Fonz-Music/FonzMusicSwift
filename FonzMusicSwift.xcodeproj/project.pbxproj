@@ -104,6 +104,8 @@
 		265634BF2678163000FD6F27 /* DataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265634BE2678163000FD6F27 /* DataExtension.swift */; };
 		265634C12678341E00FD6F27 /* SettingsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265634C02678341E00FD6F27 /* SettingsPage.swift */; };
 		26659BC4263BA36B0008FD1F /* LaunchConnectCoasterNfc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26659BC3263BA36B0008FD1F /* LaunchConnectCoasterNfc.swift */; };
+		2665E00B26B1834400AE2AAB /* ActiveSongUserInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2665E00A26B1834400AE2AAB /* ActiveSongUserInterface.swift */; };
+		2665E00C26B183AB00AE2AAB /* ActiveSongUserInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2665E00A26B1834400AE2AAB /* ActiveSongUserInterface.swift */; };
 		26691F66267AB89A00C83696 /* SongResultItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26691F65267AB89A00C83696 /* SongResultItem.swift */; };
 		26691F69267AC46A00C83696 /* SearchResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26691F68267AC46A00C83696 /* SearchResultsView.swift */; };
 		26691F6B267AC48400C83696 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26691F6A267AC48400C83696 /* SearchBarView.swift */; };
@@ -307,6 +309,7 @@
 		265634BE2678163000FD6F27 /* DataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtension.swift; sourceTree = "<group>"; };
 		265634C02678341E00FD6F27 /* SettingsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPage.swift; sourceTree = "<group>"; };
 		26659BC3263BA36B0008FD1F /* LaunchConnectCoasterNfc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchConnectCoasterNfc.swift; sourceTree = "<group>"; };
+		2665E00A26B1834400AE2AAB /* ActiveSongUserInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveSongUserInterface.swift; sourceTree = "<group>"; };
 		26691F65267AB89A00C83696 /* SongResultItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongResultItem.swift; sourceTree = "<group>"; };
 		26691F68267AC46A00C83696 /* SearchResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsView.swift; sourceTree = "<group>"; };
 		26691F6A267AC48400C83696 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
@@ -641,6 +644,7 @@
 			children = (
 				26ECCFD2268295510053BE1F /* ActiveSongView.swift */,
 				2687C735268A9A370044AA37 /* TrackFromNowPlaying.swift */,
+				2665E00A26B1834400AE2AAB /* ActiveSongUserInterface.swift */,
 			);
 			path = ActiveSongViews;
 			sourceTree = "<group>";
@@ -1261,6 +1265,7 @@
 				26FBCCE526867AB100399460 /* PauseCoasterField.swift in Sources */,
 				26916FF2268E502700B7281B /* QueuedButDelayedResponse.swift in Sources */,
 				26DB9AB1263499710030643D /* ErrorNotFonzCoaster.swift in Sources */,
+				2665E00B26B1834400AE2AAB /* ActiveSongUserInterface.swift in Sources */,
 				26691F69267AC46A00C83696 /* SearchResultsView.swift in Sources */,
 				26FBCCF02686A52500399460 /* ChangeDisplayNameButton.swift in Sources */,
 				26F5350526975DEA0055C188 /* SignInWithAppleButton.swift in Sources */,
@@ -1411,6 +1416,7 @@
 				261752EE26A3448B0069C83D /* DataExtension.swift in Sources */,
 				261752EF26A3448B0069C83D /* StringExtensions.swift in Sources */,
 				261752F026A3448B0069C83D /* GlobalExtensions.swift in Sources */,
+				2665E00C26B183AB00AE2AAB /* ActiveSongUserInterface.swift in Sources */,
 				261752F126A3448B0069C83D /* TextExtension.swift in Sources */,
 				261752F226A3448B0069C83D /* ShareOnInstagram.swift in Sources */,
 				261752F326A3448B0069C83D /* ShareSheet.swift in Sources */,

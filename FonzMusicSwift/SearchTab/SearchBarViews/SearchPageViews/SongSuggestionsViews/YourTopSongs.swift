@@ -44,7 +44,7 @@ struct YourTopSongs: View {
                 Text(connectedToSpotify ? "your top songs" : "spotify top songs")
                     .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
                     .fonzParagraphTwo()
-                    .padding(.horizontal, .headingFrontIndent)
+                    .padding(.horizontal, .subHeadingFrontIndent)
 //                    .padding(.bottom, 10)
                 Spacer()
             }
@@ -53,11 +53,11 @@ struct YourTopSongs: View {
                     HStack(spacing: 10) {
                         ForEach(0..<yourTopSongs.count / 2) {
                             TopSongButtonView(hostCoaster: hostCoaster, topSong: yourTopSongs[$0], currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
-                                .padding(.top, 10)
+                                .padding(.top, 5)
                                
                         }
                     }
-                    .padding(.vertical, 5)
+                    .padding(.bottom, 5)
                     
                     HStack(spacing: 10) {
                         ForEach(yourTopSongs.count / 2..<yourTopSongs.count) {
@@ -139,7 +139,7 @@ struct TopSongButtonView: View {
                         Text(verbatim: topSong.songName)
                             .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
                             .fonzParagraphThree()
-                        Text(verbatim: topSong.artistName)
+                        Text(verbatim: topSong.artistName.removeSpaceBefore())
                             .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
                             .font(Font.custom("MuseoSans-100", size: 10))
                             .fonzParagraphThree()

@@ -67,5 +67,6 @@ struct SearchBarPage: View {
                         .frame(maxWidth: UIScreen.screenWidth)
                 }
             }, alignment: .bottom)
+//        .ignoresSafeArea()
     }
 }

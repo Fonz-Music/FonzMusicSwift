@@ -40,7 +40,7 @@ struct YourTopArtists: View {
                 Text(connectedToSpotify ? "your top artists" : "spotify top artists")
                     .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
                     .fonzParagraphTwo()
-                    .padding(.horizontal, .headingFrontIndent)
+                    .padding(.horizontal, .subHeadingFrontIndent)
                     .padding(.bottom, 10)
                     .padding(.top, 25)
 
@@ -60,8 +60,9 @@ struct YourTopArtists: View {
                 }
                 .background(
                     RoundedRectangle(cornerRadius: .cornerRadiusTasks)
-                    .fill(colorScheme == .light ? Color.white: Color.darkButton)
-                    .frame(width: UIScreen.screenWidth * 0.9, height: 150, alignment: .center)
+                        .fill(colorScheme == .light ? Color.white: Color.darkButton)
+                        .padding(.horizontal, .subHeadingFrontIndent)
+                        .frame(width: UIScreen.screenWidth, height: 150, alignment: .center)
                         .fonzShadow()
                     , alignment: .top
                 )
