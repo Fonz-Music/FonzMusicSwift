@@ -58,7 +58,7 @@ struct SearchTab: View {
                                     )
                                 }
                 .sheet(isPresented: $throwCreateAccount, content: {
-                    CreateAccountPrompt(hasAccount: $hasAccount, showModal: $throwCreateAccount)
+                    CreateAccountPrompt(hasAccount: $hasAccount, showModal: $throwCreateAccount, hadPreviousAccount: true)
                 })
                 
                    

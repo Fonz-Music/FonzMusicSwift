@@ -13,6 +13,10 @@ struct SignOutButton: View {
     // determines if current user has an account
     @Binding var hasAccount : Bool
     
+    @Binding var connectedToSpotify : Bool
+    
+    @Binding var hasConnectedCoasters : Bool
+    
     @State var isExpanded = false
     
     @Environment(\.colorScheme) var colorScheme
@@ -82,6 +86,8 @@ struct SignOutButton: View {
                             withAnimation {
                                 hasAccount = false
                                 isExpanded = false
+                                connectedToSpotify = false
+                                hasConnectedCoasters = false
                             }
                             
                         } label: {

@@ -14,6 +14,10 @@ struct CreateAccountPrompt: View {
     // so you can dismiss modal
     @Binding var showModal : Bool
     
+    var hadPreviousAccount : Bool?
+    
+    @State var throwPopupMakeNewAccount : Bool = false
+    
 //    @State var onSignUp : Bool = true
     
     @Environment(\.colorScheme) var colorScheme
@@ -47,9 +51,15 @@ struct CreateAccountPrompt: View {
                 
                 Spacer()
             }
-//            .background(
-//                Color(UIColor(colorScheme == .light ? Color.white: Color.darkBackground))
-//            )
+            .alert(isPresented: $throwPopupMakeNewAccount, content: {
+                Alert(title: Text("You'll have to make a new account"), message: Text("Due to changes on the backend, you'll need to create a new account, connect to Spotify, & add your coasters again"), dismissButton: .default(Text("Got it")))
+            })
+//            .popover(isPresented: $throwPopupMakeNewAccount) {
+//                Text("you'll have to make a new account")
+//            }
+            .onAppear {
+                throwPopupMakeNewAccount = hadPreviousAccount ?? false
+            }
             .background(
                 ZStack{
                     Color(UIColor(Color.darkBackground))

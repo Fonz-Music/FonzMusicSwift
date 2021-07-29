@@ -14,6 +14,8 @@ struct CreateAccountView: View {
     // so you can dismiss modal
     @Binding var showModal : Bool
     
+    
+    
     @State var onSignUp : Bool = true
     @State var email : String = ""
     @State var password : String = ""
@@ -59,5 +61,6 @@ struct CreateAccountView: View {
                 SignInView(hasAccount: $hasAccount, showModal: $showModal, email: $email, password: $password).padding(.horizontal, 30)
             }
         }
+        
     }
 }

@@ -62,7 +62,7 @@ struct SettingsPage: View {
                             LinkSpotifySettingsButton()
                         }
                     
-                        SignOutButton(hasAccount: $hasAccount)
+                        SignOutButton(hasAccount: $hasAccount, connectedToSpotify: $connectedToSpotify, hasConnectedCoasters: $hasConnectedCoasters)
                         // if the user has connected coasters, give option to limit reqs
         //                    if hasConnectedCoasters {
         //                        Text("coaster management")
