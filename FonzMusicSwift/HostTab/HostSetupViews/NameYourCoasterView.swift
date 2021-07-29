@@ -12,6 +12,9 @@ struct NameYourCoasterView: View {
 // ---------------------------------- created in view -----------------------------------------------
 
     @Binding var hasConnectedCoasters : Bool
+    // list of coasters connected to the Host
+    @ObservedObject var coastersConnectedToHost: CoastersFromApi
+    
 
     @State var coasterName: String = ""
     var coasterUid:String
@@ -52,6 +55,7 @@ struct NameYourCoasterView: View {
                     hasConnectedCoasters = true
                     UserDefaults.standard.set(true, forKey: "hasConnectedCoasters")
                 }
+                coastersConnectedToHost.reloadCoasters()
             } label: {
                 Text("continue")
                     .foregroundColor(Color.white)

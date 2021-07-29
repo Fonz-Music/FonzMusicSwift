@@ -18,6 +18,8 @@ struct SearchTab: View {
     @Binding var hasAccount : Bool
     
     @Binding var hasConnectedCoasters : Bool
+    // list of coasters connected to the Host
+    @ObservedObject var coastersConnectedToUser: CoastersFromApi
     
     // hostCoaster details passed in and will update view when changed
     @State var hostCoaster = HostCoasterInfo()
@@ -41,7 +43,7 @@ struct SearchTab: View {
             }
             else {
                 
-                HomePageDecision(hostCoaster: hostCoaster, hasHostVar: $hasHost, selectedTab: $selectedTab, hasAccount: $hasAccount, hasConnectedCoasters: $hasConnectedCoasters, connectedToSpotify: $connectedToSpotify, hasHost: $hasHost)
+                HomePageDecision(hostCoaster: hostCoaster, hasHostVar: $hasHost, selectedTab: $selectedTab, hasAccount: $hasAccount, hasConnectedCoasters: $hasConnectedCoasters, connectedToSpotify: $connectedToSpotify, hasHost: $hasHost, coastersConnectedToUser: coastersConnectedToUser)
                     .actionSheet(isPresented: $throwFirstLaunchAlert) {
                                     ActionSheet(
                                         title: Text("have you used the Fonz Music App before?"),

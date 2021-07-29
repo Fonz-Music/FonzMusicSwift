@@ -12,7 +12,7 @@ struct NameNewCoaster: View {
     @Binding var launchedNfc : Bool
    
     var coasterUid:String
-    
+    // list of coasters connected to the Host
     @ObservedObject var coastersConnectedToHost: CoastersFromApi
     
     @Environment(\.colorScheme) var colorScheme
@@ -20,7 +20,7 @@ struct NameNewCoaster: View {
     
     var body: some View {
         VStack{
-           
+           Spacer()
             Button(action: {
                 // nothing
             }, label: {
@@ -37,11 +37,11 @@ struct NameNewCoaster: View {
             RenameCoasterField(showRenameModal: $launchedNfc, coasterUid: coasterUid, coastersConnectedToHost: coastersConnectedToHost)
             Spacer()
         }
-        .frame(width: UIScreen.screenWidth * 0.8,height: 120)
+        .frame(width: UIScreen.screenWidth * 0.8, height: 250)
         .background(
             RoundedRectangle(cornerRadius: .cornerRadiusTasks)
                 .fill(colorScheme == .light ? Color.white: Color.darkButton)
-                .frame(height: 100)
+//                .frame( )
                 .fonzShadow()
         )
         .padding(.horizontal, 10)

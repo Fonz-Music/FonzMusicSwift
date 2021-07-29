@@ -11,10 +11,11 @@ struct CoasterDashboardPage: View {
 
 // ---------------------------------- inherited from parent -----------------------------------------
     @Binding var hasConnectedCoasters : Bool
+    // list of coasters connected to the Host
+    @ObservedObject var coastersConnectedToHost: CoastersFromApi
     
 // ---------------------------------- created inside view -------------------------------------------
-    // object that stores the songs from the api
-    @ObservedObject var hostCoasterList: CoastersFromApi = CoastersFromApi()
+    
     // bool auto set to false, set to true if nfc is launched
     @State var launchedNfc = false
     // temp Coaster Object so that page does not update BEFORE showing success page
@@ -60,9 +61,9 @@ struct CoasterDashboardPage: View {
                             ScrollView(showsIndicators: true) {
                                 LazyVGrid(columns: layout, spacing: 12) {
 
-                                    ForEach(hostCoasterList.products.coasters, id: \.self) { item in
+                                    ForEach(coastersConnectedToHost.products.coasters, id: \.self) { item in
                                         
-                                        OwnedCoasterDropItem(item: item, isExpanded: self.selection.contains(item),  coastersConnectedToHost: hostCoasterList, showRenameModal: $showRenameModal, showPauseModal: $showPauseModal, showTroubleShootModal: $showTroubleShootModal, showDisconnectModal:  $showDisconnectModal, troubleShootCoasterPressed: $troubleShootCoasterPressed, tempCoasterDetails: $tempCoasterDetails, hasConnectedCoasters: $hasConnectedCoasters)
+                                        OwnedCoasterDropItem(item: item, isExpanded: self.selection.contains(item),  coastersConnectedToHost: coastersConnectedToHost, showRenameModal: $showRenameModal, showPauseModal: $showPauseModal, showTroubleShootModal: $showTroubleShootModal, showDisconnectModal:  $showDisconnectModal, troubleShootCoasterPressed: $troubleShootCoasterPressed, tempCoasterDetails: $tempCoasterDetails, hasConnectedCoasters: $hasConnectedCoasters)
                                                 .onTapGesture {
         //                                            if !self.selection.contains(item) {
                                                         self.selectDeselect(item)
@@ -82,7 +83,7 @@ struct CoasterDashboardPage: View {
                             }.frame(width: UIScreen.screenWidth * 0.9, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                             .padding(.top, 20)
                             .onAppear {
-                                print("coasters are \(hostCoasterList.products.coasters)")
+                                print("coasters are \(coastersConnectedToHost.products.coasters)")
                             }
                             
                             Spacer()
@@ -106,7 +107,7 @@ struct CoasterDashboardPage: View {
                     VStack {
                         
                         // name coaster
-                        NameNewCoaster(launchedNfc: $launchedNfc, coasterUid: tempCoasterDetails.uid, coastersConnectedToHost: hostCoasterList)
+                        NameNewCoaster(launchedNfc: $launchedNfc, coasterUid: tempCoasterDetails.uid, coastersConnectedToHost: coastersConnectedToHost)
                         Spacer()
                     }
                 }

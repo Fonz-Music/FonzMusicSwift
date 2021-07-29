@@ -18,6 +18,8 @@ struct HostSetup: View {
     @Binding var hasConnectedCoasters : Bool
     // determines if current user has an account
     @Binding var hasAccount : Bool
+    // list of coasters connected to the Host
+    @ObservedObject var coastersConnectedToHost: CoastersFromApi
     
 // ---------------------------------- created in view -----------------------------------------------
     // bool auto set to false, set to true if nfc is launched
@@ -55,10 +57,12 @@ struct HostSetup: View {
 //                    if (!connectedToSpotify) {
                         VStack {
                                 Spacer()
-                                    .frame(minHeight: 30)
+                                    .frame(height: 30)
 //                            }
                             ConnectSpotifyButtonHomeView(connectedToSpotify: $connectedToSpotify, hasAccount: $hasAccount, throwCreateAccountModal: $throwCreateAccountModal)
                                 .addOpacity(connectedToSpotify)
+                                .disabled(connectedToSpotify)
+                                
                                 .animation(.easeInOut(duration: 2.0))
                                 .scaleEffect(connectedToSpotify ? 0.7 : 1.2)
                             if connectedToSpotify {
@@ -117,7 +121,7 @@ struct HostSetup: View {
                     VStack {
                         
                         // name coaster
-                        NameYourCoasterView(hasConnectedCoasters: $hasConnectedCoasters, coasterUid: tempCoasterDetails.uid)
+                        NameYourCoasterView(hasConnectedCoasters: $hasConnectedCoasters, coastersConnectedToHost: coastersConnectedToHost, coasterUid: tempCoasterDetails.uid)
                             .onAppear {
                                 
 

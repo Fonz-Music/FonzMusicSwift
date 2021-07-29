@@ -25,6 +25,8 @@ struct HomePageDecision: View {
     @Binding var connectedToSpotify : Bool
     // determines if current user is connected to spotify
     @Binding var hasHost : Bool
+    // list of coasters connected to the Host
+    @ObservedObject var coastersConnectedToUser: CoastersFromApi
 // ---------------------------------- created in view -----------------------------------------------
     // bool auto set to false, set to true if nfc is launched
     @State var launchedNfc = false
@@ -103,7 +105,7 @@ struct HomePageDecision: View {
                         }
                         // if the coaster lasts a host, give opp to become that host
                         else if (statusCodeResp == 204) {
-                            CoasterDoesNotHaveHost(selectedTab: $selectedTab, hasAccount: $hasAccount, connectedToSpotify: connectedToSpotify, hasConnectedCoasters: $hasConnectedCoasters, showHomeButtons: $showHomeButtons, launchedNfc: $launchedNfc, statusCode: $statusCodeResp, tempCoasterDetails: $tempCoasterDetails)
+                            CoasterDoesNotHaveHost(selectedTab: $selectedTab, hasAccount: $hasAccount, connectedToSpotify: connectedToSpotify, hasConnectedCoasters: $hasConnectedCoasters, showHomeButtons: $showHomeButtons, launchedNfc: $launchedNfc, statusCode: $statusCodeResp, tempCoasterDetails: $tempCoasterDetails, coastersConnectedToUser: coastersConnectedToUser)
                         }
                         // errors
                         else {

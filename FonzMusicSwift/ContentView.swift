@@ -27,6 +27,8 @@ struct ContentView: View {
     @State var hasAccount = false
     // bool on whether the user needs to update their app
     @State var needsToUpdate = false
+    // object that stores the songs from the api
+    @ObservedObject var coastersConnectedToHost: CoastersFromApi = CoastersFromApi()
     
 
     // main app
@@ -39,10 +41,10 @@ struct ContentView: View {
             }
             else {
                 TabView(selection: $selectedTab) {
-                    HostTab(connectedToSpotify: $connectedToSpotify, hasConnectedCoasters: $hasConnectedCoasters, hasAccount: $hasAccount).tabItem {
+                    HostTab(connectedToSpotify: $connectedToSpotify, hasConnectedCoasters: $hasConnectedCoasters, hasAccount: $hasAccount, coastersConnectedToHost: coastersConnectedToHost).tabItem {
                         Label("host", systemImage: "hifispeaker")
                     }.tag(TabIdentifier.host)
-                    SearchTab(selectedTab: $selectedTab,connectedToSpotify: $connectedToSpotify, hasAccount: $hasAccount, hasConnectedCoasters: $hasConnectedCoasters).tabItem {
+                    SearchTab(selectedTab: $selectedTab,connectedToSpotify: $connectedToSpotify, hasAccount: $hasAccount, hasConnectedCoasters: $hasConnectedCoasters, coastersConnectedToUser: coastersConnectedToHost).tabItem {
                         Label("queue", systemImage: "plus.magnifyingglass")
                     }.tag(TabIdentifier.search)
                     SettingsPage(selectedTab: $selectedTab, hasAccount: $hasAccount, hasConnectedCoasters: $hasConnectedCoasters, connectedToSpotify: $connectedToSpotify).tabItem {

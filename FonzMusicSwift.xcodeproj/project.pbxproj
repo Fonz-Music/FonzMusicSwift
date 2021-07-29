@@ -106,6 +106,7 @@
 		26659BC4263BA36B0008FD1F /* LaunchConnectCoasterNfc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26659BC3263BA36B0008FD1F /* LaunchConnectCoasterNfc.swift */; };
 		2665E00B26B1834400AE2AAB /* ActiveSongUserInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2665E00A26B1834400AE2AAB /* ActiveSongUserInterface.swift */; };
 		2665E00C26B183AB00AE2AAB /* ActiveSongUserInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2665E00A26B1834400AE2AAB /* ActiveSongUserInterface.swift */; };
+		2665E00D26B322ED00AE2AAB /* NameYourCoasterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268B97AB26855C0B00984DC4 /* NameYourCoasterView.swift */; };
 		26691F66267AB89A00C83696 /* SongResultItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26691F65267AB89A00C83696 /* SongResultItem.swift */; };
 		26691F69267AC46A00C83696 /* SearchResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26691F68267AC46A00C83696 /* SearchResultsView.swift */; };
 		26691F6B267AC48400C83696 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26691F6A267AC48400C83696 /* SearchBarView.swift */; };
@@ -1397,6 +1398,7 @@
 				261752D526A3448A0069C83D /* YourTopPlaylists.swift in Sources */,
 				261752D626A3448A0069C83D /* ConnectSpotifySearch.swift in Sources */,
 				261752D726A3448A0069C83D /* SongResultItem.swift in Sources */,
+				2665E00D26B322ED00AE2AAB /* NameYourCoasterView.swift in Sources */,
 				261752D826A3448A0069C83D /* SearchBarView.swift in Sources */,
 				261EC1DD26B0907600202D24 /* CreateSessionResponse.swift in Sources */,
 				261752D926A3448A0069C83D /* SearchResultsView.swift in Sources */,

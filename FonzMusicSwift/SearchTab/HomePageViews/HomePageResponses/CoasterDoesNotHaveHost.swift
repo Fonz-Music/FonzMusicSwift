@@ -27,6 +27,8 @@ struct CoasterDoesNotHaveHost: View {
     
     // temp Coaster Object so that page does not update BEFORE showing success page
     @Binding var tempCoasterDetails : HostCoasterInfo
+    // list of coasters connected to the Host
+    @ObservedObject var coastersConnectedToUser: CoastersFromApi
     
     // has user create an account
     @State var throwCreateAccountModal = false
@@ -163,7 +165,23 @@ struct CoasterDoesNotHaveHost: View {
             }
             UserDefaults.standard.set(true, forKey: "hasConnectedCoasters")
         }) {
-            NameNewCoaster(launchedNfc: $launchedNfc, coasterUid: tempCoasterDetails.uid, coastersConnectedToHost: CoastersFromApi())
+            VStack{
+                Spacer()
+//                    .frame(maxHeight: 100)
+                NameNewCoaster(launchedNfc: $launchedNfc, coasterUid: tempCoasterDetails.uid, coastersConnectedToHost: coastersConnectedToUser)
+                Spacer()
+            }
+            .background(
+                ZStack{
+                    Color.lilac
+                    VStack{
+                        Spacer()
+                        Image("mountainProfile")
+                            .opacity(0.4)
+                            .frame(maxWidth: UIScreen.screenWidth)
+                    }
+                }, alignment: .bottom)
+            .ignoresSafeArea()
         }
     }
 }

@@ -18,7 +18,8 @@ struct HostTab: View {
     @Binding var hasConnectedCoasters : Bool
     // determines if current user has an account
     @Binding var hasAccount : Bool
-    
+    // list of coasters connected to the Host
+    @ObservedObject var coastersConnectedToHost: CoastersFromApi
    
     
     
@@ -38,7 +39,7 @@ struct HostTab: View {
                     Spacer()
                 }
                 
-                HostSetup(connectedToSpotify: $connectedToSpotify, hasConnectedCoasters: $hasConnectedCoasters, hasAccount: $hasAccount)
+                HostSetup(connectedToSpotify: $connectedToSpotify, hasConnectedCoasters: $hasConnectedCoasters, hasAccount: $hasAccount, coastersConnectedToHost: coastersConnectedToHost)
             }
             else {
                 HStack{
@@ -50,7 +51,7 @@ struct HostTab: View {
                         .padding(.bottom, 20)
                     Spacer()
                 }
-                CoasterDashboardPage(hasConnectedCoasters: $hasConnectedCoasters)
+                CoasterDashboardPage(hasConnectedCoasters: $hasConnectedCoasters, coastersConnectedToHost: coastersConnectedToHost)
             }
             Spacer()
         }
