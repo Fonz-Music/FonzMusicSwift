@@ -35,6 +35,8 @@ struct HostSetup: View {
     
     @State var throwCreateAccountModal = false
     
+    @State var troubleShootCoasterPressed = false
+    
     @Environment(\.colorScheme) var colorScheme
     let tapCoasterWidth = UIScreen.screenHeight * 0.35
     
@@ -115,17 +117,43 @@ struct HostSetup: View {
             // aftermath of attempting to connect their first coaster
             else {
                 Spacer()
-                    .frame(height: 100)
+                    .frame(height: 20)
                 // if host joins their first coaster propeerly, prompt name
                 if statusCodeResp == 204 {
+                    
+                    // if coaster NOT encoded {
+                    OneMoreStep()
+                        .onAppear {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
+                            troubleShootCoasterPressed = true
+                            }
+                        }
+                    if troubleShootCoasterPressed {
+                        EncodeCoasterWithUrl(tempCoasterUid: tempCoasterDetails.uid, statusCode: $statusCodeResp,pressedButtonToLaunchNfc: $troubleShootCoasterPressed)
+                    }
+                    
+                    // }
+                    // else (coaster already encoded
+                    
+//                    VStack {
+//
+//                        // name coaster
+//                        NameYourCoasterView(hasConnectedCoasters: $hasConnectedCoasters, coastersConnectedToHost: coastersConnectedToHost, coasterUid: tempCoasterDetails.uid)
+//                            .onAppear {
+//
+//
+//                            }
+//                        Spacer()
+//                    }
+                    //}
+                    
+                }
+                else if statusCodeResp == 602 {
                     VStack {
-                        
+//                        Spacer()
+//                            .frame(height: 50)
                         // name coaster
                         NameYourCoasterView(hasConnectedCoasters: $hasConnectedCoasters, coastersConnectedToHost: coastersConnectedToHost, coasterUid: tempCoasterDetails.uid)
-                            .onAppear {
-                                
-
-                            }
                         Spacer()
                     }
                 }
@@ -133,12 +161,16 @@ struct HostSetup: View {
                     ZStack {
                         // coaster belongs to someone else
                         if statusCodeResp == 403 {
+//                            Spacer()
+//                                .frame(height: 50)
                             SomeoneElsesCoaster(coasterName: tempCoasterDetails.coasterName, hostName: tempCoasterDetails.hostName)
                             // this is someone else's coaster
 //                            Text("this coaster belongs to \(tempCoasterDetails.hostName) & is named \(tempCoasterDetails.coasterName)")
                         }
                         // coaster belongs to you (should not appear)
                         else if statusCodeResp == 200 {
+//                            Spacer()
+//                                .frame(height: 50)
                             ThisIsYourCoaster(coasterName: tempCoasterDetails.coasterName)
                                 .onAppear{
                                     withAnimation {

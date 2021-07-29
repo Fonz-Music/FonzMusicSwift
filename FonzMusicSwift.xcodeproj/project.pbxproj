@@ -107,6 +107,8 @@
 		2665E00B26B1834400AE2AAB /* ActiveSongUserInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2665E00A26B1834400AE2AAB /* ActiveSongUserInterface.swift */; };
 		2665E00C26B183AB00AE2AAB /* ActiveSongUserInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2665E00A26B1834400AE2AAB /* ActiveSongUserInterface.swift */; };
 		2665E00D26B322ED00AE2AAB /* NameYourCoasterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268B97AB26855C0B00984DC4 /* NameYourCoasterView.swift */; };
+		2665E00F26B333A700AE2AAB /* OneMoreStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2665E00E26B333A700AE2AAB /* OneMoreStep.swift */; };
+		2665E01126B3344300AE2AAB /* EncodeCoasterWithUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2665E01026B3344300AE2AAB /* EncodeCoasterWithUrl.swift */; };
 		26691F66267AB89A00C83696 /* SongResultItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26691F65267AB89A00C83696 /* SongResultItem.swift */; };
 		26691F69267AC46A00C83696 /* SearchResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26691F68267AC46A00C83696 /* SearchResultsView.swift */; };
 		26691F6B267AC48400C83696 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26691F6A267AC48400C83696 /* SearchBarView.swift */; };
@@ -311,6 +313,8 @@
 		265634C02678341E00FD6F27 /* SettingsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPage.swift; sourceTree = "<group>"; };
 		26659BC3263BA36B0008FD1F /* LaunchConnectCoasterNfc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchConnectCoasterNfc.swift; sourceTree = "<group>"; };
 		2665E00A26B1834400AE2AAB /* ActiveSongUserInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveSongUserInterface.swift; sourceTree = "<group>"; };
+		2665E00E26B333A700AE2AAB /* OneMoreStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneMoreStep.swift; sourceTree = "<group>"; };
+		2665E01026B3344300AE2AAB /* EncodeCoasterWithUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodeCoasterWithUrl.swift; sourceTree = "<group>"; };
 		26691F65267AB89A00C83696 /* SongResultItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongResultItem.swift; sourceTree = "<group>"; };
 		26691F68267AC46A00C83696 /* SearchResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsView.swift; sourceTree = "<group>"; };
 		26691F6A267AC48400C83696 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
@@ -511,6 +515,7 @@
 			children = (
 				26659BC3263BA36B0008FD1F /* LaunchConnectCoasterNfc.swift */,
 				26AF07BF268CEE00006A9504 /* LaunchTroubleShootCoasterNfc.swift */,
+				2665E01026B3344300AE2AAB /* EncodeCoasterWithUrl.swift */,
 			);
 			path = HostNfc;
 			sourceTree = "<group>";
@@ -545,6 +550,7 @@
 				268B97AA26855BDA00984DC4 /* HostSetupViews */,
 				26691F78267ACB3B00C83696 /* HostSetup.swift */,
 				268B97B126855D7E00984DC4 /* CoasterDashboardPage.swift */,
+				2665E00E26B333A700AE2AAB /* OneMoreStep.swift */,
 			);
 			path = HostTab;
 			sourceTree = "<group>";
@@ -1314,6 +1320,7 @@
 				26FBCCE726867CE000399460 /* DisconnectCoasterField.swift in Sources */,
 				26AF07D2268D47C8006A9504 /* TapYourPhoneAmber.swift in Sources */,
 				26EBF65D26A32E3C0094FA60 /* BuyACoasterHomeButton.swift in Sources */,
+				2665E01126B3344300AE2AAB /* EncodeCoasterWithUrl.swift in Sources */,
 				26916FFA268E600700B7281B /* JoinPartyResponses.swift in Sources */,
 				26B65149263865D10074F279 /* CoastersFromApi.swift in Sources */,
 				26FBCCF82686A5C500399460 /* LimitSongRequestsButton.swift in Sources */,
@@ -1321,6 +1328,7 @@
 				26916FF6268E585200B7281B /* LaunchSongResponsePopup.swift in Sources */,
 				265634C12678341E00FD6F27 /* SettingsPage.swift in Sources */,
 				26F5350226975C870055C188 /* SignInView.swift in Sources */,
+				2665E00F26B333A700AE2AAB /* OneMoreStep.swift in Sources */,
 				26FBCCEB2686914600399460 /* AddNewCoasterButton.swift in Sources */,
 				26AF07C6268D2435006A9504 /* MustUpdateApp.swift in Sources */,
 				26DB9AD826349B610030643D /* GuestApi.swift in Sources */,

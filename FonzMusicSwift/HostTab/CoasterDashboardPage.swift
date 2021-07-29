@@ -47,10 +47,11 @@ struct CoasterDashboardPage: View {
     var body: some View {
          
         VStack {
-            Spacer()
-                .frame(height: UIScreen.screenHeight * 0.15)
+            
             // regular coaster dashboard
             if !launchedNfc {
+                Spacer()
+                    .frame(height: UIScreen.screenHeight * 0.15)
                 ZStack {
                     RoundedRectangle(cornerRadius: .cornerRadiusBlocks)
                         .fill(colorScheme == .light ? Color.white: Color.darkBackground)
@@ -100,27 +101,68 @@ struct CoasterDashboardPage: View {
             }
             // displays resp from adding new coaster
             else {
-//                Spacer()
-//                    .frame(height: 75)
+                Spacer()
+                    .frame(height: 20)
                 // if host joins their first coaster propeerly, prompt name
                 if statusCodeResp == 204 {
-                    VStack {
-                        
-                        // name coaster
-                        NameNewCoaster(launchedNfc: $launchedNfc, coasterUid: tempCoasterDetails.uid, coastersConnectedToHost: coastersConnectedToHost)
-                        Spacer()
+
+                    // if coaster NOT encoded {
+                    OneMoreStep()
+                        .onAppear {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
+                            troubleShootCoasterPressed = true
+                            }
+                        }
+                    if troubleShootCoasterPressed {
+                        EncodeCoasterWithUrl(tempCoasterUid: tempCoasterDetails.uid, statusCode: $statusCodeResp, pressedButtonToLaunchNfc: $troubleShootCoasterPressed)
+                            .frame(width: 0, height: 0)
                     }
+                    if statusCodeResp == 600 {
+                        VStack {
+
+                            // name coaster
+                            NameYourCoasterView(hasConnectedCoasters: $hasConnectedCoasters, coastersConnectedToHost: coastersConnectedToHost, coasterUid: tempCoasterDetails.uid)
+                            Spacer()
+                        }
+                    }
+                    // }
+                    // else (coaster already encoded
+                    
+//                    VStack {
+//
+//                        // name coaster
+//                        NameYourCoasterView(hasConnectedCoasters: $hasConnectedCoasters, coastersConnectedToHost: coastersConnectedToHost, coasterUid: tempCoasterDetails.uid)
+//                            .onAppear {
+//
+//
+//                            }
+//                        Spacer()
+//                    }
+                    //}
+                    
                 }
 //                // coaster belongs to you (should not appear)
 //                else if statusCodeResp == 403 {
 //                    ThisIsYourCoaster(coasterName: tempCoasterDetails.coasterName)
 //                    // add options
 //                }
+                
+                // coaster should be named after being encoded
+                else if statusCodeResp == 602 {
+                    VStack {
+
+                        // name coaster
+                        NameNewCoaster(launchedNfc: $launchedNfc, coasterUid: tempCoasterDetails.uid, coastersConnectedToHost: coastersConnectedToHost)
+                        
+                        Spacer()
+                    }
+                }
+                
                 // coaster has been trouble shooted
                 else if statusCodeResp == 600 {
                     
                     VStack {
-                        
+
                         // name coaster
                         SuccessFulTroubleShoot()
                         Spacer()
@@ -140,7 +182,7 @@ struct CoasterDashboardPage: View {
                 else if statusCodeResp == 601 {
                     // this is someone else's coaster
                     VStack {
-                        
+
                         // show user failed coaster
                         FailCircleResponse(errorMessage: "troubleshoot failed")
                         Spacer()
@@ -162,11 +204,15 @@ struct CoasterDashboardPage: View {
                         // coaster belongs to someone else
                         if statusCodeResp == 403 {
                             // this is someone else's coaster
+
                             SomeoneElsesCoaster(coasterName: tempCoasterDetails.coasterName, hostName: tempCoasterDetails.hostName)
+                            Spacer()
                         }
                         // coaster belongs to you (should not appear)
                         else if statusCodeResp == 200 {
+
                             ThisIsYourCoaster(coasterName: tempCoasterDetails.coasterName)
+                            Spacer()
                             // add options
                         }
                         
