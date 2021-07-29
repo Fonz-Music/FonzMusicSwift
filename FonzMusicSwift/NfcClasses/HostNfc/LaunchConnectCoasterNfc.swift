@@ -151,10 +151,13 @@ struct LaunchConnectCoasterNfc: UIViewRepresentable {
                     session.alertMessage = "properly connected!"
                     // ends nfc session
                     session.invalidate()
-                    
                     // checks to see if the coaster has a host
-                    var coasterDetails = GuestApi().getCoasterInfo(coasterUid: coasterUidFromTag)
+                    var coasterDetails = HostCoasterApi().getSingleOwnedCoaster(coasterUid: coasterUidFromTag)
+                    // checks to see if the coaster has a host
+//                    var coasterDetails = GuestApi().getCoasterInfo(coasterUid: coasterUidFromTag)
                     print("\(String(describing: coasterDetails.statusCode)) is the code m8")
+                    // in case the coaster belongs to someone else
+                    var coasterDetailsOther = GetCoasterInfoGuestResponse(coaster: CoasterResponse(active: false, coasterId: "", name: ""), session: SessionResponse(sessionId: "", userId: "", active: false, provider: ""))
                     // if the coaster does NOT have a host, add to account
                     if coasterDetails.statusCode == 204 {
                         let addCoasterResult = HostCoasterApi().addCoaster(coasterUid: coasterUidFromTag)
@@ -163,6 +166,9 @@ struct LaunchConnectCoasterNfc: UIViewRepresentable {
                         if addCoasterResult.status != 200 {
                             coasterDetails.statusCode = addCoasterResult.status
                         }
+                    }
+                    else if coasterDetails.statusCode == 404 {
+                        coasterDetailsOther = GuestApi().getCoasterInfo(coasterUid: coasterUidFromTag)
                     }
                     
                     // gets the coaster info from the api when passing in the uid
@@ -173,8 +179,15 @@ struct LaunchConnectCoasterNfc: UIViewRepresentable {
                         // sets vars to return to user
                         self.tempCoaster.uid = coasterUidFromTag
                         if coasterDetails.statusCode == 200 {
-                            self.tempCoaster.coasterName = coasterDetails.coaster.name
+                            self.tempCoaster.coasterName = coasterDetails.name
                             self.tempCoaster.hostName = "host"
+    //                        self.tempCoaster.hostName = coasterDetails.coaster.displayName
+                        }
+                        else if coasterDetailsOther.statusCode == 200 {
+                            print("someone else's coaster")
+                            self.tempCoaster.coasterName = coasterDetailsOther.coaster.name
+                            self.tempCoaster.hostName = "host"
+                            coasterDetails.statusCode = 403
     //                        self.tempCoaster.hostName = coasterDetails.coaster.displayName
                         }
                         self.launchedNfc = true

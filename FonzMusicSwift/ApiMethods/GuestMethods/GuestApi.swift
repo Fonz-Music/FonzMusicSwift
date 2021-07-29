@@ -59,7 +59,7 @@ class GuestApi {
 //                accessToken = token
 //        accessToken = tempToken
                 print("got token")
-                print("\(accessToken)" )
+//                print("\(accessToken)" )
                 // set UID to uppercase
                 let uid = coasterUid.uppercased()
                 // create url
@@ -92,6 +92,8 @@ class GuestApi {
                             // sets return value
                             returnObject = newCoaster
                             returnObject.statusCode = response?.getStatusCode() ?? 0
+                            print("resp code is \(returnObject.statusCode)")
+                            
                         }
                         else if let decodedResponse = try? JSONDecoder().decode(BasicResponseWithCode.self, from: dataResp) {
                             

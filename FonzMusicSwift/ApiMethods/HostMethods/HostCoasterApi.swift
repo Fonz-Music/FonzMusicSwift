@@ -47,13 +47,13 @@ class HostCoasterApi {
         let sem = DispatchSemaphore.init(value: 0)
         
         // init value for return
-        var returnObject = CoasterResponse(active: false, coasterId: "", name: "")
+        var returnObject = CoasterResponse(active: false, coasterId: "", name: "", statusCode: 0)
         
         // get access token
         let accessToken = getJWTAndCheckIfExpired()
             
 
-        print("token is \(accessToken)" )
+//        print("token is \(accessToken)" )
         // set UID to uppercase
         let uid = coasterUid.uppercased()
         // create url
@@ -68,8 +68,9 @@ class HostCoasterApi {
             defer { sem.signal() }
             
             if let dataResp = data {
-//                        let jsonData = try? JSONSerialization.jsonObject(with: data!, options: [])
-//                        print(jsonData)
+                        let jsonData = try? JSONSerialization.jsonObject(with: data!, options: [])
+                print("msg from host api")
+                        print(jsonData)
                 
                 returnObject.statusCode = response?.getStatusCode() ?? 0
                 
@@ -77,13 +78,16 @@ class HostCoasterApi {
                     
                     // creates new coasterResult from return value
                     let newCoaster = decodedResponse
-                    print("newCoaster " + "\(newCoaster)")
+//                    print("newCoaster " + "\(newCoaster)")
                     // sets return value
                     returnObject = newCoaster
+                    returnObject.statusCode = response?.getStatusCode() ?? 0
+                    print("newCoaster " + "\(returnObject)")
                 }
                 else {
                     let decodedResponse = try? JSONDecoder().decode(ErrorResponse.self, from: dataResp)
                         print("failed")
+                    returnObject.statusCode = 404
                         // creates new coasterResult from return value
 //                    let newCoaster = CoasterResult(sessionId: "", displayName: "", coasterName:  "", coasterActive: false,  statusCode: decodedResponse?.status ?? 0 )
 //                        print("newCoaster " + "\(newCoaster)")

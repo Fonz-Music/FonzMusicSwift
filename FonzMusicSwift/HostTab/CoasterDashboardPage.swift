@@ -160,12 +160,12 @@ struct CoasterDashboardPage: View {
                 else {
                     ZStack {
                         // coaster belongs to someone else
-                        if statusCodeResp == 200 {
+                        if statusCodeResp == 403 {
                             // this is someone else's coaster
                             SomeoneElsesCoaster(coasterName: tempCoasterDetails.coasterName, hostName: tempCoasterDetails.hostName)
                         }
                         // coaster belongs to you (should not appear)
-                        else if statusCodeResp == 403 {
+                        else if statusCodeResp == 200 {
                             ThisIsYourCoaster(coasterName: tempCoasterDetails.coasterName)
                             // add options
                         }
@@ -184,7 +184,7 @@ struct CoasterDashboardPage: View {
                             addNewCoasterPressed = false
                         }
                         // after 7 seconds, resets home page to normal if connection fails
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 7.5) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 5.5) {
                             withAnimation {
                                 if !addNewCoasterPressed {
                                     launchedNfc = false

@@ -132,14 +132,20 @@ struct HostSetup: View {
                 else {
                     ZStack {
                         // coaster belongs to someone else
-                        if statusCodeResp == 200 {
+                        if statusCodeResp == 403 {
                             SomeoneElsesCoaster(coasterName: tempCoasterDetails.coasterName, hostName: tempCoasterDetails.hostName)
                             // this is someone else's coaster
 //                            Text("this coaster belongs to \(tempCoasterDetails.hostName) & is named \(tempCoasterDetails.coasterName)")
                         }
                         // coaster belongs to you (should not appear)
-                        else if statusCodeResp == 403 {
+                        else if statusCodeResp == 200 {
                             ThisIsYourCoaster(coasterName: tempCoasterDetails.coasterName)
+                                .onAppear{
+                                    withAnimation {
+                                        hasConnectedCoasters = true
+                                    }
+                                    
+                                }
                             // this is someone else's coaster
                            
                         }
