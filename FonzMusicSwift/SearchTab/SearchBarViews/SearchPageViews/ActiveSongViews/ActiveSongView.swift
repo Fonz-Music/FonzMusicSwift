@@ -28,7 +28,7 @@ struct ActiveSongView: View {
                     .foregroundColor(Color.white)
                     .fonzParagraphTwo()
                     .padding(.horizontal, .subHeadingFrontIndent)
-                    .padding(.vertical, 15)
+                    .padding(.vertical, 10)
                 Spacer()
             }
             Button {

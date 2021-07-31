@@ -68,7 +68,7 @@ struct ActiveSongUserInterface : View {
                             image: { Image(uiImage: $0).resizable() }
                         )
                         
-                        .frame( width: 80 ,height: 80, alignment: .leading)
+                        .frame( width: 100 ,height: 100, alignment: .leading)
                         .cornerRadius(.cornerRadiusTasks)
                         .padding(.vertical, 10)
                         .padding(.horizontal, 15)

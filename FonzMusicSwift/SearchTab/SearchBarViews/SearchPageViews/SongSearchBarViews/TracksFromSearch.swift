@@ -50,8 +50,6 @@ class TracksFromSearch: ObservableObject {
     
     
     func searchSession(sessionId:String, searchTerm:String) {
-        print("starting search")
-        print("sessopmOd os \(sessionId)")
         // init vale for access token
         var accessToken = ""
         

@@ -66,8 +66,10 @@ struct SearchPageView: View {
                                 hasHostVar = false
                             }
                         } label: {
-                            Text("leave party")
-                                .fonzParagraphTwo()
+                            Image("leaveParty")
+                                .resizable()
+                                .frame(width: 25, height: 25, alignment: .center)
+                                .foregroundColor(.white)
                                 .padding(.headingFrontIndent)
 
                         }
