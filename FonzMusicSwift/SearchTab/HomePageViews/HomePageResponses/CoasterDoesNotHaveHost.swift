@@ -170,7 +170,7 @@ struct CoasterDoesNotHaveHost: View {
         }) {
             VStack{
                 Spacer()
-//                    .frame(maxHeight: 100)
+                    .frame(maxHeight: 50)
                 NameNewCoaster(launchedNfc: $launchedNfc, coasterUid: tempCoasterDetails.uid, coastersConnectedToHost: coastersConnectedToUser)
                 Spacer()
             }

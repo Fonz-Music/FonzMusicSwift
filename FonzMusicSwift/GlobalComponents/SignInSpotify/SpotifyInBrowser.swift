@@ -20,6 +20,8 @@ struct SpotifyInBrowser {
         let authorizeUrl = SpotifySignInApi().getSpotifySignInUrl()
         print("url is \(authorizeUrl)")
         let url = URL(string: authorizeUrl)
+//        let newUrl = URL(
+//        print("url informed is \(url)")
         if authorizeUrl.count > 20 {
             openURL(url!)
         }

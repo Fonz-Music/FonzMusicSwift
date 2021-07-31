@@ -85,7 +85,7 @@ struct ContentView: View {
                     if spotifySignInResp.status == 200 {
                         print("changing connection now")
                         withAnimation {
-                            userAttributes.setHasConnectedCoasters(bool: true)
+                            userAttributes.setConnectedToSpotify(bool: true)
                         }
                     }
                 }

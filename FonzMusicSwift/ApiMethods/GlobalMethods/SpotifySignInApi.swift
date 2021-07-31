@@ -12,12 +12,12 @@ import Firebase
 class SpotifySignInApi {
     
 //    let ADDRESS = "https://api.fonzmusic.com/"
-    //    let ADDRESS = "http://beta.api.fonzmusic.com:8080/"
-        let ADDRESS = "http://52.50.138.97:8080/"
+//    let ADDRESS = "http://beta.api.fonzmusic.com:8080/"
+    let ADDRESS = "http://52.50.138.97:8080/"
     let CALLBACK = "callback/"
     let SESSION = "session/"
     let HOST = "host/"
-    let SPOTIFY = "spotify"
+    let SPOTIFY = "spotify/"
     let PROVIDERS = "providers/"
     
     let tempAccessToken = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjFiYjk2MDVjMzZlOThlMzAxMTdhNjk1MTc1NjkzODY4MzAyMDJiMmQiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiZGVlciIsInBpY3R1cmUiOiJodHRwczovL2xoNC5nb29nbGV1c2VyY29udGVudC5jb20vLXdIRHZhQXRMWklzL0FBQUFBQUFBQUFJL0FBQUFBQUFBQUFBL0FNWnV1Y256SmJCbk94bWtFcTNuM3BJeE9wUHNDUXZ1dmcvczk2LWMvcGhvdG8uanBnIiwiaXNzIjoiaHR0cHM6Ly9zZWN1cmV0b2tlbi5nb29nbGUuY29tL2ZvbnotbXVzaWMtYXBwIiwiYXVkIjoiZm9uei1tdXNpYy1hcHAiLCJhdXRoX3RpbWUiOjE2MjY3MDk3MjQsInVzZXJfaWQiOiJFMnU5aXJabWtIYkY5ZlBHWDcyZTBFVDJNcjkyIiwic3ViIjoiRTJ1OWlyWm1rSGJGOWZQR1g3MmUwRVQyTXI5MiIsImlhdCI6MTYyNjcxMzM1NCwiZXhwIjoxNjI2NzE2OTU0LCJlbWFpbCI6ImRpYXJtdWlkNDlAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsiZGlhcm11aWQ0OUBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.jlOhvrIAhKzmOGzMfmyDOGzp078se8YfX5H4tWzQy4Pt1TseE2Ii5EpBuMi6srev4qeABg-ErhYpzkTLvUG5zmwLDXkRoJQg_-mqyE1UFR795rhCp0imV2nnbuoDNo3CdIgNit_3165YVSeWF2TPa9ArsJwqi4I63jFiv3KJsV4_BAKpxl02VNNYq72UVH15JBp74qRJzmL7FueglG65UcMF0Gs7PoCZBdkZVqfo3eDeOYvcJ6flKMP_wmimA-Iu_j7G1LiI6-Ny_MWmLgDvlGrjnEGOEPNImVDP-xVdLZQTK-WBybUmqsrjxbDs4cPd5nVddOZ8JQqeLzABhFqCjw"
@@ -161,22 +161,6 @@ class SpotifySignInApi {
         // get access token
         let accessToken = getJWTAndCheckIfExpired()
 
-//
-//        // gets password from keychain
-//        let keychain = Keychain(service: "api.fonzmusic.com")
-//        let password = keychain[userEmail!]
-//        // gets token by passing email + password into api
-//        accessToken = SignInSignUpApi().loginUser(email: self.userEmail!, password: password!).message
-
-//        guard let user = Auth.auth().currentUser else {
-//            print("there was an error getting the user")
-//            return  returnObject}
-//
-//            // get access token
-//            user.getIDToken(){ (idToken, error) in
-//            if error == nil, let token = idToken {
-//                accessToken = token
-//                print("token is \(accessToken)" )
                 // create url
                 guard let url = URL(string: self.ADDRESS + self.HOST + self.SESSION + sessionId )
                 else {
@@ -306,11 +290,12 @@ class SpotifySignInApi {
         // get access token
         let accessToken = getJWTAndCheckIfExpired()
         // create url
-        guard let url = URL(string: self.ADDRESS + self.PROVIDERS + self.SPOTIFY ) else { return returnMessage}
+        guard let url = URL(string: self.ADDRESS + self.PROVIDERS + self.SPOTIFY + "?device=iOS" ) else { return returnMessage}
         // creates req w url
         var request = URLRequest(url: url)
         // sets method as PUT
         request.httpMethod = "GET"
+        
         // adds auth token
         request.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
         // tells req that there is a body param

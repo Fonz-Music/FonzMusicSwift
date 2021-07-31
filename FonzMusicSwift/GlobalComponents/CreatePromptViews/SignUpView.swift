@@ -188,13 +188,12 @@ struct SignUpView: View {
                 // sign up button
                 Button {
                     
-                    let registerUserResp : BasicResponse = SignInSignUpApi().registerUser(email: email, password: password)
+//                    let registerUserResp : BasicResponse = SignInSignUpApi().registerUser(email: email, password: password)
+                    let registerUserResp : BasicResponse = SignInSignUpApi().updateUserAccount(email: email, password: password, displayName: displayName, agreedConsent: acceptedPrivacy, agreedMarketing: acceptedEmail)
                     DispatchQueue.main.async {
                         if registerUserResp.status == 200 {
                             print("success")
                             userAttributes.setHasAccount(bool: true)
-//                            hasAccount = true
-                            UserDefaults.standard.set(true, forKey: "hasAccount")
                             self.showModal.toggle()
                         }
 //                        else if registerUserResp.status == 401 {

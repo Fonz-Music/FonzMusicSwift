@@ -19,12 +19,15 @@ struct BuyACoasterHomeButton: View {
     var body: some View {
         VStack{
             Button(action: {
+                
+//                getUserIdFromAccessToken()
+                
                 guard let url = URL(string: "https://www.fonzmusic.com/buy") else {
                     return
                 }
                 openURL(url)
                 print("pressed button")
-                
+
 //                launchWebview.toggle()
                 FirebaseAnalytics.Analytics.logEvent("userPressedBuyCoaster", parameters: ["user":"user", "tab": "search"])
                 

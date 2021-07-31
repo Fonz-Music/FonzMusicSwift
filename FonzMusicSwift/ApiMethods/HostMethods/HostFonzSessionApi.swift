@@ -74,6 +74,7 @@ class HostFonzSessionApi {
             } else {
                 print("fetch failed: \(error?.localizedDescription ?? "unknown error")")
             }
+            sem.resume()
         }.resume()
         // tells function to wait before returning
         sem.wait()
@@ -126,6 +127,7 @@ class HostFonzSessionApi {
             } else {
                 print("fetch failed: \(error?.localizedDescription ?? "unknown error")")
             }
+            sem.resume()
         }.resume()
         // tells function to wait before returning
         sem.wait()
