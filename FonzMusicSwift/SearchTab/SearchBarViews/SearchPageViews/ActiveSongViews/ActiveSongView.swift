@@ -10,9 +10,7 @@ import SwiftUI
 import FirebaseAnalytics
 
 struct ActiveSongView: View {
-    
-    
-    
+
     var hostName : String
     var currentSessionId : String
     // object that stores the songs from the api
@@ -22,14 +20,7 @@ struct ActiveSongView: View {
     @State var activeSongLength: Double = 4.00
     
     @Environment(\.colorScheme) var colorScheme
-    
-//    @ObservedObject var activeSong : Track = Track(songName: "Rush Hour", songId: "09VACB0akCnPueTFnjN5Pn", artistName: "Mac Miller", albumArt: "https://i.scdn.co/image/ab67616d0000b273ee0f38410382a255e4fb15f4", spotifyUrl: "https://open.spotify.com/track/09VACB0akCnPueTFnjN5Pn")
-    
-//    @Binding var activeSong : Track
-    
-//    @ObservedObject var currentImage = ImageLoader(url: URL(string: "https://i.scdn.co/image/ab67616d0000b273ee0f38410382a255e4fb15f4")!)
-    
-    
+
     var body: some View {
         VStack {
             HStack{
@@ -92,24 +83,4 @@ struct ActiveSongView: View {
     }
 }
 
-struct ProgressBar: View {
-    @Binding var value: Double
-    
-    @Environment(\.colorScheme) var colorScheme
-    
-    var body: some View {
-        
-        let progressLength = ((CGFloat(self.value) / 10 ) * (UIScreen.screenWidth * 0.6))
-        
-            ZStack(alignment: .leading) {
-                // background bar
-                Rectangle().frame(width: UIScreen.screenWidth * 0.6, height: 5)
-                    .opacity(0.3)
-                    .foregroundColor(colorScheme == .light ? Color.gray: Color.white)
-                // active bar
-                Rectangle().frame(width: progressLength, height: 5)
-                    .foregroundColor(.lilac)
-                    .animation(.linear)
-            }.cornerRadius(.cornerRadiusTasks)
-        }
-}
+

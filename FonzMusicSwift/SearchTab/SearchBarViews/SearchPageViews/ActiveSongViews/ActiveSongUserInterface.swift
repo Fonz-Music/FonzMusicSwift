@@ -64,7 +64,8 @@ struct ActiveSongUserInterface : View {
                                     Image("spotifyIconAmber")
                                     Spacer()
                                 }
-                            }
+                            },
+                            image: { Image(uiImage: $0).resizable() }
                         )
                         
                         .frame( width: 80 ,height: 80, alignment: .leading)

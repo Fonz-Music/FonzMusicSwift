@@ -182,6 +182,14 @@
 		269D0152267182A000A1DFEE /* SpotifySignInApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269D0151267182A000A1DFEE /* SpotifySignInApi.swift */; };
 		269EE55C26B58CE5006D2A00 /* CoreUserAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269EE55B26B58CE5006D2A00 /* CoreUserAttributes.swift */; };
 		269EE55D26B58CE5006D2A00 /* CoreUserAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269EE55B26B58CE5006D2A00 /* CoreUserAttributes.swift */; };
+		269EE56026B5A37E006D2A00 /* TopSongButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269EE55F26B5A37E006D2A00 /* TopSongButtonView.swift */; };
+		269EE56126B5A37E006D2A00 /* TopSongButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269EE55F26B5A37E006D2A00 /* TopSongButtonView.swift */; };
+		269EE56426B5A3A6006D2A00 /* TopPlaylistsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269EE56326B5A3A6006D2A00 /* TopPlaylistsView.swift */; };
+		269EE56526B5A3A6006D2A00 /* TopPlaylistsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269EE56326B5A3A6006D2A00 /* TopPlaylistsView.swift */; };
+		269EE56826B5A402006D2A00 /* TopArtistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269EE56726B5A402006D2A00 /* TopArtistView.swift */; };
+		269EE56926B5A402006D2A00 /* TopArtistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269EE56726B5A402006D2A00 /* TopArtistView.swift */; };
+		269EE56B26B5A448006D2A00 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269EE56A26B5A448006D2A00 /* ProgressBar.swift */; };
+		269EE56C26B5A448006D2A00 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269EE56A26B5A448006D2A00 /* ProgressBar.swift */; };
 		26AC89B42665410C00E1C41E /* ShareOnInstagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AC89B32665410C00E1C41E /* ShareOnInstagram.swift */; };
 		26AC89BC2665745300E1C41E /* MuseoSans-500.otf in Resources */ = {isa = PBXBuildFile; fileRef = 26AC89B82665745300E1C41E /* MuseoSans-500.otf */; };
 		26AC89BD2665745300E1C41E /* MuseoSans-100.otf in Resources */ = {isa = PBXBuildFile; fileRef = 26AC89B92665745300E1C41E /* MuseoSans-100.otf */; };
@@ -366,6 +374,10 @@
 		269252D5268E2C37001AC98B /* SearchPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageView.swift; sourceTree = "<group>"; };
 		269D0151267182A000A1DFEE /* SpotifySignInApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifySignInApi.swift; sourceTree = "<group>"; };
 		269EE55B26B58CE5006D2A00 /* CoreUserAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreUserAttributes.swift; sourceTree = "<group>"; };
+		269EE55F26B5A37E006D2A00 /* TopSongButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopSongButtonView.swift; sourceTree = "<group>"; };
+		269EE56326B5A3A6006D2A00 /* TopPlaylistsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopPlaylistsView.swift; sourceTree = "<group>"; };
+		269EE56726B5A402006D2A00 /* TopArtistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopArtistView.swift; sourceTree = "<group>"; };
+		269EE56A26B5A448006D2A00 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		26AC89B32665410C00E1C41E /* ShareOnInstagram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareOnInstagram.swift; sourceTree = "<group>"; };
 		26AC89B82665745300E1C41E /* MuseoSans-500.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MuseoSans-500.otf"; sourceTree = "<group>"; };
 		26AC89B92665745300E1C41E /* MuseoSans-100.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MuseoSans-100.otf"; sourceTree = "<group>"; };
@@ -655,6 +667,7 @@
 				26ECCFD2268295510053BE1F /* ActiveSongView.swift */,
 				2687C735268A9A370044AA37 /* TrackFromNowPlaying.swift */,
 				2665E00A26B1834400AE2AAB /* ActiveSongUserInterface.swift */,
+				269EE56A26B5A448006D2A00 /* ProgressBar.swift */,
 			);
 			path = ActiveSongViews;
 			sourceTree = "<group>";
@@ -755,6 +768,33 @@
 				26AF07C7268D2751006A9504 /* GetVerionApi.swift */,
 			);
 			path = GlobalMethods;
+			sourceTree = "<group>";
+		};
+		269EE55E26B5A35C006D2A00 /* TopSongs */ = {
+			isa = PBXGroup;
+			children = (
+				26ECCFD72682A27F0053BE1F /* YourTopSongs.swift */,
+				269EE55F26B5A37E006D2A00 /* TopSongButtonView.swift */,
+			);
+			path = TopSongs;
+			sourceTree = "<group>";
+		};
+		269EE56226B5A38A006D2A00 /* TopPlaylists */ = {
+			isa = PBXGroup;
+			children = (
+				26ECCFE02682B6960053BE1F /* YourTopPlaylists.swift */,
+				269EE56326B5A3A6006D2A00 /* TopPlaylistsView.swift */,
+			);
+			path = TopPlaylists;
+			sourceTree = "<group>";
+		};
+		269EE56626B5A3C5006D2A00 /* TopArtists */ = {
+			isa = PBXGroup;
+			children = (
+				26ECCFDA2682AA500053BE1F /* YourTopArtists.swift */,
+				269EE56726B5A402006D2A00 /* TopArtistView.swift */,
+			);
+			path = TopArtists;
 			sourceTree = "<group>";
 		};
 		26AC89B2266540F800E1C41E /* ShareOptions */ = {
@@ -915,11 +955,11 @@
 		26ECCFD42682A21C0053BE1F /* SongSuggestionsViews */ = {
 			isa = PBXGroup;
 			children = (
+				269EE56626B5A3C5006D2A00 /* TopArtists */,
+				269EE56226B5A38A006D2A00 /* TopPlaylists */,
+				269EE55E26B5A35C006D2A00 /* TopSongs */,
 				2687C72D268A960F0044AA37 /* SongResultModals */,
 				2687C72A268A91300044AA37 /* DataFromSpotify */,
-				26ECCFD72682A27F0053BE1F /* YourTopSongs.swift */,
-				26ECCFDA2682AA500053BE1F /* YourTopArtists.swift */,
-				26ECCFE02682B6960053BE1F /* YourTopPlaylists.swift */,
 				26AF07CF268D3BAD006A9504 /* ConnectSpotifySearch.swift */,
 			);
 			path = SongSuggestionsViews;
@@ -1226,6 +1266,7 @@
 				263545BB26A6FFC400B415C9 /* LinkSpotifySettingsButton.swift in Sources */,
 				26B651672638A1B30074F279 /* HostFonzSessionApi.swift in Sources */,
 				268FA5F7268E905C00E45AA6 /* SomeoneElsesCoaster.swift in Sources */,
+				269EE56426B5A3A6006D2A00 /* TopPlaylistsView.swift in Sources */,
 				268B97B226855D7E00984DC4 /* CoasterDashboardPage.swift in Sources */,
 				26B65150263866BE0074F279 /* GlobalTrack.swift in Sources */,
 				2687C736268A9A370044AA37 /* TrackFromNowPlaying.swift in Sources */,
@@ -1263,6 +1304,7 @@
 				26B6514D263866950074F279 /* HostCoasterInfo.swift in Sources */,
 				26DB9AD126349B190030643D /* LaunchQueueSongNfc.swift in Sources */,
 				2676B13426A60A1400E18E4B /* CheckJWTExpired.swift in Sources */,
+				269EE56026B5A37E006D2A00 /* TopSongButtonView.swift in Sources */,
 				26DB9AA52634990D0030643D /* ErrorOnTap.swift in Sources */,
 				26691F6E267AC67400C83696 /* HostAPartyButton.swift in Sources */,
 				26ECCFDD2682B0A60053BE1F /* Artist.swift in Sources */,
@@ -1285,6 +1327,7 @@
 				26AF07CC268D36C6006A9504 /* CreateAccountPrompt.swift in Sources */,
 				26ECCFD82682A27F0053BE1F /* YourTopSongs.swift in Sources */,
 				26ECCFDF2682B0DA0053BE1F /* Playlist.swift in Sources */,
+				269EE56826B5A402006D2A00 /* TopArtistView.swift in Sources */,
 				26916FF0268E476500B7281B /* QueueSongSuccess.swift in Sources */,
 				26AC89CC2669600500E1C41E /* AsyncImage.swift in Sources */,
 				26F5350F2697AF300055C188 /* SignInSignUpApi.swift in Sources */,
@@ -1335,6 +1378,7 @@
 				26F5350226975C870055C188 /* SignInView.swift in Sources */,
 				2665E00F26B333A700AE2AAB /* OneMoreStep.swift in Sources */,
 				26FBCCEB2686914600399460 /* AddNewCoasterButton.swift in Sources */,
+				269EE56B26B5A448006D2A00 /* ProgressBar.swift in Sources */,
 				26AF07C6268D2435006A9504 /* MustUpdateApp.swift in Sources */,
 				26DB9AD826349B610030643D /* GuestApi.swift in Sources */,
 				26ECCFD1268294E70053BE1F /* LaunchQueueSongWriteUrl.swift in Sources */,
@@ -1446,6 +1490,7 @@
 				261752F826A3448B0069C83D /* AsyncImage.swift in Sources */,
 				261752F926A3448B0069C83D /* Artist.swift in Sources */,
 				261752FA26A3448B0069C83D /* Playlist.swift in Sources */,
+				269EE56926B5A402006D2A00 /* TopArtistView.swift in Sources */,
 				261752FB26A3448B0069C83D /* VersionResponse.swift in Sources */,
 				261752FC26A3448B0069C83D /* FailCircleResponse.swift in Sources */,
 				261752FD26A3448B0069C83D /* Colors.swift in Sources */,
@@ -1458,7 +1503,9 @@
 				2617530326A3448B0069C83D /* SpotifyViewRep.swift in Sources */,
 				2617530426A3448B0069C83D /* SpotifyInBrowser.swift in Sources */,
 				2617530526A3448B0069C83D /* ErrorOnTap.swift in Sources */,
+				269EE56C26B5A448006D2A00 /* ProgressBar.swift in Sources */,
 				268B5B3426AE030000A93B9E /* BasicResponse.swift in Sources */,
+				269EE56526B5A3A6006D2A00 /* TopPlaylistsView.swift in Sources */,
 				2617530626A3448B0069C83D /* ErrorDeviceNotNfc.swift in Sources */,
 				2617530726A3448B0069C83D /* ErrorNotFonzCoaster.swift in Sources */,
 				2617530A26A3448B0069C83D /* GetVerionApi.swift in Sources */,
@@ -1472,6 +1519,7 @@
 				2617531C26A3448B0069C83D /* LaunchQueueSongWriteUrl.swift in Sources */,
 				2617533126A3448B0069C83D /* FonzMusicSwiftApp.swift in Sources */,
 				2617533226A3448B0069C83D /* Fonz_Music_App_ClipApp.swift in Sources */,
+				269EE56126B5A37E006D2A00 /* TopSongButtonView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
