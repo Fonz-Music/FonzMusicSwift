@@ -66,6 +66,7 @@ struct ActiveSongUserInterface : View {
                                 }
                             }
                         )
+                        
                         .frame( width: 80 ,height: 80, alignment: .leading)
                         .cornerRadius(.cornerRadiusTasks)
                         .padding(.vertical, 10)

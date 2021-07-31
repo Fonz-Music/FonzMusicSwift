@@ -15,7 +15,9 @@ struct ConnectSpotifyHomeButton: View {
 
 //    @Binding var connectedToSpotify : Bool
     // determines if current user has an account
-    @Binding var hasAccount : Bool
+//    @Binding var hasAccount : Bool
+    // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
+    @StateObject var userAttributes : CoreUserAttributes
     // has user create an account
     @State var throwCreateAccountModal = false
     // has user download full app if on app clip
@@ -33,7 +35,7 @@ struct ConnectSpotifyHomeButton: View {
 
 //
                 #if !APPCLIP
-                if hasAccount {
+                if userAttributes.getHasAccount() {
 //                    HostFonzSessionApi().getAllSessions()
 
                     FirebaseAnalytics.Analytics.logEvent("userTappedConnectSpotify", parameters: ["user":"user", "tab":"host"])
@@ -56,7 +58,7 @@ struct ConnectSpotifyHomeButton: View {
                 .fonzParagraphTwo()
         }
         .sheet(isPresented: $throwCreateAccountModal) {
-            CreateAccountPrompt(hasAccount: $hasAccount, showModal: $throwCreateAccountModal)
+            CreateAccountPrompt(userAttributes: userAttributes, showModal: $throwCreateAccountModal)
         }
         .sheet(isPresented: $throwDownlaodFullAppModal) {
             DownloadFullAppPrompt()

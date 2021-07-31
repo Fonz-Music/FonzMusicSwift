@@ -13,11 +13,15 @@ struct HostTab: View {
         // object that stores the songs from the api
 //        @ObservedObject var hostCoasterList: CoastersFromApi = CoastersFromApi()
     
-    @Binding var connectedToSpotify : Bool
+//    @Binding var connectedToSpotify : Bool
+//
+//    @Binding var hasConnectedCoasters : Bool
+//    // determines if current user has an account
+//    @Binding var hasAccount : Bool
     
-    @Binding var hasConnectedCoasters : Bool
-    // determines if current user has an account
-    @Binding var hasAccount : Bool
+    // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
+    @StateObject var userAttributes : CoreUserAttributes
+    
     // list of coasters connected to the Host
     @ObservedObject var coastersConnectedToHost: CoastersFromApi
    
@@ -29,7 +33,7 @@ struct HostTab: View {
     var body: some View {
         VStack {
             
-            if (!connectedToSpotify || !hasConnectedCoasters) {
+            if (!userAttributes.getConnectedToSpotify() || !userAttributes.getHasConnectedCoasters()) {
                 HStack{
                     Text("host")
                         .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
@@ -39,7 +43,7 @@ struct HostTab: View {
                     Spacer()
                 }
                 
-                HostSetup(connectedToSpotify: $connectedToSpotify, hasConnectedCoasters: $hasConnectedCoasters, hasAccount: $hasAccount, coastersConnectedToHost: coastersConnectedToHost)
+                HostSetup(userAttributes: userAttributes, coastersConnectedToHost: coastersConnectedToHost)
             }
             else {
                 HStack{
@@ -51,13 +55,13 @@ struct HostTab: View {
                         .padding(.bottom, 20)
                     Spacer()
                 }
-                CoasterDashboardPage(hasConnectedCoasters: $hasConnectedCoasters, coastersConnectedToHost: coastersConnectedToHost)
+                CoasterDashboardPage(userAttributes: userAttributes, coastersConnectedToHost: coastersConnectedToHost)
             }
             Spacer()
         }
         .background(
             ZStack{
-                if (connectedToSpotify && hasConnectedCoasters) {
+                if (userAttributes.getConnectedToSpotify() && userAttributes.getHasConnectedCoasters()) {
                     Color.lilac
                 }
                 else {

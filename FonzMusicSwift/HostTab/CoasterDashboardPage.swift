@@ -10,7 +10,9 @@ import SwiftUI
 struct CoasterDashboardPage: View {
 
 // ---------------------------------- inherited from parent -----------------------------------------
-    @Binding var hasConnectedCoasters : Bool
+//    @Binding var hasConnectedCoasters : Bool
+    // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
+    @StateObject var userAttributes : CoreUserAttributes
     // list of coasters connected to the Host
     @ObservedObject var coastersConnectedToHost: CoastersFromApi
     
@@ -64,7 +66,7 @@ struct CoasterDashboardPage: View {
 
                                     ForEach(coastersConnectedToHost.products.coasters, id: \.self) { item in
                                         
-                                        OwnedCoasterDropItem(item: item, isExpanded: self.selection.contains(item),  coastersConnectedToHost: coastersConnectedToHost, showRenameModal: $showRenameModal, showPauseModal: $showPauseModal, showTroubleShootModal: $showTroubleShootModal, showDisconnectModal:  $showDisconnectModal, troubleShootCoasterPressed: $troubleShootCoasterPressed, tempCoasterDetails: $tempCoasterDetails, hasConnectedCoasters: $hasConnectedCoasters)
+                                        OwnedCoasterDropItem(item: item, isExpanded: self.selection.contains(item),  coastersConnectedToHost: coastersConnectedToHost, showRenameModal: $showRenameModal, showPauseModal: $showPauseModal, showTroubleShootModal: $showTroubleShootModal, showDisconnectModal:  $showDisconnectModal, troubleShootCoasterPressed: $troubleShootCoasterPressed, tempCoasterDetails: $tempCoasterDetails, userAttributes: userAttributes)
                                                 .onTapGesture {
         //                                            if !self.selection.contains(item) {
                                                         self.selectDeselect(item)
@@ -83,9 +85,6 @@ struct CoasterDashboardPage: View {
                                 .padding(.bottom, 10)
                             }.frame(width: UIScreen.screenWidth * 0.9, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                             .padding(.top, 20)
-                            .onAppear {
-                                print("coasters are \(coastersConnectedToHost.products.coasters)")
-                            }
                             
                             Spacer()
                             // add new button
@@ -121,7 +120,7 @@ struct CoasterDashboardPage: View {
                         VStack {
 
                             // name coaster
-                            NameYourCoasterView(hasConnectedCoasters: $hasConnectedCoasters, coastersConnectedToHost: coastersConnectedToHost, coasterUid: tempCoasterDetails.uid)
+                            NameYourCoasterView(userAttributes: userAttributes, coastersConnectedToHost: coastersConnectedToHost, coasterUid: tempCoasterDetails.uid)
                             Spacer()
                         }
                     }

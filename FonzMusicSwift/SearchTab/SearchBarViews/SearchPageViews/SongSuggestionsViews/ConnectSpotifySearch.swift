@@ -14,9 +14,11 @@ struct ConnectSpotifySearch: View {
     // has user create an account
     @Binding var throwCreateAccountModal : Bool
     
-    @Binding var hasAccount : Bool
-    
-    @Binding var connectedToSpotify : Bool
+//    @Binding var hasAccount : Bool
+//
+//    @Binding var connectedToSpotify : Bool
+    // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
+    @StateObject var userAttributes : CoreUserAttributes
     
     // has user download full app if on app clip
     @State var throwDownlaodFullAppModal = false
@@ -25,7 +27,7 @@ struct ConnectSpotifySearch: View {
     var body: some View {
         Button(action: {
             #if !APPCLIP
-            if hasAccount {
+            if userAttributes.getHasAccount() {
 //                HostFonzSessionApi().getAllSessions()
                 SpotifyInBrowser().launchSpotifyInBrowser()
                 

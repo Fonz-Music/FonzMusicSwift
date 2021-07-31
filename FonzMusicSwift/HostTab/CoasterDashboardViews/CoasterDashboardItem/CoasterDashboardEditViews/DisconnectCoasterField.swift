@@ -18,7 +18,10 @@ struct DisconnectCoasterField: View {
     
     @ObservedObject var coastersConnectedToHost: CoastersFromApi
     
-    @Binding var hasConnectedCoasters : Bool
+//    @Binding var hasConnectedCoasters : Bool
+    
+    // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
+    @StateObject var userAttributes : CoreUserAttributes
     
     var body: some View {
         VStack{
@@ -57,8 +60,9 @@ struct DisconnectCoasterField: View {
                         showDisconnectModal = false
                         if coastersConnectedToHost.products.quantity == 1 {
                             // sets app to NOT have coasters if the user lacks them
-                            UserDefaults.standard.set(false, forKey: "hasConnectedCoasters")
-                            hasConnectedCoasters = false
+//                            UserDefaults.standard.set(false, forKey: "hasConnectedCoasters")
+//                            hasConnectedCoasters = false
+                            userAttributes.setHasConnectedCoasters(bool: false)
                         }
                         coastersConnectedToHost.reloadCoasters()
                     

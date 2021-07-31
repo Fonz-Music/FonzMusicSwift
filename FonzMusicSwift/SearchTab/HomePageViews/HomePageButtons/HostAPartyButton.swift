@@ -16,7 +16,9 @@ struct HostAPartyButton: View {
     
     @Binding var showHomeButtons: Bool
     // determines if current user has an account
-    @Binding var hasAccount : Bool
+//    @Binding var hasAccount : Bool
+    // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
+    @StateObject var userAttributes : CoreUserAttributes
     // has user create an account
     @State var throwCreateAccountModal = false
     
@@ -28,7 +30,7 @@ struct HostAPartyButton: View {
             Button(action: {
                 
                 
-                if hasAccount {
+                if userAttributes.getHasAccount() {
                     withAnimation {
                         showHomeButtons = false
                     }
@@ -59,7 +61,7 @@ struct HostAPartyButton: View {
                 .fonzParagraphTwo()
         }
         .sheet(isPresented: $throwCreateAccountModal) {
-            CreateAccountPrompt(hasAccount: $hasAccount, showModal: $throwCreateAccountModal)
+            CreateAccountPrompt(userAttributes: userAttributes, showModal: $throwCreateAccountModal)
         }
         
     }

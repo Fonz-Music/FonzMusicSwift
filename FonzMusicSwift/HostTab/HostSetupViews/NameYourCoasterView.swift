@@ -11,7 +11,9 @@ import SwiftUI
 struct NameYourCoasterView: View {
 // ---------------------------------- created in view -----------------------------------------------
 
-    @Binding var hasConnectedCoasters : Bool
+//    @Binding var hasConnectedCoasters : Bool
+    // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
+    @StateObject var userAttributes : CoreUserAttributes
     // list of coasters connected to the Host
     @ObservedObject var coastersConnectedToHost: CoastersFromApi
     
@@ -52,8 +54,9 @@ struct NameYourCoasterView: View {
                 let resp = HostApi.renameCoaster(coasterUid: coasterUid, newName: coasterName)
                 print("resp is \(resp)")
                 withAnimation {
-                    hasConnectedCoasters = true
-                    UserDefaults.standard.set(true, forKey: "hasConnectedCoasters")
+                    userAttributes.setHasConnectedCoasters(bool: true)
+//                    hasConnectedCoasters = true
+//                    UserDefaults.standard.set(true, forKey: "hasConnectedCoasters")
                 }
                 coastersConnectedToHost.reloadCoasters()
             } label: {

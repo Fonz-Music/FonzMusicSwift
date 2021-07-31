@@ -13,9 +13,11 @@ import FirebaseAnalytics
 struct ConnectSpotifyButtonHomeView: View {
 // ---------------------------------- created in view -----------------------------------------------
 
-    @Binding var connectedToSpotify : Bool
-    // determines if current user has an account
-    @Binding var hasAccount : Bool
+//    @Binding var connectedToSpotify : Bool
+//    // determines if current user has an account
+//    @Binding var hasAccount : Bool
+    // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
+    @StateObject var userAttributes : CoreUserAttributes
     // has user create an account
     @Binding var throwCreateAccountModal : Bool
 //
@@ -27,7 +29,7 @@ struct ConnectSpotifyButtonHomeView: View {
     var body: some View {
         VStack {
             Button(action: {
-                if hasAccount {
+                if userAttributes.getHasAccount() {
                     // create session/fetch it
 //                    HostFonzSessionApi().getAllSessions()
                     FirebaseAnalytics.Analytics.logEvent("userTappedConnectSpotify", parameters: ["user":"user", "tab":"host"])

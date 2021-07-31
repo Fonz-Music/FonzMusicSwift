@@ -18,11 +18,13 @@ struct HomePageDecision: View {
     // inherited that indicated the tab the app is on
     @Binding var selectedTab: TabIdentifier
     // determines if current user has an account
-    @Binding var hasAccount : Bool
-    // determines if current user has connectedCoasters
-    @Binding var hasConnectedCoasters : Bool
-    // determines if current user is connected to spotify
-    @Binding var connectedToSpotify : Bool
+//    @Binding var hasAccount : Bool
+//    // determines if current user has connectedCoasters
+//    @Binding var hasConnectedCoasters : Bool
+//    // determines if current user is connected to spotify
+//    @Binding var connectedToSpotify : Bool
+    // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
+    @StateObject var userAttributes : CoreUserAttributes
     // determines if current user is connected to spotify
     @Binding var hasHost : Bool
     // list of coasters connected to the Host
@@ -64,7 +66,7 @@ struct HomePageDecision: View {
                 if !launchedNfc {
                     // if home buttons should be shown, depends on nfc
                     if showHomeButtons {
-                        DetermineHomePageView(selectedTab: $selectedTab, hasAccount: $hasAccount, showHomeButtons: $showHomeButtons, pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc, hasConnectedCoasters: $hasConnectedCoasters, connectedToSpotify: $connectedToSpotify)
+                        DetermineHomePageView(selectedTab: $selectedTab,  showHomeButtons: $showHomeButtons, pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc, userAttributes: userAttributes)
                     }
                     // tap phone animation
                     else if !showHomeButtons && pressedButtonToLaunchNfc {
@@ -105,7 +107,7 @@ struct HomePageDecision: View {
                         }
                         // if the coaster lasts a host, give opp to become that host
                         else if (statusCodeResp == 204) {
-                            CoasterDoesNotHaveHost(selectedTab: $selectedTab, hasAccount: $hasAccount, connectedToSpotify: connectedToSpotify, hasConnectedCoasters: $hasConnectedCoasters, showHomeButtons: $showHomeButtons, launchedNfc: $launchedNfc, statusCode: $statusCodeResp, tempCoasterDetails: $tempCoasterDetails, coastersConnectedToUser: coastersConnectedToUser)
+                            CoasterDoesNotHaveHost(selectedTab: $selectedTab, userAttributes: userAttributes, showHomeButtons: $showHomeButtons, launchedNfc: $launchedNfc, statusCode: $statusCodeResp, tempCoasterDetails: $tempCoasterDetails, coastersConnectedToUser: coastersConnectedToUser)
                         }
                         // errors
                         else {

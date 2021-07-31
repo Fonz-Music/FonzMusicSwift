@@ -24,7 +24,7 @@ class CoastersFromApi: ObservableObject {
 //        ], quantity: 7)
     @Published private (set) var products: HostCoastersMapResult = HostCoastersMapResult(coasters: [], quantity: 0)
     
-    var firstTime = false
+
     
     
     
@@ -32,10 +32,10 @@ class CoastersFromApi: ObservableObject {
     
     init() {
         products = HostCoasterApi().getOwnedCoasters()
-        if (products.quantity == 0 ) {
-            // sets app to NOT have coasters if the user lacks them
-            UserDefaults.standard.set(false, forKey: "hasConnectedCoasters")
-        }
+//        if (products.quantity == 0 ) {
+//            // sets app to NOT have coasters if the user lacks them
+//            UserDefaults.standard.set(false, forKey: "hasConnectedCoasters")
+//        }
         print("starting this")
 
     }
@@ -43,11 +43,16 @@ class CoastersFromApi: ObservableObject {
     func reloadCoasters() {
         products = HostCoasterApi().getOwnedCoasters()
     }
-    func firstTimeLoadCoasters() {
-        if products.quantity == 0 && firstTime == false {
-            firstTime = true
-            print("reloading")
-            products = HostCoasterApi().getOwnedCoasters()
+    func determineIfHasCoasters() -> Bool {
+        if products.quantity > 0 {
+            print("has coasters")
+            UserDefaults.standard.set(true, forKey: "hasConnectedCoasters")
+            return true
+        }
+        else {
+            print("no coasters")
+            UserDefaults.standard.set(false, forKey: "hasConnectedCoasters")
+            return false
         }
     }
     

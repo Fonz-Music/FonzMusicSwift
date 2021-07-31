@@ -180,6 +180,8 @@
 		269252D3268E1F18001AC98B /* FonzFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269252D2268E1F18001AC98B /* FonzFonts.swift */; };
 		269252D6268E2C37001AC98B /* SearchPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269252D5268E2C37001AC98B /* SearchPageView.swift */; };
 		269D0152267182A000A1DFEE /* SpotifySignInApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269D0151267182A000A1DFEE /* SpotifySignInApi.swift */; };
+		269EE55C26B58CE5006D2A00 /* CoreUserAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269EE55B26B58CE5006D2A00 /* CoreUserAttributes.swift */; };
+		269EE55D26B58CE5006D2A00 /* CoreUserAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269EE55B26B58CE5006D2A00 /* CoreUserAttributes.swift */; };
 		26AC89B42665410C00E1C41E /* ShareOnInstagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AC89B32665410C00E1C41E /* ShareOnInstagram.swift */; };
 		26AC89BC2665745300E1C41E /* MuseoSans-500.otf in Resources */ = {isa = PBXBuildFile; fileRef = 26AC89B82665745300E1C41E /* MuseoSans-500.otf */; };
 		26AC89BD2665745300E1C41E /* MuseoSans-100.otf in Resources */ = {isa = PBXBuildFile; fileRef = 26AC89B92665745300E1C41E /* MuseoSans-100.otf */; };
@@ -363,6 +365,7 @@
 		269252D2268E1F18001AC98B /* FonzFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FonzFonts.swift; sourceTree = "<group>"; };
 		269252D5268E2C37001AC98B /* SearchPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageView.swift; sourceTree = "<group>"; };
 		269D0151267182A000A1DFEE /* SpotifySignInApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifySignInApi.swift; sourceTree = "<group>"; };
+		269EE55B26B58CE5006D2A00 /* CoreUserAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreUserAttributes.swift; sourceTree = "<group>"; };
 		26AC89B32665410C00E1C41E /* ShareOnInstagram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareOnInstagram.swift; sourceTree = "<group>"; };
 		26AC89B82665745300E1C41E /* MuseoSans-500.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MuseoSans-500.otf"; sourceTree = "<group>"; };
 		26AC89B92665745300E1C41E /* MuseoSans-100.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MuseoSans-100.otf"; sourceTree = "<group>"; };
@@ -853,6 +856,7 @@
 				26DB9B212634A95D0030643D /* FrontEnd */,
 				26DB9B1F2634A7BF0030643D /* SignInSpotify */,
 				26DB9B1B2634A6280030643D /* GlobalErrorPages */,
+				269EE55B26B58CE5006D2A00 /* CoreUserAttributes.swift */,
 			);
 			path = GlobalComponents;
 			sourceTree = "<group>";
@@ -1226,6 +1230,7 @@
 				26B65150263866BE0074F279 /* GlobalTrack.swift in Sources */,
 				2687C736268A9A370044AA37 /* TrackFromNowPlaying.swift in Sources */,
 				26FBCCFC2686BE4200399460 /* FrontEndConstants.swift in Sources */,
+				269EE55C26B58CE5006D2A00 /* CoreUserAttributes.swift in Sources */,
 				2609AD59263DC2F900337A02 /* SpotifyViewRep.swift in Sources */,
 				265634BF2678163000FD6F27 /* DataExtension.swift in Sources */,
 				261EC1E826B0C55F00202D24 /* GetCoasterInfoGuestResponse.swift in Sources */,
@@ -1402,6 +1407,7 @@
 				261752D226A3448A0069C83D /* TracksFromPlaylist.swift in Sources */,
 				261EC1E626B0C40700202D24 /* CoasterResponse.swift in Sources */,
 				261752D326A3448A0069C83D /* YourTopSongs.swift in Sources */,
+				269EE55D26B58CE5006D2A00 /* CoreUserAttributes.swift in Sources */,
 				261752D426A3448A0069C83D /* YourTopArtists.swift in Sources */,
 				261752D526A3448A0069C83D /* YourTopPlaylists.swift in Sources */,
 				261752D626A3448A0069C83D /* ConnectSpotifySearch.swift in Sources */,

@@ -16,9 +16,11 @@ struct SearchBarPage: View {
     // checks if guest has a host
     @Binding var hasHostVar : Bool
     // determines if current user has an account
-    @Binding var hasAccount : Bool
-    // bool that determines if the user is connected to spot
-    @Binding var connectedToSpotify : Bool
+//    @Binding var hasAccount : Bool
+//    // bool that determines if the user is connected to spot
+//    @Binding var connectedToSpotify : Bool
+    // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
+    @StateObject var userAttributes : CoreUserAttributes
     // track object inherited from song search
     @State var currentTune:GlobalTrack = GlobalTrack()
     
@@ -41,7 +43,7 @@ struct SearchBarPage: View {
     var body: some View {
         ZStack {
            // song page 
-            SearchPageView(hostCoaster: hostCoaster, hasHostVar: $hasHostVar, hasAccount: $hasAccount, connectedToSpotify: $connectedToSpotify, showQueueResponse: $showQueueResponse, statusCodeQueueSong: $statusCodeQueueSong, isEditingSearchBar: $isEditingSearchBar, currentTune: $currentTune)
+            SearchPageView(hostCoaster: hostCoaster, hasHostVar: $hasHostVar, userAttributes: userAttributes, showQueueResponse: $showQueueResponse, statusCodeQueueSong: $statusCodeQueueSong, isEditingSearchBar: $isEditingSearchBar, currentTune: $currentTune)
                 
 //                .padding(.horizontal, 30)
    

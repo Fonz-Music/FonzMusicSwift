@@ -13,11 +13,13 @@ struct CoasterDoesNotHaveHost: View {
     // inherited that indicated the tab the app is on
     @Binding var selectedTab: TabIdentifier
     // determines if current user has an account
-    @Binding var hasAccount : Bool
-    // determines if current user is connected to Spotify
-    var connectedToSpotify : Bool
-    // determines if current user is connected to Spotify
-    @Binding var hasConnectedCoasters : Bool
+//    @Binding var hasAccount : Bool
+//    // determines if current user is connected to Spotify
+//    var connectedToSpotify : Bool
+//    // determines if current user is connected to Spotify
+//    @Binding var hasConnectedCoasters : Bool
+    // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
+    @StateObject var userAttributes : CoreUserAttributes
     
     @Binding var showHomeButtons: Bool
     
@@ -76,11 +78,11 @@ struct CoasterDoesNotHaveHost: View {
                 #if APPCLIP
                 throwDownlaodFullAppModal = true
                 #else
-                if hasAccount {
+                if userAttributes.getHasAccount() {
                     print("has account")
                     
                     // if has spotify, add coaster
-                    if connectedToSpotify {
+                    if userAttributes.getConnectedToSpotify() {
                         // add coaster to this users account
                         let addCoasterResult = HostCoasterApi().addCoaster(coasterUid: tempCoasterDetails.uid)
                             print("\(String(describing: addCoasterResult.status)) is the code m8")
@@ -140,14 +142,14 @@ struct CoasterDoesNotHaveHost: View {
         }
         .sheet(isPresented: $throwCreateAccountModal, onDismiss: {
         }) {
-            CreateAccountPrompt(hasAccount: $hasAccount, showModal: $throwCreateAccountModal)
+            CreateAccountPrompt(userAttributes: userAttributes, showModal: $throwCreateAccountModal)
         }
         .sheet(isPresented: $throwDownlaodFullAppModal) {
             DownloadFullAppPrompt()
         }
         .sheet(isPresented: $throwConnectSpotifyPrompt, onDismiss: {
             
-            if !connectedToSpotify {
+            if !userAttributes.getConnectedToSpotify() {
                 withAnimation {
                     launchedNfc = false
                     showHomeButtons = true
@@ -161,7 +163,8 @@ struct CoasterDoesNotHaveHost: View {
             withAnimation {
                 showHomeButtons = true
                 launchedNfc = false
-                hasConnectedCoasters = true
+                userAttributes.setHasConnectedCoasters(bool: true)
+//                hasConnectedCoasters = true
             }
             UserDefaults.standard.set(true, forKey: "hasConnectedCoasters")
         }) {

@@ -15,9 +15,11 @@ struct SearchPageView: View {
     // checks if guest has a host
     @Binding var hasHostVar : Bool
     // determines if current user has an account
-    @Binding var hasAccount : Bool
-    // bool that determines if the user is connected to spot
-    @Binding var connectedToSpotify : Bool
+//    @Binding var hasAccount : Bool
+//    // bool that determines if the user is connected to spot
+//    @Binding var connectedToSpotify : Bool
+    // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
+    @StateObject var userAttributes : CoreUserAttributes
     // boolean to change when views should be showed w animation
     @Binding var showQueueResponse : Bool
     // init var that keeps status code
@@ -97,7 +99,7 @@ struct SearchPageView: View {
                     VStack{
                         
                         ActiveSongView(hostName: hostCoaster.hostName, currentSessionId: hostCoaster.sessionId, trackfromNowPlaying: trackFromNowPlaying)
-                        SongSuggestionsView(hostCoaster: hostCoaster, currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc, tracksFromPlaylist: tracksFromPlaylist, tracksFromArtist: tracksFromArtist, hasAccount: $hasAccount, connectedToSpotify: $connectedToSpotify)
+                        SongSuggestionsView(hostCoaster: hostCoaster, currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc, tracksFromPlaylist: tracksFromPlaylist, tracksFromArtist: tracksFromArtist, userAttributes: userAttributes)
 //                        #if !APPCLIP
 //                        Spacer()
 //                            .frame(height: 50)

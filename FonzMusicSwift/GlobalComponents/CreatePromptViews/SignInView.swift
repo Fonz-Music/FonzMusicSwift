@@ -12,7 +12,9 @@ import SwiftUI
 struct SignInView: View {
     
     // bool that determines if the user has an account
-    @Binding var hasAccount : Bool
+//    @Binding var hasAccount : Bool
+    // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
+    @StateObject var userAttributes : CoreUserAttributes
     // so you can dismiss modal
     @Binding var showModal : Bool
     
@@ -123,10 +125,11 @@ struct SignInView: View {
                         if registerUserResp.status == 200 {
                             print("success")
                             withAnimation {
-                                hasAccount = true
+                                userAttributes.setHasAccount(bool: true)
+//                                hasAccount = true
                             }
                             
-                            UserDefaults.standard.set(true, forKey: "hasAccount")
+//                            UserDefaults.standard.set(true, forKey: "hasAccount")
                             self.showModal.toggle()
                         }
 //                        else if registerUserResp.status == 401 {

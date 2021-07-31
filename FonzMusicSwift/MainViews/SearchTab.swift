@@ -11,13 +11,15 @@ struct SearchTab: View {
     // inherited that indicated the tab the app is on
     @Binding var selectedTab: TabIdentifier
     
-    @Binding var connectedToSpotify : Bool
-    
-    
-    // determines if current user has an account
-    @Binding var hasAccount : Bool
-    
-    @Binding var hasConnectedCoasters : Bool
+//    @Binding var connectedToSpotify : Bool
+//
+//
+//    // determines if current user has an account
+//    @Binding var hasAccount : Bool
+//
+//    @Binding var hasConnectedCoasters : Bool
+    // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
+    @StateObject var userAttributes : CoreUserAttributes
     // list of coasters connected to the Host
     @ObservedObject var coastersConnectedToUser: CoastersFromApi
     
@@ -38,12 +40,12 @@ struct SearchTab: View {
             
             
             if hasHost {
-                SearchBarPage(hostCoaster: hostCoaster, hasHostVar: $hasHost, hasAccount: $hasAccount, connectedToSpotify: $connectedToSpotify)
+                SearchBarPage(hostCoaster: hostCoaster, hasHostVar: $hasHost, userAttributes: userAttributes)
                     
             }
             else {
                 
-                HomePageDecision(hostCoaster: hostCoaster, hasHostVar: $hasHost, selectedTab: $selectedTab, hasAccount: $hasAccount, hasConnectedCoasters: $hasConnectedCoasters, connectedToSpotify: $connectedToSpotify, hasHost: $hasHost, coastersConnectedToUser: coastersConnectedToUser)
+                HomePageDecision(hostCoaster: hostCoaster, hasHostVar: $hasHost, selectedTab: $selectedTab, userAttributes: userAttributes, hasHost: $hasHost, coastersConnectedToUser: coastersConnectedToUser)
                     .actionSheet(isPresented: $throwFirstLaunchAlert) {
                                     ActionSheet(
                                         title: Text("have you used the Fonz Music App before?"),
@@ -58,7 +60,7 @@ struct SearchTab: View {
                                     )
                                 }
                 .sheet(isPresented: $throwCreateAccount, content: {
-                    CreateAccountPrompt(hasAccount: $hasAccount, showModal: $throwCreateAccount, hadPreviousAccount: true)
+                    CreateAccountPrompt(userAttributes: userAttributes, showModal: $throwCreateAccount, hadPreviousAccount: true)
                 })
                 
                    

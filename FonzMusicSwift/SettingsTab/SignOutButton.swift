@@ -10,12 +10,8 @@ import SwiftUI
 import FirebaseAnalytics
 
 struct SignOutButton: View {
-    // determines if current user has an account
-    @Binding var hasAccount : Bool
-    
-    @Binding var connectedToSpotify : Bool
-    
-    @Binding var hasConnectedCoasters : Bool
+    // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
+    @StateObject var userAttributes : CoreUserAttributes
     
     @State var isExpanded = false
     
@@ -84,10 +80,13 @@ struct SignOutButton: View {
                             UserDefaults.standard.set(false, forKey: "hasConnectedCoasters")
                             UserDefaults.standard.set(false, forKey: "connectedToSpotify")
                             withAnimation {
-                                hasAccount = false
+                                userAttributes.setHasAccount(bool: false)
+                                userAttributes.setConnectedToSpotify(bool: false)
+                                userAttributes.setHasConnectedCoasters(bool: false)
+//                                hasAccount = false
                                 isExpanded = false
-                                connectedToSpotify = false
-                                hasConnectedCoasters = false
+//                                connectedToSpotify = false
+//                                hasConnectedCoasters = false
                             }
                             
                         } label: {

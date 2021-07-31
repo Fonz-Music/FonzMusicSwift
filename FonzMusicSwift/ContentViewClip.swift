@@ -15,12 +15,8 @@ enum TabIdentifier: Hashable {
 struct ContentView: View {
     // current tab for entire app
     @State var selectedTab = TabIdentifier.search
-    // bool on if the user has spotify
-    @State var connectedToSpotify = false
-    // bool on if the user has coasters connected
-    @State var hasConnectedCoasters = false
-    // bool on whether the user has an account
-    @State var hasAccount = false
+    // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
+    @StateObject var userAttributes = CoreUserAttributes()
     // bool on whether the user needs to update their app
     @State var needsToUpdate = false
     // object that stores the songs from the api
@@ -30,7 +26,7 @@ struct ContentView: View {
     var body: some View {
         
     ZStack{
-        SearchTab(selectedTab: $selectedTab,connectedToSpotify: $connectedToSpotify, hasAccount: $hasAccount, hasConnectedCoasters: $hasConnectedCoasters, coastersConnectedToUser: coastersConnectedToHost)
+        SearchTab(selectedTab: $selectedTab, userAttributes: userAttributes, coastersConnectedToUser: coastersConnectedToHost)
             .onOpenURL { url in
                 // if the url contains a tabIdentifier in it, it will go to that page
                 guard let tabIdentifier = url.tabIdentifier else {
@@ -38,22 +34,7 @@ struct ContentView: View {
                 }
                 selectedTab = tabIdentifier
             }
-        }
-//        .onContinueUserActivity(NSUserActivityTypeBrowsingWeb, perform: handleUserActivity)
-        .onAppear {
-            
-            // to reset (debugging)
-//            UserDefaults.standard.set(false, forKey: "connectedToSpotify")
-//            UserDefaults.standard.set(true, forKey: "hasConnectedCoasters")
-//            UserDefaults.standard.set(false, forKey: "hasAccount")
-            
-            // fetches the defaults based on user account
-            hasAccount = UserDefaults.standard.bool(forKey: "hasAccount")
-            hasConnectedCoasters = UserDefaults.standard.bool(forKey: "hasConnectedCoasters")
-            connectedToSpotify = UserDefaults.standard.bool(forKey: "connectedToSpotify")
-            
-        }
-    
+        }  
     }
 }
 

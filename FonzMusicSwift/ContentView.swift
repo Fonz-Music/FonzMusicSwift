@@ -15,16 +15,14 @@ enum TabIdentifier: Hashable {
   case host, search, account
 }
 
+
+
 struct ContentView: View {
     
     // current tab for entire app
     @State var selectedTab = TabIdentifier.search
-    // bool on if the user has spotify
-    @State var connectedToSpotify = false
-    // bool on if the user has coasters connected
-    @State var hasConnectedCoasters = false
-    // bool on whether the user has an account
-    @State var hasAccount = false
+    // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
+    @StateObject var userAttributes = CoreUserAttributes()
     // bool on whether the user needs to update their app
     @State var needsToUpdate = false
     // object that stores the songs from the api
@@ -41,23 +39,28 @@ struct ContentView: View {
             }
             else {
                 TabView(selection: $selectedTab) {
-                    HostTab(connectedToSpotify: $connectedToSpotify, hasConnectedCoasters: $hasConnectedCoasters, hasAccount: $hasAccount, coastersConnectedToHost: coastersConnectedToHost).tabItem {
+                    HostTab(userAttributes: userAttributes,  coastersConnectedToHost: coastersConnectedToHost).tabItem {
                         Label("host", systemImage: "hifispeaker")
                     }.tag(TabIdentifier.host)
-                    SearchTab(selectedTab: $selectedTab,connectedToSpotify: $connectedToSpotify, hasAccount: $hasAccount, hasConnectedCoasters: $hasConnectedCoasters, coastersConnectedToUser: coastersConnectedToHost).tabItem {
+                    SearchTab(selectedTab: $selectedTab, userAttributes: userAttributes, coastersConnectedToUser: coastersConnectedToHost).tabItem {
                         Label("queue", systemImage: "plus.magnifyingglass")
                     }.tag(TabIdentifier.search)
-                    SettingsPage(selectedTab: $selectedTab, hasAccount: $hasAccount, hasConnectedCoasters: $hasConnectedCoasters, connectedToSpotify: $connectedToSpotify).tabItem {
+                    SettingsPage(selectedTab: $selectedTab,
+                                 userAttributes: userAttributes).tabItem {
                         Label("account", systemImage: "gearshape")
                     }.tag(TabIdentifier.account)
-                }.accentColor(.amber)
+                }
+                .accentColor(.amber)
                 .onAppear {
                     // fetches the min app version from apu
                     let minVersionNumber = GetVersionApi().getMinVersion(device: "iOS")
                     print("version is \(minVersionNumber)" )
 //                    let minVersionNumber = "1.00"
                     // sets bool based on comparing the current version from min version
-                    needsToUpdate = determineViewBasedOnVersion(currentVersion: UIApplication.appVersion!, minVersion: minVersionNumber)
+                    if minVersionNumber != "" {
+                        needsToUpdate = determineViewBasedOnVersion(currentVersion: UIApplication.appVersion!, minVersion: minVersionNumber)
+                    }
+                    
                     
                 }
                 
@@ -69,10 +72,14 @@ struct ContentView: View {
 //            UserDefaults.standard.set(true, forKey: "hasConnectedCoasters")
 //            UserDefaults.standard.set(false, forKey: "hasAccount")
             
+            
+            
             // fetches the defaults based on user account
-            hasAccount = UserDefaults.standard.bool(forKey: "hasAccount")
-            hasConnectedCoasters = UserDefaults.standard.bool(forKey: "hasConnectedCoasters")
-            connectedToSpotify = UserDefaults.standard.bool(forKey: "connectedToSpotify")
+//            hasAccount = UserDefaults.standard.bool(forKey: "hasAccount")
+            userAttributes.setHasConnectedCoasters(bool: coastersConnectedToHost.determineIfHasCoasters())
+            
+            print("attributes are \(userAttributes.getHasAccount), \(userAttributes.getHasConnectedCoasters)")
+//            connectedToSpotify = UserDefaults.standard.bool(forKey: "connectedToSpotify")
 
         }
         .onOpenURL { url in
@@ -89,10 +96,11 @@ struct ContentView: View {
                     if spotifySignInResp.status == 200 {
                         print("changing connection now")
                         withAnimation {
-                            connectedToSpotify = true
+                            userAttributes.setHasConnectedCoasters(bool: true)
+//                            connectedToSpotify = true
                         }
                         // set local var
-                        UserDefaults.standard.set(true, forKey: "connectedToSpotify")
+//                        UserDefaults.standard.set(true, forKey: "connectedToSpotify")
                     }
                 }
             }

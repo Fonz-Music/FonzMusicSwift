@@ -11,8 +11,11 @@ import FirebaseAnalytics
 
 struct ManageSpotifyButton: View {
     
-    // determines if current user is connected to Spotify 
-    @Binding var connectedToSpotify : Bool
+//    // determines if current user is connected to Spotify
+//    @Binding var connectedToSpotify : Bool
+    
+    // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
+    @StateObject var userAttributes : CoreUserAttributes
     
     @State var isExpanded = false
     
@@ -83,7 +86,8 @@ struct ManageSpotifyButton: View {
                             
                             UserDefaults.standard.set(false, forKey: "connectedToSpotify")
                             withAnimation {
-                                connectedToSpotify = false
+                                userAttributes.setConnectedToSpotify(bool: false)
+//                                connectedToSpotify = false
                                 isExpanded = false
                             }
                             

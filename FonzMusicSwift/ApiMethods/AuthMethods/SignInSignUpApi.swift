@@ -177,23 +177,16 @@ class SignInSignUpApi {
                 let jsonData = try? JSONSerialization.jsonObject(with: data!, options: [])
                 print(jsonData)
                 
-                
-                
                 returnCode = response?.getStatusCode() ?? 0
                 print("returnCode is \(returnCode)")
                 
-
-                
                 if let decodedResponse = try? JSONDecoder().decode(SignInResponse.self, from: dataResp) {
-
-                    print("worked")
 
                     returnMessage = decodedResponse.accessToken
                     UserDefaults.standard.set(email, forKey: "userEmail")
                 }
                 else {
                     let decodedResponse = try? JSONDecoder().decode(ErrorResponse.self, from: dataResp)
-
 
                     // sets return value
                     returnMessage = decodedResponse!.message
@@ -210,8 +203,6 @@ class SignInSignUpApi {
         return returnObject
         
     }
-    
-    
 }
 
 

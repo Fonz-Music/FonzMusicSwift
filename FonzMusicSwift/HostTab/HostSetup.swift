@@ -13,11 +13,14 @@ import FirebaseAnalytics
 struct HostSetup: View {
     
     
-    @Binding var connectedToSpotify : Bool
+//    @Binding var connectedToSpotify : Bool
+//
+//    @Binding var hasConnectedCoasters : Bool
+//    // determines if current user has an account
+//    @Binding var hasAccount : Bool
+    // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
+    @StateObject var userAttributes : CoreUserAttributes
     
-    @Binding var hasConnectedCoasters : Bool
-    // determines if current user has an account
-    @Binding var hasAccount : Bool
     // list of coasters connected to the Host
     @ObservedObject var coastersConnectedToHost: CoastersFromApi
     
@@ -61,14 +64,15 @@ struct HostSetup: View {
                                 Spacer()
                                     .frame(height: 30)
 //                            }
-                            ConnectSpotifyButtonHomeView(connectedToSpotify: $connectedToSpotify, hasAccount: $hasAccount, throwCreateAccountModal: $throwCreateAccountModal)
-                                .addOpacity(connectedToSpotify)
-                                .disabled(connectedToSpotify)
+                            ConnectSpotifyButtonHomeView(userAttributes: userAttributes,  throwCreateAccountModal: $throwCreateAccountModal)
+                                .addOpacity(userAttributes.getConnectedToSpotify())
+                                .disabled(userAttributes.getConnectedToSpotify())
                                 
                                 .animation(.easeInOut(duration: 2.0))
-                                .scaleEffect(connectedToSpotify ? 0.7 : 1.2)
-                            if connectedToSpotify {
+                                .scaleEffect(userAttributes.getConnectedToSpotify() ? 0.5 : 1.2)
+                            if userAttributes.getConnectedToSpotify() {
                                 Spacer()
+                                    .frame(minHeight: 15, maxHeight: 80)
                             }
                             else {
                                 Spacer()
@@ -76,16 +80,16 @@ struct HostSetup: View {
                             }
                            
                                 
-                            ConnectYourFirstCoasterButton(pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc, connectedToSpotify: $connectedToSpotify)
-                                .addOpacity(!connectedToSpotify)
+                            ConnectYourFirstCoasterButton(pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc, userAttributes: userAttributes)
+                                .addOpacity(!userAttributes.getConnectedToSpotify())
         //                        .animation(.easeInOut(duration: 4))
                                 .animation(.easeInOut(duration: 2.0))
-                                .scaleEffect(!connectedToSpotify ? 0.7 : 1.2)
+                                .scaleEffect(!userAttributes.getConnectedToSpotify() ? 0.5 : 1.2)
                             Spacer()
                                 .frame(minHeight: 70)
                         }
                         .sheet(isPresented: $throwCreateAccountModal) {
-                            CreateAccountPrompt(hasAccount: $hasAccount, showModal: $throwCreateAccountModal)
+                            CreateAccountPrompt(userAttributes: userAttributes, showModal: $throwCreateAccountModal)
                         }
                         
 //                    }
@@ -153,7 +157,7 @@ struct HostSetup: View {
 //                        Spacer()
 //                            .frame(height: 50)
                         // name coaster
-                        NameYourCoasterView(hasConnectedCoasters: $hasConnectedCoasters, coastersConnectedToHost: coastersConnectedToHost, coasterUid: tempCoasterDetails.uid)
+                        NameYourCoasterView(userAttributes: userAttributes, coastersConnectedToHost: coastersConnectedToHost, coasterUid: tempCoasterDetails.uid)
                         Spacer()
                     }
                 }
@@ -174,7 +178,8 @@ struct HostSetup: View {
                             ThisIsYourCoaster(coasterName: tempCoasterDetails.coasterName)
                                 .onAppear{
                                     withAnimation {
-                                        hasConnectedCoasters = true
+                                        userAttributes.setHasConnectedCoasters(bool: true)
+//                                        hasConnectedCoasters = true
                                     }
                                     
                                 }

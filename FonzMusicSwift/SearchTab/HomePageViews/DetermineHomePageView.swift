@@ -11,29 +11,31 @@ struct DetermineHomePageView: View {
     // inherited that indicated the tab the app is on
     @Binding var selectedTab: TabIdentifier
     // determines if current user has an account
-    @Binding var hasAccount : Bool
+//    @Binding var hasAccount : Bool
     
     @Binding var showHomeButtons : Bool
     
     @Binding var pressedButtonToLaunchNfc : Bool
     
-    @Binding var hasConnectedCoasters : Bool
-    
-    @Binding var connectedToSpotify : Bool
+//    @Binding var hasConnectedCoasters : Bool
+//
+//    @Binding var connectedToSpotify : Bool
+    // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
+    @StateObject var userAttributes : CoreUserAttributes
     
     var body: some View {
         
-        if !hasConnectedCoasters {
+        if !userAttributes.getHasConnectedCoasters() {
             VStack{
                 Spacer()
                     .frame(height: 30)
                 HStack() {
                     Spacer()
-                    if !connectedToSpotify{
-                        ConnectSpotifyHomeButton(hasAccount: $hasAccount)
+                    if !userAttributes.getHasConnectedCoasters(){
+                        ConnectSpotifyHomeButton(userAttributes: userAttributes)
                         Spacer()
                     }
-                    if !hasConnectedCoasters {
+                    if !userAttributes.getHasConnectedCoasters() {
                         BuyACoasterHomeButton()
                     }
                     

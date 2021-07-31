@@ -11,13 +11,16 @@ import KeychainAccess
 struct SettingsPage: View {
     // inherited that indicated the tab the app is on
     @Binding var selectedTab: TabIdentifier
-    // determines if current user has an account
-    @Binding var hasAccount : Bool
-    // bool on if the user has coasters connected
-    @Binding var hasConnectedCoasters : Bool
-    // bool to launch create account modal
-    // determines if current user is connected to Spotify
-    @Binding var connectedToSpotify : Bool
+//    // determines if current user has an account
+//    @Binding var hasAccount : Bool
+//    // bool on if the user has coasters connected
+//    @Binding var hasConnectedCoasters : Bool
+//    // bool to launch create account modal
+//    // determines if current user is connected to Spotify
+//    @Binding var connectedToSpotify : Bool
+    
+    // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
+    @StateObject var userAttributes : CoreUserAttributes
     
     @State var throwCreateAccountModal = false
     // gets dark/light mode
@@ -26,13 +29,13 @@ struct SettingsPage: View {
     var body: some View {
         ZStack{
             VStack{
-                if hasAccount {
+                if userAttributes.getHasAccount() {
                     HStack{
                         Text("account")
                             .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white).fonzParagraphOne()
                             .padding(.headingFrontIndent)
                             .padding(.top, .headingTopIndent)
-                            .addOpacity(!hasAccount)
+                            .addOpacity(!userAttributes.getHasAccount())
         //                        .padding(.bottom, 20)
                         Spacer()
                     }
@@ -53,16 +56,17 @@ struct SettingsPage: View {
                             .frame(width: UIScreen.screenWidth, height: 50, alignment: .topLeading)
                         
                         ChangeDisplayNameButton()
-                        if connectedToSpotify {
+                    if userAttributes.getConnectedToSpotify() {
                             // option to disconnect
-                            ManageSpotifyButton(connectedToSpotify: $connectedToSpotify)
+                            ManageSpotifyButton(userAttributes: userAttributes)
                         }
                         else {
                             // link spotify
                             LinkSpotifySettingsButton()
                         }
                     
-                        SignOutButton(hasAccount: $hasAccount, connectedToSpotify: $connectedToSpotify, hasConnectedCoasters: $hasConnectedCoasters)
+//                        SignOutButton(hasAccount: $hasAccount, connectedToSpotify: $connectedToSpotify, hasConnectedCoasters: $hasConnectedCoasters)
+                    SignOutButton(userAttributes: userAttributes)
                         // if the user has connected coasters, give option to limit reqs
         //                    if hasConnectedCoasters {
         //                        Text("coaster management")
@@ -78,7 +82,7 @@ struct SettingsPage: View {
                 }
                 // if user needs to create an acc
                 else {
-                    CreateAccountPrompt(hasAccount: $hasAccount, showModal: $throwCreateAccountModal)
+                    CreateAccountPrompt(userAttributes: userAttributes, showModal: $throwCreateAccountModal)
                 }
             }
             
@@ -86,7 +90,7 @@ struct SettingsPage: View {
         .background(
             ZStack{
                 Color(UIColor(colorScheme == .light ? Color.white: Color.darkBackground))
-                    .darkenView(!hasAccount)
+                    .darkenView(!userAttributes.getHasAccount())
                 VStack{
                     Spacer()
                     Image("mountainProfile")

@@ -10,7 +10,9 @@ import SwiftUI
 struct CreateAccountPrompt: View {
     
     // bool that determines if the user has an account
-    @Binding var hasAccount : Bool
+//    @Binding var hasAccount : Bool
+    // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
+    @StateObject var userAttributes : CoreUserAttributes
     // so you can dismiss modal
     @Binding var showModal : Bool
     
@@ -44,7 +46,7 @@ struct CreateAccountPrompt: View {
                 
                 ScrollView{
                     // shows sign in or sign up
-                    CreateAccountView(hasAccount: $hasAccount, showModal: $showModal)
+                    CreateAccountView(userAttributes: userAttributes, showModal: $showModal)
                         .padding(.bottom, 30)
                 }
                 

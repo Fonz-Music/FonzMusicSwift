@@ -16,8 +16,9 @@ struct ConnectYourFirstCoasterButton: View {
 //
 //    @Binding var showHomeButtons: Bool
     
-    @Binding var connectedToSpotify : Bool
-    
+//    @Binding var connectedToSpotify : Bool
+    // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
+    @StateObject var userAttributes : CoreUserAttributes
    
     
     @Environment(\.colorScheme) var colorScheme
@@ -40,7 +41,7 @@ struct ConnectYourFirstCoasterButton: View {
                     .frame(width: 150, height: 150)
             })
             .buttonStyle(CircleButtonGradiant(bgColorTopLeft: .lilac, bgColorBottomRight: Color.lilacDark, secondaryColor: .white))
-            .disabled(!connectedToSpotify)
+            .disabled(!userAttributes.getConnectedToSpotify())
             Text("connect your first coaster")
                 .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
                 .fonzParagraphOne()

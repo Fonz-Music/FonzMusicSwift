@@ -9,8 +9,10 @@ import SwiftUI
 
 struct CreateAccountView: View {
     
-    // bool that determines if the user has an account
-    @Binding var hasAccount : Bool
+//    // bool that determines if the user has an account
+//    @Binding var hasAccount : Bool
+    // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
+    @StateObject var userAttributes : CoreUserAttributes
     // so you can dismiss modal
     @Binding var showModal : Bool
     
@@ -55,10 +57,10 @@ struct CreateAccountView: View {
             }
             .padding()
             if onSignUp {
-                SignUpView(hasAccount: $hasAccount, showModal: $showModal, email: $email, password: $password).padding(.horizontal, 30)
+                SignUpView(userAttributes: userAttributes, showModal: $showModal, email: $email, password: $password).padding(.horizontal, 30)
             }
             else {
-                SignInView(hasAccount: $hasAccount, showModal: $showModal, email: $email, password: $password).padding(.horizontal, 30)
+                SignInView(userAttributes: userAttributes, showModal: $showModal, email: $email, password: $password).padding(.horizontal, 30)
             }
         }
         
