@@ -260,6 +260,7 @@ class SpotifySignInApi {
                             print("success")
                             print("decoded resp is \(decodedResponse)")
                             providerObject = decodedResponse
+                            UserDefaults.standard.set(decodedResponse[0].displayName, forKey: "spotifyDisplayName")
 //                            returnObject.responseCode = returnCode
 //                            returnMessage = decodedResponse.message
                         }

@@ -47,6 +47,7 @@ struct SignInView: View {
                                 .foregroundColor(.gray)
                                 .fonzButtonText()
                         })
+                        .keyboardType(.emailAddress)
 //                        .foregroundColor(colorScheme == .light ? Color.darkButton: Color.white)
                         .foregroundColor(.darkButton)
                         .fonzButtonText()

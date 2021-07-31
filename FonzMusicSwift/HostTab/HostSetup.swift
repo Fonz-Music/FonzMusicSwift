@@ -32,6 +32,9 @@ struct HostSetup: View {
     // if the coaster needs to be encoded
     @State var encodeTheCoaster = false
     
+    // if the coaster needs to be encoded
+    @State var timesCheckedForCoasters = 0
+    
     @Environment(\.colorScheme) var colorScheme
     let tapCoasterWidth = UIScreen.screenHeight * 0.35
     
@@ -214,8 +217,12 @@ struct HostSetup: View {
         }
         .onAppear {
             if userAttributes.getHasAccount() {
-                // updates coasters connected to host
-                userAttributes.setHasConnectedCoasters(bool: coastersConnectedToHost.determineIfHasCoasters())
+                if timesCheckedForCoasters == 0 {
+                    coastersConnectedToHost.reloadCoasters()
+                    // updates coasters connected to host
+                    userAttributes.setHasConnectedCoasters(bool: coastersConnectedToHost.determineIfHasCoasters())
+                }
+                
             }
         }
     }

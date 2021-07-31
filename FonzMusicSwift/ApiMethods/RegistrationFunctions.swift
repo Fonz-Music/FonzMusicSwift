@@ -18,7 +18,7 @@ func getJWTAndCheckIfExpired() -> String {
     // retrive accessToken
     var accessToken = keychainAccess["accessToken"]
     // check that its not empty
-    if accessToken != nil {
+    if accessToken != nil && accessToken != "" {
         isValid = checkIfTokenValid(accessToken: accessToken!)
     }
     // check if its valid OR if the accessToken is nil
@@ -33,7 +33,7 @@ func getJWTAndCheckIfExpired() -> String {
         print("refresh is \(refreshToken)")
         
         // if the user already has an account (refresh token)
-        if refreshToken != nil {
+        if refreshToken != nil && refreshToken != "" {
             let userId = getUserIdFromAccessToken()
             // gets new token by passing email + password into api
             accessToken = SignInSignUpApi().refreshAccessToken(userId: userId, refreshToken: refreshToken!).message

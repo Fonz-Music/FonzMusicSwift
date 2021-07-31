@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import KeychainAccess
 //import Firebase
 import FirebaseAnalytics
 
@@ -81,6 +82,23 @@ struct SignOutButton: View {
                                 userAttributes.setConnectedToSpotify(bool: false)
                                 userAttributes.setHasConnectedCoasters(bool: false)
                                 isExpanded = false
+                            }
+                            // resets both accessToken + refreshToken
+                            let keychain = Keychain(service: "api.fonzmusic.com")
+                            do {
+                                try keychain
+                                    .label("fonzMusicApiRefreshToken")
+                                    .set("", key: "refreshToken")
+                            } catch let error {
+                                print("error: \(error)")
+                            }
+                            // stores acess token
+                            do {
+                                try keychain
+                                    .label("fonzMusicApiAcesssToken")
+                                    .set("", key: "accessToken")
+                            } catch let error {
+                                print("error: \(error)")
                             }
                             
                         } label: {
