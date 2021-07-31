@@ -102,7 +102,7 @@ struct ActiveSongUserInterface : View {
                     Spacer()
                     
                 }
-                .padding(.top, 5)
+//                .padding(.top, 5)
                 Spacer()
             }
         }

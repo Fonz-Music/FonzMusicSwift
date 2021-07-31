@@ -60,7 +60,10 @@ struct ActiveSongView: View {
 //            .padding(.horizontal, 10)
             .onAppear {
                 print("this is the active song img \(trackfromNowPlaying.currentSong[0].albumArt)")
-                trackfromNowPlaying.getActiveSong(sessionId: currentSessionId)
+                if trackfromNowPlaying.currentSong[0].trackName == "" {
+                    trackfromNowPlaying.getActiveSong(sessionId: currentSessionId)
+                }
+                
             }
         }
     }
