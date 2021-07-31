@@ -27,9 +27,8 @@ class SpotifySignInApi {
         let sem = DispatchSemaphore.init(value: 0)
 
         // init value for return
-        var providerObject: ProviderResponse = ProviderResponse(providers: [Provider(displayName: "", provider: "", providerId: "", userId: "")]
-//                                                              , responseCode: 0
-        )
+        var providerObject: [Provider] = [Provider(displayName: "", provider: "", providerId: "", userId: "")]
+
         var returnObject: BasicResponse = BasicResponse(message: "", status: 0)
         var returnMessage = ""
         var returnCode = 0
@@ -66,7 +65,7 @@ class SpotifySignInApi {
 //                            providerObject.providers = decodedResponse.providers
 //                            let providerId = decodedResponse.providers[0].providerId
 //                            UserDefaults.standard.set(decodedResponse.providers[0].providerId, forKey: "spotifyDisplayName")
-                            providerObject.providers = decodedResponse
+                            providerObject = decodedResponse
                             let providerId = decodedResponse[0].providerId
                             UserDefaults.standard.set(decodedResponse[0].displayName, forKey: "spotifyDisplayName")
                             print("id is \(providerId)" )
@@ -237,34 +236,20 @@ class SpotifySignInApi {
     }
     
     // api call to get the Coaster info
-    func getMusicProviders() -> ProviderResponse {
+    func getMusicProviders() -> [Provider] {
         // this allows us to wait before returning value
         let sem = DispatchSemaphore.init(value: 0)
 
         // init value for return
-        var providerObject: ProviderResponse = ProviderResponse(providers: [Provider(displayName: "", provider: "", providerId: "", userId: "")]
+        var providerObject: [Provider] = [Provider(displayName: "", provider: "", providerId: "", userId: "")]
 //                                                              , responseCode: 0
-        )
+        
         var returnMessage = ""
         var returnCode = 0
         // get access token
         let accessToken = getJWTAndCheckIfExpired()
-
-//
-//        // gets password from keychain
-//        let keychain = Keychain(service: "api.fonzmusic.com")
-//        let password = keychain[userEmail!]
-//        // gets token by passing email + password into api
-//        accessToken = SignInSignUpApi().loginUser(email: self.userEmail!, password: password!).message
-
-//        guard let user = Auth.auth().currentUser else {
-//            print("there was an error getting the user")
-//            return  returnObject}
-//
-//        accessToken = tempAccessToken
-//                print("token is \(accessToken)" )
                 // create url
-        guard let url = URL(string: self.ADDRESS + self.HOST + self.PROVIDERS ) else { return providerObject}
+        guard let url = URL(string: self.ADDRESS + self.PROVIDERS ) else { return providerObject}
 
                 // creates req w url
                 var request = URLRequest(url: url)
@@ -286,10 +271,11 @@ class SpotifySignInApi {
                         // sets resp code
                         returnCode = response?.getStatusCode() ?? 0
 
-                        if let decodedResponse = try? JSONDecoder().decode(ProviderResponse.self, from: dataResp) {
+                        if let decodedResponse = try? JSONDecoder().decode([Provider].self, from: dataResp) {
                             // sets return value
                             print("success")
-                            providerObject.providers = decodedResponse.providers
+                            print("decoded resp is \(decodedResponse)")
+                            providerObject = decodedResponse
 //                            returnObject.responseCode = returnCode
 //                            returnMessage = decodedResponse.message
                         }

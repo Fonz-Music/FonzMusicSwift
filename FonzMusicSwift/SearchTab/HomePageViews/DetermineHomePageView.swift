@@ -31,7 +31,7 @@ struct DetermineHomePageView: View {
                     .frame(height: 30)
                 HStack() {
                     Spacer()
-                    if !userAttributes.getHasConnectedCoasters(){
+                    if !userAttributes.getConnectedToSpotify(){
                         ConnectSpotifyHomeButton(userAttributes: userAttributes)
                         Spacer()
                     }

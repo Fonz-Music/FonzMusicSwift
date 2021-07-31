@@ -76,9 +76,6 @@ struct SignOutButton: View {
                             FirebaseAnalytics.Analytics.logEvent("userPressedSignOut", parameters: ["user":"user", "tab": "settings"])
                 //                    pressedButtonToLaunchNfc = true
                             print("pressed button")
-                            UserDefaults.standard.set(false, forKey: "hasAccount")
-                            UserDefaults.standard.set(false, forKey: "hasConnectedCoasters")
-                            UserDefaults.standard.set(false, forKey: "connectedToSpotify")
                             withAnimation {
                                 userAttributes.setHasAccount(bool: false)
                                 userAttributes.setConnectedToSpotify(bool: false)

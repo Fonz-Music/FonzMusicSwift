@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct ProviderResponse: Codable {
-    var providers: Array<Provider>
-//    var responseCode : Int
-}
+//struct ProviderResponse: Codable {
+//    var providers: Array<Provider>
+////    var responseCode : Int
+//}
 struct Provider: Codable {
     var displayName : String
     var provider : String

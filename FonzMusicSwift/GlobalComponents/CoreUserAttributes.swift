@@ -8,8 +8,11 @@
 import Foundation
 
 class CoreUserAttributes: ObservableObject {
+    // determines if current user has an account
     @Published private var hasAccount = UserDefaults.standard.bool(forKey: "hasAccount")
+    // bool on if the user has coasters connected
     @Published private var hasConnectedCoasters = UserDefaults.standard.bool(forKey: "hasConnectedCoasters")
+    // determines if current user is connected to Spotify
     @Published private var connectedToSpotify = UserDefaults.standard.bool(forKey: "connectedToSpotify")
     
     func setHasAccount(bool : Bool) {
@@ -34,5 +37,17 @@ class CoreUserAttributes: ObservableObject {
     }
     func getConnectedToSpotify() -> Bool {
         return connectedToSpotify
+    }
+    
+    func determineIfUserConnectedToSpotify() {
+        let musicProviders = SpotifySignInApi().getMusicProviders()
+        print("music provs \(musicProviders)")
+        // checks how many providers & updates accordingly
+        if (musicProviders.count > 0 && musicProviders[0].providerId != ""){
+            setConnectedToSpotify(bool: true)
+        }
+        else {
+            setConnectedToSpotify(bool: false)
+        }
     }
 }

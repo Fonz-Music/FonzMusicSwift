@@ -65,22 +65,17 @@ struct ContentView: View {
                 }
                 
             }
-        }.onAppear {
+        }
+        .onAppear {
             
-            // to reset (debugging)
-//            UserDefaults.standard.set(true, forKey: "connectedToSpotify")
-//            UserDefaults.standard.set(true, forKey: "hasConnectedCoasters")
-//            UserDefaults.standard.set(false, forKey: "hasAccount")
+            if userAttributes.getHasAccount() {
+                // updates coasters connected to host
+                userAttributes.setHasConnectedCoasters(bool: coastersConnectedToHost.determineIfHasCoasters())
+            }
             
-            
-            
-            // fetches the defaults based on user account
-//            hasAccount = UserDefaults.standard.bool(forKey: "hasAccount")
-            userAttributes.setHasConnectedCoasters(bool: coastersConnectedToHost.determineIfHasCoasters())
-            
-            print("attributes are \(userAttributes.getHasAccount), \(userAttributes.getHasConnectedCoasters)")
-//            connectedToSpotify = UserDefaults.standard.bool(forKey: "connectedToSpotify")
-
+            print("hasAccount: \(userAttributes.getHasAccount())")
+            print("hasConnectedCoasters: \(userAttributes.getHasConnectedCoasters())")
+            print("connectedToSpotify: \(userAttributes.getConnectedToSpotify())")
         }
         .onOpenURL { url in
             let containsSpotify = url.absoluteString.contains("spotify")

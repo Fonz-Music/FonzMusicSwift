@@ -220,6 +220,12 @@ struct HostSetup: View {
 
             }
         }
+        .onAppear {
+            if userAttributes.getHasAccount() {
+                // updates coasters connected to host
+                userAttributes.setHasConnectedCoasters(bool: coastersConnectedToHost.determineIfHasCoasters())
+            }
+        }
     }
 }
 

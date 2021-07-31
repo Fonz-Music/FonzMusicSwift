@@ -126,6 +126,7 @@ struct SignInView: View {
                             print("success")
                             withAnimation {
                                 userAttributes.setHasAccount(bool: true)
+                                userAttributes.determineIfUserConnectedToSpotify()
 //                                hasAccount = true
                             }
                             
@@ -159,3 +160,4 @@ struct SignInView: View {
         }
     }
 }
+
