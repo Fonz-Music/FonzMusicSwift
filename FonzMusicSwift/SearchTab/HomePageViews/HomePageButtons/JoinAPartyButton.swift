@@ -11,7 +11,7 @@ import FirebaseAnalytics
 
 
 struct JoinAPartyButton: View {
-// ---------------------------------- created in view -----------------------------------------------
+// ---------------------------------- inherited from parent -----------------------------------------------
 
     @Binding var pressedButtonToLaunchNfc : Bool
     
@@ -23,8 +23,6 @@ struct JoinAPartyButton: View {
     
     var body: some View {
         
-        
-        
         Button(action: {
             withAnimation {
                 showHomeButtons = false
@@ -32,22 +30,14 @@ struct JoinAPartyButton: View {
             }
             FirebaseAnalytics.Analytics.logEvent("guestTappedJoinParty", parameters: ["user":"guest", "tab":"search"])
         }, label: {
-            
-       
             Image("plusIconAmber").resizable().frame(width: sideGraphicHeight, height: sideGraphicHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 .frame(width: 250, height: 250)
 
         })
         .buttonStyle(BasicFonzButtonCircle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .amber))
-//        .buttonStyle(NeumorphicButtonStyleCircle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .amber))
-//        Text("i want to queue a song")
-//            .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
-////            .fonzRoundButtonText()
-//            .fonzParagraphOne()
         Text("queue a song")
             .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
             .fonzParagraphOne()
-            
     }
     
 }

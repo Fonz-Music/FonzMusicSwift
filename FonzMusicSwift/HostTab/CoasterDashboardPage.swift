@@ -9,8 +9,7 @@ import SwiftUI
 
 struct CoasterDashboardPage: View {
 
-// ---------------------------------- inherited from parent -----------------------------------------
-//    @Binding var hasConnectedCoasters : Bool
+// ---------------------------------- inherited from parent -----------------------------------------inherited from parent
     // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
     @StateObject var userAttributes : CoreUserAttributes
     // list of coasters connected to the Host

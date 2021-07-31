@@ -9,24 +9,13 @@ import SwiftUI
 
 struct HostTab: View {
     
-// ---------------------------------- created inside view -------------------------------------------
-        // object that stores the songs from the api
-//        @ObservedObject var hostCoasterList: CoastersFromApi = CoastersFromApi()
-    
-//    @Binding var connectedToSpotify : Bool
-//
-//    @Binding var hasConnectedCoasters : Bool
-//    // determines if current user has an account
-//    @Binding var hasAccount : Bool
-    
+// ---------------------------------- inherited from parent -------------------------------------------
+
     // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
     @StateObject var userAttributes : CoreUserAttributes
-    
     // list of coasters connected to the Host
     @ObservedObject var coastersConnectedToHost: CoastersFromApi
-   
-    
-    
+
     
     @Environment(\.colorScheme) var colorScheme
     

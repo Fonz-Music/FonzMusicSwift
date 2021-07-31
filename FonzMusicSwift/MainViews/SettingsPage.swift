@@ -11,14 +11,7 @@ import KeychainAccess
 struct SettingsPage: View {
     // inherited that indicated the tab the app is on
     @Binding var selectedTab: TabIdentifier
-//    // determines if current user has an account
-//    @Binding var hasAccount : Bool
-//    // bool on if the user has coasters connected
-//    @Binding var hasConnectedCoasters : Bool
-//    // bool to launch create account modal
-//    // determines if current user is connected to Spotify
-//    @Binding var connectedToSpotify : Bool
-    
+
     // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
     @StateObject var userAttributes : CoreUserAttributes
     
@@ -68,7 +61,7 @@ struct SettingsPage: View {
 //                        SignOutButton(hasAccount: $hasAccount, connectedToSpotify: $connectedToSpotify, hasConnectedCoasters: $hasConnectedCoasters)
                     SignOutButton(userAttributes: userAttributes)
                         // if the user has connected coasters, give option to limit reqs
-        //                    if hasConnectedCoasters {
+        //                    if userAttributes.getHasConnectedCoasters() {
         //                        Text("coaster management")
         //                            .foregroundColor(Color.white)
         //                            .fonzParagraphTwo()

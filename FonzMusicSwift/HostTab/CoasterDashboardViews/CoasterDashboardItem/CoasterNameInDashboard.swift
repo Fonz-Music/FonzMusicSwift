@@ -21,10 +21,6 @@ struct CoasterNameInDashboard: View {
         
         // top line
         if isExpanded {
-//            Button {
-//                self.pressedToCompressButton = true
-////                isExpanded = false
-//            } label: {
                 HStack{
                     // coaster bane
                     Text(verbatim: item.name)
@@ -45,10 +41,6 @@ struct CoasterNameInDashboard: View {
                         .frame(height: 50)
                 )
                 .frame(height: 50)
-                
-//            }
-
-            
         }
         else {
             HStack(spacing: 10) {

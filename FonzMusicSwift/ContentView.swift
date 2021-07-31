@@ -67,15 +67,9 @@ struct ContentView: View {
             }
         }
         .onAppear {
-            
-            if userAttributes.getHasAccount() {
-                // updates coasters connected to host
-                userAttributes.setHasConnectedCoasters(bool: coastersConnectedToHost.determineIfHasCoasters())
-            }
-            
-            print("hasAccount: \(userAttributes.getHasAccount())")
-            print("hasConnectedCoasters: \(userAttributes.getHasConnectedCoasters())")
-            print("connectedToSpotify: \(userAttributes.getConnectedToSpotify())")
+//            print("hasAccount: \(userAttributes.getHasAccount())")
+//            print("hasConnectedCoasters: \(userAttributes.getHasConnectedCoasters())")
+//            print("connectedToSpotify: \(userAttributes.getConnectedToSpotify())")
         }
         .onOpenURL { url in
             let containsSpotify = url.absoluteString.contains("spotify")
@@ -92,10 +86,7 @@ struct ContentView: View {
                         print("changing connection now")
                         withAnimation {
                             userAttributes.setHasConnectedCoasters(bool: true)
-//                            connectedToSpotify = true
                         }
-                        // set local var
-//                        UserDefaults.standard.set(true, forKey: "connectedToSpotify")
                     }
                 }
             }

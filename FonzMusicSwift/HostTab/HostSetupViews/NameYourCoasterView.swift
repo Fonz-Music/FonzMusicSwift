@@ -11,7 +11,6 @@ import SwiftUI
 struct NameYourCoasterView: View {
 // ---------------------------------- created in view -----------------------------------------------
 
-//    @Binding var hasConnectedCoasters : Bool
     // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
     @StateObject var userAttributes : CoreUserAttributes
     // list of coasters connected to the Host

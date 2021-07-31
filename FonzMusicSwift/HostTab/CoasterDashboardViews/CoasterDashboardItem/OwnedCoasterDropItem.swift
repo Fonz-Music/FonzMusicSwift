@@ -16,13 +16,7 @@ struct OwnedCoasterDropItem: View {
     var isExpanded: Bool
 
     @ObservedObject var coastersConnectedToHost: CoastersFromApi
- 
-    
-//    @State var showRenameModal = false
-//    @State var showPauseModal = false
-//    @State var showTroubleShootModal = false
-//    @State var showDisconnectModal = false
-    
+
     @Binding var showRenameModal : Bool
     @Binding var showPauseModal : Bool
     @Binding var showTroubleShootModal : Bool
@@ -30,7 +24,6 @@ struct OwnedCoasterDropItem: View {
     @Binding var troubleShootCoasterPressed : Bool
     // temp Coaster Object to pass to trouble shoot to write correct uid
     @Binding var tempCoasterDetails : HostCoasterInfo
-//    @Binding var hasConnectedCoasters : Bool
     // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
     @StateObject var userAttributes : CoreUserAttributes
     

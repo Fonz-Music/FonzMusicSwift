@@ -18,8 +18,6 @@ struct DisconnectCoasterField: View {
     
     @ObservedObject var coastersConnectedToHost: CoastersFromApi
     
-//    @Binding var hasConnectedCoasters : Bool
-    
     // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
     @StateObject var userAttributes : CoreUserAttributes
     

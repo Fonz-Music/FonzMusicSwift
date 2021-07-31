@@ -10,13 +10,9 @@ import SwiftUI
 import FirebaseAnalytics
 
 struct ConnectYourFirstCoasterButton: View {
-// ---------------------------------- created in view -----------------------------------------------
+// ---------------------------------- inherited from parent -----------------------------------------------
 
     @Binding var pressedButtonToLaunchNfc : Bool
-//
-//    @Binding var showHomeButtons: Bool
-    
-//    @Binding var connectedToSpotify : Bool
     // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
     @StateObject var userAttributes : CoreUserAttributes
    
@@ -27,12 +23,8 @@ struct ConnectYourFirstCoasterButton: View {
     var body: some View {
         VStack{
             Button(action: {
-                
-            
                 withAnimation {
-//                    connectedToSpotify = false
                     pressedButtonToLaunchNfc = true
-    //                selectedTab = 1
                 }
                 FirebaseAnalytics.Analytics.logEvent("userTappedConnectFirstCoaster", parameters: ["user":"user", "tab":"host"])
                 

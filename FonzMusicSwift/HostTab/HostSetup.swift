@@ -11,16 +11,8 @@ import FirebaseAnalytics
 
 
 struct HostSetup: View {
-    
-    
-//    @Binding var connectedToSpotify : Bool
-//
-//    @Binding var hasConnectedCoasters : Bool
-//    // determines if current user has an account
-//    @Binding var hasAccount : Bool
     // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
     @StateObject var userAttributes : CoreUserAttributes
-    
     // list of coasters connected to the Host
     @ObservedObject var coastersConnectedToHost: CoastersFromApi
     
@@ -31,14 +23,14 @@ struct HostSetup: View {
     @State var tempCoasterDetails = HostCoasterInfo()
     // local var that is returned by nfc prompt when getting host from API
     @State var statusCodeResp = 0
-    
+    // when user presses connectFirstCoaster -> nfc launches
     @State var pressedButtonToLaunchNfc = false
-    
+    // used to gradually fade in resp
     @State var showSuccessOrError = false
-    
+    // throws create account modal if needed
     @State var throwCreateAccountModal = false
-    
-    @State var troubleShootCoasterPressed = false
+    // if the coaster needs to be encoded
+    @State var encodeTheCoaster = false
     
     @Environment(\.colorScheme) var colorScheme
     let tapCoasterWidth = UIScreen.screenHeight * 0.35
@@ -129,11 +121,11 @@ struct HostSetup: View {
                     OneMoreStep()
                         .onAppear {
                             DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
-                            troubleShootCoasterPressed = true
+                                encodeTheCoaster = true
                             }
                         }
-                    if troubleShootCoasterPressed {
-                        EncodeCoasterWithUrl(tempCoasterUid: tempCoasterDetails.uid, statusCode: $statusCodeResp,pressedButtonToLaunchNfc: $troubleShootCoasterPressed)
+                    if encodeTheCoaster {
+                        EncodeCoasterWithUrl(tempCoasterUid: tempCoasterDetails.uid, statusCode: $statusCodeResp,pressedButtonToLaunchNfc: $encodeTheCoaster)
                     }
                     
                     // }

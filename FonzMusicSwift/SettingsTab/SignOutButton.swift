@@ -80,10 +80,7 @@ struct SignOutButton: View {
                                 userAttributes.setHasAccount(bool: false)
                                 userAttributes.setConnectedToSpotify(bool: false)
                                 userAttributes.setHasConnectedCoasters(bool: false)
-//                                hasAccount = false
                                 isExpanded = false
-//                                connectedToSpotify = false
-//                                hasConnectedCoasters = false
                             }
                             
                         } label: {

@@ -11,19 +11,17 @@ import Foundation
 import FirebaseAnalytics
 
 struct ConnectSpotifyHomeButton: View {
-// ---------------------------------- created in view -----------------------------------------------
+    
+// ------------------------------ inherited from parent ------------------------------------------
 
-//    @Binding var connectedToSpotify : Bool
-    // determines if current user has an account
-//    @Binding var hasAccount : Bool
     // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
     @StateObject var userAttributes : CoreUserAttributes
+// ---------------------------------- created in view --------------------------------------------
     // has user create an account
     @State var throwCreateAccountModal = false
     // has user download full app if on app clip
     @State var throwDownlaodFullAppModal = false
-//
-//    @Binding var showHomeButtons: Bool
+
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.openURL) var openURL
     let sideGraphicHeight = UIScreen.screenHeight * 0.04
@@ -31,13 +29,8 @@ struct ConnectSpotifyHomeButton: View {
     var body: some View {
         VStack {
             Button(action: {
-                
-
-//
                 #if !APPCLIP
                 if userAttributes.getHasAccount() {
-//                    HostFonzSessionApi().getAllSessions()
-
                     FirebaseAnalytics.Analytics.logEvent("userTappedConnectSpotify", parameters: ["user":"user", "tab":"host"])
                     SpotifyInBrowser().launchSpotifyInBrowser()
                 }

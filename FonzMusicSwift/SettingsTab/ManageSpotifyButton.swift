@@ -10,10 +10,6 @@ import SwiftUI
 import FirebaseAnalytics
 
 struct ManageSpotifyButton: View {
-    
-//    // determines if current user is connected to Spotify
-//    @Binding var connectedToSpotify : Bool
-    
     // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
     @StateObject var userAttributes : CoreUserAttributes
     
@@ -87,7 +83,6 @@ struct ManageSpotifyButton: View {
                             UserDefaults.standard.set(false, forKey: "connectedToSpotify")
                             withAnimation {
                                 userAttributes.setConnectedToSpotify(bool: false)
-//                                connectedToSpotify = false
                                 isExpanded = false
                             }
                             
@@ -97,8 +92,6 @@ struct ManageSpotifyButton: View {
                                 .frame(width: 20 , height: 20, alignment: .center)
                                 .padding(.vertical, 5)
                                 .padding(.horizontal, 20)
-                            
-            //                    .padding()
                         }
                         .frame(width: 80, height: 40, alignment: .center)
                         .buttonStyle(BasicFonzButton(bgColor: .amber, secondaryColor: colorScheme == .light ? Color.white: Color.darkButton))

@@ -14,10 +14,6 @@ struct SearchPageView: View {
     @ObservedObject var hostCoaster:HostCoasterInfo
     // checks if guest has a host
     @Binding var hasHostVar : Bool
-    // determines if current user has an account
-//    @Binding var hasAccount : Bool
-//    // bool that determines if the user is connected to spot
-//    @Binding var connectedToSpotify : Bool
     // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
     @StateObject var userAttributes : CoreUserAttributes
     // boolean to change when views should be showed w animation
@@ -26,7 +22,6 @@ struct SearchPageView: View {
     @Binding var statusCodeQueueSong : Int
     // checks to see if currently typing in searchbar
     @Binding var isEditingSearchBar : Bool
-    
     // track object inherited from song search
     @Binding var currentTune:GlobalTrack
     
@@ -48,9 +43,6 @@ struct SearchPageView: View {
     @State var hideSearchViews = true
     // bool auto set to false, set to true if song is selected
     @State var pressedSongToLaunchNfc = false
-    
-
-    
     
     var body: some View {
         // entire page is a scrollView
@@ -97,7 +89,6 @@ struct SearchPageView: View {
                 ZStack {
                     // now playing + song suggestions
                     VStack{
-                        
                         ActiveSongView(hostName: hostCoaster.hostName, currentSessionId: hostCoaster.sessionId, trackfromNowPlaying: trackFromNowPlaying)
                         SongSuggestionsView(hostCoaster: hostCoaster, currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc, tracksFromPlaylist: tracksFromPlaylist, tracksFromArtist: tracksFromArtist, userAttributes: userAttributes)
 //                        #if !APPCLIP
@@ -128,14 +119,6 @@ struct SearchPageView: View {
         .onAppear {
             // disables bounce
             UIScrollView.appearance().bounces = false
-//            // passes the sessionId from the host into the results return
-//            print("sessionid os \(hostCoaster.sessionId)")
-//            tracksFromSearch.tempSession = hostCoaster.sessionId
-//            tracksFromPlaylist.tempSession = hostCoaster.sessionId
-//            tracksFromArtist.tempSession = hostCoaster.sessionId
-//            trackFromNowPlaying.tempSession = hostCoaster.sessionId
-//            // launches now playing check
-//            trackFromNowPlaying.nowPlaying = "mac"
             // waits .5 seconds before showing views
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 withAnimation {
@@ -147,10 +130,6 @@ struct SearchPageView: View {
         .simultaneousGesture(
             DragGesture().onChanged { value in
                 hideKeyboard()
-//                withAnimation {
-//                    isEditingSearchBar = false
-//                }
-                
             }
         )
     }

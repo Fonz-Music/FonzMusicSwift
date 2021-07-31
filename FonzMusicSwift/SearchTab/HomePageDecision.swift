@@ -17,12 +17,6 @@ struct HomePageDecision: View {
     @Binding var hasHostVar:Bool
     // inherited that indicated the tab the app is on
     @Binding var selectedTab: TabIdentifier
-    // determines if current user has an account
-//    @Binding var hasAccount : Bool
-//    // determines if current user has connectedCoasters
-//    @Binding var hasConnectedCoasters : Bool
-//    // determines if current user is connected to spotify
-//    @Binding var connectedToSpotify : Bool
     // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
     @StateObject var userAttributes : CoreUserAttributes
     // determines if current user is connected to spotify
@@ -48,10 +42,7 @@ struct HomePageDecision: View {
     
     @Environment(\.colorScheme) var colorScheme
     
-  
-    
     var body: some View {
-        
             VStack{
                 HStack{
                     Text("queue")

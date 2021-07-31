@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct SongSuggestionsView: View {
-    
+ 
+// ---------------------------------- inherited from parent -----------------------------------------
     // hostCoaster details passed in and will update view when changed
     @ObservedObject var hostCoaster:HostCoasterInfo
     // track object to update the song to queue
@@ -19,14 +20,10 @@ struct SongSuggestionsView: View {
     @ObservedObject var tracksFromPlaylist: TracksFromPlaylist
     // object that stores the songs from the api
     @ObservedObject var tracksFromArtist: TracksFromArtist
-    // determines if current user has an account
-//    @Binding var hasAccount : Bool
-//    // determines if current user is connected to Spotify
-//    @Binding var connectedToSpotify : Bool
     // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
     @StateObject var userAttributes : CoreUserAttributes
     
-    
+// ---------------------------------- created in view -----------------------------------------------
     @State var throwCreateAccountModal = false
     
     @Environment(\.colorScheme) var colorScheme
@@ -41,19 +38,10 @@ struct SongSuggestionsView: View {
                 .fonzShadow()
                 .padding(.top, 30)
             VStack{
-//                if !connectedToSpotify {
-//                    Spacer()
-//                        .frame(height: 20)
-//                }
-//                else {
-//                    Spacer()
-//                        .frame(height: 40)
-//                }
                 Spacer()
-                    .frame(height: 20)
-                
+                    .frame(height: 30)
+                // if the user doesnt have spotify connected, show spot button
                 if !userAttributes.getHasAccount() || !userAttributes.getConnectedToSpotify() {
-                    
                     ConnectSpotifySearch(throwCreateAccountModal: $throwCreateAccountModal, userAttributes: userAttributes)
                 }
                 YourTopSongs(hostCoaster: hostCoaster, currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
@@ -66,7 +54,6 @@ struct SongSuggestionsView: View {
             .frame(width: UIScreen.screenWidth * 0.95)
             .sheet(isPresented: $throwCreateAccountModal) {
                 CreateAccountPrompt(userAttributes: userAttributes, showModal: $throwCreateAccountModal)
-               
             }
         }
     }

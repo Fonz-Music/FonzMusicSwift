@@ -8,18 +8,14 @@
 import SwiftUI
 
 struct DetermineHomePageView: View {
+
+// ------------------------------ inherited from parent ------------------------------------------
     // inherited that indicated the tab the app is on
     @Binding var selectedTab: TabIdentifier
-    // determines if current user has an account
-//    @Binding var hasAccount : Bool
     
     @Binding var showHomeButtons : Bool
     
     @Binding var pressedButtonToLaunchNfc : Bool
-    
-//    @Binding var hasConnectedCoasters : Bool
-//
-//    @Binding var connectedToSpotify : Bool
     // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
     @StateObject var userAttributes : CoreUserAttributes
     
