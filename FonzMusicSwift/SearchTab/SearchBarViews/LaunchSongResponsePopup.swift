@@ -27,12 +27,13 @@ struct LaunchSongResponsePopup: View {
                 QueuedButDelayedResponse()
                     .padding(.top, 10)
             }
-            else if (statusCodeQueueSong == 404 || statusCodeQueueSong == 403 || statusCodeQueueSong == 401) {
-                QueuedButDelayedResponse()
+            // if the userId do not match
+            else if (statusCodeQueueSong == 1) {
+                QueueFailYourHostDoesNotOwnThatCoaster()
                     .padding(.top, 10)
             }
             // nfc error
-            else if statusCodeQueueSong == 500 {
+            else {
                 QueueSongError()
                     .padding(.top, 10)
             }

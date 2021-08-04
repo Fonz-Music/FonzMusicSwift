@@ -250,8 +250,8 @@
 		26ECCFE32682BE210053BE1F /* ArtistSongListModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ECCFE22682BE210053BE1F /* ArtistSongListModal.swift */; };
 		26F1CC6826BA887000CD450A /* SpotifySuggestionsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F1CC6726BA887000CD450A /* SpotifySuggestionsApi.swift */; };
 		26F1CC6926BA887000CD450A /* SpotifySuggestionsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F1CC6726BA887000CD450A /* SpotifySuggestionsApi.swift */; };
-		26F1CC6B26BA99F300CD450A /* QueueFailNotSameCoaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F1CC6A26BA99F300CD450A /* QueueFailNotSameCoaster.swift */; };
-		26F1CC6C26BA99F300CD450A /* QueueFailNotSameCoaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F1CC6A26BA99F300CD450A /* QueueFailNotSameCoaster.swift */; };
+		26F1CC6E26BA9C4000CD450A /* QueueFailYourHostDoesNotOwnThatCoaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F1CC6D26BA9C4000CD450A /* QueueFailYourHostDoesNotOwnThatCoaster.swift */; };
+		26F1CC6F26BA9C4000CD450A /* QueueFailYourHostDoesNotOwnThatCoaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F1CC6D26BA9C4000CD450A /* QueueFailYourHostDoesNotOwnThatCoaster.swift */; };
 		26F534FD26973F440055C188 /* TextExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F534FC26973F440055C188 /* TextExtension.swift */; };
 		26F535002697500D0055C188 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F534FF2697500D0055C188 /* SignUpView.swift */; };
 		26F5350226975C870055C188 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F5350126975C870055C188 /* SignInView.swift */; };
@@ -440,7 +440,7 @@
 		26ECCFE02682B6960053BE1F /* YourTopPlaylists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourTopPlaylists.swift; sourceTree = "<group>"; };
 		26ECCFE22682BE210053BE1F /* ArtistSongListModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistSongListModal.swift; sourceTree = "<group>"; };
 		26F1CC6726BA887000CD450A /* SpotifySuggestionsApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifySuggestionsApi.swift; sourceTree = "<group>"; };
-		26F1CC6A26BA99F300CD450A /* QueueFailNotSameCoaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueFailNotSameCoaster.swift; sourceTree = "<group>"; };
+		26F1CC6D26BA9C4000CD450A /* QueueFailYourHostDoesNotOwnThatCoaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueFailYourHostDoesNotOwnThatCoaster.swift; sourceTree = "<group>"; };
 		26F534FC26973F440055C188 /* TextExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextExtension.swift; sourceTree = "<group>"; };
 		26F534FF2697500D0055C188 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		26F5350126975C870055C188 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
@@ -752,7 +752,7 @@
 				26916FEF268E476500B7281B /* QueueSongSuccess.swift */,
 				26916FF1268E502700B7281B /* QueuedButDelayedResponse.swift */,
 				26916FF3268E50EB00B7281B /* QueueSongError.swift */,
-				26F1CC6A26BA99F300CD450A /* QueueFailNotSameCoaster.swift */,
+				26F1CC6D26BA9C4000CD450A /* QueueFailYourHostDoesNotOwnThatCoaster.swift */,
 			);
 			path = QueueSongResponses;
 			sourceTree = "<group>";
@@ -1307,7 +1307,6 @@
 				26DB9ABD26349A1D0030643D /* TracksFromSearch.swift in Sources */,
 				26B651642638A0610074F279 /* GlobalExtensions.swift in Sources */,
 				26AF07CE268D3794006A9504 /* CreateAccountButton.swift in Sources */,
-				26F1CC6B26BA99F300CD450A /* QueueFailNotSameCoaster.swift in Sources */,
 				26B6516026389D7B0074F279 /* HostCoasterApi.swift in Sources */,
 				26691F66267AB89A00C83696 /* SongResultItem.swift in Sources */,
 				26B6514D263866950074F279 /* HostCoasterInfo.swift in Sources */,
@@ -1404,6 +1403,7 @@
 				26FBCCE926867DF800399460 /* TroubleShootCoasterField.swift in Sources */,
 				26E8CFE1266D3A0F00CEB1F6 /* SpotifyController.swift in Sources */,
 				26F5351326988BA10055C188 /* CreateAccountView.swift in Sources */,
+				26F1CC6E26BA9C4000CD450A /* QueueFailYourHostDoesNotOwnThatCoaster.swift in Sources */,
 				26AC89C12665781B00E1C41E /* ShareSheet.swift in Sources */,
 				26FBCCDB26866C9E00399460 /* PauseCoasterButton.swift in Sources */,
 				2620B8A326792599004FE721 /* SearchTab.swift in Sources */,
@@ -1448,6 +1448,7 @@
 				261752C626A3448A0069C83D /* BuyACoasterHomeButton.swift in Sources */,
 				261752C726A3448A0069C83D /* ConnectSpotifyHomeButton.swift in Sources */,
 				2676B13226A5E0D400E18E4B /* SessionResponse.swift in Sources */,
+				26F1CC6F26BA9C4000CD450A /* QueueFailYourHostDoesNotOwnThatCoaster.swift in Sources */,
 				261752CA26A3448A0069C83D /* QueueSongSuccess.swift in Sources */,
 				261752CB26A3448A0069C83D /* QueuedButDelayedResponse.swift in Sources */,
 				2676B13526A60A1400E18E4B /* RegistrationFunctions.swift in Sources */,
@@ -1468,7 +1469,6 @@
 				261752D726A3448A0069C83D /* SongResultItem.swift in Sources */,
 				2665E00D26B322ED00AE2AAB /* NameYourCoasterView.swift in Sources */,
 				261752D826A3448A0069C83D /* SearchBarView.swift in Sources */,
-				26F1CC6C26BA99F300CD450A /* QueueFailNotSameCoaster.swift in Sources */,
 				261EC1DD26B0907600202D24 /* CreateSessionResponse.swift in Sources */,
 				261752D926A3448A0069C83D /* SearchResultsView.swift in Sources */,
 				261752DA26A3448B0069C83D /* TracksFromSearch.swift in Sources */,

@@ -194,6 +194,7 @@ struct HomePageDecision: View {
                     // otherwise have user connect to it as a host
                     else {
                         launchedNfc = true
+//                        self.hasHost = false
                         statusCodeResp = 204
                     }
                     

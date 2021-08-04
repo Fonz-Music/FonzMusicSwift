@@ -128,6 +128,7 @@ struct SignInView: View {
                             withAnimation {
                                 userAttributes.setHasAccount(bool: true)
                                 userAttributes.determineIfUserConnectedToSpotify()
+                                userAttributes.determineIfUserHasConnectedCoasters()
 //                                hasAccount = true
                             }
                             

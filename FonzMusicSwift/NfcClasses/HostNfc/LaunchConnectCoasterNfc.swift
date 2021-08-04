@@ -103,6 +103,7 @@ struct LaunchConnectCoasterNfc: UIViewRepresentable {
         func tagReaderSession(_ session: NFCTagReaderSession, didInvalidateWithError error: Error) {
             print(Error.self)
             session.invalidate()
+            self.statusCode = 0
             self.launchedNfc = true
             self.pressedButtonToLaunchNfc = false
         }

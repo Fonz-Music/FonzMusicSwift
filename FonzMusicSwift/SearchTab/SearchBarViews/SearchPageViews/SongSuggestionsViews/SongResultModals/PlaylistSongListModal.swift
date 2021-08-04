@@ -30,7 +30,7 @@ struct PlaylistSongListModal: View {
     // init var that keeps status code
     @State var statusCodeQueueSong = 0
     // track object inherited from song search
-    @State var currentTune:GlobalTrack = GlobalTrack()
+    @StateObject var currentTune:GlobalTrack = GlobalTrack()
     // bool auto set to false, set to true if song is selected
     @State var pressedSongToLaunchNfc = false
     
@@ -103,7 +103,7 @@ struct PlaylistSongListModal: View {
                             LazyVGrid(columns: layout, spacing: 8) {
                                 ForEach(tracksFromEntry.products, id: \.self) { item in
                                     
-                                    SongListModalSongButton(hostCoaster: hostCoaster, trackToQueue: item, currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
+                                    SongListModalSongButton(hostCoaster: hostCoaster, trackToQueue: item, currentTune: currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
 
                             }
                         }

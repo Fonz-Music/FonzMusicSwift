@@ -63,7 +63,7 @@ struct SearchResultsView: View {
 //                                }
                                 
                                 isEditing = false
-                                
+                                hideKeyboard()
                             }, label: {
                                 SongResultFromSearchItemView(item: item)
                                     

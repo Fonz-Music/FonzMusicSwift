@@ -77,6 +77,7 @@ struct EncodeCoasterWithUrl: UIViewRepresentable {
 //                print(error.localizedDescription)
 //            }
             session.invalidate(errorMessage: "connection failed")
+            self.statusCode = 601
 //            self.launchedNfc = true
             self.pressedButtonToLaunchNfc = false
         }

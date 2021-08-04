@@ -36,7 +36,7 @@ struct CoasterDoesNotHaveHost: View {
     @State var throwCreateAccountModal = false
     
     // has user download the full app
-    @State var throwDownlaodFullAppModal = false
+    @State var throwDownloadFullAppModal = false
     
     // has user name their new coaster
     @State var throwNameNewCoasterModal = false
@@ -76,7 +76,7 @@ struct CoasterDoesNotHaveHost: View {
             .background(colorScheme == .light ? Color.clear: Color.darkBackground)
             Button {
                 #if APPCLIP
-                throwDownlaodFullAppModal = true
+                throwDownloadFullAppModal = true
                 #else
                 if userAttributes.getHasAccount() {
                     print("has account")
@@ -148,7 +148,7 @@ struct CoasterDoesNotHaveHost: View {
         }) {
             CreateAccountPrompt(userAttributes: userAttributes, showModal: $throwCreateAccountModal)
         }
-        .sheet(isPresented: $throwDownlaodFullAppModal) {
+        .sheet(isPresented: $throwDownloadFullAppModal) {
             DownloadFullAppPrompt()
         }
         .sheet(isPresented: $throwConnectSpotifyPrompt, onDismiss: {

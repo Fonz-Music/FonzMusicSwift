@@ -46,8 +46,9 @@ struct DetermineHomePageView: View {
         }
         else {
             Spacer()
-                .frame(height: 150)
+                .frame(maxHeight: 130)
             JoinAPartyButton(pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc, showHomeButtons: $showHomeButtons)
+            Spacer()
         }
         
     }

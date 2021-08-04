@@ -116,9 +116,9 @@ class GuestApi {
         var accessToken = ""
         
         accessToken = getJWTAndCheckIfExpired()
-        print("got token")
-        print("the session if id \(sessionId)")
-        print(" the track id is \(trackId)")
+//        print("got token")
+//        print("the session if id \(sessionId)")
+//        print(" the track id is \(trackId)")
         // set URL
         guard let url = URL(string: self.ADDRESS + self.GUEST + sessionId + "/spotify/queue/spotify:track:" + trackId) else { return returnInt}
     
@@ -132,19 +132,24 @@ class GuestApi {
             defer { sem.signal() }
             
             if let dataResp = data {
-
+                let jsonData = try? JSONSerialization.jsonObject(with: data!, options: [])
+                print(jsonData as Any)
                 if let decodedResponse = try? JSONDecoder().decode(QueueSongResult.self, from: dataResp) {
             
 //                            print("decoded resposne . status \(decodedResponse.status)")
                     // sets return value
-                    returnInt = decodedResponse.status
+                    
                 }
             } else {
                 print("fetch failed: \(error?.localizedDescription ?? "unknown error")")
             }
+            
+            returnInt = response?.getStatusCode() ?? 0
+            
         }.resume()
         // tells function to wait before returning
-        sem.wait()
+        sem.wait(timeout: .now() + 2.0)
+        print("return int is \(returnInt)")
         return returnInt
     }
     

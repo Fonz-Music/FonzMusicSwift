@@ -186,11 +186,12 @@ struct CoasterDashboardPage: View {
                         Spacer()
                     }
                     .onAppear{
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
                             withAnimation {
-                                if !addNewCoasterPressed {
-                                    launchedNfc = false
-                                }
+//                                if !addNewCoasterPressed {
+//                                    launchedNfc = false
+//                                }
+                                statusCodeResp = 204
 
                             }
                         }

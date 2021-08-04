@@ -17,7 +17,7 @@ struct SongListModalSongButton: View {
     var trackToQueue : Track
     
     // track object to update the song to queue
-    @Binding var currentTune : GlobalTrack
+    @StateObject var currentTune : GlobalTrack
     // bool that will launch nfc when pressed
     @Binding var pressedSongToLaunchNfc : Bool
     
@@ -30,6 +30,7 @@ struct SongListModalSongButton: View {
             currentTune.spotifyUrl = trackToQueue.spotifyUrl
             currentTune.songName = trackToQueue.songName
             pressedSongToLaunchNfc = true
+            hideKeyboard()
         } label: {
             SongResultFromSearchItemView(item: trackToQueue)
         }

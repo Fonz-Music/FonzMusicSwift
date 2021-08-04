@@ -50,4 +50,15 @@ class CoreUserAttributes: ObservableObject {
             setConnectedToSpotify(bool: false)
         }
     }
+    func determineIfUserHasConnectedCoasters() {
+        let ownedCoasters = HostCoasterApi().getOwnedCoasters()
+        print("music provs \(ownedCoasters)")
+        // checks how many providers & updates accordingly
+        if (ownedCoasters.quantity > 0 && ownedCoasters.coasters[0].coasterId != ""){
+            setHasConnectedCoasters(bool: true)
+        }
+        else {
+            setHasConnectedCoasters(bool: false)
+        }
+    }
 }

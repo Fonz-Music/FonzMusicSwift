@@ -239,7 +239,6 @@ class HostCoasterApi {
         // creates Param as Dictionary
         let parameters = [
             "name": newName,
-            "active" : true
         ] as [String : Any]
         // converts param dict to JSON DATA
         let jsonData = try! JSONSerialization.data(withJSONObject: parameters)
