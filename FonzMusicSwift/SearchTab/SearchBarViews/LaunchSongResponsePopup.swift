@@ -27,6 +27,10 @@ struct LaunchSongResponsePopup: View {
                 QueuedButDelayedResponse()
                     .padding(.top, 10)
             }
+            else if (statusCodeQueueSong == 404 || statusCodeQueueSong == 403 || statusCodeQueueSong == 401) {
+                QueuedButDelayedResponse()
+                    .padding(.top, 10)
+            }
             // nfc error
             else if statusCodeQueueSong == 500 {
                 QueueSongError()

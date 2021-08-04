@@ -132,8 +132,11 @@ struct LaunchQueueSongNfcSessionSheet: UIViewRepresentable {
 
                     session.alertMessage = "properly connected!"
                     var statusCodeFromApi = 0
+                    
+                    var hostDetailsFromUid = GuestApi().getCoasterInfo(coasterUid: UID)
+                    
                     // if the uid is the same as the host uid
-                    if (UID == self.tempCoaster.uid) {
+                    if (hostDetailsFromUid.session.userId == self.tempCoaster.hostUserId) {
                         session.invalidate()
                         // creates apiConnection
                         let apiConnection = GuestApi()

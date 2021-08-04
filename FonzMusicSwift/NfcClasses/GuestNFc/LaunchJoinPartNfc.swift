@@ -155,12 +155,15 @@ struct LaunchJoinPartyNfcSession: UIViewRepresentable {
                     // gets the coaster info from the api when passing in the uid
                     let coasterDetails = getCoasterApiCall.getCoasterInfo(coasterUid: UID)
                     print("coaster details are \(coasterDetails)")
+                    
+                    coasterDetails.session.userId
            
                     DispatchQueue.main.async {
                         // sets vars to return to user
                         self.launchedNfc = true
                         self.tempCoaster.coasterName = coasterDetails.coaster.name
                         self.tempCoaster.hostName = "host"
+                        self.tempCoaster.hostUserId = coasterDetails.session.userId
 //                        self.tempCoaster.hostName = coasterDetails.coaster.displayName
                         self.tempCoaster.sessionId = coasterDetails.session.sessionId
                         self.tempCoaster.uid = UID

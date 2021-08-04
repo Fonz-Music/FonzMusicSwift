@@ -96,6 +96,10 @@ struct CoasterDoesNotHaveHost: View {
                             else {
                                 // tell user something went wrong connecting
                                 statusCode = 405
+                                withAnimation {
+                                    launchedNfc = false
+//                                    showHomeButtons = true
+                                }
                             }
                     }
                     // if they DONT have spotify
@@ -166,7 +170,7 @@ struct CoasterDoesNotHaveHost: View {
                 userAttributes.setHasConnectedCoasters(bool: true)
 //                hasConnectedCoasters = true
             }
-            UserDefaults.standard.set(true, forKey: "hasConnectedCoasters")
+//            UserDefaults.standard.set(true, forKey: "hasConnectedCoasters")
         }) {
             VStack{
                 Spacer()
