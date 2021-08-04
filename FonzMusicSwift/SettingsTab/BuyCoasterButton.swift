@@ -7,7 +7,7 @@
 
 import SwiftUI
 import Foundation
-//import Firebase
+import KeychainAccess
 import FirebaseAnalytics
 
 struct BuyCoasterButton: View {
@@ -17,10 +17,17 @@ struct BuyCoasterButton: View {
     
     var body: some View {
         Button(action: {
-            guard let url = URL(string: "https://www.fonzmusic.com/buy") else {
-                return
-            }
-            openURL(url)
+            // init keychain
+            let keychainAccess = Keychain(service: "api.fonzmusic.com")
+            // retrive accessToken
+            var accessToken = keychainAccess["accessToken"]
+            let userId = getUserIdFromAccessToken(accessToken: accessToken!)
+            print("userID is \(userId)")
+            SpotifySuggestionsApi().getGuestTopSongs(userId: userId)
+//            guard let url = URL(string: "https://www.fonzmusic.com/buy") else {
+//                return
+//            }
+//            openURL(url)
             print("pressed button")
             FirebaseAnalytics.Analytics.logEvent("userPressedBuyCoaster", parameters: ["user":"user", "tab": "settings"])
         }, label: {

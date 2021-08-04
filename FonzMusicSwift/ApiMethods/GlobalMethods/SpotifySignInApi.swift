@@ -174,7 +174,7 @@ class SpotifySignInApi {
                 request.httpMethod = "PUT"
                 // creates Param as Dictionary
                 let parameters = [
-                    "authenticationId": providerId
+                    "providerId": providerId
                 ]
                 // converts param dict to JSON DATA
                 let jsonData = try! JSONSerialization.data(withJSONObject: parameters)

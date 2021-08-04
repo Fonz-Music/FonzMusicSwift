@@ -32,9 +32,9 @@ func getJWTAndCheckIfExpired() -> String {
             let refreshToken = keychainRefresh["refreshToken"]
         print("refresh is \(refreshToken)")
         
-        // if the user already has an account (refresh token)
-        if refreshToken != nil && refreshToken != "" {
-            let userId = getUserIdFromAccessToken()
+        // if the user already has an account (refresh token + access token (even if expired)
+        if refreshToken != nil && refreshToken != "" && accessToken != nil && accessToken != "" {
+            let userId = getUserIdFromAccessToken(accessToken: accessToken!)
             // gets new token by passing email + password into api
             accessToken = SignInSignUpApi().refreshAccessToken(userId: userId, refreshToken: refreshToken!).message
         }
@@ -71,17 +71,17 @@ func checkIfTokenValid(accessToken : String) -> Bool {
 
 
 
-func getUserIdFromAccessToken() -> String {
+func getUserIdFromAccessToken(accessToken : String) -> String {
     var userId : String = ""
     // fetch token from keystore
-    // init keychain
-    let keychainAccess = Keychain(service: "api.fonzmusic.com")
-    // retrive accessToken
-    let accessToken = keychainAccess["accessToken"]
-    // check that its not empty
-    if accessToken != nil {
+//    // init keychain
+//    let keychainAccess = Keychain(service: "api.fonzmusic.com")
+//    // retrive accessToken
+//    let accessToken = keychainAccess["accessToken"]
+//    // check that its not empty
+//    if accessToken != nil {
         // convert token to base 64
-        var payload64 = accessToken!.components(separatedBy: ".")[1]
+        var payload64 = accessToken.components(separatedBy: ".")[1]
             print("pay 64 \(payload64)")
         // need to pad the string with = to make it divisible by 4,
         // otherwise Data won't be able to decode it
@@ -94,7 +94,7 @@ func getUserIdFromAccessToken() -> String {
     // parse json to retreive exp
         let json = try! JSONSerialization.jsonObject(with: payloadData, options: []) as! [String:Any]
         userId = json["userId"] as! String
-    }
+//    }
    
     return userId
 }

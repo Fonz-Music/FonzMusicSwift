@@ -8,6 +8,7 @@
 import SwiftUI
 import FirebaseAnalytics
 
+
 struct BuyACoasterHomeButton: View {
     
     @Environment(\.openURL) var openURL
@@ -20,7 +21,8 @@ struct BuyACoasterHomeButton: View {
         VStack{
             Button(action: {
                 
-//                getUserIdFromAccessToken()
+                
+                
                 
                 guard let url = URL(string: "https://www.fonzmusic.com/buy") else {
                     return

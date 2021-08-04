@@ -148,17 +148,9 @@ class HostFonzSessionApi {
         // init value for token
         var accessToken = ""
 
-//        guard let user = Auth.auth().currentUser else {
-//            print("there was an error getting the user")
-//            return returnObject}
-
             // get access token
         accessToken = getJWTAndCheckIfExpired()
-//            user.getIDToken(){ (idToken, error) in
-//            if error == nil, let token = idToken {
-//                accessToken = token
-//                print("token is \(accessToken)" )
-//        accessToken = tempToken
+
                 // create url
                 guard let url = URL(string: self.ADDRESS + self.HOST + self.SESSION + sessionId ) else { return returnObject}
                 
@@ -179,7 +171,7 @@ class HostFonzSessionApi {
                         if let decodedResponse = try? JSONDecoder().decode(SessionResponse.self, from: dataResp) {
                             print("success getting provider")
                             // sets return value
-//                                    returnMessage = decodedResponse
+                            returnMessage = decodedResponse.sessionId
                             UserDefaults.standard.set(decodedResponse.sessionId, forKey: "userAccountSessionId")
                         }
                         else {

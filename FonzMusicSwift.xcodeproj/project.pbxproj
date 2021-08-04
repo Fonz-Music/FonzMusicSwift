@@ -248,6 +248,8 @@
 		26ECCFDF2682B0DA0053BE1F /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ECCFDE2682B0DA0053BE1F /* Playlist.swift */; };
 		26ECCFE12682B6960053BE1F /* YourTopPlaylists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ECCFE02682B6960053BE1F /* YourTopPlaylists.swift */; };
 		26ECCFE32682BE210053BE1F /* ArtistSongListModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26ECCFE22682BE210053BE1F /* ArtistSongListModal.swift */; };
+		26F1CC6826BA887000CD450A /* SpotifySuggestionsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F1CC6726BA887000CD450A /* SpotifySuggestionsApi.swift */; };
+		26F1CC6926BA887000CD450A /* SpotifySuggestionsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F1CC6726BA887000CD450A /* SpotifySuggestionsApi.swift */; };
 		26F534FD26973F440055C188 /* TextExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F534FC26973F440055C188 /* TextExtension.swift */; };
 		26F535002697500D0055C188 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F534FF2697500D0055C188 /* SignUpView.swift */; };
 		26F5350226975C870055C188 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F5350126975C870055C188 /* SignInView.swift */; };
@@ -435,6 +437,7 @@
 		26ECCFDE2682B0DA0053BE1F /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		26ECCFE02682B6960053BE1F /* YourTopPlaylists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourTopPlaylists.swift; sourceTree = "<group>"; };
 		26ECCFE22682BE210053BE1F /* ArtistSongListModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistSongListModal.swift; sourceTree = "<group>"; };
+		26F1CC6726BA887000CD450A /* SpotifySuggestionsApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifySuggestionsApi.swift; sourceTree = "<group>"; };
 		26F534FC26973F440055C188 /* TextExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextExtension.swift; sourceTree = "<group>"; };
 		26F534FF2697500D0055C188 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		26F5350126975C870055C188 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
@@ -541,6 +544,7 @@
 				26916FEE268E474300B7281B /* QueueSongResponses */,
 				269252D4268E2BE4001AC98B /* SearchPageViews */,
 				269252D5268E2C37001AC98B /* SearchPageView.swift */,
+				26916FF5268E585200B7281B /* LaunchSongResponsePopup.swift */,
 			);
 			path = SearchBarViews;
 			sourceTree = "<group>";
@@ -756,7 +760,6 @@
 				26ECCFD42682A21C0053BE1F /* SongSuggestionsViews */,
 				26ECCFD92682A6A90053BE1F /* SongSearchBarViews */,
 				2687C734268A9A0A0044AA37 /* ActiveSongViews */,
-				26916FF5268E585200B7281B /* LaunchSongResponsePopup.swift */,
 			);
 			path = SearchPageViews;
 			sourceTree = "<group>";
@@ -766,6 +769,7 @@
 			children = (
 				269D0151267182A000A1DFEE /* SpotifySignInApi.swift */,
 				26AF07C7268D2751006A9504 /* GetVerionApi.swift */,
+				26F1CC6726BA887000CD450A /* SpotifySuggestionsApi.swift */,
 			);
 			path = GlobalMethods;
 			sourceTree = "<group>";
@@ -1350,6 +1354,7 @@
 				268B97A62683843A00984DC4 /* SpotifyInBrowser.swift in Sources */,
 				26691F74267AC6D100C83696 /* FailCircleResponse.swift in Sources */,
 				265634BA267814DB00FD6F27 /* StringExtensions.swift in Sources */,
+				26F1CC6826BA887000CD450A /* SpotifySuggestionsApi.swift in Sources */,
 				26AC89B42665410C00E1C41E /* ShareOnInstagram.swift in Sources */,
 				26ECCFE32682BE210053BE1F /* ArtistSongListModal.swift in Sources */,
 				2687C72C268A915E0044AA37 /* TracksFromArtist.swift in Sources */,
@@ -1485,6 +1490,7 @@
 				261EC1E026B098A400202D24 /* GetAllSessionsResponse.swift in Sources */,
 				26D9BC2726AED6B0000C8739 /* AskUserToConnectSpotify.swift in Sources */,
 				261752F626A3448B0069C83D /* UpdatePageviewVars.swift in Sources */,
+				26F1CC6926BA887000CD450A /* SpotifySuggestionsApi.swift in Sources */,
 				261752F726A3448B0069C83D /* Track.swift in Sources */,
 				2676B12826A5C33E00E18E4B /* ProvidersResponse.swift in Sources */,
 				261752F826A3448B0069C83D /* AsyncImage.swift in Sources */,
@@ -1659,7 +1665,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = FonzMusicSwift/FonzMusicSwift.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "\"FonzMusicSwift/Preview Content\"";
 				DEVELOPMENT_TEAM = VW76JQGB68;
 				ENABLE_PREVIEWS = YES;
@@ -1694,7 +1700,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = FonzMusicSwift/FonzMusicSwift.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "\"FonzMusicSwift/Preview Content\"";
 				DEVELOPMENT_TEAM = VW76JQGB68;
 				ENABLE_PREVIEWS = YES;
@@ -1727,7 +1733,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Fonz Music App Clip/Fonz_Music_App_Clip.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = VW76JQGB68;
 				ENABLE_PREVIEWS = YES;
@@ -1754,7 +1760,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Fonz Music App Clip/Fonz_Music_App_Clip.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = VW76JQGB68;
 				ENABLE_PREVIEWS = YES;
