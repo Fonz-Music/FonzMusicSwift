@@ -23,7 +23,7 @@ struct SearchPageView: View {
     // checks to see if currently typing in searchbar
     @Binding var isEditingSearchBar : Bool
     // track object inherited from song search
-    @Binding var currentTune:GlobalTrack
+    @StateObject var currentTune:GlobalTrack
     
     
 // ---------------------------------- created inside view -------------------------------------------
@@ -92,7 +92,7 @@ struct SearchPageView: View {
                     // now playing + song suggestions
                     VStack{
                         ActiveSongView(hostName: hostCoaster.hostName, currentSessionId: hostCoaster.sessionId, trackfromNowPlaying: trackFromNowPlaying)
-                        SongSuggestionsView(hostCoaster: hostCoaster, currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc, tracksFromPlaylist: tracksFromPlaylist, tracksFromArtist: tracksFromArtist, userAttributes: userAttributes)
+                        SongSuggestionsView(hostCoaster: hostCoaster, currentTune: currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc, tracksFromPlaylist: tracksFromPlaylist, tracksFromArtist: tracksFromArtist, userAttributes: userAttributes)
 //                        #if !APPCLIP
 //                        Spacer()
 //                            .frame(height: 50)
@@ -106,7 +106,7 @@ struct SearchPageView: View {
                     // search results
                     if isEditingSearchBar {
                         VStack {
-                            SearchResultsView(tracksFromSearch: tracksFromSearch, hostCoaster: hostCoaster, currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc, isEditing: $isEditingSearchBar)
+                            SearchResultsView(tracksFromSearch: tracksFromSearch, hostCoaster: hostCoaster, currentTune: currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc, isEditing: $isEditingSearchBar)
                             Spacer()
                         }
                     }

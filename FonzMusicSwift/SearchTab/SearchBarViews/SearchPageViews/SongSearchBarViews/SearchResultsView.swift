@@ -18,7 +18,7 @@ struct SearchResultsView: View {
     // hostCoaster details passed in and will update view when changed
     @ObservedObject var hostCoaster:HostCoasterInfo
     // track object to update the song to queue
-    @Binding var currentTune : GlobalTrack
+    @StateObject var currentTune : GlobalTrack
     // bool that will launch nfc when pressed
     @Binding var pressedSongToLaunchNfc : Bool
     // checks to see if currently typing in searchbar
@@ -50,17 +50,17 @@ struct SearchResultsView: View {
                                 FirebaseAnalytics.Analytics.logEvent("guestSelectedSearchedSong", parameters: ["user":"guest", "tab":"search"])
 
                                 // sets the current song to song chosen
-                                if !pressedSongToLaunchNfc {
-                                    // bool to launch queueSongSheet set to true
-                                    self.pressedSongToLaunchNfc = true
+//                                if !pressedSongToLaunchNfc {
+                                    
                                     // sets temp tune attributes to pass into sheet
                                     currentTune.albumArt = item.albumArt
                                     currentTune.songId = item.songId
                                     currentTune.songName = item.songName
                                     currentTune.artistName = item.artistName
-                                    currentTune.songLoaded = true
                                     currentTune.spotifyUrl = item.spotifyUrl
-                                }
+                                    // bool to launch queueSongSheet set to true
+                                    pressedSongToLaunchNfc = true
+//                                }
                                 
                                 isEditing = false
                                 

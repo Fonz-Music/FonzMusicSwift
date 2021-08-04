@@ -117,7 +117,7 @@ struct LaunchQueueSongNfcSessionSheet: UIViewRepresentable {
                 self.launchedNfc = true
                 self.pressedButtonToLaunchNfc = false
             }
-            session.connect(to: tags.first!) { (error: Error?) in
+            session.connect(to: tags.first!) { [self] (error: Error?) in
                 if nil != error{
                     print("connection failed")
                     session.invalidate(errorMessage: "connection failed")
@@ -131,14 +131,18 @@ struct LaunchQueueSongNfcSessionSheet: UIViewRepresentable {
                     print("UID:" + UID)
 
                     session.alertMessage = "properly connected!"
-                    
+                    var statusCodeFromApi = 0
                     // if the uid is the same as the host uid
                     if (UID == self.tempCoaster.uid) {
                         session.invalidate()
                         // creates apiConnection
                         let apiConnection = GuestApi()
+                        print("song id id \(self.songInfo.songId)")
+                        if (self.songInfo.songId != nil && self.songInfo.songId != "") {
+                            statusCodeFromApi = apiConnection.queueSong(sessionId: self.tempCoaster.sessionId, trackId: self.songInfo.songId)
+                        }
                         // calls function to queue that song from the API
-                        let statusCodeFromApi = apiConnection.queueSong(sessionId: self.tempCoaster.sessionId, trackId: self.songInfo.songId)
+                       
                         print("status code " + String(statusCodeFromApi))
                         
                         DispatchQueue.main.async {

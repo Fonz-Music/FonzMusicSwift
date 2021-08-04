@@ -13,6 +13,5 @@ class GlobalTrack: ObservableObject {
     @Published var songId = ""
     @Published var artistName = ""
     @Published var albumArt = ""
-    @Published var songLoaded = false
     var spotifyUrl = ""
 }

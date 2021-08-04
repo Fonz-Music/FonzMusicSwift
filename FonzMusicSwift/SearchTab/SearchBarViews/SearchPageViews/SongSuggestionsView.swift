@@ -13,7 +13,7 @@ struct SongSuggestionsView: View {
     // hostCoaster details passed in and will update view when changed
     @ObservedObject var hostCoaster:HostCoasterInfo
     // track object to update the song to queue
-    @Binding var currentTune : GlobalTrack
+    @StateObject var currentTune : GlobalTrack
     // bool that will launch nfc when pressed
     @Binding var pressedSongToLaunchNfc : Bool
     // object that stores the songs from the api
@@ -44,7 +44,7 @@ struct SongSuggestionsView: View {
                 if !userAttributes.getHasAccount() || !userAttributes.getConnectedToSpotify() {
                     ConnectSpotifySearch(throwCreateAccountModal: $throwCreateAccountModal, userAttributes: userAttributes)
                 }
-                YourTopSongs(hostCoaster: hostCoaster, currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
+                YourTopSongs(hostCoaster: hostCoaster, currentTune: currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
                 YourTopArtists(hostCoaster: hostCoaster,  tracksFromArtist: tracksFromArtist)
                 YourTopPlaylists(hostCoaster: hostCoaster,  tracksFromPlaylist: tracksFromPlaylist)
                 Spacer()

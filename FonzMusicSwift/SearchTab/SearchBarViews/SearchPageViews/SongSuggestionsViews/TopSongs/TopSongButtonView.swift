@@ -14,7 +14,7 @@ struct TopSongButtonView: View {
     // the song passed in
     let topSong: Track
     // track object to update the song to queue
-    @Binding var currentTune : GlobalTrack
+    @StateObject var currentTune : GlobalTrack
     // bool that will launch nfc when pressed
     @Binding var pressedSongToLaunchNfc : Bool
     
@@ -26,11 +26,13 @@ struct TopSongButtonView: View {
   
     var body: some View {
         Button {
-            currentTune.songId = topSong.songId
-            currentTune.artistName = topSong.artistName
-            currentTune.albumArt = topSong.albumArt
-            currentTune.spotifyUrl = topSong.spotifyUrl
-            currentTune.songName = topSong.songName
+            DispatchQueue.main.async {
+                currentTune.songId = topSong.songId
+                currentTune.artistName = topSong.artistName
+                currentTune.albumArt = topSong.albumArt
+                currentTune.spotifyUrl = topSong.spotifyUrl
+                currentTune.songName = topSong.songName
+            }
             pressedSongToLaunchNfc = true
     
             FirebaseAnalytics.Analytics.logEvent("guestSelectedTopSong", parameters: ["user":"guest", "tab":"search"])

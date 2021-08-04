@@ -22,7 +22,7 @@ struct SearchBarPage: View {
     // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
     @StateObject var userAttributes : CoreUserAttributes
     // track object inherited from song search
-    @State var currentTune:GlobalTrack = GlobalTrack()
+    @StateObject var currentTune:GlobalTrack = GlobalTrack()
     
     
 // ---------------------------------- created inside view -------------------------------------------
@@ -43,7 +43,7 @@ struct SearchBarPage: View {
     var body: some View {
         ZStack {
            // song page 
-            SearchPageView(hostCoaster: hostCoaster, hasHostVar: $hasHostVar, userAttributes: userAttributes, showQueueResponse: $showQueueResponse, statusCodeQueueSong: $statusCodeQueueSong, isEditingSearchBar: $isEditingSearchBar, currentTune: $currentTune)
+            SearchPageView(hostCoaster: hostCoaster, hasHostVar: $hasHostVar, userAttributes: userAttributes, showQueueResponse: $showQueueResponse, statusCodeQueueSong: $statusCodeQueueSong, isEditingSearchBar: $isEditingSearchBar, currentTune: currentTune)
                 
 //                .padding(.horizontal, 30)
    

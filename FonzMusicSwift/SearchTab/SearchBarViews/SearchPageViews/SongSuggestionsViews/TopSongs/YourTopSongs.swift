@@ -14,7 +14,7 @@ struct YourTopSongs: View {
     // hostCoaster details passed in and will update view when changed
     @ObservedObject var hostCoaster:HostCoasterInfo
     // track object to update the song to queue
-    @Binding var currentTune : GlobalTrack
+    @StateObject var currentTune : GlobalTrack
     // bool that will launch nfc when pressed
     @Binding var pressedSongToLaunchNfc : Bool
     
@@ -24,7 +24,7 @@ struct YourTopSongs: View {
     
     @State var yourTopSongs = [
         Track(songName: "Prune, You Talk Funny", songId: "6sHCvZe1PHrOAuYlwTLNH4", artistName: " Gus Dapperton", albumArt: "https://i.scdn.co/image/ab67616d0000b273ba8dea5129b6e43b59fadad7", spotifyUrl: "https://open.spotify.com/track/6sHCvZe1PHrOAuYlwTLNH4"),
-        Track(songName: "Supalonely", songId: "0Cp8WN4V8Tu4QJQwCN5Md4", artistName: " BENEE", albumArt: "https://i.scdn.co/image/ab67616d0000b2734bd20e01d00de4b35b61f5f7", spotifyUrl: "https://open.spotify.com/track/0Cp8WN4V8Tu4QJQwCN5Md4"),
+        Track(songName: "Supalonely", songId: "3GZoWLVbmxcBys6g0DLFLf", artistName: " BENEE", albumArt: "https://i.scdn.co/image/ab67616d0000b2734bd20e01d00de4b35b61f5f7", spotifyUrl: "https://open.spotify.com/track/3GZoWLVbmxcBys6g0DLFLf"),
         Track(songName: "Post Humorous", songId: "0yb9DKhu0xA0h0qvKOHVwu", artistName: " Gus Dapperton", albumArt: "https://i.scdn.co/image/ab67616d0000b2731dc1bd83254e89b474ca496b", spotifyUrl: "https://open.spotify.com/track/0yb9DKhu0xA0h0qvKOHVwu"),
         Track(songName: "I\'m Just Snacking", songId: "6413UUgINHbZsCJeJBFlmT", artistName: " Gus Dapperton", albumArt: "https://i.scdn.co/image/ab67616d0000b27303c5191d01d37d5c795697df", spotifyUrl: "https://open.spotify.com/track/6413UUgINHbZsCJeJBFlmT"),
         Track(songName: "Palms (with Channel Tres)", songId: "0Lskej1hiep1PKXoz7KhyO", artistName: " Gus Dapperton Channel Tres", albumArt: "https://i.scdn.co/image/ab67616d0000b273fd9c5111af2d35d22fb4a512", spotifyUrl: "https://open.spotify.com/track/0Lskej1hiep1PKXoz7KhyO"),
@@ -52,7 +52,7 @@ struct YourTopSongs: View {
                 VStack {
                     HStack(spacing: 10) {
                         ForEach(0..<yourTopSongs.count / 2) {
-                            TopSongButtonView(hostCoaster: hostCoaster, topSong: yourTopSongs[$0], currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
+                            TopSongButtonView(hostCoaster: hostCoaster, topSong: yourTopSongs[$0], currentTune: currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
                                 .padding(.top, 5)
                                
                         }
@@ -62,7 +62,7 @@ struct YourTopSongs: View {
                     HStack(spacing: 10) {
                         ForEach(yourTopSongs.count / 2..<yourTopSongs.count) {
                        
-                            TopSongButtonView(hostCoaster: hostCoaster, topSong: yourTopSongs[$0], currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
+                            TopSongButtonView(hostCoaster: hostCoaster, topSong: yourTopSongs[$0], currentTune: currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
                                 .padding(.bottom, 10)
                             
                                 
