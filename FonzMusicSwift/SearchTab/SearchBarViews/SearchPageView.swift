@@ -28,13 +28,15 @@ struct SearchPageView: View {
     
 // ---------------------------------- created inside view -------------------------------------------
     // object that stores the songs from the api
-    @ObservedObject var tracksFromSearch: TracksFromSearch = TracksFromSearch()
+    @ObservedObject var tracksFromSearch: TracksFromSearch
     // object that stores the songs from the api
-    @ObservedObject var tracksFromPlaylist: TracksFromPlaylist = TracksFromPlaylist()
+    @ObservedObject var tracksFromPlaylist:  TracksFromPlaylist
     // object that stores the songs from the api
-    @ObservedObject var tracksFromArtist: TracksFromArtist = TracksFromArtist()
+    @ObservedObject var tracksFromArtist: TracksFromArtist
     // object that stores the songs from the api
-    @ObservedObject var trackFromNowPlaying: TrackFromNowPlaying = TrackFromNowPlaying()
+    @ObservedObject var trackFromNowPlaying: TrackFromNowPlaying
+    // object that stores the songs from the api
+    @ObservedObject var tracksFromTopSongs: TracksFromTopSongs
     
     @State var scale: CGFloat = 1
     @Environment(\.colorScheme) var colorScheme
@@ -92,7 +94,7 @@ struct SearchPageView: View {
                     // now playing + song suggestions
                     VStack{
                         ActiveSongView(hostName: hostCoaster.hostName, currentSessionId: hostCoaster.sessionId, trackfromNowPlaying: trackFromNowPlaying)
-                        SongSuggestionsView(hostCoaster: hostCoaster, currentTune: currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc, tracksFromPlaylist: tracksFromPlaylist, tracksFromArtist: tracksFromArtist, userAttributes: userAttributes)
+                        SongSuggestionsView(hostCoaster: hostCoaster, currentTune: currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc, tracksFromPlaylist: tracksFromPlaylist, tracksFromArtist: tracksFromArtist, tracksFromTopSongs: tracksFromTopSongs, userAttributes: userAttributes)
 //                        #if !APPCLIP
 //                        Spacer()
 //                            .frame(height: 50)

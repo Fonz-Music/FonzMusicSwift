@@ -15,6 +15,8 @@ struct YourTopSongs: View {
     @ObservedObject var hostCoaster:HostCoasterInfo
     // track object to update the song to queue
     @StateObject var currentTune : GlobalTrack
+    // object that stores the songs from the api
+    @ObservedObject var tracksFromTopSongs: TracksFromTopSongs
     // bool that will launch nfc when pressed
     @Binding var pressedSongToLaunchNfc : Bool
     
@@ -22,7 +24,7 @@ struct YourTopSongs: View {
     
     @Environment(\.colorScheme) var colorScheme
     
-    @ObservedObject var yourTopSongs = TracksFromTopSongs()
+//    @ObservedObject var yourTopSongs = TracksFromTopSongs()
 //
 //    @State var yourTopSongs = [
 //        Track(songName: "Prune, You Talk Funny", songId: "6sHCvZe1PHrOAuYlwTLNH4", artistName: " Gus Dapperton", albumArt: "https://i.scdn.co/image/ab67616d0000b273ba8dea5129b6e43b59fadad7", spotifyUrl: "https://open.spotify.com/track/6sHCvZe1PHrOAuYlwTLNH4"),
@@ -53,8 +55,8 @@ struct YourTopSongs: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 VStack {
                     HStack(spacing: 10) {
-                        ForEach(0..<yourTopSongs.products.count / 2) {
-                            TopSongButtonView(hostCoaster: hostCoaster, topSong: yourTopSongs.products[$0], currentTune: currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
+                        ForEach(0..<tracksFromTopSongs.products.count / 2) {
+                            TopSongButtonView(hostCoaster: hostCoaster, topSong: tracksFromTopSongs.products[$0], currentTune: currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
                                 .padding(.top, 5)
                                
                         }
@@ -62,9 +64,9 @@ struct YourTopSongs: View {
                     .padding(.bottom, 5)
                     
                     HStack(spacing: 10) {
-                        ForEach(yourTopSongs.products.count / 2..<yourTopSongs.products.count) {
+                        ForEach(tracksFromTopSongs.products.count / 2..<tracksFromTopSongs.products.count) {
                        
-                            TopSongButtonView(hostCoaster: hostCoaster, topSong: yourTopSongs.products[$0], currentTune: currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
+                            TopSongButtonView(hostCoaster: hostCoaster, topSong: tracksFromTopSongs.products[$0], currentTune: currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
                                 .padding(.bottom, 10)
                             
                                 

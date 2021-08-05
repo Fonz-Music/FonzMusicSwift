@@ -26,7 +26,7 @@ struct TopArtistView: View {
     var body: some View {
         Button {
             launchArtistSongsModal = true
-            tracksFromArtist.artist = artistIn.artistName
+            tracksFromArtist.artistId = artistIn.artistId
             FirebaseAnalytics.Analytics.logEvent("guestSelectedArtist", parameters: ["user":"guest", "tab":"search"])
         } label: {
             VStack {

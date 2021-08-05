@@ -20,6 +20,8 @@ struct SongSuggestionsView: View {
     @ObservedObject var tracksFromPlaylist: TracksFromPlaylist
     // object that stores the songs from the api
     @ObservedObject var tracksFromArtist: TracksFromArtist
+    // object that stores the songs from the api
+    @ObservedObject var tracksFromTopSongs: TracksFromTopSongs
     // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
     @StateObject var userAttributes : CoreUserAttributes
     
@@ -44,7 +46,7 @@ struct SongSuggestionsView: View {
                 if !userAttributes.getHasAccount() || !userAttributes.getConnectedToSpotify() {
                     ConnectSpotifySearch(throwCreateAccountModal: $throwCreateAccountModal, userAttributes: userAttributes)
                 }
-                YourTopSongs(hostCoaster: hostCoaster, currentTune: currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
+                YourTopSongs(hostCoaster: hostCoaster, currentTune: currentTune, tracksFromTopSongs: tracksFromTopSongs, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
                 YourTopArtists(hostCoaster: hostCoaster,  tracksFromArtist: tracksFromArtist)
                 YourTopPlaylists(hostCoaster: hostCoaster,  tracksFromPlaylist: tracksFromPlaylist)
                 Spacer()
