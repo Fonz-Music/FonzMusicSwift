@@ -190,7 +190,7 @@ struct SignUpView: View {
                 Button {
                     
 //                    let registerUserResp : BasicResponse = SignInSignUpApi().registerUser(email: email, password: password)
-                    let registerUserResp : BasicResponse = SignInSignUpApi().updateUserAccount(email: email, password: password, displayName: displayName, agreedConsent: acceptedPrivacy, agreedMarketing: acceptedEmail)
+                    let registerUserResp : BasicResponse = UserApi().updateUserAccount(email: email, password: password, displayName: displayName, agreedConsent: acceptedPrivacy, agreedMarketing: acceptedEmail)
                     DispatchQueue.main.async {
                         if registerUserResp.status == 200 {
                             print("success")

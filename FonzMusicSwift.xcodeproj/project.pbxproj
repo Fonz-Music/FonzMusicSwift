@@ -99,6 +99,8 @@
 		263545BB26A6FFC400B415C9 /* LinkSpotifySettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263545BA26A6FFC400B415C9 /* LinkSpotifySettingsButton.swift */; };
 		263545BE26A7076300B415C9 /* ShopWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263545BD26A7076300B415C9 /* ShopWebView.swift */; };
 		263545BF26A7086D00B415C9 /* ShopWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263545BD26A7076300B415C9 /* ShopWebView.swift */; };
+		265464B826BC06C6000FB833 /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265464B726BC06C6000FB833 /* UserApi.swift */; };
+		265464B926BC06C6000FB833 /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265464B726BC06C6000FB833 /* UserApi.swift */; };
 		265634BA267814DB00FD6F27 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265634B9267814DB00FD6F27 /* StringExtensions.swift */; };
 		265634BD267815B900FD6F27 /* Crypto in Frameworks */ = {isa = PBXBuildFile; productRef = 265634BC267815B900FD6F27 /* Crypto */; };
 		265634BF2678163000FD6F27 /* DataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265634BE2678163000FD6F27 /* DataExtension.swift */; };
@@ -165,7 +167,7 @@
 		268E8F4626A49E8A006451AE /* SignInWithGoogleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F5350626975E200055C188 /* SignInWithGoogleButton.swift */; };
 		268E8F4726A49E8A006451AE /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F534FF2697500D0055C188 /* SignUpView.swift */; };
 		268E8F4826A49E8A006451AE /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F5350126975C870055C188 /* SignInView.swift */; };
-		268E8F4926A49E94006451AE /* SignInSignUpApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F5350E2697AF300055C188 /* SignInSignUpApi.swift */; };
+		268E8F4926A49E94006451AE /* AuthApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F5350E2697AF300055C188 /* AuthApi.swift */; };
 		268E8F4A26A49EC5006451AE /* HostCoasterApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B6515F26389D7B0074F279 /* HostCoasterApi.swift */; };
 		268E8F4B26A49EE1006451AE /* ConsentedToEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F5350926975E770055C188 /* ConsentedToEmail.swift */; };
 		268E8F4C26A49EE1006451AE /* ConsentedToPrivacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F5350B26975EDD0055C188 /* ConsentedToPrivacy.swift */; };
@@ -259,7 +261,7 @@
 		26F5350726975E200055C188 /* SignInWithGoogleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F5350626975E200055C188 /* SignInWithGoogleButton.swift */; };
 		26F5350A26975E770055C188 /* ConsentedToEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F5350926975E770055C188 /* ConsentedToEmail.swift */; };
 		26F5350C26975EDD0055C188 /* ConsentedToPrivacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F5350B26975EDD0055C188 /* ConsentedToPrivacy.swift */; };
-		26F5350F2697AF300055C188 /* SignInSignUpApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F5350E2697AF300055C188 /* SignInSignUpApi.swift */; };
+		26F5350F2697AF300055C188 /* AuthApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F5350E2697AF300055C188 /* AuthApi.swift */; };
 		26F535112697B68A0055C188 /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26F535102697B68A0055C188 /* AuthenticationServices.framework */; };
 		26F5351326988BA10055C188 /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F5351226988BA10055C188 /* CreateAccountView.swift */; };
 		26F53516269891F60055C188 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 26F53515269891F60055C188 /* KeychainAccess */; };
@@ -322,6 +324,7 @@
 		2620B8A926795A8B004FE721 /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
 		263545BA26A6FFC400B415C9 /* LinkSpotifySettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkSpotifySettingsButton.swift; sourceTree = "<group>"; };
 		263545BD26A7076300B415C9 /* ShopWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopWebView.swift; sourceTree = "<group>"; };
+		265464B726BC06C6000FB833 /* UserApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApi.swift; sourceTree = "<group>"; };
 		265634B9267814DB00FD6F27 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		265634BE2678163000FD6F27 /* DataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtension.swift; sourceTree = "<group>"; };
 		265634C02678341E00FD6F27 /* SettingsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPage.swift; sourceTree = "<group>"; };
@@ -389,7 +392,7 @@
 		26AC89BB2665745300E1C41E /* MuseoSans-700.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MuseoSans-700.otf"; sourceTree = "<group>"; };
 		26AC89C02665781B00E1C41E /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
 		26AC89C52666C99600E1C41E /* FonzMusic-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FonzMusic-Bridging-Header.h"; sourceTree = "<group>"; };
-		26AC89CB2669600500E1C41E /* AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
+		26AC89CB2669600500E1C41E /* AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; usesTabs = 0; };
 		26AF07BF268CEE00006A9504 /* LaunchTroubleShootCoasterNfc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchTroubleShootCoasterNfc.swift; sourceTree = "<group>"; };
 		26AF07C1268CEF76006A9504 /* SuccessfulTroubleShoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessfulTroubleShoot.swift; sourceTree = "<group>"; };
 		26AF07C5268D2435006A9504 /* MustUpdateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MustUpdateApp.swift; sourceTree = "<group>"; };
@@ -448,7 +451,7 @@
 		26F5350626975E200055C188 /* SignInWithGoogleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithGoogleButton.swift; sourceTree = "<group>"; };
 		26F5350926975E770055C188 /* ConsentedToEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsentedToEmail.swift; sourceTree = "<group>"; };
 		26F5350B26975EDD0055C188 /* ConsentedToPrivacy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsentedToPrivacy.swift; sourceTree = "<group>"; };
-		26F5350E2697AF300055C188 /* SignInSignUpApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInSignUpApi.swift; sourceTree = "<group>"; };
+		26F5350E2697AF300055C188 /* AuthApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthApi.swift; sourceTree = "<group>"; };
 		26F535102697B68A0055C188 /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
 		26F5351226988BA10055C188 /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
 		26FBCCD626866BED00399460 /* DisconnectCoasterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisconnectCoasterButton.swift; sourceTree = "<group>"; };
@@ -885,7 +888,7 @@
 			isa = PBXGroup;
 			children = (
 				2676B12526A5C31700E18E4B /* ApiResponseObjects */,
-				26F5350D2697AF150055C188 /* AuthMethods */,
+				26F5350D2697AF150055C188 /* AuthEndpoints */,
 				268B5B2D26AE000700A93B9E /* GuestMethods */,
 				269D01502671828500A1DFEE /* GlobalMethods */,
 				26B6515E26389D6B0074F279 /* HostMethods */,
@@ -1014,12 +1017,13 @@
 			path = SignInSignUpComponents;
 			sourceTree = "<group>";
 		};
-		26F5350D2697AF150055C188 /* AuthMethods */ = {
+		26F5350D2697AF150055C188 /* AuthEndpoints */ = {
 			isa = PBXGroup;
 			children = (
-				26F5350E2697AF300055C188 /* SignInSignUpApi.swift */,
+				26F5350E2697AF300055C188 /* AuthApi.swift */,
+				265464B726BC06C6000FB833 /* UserApi.swift */,
 			);
-			path = AuthMethods;
+			path = AuthEndpoints;
 			sourceTree = "<group>";
 		};
 		26FBCCE026866FDE00399460 /* CoasterDashboardButtons */ = {
@@ -1338,12 +1342,13 @@
 				269EE56826B5A402006D2A00 /* TopArtistView.swift in Sources */,
 				26916FF0268E476500B7281B /* QueueSongSuccess.swift in Sources */,
 				26AC89CC2669600500E1C41E /* AsyncImage.swift in Sources */,
-				26F5350F2697AF300055C188 /* SignInSignUpApi.swift in Sources */,
+				26F5350F2697AF300055C188 /* AuthApi.swift in Sources */,
 				26AF07C2268CEF76006A9504 /* SuccessfulTroubleShoot.swift in Sources */,
 				26FBCCF62686A5A100399460 /* SignOutButton.swift in Sources */,
 				26FBCCDD26866E6500399460 /* RenameCoasterButton.swift in Sources */,
 				2620B8AA26795A8C004FE721 /* ButtonStyles.swift in Sources */,
 				268FA5F9268E92DB00E45AA6 /* ThisIsYourCoaster.swift in Sources */,
+				265464B826BC06C6000FB833 /* UserApi.swift in Sources */,
 				261752A526A3436E0069C83D /* Fonz_Music_App_ClipApp.swift in Sources */,
 				268B97AC26855C0B00984DC4 /* NameYourCoasterView.swift in Sources */,
 				268B5B3026AE01ED00A93B9E /* ErrorResponse.swift in Sources */,
@@ -1422,10 +1427,11 @@
 				263545BF26A7086D00B415C9 /* ShopWebView.swift in Sources */,
 				2676B12F26A5DFBC00E18E4B /* HostFonzSessionApi.swift in Sources */,
 				2676B12426A5C1C000E18E4B /* SpotifySignInApi.swift in Sources */,
+				265464B926BC06C6000FB833 /* UserApi.swift in Sources */,
 				268E8F4B26A49EE1006451AE /* ConsentedToEmail.swift in Sources */,
 				268E8F4C26A49EE1006451AE /* ConsentedToPrivacy.swift in Sources */,
 				268E8F4A26A49EC5006451AE /* HostCoasterApi.swift in Sources */,
-				268E8F4926A49E94006451AE /* SignInSignUpApi.swift in Sources */,
+				268E8F4926A49E94006451AE /* AuthApi.swift in Sources */,
 				268E8F4526A49E8A006451AE /* SignInWithAppleButton.swift in Sources */,
 				261EC1E326B0BC5E00202D24 /* CoastersFromApi.swift in Sources */,
 				268E8F4626A49E8A006451AE /* SignInWithGoogleButton.swift in Sources */,

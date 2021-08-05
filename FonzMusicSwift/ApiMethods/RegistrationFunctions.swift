@@ -36,11 +36,11 @@ func getJWTAndCheckIfExpired() -> String {
         if refreshToken != nil && refreshToken != "" && accessToken != nil && accessToken != "" {
             let userId = getUserIdFromAccessToken(accessToken: accessToken!)
             // gets new token by passing email + password into api
-            accessToken = SignInSignUpApi().refreshAccessToken(userId: userId, refreshToken: refreshToken!).message
+            accessToken = AuthApi().refreshAccessToken(userId: userId, refreshToken: refreshToken!).message
         }
         // otherwise create a new anon account
         else {
-            accessToken = SignInSignUpApi().createAnonAccount().message
+            accessToken = AuthApi().createAnonAccount().message
         }
     }
     print("token is \(accessToken)")

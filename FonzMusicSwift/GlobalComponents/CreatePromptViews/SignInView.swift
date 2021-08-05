@@ -121,12 +121,14 @@ struct SignInView: View {
                 }
                 // sign in button
                 Button {
-                    let registerUserResp : BasicResponse = SignInSignUpApi().loginUser(email: email, password: password)
+                    let registerUserResp : BasicResponse = AuthApi().loginUser(email: email, password: password)
                     DispatchQueue.main.async {
                         if registerUserResp.status == 200 {
                             print("success")
                             withAnimation {
+                                // sets hasAccount to true
                                 userAttributes.setHasAccount(bool: true)
+                                // sets all other preferences 
                                 userAttributes.determineAllUserPrefrencesAfterSignIn()
                             }
                             self.showModal.toggle()
