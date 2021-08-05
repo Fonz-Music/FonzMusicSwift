@@ -33,7 +33,7 @@ class SessionApi {
     
 
     // api call to create a Fonz session (first time creating an account)
-    func getAllSessions() -> BasicResponse {
+    func getAllSessionsAndCreateIfNone() -> BasicResponse {
         
         // this allows us to wait before returning value
         let sem = DispatchSemaphore.init(value: 0)
@@ -93,6 +93,69 @@ class SessionApi {
         sem.wait()
         returnObject = BasicResponse(message: returnMessage, status: returnCode)
         return returnObject
+    }
+    
+    // api call to create a Fonz session (first time creating an account)
+    func getAllSessions() -> [SessionResponse] {
+        
+        // this allows us to wait before returning value
+        let sem = DispatchSemaphore.init(value: 0)
+        
+        // init value for return
+        var sessionsObject: [SessionResponse] = [SessionResponse(sessionId: "", userId: "", active: false, provider: "")]
+//        var returnMessage = ""
+//        var returnCode = 0
+        
+        // init value for token
+        var accessToken = ""
+        // get access token
+        accessToken = getJWTAndCheckIfExpired()
+        // create url
+        guard let url = URL(string: self.ADDRESS + self.HOST + self.SESSION ) else { return sessionsObject}
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
+        // this is the request
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            // code to defer until this is completed
+            defer { sem.signal() }
+            
+            if let dataResp = data {
+                        let jsonData = try? JSONSerialization.jsonObject(with: data!, options: [])
+                print(jsonData as Any)
+                
+                let returnCode = response?.getStatusCode() ?? 0
+                print("returncode is \(returnCode)")
+                if let decodedResponse = try? JSONDecoder().decode([SessionResponse].self, from: dataResp) {
+                    print("success getting sessions")
+                    if decodedResponse.count == 0 {
+                        print("creating new session")
+//                        self.createSession()
+                    }
+                    else {
+                        print("has sessions")
+                        UserDefaults.standard.set(decodedResponse[0].sessionId, forKey: "userAccountSessionId")
+                    }
+                    sessionsObject = decodedResponse
+                    sem.resume()
+                }
+                else {
+                    let decodedResponse = try? JSONDecoder().decode(ErrorResponse.self, from: dataResp)
+                        
+//                    returnMessage = decodedResponse!.message
+                    sem.resume()
+                }
+                
+            } else {
+                print("fetch failed: \(error?.localizedDescription ?? "unknown error")")
+            }
+            sem.resume()
+        }.resume()
+        // tells function to wait before returning
+        sem.wait()
+//        returnObject = BasicResponse(message: returnMessage, status: returnCode)
+        return sessionsObject
     }
     
     // api call to create a Fonz session (first time creating an account)

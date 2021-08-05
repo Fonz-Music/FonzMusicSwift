@@ -23,6 +23,8 @@ class CoreUserAttributes: ObservableObject {
     @Published private var userDisplayName = UserDefaults.standard.string(forKey: "userDisplayName")
     // determines if current user is connected to Spotify
     @Published private var userEmail = UserDefaults.standard.string(forKey: "userEmail")
+    // determines if current user is connected to Spotify
+    @Published private var userSessionId = UserDefaults.standard.string(forKey: "userSessionId")
     
     func determineAllUserPrefrencesAfterSignIn() {
         determineIfUserConnectedToSpotify()
@@ -37,6 +39,8 @@ class CoreUserAttributes: ObservableObject {
         userDisplayName = UserDefaults.standard.string(forKey: "userDisplayName")
         // set user email
         userEmail = UserDefaults.standard.string(forKey: "userEmail")
+        // set user sessionId
+//        userEmail = UserDefaults.standard.string(forKey: "userEmail")
     }
     func deleteAllUserPrefrencesAfterSignOut() {
         setHasAccount(bool: false)
@@ -46,6 +50,7 @@ class CoreUserAttributes: ObservableObject {
         setUserEmail(email: "")
         setUserDisplayName(name: "")
         setUserId(newUserId: "")
+        setUserSessionId(newSessionId: "")
     }
     
 // ------------------------------ has account -----------------------------------
@@ -142,6 +147,25 @@ class CoreUserAttributes: ObservableObject {
     }
     func getUserEmail() -> String {
         return userEmail ?? ""
+    }
+// ----------------------- user sessionId ---------------------------------------
+    func setUserSessionId(newSessionId : String) {
+        userSessionId = newSessionId
+        UserDefaults.standard.set(newSessionId, forKey: "userSessionId")
+    }
+    func getUserSessionId() -> String {
+        return userSessionId ?? ""
+    }
+    func determineIfUserHasASession() {
+        let sessions = SessionApi().getAllSessions()
+        print("sessions are \(sessions)")
+        // checks how many providers & updates accordingly
+        if (sessions.count > 0 && sessions[0].sessionId != ""){
+            setUserSessionId(newSessionId: sessions[0].sessionId)
+        }
+        else {
+            setUserSessionId(newSessionId: "")
+        }
     }
      
 }

@@ -29,7 +29,7 @@ struct ConnectSpotifyButtonHomeView: View {
                 if userAttributes.getHasAccount() {
                     FirebaseAnalytics.Analytics.logEvent("userTappedConnectSpotify", parameters: ["user":"user", "tab":"host"])
                     // open browser
-                    SpotifyInBrowser().launchSpotifyInBrowser()
+                    SpotifySignInFunctions().launchSpotifyInBrowser()
                     // only for testing
 //                    withAnimation {
 //                        connectedToSpotify = true

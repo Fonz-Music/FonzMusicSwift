@@ -66,7 +66,7 @@
 		2617530126A3448B0069C83D /* FonzFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269252D2268E1F18001AC98B /* FonzFonts.swift */; };
 		2617530226A3448B0069C83D /* SpotifyWebViewWk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2609AD55263DBDBE00337A02 /* SpotifyWebViewWk.swift */; };
 		2617530326A3448B0069C83D /* SpotifyViewRep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2609AD58263DC2F900337A02 /* SpotifyViewRep.swift */; };
-		2617530426A3448B0069C83D /* SpotifyInBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268B97A52683843A00984DC4 /* SpotifyInBrowser.swift */; };
+		2617530426A3448B0069C83D /* SpotifySignInFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268B97A52683843A00984DC4 /* SpotifySignInFunctions.swift */; };
 		2617530526A3448B0069C83D /* ErrorOnTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9AA42634990D0030643D /* ErrorOnTap.swift */; };
 		2617530626A3448B0069C83D /* ErrorDeviceNotNfc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9AAA263499410030643D /* ErrorDeviceNotNfc.swift */; };
 		2617530726A3448B0069C83D /* ErrorNotFonzCoaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9AB0263499710030643D /* ErrorNotFonzCoaster.swift */; };
@@ -138,7 +138,7 @@
 		268B5B3126AE020300A93B9E /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268B5B2F26AE01ED00A93B9E /* ErrorResponse.swift */; };
 		268B5B3326AE030000A93B9E /* BasicResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268B5B3226AE030000A93B9E /* BasicResponse.swift */; };
 		268B5B3426AE030000A93B9E /* BasicResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268B5B3226AE030000A93B9E /* BasicResponse.swift */; };
-		268B97A62683843A00984DC4 /* SpotifyInBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268B97A52683843A00984DC4 /* SpotifyInBrowser.swift */; };
+		268B97A62683843A00984DC4 /* SpotifySignInFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268B97A52683843A00984DC4 /* SpotifySignInFunctions.swift */; };
 		268B97A926838AFF00984DC4 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268B97A826838AFF00984DC4 /* URL.swift */; };
 		268B97AC26855C0B00984DC4 /* NameYourCoasterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268B97AB26855C0B00984DC4 /* NameYourCoasterView.swift */; };
 		268B97AE26855C7000984DC4 /* ConnectSpotifyButtonHostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268B97AD26855C7000984DC4 /* ConnectSpotifyButtonHostView.swift */; };
@@ -348,7 +348,7 @@
 		268B5B2B26ADFF1B00A93B9E /* BasicResponseWithCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicResponseWithCode.swift; sourceTree = "<group>"; };
 		268B5B2F26AE01ED00A93B9E /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		268B5B3226AE030000A93B9E /* BasicResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicResponse.swift; sourceTree = "<group>"; };
-		268B97A52683843A00984DC4 /* SpotifyInBrowser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyInBrowser.swift; sourceTree = "<group>"; };
+		268B97A52683843A00984DC4 /* SpotifySignInFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifySignInFunctions.swift; sourceTree = "<group>"; };
 		268B97A826838AFF00984DC4 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		268B97AB26855C0B00984DC4 /* NameYourCoasterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameYourCoasterView.swift; sourceTree = "<group>"; };
 		268B97AD26855C7000984DC4 /* ConnectSpotifyButtonHostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectSpotifyButtonHostView.swift; sourceTree = "<group>"; };
@@ -911,7 +911,7 @@
 			children = (
 				2609AD55263DBDBE00337A02 /* SpotifyWebViewWk.swift */,
 				2609AD58263DC2F900337A02 /* SpotifyViewRep.swift */,
-				268B97A52683843A00984DC4 /* SpotifyInBrowser.swift */,
+				268B97A52683843A00984DC4 /* SpotifySignInFunctions.swift */,
 			);
 			path = SignInSpotify;
 			sourceTree = "<group>";
@@ -1340,7 +1340,7 @@
 				268E8F3B26A48F27006451AE /* UIImageExtension.swift in Sources */,
 				26F5350A26975E770055C188 /* ConsentedToEmail.swift in Sources */,
 				26659BC4263BA36B0008FD1F /* LaunchConnectCoasterNfc.swift in Sources */,
-				268B97A62683843A00984DC4 /* SpotifyInBrowser.swift in Sources */,
+				268B97A62683843A00984DC4 /* SpotifySignInFunctions.swift in Sources */,
 				26691F74267AC6D100C83696 /* FailCircleResponse.swift in Sources */,
 				265634BA267814DB00FD6F27 /* StringExtensions.swift in Sources */,
 				26F1CC6826BA887000CD450A /* SpotifySuggestionsApi.swift in Sources */,
@@ -1495,7 +1495,7 @@
 				2617530126A3448B0069C83D /* FonzFonts.swift in Sources */,
 				2617530226A3448B0069C83D /* SpotifyWebViewWk.swift in Sources */,
 				2617530326A3448B0069C83D /* SpotifyViewRep.swift in Sources */,
-				2617530426A3448B0069C83D /* SpotifyInBrowser.swift in Sources */,
+				2617530426A3448B0069C83D /* SpotifySignInFunctions.swift in Sources */,
 				2617530526A3448B0069C83D /* ErrorOnTap.swift in Sources */,
 				269EE56C26B5A448006D2A00 /* ProgressBar.swift in Sources */,
 				268B5B3426AE030000A93B9E /* BasicResponse.swift in Sources */,

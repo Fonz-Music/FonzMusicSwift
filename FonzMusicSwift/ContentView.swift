@@ -76,17 +76,26 @@ struct ContentView: View {
             if containsSpotify {
                 print("adding spotify to acc")
                 // fetching sessionId
-                let sessionId = UserDefaults.standard.string(forKey: "userAccountSessionId")
+                var sessionId = userAttributes.getUserSessionId()
+//                let sessionId = UserDefaults.standard.string(forKey: "userAccountSessionId")
                 // adding spot to the session
-                let spotifySignInResp = SessionApi().addProviderToSession(sessionId: sessionId ?? "")
+                
+                let connectSpotifyReturn = SpotifySignInFunctions().addSpotifyToCurrentSession(sessionId: sessionId)
+                
                 DispatchQueue.main.async {
-                    print("has spot status \(spotifySignInResp.status)")
+                    print("has spot status \(connectSpotifyReturn)")
                     // if successful
-                    if spotifySignInResp.status == 200 {
+                    
+                    if connectSpotifyReturn ==
+                        "SPOTIFY_CONNECT_SUCCESS" {
                         print("changing connection now")
                         withAnimation {
                             userAttributes.setConnectedToSpotify(bool: true)
+                            // prompt user to sign in here?
                         }
+                    }
+                    else {
+                        // tell user something went wrong?
                     }
                 }
             }

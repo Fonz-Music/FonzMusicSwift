@@ -32,7 +32,7 @@ struct ConnectSpotifyHomeButton: View {
                 #if !APPCLIP
                 if userAttributes.getHasAccount() {
                     FirebaseAnalytics.Analytics.logEvent("userTappedConnectSpotify", parameters: ["user":"user", "tab":"host"])
-                    SpotifyInBrowser().launchSpotifyInBrowser()
+                    SpotifySignInFunctions().launchSpotifyInBrowser()
                 }
                 else {
                     throwCreateAccountModal = true

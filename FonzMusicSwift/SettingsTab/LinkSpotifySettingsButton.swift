@@ -15,7 +15,7 @@ struct LinkSpotifySettingsButton: View {
     var body: some View {
         Button(action: {
 //            HostFonzSessionApi().getAllSessions()
-            SpotifyInBrowser().launchSpotifyInBrowser()
+            SpotifySignInFunctions().launchSpotifyInBrowser()
                 
             
             

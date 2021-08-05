@@ -29,7 +29,7 @@ struct ConnectSpotifySearch: View {
             #if !APPCLIP
             if userAttributes.getHasAccount() {
 //                HostFonzSessionApi().getAllSessions()
-                SpotifyInBrowser().launchSpotifyInBrowser()
+                SpotifySignInFunctions().launchSpotifyInBrowser()
                 
             }
             else {

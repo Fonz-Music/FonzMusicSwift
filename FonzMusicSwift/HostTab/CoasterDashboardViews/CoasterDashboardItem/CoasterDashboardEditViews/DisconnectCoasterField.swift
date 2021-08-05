@@ -52,14 +52,11 @@ struct DisconnectCoasterField: View {
                 Spacer()
                 Button {
                     let resp = HostCoastersApi().disconnectCoaster(coasterUid: coasterUid)
-//                    coasterFromSearch.reloadCoasters()
                     print("pressed button")
                     withAnimation {
                         showDisconnectModal = false
                         if coastersConnectedToHost.products.quantity == 1 {
                             // sets app to NOT have coasters if the user lacks them
-//                            UserDefaults.standard.set(false, forKey: "hasConnectedCoasters")
-//                            hasConnectedCoasters = false
                             userAttributes.setHasConnectedCoasters(bool: false)
                         }
                         coastersConnectedToHost.reloadCoasters()
