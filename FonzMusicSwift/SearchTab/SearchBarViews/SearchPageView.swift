@@ -37,6 +37,8 @@ struct SearchPageView: View {
     @ObservedObject var trackFromNowPlaying: TrackFromNowPlaying
     // object that stores the songs from the api
     @ObservedObject var tracksFromTopSongs: TracksFromTopSongs
+    // object that stores the songs from the api
+    @ObservedObject var guestTopArtists: GuestTopArtists
     
     @State var scale: CGFloat = 1
     @Environment(\.colorScheme) var colorScheme
@@ -94,7 +96,7 @@ struct SearchPageView: View {
                     // now playing + song suggestions
                     VStack{
                         ActiveSongView(hostName: hostCoaster.hostName, currentSessionId: hostCoaster.sessionId, trackfromNowPlaying: trackFromNowPlaying)
-                        SongSuggestionsView(hostCoaster: hostCoaster, currentTune: currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc, tracksFromPlaylist: tracksFromPlaylist, tracksFromArtist: tracksFromArtist, tracksFromTopSongs: tracksFromTopSongs, userAttributes: userAttributes)
+                        SongSuggestionsView(hostCoaster: hostCoaster, currentTune: currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc, tracksFromPlaylist: tracksFromPlaylist, tracksFromArtist: tracksFromArtist, tracksFromTopSongs: tracksFromTopSongs, guestTopArtists: guestTopArtists, userAttributes: userAttributes)
 //                        #if !APPCLIP
 //                        Spacer()
 //                            .frame(height: 50)

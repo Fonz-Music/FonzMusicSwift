@@ -28,3 +28,17 @@ func itemsToTracks(tracks : [Items]) -> [Track] {
     }
     return trackReturn
 }
+
+func artistResponseToArtist(artistResps : [ArtistResponse]) -> [Artist] {
+    var artists = [Artist]()
+    for artist in artistResps {
+        let artistArt = artist.images[0].url
+        let artistName = artist.name
+        let artistId = artist.id
+        
+        let newArtist = Artist(artistName: artistName, artistId: artistId, artistImage: artistArt)
+        artists.append(newArtist)
+    }
+    return artists
+    
+}

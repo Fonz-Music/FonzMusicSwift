@@ -36,6 +36,8 @@ struct SearchBarPage: View {
     @ObservedObject var trackFromNowPlaying: TrackFromNowPlaying = TrackFromNowPlaying()
     // object that stores the songs from the api
     @ObservedObject var tracksFromTopSongs: TracksFromTopSongs = TracksFromTopSongs()
+    // object that stores the songs from the api
+    @ObservedObject var guestTopArtists: GuestTopArtists = GuestTopArtists()
     
     // boolean to change when views should be showed w animation
     @State var showQueueResponse = false
@@ -52,7 +54,7 @@ struct SearchBarPage: View {
     var body: some View {
         ZStack {
            // song page 
-            SearchPageView(hostCoaster: hostCoaster, hasHostVar: $hasHostVar, userAttributes: userAttributes, showQueueResponse: $showQueueResponse, statusCodeQueueSong: $statusCodeQueueSong, isEditingSearchBar: $isEditingSearchBar, currentTune: currentTune, tracksFromSearch: tracksFromSearch, tracksFromPlaylist: tracksFromPlaylist, tracksFromArtist: tracksFromArtist, trackFromNowPlaying: trackFromNowPlaying, tracksFromTopSongs: tracksFromTopSongs)
+            SearchPageView(hostCoaster: hostCoaster, hasHostVar: $hasHostVar, userAttributes: userAttributes, showQueueResponse: $showQueueResponse, statusCodeQueueSong: $statusCodeQueueSong, isEditingSearchBar: $isEditingSearchBar, currentTune: currentTune, tracksFromSearch: tracksFromSearch, tracksFromPlaylist: tracksFromPlaylist, tracksFromArtist: tracksFromArtist, trackFromNowPlaying: trackFromNowPlaying, tracksFromTopSongs: tracksFromTopSongs, guestTopArtists: guestTopArtists)
                 
 //                .padding(.horizontal, 30)
    

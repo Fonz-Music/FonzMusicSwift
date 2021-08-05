@@ -14,6 +14,9 @@ struct Artist: Hashable {
     var artistId: String
     var artistImage: String
 }
+
+
+
 //
 //// this converts the JSON from songSearch into Object
 //struct TracksResult: Codable {

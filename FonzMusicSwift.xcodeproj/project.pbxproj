@@ -100,6 +100,8 @@
 		265464BF26BC4FAA000FB833 /* TracksFromTopSongs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265464BD26BC4FAA000FB833 /* TracksFromTopSongs.swift */; };
 		265464C126BC50DA000FB833 /* SpotifyTrackConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265464C026BC50DA000FB833 /* SpotifyTrackConverter.swift */; };
 		265464C226BC50DA000FB833 /* SpotifyTrackConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265464C026BC50DA000FB833 /* SpotifyTrackConverter.swift */; };
+		265464C426BC632E000FB833 /* GuestTopArtists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265464C326BC632E000FB833 /* GuestTopArtists.swift */; };
+		265464C526BC632E000FB833 /* GuestTopArtists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265464C326BC632E000FB833 /* GuestTopArtists.swift */; };
 		265634BA267814DB00FD6F27 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265634B9267814DB00FD6F27 /* StringExtensions.swift */; };
 		265634BD267815B900FD6F27 /* Crypto in Frameworks */ = {isa = PBXBuildFile; productRef = 265634BC267815B900FD6F27 /* Crypto */; };
 		265634BF2678163000FD6F27 /* DataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265634BE2678163000FD6F27 /* DataExtension.swift */; };
@@ -321,6 +323,7 @@
 		265464BA26BC07B7000FB833 /* ProviderApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderApi.swift; sourceTree = "<group>"; };
 		265464BD26BC4FAA000FB833 /* TracksFromTopSongs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracksFromTopSongs.swift; sourceTree = "<group>"; };
 		265464C026BC50DA000FB833 /* SpotifyTrackConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyTrackConverter.swift; sourceTree = "<group>"; };
+		265464C326BC632E000FB833 /* GuestTopArtists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestTopArtists.swift; sourceTree = "<group>"; };
 		265634B9267814DB00FD6F27 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		265634BE2678163000FD6F27 /* DataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtension.swift; sourceTree = "<group>"; };
 		265634C02678341E00FD6F27 /* SettingsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPage.swift; sourceTree = "<group>"; };
@@ -647,6 +650,7 @@
 				2687C72B268A915E0044AA37 /* TracksFromArtist.swift */,
 				2687C72E268A96350044AA37 /* TracksFromPlaylist.swift */,
 				265464BD26BC4FAA000FB833 /* TracksFromTopSongs.swift */,
+				265464C326BC632E000FB833 /* GuestTopArtists.swift */,
 			);
 			path = DataFromSpotify;
 			sourceTree = "<group>";
@@ -1315,6 +1319,7 @@
 				2677029126347ECD00B8BC92 /* FonzMusicSwiftApp.swift in Sources */,
 				26FBCCE32686701F00399460 /* RenameCoasterField.swift in Sources */,
 				268B5B2C26ADFF1B00A93B9E /* BasicResponseWithCode.swift in Sources */,
+				265464C426BC632E000FB833 /* GuestTopArtists.swift in Sources */,
 				26D9BC2626AED6B0000C8739 /* AskUserToConnectSpotify.swift in Sources */,
 				26FBCCE526867AB100399460 /* PauseCoasterField.swift in Sources */,
 				26916FF2268E502700B7281B /* QueuedButDelayedResponse.swift in Sources */,
@@ -1429,6 +1434,7 @@
 				268E8F4626A49E8A006451AE /* SignInWithGoogleButton.swift in Sources */,
 				268E8F4726A49E8A006451AE /* SignUpView.swift in Sources */,
 				268E8F4826A49E8A006451AE /* SignInView.swift in Sources */,
+				265464C526BC632E000FB833 /* GuestTopArtists.swift in Sources */,
 				268E8F4426A49E64006451AE /* CreateAccountView.swift in Sources */,
 				268E8F4326A49E58006451AE /* DetermineHomePageView.swift in Sources */,
 				268E8F4226A49E4F006451AE /* CreateAccountPrompt.swift in Sources */,

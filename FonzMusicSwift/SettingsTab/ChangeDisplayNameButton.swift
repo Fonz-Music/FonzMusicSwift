@@ -21,7 +21,7 @@ struct ChangeDisplayNameButton: View {
         VStack{
             Button(action: {
                 
-                SpotifySuggestionsApi().getGuestTopSongs(sessionId: userAttributes.getUserSessionId())
+                SpotifySuggestionsApi().getGuestTopArtists(sessionId: userAttributes.getUserSessionId())
 //                withAnimation{
 //                    isExpanded.toggle()
 //                }

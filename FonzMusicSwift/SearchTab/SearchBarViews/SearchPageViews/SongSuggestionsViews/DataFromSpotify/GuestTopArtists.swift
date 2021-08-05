@@ -1,5 +1,5 @@
 //
-//  TracksFromTopSongs.swift
+//  GuestTopArtists.swift
 //  FonzMusicSwift
 //
 //  Created by didi on 8/5/21.
@@ -9,14 +9,14 @@ import Foundation
 import Combine
 import Network
 
-class TracksFromTopSongs: ObservableObject {
+class GuestTopArtists: ObservableObject {
 
     var subscription: Set<AnyCancellable> = []
     var userSessionId : String = UserDefaults.standard.string(forKey: "userSessionId")!
     var hostSessionId : String = UserDefaults.standard.string(forKey: "hostSessionId")!
 //    var sessionId : String = ""
 
-    @Published private (set) var products: [Track] = []
+    @Published private (set) var products: [Artist] = []
     
     let connectedToSpotify = UserDefaults.standard.bool(forKey: "connectedToSpotify")
 
@@ -28,10 +28,10 @@ class TracksFromTopSongs: ObservableObject {
     init() {
         print("starting this")
         if connectedToSpotify {
-            products = SpotifySuggestionsApi().getGuestTopSongs(sessionId: userSessionId)
+            products = SpotifySuggestionsApi().getGuestTopArtists(sessionId: userSessionId)
         }
         else {
-            products = SpotifySuggestionsApi().getNewSongReleases(sessionId: hostSessionId)
+//            products = SpotifySuggestionsApi().getNewSongReleases(sessionId: hostSessionId)
         }
     }
 

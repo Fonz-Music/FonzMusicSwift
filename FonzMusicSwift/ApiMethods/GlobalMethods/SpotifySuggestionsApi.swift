@@ -8,6 +8,14 @@
 import Foundation
 import SwiftUI
 
+// artist return Object
+struct ArtistResponse: Codable {
+    var name: String
+    var id: String
+    var images: Array<ImageArray>
+}
+
+
 class SpotifySuggestionsApi {
     
 //    let ADDRESS = "https://api.fonzmusic.com/"
@@ -128,14 +136,14 @@ class SpotifySuggestionsApi {
     return tracks
     }
     
-    func getGuestTopArtists(userId: String) {
+    func getGuestTopArtists(sessionId: String) -> [Artist] {
         // this allows us to wait before returning value
         let sem = DispatchSemaphore.init(value: 0)
-        
+        var artists = [Artist]()
         // get access token
         let accessToken = getJWTAndCheckIfExpired()
         // create url
-        guard let url = URL(string: self.ADDRESS + self.GUEST + userId + "/" + self.SPOTIFY + self.SEARCH + "top?type=artists" ) else { return }
+        guard let url = URL(string: self.ADDRESS + self.GUEST + sessionId + "/" + self.SPOTIFY + self.SEARCH + "top?type=artists" ) else { return artists }
         // creates req w url
         var request = URLRequest(url: url)
         // sets method as PUT
@@ -159,10 +167,11 @@ class SpotifySuggestionsApi {
                 print("code is \(response?.getStatusCode() ?? 0)")
                 
                 
-                if let decodedResponse = try? JSONDecoder().decode([TracksResult].self, from: dataResp) {
+                if let decodedResponse = try? JSONDecoder().decode([ArtistResponse].self, from: dataResp) {
                     // sets return value
                     print("success")
                     print("decoded resp is \(decodedResponse)")
+                    artists = artistResponseToArtist(artistResps: decodedResponse)
 //                    providerObject = decodedResponse
                    
                 }
@@ -179,17 +188,17 @@ class SpotifySuggestionsApi {
     // tells function to wait before returning
     sem.wait()
 
-    //return providerObject
+    return artists
     }
     
-    func getGuestTopPlaylists(userId: String) {
+    func getGuestTopPlaylists(sessionId: String) {
         // this allows us to wait before returning value
         let sem = DispatchSemaphore.init(value: 0)
         
         // get access token
         let accessToken = getJWTAndCheckIfExpired()
         // create url
-        guard let url = URL(string: self.ADDRESS + self.GUEST + userId + "/" + self.SPOTIFY + self.SEARCH + "top?type=playlists" ) else { return }
+        guard let url = URL(string: self.ADDRESS + self.GUEST + sessionId + "/" + self.SPOTIFY + self.SEARCH + "top?type=playlists" ) else { return }
         // creates req w url
         var request = URLRequest(url: url)
         // sets method as PUT
