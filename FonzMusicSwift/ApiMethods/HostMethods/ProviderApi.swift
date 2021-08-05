@@ -62,6 +62,7 @@ class ProviderApi {
                     print("decoded resp is \(decodedResponse)")
                     providerObject = decodedResponse
                     UserDefaults.standard.set(decodedResponse[0].displayName, forKey: "spotifyDisplayName")
+                    
                 }
 //                else {
 //                    let decodedResponse = try? JSONDecoder().decode(ErrorResponse.self, from: dataResp)

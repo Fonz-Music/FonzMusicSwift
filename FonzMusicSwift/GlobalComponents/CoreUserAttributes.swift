@@ -27,6 +27,8 @@ class CoreUserAttributes: ObservableObject {
     @Published private var userEmail = UserDefaults.standard.string(forKey: "userEmail")
     // determines if current user is connected to Spotify
     @Published private var userSessionId = UserDefaults.standard.string(forKey: "userSessionId")
+    // determines if current user is connected to Spotify
+    @Published private var spotifyDisplayName = UserDefaults.standard.string(forKey: "spotifyDisplayName")
     
     // gets all preferences
     func determineAllUserPrefrencesAfterSignIn() {
@@ -43,7 +45,7 @@ class CoreUserAttributes: ObservableObject {
         // set user email
         userEmail = UserDefaults.standard.string(forKey: "userEmail")
         // set user sessionId
-//        userEmail = UserDefaults.standard.string(forKey: "userEmail")
+        determineIfUserHasASessionAndSetSessionId()
     }
     
     // gets all preferences
@@ -52,7 +54,7 @@ class CoreUserAttributes: ObservableObject {
         if (getConnectedToSpotify()) {
             determineIfUserHasConnectedCoasters()
         }
-        // GET user 
+        // GET user
         // set agreedToEmail
         agreedToEmail = UserDefaults.standard.bool(forKey: "agreedToEmail")
         // set userId
@@ -62,7 +64,7 @@ class CoreUserAttributes: ObservableObject {
         // set user email
         userEmail = UserDefaults.standard.string(forKey: "userEmail")
         // set user sessionId
-//        userEmail = UserDefaults.standard.string(forKey: "userEmail")
+        determineIfUserHasASessionAndSetSessionId()
     }
     
     func deleteAllUserPrefrencesAfterSignOut() {
@@ -121,6 +123,7 @@ class CoreUserAttributes: ObservableObject {
         return connectedToSpotify
     }
     
+    // will also set spotifyDisplayName
     func determineIfUserConnectedToSpotify() {
         let musicProviders = ProviderApi().getMusicProviders()
         print("music provs \(musicProviders)")
@@ -181,7 +184,7 @@ class CoreUserAttributes: ObservableObject {
     func getUserSessionId() -> String {
         return userSessionId ?? ""
     }
-    func determineIfUserHasASession() {
+    func determineIfUserHasASessionAndSetSessionId() {
         let sessions = SessionApi().getAllSessions()
         print("sessions are \(sessions)")
         // checks how many providers & updates accordingly
@@ -191,6 +194,14 @@ class CoreUserAttributes: ObservableObject {
         else {
             setUserSessionId(newSessionId: "")
         }
+    }
+// --------------------------- spotifyId ----------------------------------------
+    func setSpotifyDisplayName(newId : String) {
+        spotifyDisplayName = newId
+        UserDefaults.standard.set(newId, forKey: "spotifyDisplayName")
+    }
+    func getSpotifyDisplayName() -> String {
+        return spotifyDisplayName ?? "spotify account"
     }
      
 }
