@@ -38,12 +38,6 @@ struct ActiveSongView: View {
                 FirebaseAnalytics.Analytics.logEvent("guestReloadedActiveSong", parameters: ["user":"guest"])
             } label: {
                 ActiveSongUserInterface(trackfromNowPlaying: trackfromNowPlaying,  hostName: hostName)
-                .onAppear{
-                    print(trackfromNowPlaying.currentSong[0].albumArt)
-                    print(trackfromNowPlaying.currentSong[0].trackName)
-                    print(trackfromNowPlaying.currentSong[0].artistName)
-                   
-                }
             }
             .padding(.horizontal, .subHeadingFrontIndent)
             .frame(width: UIScreen.screenWidth, height: 140, alignment: .center)

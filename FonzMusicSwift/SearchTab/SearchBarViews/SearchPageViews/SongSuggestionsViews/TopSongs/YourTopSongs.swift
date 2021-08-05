@@ -59,9 +59,10 @@ struct YourTopSongs: View {
                             TopSongButtonView(hostCoaster: hostCoaster, topSong: tracksFromTopSongs.products[$0], currentTune: currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
                                 .padding(.top, 5)
                                
-                        }
+                        }.padding(.trailing, 5)
                     }
                     .padding(.bottom, 5)
+                    
                     
                     HStack(spacing: 10) {
                         ForEach(tracksFromTopSongs.products.count / 2..<tracksFromTopSongs.products.count) {
@@ -70,14 +71,16 @@ struct YourTopSongs: View {
                                 .padding(.bottom, 10)
                             
                                 
-                        }
+                        }.padding(.trailing, 5)
                     }
                     
+                    
                 }
-                .padding(.horizontal, 5)
+//                .padding(.horizontal, 5)
                 
             }
-            .padding(.horizontal, 10)
+            .padding(.horizontal, .subHeadingFrontIndent)
+            .frame(width: UIScreen.screenWidth, alignment: .center)
         }
         .onAppear {
            connectedToSpotify = UserDefaults.standard.bool(forKey: "connectedToSpotify")
