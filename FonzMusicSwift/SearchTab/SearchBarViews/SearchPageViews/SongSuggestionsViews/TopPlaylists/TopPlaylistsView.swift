@@ -25,7 +25,7 @@ struct TopPlaylistsView: View {
     var body: some View {
         Button {
             launchPlaylistSongsModal = true
-            tracksFromPlaylist.playlist = playlistIn.playlistName
+            tracksFromPlaylist.playlistId = playlistIn.playlistId
             FirebaseAnalytics.Analytics.logEvent("guestSelectedPlaylist", parameters: ["user":"guest", "tab":"search"])
         } label: {
             VStack {

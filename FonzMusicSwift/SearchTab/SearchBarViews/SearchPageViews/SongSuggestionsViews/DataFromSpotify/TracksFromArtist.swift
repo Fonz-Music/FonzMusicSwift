@@ -25,13 +25,7 @@ class TracksFromArtist: ObservableObject {
     @Published var artistId: String = String()
     
 
-    
-//    let ADDRESS = "https://api.fonzmusic.com/"
-//    let ADDRESS = "http://beta.api.fonzmusic.com:8080/"
-    let ADDRESS = "http://52.50.138.97:8080/"
-    
-    // MARK:- Initiliazer for product via model.
-    
+
     init() {
         print("starting this")
         $artistId
