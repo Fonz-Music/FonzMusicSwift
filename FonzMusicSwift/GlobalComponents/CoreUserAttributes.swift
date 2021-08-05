@@ -195,7 +195,7 @@ class CoreUserAttributes: ObservableObject {
             setUserSessionId(newSessionId: "")
         }
     }
-// --------------------------- spotifyId ----------------------------------------
+// ------------------------- spotify display name -------------------------------
     func setSpotifyDisplayName(newId : String) {
         spotifyDisplayName = newId
         UserDefaults.standard.set(newId, forKey: "spotifyDisplayName")

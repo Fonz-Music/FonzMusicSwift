@@ -10,7 +10,8 @@ import SwiftUI
 import FirebaseAnalytics
 
 struct ChangeDisplayNameButton: View {
-    
+    // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
+    @StateObject var userAttributes : CoreUserAttributes
     @Environment(\.colorScheme) var colorScheme
     
     @State var isExpanded = false
@@ -22,14 +23,12 @@ struct ChangeDisplayNameButton: View {
                 withAnimation{
                     isExpanded.toggle()
                 }
-    //                    pressedButtonToLaunchNfc = true
-                print("pressed button")
                 FirebaseAnalytics.Analytics.logEvent("userPressedChangeName", parameters: ["user":"user", "tab": "settings"])
             }, label: {
                 HStack {
                     HStack(spacing: 5) {
                         Image("changeNameIcon").resizable().frame(width: 27 ,height: 27, alignment: .leading)
-                        Text("change your name")
+                        Text(userAttributes.getUserDisplayName())
                             .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
                             .fonzButtonText()
                             .padding(.horizontal)
@@ -43,6 +42,11 @@ struct ChangeDisplayNameButton: View {
             .buttonStyle(BasicFonzButton(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .amber))
         }
         if isExpanded {
+            VStack{
+                Text("change your name")
+                    .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
+                    .fonzParagraphTwo()
+                    .padding(5)
             HStack{
                 TextField("name", text: $newDisplayName)
                     .foregroundColor(colorScheme == .light ? Color.darkButton : Color.white)
@@ -73,6 +77,7 @@ struct ChangeDisplayNameButton: View {
                 .padding(.vertical, 5)
             }
             .frame(width: UIScreen.screenWidth * .outerContainerFrameWidthSettings)
+        }
         }
         
     }

@@ -24,8 +24,6 @@ struct ManageSpotifyButton: View {
                 withAnimation {
                     isExpanded.toggle()
                 }
-                print("pressed button")
-                
             }, label: {
                 HStack {
                     HStack(spacing: 5) {

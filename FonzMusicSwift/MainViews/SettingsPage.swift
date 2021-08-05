@@ -48,7 +48,7 @@ struct SettingsPage: View {
                             .padding(.subHeadingFrontIndent)
                             .frame(width: UIScreen.screenWidth, height: 50, alignment: .topLeading)
                         
-                        ChangeDisplayNameButton()
+                        ChangeDisplayNameButton(userAttributes: userAttributes)
                     if userAttributes.getConnectedToSpotify() {
                             // option to disconnect
                             ManageSpotifyButton(userAttributes: userAttributes)
@@ -65,7 +65,7 @@ struct SettingsPage: View {
         //                        Text("coaster management")
         //                            .foregroundColor(Color.white)
         //                            .fonzParagraphTwo()
-        //                            .padding(25)
+        //                            .padding(.headingFrontIndent)
         //                            .frame(width: UIScreen.screenWidth, height: 50, alignment: .topLeading)
         //                        LimitSongRequestsButton()
         //                    }
