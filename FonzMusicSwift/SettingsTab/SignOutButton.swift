@@ -78,29 +78,12 @@ struct SignOutButton: View {
                 //                    pressedButtonToLaunchNfc = true
                             print("pressed button")
                             withAnimation {
+                                // puts app back to default
                                 userAttributes.deleteAllUserPrefrencesAfterSignOut()
-//                                userAttributes.setHasAccount(bool: false)
-//                                userAttributes.setConnectedToSpotify(bool: false)
-//                                userAttributes.setHasConnectedCoasters(bool: false)
                                 isExpanded = false
                             }
-                            // resets both accessToken + refreshToken
-                            let keychain = Keychain(service: "api.fonzmusic.com")
-                            do {
-                                try keychain
-                                    .label("fonzMusicApiRefreshToken")
-                                    .set("", key: "refreshToken")
-                            } catch let error {
-                                print("error: \(error)")
-                            }
-                            // stores acess token
-                            do {
-                                try keychain
-                                    .label("fonzMusicApiAcesssToken")
-                                    .set("", key: "accessToken")
-                            } catch let error {
-                                print("error: \(error)")
-                            }
+                            // deletes access + refresh 
+                            deleteAccessAndRefreshOnSignOut()
                             
                         } label: {
                             Image(systemName: "checkmark")

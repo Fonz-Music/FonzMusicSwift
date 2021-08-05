@@ -73,28 +73,40 @@ func checkIfTokenValid(accessToken : String) -> Bool {
 
 func getUserIdFromAccessToken(accessToken : String) -> String {
     var userId : String = ""
-    // fetch token from keystore
-//    // init keychain
-//    let keychainAccess = Keychain(service: "api.fonzmusic.com")
-//    // retrive accessToken
-//    let accessToken = keychainAccess["accessToken"]
-//    // check that its not empty
-//    if accessToken != nil {
-        // convert token to base 64
-        var payload64 = accessToken.components(separatedBy: ".")[1]
-            print("pay 64 \(payload64)")
-        // need to pad the string with = to make it divisible by 4,
-        // otherwise Data won't be able to decode it
-        while payload64.count % 4 != 0 {
-            payload64 += "="
-        }
-        let payloadData = Data(base64Encoded: payload64,
-                               options:.ignoreUnknownCharacters)!
-        let payload = String(data: payloadData, encoding: .utf8)!
-    // parse json to retreive exp
-        let json = try! JSONSerialization.jsonObject(with: payloadData, options: []) as! [String:Any]
-        userId = json["userId"] as! String
-//    }
+    // convert token to base 64
+    var payload64 = accessToken.components(separatedBy: ".")[1]
+        print("pay 64 \(payload64)")
+    // need to pad the string with = to make it divisible by 4,
+    // otherwise Data won't be able to decode it
+    while payload64.count % 4 != 0 {
+        payload64 += "="
+    }
+    let payloadData = Data(base64Encoded: payload64,
+                           options:.ignoreUnknownCharacters)!
+    let payload = String(data: payloadData, encoding: .utf8)!
+// parse json to retreive exp
+    let json = try! JSONSerialization.jsonObject(with: payloadData, options: []) as! [String:Any]
+    userId = json["userId"] as! String
    
     return userId
+}
+
+func deleteAccessAndRefreshOnSignOut() {
+    // resets both accessToken + refreshToken
+    let keychain = Keychain(service: "api.fonzmusic.com")
+    do {
+        try keychain
+            .label("fonzMusicApiRefreshToken")
+            .set("", key: "refreshToken")
+    } catch let error {
+        print("error: \(error)")
+    }
+    // stores acess token
+    do {
+        try keychain
+            .label("fonzMusicApiAcesssToken")
+            .set("", key: "accessToken")
+    } catch let error {
+        print("error: \(error)")
+    }
 }

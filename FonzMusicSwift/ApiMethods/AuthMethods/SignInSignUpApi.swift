@@ -369,6 +369,8 @@ class SignInSignUpApi {
 
                     UserDefaults.standard.set(decodedResponse.displayName, forKey: "userDisplayName")
                     UserDefaults.standard.set(decodedResponse.email, forKey: "userEmail")
+                    UserDefaults.standard.set(decodedResponse.userId, forKey: "userId")
+                    UserDefaults.standard.set(decodedResponse.agreedMarketing, forKey: "agreedToEmail")
                     
                     
                     

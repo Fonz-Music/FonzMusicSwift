@@ -21,10 +21,10 @@ struct BuyCoasterButton: View {
 //            let keychainAccess = Keychain(service: "api.fonzmusic.com")
 //            // retrive accessToken
 //            var accessToken = keychainAccess["accessToken"]
-//            let userId = getUserIdFromAccessToken(accessToken: accessToken!)
+//            let userId = userAtt
 //            print("userID is \(userId)")
 //            SpotifySuggestionsApi().getGuestTopSongs(userId: userId)
-            SignInSignUpApi().getUserAccount()
+//            SignInSignUpApi().getUserAccount()
 //            guard let url = URL(string: "https://www.fonzmusic.com/buy") else {
 //                return
 //            }

@@ -128,16 +128,9 @@ struct SignInView: View {
                             withAnimation {
                                 userAttributes.setHasAccount(bool: true)
                                 userAttributes.determineAllUserPrefrencesAfterSignIn()
-//                                 determineIfUserHasConnectedCoasters()
-//                                hasAccount = true
                             }
-                            
-//                            UserDefaults.standard.set(true, forKey: "hasAccount")
                             self.showModal.toggle()
                         }
-//                        else if registerUserResp.status == 401 {
-//
-//                        }
                         else {
                             errorOnPage = true
                             errorMessage = registerUserResp.message
