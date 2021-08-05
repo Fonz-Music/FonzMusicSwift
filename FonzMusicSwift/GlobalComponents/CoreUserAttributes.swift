@@ -28,10 +28,11 @@ class CoreUserAttributes: ObservableObject {
     // determines if current user is connected to Spotify
     @Published private var userSessionId = UserDefaults.standard.string(forKey: "userSessionId")
     
+    // gets all preferences
     func determineAllUserPrefrencesAfterSignIn() {
         determineIfUserConnectedToSpotify()
         if (getConnectedToSpotify()) {
-            determineIfUserConnectedToSpotify()
+            determineIfUserHasConnectedCoasters()
         }
         // set agreedToEmail
         agreedToEmail = UserDefaults.standard.bool(forKey: "agreedToEmail")
@@ -44,6 +45,26 @@ class CoreUserAttributes: ObservableObject {
         // set user sessionId
 //        userEmail = UserDefaults.standard.string(forKey: "userEmail")
     }
+    
+    // gets all preferences
+    func determineAllUserPrefrencesAfterFirstLaunch() {
+        determineIfUserConnectedToSpotify()
+        if (getConnectedToSpotify()) {
+            determineIfUserHasConnectedCoasters()
+        }
+        // GET user 
+        // set agreedToEmail
+        agreedToEmail = UserDefaults.standard.bool(forKey: "agreedToEmail")
+        // set userId
+        userId = UserDefaults.standard.string(forKey: "userId")
+        // set display name
+        userDisplayName = UserDefaults.standard.string(forKey: "userDisplayName")
+        // set user email
+        userEmail = UserDefaults.standard.string(forKey: "userEmail")
+        // set user sessionId
+//        userEmail = UserDefaults.standard.string(forKey: "userEmail")
+    }
+    
     func deleteAllUserPrefrencesAfterSignOut() {
         setHasAccount(bool: false)
         setConnectedToSpotify(bool: false)

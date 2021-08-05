@@ -93,6 +93,10 @@ struct ContentView: View {
                                 // prompt them to create acc
                                 throwFirstLaunchAlert = true
                             }
+                            // if they are
+                            else {
+                                userAttributes.determineAllUserPrefrencesAfterSignIn()
+                            }
                         }
                         else {
                             // prompt them to create acc
