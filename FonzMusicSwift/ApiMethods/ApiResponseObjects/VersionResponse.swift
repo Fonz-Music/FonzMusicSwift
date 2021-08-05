@@ -8,7 +8,3 @@
 import Foundation
 import SwiftUI
 
-struct VersionResponse: Codable {
-    var apiVersion: CGFloat
-    var minimumAppVersion: String
-}

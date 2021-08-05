@@ -7,8 +7,4 @@
 
 import Foundation
 
-struct GetCoasterInfoGuestResponse : Codable {
-    var coaster : CoasterResponse
-    var session : SessionResponse
-    var statusCode: Int?
-}
+

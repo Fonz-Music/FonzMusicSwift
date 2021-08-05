@@ -84,7 +84,7 @@ struct CoasterDoesNotHaveHost: View {
                     // if has spotify, add coaster
                     if userAttributes.getConnectedToSpotify() {
                         // add coaster to this users account
-                        let addCoasterResult = HostCoasterApi().addCoaster(coasterUid: tempCoasterDetails.uid)
+                        let addCoasterResult = HostCoastersApi().addCoaster(coasterUid: tempCoasterDetails.uid)
                             print("\(String(describing: addCoasterResult.status)) is the code m8")
                             // return that resp if its NOT 200
                         print("status here is \(addCoasterResult.status)")

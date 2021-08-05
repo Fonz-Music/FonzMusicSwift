@@ -31,7 +31,7 @@ class CoastersFromApi: ObservableObject {
     // MARK:- Initiliazer for product via model.
     
     init() {
-        products = HostCoasterApi().getOwnedCoasters()
+        products = HostCoastersApi().getOwnedCoasters()
 //        if (products.quantity == 0 ) {
 //            // sets app to NOT have coasters if the user lacks them
 //            UserDefaults.standard.set(false, forKey: "hasConnectedCoasters")
@@ -41,7 +41,7 @@ class CoastersFromApi: ObservableObject {
     }
     
     func reloadCoasters() {
-        products = HostCoasterApi().getOwnedCoasters()
+        products = HostCoastersApi().getOwnedCoasters()
     }
     func determineIfHasCoasters() -> Bool {
         if products.quantity > 0 {

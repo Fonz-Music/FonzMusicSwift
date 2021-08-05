@@ -78,7 +78,7 @@ struct ContentView: View {
                 // fetching sessionId
                 let sessionId = UserDefaults.standard.string(forKey: "userAccountSessionId")
                 // adding spot to the session
-                let spotifySignInResp = SpotifySignInApi().addSpotifyToAccount(sessionId: sessionId ?? "")
+                let spotifySignInResp = SessionApi().addProviderToSession(sessionId: sessionId ?? "")
                 DispatchQueue.main.async {
                     print("has spot status \(spotifySignInResp.status)")
                     // if successful

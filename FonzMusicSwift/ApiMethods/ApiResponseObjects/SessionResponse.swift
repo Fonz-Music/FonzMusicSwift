@@ -7,11 +7,4 @@
 
 import Foundation
 
-struct SessionResponse: Codable {
-    var sessionId : String
-    var userId : String
-    var active : Bool
-    var provider : String
-    
-    
-}
+

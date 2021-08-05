@@ -17,6 +17,15 @@ struct MessageResponse: Codable {
 struct NameCoasterResponse: Codable {
     var name: String
 }
+// response for getting the coasters
+struct CoasterResponse: Codable {
+    var active: Bool
+    var coasterId: String
+    var name: String
+//    var displayName: String
+    var statusCode: Int?
+}
+
 
 extension URLResponse {
 
@@ -29,14 +38,12 @@ extension URLResponse {
 }
 
 // ----------------------------------- Coaster Management -----------------------------
-class HostCoasterApi {
+class HostCoastersApi {
     
     //    let ADDRESS = "http://beta.api.fonzmusic.com:8080/"
         let ADDRESS = "http://52.50.138.97:8080/"
     let HOST = "host/"
     let COASTERS = "coasters/"
-    
-//    let tempToken = "eyJhbGciOiJSUzI1NiIsImtpZCI6Ijg4ZGYxMzgwM2I3NDM2NjExYWQ0ODE0NmE4ZGExYjA3MTg2ZmQxZTkiLCJ0eXAiOiJKV1QifQ.eyJwcm92aWRlcl9pZCI6ImFub255bW91cyIsImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9mb256LW11c2ljLWFwcCIsImF1ZCI6ImZvbnotbXVzaWMtYXBwIiwiYXV0aF90aW1lIjoxNjE5MjkyODM5LCJ1c2VyX2lkIjoiRFpuOUp0dVo4Zlo5QVdxZGo0NUl0UXhwMXM1MyIsInN1YiI6IkRabjlKdHVaOGZaOUFXcWRqNDVJdFF4cDFzNTMiLCJpYXQiOjE2MjQ2NjE0MDgsImV4cCI6MTYyNDY2NTAwOCwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6e30sInNpZ25faW5fcHJvdmlkZXIiOiJhbm9ueW1vdXMifX0.EK_k8XuSm_nRGAb0uajNssPiHWgryP8zNg4-65JnjuoQonp6gl_29pxb6Ed9CXkWd-1AA169jNZknH4uqHFgSmZfBE78SRjsJBUJm5_xMlFMBGVKKfkeUKOW1OGyKipcvH7yrxTH0-kpGhYsA3eFN-_Ge9b_24MZbT1YxSg6mIgMKuFW_dMlqoMBAxDXMEOqAckKQhqPHTuzf4TAJHr2Ty9ijJuJds9bROKXF_kfIS_1qaEa3v9uPPukVMYuQlqYBycHWQxztltODAjbLl-GXpdxamK7ArtH-7I579ywCcP3Y6V6cmgpJhyCCGeuPmoOZWhVTI8m6gWkDqZTpgxdgw"
     
     let userEmail = UserDefaults.standard.string(forKey: "userEmail")
     

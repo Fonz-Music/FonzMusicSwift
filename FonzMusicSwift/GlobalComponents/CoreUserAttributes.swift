@@ -79,7 +79,7 @@ class CoreUserAttributes: ObservableObject {
         return hasConnectedCoasters
     }
     func determineIfUserHasConnectedCoasters() {
-        let ownedCoasters = HostCoasterApi().getOwnedCoasters()
+        let ownedCoasters = HostCoastersApi().getOwnedCoasters()
         print("music provs \(ownedCoasters)")
         // checks how many providers & updates accordingly
         if (ownedCoasters.quantity > 0 && ownedCoasters.coasters[0].coasterId != ""){
@@ -100,7 +100,7 @@ class CoreUserAttributes: ObservableObject {
     }
     
     func determineIfUserConnectedToSpotify() {
-        let musicProviders = SpotifySignInApi().getMusicProviders()
+        let musicProviders = ProviderApi().getMusicProviders()
         print("music provs \(musicProviders)")
         // checks how many providers & updates accordingly
         if (musicProviders.count > 0 && musicProviders[0].providerId != ""){

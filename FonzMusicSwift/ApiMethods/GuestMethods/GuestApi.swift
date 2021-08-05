@@ -14,6 +14,12 @@ import KeychainAccess
 struct QueueSongResult: Codable {
     var status: Int
 }
+// response for getting the coaster info
+struct GetCoasterInfoGuestResponse : Codable {
+    var coaster : CoasterResponse
+    var session : SessionResponse
+    var statusCode: Int?
+}
 
 
 

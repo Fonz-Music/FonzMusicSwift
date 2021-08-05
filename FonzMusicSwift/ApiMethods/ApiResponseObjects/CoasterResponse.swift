@@ -7,10 +7,3 @@
 
 import Foundation
 
-struct CoasterResponse: Codable {
-    var active: Bool
-    var coasterId: String
-    var name: String
-//    var displayName: String
-    var statusCode: Int?
-}

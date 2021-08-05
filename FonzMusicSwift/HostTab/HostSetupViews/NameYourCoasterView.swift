@@ -49,7 +49,7 @@ struct NameYourCoasterView: View {
             Button {
                 print("pressed")
                 print("\(coasterName)")
-                let HostApi = HostCoasterApi()
+                let HostApi = HostCoastersApi()
                 let resp = HostApi.renameCoaster(coasterUid: coasterUid, newName: coasterName)
                 print("resp is \(resp)")
                 withAnimation {

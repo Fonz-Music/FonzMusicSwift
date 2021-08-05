@@ -51,7 +51,7 @@ struct DisconnectCoasterField: View {
                 .padding(.vertical, 5)
                 Spacer()
                 Button {
-                    let resp = HostCoasterApi().disconnectCoaster(coasterUid: coasterUid)
+                    let resp = HostCoastersApi().disconnectCoaster(coasterUid: coasterUid)
 //                    coasterFromSearch.reloadCoasters()
                     print("pressed button")
                     withAnimation {

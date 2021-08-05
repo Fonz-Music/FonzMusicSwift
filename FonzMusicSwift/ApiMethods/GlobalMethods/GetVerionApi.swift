@@ -7,7 +7,14 @@
 
 
 import SwiftUI
-import Firebase
+//import Firebase
+
+// response for getting resp
+struct VersionResponse: Codable {
+    var apiVersion: CGFloat
+    var minimumAppVersion: String
+}
+
 
 // all api functions inside
 class GetVersionApi {

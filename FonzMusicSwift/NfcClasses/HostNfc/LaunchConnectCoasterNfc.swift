@@ -153,7 +153,7 @@ struct LaunchConnectCoasterNfc: UIViewRepresentable {
                     // ends nfc session
                     session.invalidate()
                     // checks to see if the coaster has a host
-                    var coasterDetails = HostCoasterApi().getSingleOwnedCoaster(coasterUid: coasterUidFromTag)
+                    var coasterDetails = HostCoastersApi().getSingleOwnedCoaster(coasterUid: coasterUidFromTag)
                     // checks to see if the coaster has a host
 //                    var coasterDetails = GuestApi().getCoasterInfo(coasterUid: coasterUidFromTag)
                     print("\(String(describing: coasterDetails.statusCode)) is the code m8")
@@ -165,7 +165,7 @@ struct LaunchConnectCoasterNfc: UIViewRepresentable {
                     if coasterDetails.statusCode == 404 {
                         coasterDetailsOther = GuestApi().getCoasterInfo(coasterUid: coasterUidFromTag)
                         if coasterDetailsOther.statusCode == 204 {
-                            let addCoasterResult = HostCoasterApi().addCoaster(coasterUid: coasterUidFromTag)
+                            let addCoasterResult = HostCoastersApi().addCoaster(coasterUid: coasterUidFromTag)
                             print("\(String(describing: addCoasterResult.status)) is the code m8")
                             // return that resp if its NOT 200
                             if addCoasterResult.status != 200 {

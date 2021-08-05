@@ -49,7 +49,7 @@ struct PauseCoasterField: View {
                 Spacer()
                 Button {
                     print("active is \(active)")
-                    let resp = HostCoasterApi().pauseCoaster(coasterUid: coasterUid, active: !active)
+                    let resp = HostCoastersApi().pauseCoaster(coasterUid: coasterUid, active: !active)
 //                    coasterFromSearch.reloadCoasters()
                     print("pressed button")
                     withAnimation {
