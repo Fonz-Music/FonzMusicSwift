@@ -20,9 +20,11 @@ struct ChangeDisplayNameButton: View {
     var body: some View {
         VStack{
             Button(action: {
-                withAnimation{
-                    isExpanded.toggle()
-                }
+                
+                SpotifySuggestionsApi().getGuestTopSongs(sessionId: userAttributes.getUserSessionId())
+//                withAnimation{
+//                    isExpanded.toggle()
+//                }
                 FirebaseAnalytics.Analytics.logEvent("userPressedChangeName", parameters: ["user":"user", "tab": "settings"])
             }, label: {
                 HStack {

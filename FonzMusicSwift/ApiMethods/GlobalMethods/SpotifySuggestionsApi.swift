@@ -17,14 +17,15 @@ class SpotifySuggestionsApi {
     let SPOTIFY = "spotify/"
     let SEARCH = "search/"
     
-    func getGuestTopSongs(userId: String) {
+    func getGuestTopSongs(sessionId: String) -> [Items] {
         // this allows us to wait before returning value
         let sem = DispatchSemaphore.init(value: 0)
-        
+        // return
+        var tracks : [Items] = [Items(album: Album(images: [ImageArray(url: "")]), artists: [ArtistArray(name: "")], name: "", id: "", external_urls: ExternalUrl(spotify: ""))]
         // get access token
         let accessToken = getJWTAndCheckIfExpired()
         // create url
-        guard let url = URL(string: self.ADDRESS + self.GUEST + userId + "/" + self.SPOTIFY + self.SEARCH + "top?type=tracks" ) else { return }
+        guard let url = URL(string: self.ADDRESS + self.GUEST + sessionId + "/" + self.SPOTIFY + self.SEARCH + "top?type=tracks" ) else { return tracks }
         // creates req w url
         var request = URLRequest(url: url)
         // sets method as PUT
@@ -48,11 +49,11 @@ class SpotifySuggestionsApi {
                 print("code is \(response?.getStatusCode() ?? 0)")
                 
                 
-                if let decodedResponse = try? JSONDecoder().decode([TracksResult].self, from: dataResp) {
+                if let decodedResponse = try? JSONDecoder().decode([Items].self, from: dataResp) {
                     // sets return value
                     print("success")
                     print("decoded resp is \(decodedResponse)")
-//                    providerObject = decodedResponse
+                    tracks = decodedResponse
                    
                 }
                 else {
@@ -68,17 +69,18 @@ class SpotifySuggestionsApi {
     // tells function to wait before returning
     sem.wait()
 
-    //return providerObject
+    return tracks
     }
     
-    func getNewSongReleases(userId: String) {
+    func getNewSongReleases(sessionId: String) -> [Items] {
         // this allows us to wait before returning value
         let sem = DispatchSemaphore.init(value: 0)
-        
+        // return
+        var tracks : [Items] = [Items(album: Album(images: [ImageArray(url: "")]), artists: [ArtistArray(name: "")], name: "", id: "", external_urls: ExternalUrl(spotify: ""))]
         // get access token
         let accessToken = getJWTAndCheckIfExpired()
         // create url
-        guard let url = URL(string: self.ADDRESS + self.GUEST + userId + "/" + self.SPOTIFY + self.SEARCH + "releases" ) else { return }
+        guard let url = URL(string: self.ADDRESS + self.GUEST + sessionId + "/" + self.SPOTIFY + self.SEARCH + "releases" ) else { return tracks}
         // creates req w url
         var request = URLRequest(url: url)
         // sets method as PUT
@@ -102,11 +104,11 @@ class SpotifySuggestionsApi {
                 print("code is \(response?.getStatusCode() ?? 0)")
                 
                 
-                if let decodedResponse = try? JSONDecoder().decode([TracksResult].self, from: dataResp) {
+                if let decodedResponse = try? JSONDecoder().decode([Items].self, from: dataResp) {
                     // sets return value
                     print("success")
                     print("decoded resp is \(decodedResponse)")
-//                    providerObject = decodedResponse
+                    tracks = decodedResponse
                    
                 }
                 else {
@@ -122,7 +124,7 @@ class SpotifySuggestionsApi {
     // tells function to wait before returning
     sem.wait()
 
-    //return providerObject
+    return tracks
     }
     
     func getGuestTopArtists(userId: String) {

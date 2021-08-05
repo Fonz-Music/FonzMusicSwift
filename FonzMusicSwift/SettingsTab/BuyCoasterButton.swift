@@ -17,18 +17,11 @@ struct BuyCoasterButton: View {
     
     var body: some View {
         Button(action: {
-            // init keychain
-//            let keychainAccess = Keychain(service: "api.fonzmusic.com")
-//            // retrive accessToken
-//            var accessToken = keychainAccess["accessToken"]
-//            let userId = userAtt
-//            print("userID is \(userId)")
-//            SpotifySuggestionsApi().getGuestTopSongs(userId: userId)
-//            SignInSignUpApi().getUserAccount()
-//            guard let url = URL(string: "https://www.fonzmusic.com/buy") else {
-//                return
-//            }
-//            openURL(url)
+
+            guard let url = URL(string: "https://www.fonzmusic.com/buy") else {
+                return
+            }
+            openURL(url)
             print("pressed button")
             FirebaseAnalytics.Analytics.logEvent("userPressedBuyCoaster", parameters: ["user":"user", "tab": "settings"])
         }, label: {

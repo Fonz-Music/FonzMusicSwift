@@ -76,7 +76,7 @@ class AuthApi {
 
                     print("worked")
                     DispatchQueue.main.async {
-                        // creates email + password as dict to store in keychain
+                        // creates email + password as dict to store in keychan
                         let keychain = Keychain(service: "api.fonzmusic.com")
                         do {
                             try keychain

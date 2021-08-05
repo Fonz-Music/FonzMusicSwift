@@ -22,6 +22,8 @@ struct YourTopSongs: View {
     
     @Environment(\.colorScheme) var colorScheme
     
+//    @ObservedObject
+    
     @State var yourTopSongs = [
         Track(songName: "Prune, You Talk Funny", songId: "6sHCvZe1PHrOAuYlwTLNH4", artistName: " Gus Dapperton", albumArt: "https://i.scdn.co/image/ab67616d0000b273ba8dea5129b6e43b59fadad7", spotifyUrl: "https://open.spotify.com/track/6sHCvZe1PHrOAuYlwTLNH4"),
         Track(songName: "Supalonely", songId: "3GZoWLVbmxcBys6g0DLFLf", artistName: " BENEE", albumArt: "https://i.scdn.co/image/ab67616d0000b2734bd20e01d00de4b35b61f5f7", spotifyUrl: "https://open.spotify.com/track/3GZoWLVbmxcBys6g0DLFLf"),

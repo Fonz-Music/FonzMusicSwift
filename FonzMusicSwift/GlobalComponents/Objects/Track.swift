@@ -8,7 +8,7 @@
 import Foundation
 
 // track Object
-struct Track: Hashable {
+struct Track: Hashable, Decodable {
     var songName: String
     var songId: String
     var artistName: String
