@@ -36,24 +36,6 @@ class CoreUserAttributes: ObservableObject {
         if (getConnectedToSpotify()) {
             determineIfUserHasConnectedCoasters()
         }
-        // set agreedToEmail
-        agreedToEmail = UserDefaults.standard.bool(forKey: "agreedToEmail")
-        // set userId
-        userId = UserDefaults.standard.string(forKey: "userId")
-        // set display name
-        userDisplayName = UserDefaults.standard.string(forKey: "userDisplayName")
-        // set user email
-        userEmail = UserDefaults.standard.string(forKey: "userEmail")
-        // set user sessionId
-        determineIfUserHasASessionAndSetSessionId()
-    }
-    
-    // gets all preferences
-    func determineAllUserPrefrencesAfterFirstLaunch() {
-        determineIfUserConnectedToSpotify()
-        if (getConnectedToSpotify()) {
-            determineIfUserHasConnectedCoasters()
-        }
         // GET user
         // set agreedToEmail
         agreedToEmail = UserDefaults.standard.bool(forKey: "agreedToEmail")
@@ -66,6 +48,25 @@ class CoreUserAttributes: ObservableObject {
         // set user sessionId
         determineIfUserHasASessionAndSetSessionId()
     }
+    
+//    // gets all preferences
+//    func determineAllUserPrefrencesAfterFirstLaunch() {
+//        determineIfUserConnectedToSpotify()
+//        if (getConnectedToSpotify()) {
+//            determineIfUserHasConnectedCoasters()
+//        }
+//        // GET user
+//        // set agreedToEmail
+//        agreedToEmail = UserDefaults.standard.bool(forKey: "agreedToEmail")
+//        // set userId
+//        userId = UserDefaults.standard.string(forKey: "userId")
+//        // set display name
+//        userDisplayName = UserDefaults.standard.string(forKey: "userDisplayName")
+//        // set user email
+//        userEmail = UserDefaults.standard.string(forKey: "userEmail")
+//        // set user sessionId
+//        determineIfUserHasASessionAndSetSessionId()
+//    }
     
     func deleteAllUserPrefrencesAfterSignOut() {
         setHasAccount(bool: false)

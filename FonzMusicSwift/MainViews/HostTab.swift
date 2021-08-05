@@ -64,8 +64,8 @@ struct HostTab: View {
                 }
             }, alignment: .bottom)
         .ignoresSafeArea()
-        .onAppear {
-            userAttributes.determineIfUserHasConnectedCoasters()
-        }
+//        .onAppear {
+//            userAttributes.determineIfUserHasConnectedCoasters()
+//        }
     }
 }

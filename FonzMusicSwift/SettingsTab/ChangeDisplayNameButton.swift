@@ -27,7 +27,7 @@ struct ChangeDisplayNameButton: View {
             }, label: {
                 HStack {
                     HStack(spacing: 5) {
-                        Image("changeNameIcon").resizable().frame(width: 27 ,height: 27, alignment: .leading)
+                        Image("changeNameIcon").resizable().frame(width: 30 ,height: 27, alignment: .leading)
                         Text(userAttributes.getUserDisplayName())
                             .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
                             .fonzButtonText()
