@@ -78,9 +78,10 @@ struct SignOutButton: View {
                 //                    pressedButtonToLaunchNfc = true
                             print("pressed button")
                             withAnimation {
-                                userAttributes.setHasAccount(bool: false)
-                                userAttributes.setConnectedToSpotify(bool: false)
-                                userAttributes.setHasConnectedCoasters(bool: false)
+                                userAttributes.deleteAllUserPrefrencesAfterSignOut()
+//                                userAttributes.setHasAccount(bool: false)
+//                                userAttributes.setConnectedToSpotify(bool: false)
+//                                userAttributes.setHasConnectedCoasters(bool: false)
                                 isExpanded = false
                             }
                             // resets both accessToken + refreshToken

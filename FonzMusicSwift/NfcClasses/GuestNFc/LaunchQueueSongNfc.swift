@@ -114,6 +114,7 @@ struct LaunchQueueSongNfcSessionSheet: UIViewRepresentable {
                 print("morethan one ")
                 session.alertMessage = "more than one tag detected, please try again"
                 session.invalidate()
+                self.statusCode = 2
                 self.launchedNfc = true
                 self.pressedButtonToLaunchNfc = false
             }

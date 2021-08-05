@@ -9,27 +9,14 @@ import SwiftUI
 import Firebase
 import UIKit
 
-//class AppDelegate: NSObject, UIApplicationDelegate, SPTAppRemotePlayerStateDelegate, SPTAppRemoteDelegate, SPTSessionManagerDelegate {
 class AppDelegate: NSObject, UIApplicationDelegate {
-    
-    
-//    let SpotifyClientID = "f0973699a0ef4a44b444027ea5c54daf"
-//    let SpotifyRedirectURL = URL(string: "spotify-ios-quick-start://spotify-login-callback")!
-//    var accessToken = ""
-//    var playURI = ""
 
     
     func application(_ application: UIApplication,
       didFinishLaunchingWithOptions launchOptions:
           [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-      // dont need anymore?
+      // configureed firebase for analytics
       FirebaseApp.configure()
-        print("configured firebase for analytics")
-         //This inits an ANON firebase account
-//        Auth.auth().signInAnonymously() { (authResult, error) in
-//          print("signed in anon")
-//        }
-
       return true
     }
 }
