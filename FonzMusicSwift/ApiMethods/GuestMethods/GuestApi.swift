@@ -206,50 +206,50 @@ class GuestApi {
 //
 //    }
     
-//    func searchSession(sessionId:String, searchTerm:String) {
-//        print("searching session")
-//        var accessToken = ""
-//        guard let user = Auth.auth().currentUser else {
-//            print("there was an error getting the user")
-//            return }
-////        var accessToken =
-//            user.getIDToken(){ (idToken, error) in
-//            if error == nil, let token = idToken {
-//                print("changing accessToken")
+    func searchSession(sessionId:String, searchTerm:String) -> [Track] {
+        // this allows us to wait before returning value
+        let sem = DispatchSemaphore.init(value: 0)
+        // init vale for access token
+        var accessToken = ""
+        var products: [Track] = []
+        // get access token
+        accessToken = getJWTAndCheckIfExpired()
+        // replaces spaces with underscore
+        let searchSong = searchTerm.replacingOccurrences(of: " ", with: "_")
+        
 //                accessToken = token
-//                print(accessToken)
-//                guard let url = URL(string: "https://api.fonzmusic.com/guest/" + sessionId + "/spotify/search?term=" + searchTerm) else { return }
-//
-//                var request = URLRequest(url: url)
-//                request.httpMethod = "GET"
-//                request.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
-//
-//                URLSession.shared.dataTask(with: request) { data, response, error in
-//                    if let dataResp = data {
-//                        print("got data ")
-//
-////                        print(try? JSONSerialization.jsonObject(with: data!, options: []))
-//                        if let decodedResponse = try? JSONDecoder().decode(TracksResult.self, from: dataResp) {
-//                            print("decoded response")
-//                            print("decoded resposne \(decodedResponse)")
-//                            DispatchQueue.main.async {
-////                                self.results = [CoasterResult(sessionId: decodedResponse.sessionId, displayName: decodedResponse.displayName, coasterName:  decodedResponse.coasterName )]
-//                            }
-//
-//                            return
-//                        }
-//                    } else {
-//                        print("fetch failed: \(error?.localizedDescription ?? "unknown error")")
-//                    }
-//                }.resume()
-//
-//            }else{
-//                print("error")
-//                //error handling
-//            }
-//        }
-//
-//    }
+        // set URL
+        guard let url = URL(string: self.ADDRESS + "guest/" + sessionId + "/spotify/search?term=" + searchSong) else { return products}
+        print("url \(url)")
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
+        // makes request
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            // code to defer until this is completed
+            defer { sem.signal() }
+            
+            if let dataResp = data {
+                // just to see output
+                let jsonData = try? JSONSerialization.jsonObject(with: data!, options: [])
+//                        print(jsonData)
+                
+                if let decodedResponse = try? JSONDecoder().decode(SearchResults.self, from: dataResp) {
+                    
+                    print("success")
+                    // object that will store searchResults
+                    let tracks = decodedResponse.searchResults.body.tracks.items
+                    // goes thru json and extracts important info for track
+                    products = itemsToTracks(tracks: tracks)
+                }
+            } else {
+                print("fetch failed: \(error?.localizedDescription ?? "unknown error")")
+            }
+        }.resume()
+        // tells function to wait before returning
+        sem.wait()
+        return products
+    }
     
     
     

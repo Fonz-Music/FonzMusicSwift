@@ -17,11 +17,11 @@ class SpotifySuggestionsApi {
     let SPOTIFY = "spotify/"
     let SEARCH = "search/"
     
-    func getGuestTopSongs(sessionId: String) -> [Items] {
+    func getGuestTopSongs(sessionId: String) -> [Track] {
         // this allows us to wait before returning value
         let sem = DispatchSemaphore.init(value: 0)
         // return
-        var tracks : [Items] = [Items(album: Album(images: [ImageArray(url: "")]), artists: [ArtistArray(name: "")], name: "", id: "", external_urls: ExternalUrl(spotify: ""))]
+        var tracks : [Track] = [Track]()
         // get access token
         let accessToken = getJWTAndCheckIfExpired()
         // create url
@@ -53,7 +53,7 @@ class SpotifySuggestionsApi {
                     // sets return value
                     print("success")
                     print("decoded resp is \(decodedResponse)")
-                    tracks = decodedResponse
+                    tracks = itemsToTracks(tracks: decodedResponse)
                    
                 }
                 else {

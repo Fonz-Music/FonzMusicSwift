@@ -43,55 +43,8 @@ class TracksFromSearch: ObservableObject {
             .sink { (_) in
                 //
             } receiveValue: { [self] (searchField) in
-                searchSession(sessionId: tempSession, searchTerm: searchField)
+                products = GuestApi().searchSession(sessionId: tempSession, searchTerm: searchField)
             }
             .store(in: &subscription)
     }
-    
-    
-    func searchSession(sessionId:String, searchTerm:String) {
-        // init vale for access token
-        var accessToken = ""
-        
-        // get access token
-        accessToken = getJWTAndCheckIfExpired()
-        // replaces spaces with underscore
-        let searchSong = searchTerm.replacingOccurrences(of: " ", with: "_")
-        
-//                accessToken = token
-        // set URL
-        guard let url = URL(string: self.ADDRESS + "guest/" + sessionId + "/spotify/search?term=" + searchSong) else { return }
-        print("url \(url)")
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        request.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
-        // makes request
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            if let dataResp = data {
-                // just to see output
-                let jsonData = try? JSONSerialization.jsonObject(with: data!, options: [])
-//                        print(jsonData)
-                
-                if let decodedResponse = try? JSONDecoder().decode(SearchResults.self, from: dataResp) {
-                    
-                    print("success")
-                    // object that will store searchResults
-                    var searchResults = [Track]()
-//                    let tracks = decodedResponse.tracks.items
-                    let tracks = decodedResponse.searchResults.body.tracks.items
-                    // goes thru json and extracts important info for track
-                    searchResults = itemsToTracks(tracks: tracks)
-                    DispatchQueue.main.async {
-                        // returns searchResults
-                        self.products = searchResults
-//                        print(searchResults)
-                    }
-                    return
-                }
-            } else {
-                print("fetch failed: \(error?.localizedDescription ?? "unknown error")")
-            }
-        }.resume()
-    }
-    
 }
