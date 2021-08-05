@@ -33,7 +33,7 @@ class SessionApi {
     
 
     // api call to create a Fonz session (first time creating an account)
-    func getAllSessionsAndCreateIfNone() -> BasicResponse {
+    func fetchSessionsAndCreateIfNone() -> BasicResponse {
         
         // this allows us to wait before returning value
         let sem = DispatchSemaphore.init(value: 0)

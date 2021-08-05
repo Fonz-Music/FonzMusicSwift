@@ -18,6 +18,8 @@ class CoreUserAttributes: ObservableObject {
     // determines if current user is connected to Spotify
     @Published private var agreedToEmail = UserDefaults.standard.bool(forKey: "agreedToEmail")
     // determines if current user is connected to Spotify
+    @Published private var agreedConsent = UserDefaults.standard.bool(forKey: "agreedConsent")
+    // determines if current user is connected to Spotify
     @Published private var userId = UserDefaults.standard.string(forKey: "userId")
     // determines if current user is connected to Spotify
     @Published private var userDisplayName = UserDefaults.standard.string(forKey: "userDisplayName")
@@ -62,16 +64,10 @@ class CoreUserAttributes: ObservableObject {
         return hasAccount
     }
     func determineIfUserHasAccount()  {
-        // init keychain
-        let keychainAccess = Keychain(service: "api.fonzmusic.com")
-        // fetches accessToken
-        let accessToken = keychainAccess["accessToken"]
-        // checks if accessToken has value
-        if (accessToken != nil && accessToken != ""){
+        // if the user has consented,
+        // they've completed the form & will have an account
+        if (getAgreedConsent()) {
             setHasAccount(bool: true)
-        }
-        else {
-            setHasAccount(bool: false)
         }
     }
     
@@ -122,6 +118,14 @@ class CoreUserAttributes: ObservableObject {
     }
     func getAgreedToEmail() -> Bool {
         return agreedToEmail
+    }
+// -------------------------- agreed consent -----------------------------------
+    func setAgreedConsent(bool : Bool) {
+        agreedConsent = bool
+        UserDefaults.standard.set(bool, forKey: "agreedConsent")
+    }
+    func getAgreedConsent() -> Bool {
+        return agreedConsent
     }
 // ------------------------------ user Id ---------------------------------------
     func setUserId(newUserId : String) {

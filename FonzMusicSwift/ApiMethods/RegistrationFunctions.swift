@@ -110,3 +110,14 @@ func deleteAccessAndRefreshOnSignOut() {
         print("error: \(error)")
     }
 }
+
+func checkIfUserHasPreviousRefresh() -> Bool {
+    // resets both accessToken + refreshToken
+    // gets refresh from keychain
+    let keychainRefresh = Keychain(service: "api.fonzmusic.com")
+    let refreshToken = keychainRefresh["refreshToken"]
+    if refreshToken != nil && refreshToken != "" {
+        return true
+    }
+    else { return false }
+}

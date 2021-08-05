@@ -22,10 +22,8 @@ struct SearchTab: View {
     // tells app there is no host
     @State var hasHost = false
     
-    // tells app there is no host
-    @State var throwFirstLaunchAlert = false
-    // tells app there is no host
-    @State var throwCreateAccount = false
+    
+    
     
     @Environment(\.colorScheme) var colorScheme
     
@@ -41,22 +39,8 @@ struct SearchTab: View {
                 
                 HomePageDecision(hostCoaster: hostCoaster, hasHostVar: $hasHost, selectedTab: $selectedTab, userAttributes: userAttributes, hasHost: $hasHost, coastersConnectedToUser: coastersConnectedToUser)
                     // if first time user, ask if they need to create a new account
-                    .actionSheet(isPresented: $throwFirstLaunchAlert) {
-                        ActionSheet(
-                            title: Text("have you used the Fonz Music App before?"),
-                            buttons: [
-                                .default(Text("yes")) {
-                                    throwCreateAccount = true
-                                },
-                                .default(Text("no").foregroundColor(Color.lilac)) {
-                                  
-                                },
-                            ]
-                        )
-                    }
-                .sheet(isPresented: $throwCreateAccount, content: {
-                    CreateAccountPrompt(userAttributes: userAttributes, showModal: $throwCreateAccount, hadPreviousAccount: true)
-                })
+                    
+                
                 
                    
             }
@@ -74,14 +58,14 @@ struct SearchTab: View {
                
             }, alignment: .bottom)
         .ignoresSafeArea()
-        .onAppear {
-            #if !APPCLIP
-            // checks if first time launching app
-            if (UIApplication.isFirstLaunch()) {
-                print("first launch")
-                throwFirstLaunchAlert = true
-            }
-            #endif
-        }
+//        .onAppear {
+//            #if !APPCLIP
+//            // checks if first time launching app
+//            if (UIApplication.isFirstLaunch()) {
+//                print("first launch")
+//                throwFirstLaunchAlert = true
+//            }
+//            #endif
+//        }
     }
 }

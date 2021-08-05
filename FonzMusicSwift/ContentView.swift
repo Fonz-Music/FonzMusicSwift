@@ -27,7 +27,10 @@ struct ContentView: View {
     @State var needsToUpdate = false
     // object that stores the songs from the api
     @ObservedObject var coastersConnectedToHost: CoastersFromApi = CoastersFromApi()
-    
+    // tells app there is no host
+    @State var throwFirstLaunchAlert = false
+    // tells app there is no host
+    @State var throwCreateAccount = false
 
     // main app
     var body: some View {
@@ -50,6 +53,22 @@ struct ContentView: View {
                         Label("account", systemImage: "gearshape")
                     }.tag(TabIdentifier.account)
                 }
+                .actionSheet(isPresented: $throwFirstLaunchAlert) {
+                    ActionSheet(
+                        title: Text("have you used the Fonz Music App before?"),
+                        buttons: [
+                            .default(Text("yes")) {
+                                throwCreateAccount = true
+                            },
+                            .default(Text("no").foregroundColor(Color.lilac)) {
+                              
+                            },
+                        ]
+                    )
+                }
+                .sheet(isPresented: $throwCreateAccount, content: {
+                    CreateAccountPrompt(userAttributes: userAttributes, showModal: $throwCreateAccount, hadPreviousAccount: true)
+                })
                 .accentColor(.amber)
                 .onAppear {
                     // fetches the min app version from apu
@@ -61,6 +80,27 @@ struct ContentView: View {
                         needsToUpdate = determineViewBasedOnVersion(currentVersion: UIApplication.appVersion!, minVersion: minVersionNumber)
                     }
                     
+                    #if !APPCLIP
+                    // checks if first time launching app
+                    if (UIApplication.isFirstLaunch()) {
+                        print("first launch")
+                        // check if they've ever used the app before
+                        if (checkIfUserHasPreviousRefresh()) {
+                            // find if they're signed in
+                            userAttributes.determineIfUserHasAccount()
+                            // if they are NOT signed in
+                            if !userAttributes.getHasAccount() {
+                                // prompt them to create acc
+                                throwFirstLaunchAlert = true
+                            }
+                        }
+                        else {
+                            // prompt them to create acc
+                            throwFirstLaunchAlert = true
+                        }
+                        
+                    }
+                    #endif
                     
                 }
                 
