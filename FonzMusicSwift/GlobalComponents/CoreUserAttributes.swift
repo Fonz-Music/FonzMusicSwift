@@ -26,7 +26,7 @@ class CoreUserAttributes: ObservableObject {
     // determines if current user is connected to Spotify
     @Published private var userEmail = UserDefaults.standard.string(forKey: "userEmail")
     // determines if current user is connected to Spotify
-    @Published private var userSessionId = UserDefaults.standard.string(forKey: "userSessionId")
+    @Published private var userSessionId = UserDefaults.standard.string(forKey: "userAccountSessionId")
     // determines if current user is connected to Spotify
     @Published private var spotifyDisplayName = UserDefaults.standard.string(forKey: "spotifyDisplayName")
     
@@ -180,7 +180,7 @@ class CoreUserAttributes: ObservableObject {
 // ----------------------- user sessionId ---------------------------------------
     func setUserSessionId(newSessionId : String) {
         userSessionId = newSessionId
-        UserDefaults.standard.set(newSessionId, forKey: "userSessionId")
+        UserDefaults.standard.set(newSessionId, forKey: "userAccountSessionId")
     }
     func getUserSessionId() -> String {
         return userSessionId ?? ""

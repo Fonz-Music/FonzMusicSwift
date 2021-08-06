@@ -29,7 +29,7 @@ struct SearchBarPage: View {
     // object that stores the songs from the api
     @ObservedObject var tracksFromSearch: TracksFromSearch = TracksFromSearch()
     // object that stores the songs from the api
-    @ObservedObject var tracksFromPlaylist: TracksFromPlaylist = TracksFromPlaylist()
+    @ObservedObject var tracksFromPlaylist: TracksFromPlaylist = TracksFromPlaylist() 
     // object that stores the songs from the api
     @ObservedObject var tracksFromArtist: TracksFromArtist = TracksFromArtist()
     // object that stores the songs from the api
