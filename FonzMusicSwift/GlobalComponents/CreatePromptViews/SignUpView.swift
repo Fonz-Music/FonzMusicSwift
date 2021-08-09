@@ -19,7 +19,7 @@ struct SignUpView: View {
     @State var acceptedPrivacy = false
     @State var acceptedEmail = false
     
-    @State var displayName: String = ""
+    @Binding var displayName: String
     @Binding var email: String
     @Binding var password: String 
     @State var confirmPassword: String = ""

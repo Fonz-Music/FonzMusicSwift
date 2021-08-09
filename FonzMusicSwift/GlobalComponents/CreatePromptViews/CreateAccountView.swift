@@ -19,7 +19,8 @@ struct CreateAccountView: View {
     
     
     @State var onSignUp : Bool = true
-    @State var email : String = ""
+    @State var email : String = UserDefaults.standard.string(forKey: "spotifyEmail") ?? ""
+    @State var displayName : String = UserDefaults.standard.string(forKey: "spotifyDisplayName") ?? ""
     @State var password : String = ""
     
     @Environment(\.colorScheme) var colorScheme
@@ -57,7 +58,7 @@ struct CreateAccountView: View {
             }
             .padding()
             if onSignUp {
-                SignUpView(userAttributes: userAttributes, showModal: $showModal, email: $email, password: $password).padding(.horizontal, 30)
+                SignUpView(userAttributes: userAttributes, showModal: $showModal, displayName: $displayName, email: $email, password: $password).padding(.horizontal, 30)
             }
             else {
                 SignInView(userAttributes: userAttributes, showModal: $showModal, email: $email, password: $password).padding(.horizontal, 30)
