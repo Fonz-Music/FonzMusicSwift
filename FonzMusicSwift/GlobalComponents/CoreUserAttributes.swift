@@ -20,15 +20,15 @@ class CoreUserAttributes: ObservableObject {
     // determines if current user is connected to Spotify
     @Published private var agreedConsent = UserDefaults.standard.bool(forKey: "agreedConsent")
     // determines if current user is connected to Spotify
-    @Published private var userId = UserDefaults.standard.string(forKey: "userId")
+    @Published private var userId = UserDefaults.standard.string(forKey: "userId") ?? ""
     // determines if current user is connected to Spotify
-    @Published private var userDisplayName = UserDefaults.standard.string(forKey: "userDisplayName")
+    @Published private var userDisplayName = UserDefaults.standard.string(forKey: "userDisplayName") ?? ""
     // determines if current user is connected to Spotify
-    @Published private var userEmail = UserDefaults.standard.string(forKey: "userEmail")
+    @Published private var userEmail = UserDefaults.standard.string(forKey: "userEmail") ?? ""
     // determines if current user is connected to Spotify
-    @Published private var userSessionId = UserDefaults.standard.string(forKey: "userAccountSessionId")
+    @Published private var userSessionId = UserDefaults.standard.string(forKey: "userAccountSessionId") ?? ""
     // determines if current user is connected to Spotify
-    @Published private var spotifyDisplayName = UserDefaults.standard.string(forKey: "spotifyDisplayName")
+    @Published private var spotifyDisplayName = UserDefaults.standard.string(forKey: "spotifyDisplayName") ?? ""
     
     // gets all preferences
     func determineAllUserPrefrencesAfterSignIn() {
@@ -40,11 +40,11 @@ class CoreUserAttributes: ObservableObject {
         // set agreedToEmail
         agreedToEmail = UserDefaults.standard.bool(forKey: "agreedToEmail")
         // set userId
-        userId = UserDefaults.standard.string(forKey: "userId")
+        userId = UserDefaults.standard.string(forKey: "userId") ?? ""
         // set display name
-        userDisplayName = UserDefaults.standard.string(forKey: "userDisplayName")
+        userDisplayName = UserDefaults.standard.string(forKey: "userDisplayName") ?? ""
         // set user email
-        userEmail = UserDefaults.standard.string(forKey: "userEmail")
+        userEmail = UserDefaults.standard.string(forKey: "userEmail") ?? ""
         // set user sessionId
         determineIfUserHasASessionAndSetSessionId()
     }

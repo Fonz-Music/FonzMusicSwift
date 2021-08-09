@@ -13,16 +13,17 @@ struct SpotifySignInFunctions {
     @Environment(\.openURL) var openURL
     
     func launchSpotifyInBrowser() {
+//        SessionApi().createSession()
         SessionApi().fetchSessionsAndCreateIfNone()
-        
-        let authorizeUrl = SpotifyAuthApi().getSpotifySignInUrl()
-        print("url is \(authorizeUrl)")
-        let url = URL(string: authorizeUrl)
-//        let newUrl = URL(
-//        print("url informed is \(url)")
-        if authorizeUrl.count > 20 {
-            openURL(url!)
-        }
+//
+//        let authorizeUrl = SpotifyAuthApi().getSpotifySignInUrl()
+//        print("url is \(authorizeUrl)")
+//        let url = URL(string: authorizeUrl)
+////        let newUrl = URL(
+////        print("url informed is \(url)")
+//        if authorizeUrl.count > 20 {
+//            openURL(url!)
+//        }
         
         print("launched spotify")
     }

@@ -68,12 +68,16 @@ class SessionApi {
                     print("success getting sessions")
                     if decodedResponse.count == 0 {
                         print("creating new session")
-                        self.createSession()
+                        // wrap so it doesnt get caught in loop
+                        DispatchQueue.main.async {
+                            self.createSession()
+                        }
                     }
                     else {
                         print("has sessions")
                         UserDefaults.standard.set(decodedResponse[0].sessionId, forKey: "userAccountSessionId")
                         returnMessage = "success"
+                        
                     }
                     sem.resume()
                 }

@@ -29,17 +29,18 @@ struct ConnectSpotifyHomeButton: View {
     var body: some View {
         VStack {
             Button(action: {
-                #if !APPCLIP
-                if userAttributes.getHasAccount() {
-                    FirebaseAnalytics.Analytics.logEvent("userTappedConnectSpotify", parameters: ["user":"user", "tab":"host"])
-                    SpotifySignInFunctions().launchSpotifyInBrowser()
-                }
-                else {
-                    throwCreateAccountModal = true
-                }
-                #else
-                throwDownlaodFullAppModal = true
-                #endif
+                SpotifySignInFunctions().launchSpotifyInBrowser()
+//                #if !APPCLIP
+//                if userAttributes.getHasAccount() {
+//                    FirebaseAnalytics.Analytics.logEvent("userTappedConnectSpotify", parameters: ["user":"user", "tab":"host"])
+//                    SpotifySignInFunctions().launchSpotifyInBrowser()
+//                }
+//                else {
+//                    throwCreateAccountModal = true
+//                }
+//                #else
+//                throwDownlaodFullAppModal = true
+//                #endif
             }, label: {
                 Image("spotifyIconGreen").resizable().frame(width: sideGraphicHeight, height: sideGraphicHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                         .frame(width: 75, height: 75)
