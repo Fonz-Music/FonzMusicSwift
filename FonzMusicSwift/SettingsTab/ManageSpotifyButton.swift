@@ -99,4 +99,5 @@ struct ManageSpotifyButton: View {
         }
         
     }
+    
 }
