@@ -217,6 +217,7 @@ struct SignUpView: View {
                 .disabled(determineIfSignUpButtonDisable())
                 .addOpacity(determineIfSignUpButtonDisable())
                 .padding(.top)
+                
             }
         }
     }

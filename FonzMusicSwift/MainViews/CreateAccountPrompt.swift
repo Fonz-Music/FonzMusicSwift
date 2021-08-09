@@ -20,6 +20,8 @@ struct CreateAccountPrompt: View {
     
     @State var throwPopupMakeNewAccount : Bool = false
     
+    @State var keyboardActive : Bool = false
+    
 //    @State var onSignUp : Bool = true
     
     @Environment(\.colorScheme) var colorScheme
@@ -47,11 +49,28 @@ struct CreateAccountPrompt: View {
                 ScrollView{
                     // shows sign in or sign up
                     CreateAccountView(userAttributes: userAttributes, showModal: $showModal)
-                        .padding(.bottom, 30)
+                        .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardDidShowNotification)) { _ in
+                            withAnimation {
+                                keyboardActive = true
+                            }
+                            
+                        }.onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardDidHideNotification)) { _ in
+                            withAnimation {
+                                keyboardActive = false
+                            }
+                        }
+//                        .padding(.bottom, 150)
+                    if keyboardActive {
+                        Spacer()
+                            .frame(height: UIScreen.screenHeight * 0.5)
+                    }
+                    
+//                        .frame(height: 150)
                 }
                 
                 
-                Spacer()
+                
+//                Spacer()
             }
             .alert(isPresented: $throwPopupMakeNewAccount, content: {
                 Alert(title: Text("You'll have to make a new account"), message: Text("Due to changes on the backend, you'll need to create a new account, connect to Spotify, & add your coasters again"), dismissButton: .default(Text("Got it")))
