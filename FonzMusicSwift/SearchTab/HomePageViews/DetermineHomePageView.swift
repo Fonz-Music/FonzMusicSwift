@@ -21,7 +21,7 @@ struct DetermineHomePageView: View {
     
     var body: some View {
         
-        if !userAttributes.getHasConnectedCoasters() {
+//        if !userAttributes.getHasConnectedCoasters() {
             VStack{
                 Spacer()
                     .frame(height: 30)
@@ -48,19 +48,30 @@ struct DetermineHomePageView: View {
                     
                     Spacer()
                 }
-//                HostAPartyButton(selectedTab: $selectedTab, showHomeButtons: $showHomeButtons, hasAccount: $hasAccount)
-                Spacer()
-                    .frame(height: 50)
+                if userAttributes.getHasAccount() && userAttributes.getConnectedToSpotify() && userAttributes.getHasConnectedCoasters() {
+                    #if !APPCLIP
+                    Spacer()
+                        .frame(maxHeight: 130)
+                    #else
+                    Spacer()
+                        .frame(height: 50)
+                    #endif
+                }
+                else {
+                    Spacer()
+                        .frame(height: 50)
+                }
+                
                 JoinAPartyButton(pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc, showHomeButtons: $showHomeButtons)
                 Spacer()
             }
-        }
-        else {
-            Spacer()
-                .frame(maxHeight: 130)
-            JoinAPartyButton(pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc, showHomeButtons: $showHomeButtons)
-            Spacer()
-        }
+//        }
+//        else {
+//            Spacer()
+//                .frame(maxHeight: 130)
+//            JoinAPartyButton(pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc, showHomeButtons: $showHomeButtons)
+//            Spacer()
+//        }
         
     }
 }
