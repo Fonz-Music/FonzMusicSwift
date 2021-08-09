@@ -29,10 +29,10 @@ class TracksFromSearch: ObservableObject {
     init() {
         print("starting this")
         $searchText
-//            .debounce(for: .milliseconds(800), scheduler: RunLoop.main) // debounces the string publisher, such that it delays the process of sending request to remote server.
+            .debounce(for: .milliseconds(400), scheduler: RunLoop.main) // debounces the string publisher, such that it delays the process of sending request to remote server.
             .removeDuplicates()
             .map({ (string) -> String? in
-                if string.count < 1 {
+                if string.count < 3 {
                     self.products = []
                     return nil
                 }

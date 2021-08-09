@@ -12,7 +12,7 @@ import Network
 class GuestTopPlaylists: ObservableObject {
 
     var subscription: Set<AnyCancellable> = []
-    var userSessionId : String = UserDefaults.standard.string(forKey: "userAccountSessionId")!
+    var userSessionId : String = UserDefaults.standard.string(forKey: "userAccountSessionId") ?? ""
     var hostSessionId : String = UserDefaults.standard.string(forKey: "hostSessionId")!
 //    var sessionId : String = ""
 
@@ -36,7 +36,7 @@ class GuestTopPlaylists: ObservableObject {
                 Playlist(playlistName:  "malibuNinetyTwo", playlistId: "6rqm7IuR0DRbktih6FV9jm", playlistImage: "https://i.scdn.co/image/ab67706c0000bebb0e65fceaffd297b0f3f14756", amountOfTracks: 212)
 
             ]
-//        if connectedToSpotify {
+//        if connectedToSpotify && userSessionId != "" {
 ////            products = SpotifySuggestionsApi().getGuestTopPlaylists(sessionId: userSessionId)
 //        }
 //        else {

@@ -12,7 +12,7 @@ import Network
 class GuestTopArtists: ObservableObject {
 
     var subscription: Set<AnyCancellable> = []
-    var userSessionId : String = UserDefaults.standard.string(forKey: "userAccountSessionId")!
+    var userSessionId : String = UserDefaults.standard.string(forKey: "userAccountSessionId") ?? ""
     var hostSessionId : String = UserDefaults.standard.string(forKey: "hostSessionId")!
 //    var sessionId : String = ""
 
@@ -27,7 +27,7 @@ class GuestTopArtists: ObservableObject {
 
     init() {
         print("starting this")
-        if connectedToSpotify {
+        if connectedToSpotify && userSessionId != "" {
             products = SpotifySuggestionsApi().getGuestTopArtists(sessionId: userSessionId)
         }
         else {

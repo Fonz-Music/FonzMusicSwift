@@ -66,12 +66,14 @@ struct ConnectSpotifySearch: View {
                     Spacer()
                 }.padding(.vertical)
                 
-            }.frame(width: UIScreen.screenWidth * 0.9, height: 60)
+            }
+            .frame(height: 60)
             
             
         })
         .buttonStyle(BasicFonzButton(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .amber))
-        .padding()
+        .padding(.horizontal, .subHeadingFrontIndent)
+        .frame(width: UIScreen.screenWidth, alignment: .center)
         .sheet(isPresented: $throwDownlaodFullAppModal) {
             DownloadFullAppPrompt()
         }

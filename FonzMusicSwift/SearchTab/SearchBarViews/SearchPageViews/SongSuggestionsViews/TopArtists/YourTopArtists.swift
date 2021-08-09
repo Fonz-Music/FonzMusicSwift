@@ -44,7 +44,7 @@ struct YourTopArtists: View {
                     .fonzParagraphTwo()
                     .padding(.horizontal, .subHeadingFrontIndent)
                     .padding(.bottom, 10)
-                    .padding(.top, 25)
+                    .padding(.top, 10)
 
                 Spacer()
             }
@@ -58,7 +58,8 @@ struct YourTopArtists: View {
                             }
                         }
                     }
-                    .padding(20)
+                    .padding(.horizontal, 10)
+                    .padding(.vertical)
                 }
                 .background(
                     RoundedRectangle(cornerRadius: .cornerRadiusTasks)
@@ -69,6 +70,7 @@ struct YourTopArtists: View {
                     , alignment: .top
                 )
                 .padding(.horizontal)
+                .padding(.bottom)
         }
         .onAppear {
            connectedToSpotify = UserDefaults.standard.bool(forKey: "connectedToSpotify")

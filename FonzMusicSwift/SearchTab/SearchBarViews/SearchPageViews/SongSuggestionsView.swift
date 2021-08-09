@@ -47,12 +47,18 @@ struct SongSuggestionsView: View {
                 // if the user doesnt have spotify connected, show spot button
                 if !userAttributes.getHasAccount() || !userAttributes.getConnectedToSpotify() {
                     ConnectSpotifySearch(throwCreateAccountModal: $throwCreateAccountModal, userAttributes: userAttributes)
+                    Spacer()
+                        .frame(height: 30)
                 }
                 YourTopSongs(hostCoaster: hostCoaster, currentTune: currentTune, tracksFromTopSongs: tracksFromTopSongs, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
                 YourTopArtists(hostCoaster: hostCoaster, tracksFromArtist: tracksFromArtist, guestTopArtists: guestTopArtists)
                 YourTopPlaylists(hostCoaster: hostCoaster,  tracksFromPlaylist: tracksFromPlaylist)
+                #if !APPCLIP
                 Spacer()
                     .frame(minHeight: 50)
+                #else
+                Spacer()
+                #endif
             }
             .padding(.top, 30)
             .frame(width: UIScreen.screenWidth * 0.95)
@@ -64,10 +70,20 @@ struct SongSuggestionsView: View {
     
     func determineSongSugsSize() -> CGFloat {
         if userAttributes.getConnectedToSpotify() {
+            #if !APPCLIP
             return 850.0
+            #else
+            return 820.0
+            #endif
+            
         }
         else {
-            return 910.0
+            #if !APPCLIP
+            return 870.0
+            #else
+            return 840.0
+            #endif
+            
         }
     }
 }
