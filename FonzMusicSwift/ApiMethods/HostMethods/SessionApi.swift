@@ -280,7 +280,7 @@ class SessionApi {
         let sem = DispatchSemaphore.init(value: 0)
 
         // init value for return
-        var providerObject: [Provider] = [Provider(displayName: "", provider: "", providerId: "", userId: "")]
+        var providerObject: [Provider] = [Provider]()
 
         var returnObject: BasicResponse = BasicResponse(message: "", status: 0)
         var returnMessage = ""
@@ -319,6 +319,10 @@ class SessionApi {
                             providerObject = decodedResponse
                             let providerId = decodedResponse[0].providerId
                             UserDefaults.standard.set(decodedResponse[0].displayName, forKey: "spotifyDisplayName")
+                            let spotEmail = fetchEmailFromSpotifyAdditional(additionalText: decodedResponse[0].additional)
+                            print("spot email is \(spotEmail)")
+                            UserDefaults.standard.set(spotEmail, forKey: "spotifyEmail")
+//                            UserDefaults.standard.set(decodedResponse[0].email, forKey: "spotifyDisplayName")
                             print("id is \(providerId)" )
 //                            DispatchQueue.main.async {
                                 // this allows us to wait before returning value

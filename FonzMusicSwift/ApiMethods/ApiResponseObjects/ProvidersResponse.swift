@@ -16,7 +16,7 @@ struct Provider: Codable {
     var provider : String
     var providerId : String
     var userId : String
-    
+    var additional : String
 } 
 
 struct SpotifyUrlResponse: Codable {

@@ -26,7 +26,7 @@ class ProviderApi {
         let sem = DispatchSemaphore.init(value: 0)
 
         // init value for return
-        var providerObject: [Provider] = [Provider(displayName: "", provider: "", providerId: "", userId: "")]
+        var providerObject: [Provider] = [Provider]()
 
         
         var returnMessage = ""
@@ -62,7 +62,9 @@ class ProviderApi {
                     print("decoded resp is \(decodedResponse)")
                     providerObject = decodedResponse
                     UserDefaults.standard.set(decodedResponse[0].displayName, forKey: "spotifyDisplayName")
-                    
+                    let spotEmail = fetchEmailFromSpotifyAdditional(additionalText: decodedResponse[0].additional)
+                    print("spot email is \(spotEmail)")
+                    UserDefaults.standard.set(spotEmail, forKey: "spotifyEmail")
                 }
 //                else {
 //                    let decodedResponse = try? JSONDecoder().decode(ErrorResponse.self, from: dataResp)

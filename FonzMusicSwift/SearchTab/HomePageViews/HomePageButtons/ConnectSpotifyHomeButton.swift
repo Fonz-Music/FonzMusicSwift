@@ -29,7 +29,8 @@ struct ConnectSpotifyHomeButton: View {
     var body: some View {
         VStack {
             Button(action: {
-                SpotifySignInFunctions().launchSpotifyInBrowser()
+                ProviderApi().getMusicProviders()
+//                SpotifySignInFunctions().launchSpotifyInBrowser()
 //                #if !APPCLIP
 //                if userAttributes.getHasAccount() {
 //                    FirebaseAnalytics.Analytics.logEvent("userTappedConnectSpotify", parameters: ["user":"user", "tab":"host"])
