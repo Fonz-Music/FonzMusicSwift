@@ -29,6 +29,8 @@ class CoreUserAttributes: ObservableObject {
     @Published private var userSessionId = UserDefaults.standard.string(forKey: "userAccountSessionId") ?? ""
     // determines if current user is connected to Spotify
     @Published private var spotifyDisplayName = UserDefaults.standard.string(forKey: "spotifyDisplayName") ?? ""
+    // determines if current user has an account
+    @Published var showSignUpModal = false
     
     // gets all preferences
     func determineAllUserPrefrencesAfterSignIn() {

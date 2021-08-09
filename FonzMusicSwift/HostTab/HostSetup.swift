@@ -27,8 +27,7 @@ struct HostSetup: View {
     @State var pressedButtonToLaunchNfc = false
     // used to gradually fade in resp
     @State var showSuccessOrError = false
-    // throws create account modal if needed
-    @State var throwCreateAccountModal = false
+
     // if the coaster needs to be encoded
     @State var encodeTheCoaster = false
     
@@ -59,7 +58,7 @@ struct HostSetup: View {
                                 Spacer()
                                     .frame(height: 30)
 //                            }
-                            ConnectSpotifyButtonHomeView(userAttributes: userAttributes,  throwCreateAccountModal: $throwCreateAccountModal)
+                            ConnectSpotifyButtonHomeView(userAttributes: userAttributes)
                                 .addOpacity(userAttributes.getConnectedToSpotify())
                                 .disabled(userAttributes.getConnectedToSpotify())
                                 
@@ -82,9 +81,6 @@ struct HostSetup: View {
                                 .scaleEffect(!userAttributes.getConnectedToSpotify() ? 0.5 : 1.2)
                             Spacer()
                                 .frame(minHeight: 70)
-                        }
-                        .sheet(isPresented: $throwCreateAccountModal) {
-                            CreateAccountPrompt(userAttributes: userAttributes, showModal: $throwCreateAccountModal)
                         }
                         
 //                    }

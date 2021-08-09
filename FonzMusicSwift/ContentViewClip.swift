@@ -34,6 +34,9 @@ struct ContentView: View {
                 }
                 selectedTab = tabIdentifier
             }
+            .sheet(isPresented: $userAttributes.showSignUpModal, content: {
+                CreateAccountPrompt(userAttributes: userAttributes, showModal: $userAttributes.showSignUpModal, hadPreviousAccount: false)
+            })
         }  
     }
 }

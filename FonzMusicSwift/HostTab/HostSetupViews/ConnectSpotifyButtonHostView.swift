@@ -15,8 +15,6 @@ struct ConnectSpotifyButtonHomeView: View {
 
     // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
     @StateObject var userAttributes : CoreUserAttributes
-    // has user create an account
-    @Binding var throwCreateAccountModal : Bool
 
 // ---------------------------------- created in view -----------------------------------------------
     @Environment(\.colorScheme) var colorScheme
@@ -27,7 +25,7 @@ struct ConnectSpotifyButtonHomeView: View {
         VStack {
             Button(action: {
                 if userAttributes.getHasAccount() {
-                    FirebaseAnalytics.Analytics.logEvent("userTappedConnectSpotify", parameters: ["user":"user", "tab":"host"])
+                    FirebaseAnalytics.Analytics.logEvent("userTappedConnectSpotify", parameters: ["user":"user", "tab":"host", "fullOrClip":"full"])
                     // open browser
                     SpotifySignInFunctions().launchSpotifyInBrowser()
                     // only for testing
@@ -37,7 +35,7 @@ struct ConnectSpotifyButtonHomeView: View {
                     
                 }
                 else {
-                    throwCreateAccountModal = true
+                    userAttributes.showSignUpModal = true
                 }
                 
                 

@@ -28,7 +28,6 @@ struct SongSuggestionsView: View {
     @StateObject var userAttributes : CoreUserAttributes
     
 // ---------------------------------- created in view -----------------------------------------------
-    @State var throwCreateAccountModal = false
     
     @Environment(\.colorScheme) var colorScheme
     
@@ -46,7 +45,7 @@ struct SongSuggestionsView: View {
                     .frame(height: 30)
                 // if the user doesnt have spotify connected, show spot button
                 if !userAttributes.getHasAccount() || !userAttributes.getConnectedToSpotify() {
-                    ConnectSpotifySearch(throwCreateAccountModal: $throwCreateAccountModal, userAttributes: userAttributes)
+                    ConnectSpotifySearch(userAttributes: userAttributes)
                     Spacer()
                         .frame(height: 30)
                 }
@@ -62,9 +61,6 @@ struct SongSuggestionsView: View {
             }
             .padding(.top, 30)
             .frame(width: UIScreen.screenWidth * 0.95)
-            .sheet(isPresented: $throwCreateAccountModal) {
-                CreateAccountPrompt(userAttributes: userAttributes, showModal: $throwCreateAccountModal)
-            }
         }
     }
     

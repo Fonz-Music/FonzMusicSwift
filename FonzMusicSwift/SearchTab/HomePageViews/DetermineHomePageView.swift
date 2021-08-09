@@ -31,6 +31,17 @@ struct DetermineHomePageView: View {
                         ConnectSpotifyHomeButton(userAttributes: userAttributes)
                         Spacer()
                     }
+                    else
+                    if (userAttributes.getConnectedToSpotify() && !userAttributes.getHasAccount()) {
+                        CreateAccountHomeButton(userAttributes: userAttributes)
+                        Spacer()
+                    }
+                    else {
+                        #if APPCLIP
+                        GetFullAppButton(userAttributes: userAttributes)
+                        Spacer()
+                        #endif
+                    }
                     if !userAttributes.getHasConnectedCoasters() {
                         BuyACoasterHomeButton()
                     }

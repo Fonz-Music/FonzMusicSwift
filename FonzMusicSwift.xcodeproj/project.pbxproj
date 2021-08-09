@@ -92,6 +92,10 @@
 		263545BB26A6FFC400B415C9 /* LinkSpotifySettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263545BA26A6FFC400B415C9 /* LinkSpotifySettingsButton.swift */; };
 		263545BE26A7076300B415C9 /* ShopWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263545BD26A7076300B415C9 /* ShopWebView.swift */; };
 		263545BF26A7086D00B415C9 /* ShopWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263545BD26A7076300B415C9 /* ShopWebView.swift */; };
+		2648209026C1936900F8E7BE /* CreateAccountHomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2648208F26C1936900F8E7BE /* CreateAccountHomeButton.swift */; };
+		2648209126C1936900F8E7BE /* CreateAccountHomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2648208F26C1936900F8E7BE /* CreateAccountHomeButton.swift */; };
+		2648209326C194E800F8E7BE /* GetFullAppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2648209226C194E800F8E7BE /* GetFullAppButton.swift */; };
+		2648209426C194E800F8E7BE /* GetFullAppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2648209226C194E800F8E7BE /* GetFullAppButton.swift */; };
 		265464B826BC06C6000FB833 /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265464B726BC06C6000FB833 /* UserApi.swift */; };
 		265464B926BC06C6000FB833 /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265464B726BC06C6000FB833 /* UserApi.swift */; };
 		265464BB26BC07B7000FB833 /* ProviderApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265464BA26BC07B7000FB833 /* ProviderApi.swift */; };
@@ -321,6 +325,8 @@
 		2620B8A926795A8B004FE721 /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
 		263545BA26A6FFC400B415C9 /* LinkSpotifySettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkSpotifySettingsButton.swift; sourceTree = "<group>"; };
 		263545BD26A7076300B415C9 /* ShopWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopWebView.swift; sourceTree = "<group>"; };
+		2648208F26C1936900F8E7BE /* CreateAccountHomeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountHomeButton.swift; sourceTree = "<group>"; };
+		2648209226C194E800F8E7BE /* GetFullAppButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFullAppButton.swift; sourceTree = "<group>"; };
 		265464B726BC06C6000FB833 /* UserApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApi.swift; sourceTree = "<group>"; };
 		265464BA26BC07B7000FB833 /* ProviderApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderApi.swift; sourceTree = "<group>"; };
 		265464BD26BC4FAA000FB833 /* TracksFromTopSongs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracksFromTopSongs.swift; sourceTree = "<group>"; };
@@ -833,6 +839,8 @@
 				26691F6D267AC67400C83696 /* HostAPartyButton.swift */,
 				26EBF65C26A32E3C0094FA60 /* BuyACoasterHomeButton.swift */,
 				26EBF65E26A331330094FA60 /* ConnectSpotifyHomeButton.swift */,
+				2648208F26C1936900F8E7BE /* CreateAccountHomeButton.swift */,
+				2648209226C194E800F8E7BE /* GetFullAppButton.swift */,
 			);
 			path = HomePageButtons;
 			sourceTree = "<group>";
@@ -1324,6 +1332,7 @@
 				2677029126347ECD00B8BC92 /* FonzMusicSwiftApp.swift in Sources */,
 				26FBCCE32686701F00399460 /* RenameCoasterField.swift in Sources */,
 				268B5B2C26ADFF1B00A93B9E /* BasicResponseWithCode.swift in Sources */,
+				2648209326C194E800F8E7BE /* GetFullAppButton.swift in Sources */,
 				265464C426BC632E000FB833 /* GuestTopArtists.swift in Sources */,
 				26D9BC2626AED6B0000C8739 /* AskUserToConnectSpotify.swift in Sources */,
 				26FBCCE526867AB100399460 /* PauseCoasterField.swift in Sources */,
@@ -1382,6 +1391,7 @@
 				26AF07D2268D47C8006A9504 /* TapYourPhoneAmber.swift in Sources */,
 				26EBF65D26A32E3C0094FA60 /* BuyACoasterHomeButton.swift in Sources */,
 				2665E01126B3344300AE2AAB /* EncodeCoasterWithUrl.swift in Sources */,
+				2648209026C1936900F8E7BE /* CreateAccountHomeButton.swift in Sources */,
 				26916FFA268E600700B7281B /* JoinPartyResponses.swift in Sources */,
 				26B65149263865D10074F279 /* CoastersFromApi.swift in Sources */,
 				26FBCCF82686A5C500399460 /* LimitSongRequestsButton.swift in Sources */,
@@ -1514,6 +1524,7 @@
 				261752FD26A3448B0069C83D /* Colors.swift in Sources */,
 				261EC1E226B0BC5B00202D24 /* RenameCoasterField.swift in Sources */,
 				261752FE26A3448B0069C83D /* ButtonStyles.swift in Sources */,
+				2648209126C1936900F8E7BE /* CreateAccountHomeButton.swift in Sources */,
 				261752FF26A3448B0069C83D /* FrontEndConstants.swift in Sources */,
 				2617530026A3448B0069C83D /* TapYourPhoneAmber.swift in Sources */,
 				2617530126A3448B0069C83D /* FonzFonts.swift in Sources */,
@@ -1532,6 +1543,7 @@
 				2617531326A3448B0069C83D /* SearchTab.swift in Sources */,
 				2617531826A3448B0069C83D /* LaunchTroubleShootCoasterNfc.swift in Sources */,
 				2617531926A3448B0069C83D /* LaunchJoinPartNfc.swift in Sources */,
+				2648209426C194E800F8E7BE /* GetFullAppButton.swift in Sources */,
 				2617531A26A3448B0069C83D /* TryAgainNfc.swift in Sources */,
 				2617531B26A3448B0069C83D /* LaunchQueueSongNfc.swift in Sources */,
 				2617531C26A3448B0069C83D /* LaunchQueueSongWriteUrl.swift in Sources */,

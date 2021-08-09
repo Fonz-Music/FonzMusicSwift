@@ -69,6 +69,9 @@ struct ContentView: View {
                 .sheet(isPresented: $throwCreateAccount, content: {
                     CreateAccountPrompt(userAttributes: userAttributes, showModal: $throwCreateAccount, hadPreviousAccount: true)
                 })
+                .sheet(isPresented: $userAttributes.showSignUpModal, content: {
+                    CreateAccountPrompt(userAttributes: userAttributes, showModal: $userAttributes.showSignUpModal, hadPreviousAccount: false)
+                })
                 .accentColor(.amber)
                 .onAppear {
                     // fetches the min app version from apu
@@ -136,6 +139,9 @@ struct ContentView: View {
                         withAnimation {
                             userAttributes.setConnectedToSpotify(bool: true)
                             // prompt user to sign in here?
+                            if !userAttributes.getHasAccount() {
+                                userAttributes.showSignUpModal = true
+                            }
                         }
                     }
                     else {

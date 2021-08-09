@@ -42,6 +42,7 @@ struct SpotifySignInFunctions {
         else {
             returnString = "SPOTIFY_CONNECT_FAILURE"
         }
+        
         return returnString
     }
 

@@ -14,13 +14,13 @@ struct LinkSpotifySettingsButton: View {
     
     var body: some View {
         Button(action: {
-//            HostFonzSessionApi().getAllSessions()
             SpotifySignInFunctions().launchSpotifyInBrowser()
-                
+            #if !APPCLIP
+            FirebaseAnalytics.Analytics.logEvent("userTappedConnectSpotify", parameters: ["user":"user", "tab":"settings", "fullOrClip":"full"])
+            #else
+            FirebaseAnalytics.Analytics.logEvent("userTappedConnectSpotify", parameters: ["user":"user", "tab":"settings", "fullOrClip":"clip"])
+            #endif
             
-            
-            print("pressed button")
-            FirebaseAnalytics.Analytics.logEvent("userPressedLinkSpotify", parameters: ["user":"user", "tab": "settings"])
         }, label: {
             HStack {
                 HStack(spacing: 5) {

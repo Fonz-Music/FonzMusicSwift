@@ -12,11 +12,7 @@ import FirebaseAnalytics
 struct ConnectSpotifySearch: View {
     
     // has user create an account
-    @Binding var throwCreateAccountModal : Bool
-    
-//    @Binding var hasAccount : Bool
-//
-//    @Binding var connectedToSpotify : Bool
+//    @Binding var throwCreateAccountModal : Bool
     // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
     @StateObject var userAttributes : CoreUserAttributes
     
@@ -26,24 +22,13 @@ struct ConnectSpotifySearch: View {
     
     var body: some View {
         Button(action: {
+            
+            SpotifySignInFunctions().launchSpotifyInBrowser()
             #if !APPCLIP
-            if userAttributes.getHasAccount() {
-//                HostFonzSessionApi().getAllSessions()
-                SpotifySignInFunctions().launchSpotifyInBrowser()
-                
-            }
-            else {
-                throwCreateAccountModal = true
-            }
-            
-            print("pressed button")
-            FirebaseAnalytics.Analytics.logEvent("guestPressedConnectSpotify", parameters: ["user":"user", "tab": "search"])
-            
+            FirebaseAnalytics.Analytics.logEvent("userTappedConnectSpotify", parameters: ["user":"user", "tab":"search", "fullOrClip":"full"])
             #else
-            throwDownlaodFullAppModal = true
+            FirebaseAnalytics.Analytics.logEvent("userTappedConnectSpotify", parameters: ["user":"user", "tab":"search", "fullOrClip":"clip"])
             #endif
-            
-            
             
         }, label: {
             HStack {
@@ -74,8 +59,8 @@ struct ConnectSpotifySearch: View {
         .buttonStyle(BasicFonzButton(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .amber))
         .padding(.horizontal, .subHeadingFrontIndent)
         .frame(width: UIScreen.screenWidth, alignment: .center)
-        .sheet(isPresented: $throwDownlaodFullAppModal) {
-            DownloadFullAppPrompt()
-        }
+//        .sheet(isPresented: $throwDownlaodFullAppModal) {
+//            DownloadFullAppPrompt()
+//        }
     }
 }
