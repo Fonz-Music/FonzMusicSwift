@@ -44,9 +44,9 @@ class UserApi {
             "displayName": displayName,
             "email": email,
             "password": password,
-//            "agreedConsent": agreedConsent,
-//            "agreedMarketing": agreedMarketing
-        ]
+            "agreedConsent": agreedConsent,
+            "agreedMarketing": agreedMarketing
+        ] as [String : Any]
         // converts param dict to JSON DATA
         let jsonData = try! JSONSerialization.data(withJSONObject: parameters)
         // adds JSON DATA to the body
