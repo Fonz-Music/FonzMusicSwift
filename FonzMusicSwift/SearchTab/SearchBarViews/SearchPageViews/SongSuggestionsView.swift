@@ -77,7 +77,7 @@ struct SongSuggestionsView: View {
         }
         else {
             #if !APPCLIP
-            return 870.0
+            return 890.0
             #else
             return 840.0
             #endif

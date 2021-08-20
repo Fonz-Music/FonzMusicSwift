@@ -49,10 +49,13 @@ struct YourTopPlaylists: View {
                 ZStack {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 20) {
-                            ForEach(0..<guestTopPlaylists.products.count) {
-                                
-                                TopPlaylistsView(hostCoaster: hostCoaster, playlistIn: guestTopPlaylists.products[$0],  tracksFromPlaylist: tracksFromPlaylist)
+                            ForEach(guestTopPlaylists.products, id: \.self) { playlist in
+                                TopPlaylistsView(hostCoaster: hostCoaster, playlistIn: playlist,  tracksFromPlaylist: tracksFromPlaylist)
                             }
+//                            ForEach(0..<guestTopPlaylists.products.count) {
+//
+//                                TopPlaylistsView(hostCoaster: hostCoaster, playlistIn: guestTopPlaylists.products[$0],  tracksFromPlaylist: tracksFromPlaylist)
+//                            }
                         }
                     }
                     .padding(.horizontal, 10)

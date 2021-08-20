@@ -52,10 +52,13 @@ struct YourTopArtists: View {
                 ZStack {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 10) {
-                            ForEach(0..<guestTopArtists.products.count) {
-                                
-                                TopArtistView(hostCoaster: hostCoaster, artistIn: guestTopArtists.products[$0],  tracksFromArtist: tracksFromArtist)
+                            ForEach(guestTopArtists.products, id: \.self) { artist in
+                                TopArtistView(hostCoaster: hostCoaster, artistIn: artist,  tracksFromArtist: tracksFromArtist)
                             }
+//                            ForEach(0..<guestTopArtists.products.count) {
+//
+//                                TopArtistView(hostCoaster: hostCoaster, artistIn: guestTopArtists.products[$0],  tracksFromArtist: tracksFromArtist)
+//                            }
                         }
                     }
                     .padding(.horizontal, 10)

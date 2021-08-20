@@ -160,7 +160,7 @@ struct CoasterDoesNotHaveHost: View {
                     showHomeButtons = true
                 }
             }
-            // if they do
+            // if they do have spot
             else {
                 let addCoasterResult = HostCoastersApi().addCoaster(coasterUid: tempCoasterDetails.uid)
                     print("\(String(describing: addCoasterResult.status)) is the code m8")
@@ -182,13 +182,14 @@ struct CoasterDoesNotHaveHost: View {
             }
             
         }) {
-            AskUserToConnectSpotify()
+            AskUserToConnectSpotify(showModal: $throwConnectSpotifyPrompt)
         }
         .sheet(isPresented: $throwNameNewCoasterModal, onDismiss: {
             withAnimation {
                 showHomeButtons = true
                 launchedNfc = false
                 userAttributes.setHasConnectedCoasters(bool: true)
+//                userAttributes.determineIfUserHasConnectedCoasters()
 //                hasConnectedCoasters = true
             }
 //            UserDefaults.standard.set(true, forKey: "hasConnectedCoasters")
@@ -196,7 +197,7 @@ struct CoasterDoesNotHaveHost: View {
             VStack{
                 Spacer()
                     .frame(maxHeight: 50)
-                NameNewCoaster(launchedNfc: $launchedNfc, coasterUid: tempCoasterDetails.uid, coastersConnectedToHost: coastersConnectedToUser)
+                NameNewCoaster(launchedNfc: $throwNameNewCoasterModal, coasterUid: tempCoasterDetails.uid, coastersConnectedToHost: coastersConnectedToUser)
                 Spacer()
             }
             .background(

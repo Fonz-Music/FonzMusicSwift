@@ -42,6 +42,8 @@ struct YourTopSongs: View {
 //
 //    ]
     
+    
+    
     var body: some View {
         VStack{
             HStack{
@@ -53,25 +55,39 @@ struct YourTopSongs: View {
                 Spacer()
             }
             ScrollView(.horizontal, showsIndicators: false) {
-                VStack {
+                VStack(alignment: .leading) {
                     HStack(spacing: 10) {
-                        ForEach(0..<tracksFromTopSongs.products.count / 2) {
-                            TopSongButtonView(hostCoaster: hostCoaster, topSong: tracksFromTopSongs.products[$0], currentTune: currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
+                        // from first song to halfway thru
+                        ForEach(tracksFromTopSongs.products[0...((tracksFromTopSongs.products.count / 2) - 1)], id: \.self) { track in
+                            TopSongButtonView(hostCoaster: hostCoaster, topSong: track, currentTune: currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
                                 .padding(.top, 5)
-                               
+                            
                         }.padding(.trailing, 5)
+                        
+//                        ForEach(0..<tracksFromTopSongs.products.count / 2) {
+//                            TopSongButtonView(hostCoaster: hostCoaster, topSong: tracksFromTopSongs.products[$0], currentTune: currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
+//                                .padding(.top, 5)
+//
+//                        }.padding(.trailing, 5)
                     }
                     .padding(.bottom, 5)
                     
                     
                     HStack(spacing: 10) {
-                        ForEach(tracksFromTopSongs.products.count / 2..<tracksFromTopSongs.products.count) {
-                       
-                            TopSongButtonView(hostCoaster: hostCoaster, topSong: tracksFromTopSongs.products[$0], currentTune: currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
+                        // from halfway thru to last song
+                        ForEach(tracksFromTopSongs.products[(tracksFromTopSongs.products.count / 2)...(tracksFromTopSongs.products.count - 1)], id: \.self) { track in
+                            TopSongButtonView(hostCoaster: hostCoaster, topSong: track, currentTune: currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
                                 .padding(.bottom, 10)
                             
-                                
                         }.padding(.trailing, 5)
+                        
+//                        ForEach(tracksFromTopSongs.products.count / 2..<tracksFromTopSongs.products.count) {
+//
+//                            TopSongButtonView(hostCoaster: hostCoaster, topSong: tracksFromTopSongs.products[$0], currentTune: currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
+//                                .padding(.bottom, 10)
+//
+//
+//                        }.padding(.trailing, 5)
                     }
                     
                     
