@@ -44,14 +44,13 @@ class CoastersFromApi: ObservableObject {
         products = HostCoastersApi().getOwnedCoasters()
     }
     func determineIfHasCoasters() -> Bool {
+        products = HostCoastersApi().getOwnedCoasters()
         if products.quantity > 0 {
             print("has coasters")
-            UserDefaults.standard.set(true, forKey: "hasConnectedCoasters")
             return true
         }
         else {
             print("no coasters")
-            UserDefaults.standard.set(false, forKey: "hasConnectedCoasters")
             return false
         }
     }

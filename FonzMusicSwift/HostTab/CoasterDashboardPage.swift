@@ -84,7 +84,14 @@ struct CoasterDashboardPage: View {
                                 .padding(.bottom, 10)
                             }.frame(width: UIScreen.screenWidth * 0.9, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                             .padding(.top, 20)
-                            
+                            .onAppear {
+                                if coastersConnectedToHost.products.quantity == 0 {
+                                    var actuallyHasCoasters = coastersConnectedToHost.determineIfHasCoasters()
+                                    if (!actuallyHasCoasters) {
+                                        userAttributes.setHasConnectedCoasters(bool: false)
+                                    }
+                                }
+                            }
                             Spacer()
                             // add new button
                             AddNewCoasterButton(addNewCoasterPressed: $addNewCoasterPressed)
