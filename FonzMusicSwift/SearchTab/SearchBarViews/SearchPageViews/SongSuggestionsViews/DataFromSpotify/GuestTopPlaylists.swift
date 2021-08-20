@@ -13,7 +13,7 @@ class GuestTopPlaylists: ObservableObject {
 
     var subscription: Set<AnyCancellable> = []
     var userSessionId : String = UserDefaults.standard.string(forKey: "userAccountSessionId") ?? ""
-    var hostSessionId : String = UserDefaults.standard.string(forKey: "hostSessionId")!
+    var hostSessionId : String = UserDefaults.standard.string(forKey: "hostSessionId") ?? ""
 //    var sessionId : String = ""
 
     @Published private (set) var products: [Playlist] = []
@@ -45,6 +45,7 @@ class GuestTopPlaylists: ObservableObject {
         }
         else {
             print("no spot or no sessionId")
+            products = tempProducts
 //            products = SpotifySuggestionsApi().getNewSongReleases(sessionId: hostSessionId)
         }
     }

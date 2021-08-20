@@ -13,7 +13,7 @@ class GuestTopArtists: ObservableObject {
 
     var subscription: Set<AnyCancellable> = []
     var userSessionId : String = UserDefaults.standard.string(forKey: "userAccountSessionId") ?? ""
-    var hostSessionId : String = UserDefaults.standard.string(forKey: "hostSessionId")!
+    var hostSessionId : String = UserDefaults.standard.string(forKey: "hostSessionId") ?? ""
 //    var sessionId : String = ""
 
     @Published private (set) var products: [Artist] = []

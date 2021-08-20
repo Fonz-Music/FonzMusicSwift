@@ -10,7 +10,8 @@ import FirebaseAnalytics
 
 
 struct AskUserToConnectSpotify: View {
-    
+    // so you can dismiss modal
+    @Binding var showModal : Bool
     let sideGraphicHeight = UIScreen.screenHeight * 0.14
     
     var body: some View {
@@ -39,6 +40,7 @@ struct AskUserToConnectSpotify: View {
 
                     FirebaseAnalytics.Analytics.logEvent("userTappedConnectSpotify", parameters: ["user":"user", "tab":"host"])
                     SpotifySignInFunctions().launchSpotifyInBrowser()
+                    showModal = false
                 }, label: {
                     Text("connect")
                         .foregroundColor(.white)

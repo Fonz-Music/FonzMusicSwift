@@ -202,7 +202,10 @@ class SpotifySuggestionsApi {
                     // sets return value
                     print("success")
 //                    print("decoded resp is \(decodedResponse)")
-                    artists = artistResponseToArtist(artistResps: decodedResponse)
+                    if decodedResponse.count > 1 {
+                        artists = artistResponseToArtist(artistResps: decodedResponse)
+                    }
+                    
 //                    providerObject = decodedResponse
                    
                 }
@@ -258,8 +261,11 @@ class SpotifySuggestionsApi {
                     // sets return value
                     print("success")
                     print("decoded resp is \(decodedResponse)")
+                    if decodedResponse.count > 1 {
+                        playlists = playlistResponseToPlaylist(playlistResps: decodedResponse)
+                    }
 
-                    playlists = playlistResponseToPlaylist(playlistResps: decodedResponse)
+                    
                    
                 }
                 else {

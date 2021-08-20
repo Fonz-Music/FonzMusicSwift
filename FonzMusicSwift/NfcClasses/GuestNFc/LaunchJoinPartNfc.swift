@@ -168,7 +168,14 @@ struct LaunchJoinPartyNfcSession: UIViewRepresentable {
 //                        self.tempCoaster.hostName = coasterDetails.coaster.displayName
                         self.tempCoaster.sessionId = coasterDetails.session.sessionId
                         self.tempCoaster.uid = UID
-                        self.statusCode = coasterDetails.statusCode!
+                        if coasterDetails.session.provider != "" {
+                            self.statusCode = coasterDetails.statusCode!
+                        }
+                        // if they don't have a provider, host needs to connect to spot
+                        else {
+                            self.statusCode = 403
+                        }
+                        
                         self.pressedButtonToLaunchNfc = false
                     }
                 }

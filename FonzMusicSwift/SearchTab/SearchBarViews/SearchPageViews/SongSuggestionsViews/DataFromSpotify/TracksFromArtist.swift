@@ -17,7 +17,7 @@ import Network
 class TracksFromArtist: ObservableObject {
     
     var subscription: Set<AnyCancellable> = []
-    var hostSessionId : String = UserDefaults.standard.string(forKey: "hostSessionId")!
+    var hostSessionId : String = UserDefaults.standard.string(forKey: "hostSessionId") ?? ""
     
     @Published private (set) var products: [Track] = []
     
@@ -32,9 +32,9 @@ class TracksFromArtist: ObservableObject {
             .sink { (_) in
                 //
             } receiveValue: { [self] (artist) in
-                if artistId != "" {
+//                if artistId != "" {
                     products = SpotifySuggestionsApi().getTracksByArtist(sessionId: hostSessionId, artistId: artist)
-                }
+//                }
                 
             }
             .store(in: &subscription)
