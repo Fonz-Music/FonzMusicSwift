@@ -359,7 +359,7 @@ class SpotifySuggestionsApi {
 
             if let dataResp = data {
                 let jsonData = try? JSONSerialization.jsonObject(with: data!, options: [])
-                print(jsonData)
+//                print(jsonData)
 
                 // sets resp code
 //                returnCode = response?.getStatusCode() ?? 0
@@ -370,7 +370,7 @@ class SpotifySuggestionsApi {
                 if let decodedResponse = try? JSONDecoder().decode(ItemsFromPlaylist.self, from: dataResp) {
                     // sets return value
                     print("success")
-                    print("decoded resp is \(decodedResponse)")
+//                    print("decoded resp is \(decodedResponse)")
                     tracks  = playlistTracksToTracks(playlistResps: decodedResponse)
                    
                 }
