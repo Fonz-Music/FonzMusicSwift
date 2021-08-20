@@ -19,8 +19,8 @@ struct VersionResponse: Codable {
 // all api functions inside
 class GetVersionApi {
     
-    //    let ADDRESS = "http://beta.api.fonzmusic.com:8080/"
-    let ADDRESS = "http://52.50.138.97:8080/"
+    let ADDRESS = "https://beta.api.fonzmusic.com/"
+//    let ADDRESS = "http://52.50.138.97:8080/"
     let VERSION = "version/"
   
 

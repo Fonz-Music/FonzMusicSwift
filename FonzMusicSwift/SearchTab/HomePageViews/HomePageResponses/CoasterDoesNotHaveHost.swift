@@ -33,7 +33,7 @@ struct CoasterDoesNotHaveHost: View {
     @ObservedObject var coastersConnectedToUser: CoastersFromApi
     
     // has user create an account
-    @State var throwCreateAccountModal = false
+//    @State var throwCreateAccountModal = false
     
     // has user download the full app
     @State var throwDownloadFullAppModal = false
@@ -112,7 +112,8 @@ struct CoasterDoesNotHaveHost: View {
                 }
                 else {
                     print("no account")
-                    throwCreateAccountModal = true
+                    userAttributes.showSignUpModal = true
+//                    throwCreateAccountModal = true
                 }
                 
                 #endif
@@ -144,20 +145,40 @@ struct CoasterDoesNotHaveHost: View {
             .buttonStyle(BasicFonzButton(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .lilac))
 //            .padding()
         }
-        .sheet(isPresented: $throwCreateAccountModal, onDismiss: {
-        }) {
-            CreateAccountPrompt(userAttributes: userAttributes, showModal: $throwCreateAccountModal)
-        }
+//        .sheet(isPresented: $throwCreateAccountModal, onDismiss: {
+//        }) {
+//            CreateAccountPrompt(userAttributes: userAttributes, showModal: $throwCreateAccountModal)
+//        }
         .sheet(isPresented: $throwDownloadFullAppModal) {
             DownloadFullAppPrompt()
         }
         .sheet(isPresented: $throwConnectSpotifyPrompt, onDismiss: {
-            
+            // if they dont add spot
             if !userAttributes.getConnectedToSpotify() {
                 withAnimation {
                     launchedNfc = false
                     showHomeButtons = true
                 }
+            }
+            // if they do
+            else {
+                let addCoasterResult = HostCoastersApi().addCoaster(coasterUid: tempCoasterDetails.uid)
+                    print("\(String(describing: addCoasterResult.status)) is the code m8")
+                    // return that resp if its NOT 200
+                print("status here is \(addCoasterResult.status)")
+                    if addCoasterResult.status == 200 {
+                        // have user name coaster
+                        throwNameNewCoasterModal = true
+                        
+                    }
+                    else {
+                        // tell user something went wrong connecting
+                        statusCode = 405
+                        withAnimation {
+                            launchedNfc = false
+//                                    showHomeButtons = true
+                        }
+                    }
             }
             
         }) {

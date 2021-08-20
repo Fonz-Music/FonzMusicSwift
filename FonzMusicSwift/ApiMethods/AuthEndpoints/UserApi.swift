@@ -16,8 +16,8 @@ struct UpdateUserResponse: Codable, Hashable {
 
 
 class UserApi {
-//    let ADDRESS = "http://beta.api.fonzmusic.com:8080/"
-    let ADDRESS = "http://52.50.138.97:8080/"
+    let ADDRESS = "https://beta.api.fonzmusic.com/"
+//    let ADDRESS = "http://52.50.138.97:8080/"
     let AUTH = "auth/"
     
     // api call to register user
@@ -120,18 +120,6 @@ class UserApi {
         var request = URLRequest(url: url)
         // sets method as PUT
         request.httpMethod = "GET"
-        // creates Param as Dictionary
-//        let parameters = [
-//            "displayName": displayName,
-//            "email": email,
-//            "password": password,
-////            "agreedConsent": agreedConsent,
-////            "agreedMarketing": agreedMarketing
-//        ]
-//        // converts param dict to JSON DATA
-//        let jsonData = try! JSONSerialization.data(withJSONObject: parameters)
-//        // adds JSON DATA to the body
-//        request.httpBody = jsonData
         // tells req that there is a body param
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         // add token

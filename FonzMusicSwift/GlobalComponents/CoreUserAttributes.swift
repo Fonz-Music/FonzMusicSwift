@@ -39,6 +39,7 @@ class CoreUserAttributes: ObservableObject {
             determineIfUserHasConnectedCoasters()
         }
         // GET user
+        UserApi().getUserAccount()
         // set agreedToEmail
         agreedToEmail = UserDefaults.standard.bool(forKey: "agreedToEmail")
         // set userId
