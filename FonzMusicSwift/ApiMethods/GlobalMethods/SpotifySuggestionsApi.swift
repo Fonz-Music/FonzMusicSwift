@@ -15,6 +15,36 @@ struct ArtistResponse: Codable {
     var images: Array<ImageArray>
 }
 
+// playlist return Object
+struct PlaylistResponse: Codable {
+    var name: String
+    var id: String
+    var images: Array<ImageArray>
+    var tracks : TotalTracksInPlaylist
+}
+struct TotalTracksInPlaylist: Codable {
+    var total: Int
+}
+
+struct ItemsFromPlaylist: Codable {
+    var items: Array<TracksInPlaylist>
+}
+//struct ItemInPlayList: Codable {
+//
+//}
+struct TracksInPlaylist: Codable {
+    var is_local: Bool
+    var added_at: String
+    var track: TrackInPlaylist
+}
+struct TrackInPlaylist: Codable {
+    var artists: Array<ArtistArray>
+    var name: String
+    var id: String
+    var album: Album
+    var external_urls: ExternalUrl
+}
+
 
 class SpotifySuggestionsApi {
     
@@ -49,7 +79,7 @@ class SpotifySuggestionsApi {
 
             if let dataResp = data {
                 let jsonData = try? JSONSerialization.jsonObject(with: data!, options: [])
-                print(jsonData)
+//                print(jsonData)
 
                 // sets resp code
 //                returnCode = response?.getStatusCode() ?? 0
@@ -60,7 +90,7 @@ class SpotifySuggestionsApi {
                 if let decodedResponse = try? JSONDecoder().decode([Items].self, from: dataResp) {
                     // sets return value
                     print("success")
-                    print("decoded resp is \(decodedResponse)")
+//                    print("decoded resp is \(decodedResponse)")
                     tracks = itemsToTracks(tracks: decodedResponse)
                    
                 }
@@ -144,6 +174,7 @@ class SpotifySuggestionsApi {
         let accessToken = getJWTAndCheckIfExpired()
         // create url
         guard let url = URL(string: self.ADDRESS + self.GUEST + sessionId + "/" + self.SPOTIFY + self.SEARCH + "top?type=artists" ) else { return artists }
+        print("address is \(url)")
         // creates req w url
         var request = URLRequest(url: url)
         // sets method as PUT
@@ -159,7 +190,7 @@ class SpotifySuggestionsApi {
 
             if let dataResp = data {
                 let jsonData = try? JSONSerialization.jsonObject(with: data!, options: [])
-                print(jsonData)
+//                print(jsonData)
 
                 // sets resp code
 //                returnCode = response?.getStatusCode() ?? 0
@@ -170,7 +201,7 @@ class SpotifySuggestionsApi {
                 if let decodedResponse = try? JSONDecoder().decode([ArtistResponse].self, from: dataResp) {
                     // sets return value
                     print("success")
-                    print("decoded resp is \(decodedResponse)")
+//                    print("decoded resp is \(decodedResponse)")
                     artists = artistResponseToArtist(artistResps: decodedResponse)
 //                    providerObject = decodedResponse
                    
@@ -191,14 +222,15 @@ class SpotifySuggestionsApi {
     return artists
     }
     
-    func getGuestTopPlaylists(sessionId: String) {
+    func getGuestTopPlaylists(sessionId: String) -> [Playlist] {
         // this allows us to wait before returning value
         let sem = DispatchSemaphore.init(value: 0)
-        
+        var playlists = [Playlist]()
         // get access token
         let accessToken = getJWTAndCheckIfExpired()
         // create url
-        guard let url = URL(string: self.ADDRESS + self.GUEST + sessionId + "/" + self.SPOTIFY + self.SEARCH + "top?type=playlists" ) else { return }
+        guard let url = URL(string: self.ADDRESS + self.GUEST + sessionId + "/" + self.SPOTIFY + self.SEARCH + "top?type=playlists" ) else { return playlists}
+        print("address is \(url)")
         // creates req w url
         var request = URLRequest(url: url)
         // sets method as PUT
@@ -214,7 +246,7 @@ class SpotifySuggestionsApi {
 
             if let dataResp = data {
                 let jsonData = try? JSONSerialization.jsonObject(with: data!, options: [])
-                print(jsonData)
+//                print(jsonData)
 
                 // sets resp code
 //                returnCode = response?.getStatusCode() ?? 0
@@ -222,11 +254,12 @@ class SpotifySuggestionsApi {
                 print("code is \(response?.getStatusCode() ?? 0)")
                 
                 
-                if let decodedResponse = try? JSONDecoder().decode([TracksResult].self, from: dataResp) {
+                if let decodedResponse = try? JSONDecoder().decode([PlaylistResponse].self, from: dataResp) {
                     // sets return value
                     print("success")
                     print("decoded resp is \(decodedResponse)")
-//                    providerObject = decodedResponse
+
+                    playlists = playlistResponseToPlaylist(playlistResps: decodedResponse)
                    
                 }
                 else {
@@ -241,7 +274,7 @@ class SpotifySuggestionsApi {
     
     // tells function to wait before returning
     sem.wait()
-
+    return playlists
     //return providerObject
     }
     
@@ -270,7 +303,7 @@ class SpotifySuggestionsApi {
 
             if let dataResp = data {
                 let jsonData = try? JSONSerialization.jsonObject(with: data!, options: [])
-                print(jsonData)
+//                print(jsonData)
 
                 // sets resp code
 //                returnCode = response?.getStatusCode() ?? 0
@@ -281,7 +314,7 @@ class SpotifySuggestionsApi {
                 if let decodedResponse = try? JSONDecoder().decode([Items].self, from: dataResp) {
                     // sets return value
                     print("success")
-                    print("decoded resp is \(decodedResponse)")
+//                    print("decoded resp is \(decodedResponse)")
                     tracks = itemsToTracks(tracks: decodedResponse)
                    
                 }
@@ -334,11 +367,11 @@ class SpotifySuggestionsApi {
                 print("code is \(response?.getStatusCode() ?? 0)")
                 
                 
-                if let decodedResponse = try? JSONDecoder().decode([Items].self, from: dataResp) {
+                if let decodedResponse = try? JSONDecoder().decode(ItemsFromPlaylist.self, from: dataResp) {
                     // sets return value
                     print("success")
                     print("decoded resp is \(decodedResponse)")
-                    tracks = itemsToTracks(tracks: decodedResponse)
+                    tracks  = playlistTracksToTracks(playlistResps: decodedResponse)
                    
                 }
                 else {

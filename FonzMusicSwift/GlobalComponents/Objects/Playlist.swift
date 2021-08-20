@@ -10,7 +10,7 @@ import Foundation
 
 
 // track Object
-struct Playlist: Hashable {
+struct Playlist: Hashable, Decodable {
     var playlistName: String
     var playlistId: String
     var playlistImage: String

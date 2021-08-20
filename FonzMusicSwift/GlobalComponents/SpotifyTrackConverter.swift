@@ -8,6 +8,7 @@
 import Foundation
 
 func itemsToTracks(tracks : [Items]) -> [Track] {
+    print("in itemsToTracks")
     var trackReturn = [Track]()
     for track in tracks {
 //                                print("\(track.external_urls)")
@@ -41,4 +42,39 @@ func artistResponseToArtist(artistResps : [ArtistResponse]) -> [Artist] {
     }
     return artists
     
+}
+
+func playlistResponseToPlaylist(playlistResps : [PlaylistResponse]) -> [Playlist] {
+    var playlists = [Playlist]()
+    for playlist in playlistResps {
+        let art = playlist.images[0].url
+        let name = playlist.name
+        let id = playlist.id
+        let tracks = playlist.tracks.total
+
+        let newPlaylist = Playlist(playlistName: name, playlistId: id, playlistImage: art, amountOfTracks: tracks)
+        playlists.append(newPlaylist)
+    }
+    return playlists
+
+}
+
+func playlistTracksToTracks(playlistResps : ItemsFromPlaylist) -> [Track] {
+    var tracks = [Track]()
+    for playlistTrack in playlistResps.items {
+        let art = playlistTrack.track.album.images[0].url
+        let name = playlistTrack.track.name
+        let id = playlistTrack.track.id
+        let listArtist = playlistTrack.track.artists
+        var listArtistString = ""
+        for (index, element) in listArtist.enumerated() {
+            listArtistString += " " + element.name
+            
+        }
+
+        let newTrack = Track(songName: name, songId: id, artistName: listArtistString, albumArt: art, spotifyUrl: playlistTrack.track.external_urls.spotify)
+        tracks.append(newTrack)
+    }
+    return tracks
+
 }

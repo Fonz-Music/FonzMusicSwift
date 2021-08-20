@@ -24,13 +24,16 @@ class TracksFromPlaylist: ObservableObject {
 
     
     init() {
-//        print("starting this")
+        print("starting to get tracks by playlist")
         $playlistId
             .compactMap{ $0 } // removes the nil values so the search string does not get passed down to the publisher chain
             .sink { (_) in
                 //
             } receiveValue: { [self] (playlist) in
-//                products = SpotifySuggestionsApi().getTracksByPlaylist(sessionId: hostSessionId, playlistId: playlist)
+                if playlistId != "" {
+                    products = SpotifySuggestionsApi().getTracksByPlaylist(sessionId: hostSessionId, playlistId: playlist)
+                }
+                
             }
             .store(in: &subscription)
     }

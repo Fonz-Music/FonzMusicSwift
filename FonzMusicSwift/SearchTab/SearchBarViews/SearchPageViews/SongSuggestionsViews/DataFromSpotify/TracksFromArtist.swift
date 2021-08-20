@@ -32,7 +32,10 @@ class TracksFromArtist: ObservableObject {
             .sink { (_) in
                 //
             } receiveValue: { [self] (artist) in
-                products = SpotifySuggestionsApi().getTracksByArtist(sessionId: hostSessionId, artistId: artist)
+                if artistId != "" {
+                    products = SpotifySuggestionsApi().getTracksByArtist(sessionId: hostSessionId, artistId: artist)
+                }
+                
             }
             .store(in: &subscription)
         
