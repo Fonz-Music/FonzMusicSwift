@@ -12,7 +12,9 @@ func itemsToTracks(tracks : [Items]) -> [Track] {
     var trackReturn = [Track]()
     for track in tracks {
 //                                print("\(track.external_urls)")
-    
+        if track.album.images.count == 0 {
+            continue
+        }
         let albumArt = track.album.images[0].url
         let listArtist = track.artists
         var listArtistString = ""
@@ -33,6 +35,9 @@ func itemsToTracks(tracks : [Items]) -> [Track] {
 func artistResponseToArtist(artistResps : [ArtistResponse]) -> [Artist] {
     var artists = [Artist]()
     for artist in artistResps {
+        if artist.images.count == 0 {
+            continue
+        }
         let artistArt = artist.images[0].url
         let artistName = artist.name
         let artistId = artist.id
@@ -47,13 +52,19 @@ func artistResponseToArtist(artistResps : [ArtistResponse]) -> [Artist] {
 func playlistResponseToPlaylist(playlistResps : [PlaylistResponse]) -> [Playlist] {
     var playlists = [Playlist]()
     for playlist in playlistResps {
-        let art = playlist.images[0].url
+        if playlist.images.count == 0 {
+            continue
+        }
+        guard case let art = playlist.images[0].url
+        else { continue }
         let name = playlist.name
         let id = playlist.id
         let tracks = playlist.tracks.total
-
-        let newPlaylist = Playlist(playlistName: name, playlistId: id, playlistImage: art, amountOfTracks: tracks)
-        playlists.append(newPlaylist)
+        if tracks > 1 {
+            let newPlaylist = Playlist(playlistName: name, playlistId: id, playlistImage: art, amountOfTracks: tracks)
+            playlists.append(newPlaylist)
+        }
+        
     }
     return playlists
 
@@ -62,6 +73,9 @@ func playlistResponseToPlaylist(playlistResps : [PlaylistResponse]) -> [Playlist
 func playlistTracksToTracks(playlistResps : ItemsFromPlaylist) -> [Track] {
     var tracks = [Track]()
     for playlistTrack in playlistResps.items {
+        if playlistTrack.track.album.images.count == 0 {
+            continue
+        }
         let art = playlistTrack.track.album.images[0].url
         let name = playlistTrack.track.name
         let id = playlistTrack.track.id

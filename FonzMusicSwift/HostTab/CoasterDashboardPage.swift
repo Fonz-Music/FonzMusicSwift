@@ -86,7 +86,7 @@ struct CoasterDashboardPage: View {
                             .padding(.top, 20)
                             .onAppear {
                                 if coastersConnectedToHost.products.quantity == 0 {
-                                    var actuallyHasCoasters = coastersConnectedToHost.determineIfHasCoasters()
+                                    let actuallyHasCoasters = coastersConnectedToHost.determineIfHasCoasters()
                                     if (!actuallyHasCoasters) {
                                         userAttributes.setHasConnectedCoasters(bool: false)
                                     }
