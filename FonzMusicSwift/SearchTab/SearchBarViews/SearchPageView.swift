@@ -98,7 +98,7 @@ struct SearchPageView: View {
                     // now playing + song suggestions
                     VStack{
                         ActiveSongView(hostName: hostCoaster.hostName, currentSessionId: hostCoaster.sessionId, trackfromNowPlaying: trackFromNowPlaying)
-                        SongSuggestionsView(hostCoaster: hostCoaster, currentTune: currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc, tracksFromPlaylist: tracksFromPlaylist, tracksFromArtist: tracksFromArtist, tracksFromTopSongs: tracksFromTopSongs, guestTopArtists: guestTopArtists, guestTopPlaylists: guestTopPlaylists, userAttributes: userAttributes)
+                        SongSuggestionsView(hostCoaster: hostCoaster, currentTune: currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc, tracksFromPlaylist: tracksFromPlaylist, tracksFromArtist: tracksFromArtist, tracksFromTopSongs: tracksFromTopSongs, guestTopArtists: guestTopArtists, guestTopPlaylists: guestTopPlaylists, userAttributes: userAttributes, statusCodeQueueSong: $statusCodeQueueSong, showQueueResponse: $showQueueResponse)
 //                        #if !APPCLIP
 //                        Spacer()
 //                            .frame(height: 50)

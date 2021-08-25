@@ -34,10 +34,11 @@ class CoreUserAttributes: ObservableObject {
     
     // gets all preferences
     func determineAllUserPrefrencesAfterSignIn() {
+        // check for spot
         determineIfUserConnectedToSpotify()
-        if (getConnectedToSpotify()) {
-            determineIfUserHasConnectedCoasters()
-        }
+        // check for coasters
+        determineIfUserHasConnectedCoasters()
+        
         // GET user
         UserApi().getUserAccount()
         // set agreedToEmail

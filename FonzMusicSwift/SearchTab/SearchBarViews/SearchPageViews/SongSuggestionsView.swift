@@ -29,6 +29,11 @@ struct SongSuggestionsView: View {
     // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
     @StateObject var userAttributes : CoreUserAttributes
     
+    // statusCode from queueing song
+    @Binding var statusCodeQueueSong : Int
+    // boolean to change when views should be showed w animation
+    @Binding var showQueueResponse : Bool
+    
 // ---------------------------------- created in view -----------------------------------------------
     
     @Environment(\.colorScheme) var colorScheme
@@ -51,7 +56,7 @@ struct SongSuggestionsView: View {
                     Spacer()
                         .frame(height: 30)
                 }
-                YourTopSongs(hostCoaster: hostCoaster, currentTune: currentTune, tracksFromTopSongs: tracksFromTopSongs, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
+                YourTopSongs(hostCoaster: hostCoaster, currentTune: currentTune, tracksFromTopSongs: tracksFromTopSongs, pressedSongToLaunchNfc: $pressedSongToLaunchNfc, statusCodeQueueSong: $statusCodeQueueSong, showQueueResponse: $showQueueResponse)
                 YourTopArtists(hostCoaster: hostCoaster, tracksFromArtist: tracksFromArtist, guestTopArtists: guestTopArtists)
                 YourTopPlaylists(hostCoaster: hostCoaster,  tracksFromPlaylist: tracksFromPlaylist, guestTopPlaylists: guestTopPlaylists)
                 #if !APPCLIP

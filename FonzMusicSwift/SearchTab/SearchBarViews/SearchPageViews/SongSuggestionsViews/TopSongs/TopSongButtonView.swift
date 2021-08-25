@@ -18,23 +18,32 @@ struct TopSongButtonView: View {
     // bool that will launch nfc when pressed
     @Binding var pressedSongToLaunchNfc : Bool
     
-    
-   
+    // statusCode from queueing song
+    @Binding var statusCodeQueueSong : Int
+    // boolean to change when views should be showed w animation
+    @Binding var showQueueResponse : Bool
     
     @Environment(\.colorScheme) var colorScheme
     
   
     var body: some View {
         Button {
+            
             DispatchQueue.main.async {
                 currentTune.songId = topSong.songId
                 currentTune.artistName = topSong.artistName
                 currentTune.albumArt = topSong.albumArt
                 currentTune.spotifyUrl = topSong.spotifyUrl
                 currentTune.songName = topSong.songName
+                if (currentTune.songId != "") {
+                    statusCodeQueueSong = GuestApi().queueSong(sessionId: hostCoaster.sessionId, trackId: currentTune.songId)
+                    withAnimation{
+                        showQueueResponse = true
+                    }
+                }
             }
-            pressedSongToLaunchNfc = true
-    
+//            pressedSongToLaunchNfc = true
+           
             FirebaseAnalytics.Analytics.logEvent("guestSelectedTopSong", parameters: ["user":"guest", "tab":"search"])
         } label: {
             ZStack {

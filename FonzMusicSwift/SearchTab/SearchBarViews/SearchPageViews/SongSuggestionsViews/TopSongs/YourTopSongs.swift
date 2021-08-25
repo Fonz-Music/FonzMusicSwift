@@ -20,6 +20,11 @@ struct YourTopSongs: View {
     // bool that will launch nfc when pressed
     @Binding var pressedSongToLaunchNfc : Bool
     
+    // statusCode from queueing song
+    @Binding var statusCodeQueueSong : Int
+    // boolean to change when views should be showed w animation
+    @Binding var showQueueResponse : Bool
+    
     @State var connectedToSpotify : Bool = false
     
     @Environment(\.colorScheme) var colorScheme
@@ -59,7 +64,7 @@ struct YourTopSongs: View {
                     HStack(spacing: 10) {
                         // from first song to halfway thru
                         ForEach(tracksFromTopSongs.products[0...((tracksFromTopSongs.products.count / 2) - 1)], id: \.self) { track in
-                            TopSongButtonView(hostCoaster: hostCoaster, topSong: track, currentTune: currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
+                            TopSongButtonView(hostCoaster: hostCoaster, topSong: track, currentTune: currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc, statusCodeQueueSong: $statusCodeQueueSong, showQueueResponse: $showQueueResponse)
                                 .padding(.top, 5)
                             
                         }.padding(.trailing, 5)
@@ -76,7 +81,7 @@ struct YourTopSongs: View {
                     HStack(spacing: 10) {
                         // from halfway thru to last song
                         ForEach(tracksFromTopSongs.products[(tracksFromTopSongs.products.count / 2)...(tracksFromTopSongs.products.count - 1)], id: \.self) { track in
-                            TopSongButtonView(hostCoaster: hostCoaster, topSong: track, currentTune: currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
+                            TopSongButtonView(hostCoaster: hostCoaster, topSong: track, currentTune: currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc, statusCodeQueueSong: $statusCodeQueueSong, showQueueResponse: $showQueueResponse)
                                 .padding(.bottom, 10)
                             
                         }.padding(.trailing, 5)
