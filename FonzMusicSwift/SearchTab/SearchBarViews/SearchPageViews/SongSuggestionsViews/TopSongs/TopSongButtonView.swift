@@ -28,20 +28,27 @@ struct TopSongButtonView: View {
   
     var body: some View {
         Button {
-            
+            withAnimation{
+                showQueueResponse = true
+//                statusCodeQueueSong =
+            }
             DispatchQueue.main.async {
+            
                 currentTune.songId = topSong.songId
                 currentTune.artistName = topSong.artistName
                 currentTune.albumArt = topSong.albumArt
                 currentTune.spotifyUrl = topSong.spotifyUrl
                 currentTune.songName = topSong.songName
                 if (currentTune.songId != "") {
-                    statusCodeQueueSong = GuestApi().queueSong(sessionId: hostCoaster.sessionId, trackId: currentTune.songId)
                     withAnimation{
-                        showQueueResponse = true
+//                        showQueueResponse = true
+                        statusCodeQueueSong = GuestApi().queueSong(sessionId: hostCoaster.sessionId, trackId: currentTune.songId)
                     }
                 }
             }
+                
+//            }
+
 //            pressedSongToLaunchNfc = true
            
             FirebaseAnalytics.Analytics.logEvent("guestSelectedTopSong", parameters: ["user":"guest", "tab":"search"])
@@ -74,5 +81,4 @@ struct TopSongButtonView: View {
         
     }
 }
-
 

@@ -13,8 +13,8 @@ struct QueuedButDelayedResponse: View {
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
-        Button(action: {
-        }, label: {
+//        Button(action: {
+//        }, label: {
             HStack {
                 HStack{
                     ZStack{
@@ -39,11 +39,11 @@ struct QueuedButDelayedResponse: View {
                 
             }.frame(width: UIScreen.screenWidth * 0.9, height: 60)
             
-            
-        })
-        .buttonStyle(BasicFonzButton(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .amber, selectedOption: true))
-//        .padding()
-        .disabled(true)
+//
+//        })
+//        .buttonStyle(BasicFonzButton(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .amber, selectedOption: true))
+////        .padding()
+//        .disabled(true)
     }
 }
 

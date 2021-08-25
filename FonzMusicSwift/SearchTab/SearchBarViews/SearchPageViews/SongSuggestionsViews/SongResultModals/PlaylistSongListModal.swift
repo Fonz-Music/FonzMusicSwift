@@ -103,7 +103,7 @@ struct PlaylistSongListModal: View {
                             LazyVGrid(columns: layout, spacing: 8) {
                                 ForEach(tracksFromEntry.products, id: \.self) { item in
                                     
-                                    SongListModalSongButton(hostCoaster: hostCoaster, trackToQueue: item, currentTune: currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
+                                    SongListModalSongButton(hostCoaster: hostCoaster, statusCodeQueueSong: $statusCodeQueueSong, trackToQueue: item, currentTune: currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc, showQueueResponse: $showQueueResponse)
 
                             }
                         }
@@ -122,7 +122,7 @@ struct PlaylistSongListModal: View {
             // resps
             LaunchSongResponsePopup(statusCodeQueueSong: statusCodeQueueSong, showQueueResponse: $showQueueResponse, songSelected: currentTune.songName, currentHost: hostCoaster.hostName)
                 .padding(.horizontal)
-                .padding(.top, 30)
+                .padding(.top, 20)
         }
     }
 }

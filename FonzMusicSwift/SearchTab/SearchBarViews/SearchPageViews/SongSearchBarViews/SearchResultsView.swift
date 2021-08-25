@@ -23,7 +23,10 @@ struct SearchResultsView: View {
     @Binding var pressedSongToLaunchNfc : Bool
     // checks to see if currently typing in searchbar
     @Binding var isEditing : Bool
-    
+    // int of queue sogn return
+    @Binding var statusCodeQueueSong : Int
+    // boolean to change when views should be showed w animation
+    @Binding var showQueueResponse : Bool
     
 // --------------------- created in view -------------------------------------------
 
@@ -58,11 +61,17 @@ struct SearchResultsView: View {
                                     currentTune.songName = item.songName
                                     currentTune.artistName = item.artistName
                                     currentTune.spotifyUrl = item.spotifyUrl
+                                if (currentTune.songId != "") {
+                                    withAnimation{
+                                        showQueueResponse = true
+                                        statusCodeQueueSong = GuestApi().queueSong(sessionId: hostCoaster.sessionId, trackId: currentTune.songId)
+                                    }
+                                }
                                     // bool to launch queueSongSheet set to true
-                                    pressedSongToLaunchNfc = true
+//                                    pressedSongToLaunchNfc = true
 //                                }
                                 
-                                isEditing = false
+//                                isEditing = false
                                 hideKeyboard()
                             }, label: {
                                 SongResultFromSearchItemView(item: item)
