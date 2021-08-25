@@ -107,7 +107,15 @@ struct SearchPageView: View {
                     }
                     .isHidden(hideSearchViews)
                     .addOpacity(isEditingSearchBar)
-                    
+                    .simultaneousGesture(
+                        DragGesture().onChanged { value in
+                            hideKeyboard()
+                            withAnimation{
+                                isEditingSearchBar = false
+                            }
+                            
+                        }
+                    )
                     
                     // search results
                     if isEditingSearchBar {
@@ -118,10 +126,10 @@ struct SearchPageView: View {
                     }
                     
                 }
-                if pressedSongToLaunchNfc {
-                    LaunchQueueSongNfcSessionSheet(tempCoaster: hostCoaster, songInfo: currentTune, statusCode: $statusCodeQueueSong, launchedNfc: $showQueueResponse, pressedButtonToLaunchNfc: $pressedSongToLaunchNfc)
-                        .frame(width: 0, height: 0)
-                }
+//                if pressedSongToLaunchNfc {
+//                    LaunchQueueSongNfcSessionSheet(tempCoaster: hostCoaster, songInfo: currentTune, statusCode: $statusCodeQueueSong, launchedNfc: $showQueueResponse, pressedButtonToLaunchNfc: $pressedSongToLaunchNfc)
+//                        .frame(width: 0, height: 0)
+//                }
             
         }
         .onAppear {
