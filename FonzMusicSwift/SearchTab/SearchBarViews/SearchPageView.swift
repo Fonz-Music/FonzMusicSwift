@@ -138,6 +138,10 @@ struct SearchPageView: View {
         .simultaneousGesture(
             DragGesture().onChanged { value in
                 hideKeyboard()
+//                withAnimation{
+//                    isEditingSearchBar = false
+//                }
+                
             }
         )
     }
