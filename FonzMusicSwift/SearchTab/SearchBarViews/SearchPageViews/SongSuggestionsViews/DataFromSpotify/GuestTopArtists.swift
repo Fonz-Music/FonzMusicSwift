@@ -21,7 +21,7 @@ class GuestTopArtists: ObservableObject {
     let connectedToSpotify = UserDefaults.standard.bool(forKey: "connectedToSpotify")
     
     @Published var offset : Int = Int()
-    var resultsPerSearch = 0
+//    var resultsPerSearch = 0
 //    @Published var updateTopArtists = true
 
 //    let ADDRESS = "https://api.fonzmusic.com/"

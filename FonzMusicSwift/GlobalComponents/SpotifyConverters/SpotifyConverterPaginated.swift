@@ -53,5 +53,26 @@ func artistResponseToArtistPaginated(artistResps : [ArtistResponse], offset: Int
     return artists
     
 }
+func playlistResponseToPlaylistPaginated(playlistResps : [PlaylistResponse], offset: Int) -> [PlaylistPaginated] {
+    var playlists = [PlaylistPaginated]()
+    var index = offset
+    for playlist in playlistResps {
+        if playlist.images.count == 0 {
+            continue
+        }
+        guard case let art = playlist.images[0].url
+        else { continue }
+        let name = playlist.name
+        let id = playlist.id
+        let tracks = playlist.tracks.total
+        if tracks > 1 {
+            let newPlaylist = PlaylistPaginated(playlistName: name, playlistId: id, playlistImage: art, amountOfTracks: tracks, index: index)
+            playlists.append(newPlaylist)
+            index += 1
+        }
+        
+    }
+    return playlists
 
+}
 

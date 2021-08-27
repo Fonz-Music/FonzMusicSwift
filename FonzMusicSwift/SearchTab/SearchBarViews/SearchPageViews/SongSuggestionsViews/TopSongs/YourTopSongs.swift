@@ -180,13 +180,13 @@ struct YourTopSongs: View {
                                 Spacer()
                                 Text("load more")
                                     .foregroundColor(.amber)
-                                    .fonzParagraphTwo()
+                                    .fonzParagraphThree()
                                 Spacer()
                             }
-                            .frame(width: UIScreen.screenWidth * 0.3, height: 60)
+                            .frame(width: UIScreen.screenWidth * 0.25, height: UIScreen.screenWidth * 0.25)
                             .animation(.easeIn)
                         })
-                        .buttonStyle(BasicFonzButton(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .lilac))
+                        .buttonStyle(BasicFonzButton(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .amber, selectedOption: true))
                         .padding(.trailing, 5)
                     }
                 }

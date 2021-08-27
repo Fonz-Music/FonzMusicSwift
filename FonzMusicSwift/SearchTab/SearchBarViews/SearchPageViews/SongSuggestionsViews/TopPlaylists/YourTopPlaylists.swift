@@ -50,7 +50,34 @@ struct YourTopPlaylists: View {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 20) {
                             ForEach(guestTopPlaylists.products, id: \.self) { playlist in
-                                TopPlaylistsView(hostCoaster: hostCoaster, playlistIn: playlist,  tracksFromPlaylist: tracksFromPlaylist)
+                                TopPlaylistsView(hostCoaster: hostCoaster, playlistIn: playlist.toPlaylist(),  tracksFromPlaylist: tracksFromPlaylist)
+                            }
+                            if connectedToSpotify {
+                //                .padding(.horizontal, 5)
+                                Button(action: {
+                                    guestTopPlaylists.loadMorePlaylists()
+                                }, label: {
+                                    
+                                        
+                                    // load more
+                                    VStack(alignment: .center) {
+                                        Spacer()
+                                        Image(systemName: "arrow.clockwise")
+                                            .padding(.horizontal, 10)
+                                            .padding(.top, 10)
+                                            .foregroundColor(.amber)
+                                        Spacer()
+                                        Text("load more")
+                                            .foregroundColor(.amber)
+                                            .fonzParagraphThree()
+                                        Spacer()
+                                    }
+                                    .frame(width: UIScreen.screenWidth * 0.35, height: UIScreen.screenWidth * 0.35)
+                                    .animation(.easeIn)
+                                })
+                                .buttonStyle(BasicFonzButton(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .amber, selectedOption: true))
+                                
+                                .padding(.trailing, 5)
                             }
 //                            ForEach(0..<guestTopPlaylists.products.count) {
 //
