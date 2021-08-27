@@ -251,53 +251,7 @@ class GuestApi {
         return products
     }
     
-    func searchSessionWithPagination(sessionId:String, searchTerm:String, offset:Int) -> [TrackForPagination] {
-        // this allows us to wait before returning value
-        let sem = DispatchSemaphore.init(value: 0)
-        // init vale for access token
-        var accessToken = ""
-        var products: [TrackForPagination] = []
-        // get access token
-        accessToken = getJWTAndCheckIfExpired()
-        // replaces spaces with underscore
-        let searchSong = searchTerm.replacingOccurrences(of: " ", with: "_")
-        
-//                accessToken = token
-        // set URL
-        let offsetString = "&offset=" + String(offset) + "&limit=20" 
-        guard let url = URL(string: self.ADDRESS + "guest/" + sessionId + "/spotify/search?term=" + searchSong + offsetString) else { return products}
-        print("url \(url)")
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        request.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
-        // makes request
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            // code to defer until this is completed
-            defer { sem.signal() }
-            
-            if let dataResp = data {
-                // just to see output
-                let jsonData = try? JSONSerialization.jsonObject(with: data!, options: [])
-//                        print(jsonData)
-                
-                if let decodedResponse = try? JSONDecoder().decode(SearchResults.self, from: dataResp) {
-                    
-                    print("success")
-                    // object that will store searchResults
-                    let tracks = decodedResponse.searchResults.body.tracks.items
-                    // goes thru json and extracts important info for track
-                    products = itemsToTracksForPagination(tracks: tracks, offset: offset)
-                    print("products are \(products)")
-                }
-            } else {
-                print("fetch failed: \(error?.localizedDescription ?? "unknown error")")
-            }
-        }.resume()
-        // tells function to wait before returning
-        sem.wait()
-        return products
-    }
-    
+   
     
     
 

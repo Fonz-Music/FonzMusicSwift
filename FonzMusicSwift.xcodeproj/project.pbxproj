@@ -139,6 +139,10 @@
 		2677029326347ECD00B8BC92 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2677029226347ECD00B8BC92 /* ContentView.swift */; };
 		2677029526347ED100B8BC92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2677029426347ED100B8BC92 /* Assets.xcassets */; };
 		2677029826347ED100B8BC92 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2677029726347ED100B8BC92 /* Preview Assets.xcassets */; };
+		267E6C6426D9383700C41AF9 /* SpotifyPaginatedApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267E6C6326D9383700C41AF9 /* SpotifyPaginatedApi.swift */; };
+		267E6C6526D9383700C41AF9 /* SpotifyPaginatedApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267E6C6326D9383700C41AF9 /* SpotifyPaginatedApi.swift */; };
+		267E6C6826D93C4D00C41AF9 /* SpotifyConverterPaginated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267E6C6726D93C4D00C41AF9 /* SpotifyConverterPaginated.swift */; };
+		267E6C6926D93C4D00C41AF9 /* SpotifyConverterPaginated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267E6C6726D93C4D00C41AF9 /* SpotifyConverterPaginated.swift */; };
 		2687C72C268A915E0044AA37 /* TracksFromArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2687C72B268A915E0044AA37 /* TracksFromArtist.swift */; };
 		2687C72F268A96350044AA37 /* TracksFromPlaylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2687C72E268A96350044AA37 /* TracksFromPlaylist.swift */; };
 		2687C731268A96710044AA37 /* PlaylistSongListModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2687C730268A96710044AA37 /* PlaylistSongListModal.swift */; };
@@ -358,6 +362,8 @@
 		2677029426347ED100B8BC92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2677029726347ED100B8BC92 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2677029926347ED100B8BC92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		267E6C6326D9383700C41AF9 /* SpotifyPaginatedApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyPaginatedApi.swift; sourceTree = "<group>"; };
+		267E6C6726D93C4D00C41AF9 /* SpotifyConverterPaginated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyConverterPaginated.swift; sourceTree = "<group>"; };
 		2687C72B268A915E0044AA37 /* TracksFromArtist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracksFromArtist.swift; sourceTree = "<group>"; };
 		2687C72E268A96350044AA37 /* TracksFromPlaylist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracksFromPlaylist.swift; sourceTree = "<group>"; };
 		2687C730268A96710044AA37 /* PlaylistSongListModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistSongListModal.swift; sourceTree = "<group>"; };
@@ -653,6 +659,15 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		267E6C6626D93C3800C41AF9 /* SpotifyConverters */ = {
+			isa = PBXGroup;
+			children = (
+				265464C026BC50DA000FB833 /* SpotifyTrackConverter.swift */,
+				267E6C6726D93C4D00C41AF9 /* SpotifyConverterPaginated.swift */,
+			);
+			path = SpotifyConverters;
+			sourceTree = "<group>";
+		};
 		2687C72A268A91300044AA37 /* DataFromSpotify */ = {
 			isa = PBXGroup;
 			children = (
@@ -781,6 +796,7 @@
 				269D0151267182A000A1DFEE /* SpotifyAuthApi.swift */,
 				26AF07C7268D2751006A9504 /* GetVerionApi.swift */,
 				26F1CC6726BA887000CD450A /* SpotifySuggestionsApi.swift */,
+				267E6C6326D9383700C41AF9 /* SpotifyPaginatedApi.swift */,
 			);
 			path = GlobalMethods;
 			sourceTree = "<group>";
@@ -907,6 +923,7 @@
 		26DB9B1A2634A61D0030643D /* GlobalComponents */ = {
 			isa = PBXGroup;
 			children = (
+				267E6C6626D93C3800C41AF9 /* SpotifyConverters */,
 				26F534FE26974FF00055C188 /* CreatePromptViews */,
 				268B97A726838AF400984DC4 /* Extensions */,
 				26AC89B2266540F800E1C41E /* ShareOptions */,
@@ -915,7 +932,6 @@
 				26DB9B1F2634A7BF0030643D /* SignInSpotify */,
 				26DB9B1B2634A6280030643D /* GlobalErrorPages */,
 				269EE55B26B58CE5006D2A00 /* CoreUserAttributes.swift */,
-				265464C026BC50DA000FB833 /* SpotifyTrackConverter.swift */,
 			);
 			path = GlobalComponents;
 			sourceTree = "<group>";
@@ -1362,6 +1378,7 @@
 				268B5B3026AE01ED00A93B9E /* ErrorResponse.swift in Sources */,
 				26691F76267ACA9E00C83696 /* HostTab.swift in Sources */,
 				26FBCCD926866C5800399460 /* TroubleShootCoasterButton.swift in Sources */,
+				267E6C6826D93C4D00C41AF9 /* SpotifyConverterPaginated.swift in Sources */,
 				268B97A926838AFF00984DC4 /* URL.swift in Sources */,
 				26F534FD26973F440055C188 /* TextExtension.swift in Sources */,
 				26FBCCF22686A55D00399460 /* BuyCoasterButton.swift in Sources */,
@@ -1381,6 +1398,7 @@
 				268B97B026855CA400984DC4 /* ConnectYourFirstCoasterButton.swift in Sources */,
 				2687C72F268A96350044AA37 /* TracksFromPlaylist.swift in Sources */,
 				26FBCCFA2686BCE500399460 /* ViewExtensions.swift in Sources */,
+				267E6C6426D9383700C41AF9 /* SpotifyPaginatedApi.swift in Sources */,
 				26FBCCF42686A57B00399460 /* ManageSpotifyButton.swift in Sources */,
 				26ECCFD62682A2350053BE1F /* SongSuggestionsView.swift in Sources */,
 				2620B8A8267926C2004FE721 /* HomePageDecision.swift in Sources */,
@@ -1445,6 +1463,7 @@
 				268E8F4926A49E94006451AE /* AuthApi.swift in Sources */,
 				268E8F4526A49E8A006451AE /* SignInWithAppleButton.swift in Sources */,
 				265464BC26BC07B7000FB833 /* ProviderApi.swift in Sources */,
+				267E6C6926D93C4D00C41AF9 /* SpotifyConverterPaginated.swift in Sources */,
 				261EC1E326B0BC5E00202D24 /* CoastersFromApi.swift in Sources */,
 				268E8F4626A49E8A006451AE /* SignInWithGoogleButton.swift in Sources */,
 				268E8F4726A49E8A006451AE /* SignUpView.swift in Sources */,
@@ -1517,6 +1536,7 @@
 				261752F726A3448B0069C83D /* Track.swift in Sources */,
 				2676B12826A5C33E00E18E4B /* ProvidersResponse.swift in Sources */,
 				261752F826A3448B0069C83D /* AsyncImage.swift in Sources */,
+				267E6C6526D9383700C41AF9 /* SpotifyPaginatedApi.swift in Sources */,
 				261752F926A3448B0069C83D /* Artist.swift in Sources */,
 				261752FA26A3448B0069C83D /* Playlist.swift in Sources */,
 				269EE56926B5A402006D2A00 /* TopArtistView.swift in Sources */,

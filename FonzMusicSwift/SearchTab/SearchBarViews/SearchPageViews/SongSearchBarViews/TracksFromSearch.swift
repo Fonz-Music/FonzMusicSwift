@@ -50,14 +50,14 @@ class TracksFromSearch: ObservableObject {
                 
             } receiveValue: { [self] (searchField) in
 //                if updateSearch {
-                    products = GuestApi().searchSessionWithPagination(sessionId: tempSession, searchTerm: searchField, offset: offset)
+                    products = SpotifyPaginatedApi().searchSessionPaginated(sessionId: tempSession, searchTerm: searchText, offset: offset)
 //                    updateSearch = false
 //                }
 //                products = GuestApi().searchSession(sessionId: tempSession, searchTerm: searchField)
             }
             .store(in: &subscription)
         $offset
-            .debounce(for: .milliseconds(400), scheduler: RunLoop.main) // debounces the string publisher, such that it delays the process of sending request to remote server.
+            .debounce(for: .milliseconds(600), scheduler: RunLoop.main) // debounces the string publisher, such that it delays the process of sending request to remote server.
             .removeDuplicates()
             .map({ (string) -> Int? in
 //                if string.count < 3 {
@@ -73,7 +73,7 @@ class TracksFromSearch: ObservableObject {
                 
             } receiveValue: { [self] (searchField) in
                 if updateSearch {
-                    products += GuestApi().searchSessionWithPagination(sessionId: tempSession, searchTerm: searchText, offset: offset)
+                    products += SpotifyPaginatedApi().searchSessionPaginated(sessionId: tempSession, searchTerm: searchText, offset: offset)
                     updateSearch = false
                     resultsPerSearch += 20
                 }
