@@ -15,6 +15,17 @@ struct Artist: Hashable {
     var artistImage: String
 }
 
+struct ArtistPaginated: Hashable {
+    var artistName: String
+    var artistId: String
+    var artistImage: String
+    var index:Int
+    
+    func toArtist() -> Artist {
+        return Artist(artistName: self.artistName, artistId: self.artistId, artistImage: self.artistImage)
+    }
+}
+
 
 
 //

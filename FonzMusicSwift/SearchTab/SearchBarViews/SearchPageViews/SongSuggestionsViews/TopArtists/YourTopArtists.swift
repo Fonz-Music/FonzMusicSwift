@@ -53,12 +53,35 @@ struct YourTopArtists: View {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 10) {
                             ForEach(guestTopArtists.products, id: \.self) { artist in
-                                TopArtistView(hostCoaster: hostCoaster, artistIn: artist,  tracksFromArtist: tracksFromArtist)
+                                TopArtistView(hostCoaster: hostCoaster, artistIn: artist.toArtist(),  tracksFromArtist: tracksFromArtist)
                             }
-//                            ForEach(0..<guestTopArtists.products.count) {
-//
-//                                TopArtistView(hostCoaster: hostCoaster, artistIn: guestTopArtists.products[$0],  tracksFromArtist: tracksFromArtist)
-//                            }
+
+                            if connectedToSpotify {
+                //                .padding(.horizontal, 5)
+                                Button(action: {
+                                    guestTopArtists.loadMoreArtists()
+                                }, label: {
+                                    
+                                        
+                                    // load more
+                                    VStack(alignment: .center) {
+                                        Spacer()
+                                        Image(systemName: "arrow.clockwise")
+                                            .padding(.horizontal, 10)
+                                            .padding(.top, 10)
+                                            .foregroundColor(.amber)
+                                        Spacer()
+                                        Text("load more")
+                                            .foregroundColor(.amber)
+                                            .fonzParagraphThree()
+                                        Spacer()
+                                    }
+                                    .frame(width: UIScreen.screenWidth * 0.25, height: UIScreen.screenWidth * 0.25)
+                                    .animation(.easeIn)
+                                })
+                                .buttonStyle(BasicFonzButtonCircle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .amber))
+                                .padding(.trailing, 5)
+                            }
                         }
                     }
                     .padding(.horizontal, 10)

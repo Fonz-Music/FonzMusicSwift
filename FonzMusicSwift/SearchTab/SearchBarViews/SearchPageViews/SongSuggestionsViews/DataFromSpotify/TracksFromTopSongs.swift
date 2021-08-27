@@ -24,7 +24,7 @@ class TracksFromTopSongs: ObservableObject {
 
     @Published var offset : Int = Int()
     var resultsPerSearch = 0
-    @Published var updateTopTracks = true
+//    @Published var updateTopTracks = true
     
 //    let ADDRESS = "https://api.fonzmusic.com/"
 //    let ADDRESS = "http://beta.api.fonzmusic.com:8080/"
@@ -67,7 +67,7 @@ class TracksFromTopSongs: ObservableObject {
         print("starting this")
         if connectedToSpotify && userSessionId != "" {
 
-            if updateTopTracks {
+//            if updateTopTracks {
                 print("first call is changing")
                 topProducts += SpotifyPaginatedApi().getGuestTopSongsPaginated(sessionId: userSessionId, offset: offset)
                 offset += 10
@@ -77,9 +77,9 @@ class TracksFromTopSongs: ObservableObject {
                     topProducts = tempTracksPaginated
                     bottomProducts = tempTracksPaginated
                 }
-                updateTopTracks = false
+//                updateTopTracks = false
                 resultsPerSearch += 10
-            }
+//            }
 
         }
         else {

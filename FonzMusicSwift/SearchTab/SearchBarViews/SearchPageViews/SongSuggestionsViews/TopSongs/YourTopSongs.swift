@@ -141,85 +141,56 @@ struct YourTopSongs: View {
             }
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
-                VStack(alignment: .leading) {
-                    HStack(spacing: 10) {
-                        // from first song to halfway thru
-                        ForEach(tracksFromTopSongs.topProducts, id: \.self) { track in
-                            TopSongButtonView(hostCoaster: hostCoaster, topSong: track.toTrack(), currentTune: currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc, statusCodeQueueSong: $statusCodeQueueSong, showQueueResponse: $showQueueResponse)
-                                .padding(.top, 5)
-                                .onAppear {
-                                    
-                                    print("index is \(track.index)")
-                                    print("results per page is \(tracksFromTopSongs.resultsPerSearch - 1)")
-                                    
-                                    if track.index == 0 {
-                                        print("should be updating")
-                                        tracksFromTopSongs.offset += 10
-                                        tracksFromTopSongs.updateTopTracks = true
-                                    }
-                                }
-                        }.padding(.trailing, 5)
-                        
-                        
-//                        ForEach(0..<tracksFromTopSongs.products.count / 2) {
-//                            TopSongButtonView(hostCoaster: hostCoaster, topSong: tracksFromTopSongs.products[$0], currentTune: currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc)
-//                                .padding(.top, 5)
-//
-//                        }.padding(.trailing, 5)
-                    }
-                    .padding(.bottom, 5)
-                    
-                    
-                    HStack(spacing: 10) {
-                        // from halfway thru to last song
-                        ForEach(tracksFromTopSongs.bottomProducts, id: \.self) { track in
-                            TopSongButtonView(hostCoaster: hostCoaster, topSong: track.toTrack(), currentTune: currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc, statusCodeQueueSong: $statusCodeQueueSong, showQueueResponse: $showQueueResponse)
-                                .padding(.bottom, 10)
-//                                .onAppear {
-//
-//                                    print("index is \(track.index)")
-//                                    print("results per page is \(tracksFromTopSongs.resultsPerSearch - 1)")
-//
-//                                    if track.index == (tracksFromTopSongs.resultsPerSearch - 1) {
-//                                        print("should be updating")
-//                                        tracksFromTopSongs.offset += 10
-//                                        tracksFromTopSongs.updateTopTracks = true
-//                                    }
-//                                }
-                            
-                        }.padding(.trailing, 5)
+                    VStack(alignment: .leading) {
+                        HStack(spacing: 10) {
+                            // from first song to halfway thru
+                            ForEach(tracksFromTopSongs.topProducts, id: \.self) { track in
+                                TopSongButtonView(hostCoaster: hostCoaster, topSong: track.toTrack(), currentTune: currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc, statusCodeQueueSong: $statusCodeQueueSong, showQueueResponse: $showQueueResponse)
+                                    .padding(.top, 5)
+                            }.padding(.trailing, 5)
+                        }
+                        .padding(.bottom, 5)
+                                  
+                        HStack(spacing: 10) {
+                            // from halfway thru to last song
+                            ForEach(tracksFromTopSongs.bottomProducts, id: \.self) { track in
+                                TopSongButtonView(hostCoaster: hostCoaster, topSong: track.toTrack(), currentTune: currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc, statusCodeQueueSong: $statusCodeQueueSong, showQueueResponse: $showQueueResponse)
+                                    .padding(.bottom, 10)
+                            }.padding(.trailing, 5)
 
+                            
+                        }
+                        
                         
                     }
-                    
-                    
+                    if connectedToSpotify {
+        //                .padding(.horizontal, 5)
+                        Button(action: {
+                            tracksFromTopSongs.loadMoreTracks()
+                        }, label: {
+                            
+                                
+                            // load more
+                            VStack(alignment: .center) {
+                                Spacer()
+                                Image(systemName: "arrow.clockwise")
+                                    .padding(.horizontal, 10)
+                                    .padding(.top, 10)
+                                    .foregroundColor(.amber)
+                                Spacer()
+                                Text("load more")
+                                    .foregroundColor(.amber)
+                                    .fonzParagraphTwo()
+                                Spacer()
+                            }
+                            .frame(width: UIScreen.screenWidth * 0.3, height: 60)
+                            .animation(.easeIn)
+                        })
+                        .buttonStyle(BasicFonzButton(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .lilac))
+                        .padding(.trailing, 5)
+                    }
                 }
-//                .padding(.horizontal, 5)
-                Button(action: {
-                    tracksFromTopSongs.loadMoreTracks()
-                }, label: {
-                    
-                        
-                    // load more
-                    VStack(alignment: .center) {
-                        Spacer()
-                        Image(systemName: "arrow.clockwise")
-                            .padding(.horizontal, 10)
-                            .padding(.top, 10)
-                            .foregroundColor(.amber)
-                        Spacer()
-                        Text("load more")
-                            .foregroundColor(.amber)
-                            .fonzParagraphTwo()
-                        Spacer()
-                    }
-                    .frame(width: UIScreen.screenWidth * 0.3, height: 60)
-                    .animation(.easeIn)
-                })
-                .buttonStyle(BasicFonzButton(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .lilac))
-                .padding(.trailing, 5)
             }
-        }
             
             .padding(.horizontal, .subHeadingFrontIndent)
             .frame(width: UIScreen.screenWidth, alignment: .center)
