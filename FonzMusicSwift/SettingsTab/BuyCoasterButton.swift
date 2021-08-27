@@ -15,8 +15,14 @@ struct BuyCoasterButton: View {
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.openURL) var openURL
     
+    @State var offset = 0
+    
     var body: some View {
         Button(action: {
+            
+//            let sessionId = "60224ecc-a00f-437a-8743-4909a8eb7a6c"
+//            GuestApi().searchSessionWithPagination(sessionId: sessionId, searchTerm: "rush", offset: offset)
+//            offset += 25
 
             guard let url = URL(string: "https://www.fonzmusic.com/buy") else {
                 return
