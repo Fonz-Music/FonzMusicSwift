@@ -68,7 +68,7 @@ struct TopSongButtonView: View {
                         Text(verbatim: topSong.artistName.removeSpaceBefore())
                             .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
                             .font(Font.custom("MuseoSans-100", size: 10))
-                            .fonzParagraphThree()
+                            .fonzParagraphTwo()
                     }
                     Spacer()
                 }

@@ -67,6 +67,7 @@ struct SearchResultsView: View {
                                         statusCodeQueueSong = GuestApi().queueSong(sessionId: hostCoaster.sessionId, trackId: currentTune.songId)
                                     }
                                 }
+                                
                                     // bool to launch queueSongSheet set to true
 //                                    pressedSongToLaunchNfc = true
 //                                }
@@ -74,11 +75,27 @@ struct SearchResultsView: View {
 //                                isEditing = false
                                 hideKeyboard()
                             }, label: {
-                                SongResultFromSearchItemView(item: item)
+                                SongResultFromSearchItemView(item: item.toTrack())
+                                    .onAppear {
+                                        
+                                        print("index is \(item.index)")
+                                        
+                                        if item.index == (tracksFromSearch.resultsPerSearch - 3) {
+                                            print("should be updating")
+                                            tracksFromSearch.offset += 25
+                                            tracksFromSearch.updateSearch = true
+                                        }
+                                    }
                                     
                             })
-                            
+                            if item.index == (tracksFromSearch.resultsPerSearch - 1) {
+                                Text("loading more tunes")
+                                    .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
+                                    .fonzParagraphThree()
+                            }
                         }
+                        
+//                        if tracksFromSearch.products 
                     }
                     .padding(.top, 5)
                     .padding(.bottom, 10)

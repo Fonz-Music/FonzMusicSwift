@@ -16,13 +16,18 @@ class TracksFromSearch: ObservableObject {
     var subscription: Set<AnyCancellable> = []
     var tempSession : String = UserDefaults.standard.string(forKey: "hostSessionId")!
     
-    @Published private (set) var products: [Track] = []
+//    @Published private (set) var products: [Track] = []
+    @Published private (set) var products: [TrackForPagination] = []
     
     @Published var searchText: String = String()
     
 //    let ADDRESS = "https://api.fonzmusic.com/"
     //    let ADDRESS = "http://beta.api.fonzmusic.com:8080/"
         let ADDRESS = "http://52.50.138.97:8080/"
+    
+    @Published var offset : Int = Int()
+    var resultsPerSearch = 20
+    @Published var updateSearch = false
     
     // MARK:- Initiliazer for product via model.
     
@@ -42,8 +47,37 @@ class TracksFromSearch: ObservableObject {
             .compactMap{ $0 } // removes the nil values so the search string does not get passed down to the publisher chain
             .sink { (_) in
                 //
+                
             } receiveValue: { [self] (searchField) in
-                products = GuestApi().searchSession(sessionId: tempSession, searchTerm: searchField)
+//                if updateSearch {
+                    products = GuestApi().searchSessionWithPagination(sessionId: tempSession, searchTerm: searchField, offset: offset)
+//                    updateSearch = false
+//                }
+//                products = GuestApi().searchSession(sessionId: tempSession, searchTerm: searchField)
+            }
+            .store(in: &subscription)
+        $offset
+            .debounce(for: .milliseconds(400), scheduler: RunLoop.main) // debounces the string publisher, such that it delays the process of sending request to remote server.
+            .removeDuplicates()
+            .map({ (string) -> Int? in
+//                if string.count < 3 {
+//                    self.products = []
+//                    return nil
+//                }
+
+                return string
+            }) // prevents sending numerous requests and sends nil if the count of the characters is less than 1.
+//            .compactMap{ $0 } // removes the nil values so the search string does not get passed down to the publisher chain
+            .sink { (_) in
+                //
+                
+            } receiveValue: { [self] (searchField) in
+                if updateSearch {
+                    products += GuestApi().searchSessionWithPagination(sessionId: tempSession, searchTerm: searchText, offset: offset)
+                    updateSearch = false
+                    resultsPerSearch += 20
+                }
+//                products = GuestApi().searchSession(sessionId: tempSession, searchTerm: searchField)
             }
             .store(in: &subscription)
     }

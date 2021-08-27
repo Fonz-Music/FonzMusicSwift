@@ -15,13 +15,24 @@ struct Track: Hashable, Decodable {
     var albumArt: String
     var spotifyUrl:String
     
-    func toGlobalTrack() -> GlobalTrack {
-        var globalTrack = GlobalTrack()
-        globalTrack.songName = self.songName
-        globalTrack.songId = self.songId
-        globalTrack.artistName = self.artistName
-        globalTrack.albumArt = self.albumArt
-        globalTrack.spotifyUrl = self.spotifyUrl
+    
+}
+
+struct TrackForPagination: Hashable, Decodable {
+    var songName: String
+    var songId: String
+    var artistName: String
+    var albumArt: String
+    var spotifyUrl:String
+    var index:Int
+    
+    func toTrack() -> Track {
+        var globalTrack = Track(songName: self.songName, songId: self.songId, artistName: self.artistName, albumArt: self.albumArt, spotifyUrl: self.spotifyUrl)
+//        globalTrack.songName = self.songName
+//        globalTrack.songId = self.songId
+//        globalTrack.artistName = self.artistName
+//        globalTrack.albumArt = self.albumArt
+//        globalTrack.spotifyUrl = self.spotifyUrl
         return globalTrack
     }
 }

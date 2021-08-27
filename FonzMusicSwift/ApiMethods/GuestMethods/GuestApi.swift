@@ -251,12 +251,12 @@ class GuestApi {
         return products
     }
     
-    func searchSessionWithPagination(sessionId:String, searchTerm:String, offset:Int) -> [Track] {
+    func searchSessionWithPagination(sessionId:String, searchTerm:String, offset:Int) -> [TrackForPagination] {
         // this allows us to wait before returning value
         let sem = DispatchSemaphore.init(value: 0)
         // init vale for access token
         var accessToken = ""
-        var products: [Track] = []
+        var products: [TrackForPagination] = []
         // get access token
         accessToken = getJWTAndCheckIfExpired()
         // replaces spaces with underscore
@@ -264,7 +264,7 @@ class GuestApi {
         
 //                accessToken = token
         // set URL
-        let offsetString = "&offset=" + String(offset) + "&limit=25" 
+        let offsetString = "&offset=" + String(offset) + "&limit=20" 
         guard let url = URL(string: self.ADDRESS + "guest/" + sessionId + "/spotify/search?term=" + searchSong + offsetString) else { return products}
         print("url \(url)")
         var request = URLRequest(url: url)
@@ -286,7 +286,7 @@ class GuestApi {
                     // object that will store searchResults
                     let tracks = decodedResponse.searchResults.body.tracks.items
                     // goes thru json and extracts important info for track
-                    products = itemsToTracks(tracks: tracks)
+                    products = itemsToTracksForPagination(tracks: tracks, offset: offset)
                     print("products are \(products)")
                 }
             } else {
