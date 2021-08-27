@@ -76,3 +76,27 @@ func playlistResponseToPlaylistPaginated(playlistResps : [PlaylistResponse], off
 
 }
 
+func playlistTracksToTracksPaginated(playlistResps : ItemsFromPlaylist, offset: Int) -> [TrackForPagination] {
+    var tracks = [TrackForPagination]()
+    var index = offset
+    for playlistTrack in playlistResps.items {
+        if playlistTrack.track.album.images.count == 0 {
+            continue
+        }
+        let art = playlistTrack.track.album.images[0].url
+        let name = playlistTrack.track.name
+        let id = playlistTrack.track.id
+        let listArtist = playlistTrack.track.artists
+        var listArtistString = ""
+        for (index, element) in listArtist.enumerated() {
+            listArtistString += " " + element.name
+            
+        }
+
+        let newTrack = TrackForPagination(songName: name, songId: id, artistName: listArtistString, albumArt: art, spotifyUrl: playlistTrack.track.external_urls.spotify, index: index)
+        tracks.append(newTrack)
+        index += 1
+    }
+    return tracks
+
+}

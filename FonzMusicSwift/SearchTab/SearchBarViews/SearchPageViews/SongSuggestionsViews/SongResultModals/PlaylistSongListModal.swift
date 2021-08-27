@@ -104,6 +104,21 @@ struct PlaylistSongListModal: View {
                                 ForEach(tracksFromEntry.products, id: \.self) { item in
                                     
                                     SongListModalSongButton(hostCoaster: hostCoaster, statusCodeQueueSong: $statusCodeQueueSong, trackToQueue: item, currentTune: currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc, showQueueResponse: $showQueueResponse)
+//                                        .onAppear {
+//
+//                                            print("index is \(item.index)")
+//
+//                                            if item.index == (tracksFromEntry.resultsPerSearch - 3) {
+//                                                print("should be updating")
+//                                                tracksFromEntry.offset += 25
+//                                                tracksFromEntry.updateSearch = true
+//                                            }
+//                                        }
+//                                    if item.index == (tracksFromEntry.resultsPerSearch - 1) {
+//                                        Text("loading more tunes")
+//                                            .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
+//                                            .fonzParagraphTwo()
+//                                    }
 
                             }
                         }
