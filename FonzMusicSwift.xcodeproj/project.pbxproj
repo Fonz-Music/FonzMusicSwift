@@ -182,6 +182,8 @@
 		268E8F4C26A49EE1006451AE /* ConsentedToPrivacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F5350B26975EDD0055C188 /* ConsentedToPrivacy.swift */; };
 		268ED21D26DE86F700D34F60 /* ComposeMailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268ED21C26DE86F700D34F60 /* ComposeMailData.swift */; };
 		268ED21F26DE875500D34F60 /* SendDevFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268ED21E26DE875500D34F60 /* SendDevFeedback.swift */; };
+		268ED22026DE8DE200D34F60 /* SendDevFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268ED21E26DE875500D34F60 /* SendDevFeedback.swift */; };
+		268ED22126DE8DEF00D34F60 /* ComposeMailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268ED21C26DE86F700D34F60 /* ComposeMailData.swift */; };
 		268FA5F7268E905C00E45AA6 /* SomeoneElsesCoaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268FA5F6268E905C00E45AA6 /* SomeoneElsesCoaster.swift */; };
 		268FA5F9268E92DB00E45AA6 /* ThisIsYourCoaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268FA5F8268E92DB00E45AA6 /* ThisIsYourCoaster.swift */; };
 		26916FF0268E476500B7281B /* QueueSongSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26916FEF268E476500B7281B /* QueueSongSuccess.swift */; };
@@ -1513,7 +1515,9 @@
 				261752D626A3448A0069C83D /* ConnectSpotifySearch.swift in Sources */,
 				261752D726A3448A0069C83D /* SongResultItem.swift in Sources */,
 				2665E00D26B322ED00AE2AAB /* NameYourCoasterView.swift in Sources */,
+				268ED22026DE8DE200D34F60 /* SendDevFeedback.swift in Sources */,
 				261752D826A3448A0069C83D /* SearchBarView.swift in Sources */,
+				268ED22126DE8DEF00D34F60 /* ComposeMailData.swift in Sources */,
 				261752D926A3448A0069C83D /* SearchResultsView.swift in Sources */,
 				261752DA26A3448B0069C83D /* TracksFromSearch.swift in Sources */,
 				261752DB26A3448B0069C83D /* ActiveSongView.swift in Sources */,

@@ -12,6 +12,8 @@ struct SendDevFeedback: View {
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.openURL) var openURL
     
+    var widthInherited : CGFloat
+    
     // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
     @StateObject var userAttributes : CoreUserAttributes
 
@@ -24,7 +26,7 @@ struct SendDevFeedback: View {
             mailData = ComposeMailData(
                 subject: "testflight user \(userAttributes.getUserDisplayName()) has issue",
                 recipients: ["contact@fonzmusic.com"],
-                message: "type your issue here: \n\n\n\n",
+                message: "type your feedback or issue here: \n\n\n\n",
                 attachments: [AttachmentData(data: "userId: \(userAttributes.getUserId())\nhasAccount: \(userAttributes.getHasAccount())\nhasSpotify: \(userAttributes.getConnectedToSpotify())\nhasCoasters: \(userAttributes.getHasConnectedCoasters())\nuserSessionId: \(userAttributes.getUserSessionId())".data(using: .utf8)!,
                 mimeType: "text/plain",
                 fileName: "text.txt")
@@ -44,7 +46,7 @@ struct SendDevFeedback: View {
                         .fonzButtonText()
                         .padding(.horizontal)                        }
                 Spacer()
-            }.frame(width: UIScreen.screenWidth * .outerContainerFrameWidthSettings, height: 20)
+            }.frame(width: UIScreen.screenWidth * widthInherited, height: 20)
             .padding()
             
         })

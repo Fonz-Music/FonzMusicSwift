@@ -59,6 +59,9 @@ struct SongSuggestionsView: View {
                 YourTopSongs(hostCoaster: hostCoaster, currentTune: currentTune, tracksFromTopSongs: tracksFromTopSongs, pressedSongToLaunchNfc: $pressedSongToLaunchNfc, statusCodeQueueSong: $statusCodeQueueSong, showQueueResponse: $showQueueResponse)
                 YourTopArtists(hostCoaster: hostCoaster, tracksFromArtist: tracksFromArtist, guestTopArtists: guestTopArtists)
                 YourTopPlaylists(hostCoaster: hostCoaster,  tracksFromPlaylist: tracksFromPlaylist, guestTopPlaylists: guestTopPlaylists)
+                Spacer()
+                    .frame(height: 20)
+                SendDevFeedback(widthInherited: .outerContainerFrameWidthSettings, userAttributes: userAttributes)
                 #if !APPCLIP
                 Spacer()
                     .frame(minHeight: 50)
@@ -74,17 +77,17 @@ struct SongSuggestionsView: View {
     func determineSongSugsSize() -> CGFloat {
         if userAttributes.getConnectedToSpotify() {
             #if !APPCLIP
-            return 850.0
+            return 880.0
             #else
-            return 820.0
+            return 850.0
             #endif
             
         }
         else {
             #if !APPCLIP
-            return 890.0
+            return 920.0
             #else
-            return 840.0
+            return 870.0
             #endif
             
         }
