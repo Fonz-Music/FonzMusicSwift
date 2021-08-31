@@ -59,7 +59,8 @@ struct ChangeDisplayNameButton: View {
                     .fonzParagraphTwo()
                 Button {
                     print("\(newDisplayName)")
-                    
+                    userAttributes.setUserDisplayName(name: newDisplayName)
+                    UserApi().updateUserDisplayName(displayName: newDisplayName)
                    
                     withAnimation {
                         isExpanded = false
