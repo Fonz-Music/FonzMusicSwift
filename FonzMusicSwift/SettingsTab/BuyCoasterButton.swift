@@ -20,14 +20,14 @@ struct BuyCoasterButton: View {
     var body: some View {
         Button(action: {
             
-            let sessionId = "60224ecc-a00f-437a-8743-4909a8eb7a6c"
-            SpotifyPaginatedApi().getGuestTopSongsPaginated(sessionId: sessionId, offset: offset)
-            offset += 10
+//            let sessionId = "60224ecc-a00f-437a-8743-4909a8eb7a6c"
+//            SpotifyPaginatedApi().getGuestTopSongsPaginated(sessionId: sessionId, offset: offset)
+//            offset += 10
 
-//            guard let url = URL(string: "https://www.fonzmusic.com/buy") else {
-//                return
-//            }
-//            openURL(url)
+            guard let url = URL(string: "https://www.fonzmusic.com/buy") else {
+                return
+            }
+            openURL(url)
             print("pressed button")
             FirebaseAnalytics.Analytics.logEvent("userPressedBuyCoaster", parameters: ["user":"user", "tab": "settings"])
         }, label: {

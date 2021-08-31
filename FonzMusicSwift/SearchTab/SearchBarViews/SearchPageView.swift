@@ -71,6 +71,9 @@ struct SearchPageView: View {
                             withAnimation {
                                 hasHostVar = false
                             }
+                            var userSessionId : String = UserDefaults.standard.string(forKey: "userAccountSessionId") ?? ""
+                            var hostSessionId : String = UserDefaults.standard.string(forKey: "hostSessionId") ?? ""
+                            print("user sess is " + userSessionId)
                         } label: {
                             Image("leaveParty")
                                 .resizable()

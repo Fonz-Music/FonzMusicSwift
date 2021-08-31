@@ -123,7 +123,7 @@ struct ContentView: View {
             if containsSpotify {
                 print("adding spotify to acc")
                 // fetching sessionId
-                var sessionId = userAttributes.getUserSessionId()
+                let sessionId = userAttributes.getUserSessionId()
 //                let sessionId = UserDefaults.standard.string(forKey: "userAccountSessionId")
                 // adding spot to the session
                 

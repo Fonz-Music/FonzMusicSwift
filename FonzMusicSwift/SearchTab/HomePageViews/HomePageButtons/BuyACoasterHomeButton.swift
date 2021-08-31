@@ -21,16 +21,20 @@ struct BuyACoasterHomeButton: View {
         VStack{
             Button(action: {
                 
+//                let currentSessionId = SessionApi().createSession().message
+////                let sessionId = UserDefaults.standard.string(forKey: "userAccountSessionId")
+//                // adding spot to the session
+//                print("sessionId is \(currentSessionId)")
+//                let connectSpotifyReturn = SpotifySignInFunctions().addSpotifyToCurrentSession(sessionId: currentSessionId)
                 
-                
-                
+//
                 guard let url = URL(string: "https://www.fonzmusic.com/buy") else {
                     return
                 }
                 openURL(url)
                 print("pressed button")
 
-//                launchWebview.toggle()
+                launchWebview.toggle()
                 FirebaseAnalytics.Analytics.logEvent("userPressedBuyCoaster", parameters: ["user":"user", "tab": "search"])
                 
             }, label: {

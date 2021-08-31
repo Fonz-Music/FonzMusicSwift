@@ -24,7 +24,7 @@ struct CreateSessionResponse: Codable {
 
 class SessionApi {
 //    let ADDRESS = "https://api.fonzmusic.com/"
-    let ADDRESS = "http://beta.api.fonzmusic.com:8080/"
+    let ADDRESS = "https://beta.api.fonzmusic.com/"
 //    let ADDRESS = "http://52.50.138.97:8080/"
     let HOST = "host/"
     let SESSION = "session/"
@@ -197,7 +197,7 @@ class SessionApi {
                 if let decodedResponse = try? JSONDecoder().decode(CreateSessionResponse.self, from: dataResp) {
                     print("success creating provider")
                     UserDefaults.standard.set(decodedResponse.sessionId, forKey: "userAccountSessionId")
-                    returnMessage = "success"
+                    returnMessage = decodedResponse.sessionId
                 }
                 else {
                     let decodedResponse = try? JSONDecoder().decode(ErrorResponse.self, from: dataResp)

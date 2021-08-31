@@ -51,7 +51,7 @@ struct SongSuggestionsView: View {
                 Spacer()
                     .frame(height: 30)
                 // if the user doesnt have spotify connected, show spot button
-                if !userAttributes.getHasAccount() || !userAttributes.getConnectedToSpotify() {
+                if !userAttributes.getConnectedToSpotify() {
                     ConnectSpotifySearch(userAttributes: userAttributes)
                     Spacer()
                         .frame(height: 30)

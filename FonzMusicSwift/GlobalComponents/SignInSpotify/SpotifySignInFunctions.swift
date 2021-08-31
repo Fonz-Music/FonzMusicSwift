@@ -31,9 +31,12 @@ struct SpotifySignInFunctions {
     func addSpotifyToCurrentSession(sessionId : String) -> String {
         var returnString = ""
         var currentSessionId = sessionId
-        if sessionId == nil || sessionId == "" {
+        if sessionId == "" {
+            print("sessionId is empty" )
             currentSessionId = SessionApi().createSession().message
+            
         }
+        print("sessionId is \(currentSessionId)")
         let addToProviderResponse = SessionApi().addProviderToSession(sessionId: currentSessionId ?? "")
         
         if addToProviderResponse.status == 200 {

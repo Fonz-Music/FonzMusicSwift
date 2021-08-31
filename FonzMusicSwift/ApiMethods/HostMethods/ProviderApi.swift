@@ -13,7 +13,7 @@ import Foundation
 
 class ProviderApi {
 //    let ADDRESS = "https://api.fonzmusic.com/"
-        let ADDRESS = "http://beta.api.fonzmusic.com:8080/"
+    let ADDRESS = "https://beta.api.fonzmusic.com/"
 //        let ADDRESS = "http://52.50.138.97:8080/"
     let HOST = "host/"
     let SESSION = "session/"
