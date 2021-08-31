@@ -60,6 +60,7 @@ struct SettingsPage: View {
                     
 //                        SignOutButton(hasAccount: $hasAccount, connectedToSpotify: $connectedToSpotify, hasConnectedCoasters: $hasConnectedCoasters)
                     SignOutButton(userAttributes: userAttributes)
+                    SendDevFeedback(userAttributes: userAttributes)
                         // if the user has connected coasters, give option to limit reqs
         //                    if userAttributes.getHasConnectedCoasters() {
         //                        Text("coaster management")
