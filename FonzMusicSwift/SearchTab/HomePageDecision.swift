@@ -80,9 +80,16 @@ struct HomePageDecision: View {
                             JoinSuccessfulCircle(hostName: tempCoasterDetails.hostName, coasterName: tempCoasterDetails.coasterName)
                                 .onAppear {
                                     // waits 3.5 seconds before naviagiting to searchbar
-                                    FirebaseAnalytics.Analytics.logEvent("guestJoinPartySuccess", parameters: ["user":"guest"])
+                                    
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
                                         print("firing now")
+                                        FirebaseAnalytics.Analytics.logEvent("guestJoinPartySuccess", parameters: [
+                                            "user":"guest",
+                                            "sessionId":tempCoasterDetails.sessionId,
+                                            "userId":userAttributes.getUserId(),
+                                            "group":tempCoasterDetails.group,
+                                            "tagUid":tempCoasterDetails.uid
+                                        ])
                                         withAnimation {
                                         // changes hostCoaster details to return to parent
                                             UserDefaults.standard.set(tempCoasterDetails.sessionId, forKey: "hostSessionId")
@@ -92,6 +99,7 @@ struct HomePageDecision: View {
                                         self.hostCoaster.uid = tempCoasterDetails.uid
                                             self.hostCoaster.hostUserId = tempCoasterDetails.hostUserId
                                         self.hasHostVar = true
+                                            
                                         }
                                     }
                                 }

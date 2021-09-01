@@ -16,7 +16,8 @@ struct YourTopArtists: View {
     
     // object that stores the songs from the api
     @ObservedObject var tracksFromArtist: TracksFromArtist
-    
+    // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
+    @StateObject var userAttributes : CoreUserAttributes
     @State var connectedToSpotify : Bool = false
     
     @Environment(\.colorScheme) var colorScheme
@@ -53,7 +54,7 @@ struct YourTopArtists: View {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 10) {
                             ForEach(guestTopArtists.products, id: \.self) { artist in
-                                TopArtistView(hostCoaster: hostCoaster, artistIn: artist.toArtist(),  tracksFromArtist: tracksFromArtist)
+                                TopArtistView(hostCoaster: hostCoaster, artistIn: artist.toArtist(),  tracksFromArtist: tracksFromArtist, userAttributes: userAttributes)
                             }
 
                             if connectedToSpotify {

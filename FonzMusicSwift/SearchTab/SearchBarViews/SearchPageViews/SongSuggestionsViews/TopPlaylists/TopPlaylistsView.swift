@@ -15,7 +15,8 @@ struct TopPlaylistsView: View {
     let playlistIn: Playlist
     // object that stores the songs from the api
     @ObservedObject var tracksFromPlaylist: TracksFromPlaylist
-    
+    // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
+    @StateObject var userAttributes : CoreUserAttributes
     
     @Environment(\.colorScheme) var colorScheme
     
@@ -50,7 +51,7 @@ struct TopPlaylistsView: View {
 //                                    self.queuesLeft += 1
         }) {
 //            PlaylistSongListModal(hostCoaster: hostCoaster, resultsTitle: playlistIn.playlistName, resultsType: "\(playlistIn.amountOfTracks) tracks", resultsImage: playlistIn.playlistImage, currentTune: $currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc, tracksFromEntry: tracksFromPlaylist)
-            PlaylistSongListModal(hostCoaster: hostCoaster, resultsTitle: playlistIn.playlistName, resultsType: "\(playlistIn.amountOfTracks) tracks", resultsImage: playlistIn.playlistImage, tracksFromEntry: tracksFromPlaylist)
+            PlaylistSongListModal(hostCoaster: hostCoaster, resultsTitle: playlistIn.playlistName, resultsType: "\(playlistIn.amountOfTracks) tracks", resultsImage: playlistIn.playlistImage, tracksFromEntry: tracksFromPlaylist, userAttributes: userAttributes)
         }
         
     }

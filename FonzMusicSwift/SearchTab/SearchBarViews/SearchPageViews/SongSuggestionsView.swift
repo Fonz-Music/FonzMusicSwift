@@ -57,8 +57,8 @@ struct SongSuggestionsView: View {
                         .frame(height: 30)
                 }
                 YourTopSongs(hostCoaster: hostCoaster, currentTune: currentTune, tracksFromTopSongs: tracksFromTopSongs, pressedSongToLaunchNfc: $pressedSongToLaunchNfc, statusCodeQueueSong: $statusCodeQueueSong, showQueueResponse: $showQueueResponse)
-                YourTopArtists(hostCoaster: hostCoaster, tracksFromArtist: tracksFromArtist, guestTopArtists: guestTopArtists)
-                YourTopPlaylists(hostCoaster: hostCoaster,  tracksFromPlaylist: tracksFromPlaylist, guestTopPlaylists: guestTopPlaylists)
+                YourTopArtists(hostCoaster: hostCoaster, tracksFromArtist: tracksFromArtist, userAttributes: userAttributes, guestTopArtists: guestTopArtists)
+                YourTopPlaylists(hostCoaster: hostCoaster,  tracksFromPlaylist: tracksFromPlaylist, guestTopPlaylists: guestTopPlaylists, userAttributes: userAttributes)
                 Spacer()
                     .frame(height: 20)
                 SendDevFeedback(widthInherited: .outerContainerFrameWidthSettings, userAttributes: userAttributes)

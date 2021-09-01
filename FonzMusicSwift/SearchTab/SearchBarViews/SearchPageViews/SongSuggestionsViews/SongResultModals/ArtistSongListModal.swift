@@ -23,7 +23,8 @@ struct ArtistSongListModal: View {
 //    @Binding var pressedSongToLaunchNfc : Bool
     // object that stores the songs from the api
     @ObservedObject var tracksFromEntry: TracksFromArtist
-    
+    // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
+    @StateObject var userAttributes : CoreUserAttributes
     // boolean to change when views should be showed w animation
     @State var showQueueResponse = false
     // init var that keeps status code
@@ -122,7 +123,7 @@ struct ArtistSongListModal: View {
             }
             
             // resps
-            LaunchSongResponsePopup(statusCodeQueueSong: statusCodeQueueSong, showQueueResponse: $showQueueResponse, songSelected: currentTune.songName, currentHost: hostCoaster.hostName)
+            LaunchSongResponsePopup(statusCodeQueueSong: statusCodeQueueSong, showQueueResponse: $showQueueResponse, songSelected: currentTune.songName, hostCoaster: hostCoaster, userAttributes: userAttributes)
                 .padding(.horizontal)
                 .padding(.top, 30)
         }

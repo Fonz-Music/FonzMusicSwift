@@ -47,19 +47,14 @@ struct TopSongButtonView: View {
                     }
                 }
                 Analytics.logEvent("guestSelectedTopSong", parameters: ["user":"guest", "tab":"search"])
-                Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
-                  AnalyticsParameterItemID: "id-\(topSong.songName)",
-                  AnalyticsParameterItemName: topSong.songName,
-                  AnalyticsParameterContentType: "cont"
-                  ])
-                FirebaseAnalytics.Analytics.logEvent("guestSelectedTopSong", parameters: ["user":"guest", "tab":"search"])
+//                FirebaseAnalytics.Analytics.logEvent("guestSelectedTopSong", parameters: ["user":"guest", "tab":"search"])
             }
                 
 //            }
 
 //            pressedSongToLaunchNfc = true
            
-            FirebaseAnalytics.Analytics.logEvent("guestSelectedTopSong", parameters: ["user":"guest", "tab":"search"])
+//            FirebaseAnalytics.Analytics.logEvent("guestSelectedTopSong", parameters: ["user":"guest", "tab":"search"])
         } label: {
             ZStack {
                 HStack(spacing: 5) {

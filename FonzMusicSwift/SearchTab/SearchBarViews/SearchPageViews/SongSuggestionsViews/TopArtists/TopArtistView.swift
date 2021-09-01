@@ -17,7 +17,8 @@ struct TopArtistView: View {
    
     // object that stores the songs from the api
     @ObservedObject var tracksFromArtist: TracksFromArtist
-    
+    // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
+    @StateObject var userAttributes : CoreUserAttributes
     // so the button can only be pressed once
     @State var launchArtistSongsModal = false
     
@@ -46,7 +47,7 @@ struct TopArtistView: View {
 //                                    self.currentTune.songLoaded = false
 //                                    self.queuesLeft += 1
         }) {
-            ArtistSongListModal(hostCoaster: hostCoaster, resultsTitle: artistIn.artistName,  resultsImage: artistIn.artistImage, tracksFromEntry: tracksFromArtist)
+            ArtistSongListModal(hostCoaster: hostCoaster, resultsTitle: artistIn.artistName,  resultsImage: artistIn.artistImage, tracksFromEntry: tracksFromArtist, userAttributes: userAttributes)
         }
     }
 }

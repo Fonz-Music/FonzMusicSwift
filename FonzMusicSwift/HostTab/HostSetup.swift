@@ -121,6 +121,13 @@ struct HostSetup: View {
                         .onAppear {
                             DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
                                 encodeTheCoaster = true
+                                FirebaseAnalytics.Analytics.logEvent("userConnectCoaster", parameters: [
+                                    "user":"host",
+                                    "sessionId":tempCoasterDetails.sessionId,
+                                    "userId":userAttributes.getUserId(),
+                                    "group":tempCoasterDetails.group,
+                                    "tagUid":tempCoasterDetails.uid
+                                ])
                             }
                         }
                     if encodeTheCoaster {

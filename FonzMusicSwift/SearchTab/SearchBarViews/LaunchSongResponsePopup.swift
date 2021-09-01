@@ -6,13 +6,18 @@
 //
 
 import SwiftUI
+import FirebaseAnalytics
 
 struct LaunchSongResponsePopup: View {
     
     var statusCodeQueueSong : Int
     @Binding var showQueueResponse : Bool
     var songSelected : String
-    var currentHost : String
+//    var currentHost : String
+    // hostCoaster details passed in and will update view when changed
+    @ObservedObject var hostCoaster:HostCoasterInfo
+    // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
+    @StateObject var userAttributes : CoreUserAttributes
     
 //    // hostCoaster details passed in and will update view when changed
 //    @ObservedObject var hostCoaster:HostCoasterInfo
@@ -28,23 +33,52 @@ struct LaunchSongResponsePopup: View {
             VStack {
                 // success
                 if statusCodeQueueSong == 200 {
-                    QueueSongSuccess(songAddedName: songSelected, currentHost: currentHost)
-                        
+                    QueueSongSuccess(songAddedName: songSelected, currentHost: hostCoaster.hostName)
+                        .onAppear {
+                            FirebaseAnalytics.Analytics.logEvent("songQueueSuccess", parameters: [
+                                "user":"guest",
+                                "sessionId":hostCoaster.sessionId,
+                                "userId":userAttributes.getUserId(),
+                                "group":hostCoaster.group,
+                                "tagUid":hostCoaster.uid,
+                                "songQueued":songSelected
+                            ])
+                        }
+                    
 //                        .padding(.top, 10)
                 }
                 // no active song
                 else if (statusCodeQueueSong == 404 || statusCodeQueueSong == 403 || statusCodeQueueSong == 401) {
                     QueuedButDelayedResponse()
+                        .onAppear {
+                            FirebaseAnalytics.Analytics.logEvent("songQueueFail", parameters: [
+                                "user":"guest",
+                                "sessionId":hostCoaster.sessionId,
+                                "userId":userAttributes.getUserId(),
+                                "group":hostCoaster.group,
+                                "tagUid":hostCoaster.uid
+                            ])
+                        }
 //                        .padding(.top, 10)
                 }
                 // if the userId do not match
                 else if (statusCodeQueueSong == 1) {
                     QueueFailYourHostDoesNotOwnThatCoaster()
+                        
 //                        .padding(.top, 10)
                 }
                 // nfc error
                 else {
                     QueueSongError()
+                        .onAppear {
+                            FirebaseAnalytics.Analytics.logEvent("songQueueFail", parameters: [
+                                "user":"guest",
+                                "sessionId":hostCoaster.sessionId,
+                                "userId":userAttributes.getUserId(),
+                                "group":hostCoaster.group,
+                                "tagUid":hostCoaster.uid
+                            ])
+                        }
 //                        .padding(.top, 10)
                 }
 //                Spacer()

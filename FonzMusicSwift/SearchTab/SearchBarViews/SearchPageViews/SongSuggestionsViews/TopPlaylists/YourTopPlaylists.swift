@@ -18,7 +18,8 @@ struct YourTopPlaylists: View {
     @ObservedObject var tracksFromPlaylist: TracksFromPlaylist
     
     @ObservedObject var guestTopPlaylists: GuestTopPlaylists
-    
+    // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
+    @StateObject var userAttributes : CoreUserAttributes
     @Environment(\.colorScheme) var colorScheme
     
     @State var connectedToSpotify : Bool = false
@@ -50,7 +51,7 @@ struct YourTopPlaylists: View {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 20) {
                             ForEach(guestTopPlaylists.products, id: \.self) { playlist in
-                                TopPlaylistsView(hostCoaster: hostCoaster, playlistIn: playlist.toPlaylist(),  tracksFromPlaylist: tracksFromPlaylist)
+                                TopPlaylistsView(hostCoaster: hostCoaster, playlistIn: playlist.toPlaylist(),  tracksFromPlaylist: tracksFromPlaylist, userAttributes: userAttributes)
                             }
                             if connectedToSpotify {
                 //                .padding(.horizontal, 5)

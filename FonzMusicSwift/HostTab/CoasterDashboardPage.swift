@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseAnalytics
 
 struct CoasterDashboardPage: View {
 
@@ -116,6 +117,13 @@ struct CoasterDashboardPage: View {
                         .onAppear {
                             DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
                             troubleShootCoasterPressed = true
+                                FirebaseAnalytics.Analytics.logEvent("userConnectCoaster", parameters: [
+                                    "user":"host",
+                                    "sessionId":tempCoasterDetails.sessionId,
+                                    "userId":userAttributes.getUserId(),
+                                    "group":tempCoasterDetails.group,
+                                    "tagUid":tempCoasterDetails.uid
+                                ])
                             }
                         }
                     if troubleShootCoasterPressed {

@@ -22,7 +22,7 @@ struct CoasterResponse: Codable {
     var active: Bool
     var coasterId: String
     var name: String
-    var group: String
+    var group: String?
     var encoded: Bool
 //    var displayName: String
     var statusCode: Int?

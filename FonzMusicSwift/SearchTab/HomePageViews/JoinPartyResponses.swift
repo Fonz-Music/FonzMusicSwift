@@ -32,8 +32,9 @@ struct JoinPartyResponses: View {
                 JoinSuccessfulCircle(hostName: tempCoasterDetails.hostName, coasterName: tempCoasterDetails.coasterName)
                     .onAppear {
                         // waits 3.5 seconds before naviagiting to searchbar
-                        FirebaseAnalytics.Analytics.logEvent("guestJoinPartySuccess", parameters: ["user":"guest"])
+//                        FirebaseAnalytics.Analytics.logEvent("guestJoinPartySuccess", parameters: ["user":"guest"])
                         DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
+//                            FirebaseAnalytics.Analytics.logEvent("guestJoinPartySuccess", parameters: ["user":"guest", "screen":"joinPartyResponses"])
                             print("firing now")
                             withAnimation {
                             // changes hostCoaster details to return to parent
@@ -54,10 +55,11 @@ struct JoinPartyResponses: View {
                 FailCircleResponse(errorMessage: "you did not join the party :/")
                     .animation(.easeInOut(duration: 2))
                     .onAppear {
-                        FirebaseAnalytics.Analytics.logEvent("guestJoinPartyFail", parameters: ["user":"guest"])
+                        
                        
                         // after 7 seconds, resets home page to normal if connection fails
                         DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) {
+                            FirebaseAnalytics.Analytics.logEvent("guestJoinPartyFail", parameters: ["user":"guest"])
                             withAnimation {
                                 if !pressedButtonToLaunchNfc {
                                     launchedNfc = false
