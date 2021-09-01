@@ -43,7 +43,7 @@ class GuestApi {
         let sem = DispatchSemaphore.init(value: 0)
         
         // init value for return
-        var returnObject = GetCoasterInfoGuestResponse(coaster: CoasterResponse(active: false, coasterId: "", name: ""), session: SessionResponse(sessionId: "", userId: "", active: false, provider: ""))
+        var returnObject = GetCoasterInfoGuestResponse(coaster: CoasterResponse(active: false, coasterId: "", name: "", group: "", encoded: (0 != 0)), session: SessionResponse(sessionId: "", userId: "", active: false, provider: ""))
         
         // init value for token
         var accessToken = ""

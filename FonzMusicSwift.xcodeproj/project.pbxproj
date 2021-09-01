@@ -83,8 +83,6 @@
 		261EC1E126B0BC5900202D24 /* NameNewCoaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBCCEC2686938A00399460 /* NameNewCoaster.swift */; };
 		261EC1E226B0BC5B00202D24 /* RenameCoasterField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBCCE22686701F00399460 /* RenameCoasterField.swift */; };
 		261EC1E326B0BC5E00202D24 /* CoastersFromApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B65148263865D10074F279 /* CoastersFromApi.swift */; };
-		261EC1E526B0C40700202D24 /* CoasterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261EC1E426B0C40700202D24 /* CoasterResponse.swift */; };
-		261EC1E626B0C40700202D24 /* CoasterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261EC1E426B0C40700202D24 /* CoasterResponse.swift */; };
 		2620B8A326792599004FE721 /* SearchTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2620B8A226792599004FE721 /* SearchTab.swift */; };
 		2620B8A52679261F004FE721 /* SearchBarPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2620B8A42679261F004FE721 /* SearchBarPage.swift */; };
 		2620B8A8267926C2004FE721 /* HomePageDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2620B8A7267926C2004FE721 /* HomePageDecision.swift */; };
@@ -139,6 +137,8 @@
 		2677029326347ECD00B8BC92 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2677029226347ECD00B8BC92 /* ContentView.swift */; };
 		2677029526347ED100B8BC92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2677029426347ED100B8BC92 /* Assets.xcassets */; };
 		2677029826347ED100B8BC92 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2677029726347ED100B8BC92 /* Preview Assets.xcassets */; };
+		267A59A626DF03D800C6E6EC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 267A59A526DF03D700C6E6EC /* GoogleService-Info.plist */; };
+		267A59A726DF03D800C6E6EC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 267A59A526DF03D700C6E6EC /* GoogleService-Info.plist */; };
 		267E6C6426D9383700C41AF9 /* SpotifyPaginatedApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267E6C6326D9383700C41AF9 /* SpotifyPaginatedApi.swift */; };
 		267E6C6526D9383700C41AF9 /* SpotifyPaginatedApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267E6C6326D9383700C41AF9 /* SpotifyPaginatedApi.swift */; };
 		267E6C6826D93C4D00C41AF9 /* SpotifyConverterPaginated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267E6C6726D93C4D00C41AF9 /* SpotifyConverterPaginated.swift */; };
@@ -234,7 +234,6 @@
 		26D0525026A347F300DDF43C /* MuseoSans-300.otf in Resources */ = {isa = PBXBuildFile; fileRef = 26AC89BA2665745300E1C41E /* MuseoSans-300.otf */; };
 		26D0525126A347F300DDF43C /* MuseoSans-500.otf in Resources */ = {isa = PBXBuildFile; fileRef = 26AC89B82665745300E1C41E /* MuseoSans-500.otf */; };
 		26D0525226A347F300DDF43C /* MuseoSans-700.otf in Resources */ = {isa = PBXBuildFile; fileRef = 26AC89BB2665745300E1C41E /* MuseoSans-700.otf */; };
-		26D0525326A347FE00DDF43C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26DB9AFB2634A4370030643D /* GoogleService-Info.plist */; };
 		26D0525526A34B9E00DDF43C /* ScreenExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D0525426A34B9E00DDF43C /* ScreenExtension.swift */; };
 		26D0525626A34BDB00DDF43C /* ScreenExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D0525426A34B9E00DDF43C /* ScreenExtension.swift */; };
 		26D9BC2626AED6B0000C8739 /* AskUserToConnectSpotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D9BC2526AED6B0000C8739 /* AskUserToConnectSpotify.swift */; };
@@ -247,7 +246,6 @@
 		26DB9ACE26349B040030643D /* TryAgainNfc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9ACD26349B040030643D /* TryAgainNfc.swift */; };
 		26DB9AD126349B190030643D /* LaunchQueueSongNfc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9AD026349B190030643D /* LaunchQueueSongNfc.swift */; };
 		26DB9AD826349B610030643D /* GuestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9AD726349B610030643D /* GuestApi.swift */; };
-		26DB9AFC2634A4370030643D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26DB9AFB2634A4370030643D /* GoogleService-Info.plist */; };
 		26DB9B232634A96B0030643D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB9B222634A96B0030643D /* Colors.swift */; };
 		26E8CFE1266D3A0F00CEB1F6 /* SpotifyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E8CFE0266D3A0F00CEB1F6 /* SpotifyController.swift */; };
 		26EBF65D26A32E3C0094FA60 /* BuyACoasterHomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EBF65C26A32E3C0094FA60 /* BuyACoasterHomeButton.swift */; };
@@ -326,7 +324,6 @@
 /* Begin PBXFileReference section */
 		2609AD55263DBDBE00337A02 /* SpotifyWebViewWk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyWebViewWk.swift; sourceTree = "<group>"; };
 		2609AD58263DC2F900337A02 /* SpotifyViewRep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyViewRep.swift; sourceTree = "<group>"; };
-		261EC1E426B0C40700202D24 /* CoasterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoasterResponse.swift; sourceTree = "<group>"; };
 		2620B8A226792599004FE721 /* SearchTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTab.swift; sourceTree = "<group>"; };
 		2620B8A42679261F004FE721 /* SearchBarPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarPage.swift; sourceTree = "<group>"; };
 		2620B8A7267926C2004FE721 /* HomePageDecision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageDecision.swift; sourceTree = "<group>"; };
@@ -366,6 +363,7 @@
 		2677029426347ED100B8BC92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2677029726347ED100B8BC92 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2677029926347ED100B8BC92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		267A59A526DF03D700C6E6EC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		267E6C6326D9383700C41AF9 /* SpotifyPaginatedApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyPaginatedApi.swift; sourceTree = "<group>"; };
 		267E6C6726D93C4D00C41AF9 /* SpotifyConverterPaginated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyConverterPaginated.swift; sourceTree = "<group>"; };
 		2687C72B268A915E0044AA37 /* TracksFromArtist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracksFromArtist.swift; sourceTree = "<group>"; };
@@ -441,7 +439,6 @@
 		26DB9AD026349B190030643D /* LaunchQueueSongNfc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchQueueSongNfc.swift; sourceTree = "<group>"; };
 		26DB9AD726349B610030643D /* GuestApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestApi.swift; sourceTree = "<group>"; };
 		26DB9AF62634A2850030643D /* FonzMusicSwift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FonzMusicSwift.entitlements; sourceTree = "<group>"; };
-		26DB9AFB2634A4370030643D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		26DB9B222634A96B0030643D /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		26E8CFDE266D393A00CEB1F6 /* SpotifyiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyiOS.framework; sourceTree = "<group>"; };
 		26E8CFE0266D3A0F00CEB1F6 /* SpotifyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotifyController.swift; sourceTree = "<group>"; };
@@ -605,7 +602,6 @@
 				268B5B2B26ADFF1B00A93B9E /* BasicResponseWithCode.swift */,
 				268B5B2F26AE01ED00A93B9E /* ErrorResponse.swift */,
 				268B5B3226AE030000A93B9E /* BasicResponse.swift */,
-				261EC1E426B0C40700202D24 /* CoasterResponse.swift */,
 			);
 			path = ApiResponseObjects;
 			sourceTree = "<group>";
@@ -645,11 +641,11 @@
 				26DB9AC826349AD20030643D /* NfcClasses */,
 				2677029026347ECD00B8BC92 /* FonzMusicSwiftApp.swift */,
 				26EBF67E26A33CDE0094FA60 /* Fonz_Music_App_ClipApp.swift */,
+				267A59A526DF03D700C6E6EC /* GoogleService-Info.plist */,
 				2677029226347ECD00B8BC92 /* ContentView.swift */,
 				26D0525726A34D3800DDF43C /* ContentViewClip.swift */,
 				2677029426347ED100B8BC92 /* Assets.xcassets */,
 				26DB9AF62634A2850030643D /* FonzMusicSwift.entitlements */,
-				26DB9AFB2634A4370030643D /* GoogleService-Info.plist */,
 				26E8CFE0266D3A0F00CEB1F6 /* SpotifyController.swift */,
 				2677029926347ED100B8BC92 /* Info.plist */,
 				2677029626347ED100B8BC92 /* Preview Content */,
@@ -1213,9 +1209,9 @@
 				26AC89BC2665745300E1C41E /* MuseoSans-500.otf in Resources */,
 				2677029826347ED100B8BC92 /* Preview Assets.xcassets in Resources */,
 				26AC89BE2665745300E1C41E /* MuseoSans-300.otf in Resources */,
-				26DB9AFC2634A4370030643D /* GoogleService-Info.plist in Resources */,
 				26AC89BD2665745300E1C41E /* MuseoSans-100.otf in Resources */,
 				26AC89BF2665745300E1C41E /* MuseoSans-700.otf in Resources */,
+				267A59A626DF03D800C6E6EC /* GoogleService-Info.plist in Resources */,
 				2677029526347ED100B8BC92 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1224,8 +1220,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26D0525326A347FE00DDF43C /* GoogleService-Info.plist in Resources */,
 				26D0524F26A347F300DDF43C /* MuseoSans-100.otf in Resources */,
+				267A59A726DF03D800C6E6EC /* GoogleService-Info.plist in Resources */,
 				26D0525026A347F300DDF43C /* MuseoSans-300.otf in Resources */,
 				26D0525126A347F300DDF43C /* MuseoSans-500.otf in Resources */,
 				26D0525226A347F300DDF43C /* MuseoSans-700.otf in Resources */,
@@ -1441,7 +1437,6 @@
 				26FBCCD726866BED00399460 /* DisconnectCoasterButton.swift in Sources */,
 				2687C731268A96710044AA37 /* PlaylistSongListModal.swift in Sources */,
 				2620B8A52679261F004FE721 /* SearchBarPage.swift in Sources */,
-				261EC1E526B0C40700202D24 /* CoasterResponse.swift in Sources */,
 				26FBCCE926867DF800399460 /* TroubleShootCoasterField.swift in Sources */,
 				268ED21F26DE875500D34F60 /* SendDevFeedback.swift in Sources */,
 				26E8CFE1266D3A0F00CEB1F6 /* SpotifyController.swift in Sources */,
@@ -1507,7 +1502,6 @@
 				261752D026A3448A0069C83D /* SongListModalSongButton.swift in Sources */,
 				261752D126A3448A0069C83D /* TracksFromArtist.swift in Sources */,
 				261752D226A3448A0069C83D /* TracksFromPlaylist.swift in Sources */,
-				261EC1E626B0C40700202D24 /* CoasterResponse.swift in Sources */,
 				261752D326A3448A0069C83D /* YourTopSongs.swift in Sources */,
 				269EE55D26B58CE5006D2A00 /* CoreUserAttributes.swift in Sources */,
 				261752D426A3448A0069C83D /* YourTopArtists.swift in Sources */,
@@ -1721,7 +1715,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = FonzMusicSwift/FonzMusicSwift.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 17;
+				CURRENT_PROJECT_VERSION = 18;
 				DEVELOPMENT_ASSET_PATHS = "\"FonzMusicSwift/Preview Content\"";
 				DEVELOPMENT_TEAM = VW76JQGB68;
 				ENABLE_PREVIEWS = YES;
@@ -1756,7 +1750,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = FonzMusicSwift/FonzMusicSwift.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 17;
+				CURRENT_PROJECT_VERSION = 18;
 				DEVELOPMENT_ASSET_PATHS = "\"FonzMusicSwift/Preview Content\"";
 				DEVELOPMENT_TEAM = VW76JQGB68;
 				ENABLE_PREVIEWS = YES;
@@ -1789,7 +1783,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Fonz Music App Clip/Fonz_Music_App_Clip.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 17;
+				CURRENT_PROJECT_VERSION = 18;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = VW76JQGB68;
 				ENABLE_PREVIEWS = YES;
@@ -1816,7 +1810,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Fonz Music App Clip/Fonz_Music_App_Clip.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 17;
+				CURRENT_PROJECT_VERSION = 18;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = VW76JQGB68;
 				ENABLE_PREVIEWS = YES;

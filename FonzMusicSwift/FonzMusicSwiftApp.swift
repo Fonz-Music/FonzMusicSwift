@@ -17,6 +17,10 @@ class AppDelegate: NSObject, UIApplicationDelegate {
           [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
       // configureed firebase for analytics
       FirebaseApp.configure()
+        print("configuring firebase")
+        var args = ProcessInfo.processInfo.arguments
+        args.append("-FIRDebugEnabled")
+        ProcessInfo.processInfo.setValue(args, forKey: "arguments")
       return true
     }
 }

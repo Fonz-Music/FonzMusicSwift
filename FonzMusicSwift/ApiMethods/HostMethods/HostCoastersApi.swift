@@ -22,6 +22,8 @@ struct CoasterResponse: Codable {
     var active: Bool
     var coasterId: String
     var name: String
+    var group: String
+    var encoded: Bool
 //    var displayName: String
     var statusCode: Int?
 }
@@ -54,7 +56,7 @@ class HostCoastersApi {
         let sem = DispatchSemaphore.init(value: 0)
         
         // init value for return
-        var returnObject = CoasterResponse(active: false, coasterId: "", name: "", statusCode: 0)
+        var returnObject = CoasterResponse(active: false, coasterId: "", name: "", group: "", encoded: false)
         
         // get access token
         let accessToken = getJWTAndCheckIfExpired()

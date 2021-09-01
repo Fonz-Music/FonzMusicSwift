@@ -87,7 +87,7 @@ class SpotifyPaginatedApi {
 
             if let dataResp = data {
                 let jsonData = try? JSONSerialization.jsonObject(with: data!, options: [])
-                print(jsonData)
+//                print(jsonData)
 
                 // sets resp code
 //                returnCode = response?.getStatusCode() ?? 0
@@ -144,7 +144,7 @@ class SpotifyPaginatedApi {
 
             if let dataResp = data {
                 let jsonData = try? JSONSerialization.jsonObject(with: data!, options: [])
-                print(jsonData)
+//                print(jsonData)
 
                 // sets resp code
 //                returnCode = response?.getStatusCode() ?? 0

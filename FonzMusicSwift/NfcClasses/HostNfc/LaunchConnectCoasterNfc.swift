@@ -158,7 +158,7 @@ struct LaunchConnectCoasterNfc: UIViewRepresentable {
 //                    var coasterDetails = GuestApi().getCoasterInfo(coasterUid: coasterUidFromTag)
                     print("\(String(describing: coasterDetails.statusCode)) is the code m8")
                     // in case the coaster belongs to someone else
-                    var coasterDetailsOther = GetCoasterInfoGuestResponse(coaster: CoasterResponse(active: false, coasterId: "", name: ""), session: SessionResponse(sessionId: "", userId: "", active: false, provider: ""))
+                    var coasterDetailsOther = GetCoasterInfoGuestResponse(coaster: CoasterResponse(active: false, coasterId: "", name: "", group: "", encoded: false), session: SessionResponse(sessionId: "", userId: "", active: false, provider: ""))
                     // if the coaster does NOT have a host, add to account
                     
 //                    else

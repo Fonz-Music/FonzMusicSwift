@@ -7,6 +7,7 @@
 
 import SwiftUI
 import FirebaseAnalytics
+import Firebase
 
 struct TopSongButtonView: View {
     // hostCoaster details passed in and will update view when changed
@@ -45,6 +46,13 @@ struct TopSongButtonView: View {
                         statusCodeQueueSong = GuestApi().queueSong(sessionId: hostCoaster.sessionId, trackId: currentTune.songId)
                     }
                 }
+                Analytics.logEvent("guestSelectedTopSong", parameters: ["user":"guest", "tab":"search"])
+                Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
+                  AnalyticsParameterItemID: "id-\(topSong.songName)",
+                  AnalyticsParameterItemName: topSong.songName,
+                  AnalyticsParameterContentType: "cont"
+                  ])
+                FirebaseAnalytics.Analytics.logEvent("guestSelectedTopSong", parameters: ["user":"guest", "tab":"search"])
             }
                 
 //            }
