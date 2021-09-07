@@ -169,8 +169,13 @@ struct LaunchJoinPartyNfcSession: UIViewRepresentable {
                         self.tempCoaster.sessionId = coasterDetails.session.sessionId
                         self.tempCoaster.group = coasterDetails.coaster.group ?? "general"
                         self.tempCoaster.uid = UID
-                        if coasterDetails.session.provider != "" {
+                        if coasterDetails.coaster.statusCode == 204 {
+                            print("returning 204")
+                            self.statusCode = 204
+                        }
+                        else if coasterDetails.session.provider != "" {
                             self.statusCode = coasterDetails.statusCode!
+                            print("return is \(self.statusCode)")
                         }
                         // if they don't have a provider, host needs to connect to spot
                         else {

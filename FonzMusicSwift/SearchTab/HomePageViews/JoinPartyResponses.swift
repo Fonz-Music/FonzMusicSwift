@@ -48,9 +48,7 @@ struct JoinPartyResponses: View {
                         }
                     }
             }
-            else if (statusCodeResp == 204) {
-//                CoasterDoesNotHaveHost()
-            }
+            
             else {
                 FailCircleResponse(errorMessage: "you did not join the party :/")
                     .animation(.easeInOut(duration: 2))

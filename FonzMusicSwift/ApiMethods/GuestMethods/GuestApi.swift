@@ -43,7 +43,7 @@ class GuestApi {
         let sem = DispatchSemaphore.init(value: 0)
         
         // init value for return
-        var returnObject = GetCoasterInfoGuestResponse(coaster: CoasterResponse(active: false, coasterId: "", name: "", group: "", encoded: (0 != 0)), session: SessionResponse(sessionId: "", userId: "", active: false, provider: ""))
+        var returnObject = GetCoasterInfoGuestResponse(coaster: CoasterResponse(active: false, coasterId: "", name: "", group: "", encoded: false), session: SessionResponse(sessionId: "", userId: "", active: false, provider: ""))
         
         // init value for token
         var accessToken = ""
@@ -52,7 +52,7 @@ class GuestApi {
 
         accessToken = getJWTAndCheckIfExpired()
         
-        print("\(accessToken)" )
+//        print("\(accessToken)" )
         // set UID to uppercase
         let uid = coasterUid.uppercased()
         // create url
@@ -84,12 +84,14 @@ class GuestApi {
                     
                 }
                 else if let decodedResponse = try? JSONDecoder().decode(BasicResponseWithCode.self, from: dataResp) {
-                    
+                    print("in basic response")
                     if decodedResponse.code == "COASTER_NO_HOST" {
-                        returnObject.statusCode = 204
+                        returnObject.coaster.statusCode = 204
+                        print("setting return to 204")
                     }
                     else {
                         returnObject.statusCode = response?.getStatusCode() ?? 0
+                        print("setting return to \(returnObject.statusCode)")
                     }
                 }
                 else {

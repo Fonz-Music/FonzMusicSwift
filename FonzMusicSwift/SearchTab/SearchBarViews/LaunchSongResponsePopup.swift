@@ -48,7 +48,7 @@ struct LaunchSongResponsePopup: View {
 //                        .padding(.top, 10)
                 }
                 // no active song
-                else if (statusCodeQueueSong == 404 || statusCodeQueueSong == 403 || statusCodeQueueSong == 401) {
+                else if (statusCodeQueueSong == 402 || statusCodeQueueSong == 401) {
                     QueuedButDelayedResponse()
                         .onAppear {
                             FirebaseAnalytics.Analytics.logEvent("songQueueFail", parameters: [
@@ -56,10 +56,24 @@ struct LaunchSongResponsePopup: View {
                                 "sessionId":hostCoaster.sessionId,
                                 "userId":userAttributes.getUserId(),
                                 "group":hostCoaster.group,
-                                "tagUid":hostCoaster.uid
+                                "tagUid":hostCoaster.uid,
+                                "failureReason":"no active song"
                             ])
                         }
 //                        .padding(.top, 10)
+                }
+                else if (statusCodeQueueSong == 403) {
+                    QueuedButDelayedResponse()
+                        .onAppear {
+                            FirebaseAnalytics.Analytics.logEvent("songQueueFail", parameters: [
+                                "user":"guest",
+                                "sessionId":hostCoaster.sessionId,
+                                "userId":userAttributes.getUserId(),
+                                "group":hostCoaster.group,
+                                "tagUid":hostCoaster.uid,
+                                "failureReason":"restricted device"
+                            ])
+                        }
                 }
                 // if the userId do not match
                 else if (statusCodeQueueSong == 1) {
