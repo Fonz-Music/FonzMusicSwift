@@ -16,7 +16,7 @@ struct HostTab: View {
     // list of coasters connected to the Host
     @ObservedObject var coastersConnectedToHost: CoastersFromApi
 
-    
+    @Environment(\.openURL) var openURL
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
@@ -43,6 +43,29 @@ struct HostTab: View {
                         .padding(.top, .headingTopIndent)
                         .padding(.bottom, 20)
                     Spacer()
+                    HStack{
+                        Spacer()
+                        Button {
+                            guard let url = URL(string: "https://www.fonzmusic.com/buy") else {
+                                return
+                            }
+                            openURL(url)
+                        } label: {
+                            Image(systemName: "cart.badge.plus")
+                                .resizable()
+                                .frame(width: 22, height: 20, alignment: .center)
+//                                .foregroundColor(.white)
+                                .foregroundColor(colorScheme == .light ? Color.gray: Color.white)
+
+                                .padding(10)
+
+                        }
+                        .buttonStyle(BasicFonzButtonCircleNoBorder(bgColor: colorScheme == .light ? Color.white: Color.darkBackground, secondaryColor: .lilac))
+//                        .buttonStyle(BasicFonzButtonCircleNoBorder(bgColor: Color.white, secondaryColor: .amber))
+                        .padding(.horizontal, .headingFrontIndent)
+                    }
+                    .padding(.top, .headingTopIndent * 0.5)
+                    
                 }
                 CoasterDashboardPage(userAttributes: userAttributes, coastersConnectedToHost: coastersConnectedToHost)
             }

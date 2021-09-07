@@ -834,6 +834,14 @@
 			path = TopArtists;
 			sourceTree = "<group>";
 		};
+		26A1CEBD26E8058B008CFE49 /* GlobalFunctions */ = {
+			isa = PBXGroup;
+			children = (
+				26DB9B1F2634A7BF0030643D /* SignInSpotify */,
+			);
+			path = GlobalFunctions;
+			sourceTree = "<group>";
+		};
 		26AC89B2266540F800E1C41E /* ShareOptions */ = {
 			isa = PBXGroup;
 			children = (
@@ -930,13 +938,13 @@
 		26DB9B1A2634A61D0030643D /* GlobalComponents */ = {
 			isa = PBXGroup;
 			children = (
+				26A1CEBD26E8058B008CFE49 /* GlobalFunctions */,
 				267E6C6626D93C3800C41AF9 /* SpotifyConverters */,
 				26F534FE26974FF00055C188 /* CreatePromptViews */,
 				268B97A726838AF400984DC4 /* Extensions */,
 				26AC89B2266540F800E1C41E /* ShareOptions */,
 				26B6514B263866840074F279 /* Objects */,
 				26DB9B212634A95D0030643D /* FrontEnd */,
-				26DB9B1F2634A7BF0030643D /* SignInSpotify */,
 				26DB9B1B2634A6280030643D /* GlobalErrorPages */,
 				269EE55B26B58CE5006D2A00 /* CoreUserAttributes.swift */,
 			);

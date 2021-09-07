@@ -79,9 +79,8 @@ struct SearchPageView: View {
                                 .resizable()
                                 .frame(width: 20, height: 20, alignment: .center)
 //                                .foregroundColor(.white)
-//                                .foregroundColor(colorScheme == .light ? Color.darkButton: Color.white)
-//                                .foregroundColor(Color.darkButton)
-                                .foregroundColor(.gray)
+                                .foregroundColor(colorScheme == .light ? Color.gray: Color.white)
+
                                 .padding(10)
 
                         }
