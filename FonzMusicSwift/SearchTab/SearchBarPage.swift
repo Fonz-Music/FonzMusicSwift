@@ -68,17 +68,18 @@ struct SearchBarPage: View {
         .background(
             ZStack{
                 Rectangle()
-                    .fill(LinearGradient(
-                        gradient: .init(colors: [.amber, .lilac]),
-                        startPoint: .topLeading,
-                          endPoint: .bottomTrailing
-                        ))
+//                    .fill(LinearGradient(
+//                        gradient: .init(colors: [.amber, .lilac]),
+//                        startPoint: .topLeading,
+//                          endPoint: .bottomTrailing
+//                        ))
+                    .fill(Color.amber)
                     // darkens background when typing
 //                    .darkenView(isEditingSearchBar)
                 VStack{
                     Spacer()
                     Image("mountainProfile")
-                        .opacity(0.4)
+                        .opacity(0.6)
                         .frame(maxWidth: UIScreen.screenWidth)
                 }
             }, alignment: .bottom)

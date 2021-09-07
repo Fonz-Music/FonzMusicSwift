@@ -59,7 +59,7 @@ struct HostTab: View {
                 VStack{
                     Spacer()
                     Image("mountainProfile")
-                        .opacity(0.4)
+                        .opacity(0.6)
                         .frame(maxWidth: UIScreen.screenWidth)
                 }
             }, alignment: .bottom)

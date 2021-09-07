@@ -77,11 +77,17 @@ struct SearchPageView: View {
                         } label: {
                             Image("leaveParty")
                                 .resizable()
-                                .frame(width: 25, height: 25, alignment: .center)
-                                .foregroundColor(.white)
-                                .padding(.headingFrontIndent)
+                                .frame(width: 20, height: 20, alignment: .center)
+//                                .foregroundColor(.white)
+//                                .foregroundColor(colorScheme == .light ? Color.darkButton: Color.white)
+//                                .foregroundColor(Color.darkButton)
+                                .foregroundColor(.gray)
+                                .padding(10)
 
                         }
+                        .buttonStyle(BasicFonzButtonCircleNoBorder(bgColor: colorScheme == .light ? Color.white: Color.darkBackground, secondaryColor: .amber))
+//                        .buttonStyle(BasicFonzButtonCircleNoBorder(bgColor: Color.white, secondaryColor: .amber))
+                        .padding(.headingFrontIndent)
                     }.padding(.top, .headingTopIndent)
                     
                     
