@@ -25,6 +25,7 @@ struct LaunchConnectCoasterNfc: UIViewRepresentable {
     @Binding var launchedNfc:Bool
     // takes in status code to return to parent
     @Binding var statusCode:Int
+    
     // takes in active page so that the nfc doenst launch by accident
 //    @Binding var hostPageNumber:Int
     // boolean on whether the button has been pressed, used
@@ -165,6 +166,7 @@ struct LaunchConnectCoasterNfc: UIViewRepresentable {
                     if coasterDetails.statusCode == 404 {
                         coasterDetailsOther = GuestApi().getCoasterInfo(coasterUid: coasterUidFromTag)
                         if coasterDetailsOther.statusCode == 204 {
+                            print("addung coaster")
                             let addCoasterResult = HostCoastersApi().addCoaster(coasterUid: coasterUidFromTag)
                             print("\(String(describing: addCoasterResult.status)) is the code m8")
                             // return that resp if its NOT 200
@@ -174,6 +176,9 @@ struct LaunchConnectCoasterNfc: UIViewRepresentable {
                             else {
                                 coasterDetails.statusCode = 204
                             }
+                        }
+                        else {
+                            print("return value is \(coasterDetailsOther.statusCode)")
                         }
                     }
                     

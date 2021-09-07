@@ -24,6 +24,8 @@ struct CoasterDashboardPage: View {
     @State var tempCoasterDetails = HostCoasterInfo()
     // local var that is returned by nfc prompt when getting host from API
     @State var statusCodeResp = 0
+    // if the coaster needs to be encoded
+    @State var encodeTheCoaster = false
     // for the results of the search bar
     let layout = [
             GridItem(.flexible())

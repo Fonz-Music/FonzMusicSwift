@@ -87,6 +87,7 @@ class GuestApi {
                     print("in basic response")
                     if decodedResponse.code == "COASTER_NO_HOST" {
                         returnObject.coaster.statusCode = 204
+                        returnObject.statusCode = 204
                         print("setting return to 204")
                     }
                     else {

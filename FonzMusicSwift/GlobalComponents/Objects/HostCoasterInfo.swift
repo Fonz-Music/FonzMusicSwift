@@ -15,6 +15,7 @@ class HostCoasterInfo: ObservableObject {
     @Published var sessionId = ""
     var hostUserId = ""
     var group = ""
+    var encoded = false
 }
 
 struct CoasterInfo: Hashable, Codable {

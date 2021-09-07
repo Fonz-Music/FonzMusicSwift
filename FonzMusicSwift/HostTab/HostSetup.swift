@@ -116,7 +116,7 @@ struct HostSetup: View {
                 // if host joins their first coaster propeerly, prompt name
                 if statusCodeResp == 204 {
                     
-                    // if coaster NOT encoded {
+                    if (!tempCoasterDetails.encoded) {
                     OneMoreStep()
                         .onAppear {
                             DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
@@ -130,25 +130,18 @@ struct HostSetup: View {
                                 ])
                             }
                         }
-                    if encodeTheCoaster {
-                        EncodeCoasterWithUrl(tempCoasterUid: tempCoasterDetails.uid, statusCode: $statusCodeResp,pressedButtonToLaunchNfc: $encodeTheCoaster)
+                        if encodeTheCoaster {
+                            EncodeCoasterWithUrl(tempCoasterUid: tempCoasterDetails.uid, statusCode: $statusCodeResp,pressedButtonToLaunchNfc: $encodeTheCoaster)
+                        }
+                     }
+                    // coaster already encoded
+                    else {
+                        VStack {
+                            // name coaster
+                            NameYourCoasterView(userAttributes: userAttributes, coastersConnectedToHost: coastersConnectedToHost, coasterUid: tempCoasterDetails.uid)
+                            Spacer()
+                        }
                     }
-                    
-                    // }
-                    // else (coaster already encoded
-                    
-//                    VStack {
-//
-//                        // name coaster
-//                        NameYourCoasterView(hasConnectedCoasters: $hasConnectedCoasters, coastersConnectedToHost: coastersConnectedToHost, coasterUid: tempCoasterDetails.uid)
-//                            .onAppear {
-//
-//
-//                            }
-//                        Spacer()
-//                    }
-                    //}
-                    
                 }
                 else if statusCodeResp == 602 {
                     VStack {
