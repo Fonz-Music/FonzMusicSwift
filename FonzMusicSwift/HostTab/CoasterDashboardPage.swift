@@ -114,6 +114,7 @@ struct CoasterDashboardPage: View {
                 // if host joins their first coaster propeerly, prompt name
                 if statusCodeResp == 204 {
 
+                    if (!tempCoasterDetails.encoded) {
                     // if coaster NOT encoded {
                     OneMoreStep()
                         .onAppear {
@@ -132,6 +133,7 @@ struct CoasterDashboardPage: View {
                         EncodeCoasterWithUrl(tempCoasterUid: tempCoasterDetails.uid, statusCode: $statusCodeResp, pressedButtonToLaunchNfc: $troubleShootCoasterPressed)
                             .frame(width: 0, height: 0)
                     }
+                    
                     if statusCodeResp == 600 {
                         VStack {
 
@@ -140,20 +142,16 @@ struct CoasterDashboardPage: View {
                             Spacer()
                         }
                     }
-                    // }
-                    // else (coaster already encoded
+                     }
+                    else {
                     
-//                    VStack {
-//
-//                        // name coaster
-//                        NameYourCoasterView(hasConnectedCoasters: $hasConnectedCoasters, coastersConnectedToHost: coastersConnectedToHost, coasterUid: tempCoasterDetails.uid)
-//                            .onAppear {
-//
-//
-//                            }
-//                        Spacer()
-//                    }
-                    //}
+                    VStack {
+
+                        // name coaster
+                    NameYourCoasterView(userAttributes: userAttributes, coastersConnectedToHost: coastersConnectedToHost, coasterUid: tempCoasterDetails.uid)
+                        Spacer()
+                    }
+                    }
                     
                 }
 //                // coaster belongs to you (should not appear)
