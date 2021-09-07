@@ -7,6 +7,8 @@
 
 import SwiftUI
 import KeychainAccess
+import UIKit
+import MessageUI
 
 struct SettingsPage: View {
     // inherited that indicated the tab the app is on
@@ -60,7 +62,10 @@ struct SettingsPage: View {
                     
 //                        SignOutButton(hasAccount: $hasAccount, connectedToSpotify: $connectedToSpotify, hasConnectedCoasters: $hasConnectedCoasters)
                     SignOutButton(userAttributes: userAttributes)
-                    SendDevFeedback(widthInherited: .outerContainerFrameWidthSettings, userAttributes: userAttributes)
+                    if MFMailComposeViewController.canSendMail() {
+                        SendDevFeedback(widthInherited: .outerContainerFrameWidthSettings, userAttributes: userAttributes)
+                    }
+                    
                         // if the user has connected coasters, give option to limit reqs
         //                    if userAttributes.getHasConnectedCoasters() {
         //                        Text("coaster management")

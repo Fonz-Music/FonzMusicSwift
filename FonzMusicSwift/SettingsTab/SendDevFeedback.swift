@@ -7,10 +7,12 @@
 
 import SwiftUI
 
+
 struct SendDevFeedback: View {
     
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.openURL) var openURL
+    
     
     var widthInherited : CGFloat
     
@@ -52,6 +54,7 @@ struct SendDevFeedback: View {
         })
         .buttonStyle(BasicFonzButton(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .amber))
         .sheet(isPresented: $showMailView) {
+            
               MailView(data: $mailData) { result in
                 print(result)
                }

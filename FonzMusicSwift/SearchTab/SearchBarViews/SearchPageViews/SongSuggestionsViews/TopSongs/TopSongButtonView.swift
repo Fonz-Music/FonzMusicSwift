@@ -79,7 +79,7 @@ struct TopSongButtonView: View {
             .frame(height: 60)
             .animation(.easeIn)
         }
-        .buttonStyle(BasicFonzButton(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .lilac))
+        .buttonStyle(BasicFonzButton(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .amber))
         .frame(width: UIScreen.screenWidth * 0.4, height: 60, alignment: .center)
         
     }

@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import UIKit
+import MessageUI
 
 struct SongSuggestionsView: View {
  
@@ -61,7 +63,9 @@ struct SongSuggestionsView: View {
                 YourTopPlaylists(hostCoaster: hostCoaster,  tracksFromPlaylist: tracksFromPlaylist, guestTopPlaylists: guestTopPlaylists, userAttributes: userAttributes)
                 Spacer()
                     .frame(height: 20)
-                SendDevFeedback(widthInherited: .outerContainerFrameWidthSettings, userAttributes: userAttributes)
+                if MFMailComposeViewController.canSendMail() {
+                    SendDevFeedback(widthInherited: .outerContainerFrameWidthSettings, userAttributes: userAttributes)
+                }
                 #if !APPCLIP
                 Spacer()
                     .frame(minHeight: 50)
