@@ -45,6 +45,7 @@ class CoastersFromApi: ObservableObject {
     }
     func determineIfHasCoasters() -> Bool {
         products = HostCoastersApi().getOwnedCoasters()
+        print("quantity is  \(products)")
         if products.quantity > 0 {
             print("has coasters")
             return true

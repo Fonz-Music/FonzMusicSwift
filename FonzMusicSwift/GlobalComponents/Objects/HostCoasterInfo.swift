@@ -40,7 +40,8 @@ struct HostCoasterResult: Codable, Hashable {
     var active: Bool
     var coasterId: String
     var name: String
-    var group: String
+    var group: String?
+    var encoded: Bool
     
     
     func toCoasterInfo() -> CoasterInfo {
