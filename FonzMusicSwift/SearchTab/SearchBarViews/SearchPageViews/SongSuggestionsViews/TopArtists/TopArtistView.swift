@@ -16,7 +16,7 @@ struct TopArtistView: View {
     let artistIn: Artist
    
     // object that stores the songs from the api
-    @ObservedObject var tracksFromArtist: TracksFromArtist
+    @StateObject var tracksFromArtist: TracksFromArtist
     // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
     @StateObject var userAttributes : CoreUserAttributes
     // so the button can only be pressed once

@@ -14,7 +14,7 @@ struct ActiveSongView: View {
     var hostName : String
     var currentSessionId : String
     // object that stores the songs from the api
-    @ObservedObject var trackfromNowPlaying: TrackFromNowPlaying
+    @StateObject var trackfromNowPlaying: TrackFromNowPlaying
     
     @State var activeSongPlace: Double = 1.32
     @State var activeSongLength: Double = 4.00

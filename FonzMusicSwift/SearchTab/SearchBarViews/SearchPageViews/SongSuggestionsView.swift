@@ -19,15 +19,15 @@ struct SongSuggestionsView: View {
     // bool that will launch nfc when pressed
     @Binding var pressedSongToLaunchNfc : Bool
     // object that stores the songs from the api
-    @ObservedObject var tracksFromPlaylist: TracksFromPlaylist
+    @StateObject var tracksFromPlaylist: TracksFromPlaylist
     // object that stores the songs from the api
-    @ObservedObject var tracksFromArtist: TracksFromArtist
+    @StateObject var tracksFromArtist: TracksFromArtist
     // object that stores the songs from the api
-    @ObservedObject var tracksFromTopSongs: TracksFromTopSongs
+    @StateObject var tracksFromTopSongs: TracksFromTopSongs
     // object that stores the songs from the api
-    @ObservedObject var guestTopArtists: GuestTopArtists
+    @StateObject var guestTopArtists: GuestTopArtists
     
-    @ObservedObject var guestTopPlaylists: GuestTopPlaylists
+    @StateObject var guestTopPlaylists: GuestTopPlaylists
     // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
     @StateObject var userAttributes : CoreUserAttributes
     

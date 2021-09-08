@@ -27,19 +27,19 @@ struct SearchBarPage: View {
     
 // ---------------------------------- created inside view -------------------------------------------
     // object that stores the songs from the api
-    @ObservedObject var tracksFromSearch: TracksFromSearch = TracksFromSearch()
+    @StateObject var tracksFromSearch: TracksFromSearch = TracksFromSearch()
     // object that stores the songs from the api
-    @ObservedObject var tracksFromPlaylist: TracksFromPlaylist = TracksFromPlaylist()
+    @StateObject var tracksFromPlaylist: TracksFromPlaylist = TracksFromPlaylist()
     // object that stores the songs from the api
-    @ObservedObject var tracksFromArtist: TracksFromArtist = TracksFromArtist()
+    @StateObject var tracksFromArtist: TracksFromArtist = TracksFromArtist()
     // object that stores the songs from the api
-    @ObservedObject var trackFromNowPlaying: TrackFromNowPlaying = TrackFromNowPlaying()
+    @StateObject var trackFromNowPlaying: TrackFromNowPlaying = TrackFromNowPlaying()
     // object that stores the songs from the api
-    @ObservedObject var tracksFromTopSongs: TracksFromTopSongs = TracksFromTopSongs()
+    @StateObject var tracksFromTopSongs: TracksFromTopSongs = TracksFromTopSongs()
     // object that stores the songs from the api
-    @ObservedObject var guestTopArtists: GuestTopArtists = GuestTopArtists()
+    @StateObject var guestTopArtists: GuestTopArtists = GuestTopArtists()
     // object that stores the songs from the api
-    @ObservedObject var guestTopPlaylists: GuestTopPlaylists = GuestTopPlaylists()
+    @StateObject var guestTopPlaylists: GuestTopPlaylists = GuestTopPlaylists()
     
     // boolean to change when views should be showed w animation
     @State var showQueueResponse = false

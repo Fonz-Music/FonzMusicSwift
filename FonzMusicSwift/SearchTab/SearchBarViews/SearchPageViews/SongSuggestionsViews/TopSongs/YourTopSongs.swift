@@ -16,7 +16,7 @@ struct YourTopSongs: View {
     // track object to update the song to queue
     @StateObject var currentTune : GlobalTrack
     // object that stores the songs from the api
-    @ObservedObject var tracksFromTopSongs: TracksFromTopSongs
+    @StateObject var tracksFromTopSongs: TracksFromTopSongs
     // bool that will launch nfc when pressed
     @Binding var pressedSongToLaunchNfc : Bool
     

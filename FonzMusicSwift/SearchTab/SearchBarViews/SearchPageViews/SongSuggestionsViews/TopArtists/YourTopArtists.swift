@@ -15,7 +15,7 @@ struct YourTopArtists: View {
     @ObservedObject var hostCoaster:HostCoasterInfo
     
     // object that stores the songs from the api
-    @ObservedObject var tracksFromArtist: TracksFromArtist
+    @StateObject var tracksFromArtist: TracksFromArtist
     // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
     @StateObject var userAttributes : CoreUserAttributes
     @State var connectedToSpotify : Bool = false

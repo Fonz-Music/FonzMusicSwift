@@ -12,7 +12,7 @@ struct ActiveSongUserInterface : View {
     @Environment(\.colorScheme) var colorScheme
 //    @Binding var activeSong : Track
     // object that stores the songs from the api
-    @ObservedObject var trackfromNowPlaying: TrackFromNowPlaying
+    @StateObject var trackfromNowPlaying: TrackFromNowPlaying
     
    
     

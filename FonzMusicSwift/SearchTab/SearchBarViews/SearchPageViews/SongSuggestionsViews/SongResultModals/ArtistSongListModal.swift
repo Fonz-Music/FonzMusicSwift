@@ -22,7 +22,7 @@ struct ArtistSongListModal: View {
     // bool that will launch nfc when pressed
 //    @Binding var pressedSongToLaunchNfc : Bool
     // object that stores the songs from the api
-    @ObservedObject var tracksFromEntry: TracksFromArtist
+    @StateObject var tracksFromEntry: TracksFromArtist
     // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
     @StateObject var userAttributes : CoreUserAttributes
     // boolean to change when views should be showed w animation
