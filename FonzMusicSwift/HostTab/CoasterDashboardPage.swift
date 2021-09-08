@@ -125,7 +125,8 @@ struct CoasterDashboardPage: View {
                                     "sessionId":tempCoasterDetails.sessionId,
                                     "userId":userAttributes.getUserId(),
                                     "group":tempCoasterDetails.group,
-                                    "tagUid":tempCoasterDetails.uid
+                                    "tagUid":tempCoasterDetails.uid,
+                                    "device":"iOS"
                                 ])
                             }
                         }
@@ -233,6 +234,12 @@ struct CoasterDashboardPage: View {
                         else {
                             FailCircleResponse(errorMessage: "adding the new coaster failed")
                                 .animation(.easeInOut(duration: 2))
+                                .onAppear{
+                                    FirebaseAnalytics.Analytics.logEvent("userConnectFirstCoasterFail", parameters: ["user":"user",
+                                                                                                                     "userId":userAttributes.getUserId(),
+                                                                                                                     "tagUid":tempCoasterDetails.uid ?? "",
+                                                                                                                     "device":"iOS"])
+                                }
                         }
                     }
 //                    .padding(.top, 100)

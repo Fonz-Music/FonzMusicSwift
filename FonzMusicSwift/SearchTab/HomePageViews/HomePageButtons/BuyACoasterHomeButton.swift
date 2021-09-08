@@ -35,7 +35,8 @@ struct BuyACoasterHomeButton: View {
                 print("pressed button")
 
                 launchWebview.toggle()
-                FirebaseAnalytics.Analytics.logEvent("userPressedBuyCoaster", parameters: ["user":"user", "tab": "search"])
+                FirebaseAnalytics.Analytics.logEvent("userPressedBuyCoaster", parameters: ["user":"user", "tab": "search",
+                                                                                           "device":"iOS"])
                 
             }, label: {
                 Image(systemName: "cart.badge.plus")

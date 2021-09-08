@@ -40,8 +40,9 @@ struct LaunchSongResponsePopup: View {
                                 "sessionId":hostCoaster.sessionId,
                                 "userId":userAttributes.getUserId(),
                                 "group":hostCoaster.group,
-                                "tagUid":hostCoaster.uid,
-                                "songQueued":songSelected
+                                "tagUid":hostCoaster.uid.uppercased() ,
+                                "songQueued":songSelected,
+                                "device":"iOS"
                             ])
                         }
                     
@@ -56,8 +57,9 @@ struct LaunchSongResponsePopup: View {
                                 "sessionId":hostCoaster.sessionId,
                                 "userId":userAttributes.getUserId(),
                                 "group":hostCoaster.group,
-                                "tagUid":hostCoaster.uid,
-                                "failureReason":"no active song"
+                                "tagUid":hostCoaster.uid.uppercased(),
+                                "failureReason":"no active song",
+                                "device":"iOS"
                             ])
                         }
 //                        .padding(.top, 10)
@@ -70,8 +72,9 @@ struct LaunchSongResponsePopup: View {
                                 "sessionId":hostCoaster.sessionId,
                                 "userId":userAttributes.getUserId(),
                                 "group":hostCoaster.group,
-                                "tagUid":hostCoaster.uid,
-                                "failureReason":"restricted device"
+                                "tagUid":hostCoaster.uid.uppercased(),
+                                "failureReason":"restricted device",
+                                "device":"iOS"
                             ])
                         }
                 }
@@ -84,15 +87,15 @@ struct LaunchSongResponsePopup: View {
                 // nfc error
                 else {
                     QueueSongError()
-                        .onAppear {
-                            FirebaseAnalytics.Analytics.logEvent("songQueueFail", parameters: [
-                                "user":"guest",
-                                "sessionId":hostCoaster.sessionId,
-                                "userId":userAttributes.getUserId(),
-                                "group":hostCoaster.group,
-                                "tagUid":hostCoaster.uid
-                            ])
-                        }
+//                        .onAppear {
+//                            FirebaseAnalytics.Analytics.logEvent("songQueueFail", parameters: [
+//                                "user":"guest",
+//                                "sessionId":hostCoaster.sessionId,
+//                                "userId":userAttributes.getUserId(),
+//                                "group":hostCoaster.group,
+//                                "tagUid":hostCoaster.uid
+//                            ])
+//                        }
 //                        .padding(.top, 10)
                 }
 //                Spacer()

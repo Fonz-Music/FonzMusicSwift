@@ -88,7 +88,8 @@ struct HomePageDecision: View {
                                             "sessionId":tempCoasterDetails.sessionId,
                                             "userId":userAttributes.getUserId(),
                                             "group":tempCoasterDetails.group,
-                                            "tagUid":tempCoasterDetails.uid
+                                            "tagUid":tempCoasterDetails.uid,
+                                            "device":"iOS"
                                         ])
                                         withAnimation {
                                         // changes hostCoaster details to return to parent
@@ -134,7 +135,7 @@ struct HomePageDecision: View {
                                         errorMessage = "you've broken us."
                                     }
                                 
-                                    FirebaseAnalytics.Analytics.logEvent("guestJoinPartyFail", parameters: ["user":"guest"])
+                                    FirebaseAnalytics.Analytics.logEvent("guestJoinPartyFail", parameters: ["user":"guest","userId":userAttributes.getUserId(),"device":"iOS","reason":errorMessage])
                                    
                                     // after 3 seconds, resets home page to normal if connection fails
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {

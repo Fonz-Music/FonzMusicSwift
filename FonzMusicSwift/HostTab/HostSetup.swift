@@ -126,7 +126,8 @@ struct HostSetup: View {
                                     "sessionId":tempCoasterDetails.sessionId,
                                     "userId":userAttributes.getUserId(),
                                     "group":tempCoasterDetails.group,
-                                    "tagUid":tempCoasterDetails.uid
+                                    "tagUid":tempCoasterDetails.uid,
+                                    "device":"iOS"
                                 ])
                             }
                         }
@@ -181,7 +182,10 @@ struct HostSetup: View {
                             FailCircleResponse(errorMessage: "you did not connect to the coaster :/")
                                 .animation(.easeInOut(duration: 2))
                                 .onAppear {
-                                    FirebaseAnalytics.Analytics.logEvent("userConnectFirstCoasterFail", parameters: ["user":"user"])
+                                    FirebaseAnalytics.Analytics.logEvent("userConnectFirstCoasterFail", parameters: ["user":"user",
+                                                                                                                     "userId":userAttributes.getUserId(),
+                                                                                                                     "tagUid":tempCoasterDetails.uid ?? "",
+                                                                                                                     "device":"iOS"])
                                 }
                             if pressedButtonToLaunchNfc {
                                 LaunchConnectCoasterNfc(tempCoaster: $tempCoasterDetails, launchedNfc: $launchedNfc, statusCode: $statusCodeResp, pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc).frame(maxWidth: 0, maxHeight: 0, alignment: .center)
