@@ -11,7 +11,7 @@ import SwiftUI
 struct PlaylistSongListModal: View {
     
     // hostCoaster details passed in and will update view when changed
-    @ObservedObject var hostCoaster:HostCoasterInfo
+    @StateObject var hostCoaster:HostCoasterInfo
     
     
      var resultsTitle : String

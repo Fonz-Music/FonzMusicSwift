@@ -10,7 +10,7 @@ import FirebaseAnalytics
 
 struct TopPlaylistsView: View {
     // hostCoaster details passed in and will update view when changed
-    @ObservedObject var hostCoaster:HostCoasterInfo
+    @StateObject var hostCoaster:HostCoasterInfo
     // the song passed in
     let playlistIn: Playlist
     // object that stores the songs from the api

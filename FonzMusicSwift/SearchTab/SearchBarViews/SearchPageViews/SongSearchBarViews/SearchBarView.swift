@@ -11,7 +11,7 @@ import SwiftUI
 struct SearchBarView : View {
     
     // object that stores the songs from the api
-    @ObservedObject var tracksFromSearch: TracksFromSearch
+    @StateObject var tracksFromSearch: TracksFromSearch
     // checks to see if currently typing in searchbar
     @Binding var isEditing : Bool
 //    // determines if rest of view should be opague

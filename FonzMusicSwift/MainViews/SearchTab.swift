@@ -18,7 +18,7 @@ struct SearchTab: View {
     @ObservedObject var coastersConnectedToUser: CoastersFromApi
 // ------------------------------ created in view ------------------------------------------------
     // hostCoaster details passed in and will update view when changed
-    @State var hostCoaster = HostCoasterInfo()
+    @StateObject var hostCoaster = HostCoasterInfo()
     // tells app there is no host
     @State var hasHost = false
     

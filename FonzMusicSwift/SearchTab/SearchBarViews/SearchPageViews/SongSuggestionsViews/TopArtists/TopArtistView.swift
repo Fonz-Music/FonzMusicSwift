@@ -11,7 +11,7 @@ import FirebaseAnalytics
 struct TopArtistView: View {
     
     // hostCoaster details passed in and will update view when changed
-    @ObservedObject var hostCoaster:HostCoasterInfo
+    @StateObject var hostCoaster:HostCoasterInfo
     // the song passed in
     let artistIn: Artist
    

@@ -14,9 +14,9 @@ struct SearchResultsView: View {
 // --------------------- inherited in view -------------------------------------------
         // so the button can only be pressed once
     // object that stores the songs from the api
-    @ObservedObject var tracksFromSearch: TracksFromSearch
+    @StateObject var tracksFromSearch: TracksFromSearch
     // hostCoaster details passed in and will update view when changed
-    @ObservedObject var hostCoaster:HostCoasterInfo
+    @StateObject var hostCoaster:HostCoasterInfo
     // track object to update the song to queue
     @StateObject var currentTune : GlobalTrack
     // bool that will launch nfc when pressed

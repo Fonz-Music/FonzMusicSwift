@@ -12,7 +12,7 @@ import FirebaseAnalytics
 struct YourTopSongs: View {
     
     // hostCoaster details passed in and will update view when changed
-    @ObservedObject var hostCoaster:HostCoasterInfo
+    @StateObject var hostCoaster:HostCoasterInfo
     // track object to update the song to queue
     @StateObject var currentTune : GlobalTrack
     // object that stores the songs from the api

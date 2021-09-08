@@ -12,7 +12,7 @@ struct SearchBarPage: View {
 // ---------------------------------- inherited from parent -----------------------------------------
 
     // hostCoaster details passed in and will update view when changed
-    @ObservedObject var hostCoaster:HostCoasterInfo
+    @StateObject var hostCoaster:HostCoasterInfo
     // checks if guest has a host
     @Binding var hasHostVar : Bool
     // determines if current user has an account

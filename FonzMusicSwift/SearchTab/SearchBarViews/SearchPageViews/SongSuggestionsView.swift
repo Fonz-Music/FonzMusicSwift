@@ -13,7 +13,7 @@ struct SongSuggestionsView: View {
  
 // ---------------------------------- inherited from parent -----------------------------------------
     // hostCoaster details passed in and will update view when changed
-    @ObservedObject var hostCoaster:HostCoasterInfo
+    @StateObject var hostCoaster:HostCoasterInfo
     // track object to update the song to queue
     @StateObject var currentTune : GlobalTrack
     // bool that will launch nfc when pressed
@@ -63,7 +63,8 @@ struct SongSuggestionsView: View {
                 YourTopPlaylists(hostCoaster: hostCoaster,  tracksFromPlaylist: tracksFromPlaylist, guestTopPlaylists: guestTopPlaylists, userAttributes: userAttributes)
                 Spacer()
                     .frame(height: 20)
-                if MFMailComposeViewController.canSendMail() {
+                // if the user can send mail & the user has an account
+                if MFMailComposeViewController.canSendMail() && !userAttributes.getHasAccount() {
                     SendDevFeedback(widthInherited: .outerContainerFrameWidthSettings, userAttributes: userAttributes)
                 }
                 #if !APPCLIP
@@ -89,7 +90,13 @@ struct SongSuggestionsView: View {
         }
         else {
             #if !APPCLIP
-            return 920.0
+            if MFMailComposeViewController.canSendMail() && !userAttributes.getHasAccount() {
+                return 920.0
+            }
+            else {
+                return 900.0
+            }
+            
             #else
             return 870.0
             #endif

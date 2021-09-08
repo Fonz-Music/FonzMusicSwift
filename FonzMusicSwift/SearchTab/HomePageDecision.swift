@@ -12,7 +12,7 @@ import FirebaseAnalytics
 struct HomePageDecision: View {
 // ---------------------------------- inherited from parent -----------------------------------------
     // hostCoaster details passed in and will update view when changed
-    @ObservedObject var hostCoaster:HostCoasterInfo
+    @StateObject var hostCoaster:HostCoasterInfo
     // inherited from parent and tells you if you have a host
     @Binding var hasHostVar:Bool
     // inherited that indicated the tab the app is on
