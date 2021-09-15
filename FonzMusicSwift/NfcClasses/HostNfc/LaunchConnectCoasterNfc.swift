@@ -168,14 +168,17 @@ struct LaunchConnectCoasterNfc: UIViewRepresentable {
                         if coasterDetailsOther.statusCode == 204 {
                             print("addung coaster")
                             let addCoasterResult = HostCoastersApi().addCoaster(coasterUid: coasterUidFromTag)
-                            print("\(String(describing: addCoasterResult.status)) is the code m8")
+                            print("\(String(describing: addCoasterResult.statusCode)) is the code m8")
                             // return that resp if its NOT 200
-                            if addCoasterResult.status != 200 {
-                                coasterDetails.statusCode = addCoasterResult.status
+                            if addCoasterResult.statusCode != 200 {
+//                                self.tempCoaster.encoded = addCoasterResult.encoded
+                                coasterDetails.statusCode = addCoasterResult.statusCode
                             }
                             else {
                                 coasterDetails.statusCode = 204
+                                self.tempCoaster.encoded = addCoasterResult.encoded
                             }
+                            
                         }
                         else {
                             print("return value is \(coasterDetailsOther.statusCode)")
@@ -192,6 +195,7 @@ struct LaunchConnectCoasterNfc: UIViewRepresentable {
                         if coasterDetails.statusCode == 200 {
                             self.tempCoaster.coasterName = coasterDetails.name
                             self.tempCoaster.hostName = coasterDetailsOther.hostName
+                            
     //                        self.tempCoaster.hostName = coasterDetails.coaster.displayName
                         }
                         else if coasterDetailsOther.statusCode == 200 {
@@ -201,6 +205,7 @@ struct LaunchConnectCoasterNfc: UIViewRepresentable {
                             coasterDetails.statusCode = 403
     //                        self.tempCoaster.hostName = coasterDetails.coaster.displayName
                         }
+                        
                         self.launchedNfc = true
                         self.statusCode = coasterDetails.statusCode!
 //                        self.statusCode = 403

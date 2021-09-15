@@ -119,6 +119,8 @@ struct EncodeCoasterWithUrl: UIViewRepresentable {
                             else {
                                 session.alertMessage = "properly connected!"
                                 statusCodeFromWrite = 602
+                                // tells api that they're encoded
+                                HostCoastersApi().markCoasterAsEncoded(coasterUid: self.tempCoasterUid.uppercased())
                             }
                             print("wrote nfc")
                             // ends session

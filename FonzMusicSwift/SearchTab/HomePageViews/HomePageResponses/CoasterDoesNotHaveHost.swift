@@ -85,10 +85,10 @@ struct CoasterDoesNotHaveHost: View {
                     if userAttributes.getConnectedToSpotify() {
                         // add coaster to this users account
                         let addCoasterResult = HostCoastersApi().addCoaster(coasterUid: tempCoasterDetails.uid)
-                            print("\(String(describing: addCoasterResult.status)) is the code m8")
+                            print("\(String(describing: addCoasterResult.statusCode)) is the code m8")
                             // return that resp if its NOT 200
-                        print("status here is \(addCoasterResult.status)")
-                            if addCoasterResult.status == 200 {
+                        print("status here is \(addCoasterResult.statusCode)")
+                            if addCoasterResult.statusCode == 200 {
                                 // have user name coaster
                                 throwNameNewCoasterModal = true
                                 
@@ -163,10 +163,10 @@ struct CoasterDoesNotHaveHost: View {
             // if they do have spot
             else {
                 let addCoasterResult = HostCoastersApi().addCoaster(coasterUid: tempCoasterDetails.uid)
-                    print("\(String(describing: addCoasterResult.status)) is the code m8")
+//                    print("\(String(describing: addCoasterResult.status)) is the code m8")
                     // return that resp if its NOT 200
-                print("status here is \(addCoasterResult.status)")
-                    if addCoasterResult.status == 200 {
+                print("status here is \(addCoasterResult.statusCode)")
+                    if addCoasterResult.statusCode == 200 {
                         // have user name coaster
                         throwNameNewCoasterModal = true
                         

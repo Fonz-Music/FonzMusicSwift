@@ -139,7 +139,7 @@ struct CoasterDashboardPage: View {
                         VStack {
 
                             // name coaster
-                            NameYourCoasterView(userAttributes: userAttributes, coastersConnectedToHost: coastersConnectedToHost, coasterUid: tempCoasterDetails.uid)
+                            NameNewCoaster(launchedNfc: $launchedNfc, coasterUid: tempCoasterDetails.uid, coastersConnectedToHost: coastersConnectedToHost)
                             Spacer()
                         }
                     }
@@ -149,7 +149,7 @@ struct CoasterDashboardPage: View {
                     VStack {
 
                         // name coaster
-                    NameYourCoasterView(userAttributes: userAttributes, coastersConnectedToHost: coastersConnectedToHost, coasterUid: tempCoasterDetails.uid)
+                        NameNewCoaster(launchedNfc: $launchedNfc, coasterUid: tempCoasterDetails.uid, coastersConnectedToHost: coastersConnectedToHost)
                         Spacer()
                     }
                     }
