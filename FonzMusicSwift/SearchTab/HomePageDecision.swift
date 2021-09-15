@@ -206,6 +206,13 @@ struct HomePageDecision: View {
 //                        self.hasHost = false
                         statusCodeResp = 204
                     }
+                    FirebaseAnalytics.Analytics.logEvent("userUsedDeepLinking", parameters: [
+                        "sessionId":tempCoasterDetails.sessionId,
+                        "userId":userAttributes.getUserId(),
+                        "group":tempCoasterDetails.group,
+                        "tagUid":tempCoasterDetails.uid,
+                        "device":"iOS"
+                    ])
                     
                 }
             }
