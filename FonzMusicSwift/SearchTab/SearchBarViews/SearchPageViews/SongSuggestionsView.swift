@@ -109,10 +109,10 @@ struct SongSuggestionsView: View {
         else {
             #if !APPCLIP
             if MFMailComposeViewController.canSendMail() && !userAttributes.getHasAccount() {
-                return 920.0
+                return 940.0
             }
             else {
-                return 900.0
+                return 920.0
             }
             
             #else

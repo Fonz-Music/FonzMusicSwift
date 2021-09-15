@@ -163,7 +163,7 @@ struct LaunchJoinPartyNfcSession: UIViewRepresentable {
                         // sets vars to return to user
                         self.launchedNfc = true
                         self.tempCoaster.coasterName = coasterDetails.coaster.name
-                        self.tempCoaster.hostName = "host"
+                        self.tempCoaster.hostName = coasterDetails.hostName
                         self.tempCoaster.hostUserId = coasterDetails.session.userId
 //                        self.tempCoaster.hostName = coasterDetails.coaster.displayName
                         self.tempCoaster.sessionId = coasterDetails.session.sessionId

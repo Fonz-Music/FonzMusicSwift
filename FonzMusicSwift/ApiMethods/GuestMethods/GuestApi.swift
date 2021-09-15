@@ -18,6 +18,7 @@ struct QueueSongResult: Codable {
 struct GetCoasterInfoGuestResponse : Codable {
     var coaster : CoasterResponse
     var session : SessionResponse
+    var hostName : String
     var statusCode: Int?
 }
 
@@ -43,7 +44,7 @@ class GuestApi {
         let sem = DispatchSemaphore.init(value: 0)
         
         // init value for return
-        var returnObject = GetCoasterInfoGuestResponse(coaster: CoasterResponse(active: false, coasterId: "", name: "", group: "", encoded: false), session: SessionResponse(sessionId: "", userId: "", active: false, provider: ""))
+        var returnObject = GetCoasterInfoGuestResponse(coaster: CoasterResponse(active: false, coasterId: "", name: "", group: "", encoded: false), session: SessionResponse(sessionId: "", userId: "", active: false, provider: ""), hostName: "")
         
         // init value for token
         var accessToken = ""

@@ -159,7 +159,7 @@ struct LaunchConnectCoasterNfc: UIViewRepresentable {
 //                    var coasterDetails = GuestApi().getCoasterInfo(coasterUid: coasterUidFromTag)
                     print("\(String(describing: coasterDetails.statusCode)) is the code m8")
                     // in case the coaster belongs to someone else
-                    var coasterDetailsOther = GetCoasterInfoGuestResponse(coaster: CoasterResponse(active: false, coasterId: "", name: "", group: "", encoded: false), session: SessionResponse(sessionId: "", userId: "", active: false, provider: ""))
+                    var coasterDetailsOther = GetCoasterInfoGuestResponse(coaster: CoasterResponse(active: false, coasterId: "", name: "", group: "", encoded: false), session: SessionResponse(sessionId: "", userId: "", active: false, provider: ""), hostName: "")
                     // if the coaster does NOT have a host, add to account
                     
 //                    else
@@ -191,13 +191,13 @@ struct LaunchConnectCoasterNfc: UIViewRepresentable {
                         self.tempCoaster.uid = coasterUidFromTag
                         if coasterDetails.statusCode == 200 {
                             self.tempCoaster.coasterName = coasterDetails.name
-                            self.tempCoaster.hostName = "host"
+                            self.tempCoaster.hostName = coasterDetailsOther.hostName
     //                        self.tempCoaster.hostName = coasterDetails.coaster.displayName
                         }
                         else if coasterDetailsOther.statusCode == 200 {
                             print("someone else's coaster")
                             self.tempCoaster.coasterName = coasterDetailsOther.coaster.name
-                            self.tempCoaster.hostName = "host"
+                            self.tempCoaster.hostName = coasterDetailsOther.hostName
                             coasterDetails.statusCode = 403
     //                        self.tempCoaster.hostName = coasterDetails.coaster.displayName
                         }
