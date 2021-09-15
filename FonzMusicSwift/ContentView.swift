@@ -55,7 +55,7 @@ struct ContentView: View {
                 }
                 .actionSheet(isPresented: $throwFirstLaunchAlert) {
                     ActionSheet(
-                        title: Text("have you used the Fonz Music App before?"),
+                        title: Text("do you OWN a coaster?"),
                         buttons: [
                             .default(Text("yes")) {
                                 throwCreateAccount = true
@@ -142,6 +142,7 @@ struct ContentView: View {
                             if !userAttributes.getHasAccount() {
                                 userAttributes.showSignUpModal = true
                             }
+                            userAttributes.updateUserTops = true
                         }
                     }
                     else {

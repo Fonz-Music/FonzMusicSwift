@@ -20,15 +20,11 @@ class TracksFromTopSongs: ObservableObject {
     @Published private (set) var topProducts: [TrackForPagination] = []
     @Published private (set) var bottomProducts: [TrackForPagination] = []
     
-    let connectedToSpotify = UserDefaults.standard.bool(forKey: "connectedToSpotify")
+    var connectedToSpotify = UserDefaults.standard.bool(forKey: "connectedToSpotify")
 
     @Published var offset : Int = Int()
     var resultsPerSearch = 0
 //    @Published var updateTopTracks = true
-    
-//    let ADDRESS = "https://api.fonzmusic.com/"
-//    let ADDRESS = "http://beta.api.fonzmusic.com:8080/"
-    let ADDRESS = "http://52.50.138.97:8080/"
 //    let tempTracks =
 //        [
 //                Track(songName: "Prune, You Talk Funny", songId: "6sHCvZe1PHrOAuYlwTLNH4", artistName: " Gus Dapperton", albumArt: "https://i.scdn.co/image/ab67616d0000b273ba8dea5129b6e43b59fadad7", spotifyUrl: "https://open.spotify.com/track/6sHCvZe1PHrOAuYlwTLNH4"),
@@ -83,19 +79,6 @@ class TracksFromTopSongs: ObservableObject {
         print("starting this")
         loadTracks()
 
-//        if updateTopTracks {
-//            print("second call is changing")
-//            topProducts += SpotifyPaginatedApi().getGuestTopSongsPaginated(sessionId: userSessionId, offset: offset)
-//            offset += 10
-//            bottomProducts += SpotifyPaginatedApi().getGuestTopSongsPaginated(sessionId: userSessionId, offset: offset)
-////                SpotifySuggestionsApi().getGuestTopSongs(sessionId: userSessionId)
-//            if topProducts.count < 1 {
-//                topProducts = tempTracksPaginated
-//                bottomProducts = tempTracksPaginated
-//            }
-//            updateTopTracks = false
-//            resultsPerSearch += 10
-//        }
     }
     
     func loadMoreTracks() {
@@ -105,6 +88,7 @@ class TracksFromTopSongs: ObservableObject {
     }
     
     func loadTracks() {
+        connectedToSpotify = UserDefaults.standard.bool(forKey: "connectedToSpotify")
         if connectedToSpotify && userSessionId != "" {
 
 //            if updateTopTracks {
@@ -127,6 +111,12 @@ class TracksFromTopSongs: ObservableObject {
             bottomProducts = tempTracksBottomPaginated
 //            products = SpotifySuggestionsApi().getNewSongReleases(sessionId: hostSessionId)
         }
+    }
+    func loadTracksAfterSpotConnect() {
+        connectedToSpotify = UserDefaults.standard.bool(forKey: "connectedToSpotify")
+        topProducts = []
+        bottomProducts = []
+        loadTracks()
     }
     
 }

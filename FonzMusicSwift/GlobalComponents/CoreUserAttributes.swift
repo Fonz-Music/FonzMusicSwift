@@ -31,7 +31,8 @@ class CoreUserAttributes: ObservableObject {
     @Published private var spotifyDisplayName = UserDefaults.standard.string(forKey: "spotifyDisplayName") ?? "manage spotify"
     // determines if current user has an account
     @Published var showSignUpModal = false
-    
+    // determines if user top songs should be reloaded
+    @Published var updateUserTops = false
     
     // gets all preferences
     func determineAllUserPrefrencesAfterSignIn() {

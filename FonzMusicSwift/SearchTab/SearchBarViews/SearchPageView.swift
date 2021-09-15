@@ -75,9 +75,10 @@ struct SearchPageView: View {
                             var hostSessionId : String = UserDefaults.standard.string(forKey: "hostSessionId") ?? ""
                             print("user sess is " + userSessionId)
                         } label: {
-                            Image("leaveParty")
+                            Image(systemName: "arrow.up.and.person.rectangle.portrait")
+//                            Image("leaveParty")
                                 .resizable()
-                                .frame(width: 20, height: 20, alignment: .center)
+                                .frame(width: 20, height: 17, alignment: .center)
 //                                .foregroundColor(.white)
                                 .foregroundColor(colorScheme == .light ? Color.gray: Color.white)
 

@@ -18,7 +18,7 @@ class GuestTopArtists: ObservableObject {
 
     @Published private (set) var products: [ArtistPaginated] = []
     
-    let connectedToSpotify = UserDefaults.standard.bool(forKey: "connectedToSpotify")
+    var connectedToSpotify = UserDefaults.standard.bool(forKey: "connectedToSpotify")
     
     @Published var offset : Int = Int()
 //    var resultsPerSearch = 0
@@ -46,6 +46,14 @@ class GuestTopArtists: ObservableObject {
 
     init() {
         print("starting this")
+        loadTopArtists()
+    }
+
+    func loadMoreArtists() {
+        products += SpotifyPaginatedApi().getGuestTopArtistsPaginated(sessionId: userSessionId, offset: offset)
+        offset += 10
+    }
+    func loadTopArtists() {
         if connectedToSpotify && userSessionId != "" {
             products += SpotifyPaginatedApi().getGuestTopArtistsPaginated(sessionId: userSessionId, offset: offset)
             offset += 10
@@ -60,9 +68,9 @@ class GuestTopArtists: ObservableObject {
 //            products = SpotifySuggestionsApi().getNewSongReleases(sessionId: hostSessionId)
         }
     }
-
-    func loadMoreArtists() {
-        products += SpotifyPaginatedApi().getGuestTopArtistsPaginated(sessionId: userSessionId, offset: offset)
-        offset += 10
+    func loadTopArtistsAfterSpotSignIn() {
+        connectedToSpotify = UserDefaults.standard.bool(forKey: "connectedToSpotify")
+        products = []
+        loadTopArtists()
     }
 }

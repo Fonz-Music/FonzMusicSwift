@@ -58,6 +58,24 @@ struct SongSuggestionsView: View {
                     Spacer()
                         .frame(height: 30)
                 }
+                else {
+                    Spacer()
+                        .frame(height: 0)
+                        .onAppear {
+                            if userAttributes.updateUserTops {
+                                print("grabbing new tops")
+                                tracksFromTopSongs.loadTracksAfterSpotConnect()
+                                guestTopArtists.loadTopArtistsAfterSpotSignIn()
+                                guestTopPlaylists.loadTopPlaylistsAfterSpotSignIn()
+                                
+                                
+                                userAttributes.updateUserTops = false
+                            }
+                            else {
+                                print("not grabbing new tops")
+                            }
+                        }
+                }
                 YourTopSongs(hostCoaster: hostCoaster, currentTune: currentTune, tracksFromTopSongs: tracksFromTopSongs, pressedSongToLaunchNfc: $pressedSongToLaunchNfc, statusCodeQueueSong: $statusCodeQueueSong, showQueueResponse: $showQueueResponse)
                 YourTopArtists(hostCoaster: hostCoaster, tracksFromArtist: tracksFromArtist, userAttributes: userAttributes, guestTopArtists: guestTopArtists)
                 YourTopPlaylists(hostCoaster: hostCoaster,  tracksFromPlaylist: tracksFromPlaylist, guestTopPlaylists: guestTopPlaylists, userAttributes: userAttributes)
