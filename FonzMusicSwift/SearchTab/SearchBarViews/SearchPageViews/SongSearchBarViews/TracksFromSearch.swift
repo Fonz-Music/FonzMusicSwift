@@ -14,16 +14,12 @@ import Network
 class TracksFromSearch: ObservableObject {
     
     var subscription: Set<AnyCancellable> = []
-    var tempSession : String = UserDefaults.standard.string(forKey: "hostSessionId")!
+    var tempSession : String = UserDefaults.standard.string(forKey: "hostSessionId") ?? ""
     
 //    @Published private (set) var products: [Track] = []
     @Published private (set) var products: [TrackForPagination] = []
     
     @Published var searchText: String = String()
-    
-//    let ADDRESS = "https://api.fonzmusic.com/"
-    //    let ADDRESS = "http://beta.api.fonzmusic.com:8080/"
-        let ADDRESS = "http://52.50.138.97:8080/"
     
     @Published var offset : Int = Int()
     var resultsPerSearch = 20
