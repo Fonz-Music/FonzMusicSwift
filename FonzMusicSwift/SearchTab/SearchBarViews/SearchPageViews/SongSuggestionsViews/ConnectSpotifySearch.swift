@@ -23,10 +23,12 @@ struct ConnectSpotifySearch: View {
     var body: some View {
         Button(action: {
             
-            SpotifySignInFunctions().launchSpotifyInBrowser()
+            
             #if !APPCLIP
+            SpotifySignInFunctions().launchSpotifyInBrowser()
             FirebaseAnalytics.Analytics.logEvent("userTappedConnectSpotify", parameters: ["user":"user", "tab":"search", "fullOrClip":"full"])
             #else
+            throwDownlaodFullAppModal = true
             FirebaseAnalytics.Analytics.logEvent("userTappedConnectSpotify", parameters: ["user":"user", "tab":"search", "fullOrClip":"clip"])
             #endif
             
@@ -59,8 +61,8 @@ struct ConnectSpotifySearch: View {
         .buttonStyle(BasicFonzButton(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .amber))
         .padding(.horizontal, .subHeadingFrontIndent)
         .frame(width: UIScreen.screenWidth, alignment: .center)
-//        .sheet(isPresented: $throwDownlaodFullAppModal) {
-//            DownloadFullAppPrompt()
-//        }
+        .sheet(isPresented: $throwDownlaodFullAppModal) {
+            DownloadFullAppPrompt()
+        }
     }
 }

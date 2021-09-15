@@ -32,6 +32,7 @@ class CoreUserAttributes: ObservableObject {
     // determines if current user has an account
     @Published var showSignUpModal = false
     
+    
     // gets all preferences
     func determineAllUserPrefrencesAfterSignIn() {
         // check for spot

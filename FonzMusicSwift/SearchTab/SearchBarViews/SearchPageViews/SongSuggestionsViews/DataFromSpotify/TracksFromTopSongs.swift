@@ -65,6 +65,7 @@ class TracksFromTopSongs: ObservableObject {
         [
             TrackForPagination(songName: "A Fool Moon Night", songId: "6c7JQdDL94DF8ECGCwT3zG", artistName: "THE KOXX", albumArt: "https://i.scdn.co/image/ab67616d0000b27300e62f490dd62b191d6c6874", spotifyUrl: "https://open.spotify.com/track/6c7JQdDL94DF8ECGCwT3zG", index: 0),
             TrackForPagination(songName: "Glue", songId: "2aJDlirz6v2a4HREki98cP", artistName: " Bicep", albumArt: "https://i.scdn.co/image/ab67616d0000b273d4322a9004288009f6da2975", spotifyUrl: "https://open.spotify.com/track/2aJDlirz6v2a4HREki98cP", index: 0),
+            TrackForPagination(songName: "Losing It", songId: "6ho0GyrWZN3mhi9zVRW7xi", artistName: " FISHER", albumArt: "https://i.scdn.co/image/ab67616d0000b2739367c1ee2eec0bf3a04b4868", spotifyUrl: "https://open.spotify.com/track/6ho0GyrWZN3mhi9zVRW7xi", index: 0),
             TrackForPagination(songName: "Believe What I Say", songId: "73uxnSsFMeJ15POpd3zgrV", artistName: "Kanye West", albumArt: "https://i.scdn.co/image/ab67616d0000b2736ba1cffc9b2c5469503430b3", spotifyUrl: "https://open.spotify.com/track/73uxnSsFMeJ15POpd3zgrV", index: 0),
             TrackForPagination(songName: "Anseo (Single Mix)", songId: "6DW0XcQeWW9s4SU5cStQqc", artistName: "Denise Chaila, Jafaris", albumArt: "https://i.scdn.co/image/ab67616d0000b273f0ad7b153c7ca8ea32579a20", spotifyUrl: "https://open.spotify.com/track/6DW0XcQeWW9s4SU5cStQqc", index: 0),
             TrackForPagination(songName: "I Still Haven't Found What I'm Looking For", songId: "6wpGqhRvJGNNXwWlPmkMyO", artistName: "U2", albumArt: "https://i.scdn.co/image/ab67616d0000b273b7bea3d01f04e6d0408d2afe", spotifyUrl: "https://open.spotify.com/track/6wpGqhRvJGNNXwWlPmkMyO", index: 0),
@@ -72,7 +73,7 @@ class TracksFromTopSongs: ObservableObject {
             TrackForPagination(songName: "Zombie", songId: "7EZC6E7UjZe63f1jRmkWxt", artistName: " The Cranberries", albumArt: "https://i.scdn.co/image/ab67616d0000b27372d481a5999197ef5f42f796", spotifyUrl: "https://open.spotify.com/track/7EZC6E7UjZe63f1jRmkWxt", index: 0),
             TrackForPagination(songName: "That Funny Feeling", songId: "7uCq4vBPffjaTMlE8EQzJD", artistName: " Bo Burnham", albumArt: "https://i.scdn.co/image/ab67616d0000b2732853b5ea06ddc676b337c389", spotifyUrl: "https://open.spotify.com/track/7uCq4vBPffjaTMlE8EQzJD", index: 0),
             TrackForPagination(songName: "Bonkers", songId: "6ddQ5KCkvCggk3j6KdA0zL", artistName: " Dizzee Rascal, Armand Van Helden", albumArt: "https://i.scdn.co/image/ab67616d0000b2736f754c78ad0a1cb7fa2d6c4f", spotifyUrl: "https://open.spotify.com/track/6ddQ5KCkvCggk3j6KdA0zL", index: 0),
-            TrackForPagination(songName: "Losing It", songId: "6ho0GyrWZN3mhi9zVRW7xi", artistName: " FISHER", albumArt: "https://i.scdn.co/image/ab67616d0000b2739367c1ee2eec0bf3a04b4868", spotifyUrl: "https://open.spotify.com/track/6ho0GyrWZN3mhi9zVRW7xi", index: 0),
+            
             
         
             ]
@@ -80,6 +81,30 @@ class TracksFromTopSongs: ObservableObject {
     
     init() {
         print("starting this")
+        loadTracks()
+
+//        if updateTopTracks {
+//            print("second call is changing")
+//            topProducts += SpotifyPaginatedApi().getGuestTopSongsPaginated(sessionId: userSessionId, offset: offset)
+//            offset += 10
+//            bottomProducts += SpotifyPaginatedApi().getGuestTopSongsPaginated(sessionId: userSessionId, offset: offset)
+////                SpotifySuggestionsApi().getGuestTopSongs(sessionId: userSessionId)
+//            if topProducts.count < 1 {
+//                topProducts = tempTracksPaginated
+//                bottomProducts = tempTracksPaginated
+//            }
+//            updateTopTracks = false
+//            resultsPerSearch += 10
+//        }
+    }
+    
+    func loadMoreTracks() {
+        topProducts += SpotifyPaginatedApi().getGuestTopSongsPaginated(sessionId: userSessionId, offset: offset)
+        offset += 10
+        bottomProducts += SpotifyPaginatedApi().getGuestTopSongsPaginated(sessionId: userSessionId, offset: offset)
+    }
+    
+    func loadTracks() {
         if connectedToSpotify && userSessionId != "" {
 
 //            if updateTopTracks {
@@ -102,26 +127,6 @@ class TracksFromTopSongs: ObservableObject {
             bottomProducts = tempTracksBottomPaginated
 //            products = SpotifySuggestionsApi().getNewSongReleases(sessionId: hostSessionId)
         }
-
-//        if updateTopTracks {
-//            print("second call is changing")
-//            topProducts += SpotifyPaginatedApi().getGuestTopSongsPaginated(sessionId: userSessionId, offset: offset)
-//            offset += 10
-//            bottomProducts += SpotifyPaginatedApi().getGuestTopSongsPaginated(sessionId: userSessionId, offset: offset)
-////                SpotifySuggestionsApi().getGuestTopSongs(sessionId: userSessionId)
-//            if topProducts.count < 1 {
-//                topProducts = tempTracksPaginated
-//                bottomProducts = tempTracksPaginated
-//            }
-//            updateTopTracks = false
-//            resultsPerSearch += 10
-//        }
-    }
-    
-    func loadMoreTracks() {
-        topProducts += SpotifyPaginatedApi().getGuestTopSongsPaginated(sessionId: userSessionId, offset: offset)
-        offset += 10
-        bottomProducts += SpotifyPaginatedApi().getGuestTopSongsPaginated(sessionId: userSessionId, offset: offset)
     }
     
 }
