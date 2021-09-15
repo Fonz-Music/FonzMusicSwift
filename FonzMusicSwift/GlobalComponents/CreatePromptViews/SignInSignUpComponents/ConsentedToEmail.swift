@@ -18,7 +18,7 @@ struct ConsentedToEmail: View {
         } label: {
             HStack{
                 CheckBoxView(checked: $acceptedEmail, bgColor: Color.white, secondaryColor: .amber)
-                Text("i accept Fonz's email policy")
+                Text("i wanna receive email's from the Fonz Team")
 //                    .foregroundColor(colorScheme == .light ? Color.darkButton: Color.white)
                     .foregroundColor(Color.white)
                     .fonzParagraphThree()
