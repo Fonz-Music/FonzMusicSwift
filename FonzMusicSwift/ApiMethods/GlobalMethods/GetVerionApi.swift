@@ -63,7 +63,7 @@ class GetVersionApi {
                         else {
                             let decodedResponse = try? JSONDecoder().decode(VersionResponse.self, from: dataResp)
                             print("fail \(decodedResponse)")
-//                            returnMessage = decodedResponse!.message
+//                            returnMessage = decodedResponse?.message ?? "error"
                         }
                     } else {
                         print("fetch failed: \(error?.localizedDescription ?? "unknown error")")

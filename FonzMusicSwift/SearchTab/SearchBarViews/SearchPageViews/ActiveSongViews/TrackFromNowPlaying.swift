@@ -15,7 +15,7 @@ import Network
 class TrackFromNowPlaying: ObservableObject {
     
     var subscription: Set<AnyCancellable> = []
-    var tempSession : String = UserDefaults.standard.string(forKey: "hostSessionId")!
+    var tempSession : String = UserDefaults.standard.string(forKey: "hostSessionId") ?? ""
     
     let ADDRESS = "http://52.50.138.97:8080/"
     

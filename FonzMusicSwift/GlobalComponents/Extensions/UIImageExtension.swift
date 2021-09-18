@@ -8,9 +8,9 @@
 import Foundation
 import SwiftUI
 
-extension UIImage {
-    static func searchSymbol(scale: SymbolScale) -> UIImage {
-        let config = UIImage.SymbolConfiguration(scale: scale)
-        return (UIImage(named: "searchIcon")!.withConfiguration(config).withRenderingMode(.alwaysTemplate))
-    }
-}
+//extension UIImage {
+//    static func searchSymbol(scale: SymbolScale) -> UIImage {
+//        let config = UIImage.SymbolConfiguration(scale: scale)
+//        return (UIImage(named: "searchIcon")!.withConfiguration(config).withRenderingMode(.alwaysTemplate))
+//    }
+//}

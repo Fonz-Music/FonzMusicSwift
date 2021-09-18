@@ -35,12 +35,12 @@ extension URL {
   var checksCoaster: String? {
     guard isDeep else { return nil }
     
-    var uuid : UUID
+//    var uuid : UUID
     
     
-              uuid = UUID(uuidString: pathComponents[1])! 
+    let uuid = UUID(uuidString: pathComponents[1]) ?? UUID(uuidString: "")
 
-    let coasterUid = uuid.uuidString
+    let coasterUid = uuid?.uuidString
     print("\(coasterUid)")
    
     

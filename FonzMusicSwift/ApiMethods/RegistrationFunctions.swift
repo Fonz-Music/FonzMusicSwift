@@ -19,7 +19,7 @@ func getJWTAndCheckIfExpired() -> String {
     var accessToken = keychainAccess["accessToken"]
     // check that its not empty
     if accessToken != nil && accessToken != "" {
-        isValid = checkIfTokenValid(accessToken: accessToken!)
+        isValid = checkIfTokenValid(accessToken: accessToken ?? "")
     }
     // check if its valid OR if the accessToken is nil
     if !isValid {
@@ -34,9 +34,9 @@ func getJWTAndCheckIfExpired() -> String {
         
         // if the user already has an account (refresh token + access token (even if expired)
         if refreshToken != nil && refreshToken != "" && accessToken != nil && accessToken != "" {
-            let userId = getUserIdFromAccessToken(accessToken: accessToken!)
+            let userId = getUserIdFromAccessToken(accessToken: accessToken ?? "")
             // gets new token by passing email + password into api
-            accessToken = AuthApi().refreshAccessToken(userId: userId, refreshToken: refreshToken!).message
+            accessToken = AuthApi().refreshAccessToken(userId: userId, refreshToken: refreshToken ?? "").message
         }
         // otherwise create a new anon account
         else {
@@ -44,7 +44,7 @@ func getJWTAndCheckIfExpired() -> String {
         }
     }
     print("token is \(accessToken)")
-    return accessToken!
+    return accessToken ?? "token"
 }
 
 func checkIfTokenValid(accessToken : String) -> Bool {
@@ -57,8 +57,8 @@ func checkIfTokenValid(accessToken : String) -> Bool {
             payload64 += "="
         }
         let payloadData = Data(base64Encoded: payload64,
-                               options:.ignoreUnknownCharacters)!
-        let payload = String(data: payloadData, encoding: .utf8)!
+                               options:.ignoreUnknownCharacters) ?? Data()
+        let payload = String(data: payloadData, encoding: .utf8) ?? ""
     // parse json to retreive exp
         let json = try! JSONSerialization.jsonObject(with: payloadData, options: []) as! [String:Any]
         let exp = json["exp"] as! Int
@@ -82,8 +82,8 @@ func getUserIdFromAccessToken(accessToken : String) -> String {
         payload64 += "="
     }
     let payloadData = Data(base64Encoded: payload64,
-                           options:.ignoreUnknownCharacters)!
-    let payload = String(data: payloadData, encoding: .utf8)!
+                           options:.ignoreUnknownCharacters) ?? Data()
+    let payload = String(data: payloadData, encoding: .utf8) ?? ""
 // parse json to retreive exp
     let json = try! JSONSerialization.jsonObject(with: payloadData, options: []) as! [String:Any]
     userId = json["userId"] as! String

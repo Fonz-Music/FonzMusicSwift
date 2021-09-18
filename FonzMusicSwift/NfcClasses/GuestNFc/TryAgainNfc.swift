@@ -165,7 +165,7 @@ struct ShowNfcTryAgainButton: UIViewRepresentable {
 //                        self.tempCoaster.hostName = coasterDetails.coaster.displayName
                         self.tempCoaster.sessionId = coasterDetails.session.sessionId
                         self.tempCoaster.uid = uidFromCoaster
-                        self.statusCode = coasterDetails.statusCode!
+                        self.statusCode = coasterDetails.statusCode ?? 404
                     }
                 }
             }

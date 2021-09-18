@@ -297,7 +297,7 @@ class AuthApi {
                     let decodedResponse = try? JSONDecoder().decode(ErrorResponse.self, from: dataResp)
 
                     // sets return value
-                    returnMessage = decodedResponse!.message
+                    returnMessage = decodedResponse?.message ?? "error"
                 }
             } else {
                 print("fetch failed: \(error?.localizedDescription ?? "unknown error")")
@@ -375,7 +375,7 @@ class AuthApi {
                     let decodedResponse = try? JSONDecoder().decode(ErrorResponse.self, from: dataResp)
 
                     // sets return value
-                    returnMessage = decodedResponse!.message
+                    returnMessage = decodedResponse?.message ?? "error"
                 }
             } else {
                 print("fetch failed: \(error?.localizedDescription ?? "unknown error")")

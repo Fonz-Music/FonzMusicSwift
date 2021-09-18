@@ -84,7 +84,7 @@ class SessionApi {
                 else {
                     let decodedResponse = try? JSONDecoder().decode(ErrorResponse.self, from: dataResp)
                         
-                    returnMessage = decodedResponse!.message
+                    returnMessage = decodedResponse?.message ?? "error"
                     sem.resume()
                 }
                 
@@ -147,7 +147,7 @@ class SessionApi {
                 else {
                     let decodedResponse = try? JSONDecoder().decode(ErrorResponse.self, from: dataResp)
                         
-//                    returnMessage = decodedResponse!.message
+//                    returnMessage = decodedResponse?.message ?? "error"
                     sem.resume()
                 }
                 
@@ -202,7 +202,7 @@ class SessionApi {
                 else {
                     let decodedResponse = try? JSONDecoder().decode(ErrorResponse.self, from: dataResp)
                         
-                    returnMessage = decodedResponse!.message
+                    returnMessage = decodedResponse?.message ?? "error"
                 }
             } else {
                 print("fetch failed: \(error?.localizedDescription ?? "unknown error")")
@@ -258,7 +258,7 @@ class SessionApi {
                             let decodedResponse = try? JSONDecoder().decode(ErrorResponse.self, from: dataResp)
                                 
                             // sets return value
-//                                    returnMessage = decodedResponse!.message
+//                                    returnMessage = decodedResponse?.message ?? "error"
                         }
                     } else {
                         print("fetch failed: \(error?.localizedDescription ?? "unknown error")")
@@ -367,8 +367,7 @@ class SessionApi {
                                             let decodedResponse = try? JSONDecoder().decode(ErrorResponse.self, from: dataResp)
 
                                             print("fail here")
-                //                            returnMessage = decodedResponse!.message
-                                        }
+                //                            returnMessage = decodedResponse?.message ?? "error"
                                         
                                         sem.resume()
                                         
@@ -388,7 +387,7 @@ class SessionApi {
                     else {
                         let decodedResponse = try? JSONDecoder().decode(ErrorResponse.self, from: dataResp)
 
-//                            returnMessage = decodedResponse!.message
+//                            returnMessage = decodedResponse?.message ?? "error"
                     }
                 } else {
                     print("fetch failed: \(error?.localizedDescription ?? "unknown error")")
@@ -457,7 +456,7 @@ class SessionApi {
                 else {
                     let decodedResponse = try? JSONDecoder().decode(ErrorResponse.self, from: dataResp)
 
-//                            returnMessage = decodedResponse!.message
+//                            returnMessage = decodedResponse?.message ?? "error"
                 }
             } else {
                 print("fetch failed: \(error?.localizedDescription ?? "unknown error")")

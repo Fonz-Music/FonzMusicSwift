@@ -149,7 +149,7 @@ class SpotifyAuthApi {
 //                        else {
 //                            let decodedResponse = try? JSONDecoder().decode(ErrorResponse.self, from: dataResp)
 //
-////                            returnMessage = decodedResponse!.message
+////                            returnMessage = decodedResponse?.message ?? "error"
 //                        }
 //                    } else {
 //                        print("fetch failed: \(error?.localizedDescription ?? "unknown error")")
@@ -222,7 +222,7 @@ class SpotifyAuthApi {
 //                        else {
 //                            let decodedResponse = try? JSONDecoder().decode(ErrorResponse.self, from: dataResp)
 //
-////                            returnMessage = decodedResponse!.message
+////                            returnMessage = decodedResponse?.message ?? "error"
 //                        }
 //                    } else {
 //                        print("fetch failed: \(error?.localizedDescription ?? "unknown error")")

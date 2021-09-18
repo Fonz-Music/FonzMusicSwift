@@ -212,7 +212,7 @@ class HostCoastersApi {
 
                     if decodedResponse != nil {
                         // sets return value
-                        returnMessage = decodedResponse!.message
+                        returnMessage = decodedResponse?.message ?? "error"
                     }
                     
                 }
@@ -283,7 +283,7 @@ class HostCoastersApi {
                 
                     if decodedResponse != nil {
                         // sets return value
-                        returnMessage = decodedResponse!.message
+                        returnMessage = decodedResponse?.message ?? "error"
                     }
                 }
             } else {
@@ -350,7 +350,7 @@ class HostCoastersApi {
                         
                     if decodedResponse != nil {
                         // sets return value
-                        returnMessage = decodedResponse!.message
+                        returnMessage = decodedResponse?.message ?? "error"
                     }
                 }
             } else {
@@ -417,7 +417,7 @@ class HostCoastersApi {
                         
                     if decodedResponse != nil {
                         // sets return value
-                        returnMessage = decodedResponse!.message
+                        returnMessage = decodedResponse?.message ?? "error"
                     }
                 }
             } else {

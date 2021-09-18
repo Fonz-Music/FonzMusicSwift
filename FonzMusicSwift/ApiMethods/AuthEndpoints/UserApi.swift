@@ -84,7 +84,7 @@ class UserApi {
                     print("didnt worked")
                 
                     // sets return value
-                    returnMessage = decodedResponse!.message
+                    returnMessage = decodedResponse?.message ?? "error"
                 }
                 
                 
@@ -153,7 +153,7 @@ class UserApi {
                     print("didnt worked")
                 
                     // sets return value
-                    returnMessage = decodedResponse!.message
+                    returnMessage = decodedResponse?.message ?? "error"
                 }
                 
                 
@@ -230,7 +230,7 @@ class UserApi {
                     print("didnt worked")
                 
                     // sets return value
-                    returnMessage = decodedResponse!.message
+                    returnMessage = decodedResponse?.message ?? "error"
                 }
                 
                 
