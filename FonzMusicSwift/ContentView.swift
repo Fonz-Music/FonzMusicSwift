@@ -158,17 +158,17 @@ struct ContentView: View {
         // puts version into 2 substrings
         let currentVersionParts = currentVersion.split(separator: ".")
         // gets first part & puts it in hundreds column
-        let currentVersionFirst = Int(currentVersionParts[0]) ?? 0 * 100
+        let currentVersionFirst = (Int(currentVersionParts[0]) ?? 0) * 100
         // adds parts together to get one number
-        let currentVersionNumber = currentVersionFirst + Int(currentVersionParts[1])  ?? 0
+        let currentVersionNumber = currentVersionFirst + (Int(currentVersionParts[1]) ?? 0)
         print("current version \(currentVersionNumber)")
 
         // puts version into 2 substrings
         let minVersionParts = minVersion.split(separator: ".")
         // gets first part & puts it in hundreds column
-        let minVersionFirst = Int(minVersionParts[0]) ?? 0 * 100
+        let minVersionFirst = (Int(minVersionParts[0]) ?? 0) * 100
         // adds parts together to get one number
-        let minVersionNumber = minVersionFirst + Int(minVersionParts[1]) ?? 0
+        let minVersionNumber = minVersionFirst + (Int(minVersionParts[1]) ?? 0)
         print("min version \(minVersionNumber)")
         
         if minVersionNumber > currentVersionNumber {

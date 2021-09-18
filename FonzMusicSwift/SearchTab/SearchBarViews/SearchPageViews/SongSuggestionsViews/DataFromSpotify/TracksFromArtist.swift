@@ -26,7 +26,7 @@ class TracksFromArtist: ObservableObject {
 
 
     init() {
-        print("starting this")
+        print("starting this tracks from artists")
         $artistId
             .compactMap{ $0 } // removes the nil values so the search string does not get passed down to the publisher chain
             .sink { (_) in

@@ -28,7 +28,7 @@ class TracksFromSearch: ObservableObject {
     // MARK:- Initiliazer for product via model.
     
     init() {
-        print("starting this")
+        print("starting this  tracks from search")
         $searchText
             .debounce(for: .milliseconds(400), scheduler: RunLoop.main) // debounces the string publisher, such that it delays the process of sending request to remote server.
             .removeDuplicates()

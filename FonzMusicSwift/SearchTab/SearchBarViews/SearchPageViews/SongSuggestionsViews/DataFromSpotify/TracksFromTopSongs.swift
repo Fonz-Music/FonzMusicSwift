@@ -76,7 +76,7 @@ class TracksFromTopSongs: ObservableObject {
 
     
     init() {
-        print("starting this")
+        print("starting this tracks from top songs")
         loadTracks()
 
     }

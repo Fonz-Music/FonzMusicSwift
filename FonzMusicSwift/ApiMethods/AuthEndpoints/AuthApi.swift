@@ -235,7 +235,7 @@ class AuthApi {
         // this allows us to wait before returning value
         let sem = DispatchSemaphore.init(value: 0)
         
-        print("starting this")
+        print("starting this login")
         
         // init value for return
         var returnObject: BasicResponse = BasicResponse(message: "", status: 0)
@@ -318,7 +318,7 @@ class AuthApi {
         // this allows us to wait before returning value
         let sem = DispatchSemaphore.init(value: 0)
         
-        print("starting this")
+        print("starting this refresh")
         
         // init value for return
         var returnObject: BasicResponse = BasicResponse(message: "", status: 0)

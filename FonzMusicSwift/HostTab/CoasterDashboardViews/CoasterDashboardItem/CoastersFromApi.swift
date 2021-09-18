@@ -36,7 +36,7 @@ class CoastersFromApi: ObservableObject {
 //            // sets app to NOT have coasters if the user lacks them
 //            UserDefaults.standard.set(false, forKey: "hasConnectedCoasters")
 //        }
-        print("starting this")
+        print("starting this owned coasters")
 
     }
     

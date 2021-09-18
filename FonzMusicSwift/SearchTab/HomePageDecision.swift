@@ -192,7 +192,7 @@ struct HomePageDecision: View {
 
                     // sets all params
                     self.hostCoaster.coasterName = coasterDetails.coaster.name
-                    self.hostCoaster.hostName = "host"
+                    self.hostCoaster.hostName = coasterDetails.hostName
 //                        self.tempCoaster.hostName = coasterDetails.coaster.displayName
                     self.hostCoaster.sessionId = coasterDetails.session.sessionId
                     self.hostCoaster.uid = String(lastSection)

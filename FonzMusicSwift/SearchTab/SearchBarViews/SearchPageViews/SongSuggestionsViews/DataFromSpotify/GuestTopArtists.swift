@@ -45,7 +45,7 @@ class GuestTopArtists: ObservableObject {
         ]
 
     init() {
-        print("starting this")
+        print("starting this artists")
         loadTopArtists()
     }
 
