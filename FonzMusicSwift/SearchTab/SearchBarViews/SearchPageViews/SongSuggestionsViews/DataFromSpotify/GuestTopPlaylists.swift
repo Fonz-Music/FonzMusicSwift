@@ -23,9 +23,6 @@ class GuestTopPlaylists: ObservableObject {
     @Published var offset : Int = Int()
 //    var resultsPerSearch = 0
 
-//    let ADDRESS = "https://api.fonzmusic.com/"
-//    let ADDRESS = "http://beta.api.fonzmusic.com:8080/"
-    let ADDRESS = "http://52.50.138.97:8080/"
     var tempProducts =
         [
             PlaylistPaginated(playlistName:  "t-shirt weather", playlistId: "450Qb5OrMrsUop1dAlYBzt", playlistImage: "https://i.scdn.co/image/ab67706c0000bebb4782902e9ffcb3bb86cccb30", amountOfTracks: 147, index: 0),
