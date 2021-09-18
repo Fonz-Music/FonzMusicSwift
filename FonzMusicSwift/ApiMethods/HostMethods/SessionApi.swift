@@ -370,7 +370,7 @@ class SessionApi {
                 //                            returnMessage = decodedResponse?.message ?? "error"
                                         
                                         sem.resume()
-                                        
+                                        }
                                     } else {
                                         print("fetch failed: \(error?.localizedDescription ?? "unknown error")")
                                         sem.resume()
@@ -456,7 +456,7 @@ class SessionApi {
                 else {
                     let decodedResponse = try? JSONDecoder().decode(ErrorResponse.self, from: dataResp)
 
-//                            returnMessage = decodedResponse?.message ?? "error"
+//                            returnMessage = decodedResponse!.message
                 }
             } else {
                 print("fetch failed: \(error?.localizedDescription ?? "unknown error")")
@@ -471,3 +471,4 @@ class SessionApi {
     
     
 }
+
