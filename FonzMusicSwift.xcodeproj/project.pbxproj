@@ -13,7 +13,7 @@
 		261752C226A3448A0069C83D /* JoinSuccessfulCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26691F71267AC6BF00C83696 /* JoinSuccessfulCircle.swift */; };
 		261752C326A3448A0069C83D /* CoasterDoesNotHaveHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26916FF7268E5DFA00B7281B /* CoasterDoesNotHaveHost.swift */; };
 		261752C426A3448A0069C83D /* JoinAPartyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26691F6F267AC69A00C83696 /* JoinAPartyButton.swift */; };
-		261752C526A3448A0069C83D /* HostAPartyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26691F6D267AC67400C83696 /* HostAPartyButton.swift */; };
+		261752C526A3448A0069C83D /* SetupACoasterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26691F6D267AC67400C83696 /* SetupACoasterButton.swift */; };
 		261752C626A3448A0069C83D /* BuyACoasterHomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EBF65C26A32E3C0094FA60 /* BuyACoasterHomeButton.swift */; };
 		261752C726A3448A0069C83D /* ConnectSpotifyHomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EBF65E26A331330094FA60 /* ConnectSpotifyHomeButton.swift */; };
 		261752CA26A3448A0069C83D /* QueueSongSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26916FEF268E476500B7281B /* QueueSongSuccess.swift */; };
@@ -119,7 +119,7 @@
 		26691F66267AB89A00C83696 /* SongResultItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26691F65267AB89A00C83696 /* SongResultItem.swift */; };
 		26691F69267AC46A00C83696 /* SearchResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26691F68267AC46A00C83696 /* SearchResultsView.swift */; };
 		26691F6B267AC48400C83696 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26691F6A267AC48400C83696 /* SearchBarView.swift */; };
-		26691F6E267AC67400C83696 /* HostAPartyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26691F6D267AC67400C83696 /* HostAPartyButton.swift */; };
+		26691F6E267AC67400C83696 /* SetupACoasterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26691F6D267AC67400C83696 /* SetupACoasterButton.swift */; };
 		26691F70267AC69A00C83696 /* JoinAPartyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26691F6F267AC69A00C83696 /* JoinAPartyButton.swift */; };
 		26691F72267AC6BF00C83696 /* JoinSuccessfulCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26691F71267AC6BF00C83696 /* JoinSuccessfulCircle.swift */; };
 		26691F74267AC6D100C83696 /* FailCircleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26691F73267AC6D100C83696 /* FailCircleResponse.swift */; };
@@ -350,7 +350,7 @@
 		26691F65267AB89A00C83696 /* SongResultItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongResultItem.swift; sourceTree = "<group>"; };
 		26691F68267AC46A00C83696 /* SearchResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsView.swift; sourceTree = "<group>"; };
 		26691F6A267AC48400C83696 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
-		26691F6D267AC67400C83696 /* HostAPartyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostAPartyButton.swift; sourceTree = "<group>"; };
+		26691F6D267AC67400C83696 /* SetupACoasterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupACoasterButton.swift; sourceTree = "<group>"; };
 		26691F6F267AC69A00C83696 /* JoinAPartyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinAPartyButton.swift; sourceTree = "<group>"; };
 		26691F71267AC6BF00C83696 /* JoinSuccessfulCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinSuccessfulCircle.swift; sourceTree = "<group>"; };
 		26691F73267AC6D100C83696 /* FailCircleResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailCircleResponse.swift; sourceTree = "<group>"; };
@@ -867,7 +867,7 @@
 			isa = PBXGroup;
 			children = (
 				26691F6F267AC69A00C83696 /* JoinAPartyButton.swift */,
-				26691F6D267AC67400C83696 /* HostAPartyButton.swift */,
+				26691F6D267AC67400C83696 /* SetupACoasterButton.swift */,
 				26EBF65C26A32E3C0094FA60 /* BuyACoasterHomeButton.swift */,
 				26EBF65E26A331330094FA60 /* ConnectSpotifyHomeButton.swift */,
 				2648208F26C1936900F8E7BE /* CreateAccountHomeButton.swift */,
@@ -1357,7 +1357,7 @@
 				269EE56026B5A37E006D2A00 /* TopSongButtonView.swift in Sources */,
 				268ED21D26DE86F700D34F60 /* ComposeMailData.swift in Sources */,
 				26DB9AA52634990D0030643D /* ErrorOnTap.swift in Sources */,
-				26691F6E267AC67400C83696 /* HostAPartyButton.swift in Sources */,
+				26691F6E267AC67400C83696 /* SetupACoasterButton.swift in Sources */,
 				26ECCFDD2682B0A60053BE1F /* Artist.swift in Sources */,
 				263545BE26A7076300B415C9 /* ShopWebView.swift in Sources */,
 				269D0152267182A000A1DFEE /* SpotifyAuthApi.swift in Sources */,
@@ -1499,7 +1499,7 @@
 				261752C226A3448A0069C83D /* JoinSuccessfulCircle.swift in Sources */,
 				261752C326A3448A0069C83D /* CoasterDoesNotHaveHost.swift in Sources */,
 				261752C426A3448A0069C83D /* JoinAPartyButton.swift in Sources */,
-				261752C526A3448A0069C83D /* HostAPartyButton.swift in Sources */,
+				261752C526A3448A0069C83D /* SetupACoasterButton.swift in Sources */,
 				261752C626A3448A0069C83D /* BuyACoasterHomeButton.swift in Sources */,
 				261752C726A3448A0069C83D /* ConnectSpotifyHomeButton.swift in Sources */,
 				26F1CC6F26BA9C4000CD450A /* QueueFailYourHostDoesNotOwnThatCoaster.swift in Sources */,
@@ -1745,7 +1745,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.01;
+				MARKETING_VERSION = 2.02;
 				PRODUCT_BUNDLE_IDENTIFIER = com.fonzmusic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "FonzMusic-Bridging-Header.h";
@@ -1779,7 +1779,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.01;
+				MARKETING_VERSION = 2.02;
 				PRODUCT_BUNDLE_IDENTIFIER = com.fonzmusic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "FonzMusic-Bridging-Header.h";
@@ -1807,7 +1807,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.01;
+				MARKETING_VERSION = 2.02;
 				PRODUCT_BUNDLE_IDENTIFIER = com.fonzmusic.Clip;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG APPCLIP";
@@ -1834,7 +1834,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.01;
+				MARKETING_VERSION = 2.02;
 				PRODUCT_BUNDLE_IDENTIFIER = com.fonzmusic.Clip;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = APPCLIP;

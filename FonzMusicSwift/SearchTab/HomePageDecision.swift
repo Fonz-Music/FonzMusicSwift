@@ -93,7 +93,7 @@ struct HomePageDecision: View {
                                         ])
                                         withAnimation {
                                         // changes hostCoaster details to return to parent
-                                            UserDefaults.standard.set(tempCoasterDetails.sessionId, forKey: "hostSessionId")
+//                                            UserDefaults.standard.set(tempCoasterDetails.sessionId, forKey: "hostSessionId")
                                         self.hostCoaster.coasterName = tempCoasterDetails.coasterName
                                         self.hostCoaster.hostName = tempCoasterDetails.hostName
                                         self.hostCoaster.sessionId = tempCoasterDetails.sessionId

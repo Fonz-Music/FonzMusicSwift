@@ -25,14 +25,16 @@ struct DetermineHomePageView: View {
             VStack{
                 Spacer()
                     .frame(height: 30)
+//                if !userAttributes.getHasConnectedCoasters() {
+//                    BuyACoasterHomeButton()
+//                }
                 HStack() {
                     Spacer()
                     if !userAttributes.getConnectedToSpotify(){
                         ConnectSpotifyHomeButton(userAttributes: userAttributes)
                         Spacer()
                     }
-                    else
-                    if (userAttributes.getConnectedToSpotify() && !userAttributes.getHasAccount()) {
+                    else if (userAttributes.getConnectedToSpotify() && !userAttributes.getHasAccount()) {
                         CreateAccountHomeButton(userAttributes: userAttributes)
                         Spacer()
                     }
@@ -42,9 +44,12 @@ struct DetermineHomePageView: View {
                         Spacer()
                         #endif
                     }
+                    
                     if !userAttributes.getHasConnectedCoasters() {
+//                        SetupACoasterButton(userAttributes: userAttributes)
                         BuyACoasterHomeButton()
                     }
+                    
                     
                     Spacer()
                 }

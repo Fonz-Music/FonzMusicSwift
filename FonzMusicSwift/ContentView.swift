@@ -42,9 +42,11 @@ struct ContentView: View {
             }
             else {
                 TabView(selection: $selectedTab) {
-                    HostTab(userAttributes: userAttributes,  coastersConnectedToHost: coastersConnectedToHost).tabItem {
-                        Label("host", systemImage: "hifispeaker")
-                    }.tag(TabIdentifier.host)
+//                    if userAttributes.getHasConnectedCoasters() {
+                        HostTab(userAttributes: userAttributes,  coastersConnectedToHost: coastersConnectedToHost).tabItem {
+                            Label("host", systemImage: "hifispeaker")
+                        }.tag(TabIdentifier.host)
+//                    }
                     SearchTab(selectedTab: $selectedTab, userAttributes: userAttributes, coastersConnectedToUser: coastersConnectedToHost).tabItem {
                         Label("queue", systemImage: "plus.magnifyingglass")
                     }.tag(TabIdentifier.search)

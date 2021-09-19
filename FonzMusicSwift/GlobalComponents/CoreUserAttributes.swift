@@ -7,6 +7,7 @@
 
 import KeychainAccess
 import Foundation
+import SwiftUI
 
 class CoreUserAttributes: ObservableObject {
     // determines if current user has an account
@@ -87,7 +88,9 @@ class CoreUserAttributes: ObservableObject {
     
 // ------------------------------ has account -----------------------------------
     func setHasAccount(bool : Bool) {
-        hasAccount = bool
+        withAnimation {
+            hasAccount = bool
+        }
         UserDefaults.standard.set(bool, forKey: "hasAccount")
     }
     func getHasAccount() -> Bool {
@@ -103,7 +106,10 @@ class CoreUserAttributes: ObservableObject {
     
 // ----------------------------- has coasters -----------------------------------
     func setHasConnectedCoasters(bool : Bool) {
-        hasConnectedCoasters = bool
+        withAnimation {
+            hasConnectedCoasters = bool
+        }
+        
         UserDefaults.standard.set(bool, forKey: "hasConnectedCoasters")
     }
     func getHasConnectedCoasters() -> Bool {
@@ -123,7 +129,9 @@ class CoreUserAttributes: ObservableObject {
     
 // ------------------------------ has Spotify -----------------------------------
     func setConnectedToSpotify(bool : Bool) {
-        connectedToSpotify = bool
+        withAnimation {
+            connectedToSpotify = bool
+        }
         UserDefaults.standard.set(bool, forKey: "connectedToSpotify")
     }
     func getConnectedToSpotify() -> Bool {
@@ -168,7 +176,9 @@ class CoreUserAttributes: ObservableObject {
     }
 // ------------------------- display name ---------------------------------------
     func setUserDisplayName(name : String) {
-        userDisplayName = name
+        withAnimation {
+            userDisplayName = name
+        }
         UserDefaults.standard.set(name, forKey: "userDisplayName")
     }
     func getUserDisplayName() -> String {

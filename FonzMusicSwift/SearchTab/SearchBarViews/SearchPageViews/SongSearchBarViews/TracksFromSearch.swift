@@ -46,6 +46,7 @@ class TracksFromSearch: ObservableObject {
                 
             } receiveValue: { [self] (searchField) in
 //                if updateSearch {
+//                    tempSession = UserDefaults.standard.string(forKey: "hostSessionId") ?? ""
                     products = SpotifyPaginatedApi().searchSessionPaginated(sessionId: tempSession, searchTerm: searchText, offset: offset)
 //                    updateSearch = false
 //                }

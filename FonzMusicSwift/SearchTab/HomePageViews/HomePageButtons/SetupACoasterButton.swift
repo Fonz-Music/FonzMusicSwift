@@ -9,12 +9,12 @@ import SwiftUI
 //import Firebase
 import FirebaseAnalytics
 
-struct HostAPartyButton: View {
+struct SetupACoasterButton: View {
 
     // inherited that indicated the tab the app is on
-    @Binding var selectedTab: TabIdentifier
-    
-    @Binding var showHomeButtons: Bool
+//    @Binding var selectedTab: TabIdentifier
+//    
+//    @Binding var showHomeButtons: Bool
     // determines if current user has an account
 //    @Binding var hasAccount : Bool
     // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
@@ -32,14 +32,14 @@ struct HostAPartyButton: View {
                 
                 if userAttributes.getHasAccount() {
                     withAnimation {
-                        showHomeButtons = false
+//                        showHomeButtons = false
                     }
                     FirebaseAnalytics.Analytics.logEvent("userTappedSetupCoaster", parameters: ["user":"user", "tab":"search"])
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
-                        withAnimation {
-                            selectedTab = TabIdentifier.host
-                            showHomeButtons = true
-                        }
+//                        withAnimation {
+//                            selectedTab = TabIdentifier.host
+//                            showHomeButtons = true
+//                        }
                     }
                 }
                 else {

@@ -80,6 +80,8 @@ class GuestApi {
 //                            print("newCoaster " + "\(newCoaster)")
                     // sets return value
                     returnObject = newCoaster
+                    // stores sessionId in local storage
+                    UserDefaults.standard.set(decodedResponse.session.sessionId, forKey: "hostSessionId")
                     returnObject.statusCode = response?.getStatusCode() ?? 0
                     print("resp code is \(returnObject.statusCode)")
                     
