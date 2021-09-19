@@ -177,6 +177,9 @@ struct LaunchJoinPartyNfcSession: UIViewRepresentable {
                             self.statusCode = coasterDetails.statusCode ?? 404
                             print("return is \(self.statusCode)")
                         }
+                        else if coasterDetails.statusCode == 0 {
+                            self.statusCode = 0
+                        }
                         // if they don't have a provider, host needs to connect to spot
                         else {
                             self.statusCode = 403
