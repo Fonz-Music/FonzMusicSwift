@@ -22,7 +22,7 @@ struct HostTab: View {
     var body: some View {
         VStack {
             
-            if (!userAttributes.getConnectedToSpotify() || !userAttributes.getHasConnectedCoasters()) {
+            if (!userAttributes.getHasConnectedCoasters()) {
                 HStack{
                     Text("host")
                         .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
@@ -73,7 +73,7 @@ struct HostTab: View {
         }
         .background(
             ZStack{
-                if (userAttributes.getConnectedToSpotify() && userAttributes.getHasConnectedCoasters()) {
+                if (userAttributes.getHasConnectedCoasters()) {
                     Color.lilac
                 }
                 else {

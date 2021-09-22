@@ -72,7 +72,7 @@ struct SetupACoasterButton: View {
 //            Text("i want to setup my coaster")
 //                .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
 //                .fonzRoundButtonText()
-            Text("setup my coaster")
+            Text("setup coaster")
                 .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
                 .fonzParagraphTwo()
         }
@@ -98,6 +98,7 @@ struct SetupACoasterButton: View {
         }) {
             AskUserToConnectSpotify(showModal: $throwConnectSpotifyPrompt)
         }
+        
         
     }
     

@@ -26,29 +26,31 @@ struct DetermineHomePageView: View {
                 Spacer()
                     .frame(height: 10)
                 // if the user does NOT have coasters NOT Spotify NOT account
-                if !userAttributes.getHasConnectedCoasters() && !userAttributes.getConnectedToSpotify() && !userAttributes.getHasAccount() {
+                if !userAttributes.getHasConnectedCoasters() && !userAttributes.getConnectedToSpotify() {
                     BuyACoasterHomeButton()
                 }
                 HStack() {
                     Spacer()
                     if !userAttributes.getConnectedToSpotify(){
                         ConnectSpotifyHomeButton(userAttributes: userAttributes)
-                        Spacer()
+//                        Spacer()
                     }
                     else if (userAttributes.getConnectedToSpotify() && !userAttributes.getHasAccount()) {
                         CreateAccountHomeButton(userAttributes: userAttributes)
-                        Spacer()
+//                        Spacer()
                     }
                     else {
                         #if APPCLIP
                         GetFullAppButton(userAttributes: userAttributes)
-                        Spacer()
                         #else
-                        BuyACoasterHomeButton()
+                        if !userAttributes.getHasConnectedCoasters() {
+                            BuyACoasterHomeButton()
+                        }
                         #endif
                     }
-                    
+                    // if no coasters
                     if !userAttributes.getHasConnectedCoasters() {
+                        Spacer()
                         SetupACoasterButton(userAttributes: userAttributes, showHomeButtons: $showHomeButtons, pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc)
                         Spacer()
 //                        BuyACoasterHomeButton()
@@ -65,6 +67,10 @@ struct DetermineHomePageView: View {
                     Spacer()
                         .frame(height: 50)
                     #endif
+                }
+                else if !userAttributes.getHasConnectedCoasters() || !userAttributes.getConnectedToSpotify() {
+                    Spacer()
+                        .frame(height: 50)
                 }
                 else {
                     Spacer()

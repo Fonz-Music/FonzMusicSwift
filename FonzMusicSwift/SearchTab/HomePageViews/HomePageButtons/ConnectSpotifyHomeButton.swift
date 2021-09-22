@@ -42,16 +42,11 @@ struct ConnectSpotifyHomeButton: View {
                                         .frame(width: 75, height: 75)
             })
             .buttonStyle(BasicFonzButtonCircle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .spotifyGreen))
-            Text("connect to spotify")
+            Text("connect spotify")
                 .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
 //                .fonzRoundButtonText()
                 .fonzParagraphTwo()
         }
-//        .sheet(isPresented: $throwCreateAccountModal) {
-//            CreateAccountPrompt(userAttributes: userAttributes, showModal: $throwCreateAccountModal)
-//        }
-//        .sheet(isPresented: $throwDownlaodFullAppModal) {
-//            DownloadFullAppPrompt()
-//        }
+
     }
 }
