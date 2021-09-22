@@ -25,7 +25,8 @@ struct DetermineHomePageView: View {
             VStack{
                 Spacer()
                     .frame(height: 10)
-                if !userAttributes.getHasConnectedCoasters() {
+                // if the user does NOT have coasters NOT Spotify NOT account
+                if !userAttributes.getHasConnectedCoasters() && !userAttributes.getConnectedToSpotify() && !userAttributes.getHasAccount() {
                     BuyACoasterHomeButton()
                 }
                 HStack() {
@@ -42,16 +43,19 @@ struct DetermineHomePageView: View {
                         #if APPCLIP
                         GetFullAppButton(userAttributes: userAttributes)
                         Spacer()
+                        #else
+                        BuyACoasterHomeButton()
                         #endif
                     }
                     
                     if !userAttributes.getHasConnectedCoasters() {
-                        SetupACoasterButton(userAttributes: userAttributes)
+                        SetupACoasterButton(userAttributes: userAttributes, showHomeButtons: $showHomeButtons, pressedButtonToLaunchNfc: $pressedButtonToLaunchNfc)
+                        Spacer()
 //                        BuyACoasterHomeButton()
                     }
                     
                     
-                    Spacer()
+                    
                 }
                 if userAttributes.getHasAccount() && userAttributes.getConnectedToSpotify() && userAttributes.getHasConnectedCoasters() {
                     #if !APPCLIP

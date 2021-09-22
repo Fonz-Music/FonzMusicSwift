@@ -11,16 +11,24 @@ import FirebaseAnalytics
 
 struct SetupACoasterButton: View {
 
-    // inherited that indicated the tab the app is on
-//    @Binding var selectedTab: TabIdentifier
-//    
-//    @Binding var showHomeButtons: Bool
-    // determines if current user has an account
-//    @Binding var hasAccount : Bool
     // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
     @StateObject var userAttributes : CoreUserAttributes
+    
+    @Binding var showHomeButtons: Bool
+    
+    @Binding var pressedButtonToLaunchNfc: Bool
+    
+    // has user create an account
+//    @State var throwCreateAccountModal = false
+    
+    // has user download the full app
+    @State var throwDownloadFullAppModal = false
+ 
     // has user create an account
     @State var throwCreateAccountModal = false
+    // gives user option to connect their spotify
+    @State var throwConnectSpotifyPrompt = false
+    
     
     @Environment(\.colorScheme) var colorScheme
     let sideGraphicHeight = UIScreen.screenHeight * 0.04
@@ -28,25 +36,33 @@ struct SetupACoasterButton: View {
     var body: some View {
         VStack{
             Button(action: {
+                // if they're using full app
+                #if !APPCLIP
+                // if they have spot
+                if userAttributes.getConnectedToSpotify() {
                 
+                    if userAttributes.getHasAccount() {
+                        withAnimation {
+                            pressedButtonToLaunchNfc = true
+                            showHomeButtons = false
+                        }
+                        FirebaseAnalytics.Analytics.logEvent("userTappedSetupCoaster", parameters: ["user":"user", "tab":"search"])
+
+                    }
+                    else {
+                        throwCreateAccountModal = true
+                    }
                 
-                if userAttributes.getHasAccount() {
-                    withAnimation {
-//                        showHomeButtons = false
-                    }
-                    FirebaseAnalytics.Analytics.logEvent("userTappedSetupCoaster", parameters: ["user":"user", "tab":"search"])
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
-//                        withAnimation {
-//                            selectedTab = TabIdentifier.host
-//                            showHomeButtons = true
-//                        }
-                    }
                 }
+                // if no spot
                 else {
-                    throwCreateAccountModal = true
+                    // ask if they wanna launch spotify
+                    throwConnectSpotifyPrompt = true
                 }
                 
-                
+                #else
+                throwDownloadFullAppModal = true
+                #endif
                 
             }, label: {
                 Image("coasterIconLilac").resizable().frame(width: sideGraphicHeight * 1.1, height: sideGraphicHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
@@ -62,6 +78,25 @@ struct SetupACoasterButton: View {
         }
         .sheet(isPresented: $throwCreateAccountModal) {
             CreateAccountPrompt(userAttributes: userAttributes, showModal: $throwCreateAccountModal)
+        }
+        .sheet(isPresented: $throwDownloadFullAppModal, content: {
+            DownloadFullAppPrompt()
+        })
+        .sheet(isPresented: $throwConnectSpotifyPrompt, onDismiss: {
+            // if they dont add spot
+            if !userAttributes.getConnectedToSpotify() {
+            }
+            // if they do have spot
+            else {
+                withAnimation {
+                    pressedButtonToLaunchNfc = true
+                    showHomeButtons = false
+                }
+                
+            }
+            
+        }) {
+            AskUserToConnectSpotify(showModal: $throwConnectSpotifyPrompt)
         }
         
     }
