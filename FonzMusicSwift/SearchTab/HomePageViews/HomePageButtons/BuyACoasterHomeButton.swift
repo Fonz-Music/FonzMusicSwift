@@ -21,13 +21,6 @@ struct BuyACoasterHomeButton: View {
         VStack{
             Button(action: {
                 
-//                let currentSessionId = SessionApi().createSession().message
-////                let sessionId = UserDefaults.standard.string(forKey: "userAccountSessionId")
-//                // adding spot to the session
-//                print("sessionId is \(currentSessionId)")
-//                let connectSpotifyReturn = SpotifySignInFunctions().addSpotifyToCurrentSession(sessionId: currentSessionId)
-                
-//
                 guard let url = URL(string: "https://www.fonzmusic.com/buy") else {
                     return
                 }
@@ -37,16 +30,16 @@ struct BuyACoasterHomeButton: View {
                 launchWebview.toggle()
                 FirebaseAnalytics.Analytics.logEvent("userPressedBuyCoaster", parameters: ["user":"user", "tab": "search",
                                                                                            "device":"iOS"])
-                
             }, label: {
                 Image(systemName: "cart.badge.plus")
-                    
                     .resizable()
-                    .foregroundColor(.lilacDark)
+//                    .foregroundColor(.lilacDark)
+                    .foregroundColor(colorScheme == .light ? Color.white: Color.darkBackground)
                     .frame(width: sideGraphicHeight * 1.1, height: sideGraphicHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .frame(width: 75, height: 75)
             })
-            .buttonStyle(BasicFonzButtonCircle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .lilacDark))
+//            .buttonStyle(BasicFonzButtonCircle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .lilacDark))
+            .buttonStyle(BasicFonzButtonCircleNoBorderGradiant(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .lilacDark))
             Text("buy a coaster")
                 .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
                 .fonzParagraphTwo()

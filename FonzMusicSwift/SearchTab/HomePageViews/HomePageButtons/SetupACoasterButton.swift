@@ -52,7 +52,7 @@ struct SetupACoasterButton: View {
                 Image("coasterIconLilac").resizable().frame(width: sideGraphicHeight * 1.1, height: sideGraphicHeight, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                         .frame(width: 75, height: 75)
             })
-            .buttonStyle(BasicFonzButtonCircle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .lilac))
+            .buttonStyle(BasicFonzButtonCircle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .lilacDark))
 //            Text("i want to setup my coaster")
 //                .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
 //                .fonzRoundButtonText()

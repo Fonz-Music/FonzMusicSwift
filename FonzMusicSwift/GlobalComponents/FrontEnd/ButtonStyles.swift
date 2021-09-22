@@ -82,6 +82,33 @@ struct BasicFonzButtonCircleNoBorder: ButtonStyle {
             .animation(.spring())
     }
 }
+struct BasicFonzButtonCircleNoBorderGradiant: ButtonStyle {
+    var bgColor: Color
+    var secondaryColor: Color
+//    var selectedOption : Bool?
+    @Environment(\.colorScheme) var colorScheme
+
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .background(
+                ZStack {
+                    Circle()
+//                        .fill(LinearGradient(
+//                              gradient: .init(colors: [Self.gradientStart, Self.gradientEnd]),
+//                              startPoint: .init(x: 0.5, y: 0),
+//                              endPoint: .init(x: 0.5, y: 0.6)
+//                            ))
+                        .fill(LinearGradient(gradient: .init(colors: [.purple ,.lilacDark, .amber, .red]), startPoint: .init(x: 0.25, y: 0.25), endPoint: .init(x: 1.0, y: 1.0)))
+//                        .fill(configuration.isPressed ? secondaryColor : bgColor )
+                        .fonzShadow()
+//                        .overlay(
+//                        Circle().stroke(secondaryColor, lineWidth: 3)
+//                    )
+                }
+        )
+            .animation(.spring())
+    }
+}
 
 
 struct BasicFonzButton: ButtonStyle {
