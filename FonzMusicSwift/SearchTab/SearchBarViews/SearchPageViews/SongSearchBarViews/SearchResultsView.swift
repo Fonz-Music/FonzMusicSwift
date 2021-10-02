@@ -64,7 +64,8 @@ struct SearchResultsView: View {
                                 if (currentTune.songId != "") {
                                     withAnimation{
                                         showQueueResponse = true
-                                        statusCodeQueueSong = GuestApi().queueSong(sessionId: hostCoaster.sessionId, trackId: currentTune.songId)
+                                        statusCodeQueueSong = queueSongToHostSession(sessionId: hostCoaster.sessionId, trackId: currentTune.songId)
+//                                        statusCodeQueueSong = GuestApi().queueSong(sessionId: hostCoaster.sessionId, trackId: currentTune.songId)
                                     }
                                 }
                                 

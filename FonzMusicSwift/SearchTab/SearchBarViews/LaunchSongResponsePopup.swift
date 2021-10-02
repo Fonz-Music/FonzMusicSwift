@@ -78,6 +78,21 @@ struct LaunchSongResponsePopup: View {
                             ])
                         }
                 }
+                // song already queueud
+                else if (statusCodeQueueSong == 601) {
+                    CannotQueueSongTwice()
+                        .onAppear {
+                            FirebaseAnalytics.Analytics.logEvent("songQueueFail", parameters: [
+                                "user":"guest",
+                                "sessionId":hostCoaster.sessionId,
+                                "userId":userAttributes.getUserId(),
+                                "group":hostCoaster.group,
+                                "tagUid":hostCoaster.uid.uppercased(),
+                                "failureReason":"queued same song twice",
+                                "device":"iOS"
+                            ])
+                        }
+                }
                 // if the userId do not match
                 else if (statusCodeQueueSong == 1) {
                     QueueFailYourHostDoesNotOwnThatCoaster()

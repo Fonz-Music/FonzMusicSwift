@@ -37,7 +37,8 @@ struct SongListModalSongButton: View {
                 if (currentTune.songId != "") {
                     withAnimation{
                         showQueueResponse = true
-                        statusCodeQueueSong = GuestApi().queueSong(sessionId: hostCoaster.sessionId, trackId: trackToQueue.songId)
+                        statusCodeQueueSong = queueSongToHostSession(sessionId: hostCoaster.sessionId, trackId: trackToQueue.songId)
+//                        statusCodeQueueSong = GuestApi().queueSong(sessionId: hostCoaster.sessionId, trackId: trackToQueue.songId)
                     }
                 }
             }
