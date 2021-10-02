@@ -80,6 +80,7 @@ struct CoasterDashboardPage: View {
                                                     print("here m8 ")
                                                     
                                                 }
+                                            
                                                 .animation(.linear(duration: 0.3))
                                     }
                                 }

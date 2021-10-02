@@ -1745,7 +1745,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.02;
+				MARKETING_VERSION = 2.03;
 				PRODUCT_BUNDLE_IDENTIFIER = com.fonzmusic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "FonzMusic-Bridging-Header.h";
@@ -1779,7 +1779,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.02;
+				MARKETING_VERSION = 2.03;
 				PRODUCT_BUNDLE_IDENTIFIER = com.fonzmusic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "FonzMusic-Bridging-Header.h";
@@ -1807,7 +1807,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.02;
+				MARKETING_VERSION = 2.03;
 				PRODUCT_BUNDLE_IDENTIFIER = com.fonzmusic.Clip;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG APPCLIP";
@@ -1834,7 +1834,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.02;
+				MARKETING_VERSION = 2.03;
 				PRODUCT_BUNDLE_IDENTIFIER = com.fonzmusic.Clip;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = APPCLIP;

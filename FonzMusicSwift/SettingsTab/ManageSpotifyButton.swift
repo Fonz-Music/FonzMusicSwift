@@ -90,6 +90,57 @@ struct ManageSpotifyButton: View {
                         .frame(width: 80, height: 40, alignment: .center)
                         .buttonStyle(BasicFonzButton(bgColor: .amber, secondaryColor: colorScheme == .light ? Color.white: Color.darkButton))
                         .padding(.vertical, 5)
+                        
+                        Spacer()
+                    }
+                    // coaster bane
+                    Text("do you want to troubleshoot your Spotify connection?")
+                        .padding(.horizontal, 10)
+                        .foregroundColor(colorScheme == .light ? Color.darkButton: Color.white)
+                        .multilineTextAlignment(.center)
+                        .fonzParagraphTwo()
+                    HStack{
+                        Spacer()
+                        Button {
+                           
+                            withAnimation {
+                                isExpanded = false
+                            }
+                            
+                        } label: {
+                            Image(systemName: "xmark")
+                                .foregroundColor(.white)
+                                .frame(width: 20 , height: 20, alignment: .center)
+                                .padding(.vertical, 5)
+                                .padding(.horizontal, 20)
+                            
+            //                    .padding()
+                        }
+                        .frame(width: 80, height: 40, alignment: .center)
+                        .buttonStyle(BasicFonzButton(bgColor: .amber, secondaryColor: colorScheme == .light ? Color.white: Color.darkButton))
+                        .padding(.vertical, 5)
+                        Spacer()
+                        Button {
+                            let sessionId = userAttributes.getUserSessionId()
+            //                let sessionId = UserDefaults.standard.string(forKey: "userAccountSessionId")
+                            // adding spot to the session
+                            
+                            let connectSpotifyReturn = SpotifySignInFunctions().addSpotifyToCurrentSession(sessionId: sessionId)
+                            withAnimation {
+                                isExpanded = false
+                            }
+                            
+                        } label: {
+                            Image(systemName: "checkmark")
+                                .foregroundColor(.white)
+                                .frame(width: 20 , height: 20, alignment: .center)
+                                .padding(.vertical, 5)
+                                .padding(.horizontal, 20)
+                        }
+                        .frame(width: 80, height: 40, alignment: .center)
+                        .buttonStyle(BasicFonzButton(bgColor: .amber, secondaryColor: colorScheme == .light ? Color.white: Color.darkButton))
+                        .padding(.vertical, 5)
+                        
                         Spacer()
                     }
                 }

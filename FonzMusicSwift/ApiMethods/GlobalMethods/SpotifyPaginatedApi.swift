@@ -24,7 +24,16 @@ class SpotifyPaginatedApi {
         // get access token
         accessToken = getJWTAndCheckIfExpired()
         // replaces spaces with underscore
-        let searchSong = searchTerm.replacingOccurrences(of: " ", with: "_")
+        var searchSong = searchTerm.replacingOccurrences(of: " ", with: "+")
+        // apos
+        searchSong = searchSong.replacingOccurrences(of: "\u{0027}", with: "")
+        // left single
+        searchSong = searchSong.replacingOccurrences(of: "\u{2018}", with: "")
+        // right single
+        searchSong = searchSong.replacingOccurrences(of: "\u{2019}", with: "")
+//        searchSong
+        
+        print("search term is \(searchSong)")
         
 //                accessToken = token
         // set URL
