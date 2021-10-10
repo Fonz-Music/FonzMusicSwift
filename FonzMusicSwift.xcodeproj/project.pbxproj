@@ -87,6 +87,7 @@
 		2620B8A52679261F004FE721 /* SearchBarPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2620B8A42679261F004FE721 /* SearchBarPage.swift */; };
 		2620B8A8267926C2004FE721 /* HomePageDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2620B8A7267926C2004FE721 /* HomePageDecision.swift */; };
 		2620B8AA26795A8C004FE721 /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2620B8A926795A8B004FE721 /* ButtonStyles.swift */; };
+		262F74CB271359DF006A1891 /* ManageProviders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262F74CA271359DF006A1891 /* ManageProviders.swift */; };
 		263545BB26A6FFC400B415C9 /* LinkSpotifySettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263545BA26A6FFC400B415C9 /* LinkSpotifySettingsButton.swift */; };
 		263545BE26A7076300B415C9 /* ShopWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263545BD26A7076300B415C9 /* ShopWebView.swift */; };
 		263545BF26A7086D00B415C9 /* ShopWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263545BD26A7076300B415C9 /* ShopWebView.swift */; };
@@ -334,6 +335,7 @@
 		2620B8A42679261F004FE721 /* SearchBarPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarPage.swift; sourceTree = "<group>"; };
 		2620B8A7267926C2004FE721 /* HomePageDecision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageDecision.swift; sourceTree = "<group>"; };
 		2620B8A926795A8B004FE721 /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
+		262F74CA271359DF006A1891 /* ManageProviders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageProviders.swift; sourceTree = "<group>"; };
 		263545BA26A6FFC400B415C9 /* LinkSpotifySettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkSpotifySettingsButton.swift; sourceTree = "<group>"; };
 		263545BD26A7076300B415C9 /* ShopWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopWebView.swift; sourceTree = "<group>"; };
 		2648208F26C1936900F8E7BE /* CreateAccountHomeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountHomeButton.swift; sourceTree = "<group>"; };
@@ -1106,6 +1108,7 @@
 				26AF07CD268D3794006A9504 /* CreateAccountButton.swift */,
 				263545BA26A6FFC400B415C9 /* LinkSpotifySettingsButton.swift */,
 				268ED21E26DE875500D34F60 /* SendDevFeedback.swift */,
+				262F74CA271359DF006A1891 /* ManageProviders.swift */,
 			);
 			path = SettingsTab;
 			sourceTree = "<group>";
@@ -1407,6 +1410,7 @@
 				267E6C6826D93C4D00C41AF9 /* SpotifyConverterPaginated.swift in Sources */,
 				268B97A926838AFF00984DC4 /* URL.swift in Sources */,
 				26F534FD26973F440055C188 /* TextExtension.swift in Sources */,
+				262F74CB271359DF006A1891 /* ManageProviders.swift in Sources */,
 				26FBCCF22686A55D00399460 /* BuyCoasterButton.swift in Sources */,
 				268E8F3B26A48F27006451AE /* UIImageExtension.swift in Sources */,
 				26F5350A26975E770055C188 /* ConsentedToEmail.swift in Sources */,
@@ -1757,7 +1761,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.03;
+				MARKETING_VERSION = 2.04;
 				PRODUCT_BUNDLE_IDENTIFIER = com.fonzmusic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "FonzMusic-Bridging-Header.h";
@@ -1791,7 +1795,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.03;
+				MARKETING_VERSION = 2.04;
 				PRODUCT_BUNDLE_IDENTIFIER = com.fonzmusic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "FonzMusic-Bridging-Header.h";
@@ -1819,7 +1823,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.03;
+				MARKETING_VERSION = 2.04;
 				PRODUCT_BUNDLE_IDENTIFIER = com.fonzmusic.Clip;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG APPCLIP";
@@ -1846,7 +1850,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.03;
+				MARKETING_VERSION = 2.04;
 				PRODUCT_BUNDLE_IDENTIFIER = com.fonzmusic.Clip;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = APPCLIP;

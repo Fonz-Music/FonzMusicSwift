@@ -15,7 +15,7 @@ func queueSongToHostSession(sessionId : String, trackId : String) -> Int {
     
     if trackId != previousSongQueued {
       statusCode = GuestApi().queueSong(sessionId: sessionId, trackId: trackId)
-        UserDefaults.standard.set(trackId, forKey: "previousSongQueued")
+        
     }
     else {
         statusCode = 601

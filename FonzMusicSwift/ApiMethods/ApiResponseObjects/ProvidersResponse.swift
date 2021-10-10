@@ -11,7 +11,7 @@ import Foundation
 //    var providers: Array<Provider>
 ////    var responseCode : Int
 //}
-struct Provider: Codable {
+struct Provider: Codable, Hashable {
     var displayName : String
     var provider : String
     var providerId : String

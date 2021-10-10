@@ -12,7 +12,7 @@ struct LaunchSongResponsePopup: View {
     
     var statusCodeQueueSong : Int
     @Binding var showQueueResponse : Bool
-    var songSelected : String
+    var songSelected : GlobalTrack
 //    var currentHost : String
     // hostCoaster details passed in and will update view when changed
     @ObservedObject var hostCoaster:HostCoasterInfo
@@ -33,15 +33,18 @@ struct LaunchSongResponsePopup: View {
             VStack {
                 // success
                 if statusCodeQueueSong == 200 {
-                    QueueSongSuccess(songAddedName: songSelected, currentHost: hostCoaster.hostName)
+                    QueueSongSuccess(songAddedName: songSelected.songName, currentHost: hostCoaster.hostName)
                         .onAppear {
+                            // only sets previous song if it was queued successfully
+                            UserDefaults.standard.set(songSelected.songId, forKey: "previousSongQueued")
+                            
                             FirebaseAnalytics.Analytics.logEvent("songQueueSuccess", parameters: [
                                 "user":"guest",
                                 "sessionId":hostCoaster.sessionId,
                                 "userId":userAttributes.getUserId(),
                                 "group":hostCoaster.group,
                                 "tagUid":hostCoaster.uid.uppercased() ,
-                                "songQueued":songSelected,
+                                "songQueued":songSelected.songName,
                                 "device":"iOS"
                             ])
                         }

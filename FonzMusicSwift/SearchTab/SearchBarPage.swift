@@ -62,7 +62,7 @@ struct SearchBarPage: View {
 //                .padding(.horizontal, 30)
    
             // resps
-            LaunchSongResponsePopup(statusCodeQueueSong: statusCodeQueueSong, showQueueResponse: $showQueueResponse, songSelected: currentTune.songName, hostCoaster: hostCoaster, userAttributes: userAttributes )
+            LaunchSongResponsePopup(statusCodeQueueSong: statusCodeQueueSong, showQueueResponse: $showQueueResponse, songSelected: currentTune, hostCoaster: hostCoaster, userAttributes: userAttributes )
                 .padding(.horizontal)
                 .padding(.top, 30)
         }

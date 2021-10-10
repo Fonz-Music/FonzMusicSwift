@@ -23,6 +23,7 @@ struct SettingsPage: View {
     
     var body: some View {
         ZStack{
+            ScrollView{
             VStack{
                 if userAttributes.getHasAccount() {
                     HStack{
@@ -66,6 +67,8 @@ struct SettingsPage: View {
                         SendDevFeedback(widthInherited: .outerContainerFrameWidthSettings, userAttributes: userAttributes)
                     }
                     
+                    ManageProviders(userAttributes: userAttributes)
+                    
                         // if the user has connected coasters, give option to limit reqs
         //                    if userAttributes.getHasConnectedCoasters() {
         //                        Text("coaster management")
@@ -78,13 +81,14 @@ struct SettingsPage: View {
 
         //                }
                     Spacer()
+                        .frame(minHeight: 200)
                 }
                 // if user needs to create an acc
                 else {
                     CreateAccountPrompt(userAttributes: userAttributes, showModal: $throwCreateAccountModal)
                 }
             }
-            
+            }
         }
         .background(
             ZStack{

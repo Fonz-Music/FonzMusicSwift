@@ -137,7 +137,7 @@ struct PlaylistSongListModal: View {
             }
             
             // resps
-            LaunchSongResponsePopup(statusCodeQueueSong: statusCodeQueueSong, showQueueResponse: $showQueueResponse, songSelected: currentTune.songName, hostCoaster: hostCoaster, userAttributes: userAttributes)
+            LaunchSongResponsePopup(statusCodeQueueSong: statusCodeQueueSong, showQueueResponse: $showQueueResponse, songSelected: currentTune, hostCoaster: hostCoaster, userAttributes: userAttributes)
                 .padding(.horizontal)
                 .padding(.top, 20)
         }
