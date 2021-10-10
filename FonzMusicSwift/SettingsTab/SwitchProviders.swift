@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ManageProviders: View {
+struct SwitchProviders: View {
     // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
     @StateObject var userAttributes : CoreUserAttributes
     
@@ -57,7 +57,7 @@ struct ManageProviders: View {
 
                             ForEach(providers, id: \.self) { item in
                                 
-                                Text(item.displayName)
+                                ManageProviderButton(userAttributes: userAttributes, providerInfo: item)
                                         .onTapGesture {
 //                                            if !self.selection.contains(item) {
                                                 self.selectDeselect(item)
@@ -70,10 +70,10 @@ struct ManageProviders: View {
                                         .animation(.linear(duration: 0.3))
                             }
                         }
-                        .padding(.top, 5)
+//                        .padding(.top, 5)
                         .padding(.bottom, 10)
                     }.frame(width: UIScreen.screenWidth * 0.9, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    .padding(.top, 20)
+//                    .padding(.top, 20)
                     .onAppear {
 //                        if coastersConnectedToHost.products.quantity == 0 {
 //                            let actuallyHasCoasters = coastersConnectedToHost.determineIfHasCoasters()

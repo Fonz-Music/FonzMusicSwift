@@ -17,6 +17,7 @@ struct Provider: Codable, Hashable {
     var providerId : String
     var userId : String
     var additional : String
+    var sessionId : String?
 } 
 
 struct SpotifyUrlResponse: Codable {

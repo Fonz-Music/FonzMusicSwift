@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "spotifyIconLightGrey.png",
+      "filename" : "spotifyIconDarkGrey.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,7 +12,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "spotifyIconDarkGrey.png",
+      "filename" : "spotifyIconLightGrey.png",
       "idiom" : "universal",
       "scale" : "1x"
     },

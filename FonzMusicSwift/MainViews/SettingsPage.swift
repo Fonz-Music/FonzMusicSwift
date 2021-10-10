@@ -38,28 +38,40 @@ struct SettingsPage: View {
                     // if the user has an account, show options
         //                if hasAccount {
                         // shop
-                        Text("shop")
-                            .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
-                            .fonzParagraphTwo()
-                            .padding(.subHeadingFrontIndent)
-                            .frame(width: UIScreen.screenWidth, height: 50, alignment: .topLeading)
-                        BuyCoasterButton()
+                    Text("shop")
+                        .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
+                        .fonzParagraphTwo()
+                        .padding(.subHeadingFrontIndent)
+                        .frame(width: UIScreen.screenWidth, height: 50, alignment: .topLeading)
+                    BuyCoasterButton()
+                    
+                        // providers
+                    Text("providers ")
+                        .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
+                        .fonzParagraphTwo()
+                        .padding(.subHeadingFrontIndent)
+                        .frame(width: UIScreen.screenWidth, height: 50, alignment: .topLeading)
+                    // connect an acc
+                    LinkSpotifySettingsButton()
+                    // switch accs
+                    SwitchProviders(userAttributes: userAttributes)
+                    
                         // account
-                        Text("account")
-                            .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
-                            .fonzParagraphTwo()
-                            .padding(.subHeadingFrontIndent)
-                            .frame(width: UIScreen.screenWidth, height: 50, alignment: .topLeading)
-                        
-                        ChangeDisplayNameButton(userAttributes: userAttributes)
-                    if userAttributes.getConnectedToSpotify() {
-                            // option to disconnect
-                            ManageSpotifyButton(userAttributes: userAttributes)
-                        }
-                        else {
-                            // link spotify
-                            LinkSpotifySettingsButton()
-                        }
+                    Text("account")
+                        .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
+                        .fonzParagraphTwo()
+                        .padding(.subHeadingFrontIndent)
+                        .frame(width: UIScreen.screenWidth, height: 50, alignment: .topLeading)
+                    
+                    ChangeDisplayNameButton(userAttributes: userAttributes)
+//                    if userAttributes.getConnectedToSpotify() {
+//                            // option to disconnect
+////                            ManageSpotifyButton(userAttributes: userAttributes)
+//                        }
+//                        else {
+//                            // link spotify
+//                            LinkSpotifySettingsButton()
+//                        }
                     
 //                        SignOutButton(hasAccount: $hasAccount, connectedToSpotify: $connectedToSpotify, hasConnectedCoasters: $hasConnectedCoasters)
                     SignOutButton(userAttributes: userAttributes)
@@ -67,7 +79,7 @@ struct SettingsPage: View {
                         SendDevFeedback(widthInherited: .outerContainerFrameWidthSettings, userAttributes: userAttributes)
                     }
                     
-                    ManageProviders(userAttributes: userAttributes)
+                    
                     
                         // if the user has connected coasters, give option to limit reqs
         //                    if userAttributes.getHasConnectedCoasters() {
@@ -80,8 +92,8 @@ struct SettingsPage: View {
         //                    }
 
         //                }
-                    Spacer()
-                        .frame(minHeight: 200)
+//                    Spacer()
+//                        .frame(minHeight: 200)
                 }
                 // if user needs to create an acc
                 else {
