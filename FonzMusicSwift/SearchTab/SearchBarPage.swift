@@ -56,7 +56,12 @@ struct SearchBarPage: View {
     var body: some View {
         ZStack {
            // song page 
-            SearchPageView(hostCoaster: hostCoaster, hasHostVar: $hasHostVar, userAttributes: userAttributes, showQueueResponse: $showQueueResponse, statusCodeQueueSong: $statusCodeQueueSong, isEditingSearchBar: $isEditingSearchBar, currentTune: currentTune, tracksFromSearch: tracksFromSearch, tracksFromPlaylist: tracksFromPlaylist, tracksFromArtist: tracksFromArtist, trackFromNowPlaying: trackFromNowPlaying, tracksFromTopSongs: tracksFromTopSongs, guestTopArtists: guestTopArtists, guestTopPlaylists: guestTopPlaylists)
+//            if #available(iOS 15.0, *) {
+//                SearchPageView15(hostCoaster: hostCoaster, hasHostVar: $hasHostVar, userAttributes: userAttributes, showQueueResponse: $showQueueResponse, statusCodeQueueSong: $statusCodeQueueSong, isEditingSearchBar: $isEditingSearchBar, currentTune: currentTune, tracksFromSearch: tracksFromSearch, tracksFromPlaylist: tracksFromPlaylist, tracksFromArtist: tracksFromArtist, trackFromNowPlaying: trackFromNowPlaying, tracksFromTopSongs: tracksFromTopSongs, guestTopArtists: guestTopArtists, guestTopPlaylists: guestTopPlaylists)
+//            } else {
+                // Fallback on earlier versions
+                SearchPageView(hostCoaster: hostCoaster, hasHostVar: $hasHostVar, userAttributes: userAttributes, showQueueResponse: $showQueueResponse, statusCodeQueueSong: $statusCodeQueueSong, isEditingSearchBar: $isEditingSearchBar, currentTune: currentTune, tracksFromSearch: tracksFromSearch, tracksFromPlaylist: tracksFromPlaylist, tracksFromArtist: tracksFromArtist, trackFromNowPlaying: trackFromNowPlaying, tracksFromTopSongs: tracksFromTopSongs, guestTopArtists: guestTopArtists, guestTopPlaylists: guestTopPlaylists)
+//            }
                 
                 
 //                .padding(.horizontal, 30)

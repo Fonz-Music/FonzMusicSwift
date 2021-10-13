@@ -52,115 +52,117 @@ struct SearchPageView: View {
     
     var body: some View {
         // entire page is a scrollView
-        ScrollView(showsIndicators: false) {
-            
-            VStack {
-                // top search headar & quit part button
-                ZStack {
-                    HStack{
-                        Text("search")
-                            .foregroundColor(Color.white)
-                            .fonzParagraphOne()
-                            .padding(.headingFrontIndent)
+        
+            ScrollView(showsIndicators: false) {
+                
+                VStack {
+                    // top search headar & quit part button
+                    ZStack {
+                        HStack{
+                            Text("search")
+                                .foregroundColor(Color.white)
+                                .fonzParagraphOne()
+                                .padding(.headingFrontIndent)
                             
-                        Spacer()
-                    }.padding(.top, .headingTopIndent)
-                    HStack{
-                        Spacer()
-                        Button {
-                            withAnimation {
-                                hasHostVar = false
+                            Spacer()
+                        }.padding(.top, .headingTopIndent)
+                        HStack{
+                            Spacer()
+                            Button {
+                                withAnimation {
+                                    hasHostVar = false
+                                }
+                                var userSessionId : String = UserDefaults.standard.string(forKey: "userAccountSessionId") ?? ""
+                                var hostSessionId : String = UserDefaults.standard.string(forKey: "hostSessionId") ?? ""
+                                print("user sess is " + userSessionId)
+                            } label: {
+                                Image(systemName: "arrow.up.and.person.rectangle.portrait")
+                                //                            Image("leaveParty")
+                                    .resizable()
+                                    .frame(width: 20, height: 17, alignment: .center)
+                                //                                .foregroundColor(.white)
+                                    .foregroundColor(colorScheme == .light ? Color.gray: Color.white)
+                                
+                                    .padding(10)
+                                
                             }
-                            var userSessionId : String = UserDefaults.standard.string(forKey: "userAccountSessionId") ?? ""
-                            var hostSessionId : String = UserDefaults.standard.string(forKey: "hostSessionId") ?? ""
-                            print("user sess is " + userSessionId)
-                        } label: {
-                            Image(systemName: "arrow.up.and.person.rectangle.portrait")
-//                            Image("leaveParty")
-                                .resizable()
-                                .frame(width: 20, height: 17, alignment: .center)
-//                                .foregroundColor(.white)
-                                .foregroundColor(colorScheme == .light ? Color.gray: Color.white)
-
-                                .padding(10)
-
-                        }
-                        .buttonStyle(BasicFonzButtonCircleNoBorder(bgColor: colorScheme == .light ? Color.white: Color.darkBackground, secondaryColor: .amber))
-//                        .buttonStyle(BasicFonzButtonCircleNoBorder(bgColor: Color.white, secondaryColor: .amber))
-                        .padding(.headingFrontIndent)
-                    }.padding(.top, .headingTopIndent)
-                    
-                    
-                }
-                .simultaneousGesture(
-                    DragGesture().onChanged { value in
-                        hideKeyboard()
-                        withAnimation {
-                            isEditingSearchBar = false
-                        }
+                            .buttonStyle(BasicFonzButtonCircleNoBorder(bgColor: colorScheme == .light ? Color.white: Color.darkBackground, secondaryColor: .amber))
+                            //                        .buttonStyle(BasicFonzButtonCircleNoBorder(bgColor: Color.white, secondaryColor: .amber))
+                            .padding(.headingFrontIndent)
+                        }.padding(.top, .headingTopIndent)
+                        
                         
                     }
-                )
-                // search bar widget
-                SearchBarView(tracksFromSearch: tracksFromSearch, isEditing: $isEditingSearchBar)
-                ZStack {
-                    // now playing + song suggestions
-                    VStack{
-                        ActiveSongView(hostName: hostCoaster.hostName, currentSessionId: hostCoaster.sessionId, trackfromNowPlaying: trackFromNowPlaying)
-                        SongSuggestionsView(hostCoaster: hostCoaster, currentTune: currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc, tracksFromPlaylist: tracksFromPlaylist, tracksFromArtist: tracksFromArtist, tracksFromTopSongs: tracksFromTopSongs, guestTopArtists: guestTopArtists, guestTopPlaylists: guestTopPlaylists, userAttributes: userAttributes, statusCodeQueueSong: $statusCodeQueueSong, showQueueResponse: $showQueueResponse)
-//                        #if !APPCLIP
-//                        Spacer()
-//                            .frame(height: 50)
-//                        #endif
-                            
-                    }
-                    .isHidden(hideSearchViews)
-                    .addOpacity(isEditingSearchBar)
                     .simultaneousGesture(
                         DragGesture().onChanged { value in
                             hideKeyboard()
-                            withAnimation{
+                            withAnimation {
                                 isEditingSearchBar = false
                             }
                             
                         }
                     )
+                    // search bar widget
+                    SearchBarView(tracksFromSearch: tracksFromSearch, isEditing: $isEditingSearchBar)
+                    ZStack {
+                        // now playing + song suggestions
+                        VStack{
+                            ActiveSongView(hostName: hostCoaster.hostName, currentSessionId: hostCoaster.sessionId, trackfromNowPlaying: trackFromNowPlaying)
+                            SongSuggestionsView(hostCoaster: hostCoaster, currentTune: currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc, tracksFromPlaylist: tracksFromPlaylist, tracksFromArtist: tracksFromArtist, tracksFromTopSongs: tracksFromTopSongs, guestTopArtists: guestTopArtists, guestTopPlaylists: guestTopPlaylists, userAttributes: userAttributes, statusCodeQueueSong: $statusCodeQueueSong, showQueueResponse: $showQueueResponse)
+                            //                        #if !APPCLIP
+                            //                        Spacer()
+                            //                            .frame(height: 50)
+                            //                        #endif
+                            
+                        }
+                        .isHidden(hideSearchViews)
+                        .addOpacity(isEditingSearchBar)
+                        .simultaneousGesture(
+                            DragGesture().onChanged { value in
+                                hideKeyboard()
+                                withAnimation{
+                                    isEditingSearchBar = false
+                                }
+                                
+                            }
+                        )
+                        
+                        // search results
+                        if isEditingSearchBar {
+                            VStack {
+                                SearchResultsView(tracksFromSearch: tracksFromSearch, hostCoaster: hostCoaster, currentTune: currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc, isEditing: $isEditingSearchBar, statusCodeQueueSong: $statusCodeQueueSong, showQueueResponse: $showQueueResponse)
+                                Spacer()
+                            }
+                        }
+                        
+                    }
+                    //                if pressedSongToLaunchNfc {
+                    //                    LaunchQueueSongNfcSessionSheet(tempCoaster: hostCoaster, songInfo: currentTune, statusCode: $statusCodeQueueSong, launchedNfc: $showQueueResponse, pressedButtonToLaunchNfc: $pressedSongToLaunchNfc)
+                    //                        .frame(width: 0, height: 0)
+                    //                }
                     
-                    // search results
-                    if isEditingSearchBar {
-                        VStack {
-                            SearchResultsView(tracksFromSearch: tracksFromSearch, hostCoaster: hostCoaster, currentTune: currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc, isEditing: $isEditingSearchBar, statusCodeQueueSong: $statusCodeQueueSong, showQueueResponse: $showQueueResponse)
-                            Spacer()
+                }
+                .onAppear {
+                    // disables bounce
+                    UIScrollView.appearance().bounces = false
+                    // waits .5 seconds before showing views
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        withAnimation {
+                            hideSearchViews = false
                         }
                     }
-                    
-                }
-//                if pressedSongToLaunchNfc {
-//                    LaunchQueueSongNfcSessionSheet(tempCoaster: hostCoaster, songInfo: currentTune, statusCode: $statusCodeQueueSong, launchedNfc: $showQueueResponse, pressedButtonToLaunchNfc: $pressedSongToLaunchNfc)
-//                        .frame(width: 0, height: 0)
-//                }
-            
-        }
-        .onAppear {
-            // disables bounce
-            UIScrollView.appearance().bounces = false
-            // waits .5 seconds before showing views
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                withAnimation {
-                    hideSearchViews = false
                 }
             }
-        }
-    }
-        .simultaneousGesture(
-            DragGesture().onChanged { value in
-                hideKeyboard()
-//                withAnimation{
-//                    isEditingSearchBar = false
-//                }
-                
-            }
-        )
+            .simultaneousGesture(
+                DragGesture().onChanged { value in
+                    hideKeyboard()
+                }
+            )
+           
+        
+//        }
+        
+        
     }
 }
 

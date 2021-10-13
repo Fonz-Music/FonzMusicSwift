@@ -144,6 +144,8 @@
 		267E6C6526D9383700C41AF9 /* SpotifyPaginatedApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267E6C6326D9383700C41AF9 /* SpotifyPaginatedApi.swift */; };
 		267E6C6826D93C4D00C41AF9 /* SpotifyConverterPaginated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267E6C6726D93C4D00C41AF9 /* SpotifyConverterPaginated.swift */; };
 		267E6C6926D93C4D00C41AF9 /* SpotifyConverterPaginated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267E6C6726D93C4D00C41AF9 /* SpotifyConverterPaginated.swift */; };
+		2684C028271792950002A9BF /* SearchPageView15.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2684C027271792950002A9BF /* SearchPageView15.swift */; };
+		2684C029271792950002A9BF /* SearchPageView15.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2684C027271792950002A9BF /* SearchPageView15.swift */; };
 		2687C72C268A915E0044AA37 /* TracksFromArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2687C72B268A915E0044AA37 /* TracksFromArtist.swift */; };
 		2687C72F268A96350044AA37 /* TracksFromPlaylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2687C72E268A96350044AA37 /* TracksFromPlaylist.swift */; };
 		2687C731268A96710044AA37 /* PlaylistSongListModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2687C730268A96710044AA37 /* PlaylistSongListModal.swift */; };
@@ -374,6 +376,7 @@
 		267A59A526DF03D700C6E6EC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		267E6C6326D9383700C41AF9 /* SpotifyPaginatedApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyPaginatedApi.swift; sourceTree = "<group>"; };
 		267E6C6726D93C4D00C41AF9 /* SpotifyConverterPaginated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyConverterPaginated.swift; sourceTree = "<group>"; };
+		2684C027271792950002A9BF /* SearchPageView15.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageView15.swift; sourceTree = "<group>"; };
 		2687C72B268A915E0044AA37 /* TracksFromArtist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracksFromArtist.swift; sourceTree = "<group>"; };
 		2687C72E268A96350044AA37 /* TracksFromPlaylist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracksFromPlaylist.swift; sourceTree = "<group>"; };
 		2687C730268A96710044AA37 /* PlaylistSongListModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistSongListModal.swift; sourceTree = "<group>"; };
@@ -578,6 +581,7 @@
 				269252D4268E2BE4001AC98B /* SearchPageViews */,
 				269252D5268E2C37001AC98B /* SearchPageView.swift */,
 				26916FF5268E585200B7281B /* LaunchSongResponsePopup.swift */,
+				2684C027271792950002A9BF /* SearchPageView15.swift */,
 			);
 			path = SearchBarViews;
 			sourceTree = "<group>";
@@ -1423,6 +1427,7 @@
 				26ECCFE32682BE210053BE1F /* ArtistSongListModal.swift in Sources */,
 				2687C72C268A915E0044AA37 /* TracksFromArtist.swift in Sources */,
 				26F535002697500D0055C188 /* SignUpView.swift in Sources */,
+				2684C028271792950002A9BF /* SearchPageView15.swift in Sources */,
 				268B97B5268563EC00984DC4 /* OwnedCoasterDropItem.swift in Sources */,
 				2676B12A26A5CB9F00E18E4B /* URLSessionExtension.swift in Sources */,
 				268B97B026855CA400984DC4 /* ConnectYourFirstCoasterButton.swift in Sources */,
@@ -1548,6 +1553,7 @@
 				261752DD26A3448B0069C83D /* LaunchSongResponsePopup.swift in Sources */,
 				261752DE26A3448B0069C83D /* SearchPageView.swift in Sources */,
 				261752DF26A3448B0069C83D /* SearchBarPage.swift in Sources */,
+				2684C029271792950002A9BF /* SearchPageView15.swift in Sources */,
 				261752E026A3448B0069C83D /* HomePageDecision.swift in Sources */,
 				261752E126A3448B0069C83D /* MuseoSans-100.otf in Sources */,
 				261752E226A3448B0069C83D /* MuseoSans-300.otf in Sources */,
