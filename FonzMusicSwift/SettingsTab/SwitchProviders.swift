@@ -29,6 +29,8 @@ struct SwitchProviders: View {
                 if providers == nil || providers.count == 0 {
                     providers = ProviderApi().getMusicProviders()
                 }
+                let sessionId = userAttributes.getUserSessionId()
+//                let currentProvider = SessionApi().getSession(sessionId: sessionId)
                 
                 withAnimation {
                     isExpanded.toggle()

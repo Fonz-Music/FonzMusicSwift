@@ -21,12 +21,7 @@ class GuestTopArtists: ObservableObject {
     var connectedToSpotify = UserDefaults.standard.bool(forKey: "connectedToSpotify")
     
     @Published var offset : Int = Int()
-//    var resultsPerSearch = 0
-//    @Published var updateTopArtists = true
 
-//    let ADDRESS = "https://api.fonzmusic.com/"
-//    let ADDRESS = "http://beta.api.fonzmusic.com:8080/"
-    let ADDRESS = "http://52.50.138.97:8080/"
     let tempArtists =
         [
             ArtistPaginated(artistName: "Gus Dapperton", artistId:  "6sHCvZe1PHrOAuYlwTLNH4", artistImage: "https://i.scdn.co/image/ab6761610000e5ebb9583cd924906a133356770b", index: 0),

@@ -125,12 +125,12 @@ struct ContentView: View {
             if containsSpotify {
                 print("adding spotify to acc")
                 // fetching sessionId
-                let sessionId = userAttributes.getUserSessionId()
+                
 //                let sessionId = UserDefaults.standard.string(forKey: "userAccountSessionId")
                 // adding spot to the session
                 
-                let connectSpotifyReturn = SpotifySignInFunctions().addSpotifyToCurrentSession(sessionId: sessionId)
-                
+                let connectSpotifyReturn = SpotifySignInFunctions().addSpotifyToCurrentSession()
+            
                 DispatchQueue.main.async {
                     print("has spot status \(connectSpotifyReturn)")
                     // if successful

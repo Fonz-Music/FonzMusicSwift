@@ -76,6 +76,7 @@ class SessionApi {
                     else {
                         print("has sessions")
                         UserDefaults.standard.set(decodedResponse[0].sessionId, forKey: "userAccountSessionId")
+                        
                         returnMessage = "success"
                         
                     }
@@ -249,7 +250,7 @@ class SessionApi {
                         returnCode = response?.getStatusCode() ?? 0
                         
                         if let decodedResponse = try? JSONDecoder().decode(SessionResponse.self, from: dataResp) {
-                            print("success getting provider")
+                            print("success getting session info")
                             // sets return value
                             returnMessage = decodedResponse.sessionId
                             UserDefaults.standard.set(decodedResponse.sessionId, forKey: "userAccountSessionId")
@@ -275,7 +276,7 @@ class SessionApi {
     // fetch providers
     // then get provider at base 0
     // add that providerId to the session
-    func addProviderToSession(sessionId:String) -> BasicResponse {
+    func getSessionsAndAddFirstProvider(sessionId:String) -> BasicResponse {
         // this allows us to wait before returning value
         let sem = DispatchSemaphore.init(value: 0)
 
@@ -336,9 +337,9 @@ class SessionApi {
                                 request.httpMethod = "PUT"
                                 // creates Param as Dictionary
                                 let parameters = [
-                                    "active": "true",
+                                    "active": true,
                                     "providerId": providerId
-                                ]
+                                ] as [String : Any]
                                 // converts param dict to JSON DATA
                                 let jsonData = try! JSONSerialization.data(withJSONObject: parameters)
                                 // adds JSON DATA to the body
@@ -428,8 +429,9 @@ class SessionApi {
         request.httpMethod = "PUT"
         // creates Param as Dictionary
         let parameters = [
-            "providerId": providerId
-        ]
+            "providerId": providerId,
+            "active":true
+        ] as [String : Any]
         // converts param dict to JSON DATA
         let jsonData = try! JSONSerialization.data(withJSONObject: parameters)
         // adds JSON DATA to the body

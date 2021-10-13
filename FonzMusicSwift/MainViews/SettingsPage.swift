@@ -78,7 +78,8 @@ struct SettingsPage: View {
                     if MFMailComposeViewController.canSendMail() {
                         SendDevFeedback(widthInherited: .outerContainerFrameWidthSettings, userAttributes: userAttributes)
                     }
-                    
+//                    Spacer()
+//                        .frame(minHeight: 200)
                     
                     
                         // if the user has connected coasters, give option to limit reqs
@@ -92,13 +93,14 @@ struct SettingsPage: View {
         //                    }
 
         //                }
-//                    Spacer()
-//                        .frame(minHeight: 200)
+                    
                 }
                 // if user needs to create an acc
                 else {
                     CreateAccountPrompt(userAttributes: userAttributes, showModal: $throwCreateAccountModal)
+                    
                 }
+                
             }
             }
         }

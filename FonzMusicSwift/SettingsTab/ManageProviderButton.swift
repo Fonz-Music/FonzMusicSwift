@@ -79,7 +79,7 @@ struct ManageProviderButton: View {
                         .padding(.vertical, 5)
                         Spacer()
                         Button {
-                            let sessionId = userAttributes.getUserSessionId()
+                           
             //                let sessionId = UserDefaults.standard.string(forKey: "userAccountSessionId")
                             // adding spot to the session
                             let updateActiveProvider = SessionApi().updateSessionProvider(sessionId: userAttributes.getUserSessionId(), providerId: providerInfo.providerId)

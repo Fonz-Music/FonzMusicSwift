@@ -55,6 +55,8 @@ struct CreateAccountView: View {
                     
                 }
                 Spacer()
+                
+
             }
             .padding()
             if onSignUp {
@@ -63,6 +65,8 @@ struct CreateAccountView: View {
             else {
                 SignInView(userAttributes: userAttributes, showModal: $showModal, email: $email, password: $password).padding(.horizontal, 30)
             }
+            Spacer()
+                .frame(minHeight: 200)
         }
         
     }

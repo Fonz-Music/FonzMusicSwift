@@ -28,16 +28,17 @@ struct SpotifySignInFunctions {
         print("launched spotify")
     }
     
-    func addSpotifyToCurrentSession(sessionId : String) -> String {
+    func addSpotifyToCurrentSession() -> String {
         var returnString = ""
-        var currentSessionId = sessionId
+//        var currentSessionId = sessionId
+        var sessionId = UserDefaults.standard.string(forKey: "userAccountSessionId") ?? ""
         if sessionId == "" {
             print("sessionId is empty" )
-            currentSessionId = SessionApi().createSession().message
+            sessionId = SessionApi().createSession().message
             
         }
-        print("sessionId is \(currentSessionId)")
-        let addToProviderResponse = SessionApi().addProviderToSession(sessionId: currentSessionId ?? "")
+        print("sessionId is \(sessionId)")
+        let addToProviderResponse = SessionApi().getSessionsAndAddFirstProvider(sessionId: sessionId ?? "")
         
         if addToProviderResponse.status == 200 {
             returnString = "SPOTIFY_CONNECT_SUCCESS"
