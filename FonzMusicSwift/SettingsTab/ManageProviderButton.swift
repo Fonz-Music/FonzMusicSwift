@@ -29,12 +29,12 @@ struct ManageProviderButton: View {
             }, label: {
                 HStack {
                     HStack(spacing: 5) {
-                        if providerInfo.sessionId != nil {
+//                        if providerInfo.sessionId != nil {
                             Image("spotifyIcon").resizable().frame(width: 30 ,height: 30, alignment: .leading)
-                        }
-                        else {
-                            Image("spotifyIconAmber").resizable().frame(width: 30 ,height: 30, alignment: .leading)
-                        }
+//                        }
+//                        else {
+//                            Image("spotifyIconAmber").resizable().frame(width: 30 ,height: 30, alignment: .leading)
+//                        }
                         
                             
                         Text(providerInfo.displayName)
@@ -47,12 +47,13 @@ struct ManageProviderButton: View {
                 .padding()
                 
             })
-                .buttonStyle(BasicFonzButton(bgColor: providerInfo.sessionId == nil ? .gray: Color.amber, secondaryColor: .amber))
+//                .buttonStyle(BasicFonzButton(bgColor: providerInfo.sessionId == nil ? .gray: Color.amber, secondaryColor: .amber))
+                .buttonStyle(BasicFonzButton(bgColor: .gray, secondaryColor: .amber))
             if isExpanded {
                 VStack{
                     // make active
-                if providerInfo.sessionId == nil {
-                    Text("do you want to make this provider active?")
+//                if providerInfo.sessionId == nil {
+                    Text("do you want to troubleshoot this Spotify?")
                         .padding(.horizontal, 10)
                         .foregroundColor(colorScheme == .light ? Color.darkButton: Color.white)
                         .multilineTextAlignment(.center)
@@ -60,18 +61,18 @@ struct ManageProviderButton: View {
                     HStack{
                         Spacer()
                         Button {
-                           
+
                             withAnimation {
                                 isExpanded = false
                             }
-                            
+
                         } label: {
                             Image(systemName: "xmark")
                                 .foregroundColor(.white)
                                 .frame(width: 20 , height: 20, alignment: .center)
                                 .padding(.vertical, 5)
                                 .padding(.horizontal, 20)
-                            
+
             //                    .padding()
                         }
                         .frame(width: 80, height: 40, alignment: .center)
@@ -79,7 +80,7 @@ struct ManageProviderButton: View {
                         .padding(.vertical, 5)
                         Spacer()
                         Button {
-                           
+
             //                let sessionId = UserDefaults.standard.string(forKey: "userAccountSessionId")
                             // adding spot to the session
                             let updateActiveProvider = SessionApi().updateSessionProvider(sessionId: userAttributes.getUserSessionId(), providerId: providerInfo.providerId)
@@ -87,7 +88,7 @@ struct ManageProviderButton: View {
                             withAnimation {
                                 isExpanded = false
                             }
-                            
+
                         } label: {
                             Image(systemName: "checkmark")
                                 .foregroundColor(.white)
@@ -100,9 +101,9 @@ struct ManageProviderButton: View {
                         .padding(.vertical, 5)
                         Spacer()
                     }
-                    
-                }
-                    // coaster bane
+
+//                }
+//                    // coaster bane
                     Text("do you want to disconnect this provider?")
                         .padding(.horizontal, 10)
                         .foregroundColor(colorScheme == .light ? Color.darkButton: Color.white)

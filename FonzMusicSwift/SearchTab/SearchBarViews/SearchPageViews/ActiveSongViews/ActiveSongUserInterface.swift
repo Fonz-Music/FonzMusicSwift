@@ -25,17 +25,34 @@ struct ActiveSongUserInterface : View {
     
     var body: some View {
         ZStack {
+            if #available(iOS 14.0, *) {
             // shows the reload icon
-            VStack{
-                HStack{
+                VStack{
                     Spacer()
-                    Image(systemName: "arrow.clockwise")
-                        .padding(.horizontal, 10)
-                        .padding(.top, 10)
-                        .foregroundColor(.amber)
+                    HStack{
+                        Spacer()
+    //                    Image(systemName: "arrow.clockwise")
+    //                        .padding(.horizontal, 10)
+    //                        .padding(.top, 10)
+    //                        .foregroundColor(.amber)
+//                        VStack {
+                        Text("tap to refresh")
+                            .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
+                            .fonzParagraphTwo()
+//                            .background(Color.amber)
+//                            .backgroundColor(.amber)
+                            .padding(3)
+                            .background(
+                                RoundedRectangle(cornerRadius: .cornerRadiusTasks)
+                                    .fill(Color.amber)
+//                                    .padding(3)
+//                                    .fonzShadow()
+                                    
+                            )
+//                        }.background(Color.amber)
+                    }
                     
                 }
-                Spacer()
             }
             
             VStack{
@@ -87,7 +104,7 @@ struct ActiveSongUserInterface : View {
                             Text(verbatim: trackfromNowPlaying.currentSong[0].artistName)
                                 .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
                                 .fonzParagraphTwo()
-                            Text("playing with \(hostName)'s Fonz")
+                            Text("\(hostName)'s Fonz")
                                 .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
                                 .fonzParagraphThree()
                         }

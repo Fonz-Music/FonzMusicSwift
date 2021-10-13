@@ -18,7 +18,7 @@ class TrackFromNowPlaying: ObservableObject {
     var tempSession : String = UserDefaults.standard.string(forKey: "hostSessionId") ?? ""
     
 //    let ADDRESS = "http://52.50.138.97:8080/"
-    let ADDRESS = "http://beta.api.fonzmusic.com/"
+    let ADDRESS = "https://beta.api.fonzmusic.com/"
     
 //    @Published private (set) var currentSong: [NowPlayingInfo] = [NowPlayingInfo(artistName: "", albumArt: "https://i.scdn.co/image/ab67616d0000b273e1225196df3f67528c87c7fd", trackName: "")]
     @Published private (set) var currentSong: [NowPlayingInfo] = [NowPlayingInfo(artistName: "", albumArt: "", trackName: "")]
