@@ -89,11 +89,11 @@ struct SearchResultsView: View {
                                     }
                                     
                             })
-                            if item.index == (tracksFromSearch.resultsPerSearch - 1) {
-                                Text("loading more tunes")
-                                    .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
-                                    .fonzParagraphTwo()
-                            }
+//                            if item.index == (tracksFromSearch.resultsPerSearch - 1) {
+//                                Text("loading more tunes")
+//                                    .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
+//                                    .fonzParagraphTwo()
+//                            }
                         }
                         
 //                        if tracksFromSearch.products 

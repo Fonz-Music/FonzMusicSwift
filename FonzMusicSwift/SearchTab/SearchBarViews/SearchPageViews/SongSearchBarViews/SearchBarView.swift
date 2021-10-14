@@ -60,6 +60,7 @@ struct SearchBarView : View {
                 .onTapGesture {
                     withAnimation{
                         self.isEditing = true
+                        tracksFromSearch.offset = 0
                     }
                     
 //                    self.addViewOpacity = true

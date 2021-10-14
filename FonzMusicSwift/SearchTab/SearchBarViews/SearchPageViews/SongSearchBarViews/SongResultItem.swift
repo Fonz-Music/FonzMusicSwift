@@ -41,7 +41,7 @@ struct SongResultFromSearchItemView: View {
         .padding(.leading, 10)
         .padding(.trailing, 20)
         
-        .animation(.easeIn)
+//        .animation(.linear)
         
     }
 }
