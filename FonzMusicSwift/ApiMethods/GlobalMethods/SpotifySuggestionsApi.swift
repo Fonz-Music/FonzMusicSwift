@@ -170,6 +170,9 @@ class SpotifySuggestionsApi {
         // this allows us to wait before returning value
         let sem = DispatchSemaphore.init(value: 0)
         var artists = [Artist]()
+        if sessionId == "" {
+            return artists
+        }
         // get access token
         let accessToken = getJWTAndCheckIfExpired()
         // create url
@@ -229,6 +232,9 @@ class SpotifySuggestionsApi {
         // this allows us to wait before returning value
         let sem = DispatchSemaphore.init(value: 0)
         var playlists = [Playlist]()
+        if sessionId == "" {
+            return playlists
+        }
         // get access token
         let accessToken = getJWTAndCheckIfExpired()
         // create url
@@ -289,6 +295,10 @@ class SpotifySuggestionsApi {
         let sem = DispatchSemaphore.init(value: 0)
         // return
         var tracks : [Track] = [Track]()
+        if artistId == "" {
+            print("artistId is empty")
+            return tracks
+        }
         // get access token
         let accessToken = getJWTAndCheckIfExpired()
         // create url
@@ -345,6 +355,10 @@ class SpotifySuggestionsApi {
         let sem = DispatchSemaphore.init(value: 0)
         // return
         var tracks : [Track] = [Track]()
+        if playlistId == "" {
+            print("playlistId is empty")
+            return tracks
+        }
         // get access token
         let accessToken = getJWTAndCheckIfExpired()
         // create url

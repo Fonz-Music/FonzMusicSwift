@@ -132,6 +132,10 @@ class SpotifyPaginatedApi {
         // this allows us to wait before returning value
         let sem = DispatchSemaphore.init(value: 0)
         var artists = [ArtistPaginated]()
+        if sessionId == "" {
+            print("sessionId is empty")
+            return artists
+        }
         // get access token
         let accessToken = getJWTAndCheckIfExpired()
         // create url
@@ -192,6 +196,10 @@ class SpotifyPaginatedApi {
         // this allows us to wait before returning value
         let sem = DispatchSemaphore.init(value: 0)
         var playlists = [PlaylistPaginated]()
+        if sessionId == "" {
+            print("sessionId is empty")
+            return playlists
+        }
         // get access token
         let accessToken = getJWTAndCheckIfExpired()
         // create url
@@ -254,6 +262,10 @@ class SpotifyPaginatedApi {
         let sem = DispatchSemaphore.init(value: 0)
         // return
         var tracks : [TrackForPagination] = [TrackForPagination]()
+        if playlistId == "" {
+            print("playlistId is empty")
+            return tracks
+        }
         // get access token
         let accessToken = getJWTAndCheckIfExpired()
         // create url
