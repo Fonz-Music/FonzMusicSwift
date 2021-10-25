@@ -29,20 +29,33 @@ struct SearchTab: View {
     
     var body: some View {
         VStack {
+//            PavRoute(hasHostVar: $hasHost)
             // if the user is connected to a host's party
             if hasHost {
-                SearchBarPage(hostCoaster: hostCoaster, hasHostVar: $hasHost, userAttributes: userAttributes)
-                    
+                if hostCoaster.group == "pav" {
+                    PavRoute(hostCoaster: hostCoaster, hasHostVar: $hasHost, userAttributes: userAttributes)
+                        .background(
+                            ZStack{
+                                VStack{
+                                    
+                                    Image("pavHalfBg")
+                                        .opacity(0.6)
+                                        .frame(maxWidth: UIScreen.screenWidth)
+                                    Spacer()
+                                }
+                            }, alignment: .top)
+                }
+                else {
+                    SearchBarPage(hostCoaster: hostCoaster, hasHostVar: $hasHost, userAttributes: userAttributes)
+                }
+
+
             }
             // otherwise show decision page
             else {
-                
+
                 HomePageDecision(hostCoaster: hostCoaster, hasHostVar: $hasHost, selectedTab: $selectedTab, userAttributes: userAttributes, hasHost: $hasHost, coastersConnectedToUser: coastersConnectedToUser)
                     // if first time user, ask if they need to create a new account
-                    
-                
-                
-                   
             }
         }
         
@@ -51,9 +64,9 @@ struct SearchTab: View {
                 Color(UIColor(colorScheme == .light ? Color.white: Color.darkBackground))
                 VStack{
                     Spacer()
-                    Image("mountainProfile")
-                        .opacity(0.4)
-                        .frame(maxWidth: UIScreen.screenWidth)
+//                    Image("mountainProfile")
+//                        .opacity(0.4)
+//                        .frame(maxWidth: UIScreen.screenWidth)
                 }
                
             }, alignment: .bottom)

@@ -19,8 +19,6 @@ struct SearchResultsView: View {
     @StateObject var hostCoaster:HostCoasterInfo
     // track object to update the song to queue
     @StateObject var currentTune : GlobalTrack
-    // bool that will launch nfc when pressed
-    @Binding var pressedSongToLaunchNfc : Bool
     // checks to see if currently typing in searchbar
     @Binding var isEditing : Bool
     // int of queue sogn return
@@ -51,10 +49,6 @@ struct SearchResultsView: View {
                         ForEach(tracksFromSearch.products, id: \.self) { item in
                             Button(action: {
                                 FirebaseAnalytics.Analytics.logEvent("guestSelectedSearchedSong", parameters: ["user":"guest", "tab":"search"])
-
-                                // sets the current song to song chosen
-//                                if !pressedSongToLaunchNfc {
-                                    
                                     // sets temp tune attributes to pass into sheet
                                     currentTune.albumArt = item.albumArt
                                     currentTune.songId = item.songId
@@ -65,15 +59,8 @@ struct SearchResultsView: View {
                                     withAnimation{
                                         showQueueResponse = true
                                         statusCodeQueueSong = queueSongToHostSession(sessionId: hostCoaster.sessionId, trackId: currentTune.songId)
-//                                        statusCodeQueueSong = GuestApi().queueSong(sessionId: hostCoaster.sessionId, trackId: currentTune.songId)
                                     }
                                 }
-                                
-                                    // bool to launch queueSongSheet set to true
-//                                    pressedSongToLaunchNfc = true
-//                                }
-                                
-//                                isEditing = false
                                 hideKeyboard()
                             }, label: {
                                 SongResultFromSearchItemView(item: item.toTrack())
@@ -89,29 +76,12 @@ struct SearchResultsView: View {
                                     }
                                     
                             })
-//                            if item.index == (tracksFromSearch.resultsPerSearch - 1) {
-//                                Text("loading more tunes")
-//                                    .foregroundColor(colorScheme == .light ? Color.darkBackground: Color.white)
-//                                    .fonzParagraphTwo()
-//                            }
                         }
-                        
-//                        if tracksFromSearch.products 
                     }
                     .padding(.top, 5)
                     .padding(.bottom, 10)
                 }
                 .padding(.vertical, 10)
-//                .simultaneousGesture(
-//                    DragGesture().onChanged { value in
-//                        hideKeyboard()
-//                    }
-//                )
-//                .gesture(
-//                    DragGesture().onChanged { value in
-//                        hideKeyboard()
-//                    }
-//                )
             }
             .frame(width: UIScreen.screenWidth * 0.95, height: UIScreen.screenHeight * 0.6)
         }

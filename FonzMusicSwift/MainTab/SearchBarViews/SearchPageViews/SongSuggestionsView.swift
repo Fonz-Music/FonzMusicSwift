@@ -16,8 +16,6 @@ struct SongSuggestionsView: View {
     @StateObject var hostCoaster:HostCoasterInfo
     // track object to update the song to queue
     @StateObject var currentTune : GlobalTrack
-    // bool that will launch nfc when pressed
-    @Binding var pressedSongToLaunchNfc : Bool
     // object that stores the songs from the api
     @StateObject var tracksFromPlaylist: TracksFromPlaylist
     // object that stores the songs from the api
@@ -44,11 +42,14 @@ struct SongSuggestionsView: View {
         ZStack{
             RoundedRectangle(cornerRadius: .cornerRadiusBlocks)
                 
-                .fill(colorScheme == .light ? Color.white: Color.darkBackground)
+//                .fill(colorScheme == .light ? Color.white: Color.darkBackground)
+//                .foregroundColor(.lilac)
+                .foregroundColor(.clear)
                 .frame(height: determineSongSugsSize(), alignment: .center)
 //                .frame(width: UIScreen.screenWidth * 0.95, height: 900, alignment: .center)
                 .fonzShadow()
                 .padding(.top, 30)
+                
             VStack{
                 Spacer()
                     .frame(height: 30)
@@ -76,7 +77,7 @@ struct SongSuggestionsView: View {
                             }
                         }
                 }
-                YourTopSongs(hostCoaster: hostCoaster, currentTune: currentTune, tracksFromTopSongs: tracksFromTopSongs, pressedSongToLaunchNfc: $pressedSongToLaunchNfc, statusCodeQueueSong: $statusCodeQueueSong, showQueueResponse: $showQueueResponse)
+                YourTopSongs(hostCoaster: hostCoaster, currentTune: currentTune, tracksFromTopSongs: tracksFromTopSongs,  statusCodeQueueSong: $statusCodeQueueSong, showQueueResponse: $showQueueResponse)
                 YourTopArtists(hostCoaster: hostCoaster, tracksFromArtist: tracksFromArtist, userAttributes: userAttributes, guestTopArtists: guestTopArtists)
                 YourTopPlaylists(hostCoaster: hostCoaster,  tracksFromPlaylist: tracksFromPlaylist, guestTopPlaylists: guestTopPlaylists, userAttributes: userAttributes)
                 Spacer()
@@ -92,9 +93,21 @@ struct SongSuggestionsView: View {
                 Spacer()
                 #endif
             }
+            
             .padding(.top, 30)
             .frame(width: UIScreen.screenWidth * 0.95)
+            
         }
+        .background(
+            ZStack{
+                VStack{
+//                        Spacer()
+                    Image("newColorfulBg")
+//                            .opacity(0.4)
+                        .frame(width: UIScreen.screenWidth)
+                }
+               
+            }, alignment: .top)
     }
     
     func determineSongSugsSize() -> CGFloat {

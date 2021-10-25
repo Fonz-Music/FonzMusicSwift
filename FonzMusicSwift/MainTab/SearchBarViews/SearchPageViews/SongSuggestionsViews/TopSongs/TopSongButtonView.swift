@@ -16,8 +16,6 @@ struct TopSongButtonView: View {
     let topSong: Track
     // track object to update the song to queue
     @StateObject var currentTune : GlobalTrack
-    // bool that will launch nfc when pressed
-    @Binding var pressedSongToLaunchNfc : Bool
     
     // statusCode from queueing song
     @Binding var statusCodeQueueSong : Int
@@ -30,7 +28,7 @@ struct TopSongButtonView: View {
     var body: some View {
         Button {
             withAnimation{
-                showQueueResponse = true
+//                showQueueResponse = true
 //                statusCodeQueueSong =
             }
             DispatchQueue.main.async {
@@ -42,7 +40,7 @@ struct TopSongButtonView: View {
                 currentTune.songName = topSong.songName
                 if (currentTune.songId != "") {
                     withAnimation{
-//                        showQueueResponse = true
+                        showQueueResponse = true
                         statusCodeQueueSong = queueSongToHostSession(sessionId: hostCoaster.sessionId, trackId: currentTune.songId)
 //                        statusCodeQueueSong = GuestApi().queueSong(sessionId: hostCoaster.sessionId, trackId: currentTune.songId)
                     }

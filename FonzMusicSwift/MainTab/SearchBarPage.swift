@@ -21,11 +21,13 @@ struct SearchBarPage: View {
 //    @Binding var connectedToSpotify : Bool
     // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
     @StateObject var userAttributes : CoreUserAttributes
-    // track object inherited from song search
-    @StateObject var currentTune:GlobalTrack = GlobalTrack()
+    
     
     
 // ---------------------------------- created inside view -------------------------------------------
+   
+    // track object inherited from song search
+    @StateObject var currentTune:GlobalTrack = GlobalTrack()
     // object that stores the songs from the api
     @StateObject var tracksFromSearch: TracksFromSearch = TracksFromSearch()
     // object that stores the songs from the api
@@ -55,17 +57,9 @@ struct SearchBarPage: View {
     
     var body: some View {
         ZStack {
-           // song page 
-//            if #available(iOS 15.0, *) {
-//                SearchPageView15(hostCoaster: hostCoaster, hasHostVar: $hasHostVar, userAttributes: userAttributes, showQueueResponse: $showQueueResponse, statusCodeQueueSong: $statusCodeQueueSong, isEditingSearchBar: $isEditingSearchBar, currentTune: currentTune, tracksFromSearch: tracksFromSearch, tracksFromPlaylist: tracksFromPlaylist, tracksFromArtist: tracksFromArtist, trackFromNowPlaying: trackFromNowPlaying, tracksFromTopSongs: tracksFromTopSongs, guestTopArtists: guestTopArtists, guestTopPlaylists: guestTopPlaylists)
-//            } else {
-                // Fallback on earlier versions
+           // song page
                 SearchPageView(hostCoaster: hostCoaster, hasHostVar: $hasHostVar, userAttributes: userAttributes, showQueueResponse: $showQueueResponse, statusCodeQueueSong: $statusCodeQueueSong, isEditingSearchBar: $isEditingSearchBar, currentTune: currentTune, tracksFromSearch: tracksFromSearch, tracksFromPlaylist: tracksFromPlaylist, tracksFromArtist: tracksFromArtist, trackFromNowPlaying: trackFromNowPlaying, tracksFromTopSongs: tracksFromTopSongs, guestTopArtists: guestTopArtists, guestTopPlaylists: guestTopPlaylists)
-//            }
-                
-                
-//                .padding(.horizontal, 30)
-   
+
             // resps
             LaunchSongResponsePopup(statusCodeQueueSong: statusCodeQueueSong, showQueueResponse: $showQueueResponse, songSelected: currentTune, hostCoaster: hostCoaster, userAttributes: userAttributes )
                 .padding(.horizontal)
@@ -74,11 +68,6 @@ struct SearchBarPage: View {
         .background(
             ZStack{
                 Rectangle()
-//                    .fill(LinearGradient(
-//                        gradient: .init(colors: [.amber, .lilac]),
-//                        startPoint: .topLeading,
-//                          endPoint: .bottomTrailing
-//                        ))
                     .fill(Color.amber)
                     // darkens background when typing
 //                    .darkenView(isEditingSearchBar)

@@ -72,22 +72,16 @@ struct SearchPageView: View {
                                 withAnimation {
                                     hasHostVar = false
                                 }
-                                var userSessionId : String = UserDefaults.standard.string(forKey: "userAccountSessionId") ?? ""
-                                var hostSessionId : String = UserDefaults.standard.string(forKey: "hostSessionId") ?? ""
-                                print("user sess is " + userSessionId)
                             } label: {
                                 Image(systemName: "arrow.up.and.person.rectangle.portrait")
-                                //                            Image("leaveParty")
                                     .resizable()
                                     .frame(width: 20, height: 17, alignment: .center)
-                                //                                .foregroundColor(.white)
                                     .foregroundColor(colorScheme == .light ? Color.gray: Color.white)
                                 
                                     .padding(10)
                                 
                             }
                             .buttonStyle(BasicFonzButtonCircleNoBorder(bgColor: colorScheme == .light ? Color.white: Color.darkBackground, secondaryColor: .amber))
-                            //                        .buttonStyle(BasicFonzButtonCircleNoBorder(bgColor: Color.white, secondaryColor: .amber))
                             .padding(.headingFrontIndent)
                         }.padding(.top, .headingTopIndent)
                         
@@ -108,7 +102,7 @@ struct SearchPageView: View {
                         // now playing + song suggestions
                         VStack{
                             ActiveSongView(hostName: hostCoaster.hostName, currentSessionId: hostCoaster.sessionId, trackfromNowPlaying: trackFromNowPlaying)
-                            SongSuggestionsView(hostCoaster: hostCoaster, currentTune: currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc, tracksFromPlaylist: tracksFromPlaylist, tracksFromArtist: tracksFromArtist, tracksFromTopSongs: tracksFromTopSongs, guestTopArtists: guestTopArtists, guestTopPlaylists: guestTopPlaylists, userAttributes: userAttributes, statusCodeQueueSong: $statusCodeQueueSong, showQueueResponse: $showQueueResponse)
+                            SongSuggestionsView(hostCoaster: hostCoaster, currentTune: currentTune,  tracksFromPlaylist: tracksFromPlaylist, tracksFromArtist: tracksFromArtist, tracksFromTopSongs: tracksFromTopSongs, guestTopArtists: guestTopArtists, guestTopPlaylists: guestTopPlaylists, userAttributes: userAttributes, statusCodeQueueSong: $statusCodeQueueSong, showQueueResponse: $showQueueResponse)
                             //                        #if !APPCLIP
                             //                        Spacer()
                             //                            .frame(height: 50)
@@ -130,7 +124,7 @@ struct SearchPageView: View {
                         // search results
                         if isEditingSearchBar {
                             VStack {
-                                SearchResultsView(tracksFromSearch: tracksFromSearch, hostCoaster: hostCoaster, currentTune: currentTune, pressedSongToLaunchNfc: $pressedSongToLaunchNfc, isEditing: $isEditingSearchBar, statusCodeQueueSong: $statusCodeQueueSong, showQueueResponse: $showQueueResponse)
+                                SearchResultsView(tracksFromSearch: tracksFromSearch, hostCoaster: hostCoaster, currentTune: currentTune,  isEditing: $isEditingSearchBar, statusCodeQueueSong: $statusCodeQueueSong, showQueueResponse: $showQueueResponse)
                                 Spacer()
                             }
                         }

@@ -49,15 +49,11 @@ struct ActiveSongView: View {
                     .fonzShadow()
                     
             )
-            
-//            .frame(width: UIScreen.screenWidth, alignment: .center)
-//            .padding(.horizontal, 10)
             .onAppear {
                 print("this is the active song img \(trackfromNowPlaying.currentSong[0].albumArt)")
                 if trackfromNowPlaying.currentSong[0].trackName == "" {
                     trackfromNowPlaying.getActiveSong(sessionId: currentSessionId)
                 }
-                
             }
         }
     }

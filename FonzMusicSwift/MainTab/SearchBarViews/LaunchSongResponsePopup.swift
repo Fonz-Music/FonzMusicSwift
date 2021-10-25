@@ -126,11 +126,6 @@ struct LaunchSongResponsePopup: View {
             .animation(.easeInOut)
             .isHidden(!showQueueResponse)
             .onAppear {
-//                if (currentTune.songId != "") {
-//                    withAnimation{
-//                        statusCodeQueueSong = GuestApi().queueSong(sessionId: hostCoaster.sessionId, trackId: currentTune.songId)
-//                    }
-//                }
                 DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) {
                     withAnimation {
                         showQueueResponse = false

@@ -99,6 +99,7 @@ struct HomePageDecision: View {
                                         self.hostCoaster.sessionId = tempCoasterDetails.sessionId
                                         self.hostCoaster.uid = tempCoasterDetails.uid
                                             self.hostCoaster.hostUserId = tempCoasterDetails.hostUserId
+                                            self.hostCoaster.group = tempCoasterDetails.group
                                         self.hasHostVar = true
                                             
                                         }
