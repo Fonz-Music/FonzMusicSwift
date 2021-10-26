@@ -242,6 +242,14 @@
 		26B5A4782728664C00FA999E /* PavDrinksMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B5A4762728664C00FA999E /* PavDrinksMenu.swift */; };
 		26B5A47B2728724600FA999E /* PavBeerMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B5A47A2728724600FA999E /* PavBeerMenu.swift */; };
 		26B5A47C2728724600FA999E /* PavBeerMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B5A47A2728724600FA999E /* PavBeerMenu.swift */; };
+		26B5A47E2728775F00FA999E /* PavWineMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B5A47D2728775F00FA999E /* PavWineMenu.swift */; };
+		26B5A47F2728775F00FA999E /* PavWineMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B5A47D2728775F00FA999E /* PavWineMenu.swift */; };
+		26B5A481272877A800FA999E /* PavSodaMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B5A480272877A800FA999E /* PavSodaMenu.swift */; };
+		26B5A482272877A800FA999E /* PavSodaMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B5A480272877A800FA999E /* PavSodaMenu.swift */; };
+		26B5A484272877E400FA999E /* PavCocktailMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B5A483272877E400FA999E /* PavCocktailMenu.swift */; };
+		26B5A485272877E400FA999E /* PavCocktailMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B5A483272877E400FA999E /* PavCocktailMenu.swift */; };
+		26B5A4872728784800FA999E /* PavHotDrinkMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B5A4862728784800FA999E /* PavHotDrinkMenu.swift */; };
+		26B5A4882728784800FA999E /* PavHotDrinkMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B5A4862728784800FA999E /* PavHotDrinkMenu.swift */; };
 		26B65149263865D10074F279 /* CoastersFromApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B65148263865D10074F279 /* CoastersFromApi.swift */; };
 		26B6514D263866950074F279 /* HostCoasterInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B6514C263866950074F279 /* HostCoasterInfo.swift */; };
 		26B65150263866BE0074F279 /* GlobalTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B6514F263866BE0074F279 /* GlobalTrack.swift */; };
@@ -457,6 +465,10 @@
 		26B5A473272864ED00FA999E /* PavMenuDrinksOrFood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PavMenuDrinksOrFood.swift; sourceTree = "<group>"; };
 		26B5A4762728664C00FA999E /* PavDrinksMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PavDrinksMenu.swift; sourceTree = "<group>"; };
 		26B5A47A2728724600FA999E /* PavBeerMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PavBeerMenu.swift; sourceTree = "<group>"; };
+		26B5A47D2728775F00FA999E /* PavWineMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PavWineMenu.swift; sourceTree = "<group>"; };
+		26B5A480272877A800FA999E /* PavSodaMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PavSodaMenu.swift; sourceTree = "<group>"; };
+		26B5A483272877E400FA999E /* PavCocktailMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PavCocktailMenu.swift; sourceTree = "<group>"; };
+		26B5A4862728784800FA999E /* PavHotDrinkMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PavHotDrinkMenu.swift; sourceTree = "<group>"; };
 		26B65148263865D10074F279 /* CoastersFromApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoastersFromApi.swift; sourceTree = "<group>"; };
 		26B6514C263866950074F279 /* HostCoasterInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostCoasterInfo.swift; sourceTree = "<group>"; };
 		26B6514F263866BE0074F279 /* GlobalTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalTrack.swift; sourceTree = "<group>"; };
@@ -944,6 +956,10 @@
 			isa = PBXGroup;
 			children = (
 				26B5A47A2728724600FA999E /* PavBeerMenu.swift */,
+				26B5A47D2728775F00FA999E /* PavWineMenu.swift */,
+				26B5A480272877A800FA999E /* PavSodaMenu.swift */,
+				26B5A483272877E400FA999E /* PavCocktailMenu.swift */,
+				26B5A4862728784800FA999E /* PavHotDrinkMenu.swift */,
 			);
 			path = DrinkDisplays;
 			sourceTree = "<group>";
@@ -1390,6 +1406,7 @@
 				26B65153263866E20074F279 /* UpdatePageviewVars.swift in Sources */,
 				26FBCCDF26866EF200399460 /* CoasterNameInDashboard.swift in Sources */,
 				268B97AE26855C7000984DC4 /* ConnectSpotifyButtonHostView.swift in Sources */,
+				26B5A481272877A800FA999E /* PavSodaMenu.swift in Sources */,
 				263545BB26A6FFC400B415C9 /* LinkSpotifySettingsButton.swift in Sources */,
 				26B5A45D2726B3F200FA999E /* PavRoute.swift in Sources */,
 				26B5A4772728664C00FA999E /* PavDrinksMenu.swift in Sources */,
@@ -1418,6 +1435,7 @@
 				2677029326347ECD00B8BC92 /* ContentView.swift in Sources */,
 				26AF07D0268D3BAD006A9504 /* ConnectSpotifySearch.swift in Sources */,
 				26691F79267ACB3B00C83696 /* HostSetup.swift in Sources */,
+				26B5A47E2728775F00FA999E /* PavWineMenu.swift in Sources */,
 				2609AD56263DBDBE00337A02 /* SpotifyWebViewWk.swift in Sources */,
 				26DB9B232634A96B0030643D /* Colors.swift in Sources */,
 				26691F70267AC69A00C83696 /* JoinAPartyButton.swift in Sources */,
@@ -1538,6 +1556,7 @@
 				2620B8A52679261F004FE721 /* SearchBarPage.swift in Sources */,
 				26DFD8832708FCDB0062BDE0 /* SearchPageFunctions.swift in Sources */,
 				26FBCCE926867DF800399460 /* TroubleShootCoasterField.swift in Sources */,
+				26B5A4872728784800FA999E /* PavHotDrinkMenu.swift in Sources */,
 				268ED21F26DE875500D34F60 /* SendDevFeedback.swift in Sources */,
 				26E8CFE1266D3A0F00CEB1F6 /* SpotifyController.swift in Sources */,
 				26F5351326988BA10055C188 /* CreateAccountView.swift in Sources */,
@@ -1547,6 +1566,7 @@
 				2620B8A326792599004FE721 /* MainTab.swift in Sources */,
 				26F5350C26975EDD0055C188 /* ConsentedToPrivacy.swift in Sources */,
 				2676B12726A5C33E00E18E4B /* ProvidersResponse.swift in Sources */,
+				26B5A484272877E400FA999E /* PavCocktailMenu.swift in Sources */,
 				26B5A4612726B94B00FA999E /* PavHeader.swift in Sources */,
 				26AF07C8268D2751006A9504 /* GetVerionApi.swift in Sources */,
 			);
@@ -1611,9 +1631,11 @@
 				261752D426A3448A0069C83D /* YourTopArtists.swift in Sources */,
 				261752D526A3448A0069C83D /* YourTopPlaylists.swift in Sources */,
 				26B5A46E27285FFA00FA999E /* PavMenu.swift in Sources */,
+				26B5A4882728784800FA999E /* PavHotDrinkMenu.swift in Sources */,
 				261752D626A3448A0069C83D /* ConnectSpotifySearch.swift in Sources */,
 				261752D726A3448A0069C83D /* SongResultItem.swift in Sources */,
 				2665E00D26B322ED00AE2AAB /* NameYourCoasterView.swift in Sources */,
+				26B5A485272877E400FA999E /* PavCocktailMenu.swift in Sources */,
 				268ED22026DE8DE200D34F60 /* SendDevFeedback.swift in Sources */,
 				261752D826A3448A0069C83D /* SearchBarView.swift in Sources */,
 				268ED22126DE8DEF00D34F60 /* ComposeMailData.swift in Sources */,
@@ -1635,8 +1657,10 @@
 				261752E426A3448B0069C83D /* MuseoSans-700.otf in Sources */,
 				261752EC26A3448B0069C83D /* URL.swift in Sources */,
 				261752ED26A3448B0069C83D /* ViewExtensions.swift in Sources */,
+				26B5A482272877A800FA999E /* PavSodaMenu.swift in Sources */,
 				261752EE26A3448B0069C83D /* DataExtension.swift in Sources */,
 				261752EF26A3448B0069C83D /* StringExtensions.swift in Sources */,
+				26B5A47F2728775F00FA999E /* PavWineMenu.swift in Sources */,
 				261752F026A3448B0069C83D /* GlobalExtensions.swift in Sources */,
 				2665E00C26B183AB00AE2AAB /* ActiveSongUserInterface.swift in Sources */,
 				261752F126A3448B0069C83D /* TextExtension.swift in Sources */,
