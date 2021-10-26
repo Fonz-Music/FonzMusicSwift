@@ -41,7 +41,16 @@ struct SongSuggestionsView: View {
     var body: some View {
         ZStack{
             RoundedRectangle(cornerRadius: .cornerRadiusBlocks)
-                
+                .background(
+                    ZStack{
+                        VStack{
+        //                        Spacer()
+                            Image("newColorfulBg")
+        //                            .opacity(0.4)
+                                .frame(width: UIScreen.screenWidth)
+                        }
+                       
+                    }, alignment: .top)
 //                .fill(colorScheme == .light ? Color.white: Color.darkBackground)
 //                .foregroundColor(.lilac)
                 .foregroundColor(.clear)
@@ -49,6 +58,7 @@ struct SongSuggestionsView: View {
 //                .frame(width: UIScreen.screenWidth * 0.95, height: 900, alignment: .center)
                 .fonzShadow()
                 .padding(.top, 30)
+            
                 
             VStack{
                 Spacer()
@@ -98,16 +108,7 @@ struct SongSuggestionsView: View {
             .frame(width: UIScreen.screenWidth * 0.95)
             
         }
-        .background(
-            ZStack{
-                VStack{
-//                        Spacer()
-                    Image("newColorfulBg")
-//                            .opacity(0.4)
-                        .frame(width: UIScreen.screenWidth)
-                }
-               
-            }, alignment: .top)
+        
     }
     
     func determineSongSugsSize() -> CGFloat {

@@ -13,6 +13,9 @@ struct PavCoreContent: View {
     // checks if guest has a host
     @Binding var hasHostVar : Bool
     
+    // has user download full app if on app clip
+    @State var throwPavMenuModal = false
+    
     
     // object that stores the songs from the api
     @ObservedObject var trackFromNowPlaying: TrackFromNowPlaying = TrackFromNowPlaying()
@@ -24,6 +27,7 @@ struct PavCoreContent: View {
         VStack{
             PavHeader(hasHostVar: $hasHostVar)
             Button {
+                throwPavMenuModal = true
                 print("pressed")
             } label: {
                 HStack{
@@ -34,7 +38,7 @@ struct PavCoreContent: View {
                     Text("Menu")
                         .foregroundColor(.darkButton)
                         .multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
-                        .fonzParagraphOne()
+                        .fonzHeading()
                         .lineLimit(2)
                     Spacer()
                 }
@@ -70,6 +74,9 @@ struct PavCoreContent: View {
             
             Spacer()
                 .frame(height: 30)
+        }
+        .sheet(isPresented: $throwPavMenuModal) {
+            PavMenu()
         }
         
         .ignoresSafeArea()

@@ -31,12 +31,18 @@ struct SearchBarView : View {
                         .fonzButtonText()
                 })
 //                .foregroundColor(colorScheme == .light ? Color.darkButton: Color.white)
-                .foregroundColor(.lilac)
+                .foregroundColor(.clear)
                 .fonzParagraphTwo()
                 .padding()
                 .padding(.horizontal, .headingFrontIndent)
 //                .background(colorScheme == .light ? Color.white: Color.darkButton)
-                .background(Color.amber)
+//                .background(Color.amber)
+                .background(
+                
+                            Image("newColorfulBg")
+                                 
+
+    , alignment: .top)
                 .cornerRadius(.cornerRadiusTasks)
                 .fonzShadow()
                 .overlay(
@@ -58,6 +64,7 @@ struct SearchBarView : View {
                         }
                     }
                 )
+            
                 
 //                .padding(.horizontal, 10)
                 .onTapGesture {
