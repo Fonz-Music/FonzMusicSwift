@@ -11,6 +11,8 @@ struct PavMenuDrinksOrFood: View {
     
     @Binding var onDrinksMenu : Bool
     
+    
+    
     var body: some View {
         HStack{
             Spacer()

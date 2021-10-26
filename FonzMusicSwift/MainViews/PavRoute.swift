@@ -28,7 +28,7 @@ struct PavRoute: View {
                 
                 PavCoreContent(hostCoaster: hostCoaster, hasHostVar: $hasHostVar)
                 
-                SearchContentForPubs(hostCoaster: hostCoaster, hasHostVar: $hasHostVar, userAttributes: userAttributes)
+//                SearchContentForPubs(hostCoaster: hostCoaster, hasHostVar: $hasHostVar, userAttributes: userAttributes)
                 Spacer()
                     
             }
