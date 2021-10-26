@@ -8,9 +8,13 @@
 import SwiftUI
 
 struct PavMenu: View {
+    
+    @State var onDrinksMenu : Bool = true
+    
     var body: some View {
         VStack{
             PavMenuHeader()
+            PavMenuDrinksOrFood(onDrinksMenu: $onDrinksMenu)
             Spacer()
         }
         .background(

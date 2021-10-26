@@ -236,6 +236,8 @@
 		26B5A46E27285FFA00FA999E /* PavMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B5A46C27285FFA00FA999E /* PavMenu.swift */; };
 		26B5A471272860FE00FA999E /* PavMenuHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B5A470272860FE00FA999E /* PavMenuHeader.swift */; };
 		26B5A472272860FE00FA999E /* PavMenuHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B5A470272860FE00FA999E /* PavMenuHeader.swift */; };
+		26B5A474272864ED00FA999E /* PavMenuDrinksOrFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B5A473272864ED00FA999E /* PavMenuDrinksOrFood.swift */; };
+		26B5A475272864ED00FA999E /* PavMenuDrinksOrFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B5A473272864ED00FA999E /* PavMenuDrinksOrFood.swift */; };
 		26B65149263865D10074F279 /* CoastersFromApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B65148263865D10074F279 /* CoastersFromApi.swift */; };
 		26B6514D263866950074F279 /* HostCoasterInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B6514C263866950074F279 /* HostCoasterInfo.swift */; };
 		26B65150263866BE0074F279 /* GlobalTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B6514F263866BE0074F279 /* GlobalTrack.swift */; };
@@ -448,6 +450,7 @@
 		26B5A4692726D28E00FA999E /* PavMenuData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PavMenuData.swift; sourceTree = "<group>"; };
 		26B5A46C27285FFA00FA999E /* PavMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PavMenu.swift; sourceTree = "<group>"; };
 		26B5A470272860FE00FA999E /* PavMenuHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PavMenuHeader.swift; sourceTree = "<group>"; };
+		26B5A473272864ED00FA999E /* PavMenuDrinksOrFood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PavMenuDrinksOrFood.swift; sourceTree = "<group>"; };
 		26B65148263865D10074F279 /* CoastersFromApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoastersFromApi.swift; sourceTree = "<group>"; };
 		26B6514C263866950074F279 /* HostCoasterInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostCoasterInfo.swift; sourceTree = "<group>"; };
 		26B6514F263866BE0074F279 /* GlobalTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalTrack.swift; sourceTree = "<group>"; };
@@ -925,6 +928,7 @@
 			isa = PBXGroup;
 			children = (
 				26B5A470272860FE00FA999E /* PavMenuHeader.swift */,
+				26B5A473272864ED00FA999E /* PavMenuDrinksOrFood.swift */,
 			);
 			path = PavMenuComps;
 			sourceTree = "<group>";
@@ -1499,6 +1503,7 @@
 				26916FF6268E585200B7281B /* LaunchSongResponsePopup.swift in Sources */,
 				265634C12678341E00FD6F27 /* SettingsPage.swift in Sources */,
 				26F5350226975C870055C188 /* SignInView.swift in Sources */,
+				26B5A474272864ED00FA999E /* PavMenuDrinksOrFood.swift in Sources */,
 				2665E00F26B333A700AE2AAB /* OneMoreStep.swift in Sources */,
 				26FBCCEB2686914600399460 /* AddNewCoasterButton.swift in Sources */,
 				269EE56B26B5A448006D2A00 /* ProgressBar.swift in Sources */,
@@ -1657,6 +1662,7 @@
 				26B5A45E2726B4B300FA999E /* PavRoute.swift in Sources */,
 				26B5A4652726C3AD00FA999E /* PavCoreContent.swift in Sources */,
 				2648209426C194E800F8E7BE /* GetFullAppButton.swift in Sources */,
+				26B5A475272864ED00FA999E /* PavMenuDrinksOrFood.swift in Sources */,
 				2617531A26A3448B0069C83D /* TryAgainNfc.swift in Sources */,
 				2617531B26A3448B0069C83D /* LaunchQueueSongNfc.swift in Sources */,
 				2617531C26A3448B0069C83D /* LaunchQueueSongWriteUrl.swift in Sources */,
