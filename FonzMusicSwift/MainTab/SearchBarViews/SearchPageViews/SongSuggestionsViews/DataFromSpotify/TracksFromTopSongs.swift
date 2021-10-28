@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 import Network
+import SwiftUI
 
 class TracksFromTopSongs: ObservableObject {
 
@@ -67,23 +68,51 @@ class TracksFromTopSongs: ObservableObject {
     }
     
     func loadMoreTracks() {
-        topProducts += SpotifyPaginatedApi().getGuestTopSongsPaginated(sessionId: userSessionId, offset: offset)
-        offset += 10
-        bottomProducts += SpotifyPaginatedApi().getGuestTopSongsPaginated(sessionId: userSessionId, offset: offset)
-        offset += 10
+//        topProducts += SpotifyPaginatedApi().getGuestTopSongsPaginated(sessionId: userSessionId, offset: offset)
+//        offset += 10
+//        bottomProducts += SpotifyPaginatedApi().getGuestTopSongsPaginated(sessionId: userSessionId, offset: offset)
+//        offset += 10
+        let tracks = SpotifyPaginatedApi().getGuestTopSongsPaginated(sessionId: userSessionId, offset: offset)
+        
+        for track in tracks {
+            if track.index % 2 == 0 {
+                print("adding to top prods")
+                topProducts.append(track)
+            }
+            else {
+                print("adding to bottom prods")
+                bottomProducts.append(track)
+            }
+        }
+        offset += 20
     }
     
     func loadTracks() {
+        topProducts = []
+        bottomProducts = []
         connectedToSpotify = UserDefaults.standard.bool(forKey: "connectedToSpotify")
         if connectedToSpotify && userSessionId != "" {
 
 //            if updateTopTracks {
                 print("first call is changing")
-                topProducts += SpotifyPaginatedApi().getGuestTopSongsPaginated(sessionId: userSessionId, offset: offset)
-                offset += 10
-                bottomProducts += SpotifyPaginatedApi().getGuestTopSongsPaginated(sessionId: userSessionId, offset: offset)
-                offset += 10
+//                topProducts += SpotifyPaginatedApi().getGuestTopSongsPaginated(sessionId: userSessionId, offset: offset)
+//                offset += 10
+//                bottomProducts += SpotifyPaginatedApi().getGuestTopSongsPaginated(sessionId: userSessionId, offset: offset)
+//                offset += 10
 //                SpotifySuggestionsApi().getGuestTopSongs(sessionId: userSessionId)
+            let tracks = SpotifyPaginatedApi().getGuestTopSongsPaginated(sessionId: userSessionId, offset: offset)
+            
+            for track in tracks {
+                if track.index % 2 == 0 {
+                    print("adding to top prods")
+                    topProducts.append(track)
+                }
+                else {
+                    print("adding to bottom prods")
+                    bottomProducts.append(track)
+                }
+            }
+            offset += 20
                 if topProducts.count < 1 {
                     topProducts = tempTracksTopPaginated
                     bottomProducts = tempTracksBottomPaginated

@@ -79,7 +79,7 @@ class SpotifyPaginatedApi {
         // get access token
         let accessToken = getJWTAndCheckIfExpired()
         // create url
-        let offsetString = "&offset=" + String(offset) + "&limit=10"
+        let offsetString = "&offset=" + String(offset) + "&limit=20"
         guard let url = URL(string: self.ADDRESS + self.GUEST + sessionId + "/" + self.SPOTIFY + self.SEARCH + "top?type=tracks" + offsetString) else { return tracks }
         // creates req w url
         var request = URLRequest(url: url)
