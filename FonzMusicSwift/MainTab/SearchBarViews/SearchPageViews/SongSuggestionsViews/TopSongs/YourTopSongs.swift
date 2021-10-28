@@ -98,7 +98,11 @@ struct YourTopSongs: View {
         .onAppear {
            connectedToSpotify = UserDefaults.standard.bool(forKey: "connectedToSpotify")
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                tracksFromTopSongs.loadTracks()
+                if tracksFromTopSongs.loadSongs {
+                    tracksFromTopSongs.loadTracks()
+                    tracksFromTopSongs.loadSongs = false
+                }
+                
             }
             
         }

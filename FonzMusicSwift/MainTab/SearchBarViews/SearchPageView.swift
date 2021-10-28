@@ -26,37 +26,23 @@ struct SearchPageView: View {
     @StateObject var currentTune:GlobalTrack
     
     
-// ---------------------------------- created inside view -------------------------------------------
-//    // object that stores the songs from the api
-//    @ObservedObject var tracksFromSearch: TracksFromSearch
-//    // object that stores the songs from the api
-//    @ObservedObject var tracksFromPlaylist:  TracksFromPlaylist
-//    // object that stores the songs from the api
-//    @ObservedObject var tracksFromArtist: TracksFromArtist
-//    // object that stores the songs from the api
-//    @ObservedObject var trackFromNowPlaying: TrackFromNowPlaying
-//    // object that stores the songs from the api
-//    @ObservedObject var tracksFromTopSongs: TracksFromTopSongs
-//    // object that stores the songs from the api
-//    @ObservedObject var guestTopArtists: GuestTopArtists
-//
-//    @ObservedObject var guestTopPlaylists: GuestTopPlaylists
-    // track object inherited from song search
-//    @StateObject var currentTune:GlobalTrack = GlobalTrack()
+
     // object that stores the songs from the api
-    @StateObject var tracksFromSearch: TracksFromSearch = TracksFromSearch()
+    @ObservedObject var tracksFromSearch: TracksFromSearch
     // object that stores the songs from the api
-    @StateObject var tracksFromPlaylist: TracksFromPlaylist = TracksFromPlaylist()
+    @ObservedObject var tracksFromPlaylist:  TracksFromPlaylist
     // object that stores the songs from the api
-    @StateObject var tracksFromArtist: TracksFromArtist = TracksFromArtist()
+    @ObservedObject var tracksFromArtist: TracksFromArtist
     // object that stores the songs from the api
-    @StateObject var trackFromNowPlaying: TrackFromNowPlaying = TrackFromNowPlaying()
+    @ObservedObject var trackFromNowPlaying: TrackFromNowPlaying
     // object that stores the songs from the api
-    @StateObject var tracksFromTopSongs: TracksFromTopSongs = TracksFromTopSongs()
+    @ObservedObject var tracksFromTopSongs: TracksFromTopSongs
     // object that stores the songs from the api
-    @StateObject var guestTopArtists: GuestTopArtists = GuestTopArtists()
-    // object that stores the songs from the api
-    @StateObject var guestTopPlaylists: GuestTopPlaylists = GuestTopPlaylists()
+    @ObservedObject var guestTopArtists: GuestTopArtists
+
+    @ObservedObject var guestTopPlaylists: GuestTopPlaylists
+
+    // ---------------------------------- created inside view -------------------------------------------
     
     @State var scale: CGFloat = 1
     @Environment(\.colorScheme) var colorScheme

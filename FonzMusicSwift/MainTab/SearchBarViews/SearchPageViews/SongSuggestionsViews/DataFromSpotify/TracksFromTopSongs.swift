@@ -22,6 +22,8 @@ class TracksFromTopSongs: ObservableObject {
     @Published private (set) var bottomProducts: [TrackForPagination] = []
     
     var connectedToSpotify = UserDefaults.standard.bool(forKey: "connectedToSpotify")
+    
+    var loadSongs = true
 
     @Published var offset : Int = Int()
 //    var resultsPerSearch = 0
@@ -61,8 +63,8 @@ class TracksFromTopSongs: ObservableObject {
     
     init() {
         print("starting this tracks from top songs")
-        topProducts = tempTracksTopPaginated
-        bottomProducts = tempTracksBottomPaginated
+//        topProducts = tempTracksTopPaginated
+//        bottomProducts = tempTracksBottomPaginated
 //        loadTracks()
 
     }

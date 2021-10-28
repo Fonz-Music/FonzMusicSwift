@@ -20,6 +20,8 @@ class GuestTopPlaylists: ObservableObject {
     
     var connectedToSpotify = UserDefaults.standard.bool(forKey: "connectedToSpotify")
     
+    var loadPlaylists = true
+    
     @Published var offset : Int = Int()
 //    var resultsPerSearch = 0
 
@@ -41,7 +43,7 @@ class GuestTopPlaylists: ObservableObject {
 
     init() {
         print("starting top playlists")
-        products = tempProducts
+//        products = tempProducts
 //        loadTopPlaylists()
         
     }
@@ -51,6 +53,7 @@ class GuestTopPlaylists: ObservableObject {
         offset += 10
     }
     func loadTopPlaylists() {
+//        products = []
         if connectedToSpotify && userSessionId != "" {
             print("getting top playlists")
             products += SpotifyPaginatedApi().getGuestTopPlaylistsPaginated(sessionId: userSessionId, offset: offset)

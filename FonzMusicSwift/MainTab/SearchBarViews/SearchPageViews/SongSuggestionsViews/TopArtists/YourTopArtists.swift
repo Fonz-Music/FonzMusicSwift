@@ -89,7 +89,11 @@ struct YourTopArtists: View {
         .onAppear {
            connectedToSpotify = UserDefaults.standard.bool(forKey: "connectedToSpotify")
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                guestTopArtists.loadTopArtists()
+                if guestTopArtists.loadArtists {
+                    guestTopArtists.loadTopArtists()
+                    guestTopArtists.loadArtists = false
+                }
+                
             }
         }
     }

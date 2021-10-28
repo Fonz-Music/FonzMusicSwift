@@ -40,7 +40,7 @@ struct PavRoute: View {
                             Image("pavHalfBg")
                                 .resizable()
                                 .opacity(0.6)
-                                .frame(maxWidth: UIScreen.screenWidth)
+                                .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight)
 //                            Spacer()
                         }
                     }, alignment: .top)

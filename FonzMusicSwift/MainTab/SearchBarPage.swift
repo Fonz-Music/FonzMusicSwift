@@ -28,20 +28,20 @@ struct SearchBarPage: View {
    
     // track object inherited from song search
     @StateObject var currentTune:GlobalTrack = GlobalTrack()
-//    // object that stores the songs from the api
-//    @StateObject var tracksFromSearch: TracksFromSearch = TracksFromSearch()
-//    // object that stores the songs from the api
-//    @StateObject var tracksFromPlaylist: TracksFromPlaylist = TracksFromPlaylist()
-//    // object that stores the songs from the api
-//    @StateObject var tracksFromArtist: TracksFromArtist = TracksFromArtist()
-//    // object that stores the songs from the api
-//    @StateObject var trackFromNowPlaying: TrackFromNowPlaying = TrackFromNowPlaying()
-//    // object that stores the songs from the api
-//    @StateObject var tracksFromTopSongs: TracksFromTopSongs = TracksFromTopSongs()
-//    // object that stores the songs from the api
-//    @StateObject var guestTopArtists: GuestTopArtists = GuestTopArtists()
-//    // object that stores the songs from the api
-//    @StateObject var guestTopPlaylists: GuestTopPlaylists = GuestTopPlaylists()
+    // object that stores the songs from the api
+    @StateObject var tracksFromSearch: TracksFromSearch = TracksFromSearch()
+    // object that stores the songs from the api
+    @StateObject var tracksFromPlaylist: TracksFromPlaylist = TracksFromPlaylist()
+    // object that stores the songs from the api
+    @StateObject var tracksFromArtist: TracksFromArtist = TracksFromArtist()
+    // object that stores the songs from the api
+    @StateObject var trackFromNowPlaying: TrackFromNowPlaying = TrackFromNowPlaying()
+    // object that stores the songs from the api
+    @StateObject var tracksFromTopSongs: TracksFromTopSongs = TracksFromTopSongs()
+    // object that stores the songs from the api
+    @StateObject var guestTopArtists: GuestTopArtists = GuestTopArtists()
+    // object that stores the songs from the api
+    @StateObject var guestTopPlaylists: GuestTopPlaylists = GuestTopPlaylists()
     
     // boolean to change when views should be showed w animation
     @State var showQueueResponse = false
@@ -58,8 +58,8 @@ struct SearchBarPage: View {
     var body: some View {
         ZStack {
            // song page
-//                SearchPageView(hostCoaster: hostCoaster, hasHostVar: $hasHostVar, userAttributes: userAttributes, showQueueResponse: $showQueueResponse, statusCodeQueueSong: $statusCodeQueueSong, isEditingSearchBar: $isEditingSearchBar, currentTune: currentTune, tracksFromSearch: tracksFromSearch, tracksFromPlaylist: tracksFromPlaylist, tracksFromArtist: tracksFromArtist, trackFromNowPlaying: trackFromNowPlaying, tracksFromTopSongs: tracksFromTopSongs, guestTopArtists: guestTopArtists, guestTopPlaylists: guestTopPlaylists)
-            SearchPageView(hostCoaster: hostCoaster, hasHostVar: $hasHostVar, userAttributes: userAttributes, showQueueResponse: $showQueueResponse, statusCodeQueueSong: $statusCodeQueueSong, isEditingSearchBar: $isEditingSearchBar, currentTune: currentTune)
+                SearchPageView(hostCoaster: hostCoaster, hasHostVar: $hasHostVar, userAttributes: userAttributes, showQueueResponse: $showQueueResponse, statusCodeQueueSong: $statusCodeQueueSong, isEditingSearchBar: $isEditingSearchBar, currentTune: currentTune, tracksFromSearch: tracksFromSearch, tracksFromPlaylist: tracksFromPlaylist, tracksFromArtist: tracksFromArtist, trackFromNowPlaying: trackFromNowPlaying, tracksFromTopSongs: tracksFromTopSongs, guestTopArtists: guestTopArtists, guestTopPlaylists: guestTopPlaylists)
+//            SearchPageView(hostCoaster: hostCoaster, hasHostVar: $hasHostVar, userAttributes: userAttributes, showQueueResponse: $showQueueResponse, statusCodeQueueSong: $statusCodeQueueSong, isEditingSearchBar: $isEditingSearchBar, currentTune: currentTune)
 
             // resps
             LaunchSongResponsePopup(statusCodeQueueSong: statusCodeQueueSong, showQueueResponse: $showQueueResponse, songSelected: currentTune, hostCoaster: hostCoaster, userAttributes: userAttributes )

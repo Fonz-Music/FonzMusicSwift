@@ -75,9 +75,9 @@ struct SongSuggestionsView: View {
                         .onAppear {
                             if userAttributes.updateUserTops {
                                 print("grabbing new tops")
-//                                tracksFromTopSongs.loadTracksAfterSpotConnect()
-//                                guestTopArtists.loadTopArtistsAfterSpotSignIn()
-//                                guestTopPlaylists.loadTopPlaylistsAfterSpotSignIn()
+                                tracksFromTopSongs.loadTracksAfterSpotConnect()
+                                guestTopArtists.loadTopArtistsAfterSpotSignIn()
+                                guestTopPlaylists.loadTopPlaylistsAfterSpotSignIn()
                                 
                                 
                                 userAttributes.updateUserTops = false

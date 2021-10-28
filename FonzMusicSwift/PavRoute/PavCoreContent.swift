@@ -26,6 +26,25 @@ struct PavCoreContent: View {
     var body: some View {
         VStack{
             PavHeader(hasHostVar: $hasHostVar)
+            ActiveSongUserInterface( trackfromNowPlaying: trackFromNowPlaying,
+                hostName: hostCoaster.hostName)
+                .padding(.subHeadingFrontIndent)
+                .frame(width: UIScreen.screenWidth, height: 120, alignment: .center)
+                .background(
+                    RoundedRectangle(cornerRadius: .cornerRadiusTasks)
+                        .fill(colorScheme == .light ? Color.white: Color.darkButton)
+                        .padding(.horizontal, .subHeadingFrontIndent)
+                        .frame(width: UIScreen.screenWidth, height: 120, alignment: .center)
+                        .fonzShadow()
+
+                )
+                .onAppear {
+                    if trackFromNowPlaying.currentSong[0].trackName == "" {
+                        trackFromNowPlaying.getActiveSong(sessionId: hostCoaster.sessionId)
+                    }
+                }
+            Spacer()
+                .frame(height: 40)
             Button {
                 throwPavMenuModal = true
                 print("pressed")
@@ -51,25 +70,8 @@ struct PavCoreContent: View {
                     .fonzShadow()
             )
             .padding(40)
-            Spacer()
-                .frame(height: 40)
-            ActiveSongUserInterface( trackfromNowPlaying: trackFromNowPlaying,
-                hostName: hostCoaster.hostName)
-                .padding(.subHeadingFrontIndent)
-                .frame(width: UIScreen.screenWidth, height: 120, alignment: .center)
-                .background(
-                    RoundedRectangle(cornerRadius: .cornerRadiusTasks)
-                        .fill(colorScheme == .light ? Color.white: Color.darkButton)
-                        .padding(.horizontal, .subHeadingFrontIndent)
-                        .frame(width: UIScreen.screenWidth, height: 120, alignment: .center)
-                        .fonzShadow()
-
-                )
-                .onAppear {
-                    if trackFromNowPlaying.currentSong[0].trackName == "" {
-                        trackFromNowPlaying.getActiveSong(sessionId: hostCoaster.sessionId)
-                    }
-                }
+            
+            
            
             
             Spacer()

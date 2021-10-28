@@ -20,6 +20,8 @@ class GuestTopArtists: ObservableObject {
     
     var connectedToSpotify = UserDefaults.standard.bool(forKey: "connectedToSpotify")
     
+    var loadArtists = true
+    
     @Published var offset : Int = Int()
 
     let tempArtists =
@@ -41,7 +43,7 @@ class GuestTopArtists: ObservableObject {
 
     init() {
         print("starting this artists")
-        products = tempArtists
+//        products = tempArtists
 //        loadTopArtists()
     }
 
@@ -50,6 +52,7 @@ class GuestTopArtists: ObservableObject {
         offset += 10
     }
     func loadTopArtists() {
+//        products = []
         if connectedToSpotify && userSessionId != "" {
             products += SpotifyPaginatedApi().getGuestTopArtistsPaginated(sessionId: userSessionId, offset: offset)
             offset += 10
