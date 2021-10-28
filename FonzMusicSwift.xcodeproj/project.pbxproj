@@ -328,6 +328,8 @@
 		26FBCCF82686A5C500399460 /* LimitSongRequestsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBCCF72686A5C500399460 /* LimitSongRequestsButton.swift */; };
 		26FBCCFA2686BCE500399460 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBCCF92686BCE500399460 /* ViewExtensions.swift */; };
 		26FBCCFC2686BE4200399460 /* FrontEndConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBCCFB2686BE4200399460 /* FrontEndConstants.swift */; };
+		26FF6C8B272AAF3A007B29D8 /* QueueASongPubButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF6C8A272AAF3A007B29D8 /* QueueASongPubButton.swift */; };
+		26FF6C8C272AAF3A007B29D8 /* QueueASongPubButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FF6C8A272AAF3A007B29D8 /* QueueASongPubButton.swift */; };
 		A09E681DF3EE765C53041A4C /* libPods-Fonz Music App Clip.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C09DF94407BA0FCC59508E /* libPods-Fonz Music App Clip.a */; };
 		E4595E496192AD1C55E93E1F /* libPods-FonzMusicSwift.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B480C69CB1494108CA6C68C /* libPods-FonzMusicSwift.a */; };
 /* End PBXBuildFile section */
@@ -540,6 +542,7 @@
 		26FBCCF72686A5C500399460 /* LimitSongRequestsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimitSongRequestsButton.swift; sourceTree = "<group>"; };
 		26FBCCF92686BCE500399460 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		26FBCCFB2686BE4200399460 /* FrontEndConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontEndConstants.swift; sourceTree = "<group>"; };
+		26FF6C8A272AAF3A007B29D8 /* QueueASongPubButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueASongPubButton.swift; sourceTree = "<group>"; };
 		4B480C69CB1494108CA6C68C /* libPods-FonzMusicSwift.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FonzMusicSwift.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5045F2117E00BCFEA787D4B1 /* Pods-FonzMusicSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FonzMusicSwift.debug.xcconfig"; path = "Target Support Files/Pods-FonzMusicSwift/Pods-FonzMusicSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		77BD7BD4869D54B13DB128BB /* Pods-Fonz Music App Clip.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fonz Music App Clip.debug.xcconfig"; path = "Target Support Files/Pods-Fonz Music App Clip/Pods-Fonz Music App Clip.debug.xcconfig"; sourceTree = "<group>"; };
@@ -685,6 +688,7 @@
 		2677028F26347ECD00B8BC92 /* FonzMusicSwift */ = {
 			isa = PBXGroup;
 			children = (
+				26FF6C89272AAF1B007B29D8 /* PubVenue */,
 				26B5A45F2726B93900FA999E /* PavRoute */,
 				263545BC26A7074E00B415C9 /* Shop */,
 				26FBCCEE2686A4FC00399460 /* SettingsTab */,
@@ -1193,6 +1197,14 @@
 			path = SettingsTab;
 			sourceTree = "<group>";
 		};
+		26FF6C89272AAF1B007B29D8 /* PubVenue */ = {
+			isa = PBXGroup;
+			children = (
+				26FF6C8A272AAF3A007B29D8 /* QueueASongPubButton.swift */,
+			);
+			path = PubVenue;
+			sourceTree = "<group>";
+		};
 		3388F0F5BB427393EA39D144 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1485,6 +1497,7 @@
 				26FBCCF62686A5A100399460 /* SignOutButton.swift in Sources */,
 				26FBCCDD26866E6500399460 /* RenameCoasterButton.swift in Sources */,
 				2620B8AA26795A8C004FE721 /* ButtonStyles.swift in Sources */,
+				26FF6C8B272AAF3A007B29D8 /* QueueASongPubButton.swift in Sources */,
 				268FA5F9268E92DB00E45AA6 /* ThisIsYourCoaster.swift in Sources */,
 				26B5A4672726C4D400FA999E /* SearchContentForPubs.swift in Sources */,
 				265464B826BC06C6000FB833 /* UserApi.swift in Sources */,
@@ -1653,6 +1666,7 @@
 				261752E126A3448B0069C83D /* MuseoSans-100.otf in Sources */,
 				261752E226A3448B0069C83D /* MuseoSans-300.otf in Sources */,
 				261752E326A3448B0069C83D /* MuseoSans-500.otf in Sources */,
+				26FF6C8C272AAF3A007B29D8 /* QueueASongPubButton.swift in Sources */,
 				26DFD8842708FCDB0062BDE0 /* SearchPageFunctions.swift in Sources */,
 				261752E426A3448B0069C83D /* MuseoSans-700.otf in Sources */,
 				261752EC26A3448B0069C83D /* URL.swift in Sources */,

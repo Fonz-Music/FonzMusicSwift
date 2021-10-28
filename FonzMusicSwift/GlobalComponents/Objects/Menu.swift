@@ -17,10 +17,16 @@ struct DrinksMenu: Hashable, Decodable {
     var soda: Array<Soda>
     var hotDrinks: Array<HotDrinks>
 }
+
+// struct Drink
+// extends -> beer - country
+
 struct Beer: Hashable, Decodable {
     var name: String
     var price: Float
+    var desc: String?
     var country: String?
+   
 }
 struct Wine: Hashable, Decodable {
     var name: String

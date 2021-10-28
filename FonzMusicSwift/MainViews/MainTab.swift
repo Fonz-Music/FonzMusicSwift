@@ -34,16 +34,7 @@ struct SearchTab: View {
             if hasHost {
                 if hostCoaster.group == "pav" {
                     PavRoute(hostCoaster: hostCoaster, hasHostVar: $hasHost, userAttributes: userAttributes)
-                        .background(
-                            ZStack{
-                                VStack{
-                                    
-                                    Image("pavHalfBg")
-                                        .opacity(0.6)
-                                        .frame(maxWidth: UIScreen.screenWidth)
-                                    Spacer()
-                                }
-                            }, alignment: .top)
+                        
                 }
                 else {
                     SearchBarPage(hostCoaster: hostCoaster, hasHostVar: $hasHost, userAttributes: userAttributes)

@@ -27,20 +27,36 @@ struct SearchPageView: View {
     
     
 // ---------------------------------- created inside view -------------------------------------------
+//    // object that stores the songs from the api
+//    @ObservedObject var tracksFromSearch: TracksFromSearch
+//    // object that stores the songs from the api
+//    @ObservedObject var tracksFromPlaylist:  TracksFromPlaylist
+//    // object that stores the songs from the api
+//    @ObservedObject var tracksFromArtist: TracksFromArtist
+//    // object that stores the songs from the api
+//    @ObservedObject var trackFromNowPlaying: TrackFromNowPlaying
+//    // object that stores the songs from the api
+//    @ObservedObject var tracksFromTopSongs: TracksFromTopSongs
+//    // object that stores the songs from the api
+//    @ObservedObject var guestTopArtists: GuestTopArtists
+//
+//    @ObservedObject var guestTopPlaylists: GuestTopPlaylists
+    // track object inherited from song search
+//    @StateObject var currentTune:GlobalTrack = GlobalTrack()
     // object that stores the songs from the api
-    @ObservedObject var tracksFromSearch: TracksFromSearch
+    @StateObject var tracksFromSearch: TracksFromSearch = TracksFromSearch()
+//    // object that stores the songs from the api
+//    @StateObject var tracksFromPlaylist: TracksFromPlaylist = TracksFromPlaylist()
+//    // object that stores the songs from the api
+//    @StateObject var tracksFromArtist: TracksFromArtist = TracksFromArtist()
     // object that stores the songs from the api
-    @ObservedObject var tracksFromPlaylist:  TracksFromPlaylist
+    @StateObject var trackFromNowPlaying: TrackFromNowPlaying = TrackFromNowPlaying()
     // object that stores the songs from the api
-    @ObservedObject var tracksFromArtist: TracksFromArtist
-    // object that stores the songs from the api
-    @ObservedObject var trackFromNowPlaying: TrackFromNowPlaying
-    // object that stores the songs from the api
-    @ObservedObject var tracksFromTopSongs: TracksFromTopSongs
-    // object that stores the songs from the api
-    @ObservedObject var guestTopArtists: GuestTopArtists
-    
-    @ObservedObject var guestTopPlaylists: GuestTopPlaylists
+//    @StateObject var tracksFromTopSongs: TracksFromTopSongs = TracksFromTopSongs()
+//    // object that stores the songs from the api
+//    @StateObject var guestTopArtists: GuestTopArtists = GuestTopArtists()
+//    // object that stores the songs from the api
+//    @StateObject var guestTopPlaylists: GuestTopPlaylists = GuestTopPlaylists()
     
     @State var scale: CGFloat = 1
     @Environment(\.colorScheme) var colorScheme
@@ -102,7 +118,8 @@ struct SearchPageView: View {
                         // now playing + song suggestions
                         VStack{
                             ActiveSongView(hostName: hostCoaster.hostName, currentSessionId: hostCoaster.sessionId, trackfromNowPlaying: trackFromNowPlaying)
-                            SongSuggestionsView(hostCoaster: hostCoaster, currentTune: currentTune,  tracksFromPlaylist: tracksFromPlaylist, tracksFromArtist: tracksFromArtist, tracksFromTopSongs: tracksFromTopSongs, guestTopArtists: guestTopArtists, guestTopPlaylists: guestTopPlaylists, userAttributes: userAttributes, statusCodeQueueSong: $statusCodeQueueSong, showQueueResponse: $showQueueResponse)
+//                            SongSuggestionsView(hostCoaster: hostCoaster, currentTune: currentTune,  tracksFromPlaylist: tracksFromPlaylist, tracksFromArtist: tracksFromArtist, tracksFromTopSongs: tracksFromTopSongs, guestTopArtists: guestTopArtists, guestTopPlaylists: guestTopPlaylists, userAttributes: userAttributes, statusCodeQueueSong: $statusCodeQueueSong, showQueueResponse: $showQueueResponse)
+                            SongSuggestionsView(hostCoaster: hostCoaster, currentTune: currentTune, userAttributes: userAttributes, statusCodeQueueSong: $statusCodeQueueSong, showQueueResponse: $showQueueResponse)
                             //                        #if !APPCLIP
                             //                        Spacer()
                             //                            .frame(height: 50)

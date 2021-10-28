@@ -17,15 +17,15 @@ struct SongSuggestionsView: View {
     // track object to update the song to queue
     @StateObject var currentTune : GlobalTrack
     // object that stores the songs from the api
-    @StateObject var tracksFromPlaylist: TracksFromPlaylist
-    // object that stores the songs from the api
-    @StateObject var tracksFromArtist: TracksFromArtist
-    // object that stores the songs from the api
-    @StateObject var tracksFromTopSongs: TracksFromTopSongs
-    // object that stores the songs from the api
-    @StateObject var guestTopArtists: GuestTopArtists
-    
-    @StateObject var guestTopPlaylists: GuestTopPlaylists
+//    @StateObject var tracksFromPlaylist: TracksFromPlaylist
+//    // object that stores the songs from the api
+//    @StateObject var tracksFromArtist: TracksFromArtist
+//    // object that stores the songs from the api
+////    @StateObject var tracksFromTopSongs: TracksFromTopSongs
+//    // object that stores the songs from the api
+//    @StateObject var guestTopArtists: GuestTopArtists
+//
+//    @StateObject var guestTopPlaylists: GuestTopPlaylists
     // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
     @StateObject var userAttributes : CoreUserAttributes
     
@@ -41,19 +41,19 @@ struct SongSuggestionsView: View {
     var body: some View {
         ZStack{
             RoundedRectangle(cornerRadius: .cornerRadiusBlocks)
-                .background(
-                    ZStack{
-                        VStack{
-        //                        Spacer()
-                            Image("newColorfulBg")
-        //                            .opacity(0.4)
-                                .frame(width: UIScreen.screenWidth)
-                        }
-                       
-                    }, alignment: .top)
-//                .fill(colorScheme == .light ? Color.white: Color.darkBackground)
+//                .background(
+//                    ZStack{
+//                        VStack{
+//        //                        Spacer()
+//                            Image("newColorfulBg")
+//        //                            .opacity(0.4)
+//                                .frame(width: UIScreen.screenWidth)
+//                        }
+//
+//                    }, alignment: .top)
+                .fill(colorScheme == .light ? Color.white: Color.darkBackground)
 //                .foregroundColor(.lilac)
-                .foregroundColor(.clear)
+//                .foregroundColor(.clear)
                 .frame(height: determineSongSugsSize(), alignment: .center)
 //                .frame(width: UIScreen.screenWidth * 0.95, height: 900, alignment: .center)
                 .fonzShadow()
@@ -75,9 +75,9 @@ struct SongSuggestionsView: View {
                         .onAppear {
                             if userAttributes.updateUserTops {
                                 print("grabbing new tops")
-                                tracksFromTopSongs.loadTracksAfterSpotConnect()
-                                guestTopArtists.loadTopArtistsAfterSpotSignIn()
-                                guestTopPlaylists.loadTopPlaylistsAfterSpotSignIn()
+//                                tracksFromTopSongs.loadTracksAfterSpotConnect()
+//                                guestTopArtists.loadTopArtistsAfterSpotSignIn()
+//                                guestTopPlaylists.loadTopPlaylistsAfterSpotSignIn()
                                 
                                 
                                 userAttributes.updateUserTops = false
@@ -87,9 +87,10 @@ struct SongSuggestionsView: View {
                             }
                         }
                 }
-                YourTopSongs(hostCoaster: hostCoaster, currentTune: currentTune, tracksFromTopSongs: tracksFromTopSongs,  statusCodeQueueSong: $statusCodeQueueSong, showQueueResponse: $showQueueResponse)
-                YourTopArtists(hostCoaster: hostCoaster, tracksFromArtist: tracksFromArtist, userAttributes: userAttributes, guestTopArtists: guestTopArtists)
-                YourTopPlaylists(hostCoaster: hostCoaster,  tracksFromPlaylist: tracksFromPlaylist, guestTopPlaylists: guestTopPlaylists, userAttributes: userAttributes)
+//                YourTopSongs(hostCoaster: hostCoaster, currentTune: currentTune, tracksFromTopSongs: tracksFromTopSongs,  statusCodeQueueSong: $statusCodeQueueSong, showQueueResponse: $showQueueResponse)
+                YourTopSongs(hostCoaster: hostCoaster, currentTune: currentTune, statusCodeQueueSong: $statusCodeQueueSong, showQueueResponse: $showQueueResponse)
+//                YourTopArtists(hostCoaster: hostCoaster, tracksFromArtist: tracksFromArtist, userAttributes: userAttributes, guestTopArtists: guestTopArtists)
+//                YourTopPlaylists(hostCoaster: hostCoaster,  tracksFromPlaylist: tracksFromPlaylist, guestTopPlaylists: guestTopPlaylists, userAttributes: userAttributes)
                 Spacer()
                     .frame(height: 20)
                 // if the user can send mail & the user has an account

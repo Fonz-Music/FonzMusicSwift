@@ -23,7 +23,7 @@ struct PavWineMenu: View {
                                 .fonzParagraphOne()
                                 .padding(5)
                             Spacer()
-                            Text(String(wine.price))
+                            Text("\(wine.price, specifier: "%.2f")")
                                 .foregroundColor(.darkButton)
                                 .fonzHeading()
                                 .padding(5)

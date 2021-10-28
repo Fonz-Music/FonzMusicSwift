@@ -60,7 +60,9 @@ class TracksFromTopSongs: ObservableObject {
     
     init() {
         print("starting this tracks from top songs")
-        loadTracks()
+        topProducts = tempTracksTopPaginated
+        bottomProducts = tempTracksBottomPaginated
+//        loadTracks()
 
     }
     

@@ -30,19 +30,19 @@ struct SearchBarView : View {
                         .foregroundColor(.white)
                         .fonzButtonText()
                 })
-//                .foregroundColor(colorScheme == .light ? Color.darkButton: Color.white)
-                .foregroundColor(.clear)
+                .foregroundColor(colorScheme == .light ? Color.darkButton: Color.white)
+//                .foregroundColor(.clear)
                 .fonzParagraphTwo()
                 .padding()
                 .padding(.horizontal, .headingFrontIndent)
-//                .background(colorScheme == .light ? Color.white: Color.darkButton)
+                .background(colorScheme == .light ? Color.white: Color.darkButton)
 //                .background(Color.amber)
-                .background(
-                
-                            Image("newColorfulBg")
-                                 
-
-    , alignment: .top)
+//                .background(
+//
+//                            Image("newColorfulBg")
+//
+//
+//    , alignment: .top)
                 .cornerRadius(.cornerRadiusTasks)
                 .fonzShadow()
                 .overlay(
