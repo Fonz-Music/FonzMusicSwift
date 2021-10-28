@@ -155,6 +155,11 @@ struct SearchPageView: View {
                     hideKeyboard()
                 }
             )
+            .background(
+                Image("newColorfulBgVertical")
+                    .resizable()
+                    .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight)
+                , alignment: .bottom)
            
         
 //        }

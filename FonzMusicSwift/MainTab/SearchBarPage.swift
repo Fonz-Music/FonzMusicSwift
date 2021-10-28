@@ -66,23 +66,23 @@ struct SearchBarPage: View {
                 .padding(.horizontal)
                 .padding(.top, 30)
         }
-        .background(
-            Image("newColorfulBgVertical")
-//                                    .opacity(0.6)
-                .frame(maxWidth: UIScreen.screenWidth)
-//            ZStack{
-//                Rectangle()
-//                    .fill(Color.amber)
-//                    // darkens background when typing
-////                    .darkenView(isEditingSearchBar)
-//                VStack{
-//                    Spacer()
-//                    Image("mountainProfile")
-//                        .opacity(0.6)
-//                        .frame(maxWidth: UIScreen.screenWidth)
-//                }
-//            }
-            , alignment: .bottom)
+//        .background(
+//            Image("newColorfulBgVertical")
+////                                    .opacity(0.6)
+//                .frame(maxWidth: UIScreen.screenWidth)
+////            ZStack{
+////                Rectangle()
+////                    .fill(Color.amber)
+////                    // darkens background when typing
+//////                    .darkenView(isEditingSearchBar)
+////                VStack{
+////                    Spacer()
+////                    Image("mountainProfile")
+////                        .opacity(0.6)
+////                        .frame(maxWidth: UIScreen.screenWidth)
+////                }
+////            }
+//            , alignment: .bottom)
 //        .ignoresSafeArea()
     }
 }

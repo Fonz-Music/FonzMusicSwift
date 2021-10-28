@@ -16,35 +16,13 @@ struct PavCoreContent: View {
     // has user download full app if on app clip
     @State var throwPavMenuModal = false
     
-    
-    // object that stores the songs from the api
-    @ObservedObject var trackFromNowPlaying: TrackFromNowPlaying = TrackFromNowPlaying()
-    
     // gets dark/light mode
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         VStack{
             PavHeader(hasHostVar: $hasHostVar)
-            ActiveSongUserInterface( trackfromNowPlaying: trackFromNowPlaying,
-                hostName: hostCoaster.hostName)
-                .padding(.subHeadingFrontIndent)
-                .frame(width: UIScreen.screenWidth, height: 120, alignment: .center)
-                .background(
-                    RoundedRectangle(cornerRadius: .cornerRadiusTasks)
-                        .fill(colorScheme == .light ? Color.white: Color.darkButton)
-                        .padding(.horizontal, .subHeadingFrontIndent)
-                        .frame(width: UIScreen.screenWidth, height: 120, alignment: .center)
-                        .fonzShadow()
-
-                )
-                .onAppear {
-                    if trackFromNowPlaying.currentSong[0].trackName == "" {
-                        trackFromNowPlaying.getActiveSong(sessionId: hostCoaster.sessionId)
-                    }
-                }
-            Spacer()
-                .frame(height: 40)
+            
             Button {
                 throwPavMenuModal = true
                 print("pressed")

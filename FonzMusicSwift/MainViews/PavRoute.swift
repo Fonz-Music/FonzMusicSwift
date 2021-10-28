@@ -24,26 +24,29 @@ struct PavRoute: View {
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
-        ScrollView{
+        
             if !showQueuePage {
-                VStack {
-                    PavCoreContent(hostCoaster: hostCoaster, hasHostVar: $hasHostVar)
-                    QueueASongPubButton(showQueuePage: $showQueuePage)
-                    Spacer()
+                ScrollView{
+                    VStack {
+                        PavCoreContent(hostCoaster: hostCoaster, hasHostVar: $hasHostVar)
                         
+//                        Spacer()
+//                            .frame(height: 40)
+                        ActiveSongView(hostName: hostCoaster.hostName, currentSessionId: hostCoaster.sessionId, trackfromNowPlaying: trackFromNowPlaying)
+                        QueueASongPubButton(showQueuePage: $showQueuePage)
+                        Spacer()
+                            
+                    }
                 }
                 .ignoresSafeArea()
                 .background(
-                    ZStack{
-                        VStack{
-                            
+                   
                             Image("pavHalfBg")
                                 .resizable()
                                 .opacity(0.6)
                                 .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight)
 //                            Spacer()
-                        }
-                    }, alignment: .top)
+                       , alignment: .top)
 //                .transition(.move(edge: .top))
                 .transition(.opacity)
             }
@@ -54,6 +57,6 @@ struct PavRoute: View {
                     .transition(.move(edge: .bottom))
             }
             
-        }
+        
     }
 }

@@ -40,12 +40,12 @@ struct ActiveSongView: View {
                 ActiveSongUserInterface(trackfromNowPlaying: trackfromNowPlaying,  hostName: hostName)
             }
             .padding(.horizontal, .subHeadingFrontIndent)
-            .frame(width: UIScreen.screenWidth, height: 140, alignment: .center)
+            .frame(width: UIScreen.screenWidth, height: 120, alignment: .center)
             .background(
                 RoundedRectangle(cornerRadius: .cornerRadiusTasks)
                     .fill(colorScheme == .light ? Color.white: Color.darkButton)
                     .padding(.horizontal, .subHeadingFrontIndent)
-                    .frame(width: UIScreen.screenWidth, height: 140, alignment: .center)
+                    .frame(width: UIScreen.screenWidth, height: 120, alignment: .center)
                     .fonzShadow()
                     
             )

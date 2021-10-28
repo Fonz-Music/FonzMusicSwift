@@ -228,8 +228,6 @@
 		26B5A4622726B94B00FA999E /* PavHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B5A4602726B94B00FA999E /* PavHeader.swift */; };
 		26B5A4642726C3AD00FA999E /* PavCoreContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B5A4632726C3AD00FA999E /* PavCoreContent.swift */; };
 		26B5A4652726C3AD00FA999E /* PavCoreContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B5A4632726C3AD00FA999E /* PavCoreContent.swift */; };
-		26B5A4672726C4D400FA999E /* SearchContentForPubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B5A4662726C4D400FA999E /* SearchContentForPubs.swift */; };
-		26B5A4682726C4D400FA999E /* SearchContentForPubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B5A4662726C4D400FA999E /* SearchContentForPubs.swift */; };
 		26B5A46A2726D28E00FA999E /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B5A4692726D28E00FA999E /* Menu.swift */; };
 		26B5A46B2726D28E00FA999E /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B5A4692726D28E00FA999E /* Menu.swift */; };
 		26B5A46D27285FFA00FA999E /* PavMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B5A46C27285FFA00FA999E /* PavMenu.swift */; };
@@ -460,7 +458,6 @@
 		26B5A45C2726B3F200FA999E /* PavRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PavRoute.swift; sourceTree = "<group>"; };
 		26B5A4602726B94B00FA999E /* PavHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PavHeader.swift; sourceTree = "<group>"; };
 		26B5A4632726C3AD00FA999E /* PavCoreContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PavCoreContent.swift; sourceTree = "<group>"; };
-		26B5A4662726C4D400FA999E /* SearchContentForPubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchContentForPubs.swift; sourceTree = "<group>"; };
 		26B5A4692726D28E00FA999E /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		26B5A46C27285FFA00FA999E /* PavMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PavMenu.swift; sourceTree = "<group>"; };
 		26B5A470272860FE00FA999E /* PavMenuHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PavMenuHeader.swift; sourceTree = "<group>"; };
@@ -619,7 +616,6 @@
 		26691F67267AC45100C83696 /* SearchBarViews */ = {
 			isa = PBXGroup;
 			children = (
-				26B5A4662726C4D400FA999E /* SearchContentForPubs.swift */,
 				26916FEE268E474300B7281B /* QueueSongResponses */,
 				269252D4268E2BE4001AC98B /* SearchPageViews */,
 				269252D5268E2C37001AC98B /* SearchPageView.swift */,
@@ -1499,7 +1495,6 @@
 				2620B8AA26795A8C004FE721 /* ButtonStyles.swift in Sources */,
 				26FF6C8B272AAF3A007B29D8 /* QueueASongPubButton.swift in Sources */,
 				268FA5F9268E92DB00E45AA6 /* ThisIsYourCoaster.swift in Sources */,
-				26B5A4672726C4D400FA999E /* SearchContentForPubs.swift in Sources */,
 				265464B826BC06C6000FB833 /* UserApi.swift in Sources */,
 				261752A526A3436E0069C83D /* Fonz_Music_App_ClipApp.swift in Sources */,
 				268B97AC26855C0B00984DC4 /* NameYourCoasterView.swift in Sources */,
@@ -1702,7 +1697,6 @@
 				2617530026A3448B0069C83D /* TapYourPhoneAmber.swift in Sources */,
 				2617530126A3448B0069C83D /* FonzFonts.swift in Sources */,
 				2617530226A3448B0069C83D /* SpotifyWebViewWk.swift in Sources */,
-				26B5A4682726C4D400FA999E /* SearchContentForPubs.swift in Sources */,
 				2617530326A3448B0069C83D /* SpotifyViewRep.swift in Sources */,
 				2617530426A3448B0069C83D /* SpotifySignInFunctions.swift in Sources */,
 				2617530526A3448B0069C83D /* ErrorOnTap.swift in Sources */,
