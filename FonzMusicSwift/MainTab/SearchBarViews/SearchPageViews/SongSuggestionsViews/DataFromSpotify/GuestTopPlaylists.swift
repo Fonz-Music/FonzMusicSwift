@@ -41,7 +41,8 @@ class GuestTopPlaylists: ObservableObject {
 
     init() {
         print("starting top playlists")
-        loadTopPlaylists()
+        products = tempProducts
+//        loadTopPlaylists()
         
     }
 

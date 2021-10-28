@@ -38,9 +38,10 @@ struct PavRoute: View {
                         VStack{
                             
                             Image("pavHalfBg")
+                                .resizable()
                                 .opacity(0.6)
                                 .frame(maxWidth: UIScreen.screenWidth)
-                            Spacer()
+//                            Spacer()
                         }
                     }, alignment: .top)
 //                .transition(.move(edge: .top))

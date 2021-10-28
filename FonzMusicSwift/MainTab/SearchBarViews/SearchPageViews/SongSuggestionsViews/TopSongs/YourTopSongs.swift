@@ -16,7 +16,7 @@ struct YourTopSongs: View {
     // track object to update the song to queue
     @StateObject var currentTune : GlobalTrack
     // object that stores the songs from the api
-    @StateObject var tracksFromTopSongs: TracksFromTopSongs = TracksFromTopSongs()
+    @StateObject var tracksFromTopSongs: TracksFromTopSongs
 
     
     // statusCode from queueing song
@@ -97,7 +97,7 @@ struct YourTopSongs: View {
         }
         .onAppear {
            connectedToSpotify = UserDefaults.standard.bool(forKey: "connectedToSpotify")
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 tracksFromTopSongs.loadTracks()
             }
             

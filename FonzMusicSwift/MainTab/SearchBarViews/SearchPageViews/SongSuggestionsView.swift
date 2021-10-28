@@ -17,15 +17,15 @@ struct SongSuggestionsView: View {
     // track object to update the song to queue
     @StateObject var currentTune : GlobalTrack
     // object that stores the songs from the api
-//    @StateObject var tracksFromPlaylist: TracksFromPlaylist
-//    // object that stores the songs from the api
-//    @StateObject var tracksFromArtist: TracksFromArtist
-//    // object that stores the songs from the api
-////    @StateObject var tracksFromTopSongs: TracksFromTopSongs
-//    // object that stores the songs from the api
-//    @StateObject var guestTopArtists: GuestTopArtists
-//
-//    @StateObject var guestTopPlaylists: GuestTopPlaylists
+    @StateObject var tracksFromPlaylist: TracksFromPlaylist
+    // object that stores the songs from the api
+    @StateObject var tracksFromArtist: TracksFromArtist
+    // object that stores the songs from the api
+    @StateObject var tracksFromTopSongs: TracksFromTopSongs
+    // object that stores the songs from the api
+    @StateObject var guestTopArtists: GuestTopArtists
+
+    @StateObject var guestTopPlaylists: GuestTopPlaylists
     // object that contains hasAccount, connectedToSpotify, & hasConnectedCoasters
     @StateObject var userAttributes : CoreUserAttributes
     
@@ -87,10 +87,10 @@ struct SongSuggestionsView: View {
                             }
                         }
                 }
-//                YourTopSongs(hostCoaster: hostCoaster, currentTune: currentTune, tracksFromTopSongs: tracksFromTopSongs,  statusCodeQueueSong: $statusCodeQueueSong, showQueueResponse: $showQueueResponse)
-                YourTopSongs(hostCoaster: hostCoaster, currentTune: currentTune, statusCodeQueueSong: $statusCodeQueueSong, showQueueResponse: $showQueueResponse)
-//                YourTopArtists(hostCoaster: hostCoaster, tracksFromArtist: tracksFromArtist, userAttributes: userAttributes, guestTopArtists: guestTopArtists)
-//                YourTopPlaylists(hostCoaster: hostCoaster,  tracksFromPlaylist: tracksFromPlaylist, guestTopPlaylists: guestTopPlaylists, userAttributes: userAttributes)
+                YourTopSongs(hostCoaster: hostCoaster, currentTune: currentTune, tracksFromTopSongs: tracksFromTopSongs,  statusCodeQueueSong: $statusCodeQueueSong, showQueueResponse: $showQueueResponse)
+//                YourTopSongs(hostCoaster: hostCoaster, currentTune: currentTune, statusCodeQueueSong: $statusCodeQueueSong, showQueueResponse: $showQueueResponse)
+                YourTopArtists(hostCoaster: hostCoaster, tracksFromArtist: tracksFromArtist, userAttributes: userAttributes, guestTopArtists: guestTopArtists)
+                YourTopPlaylists(hostCoaster: hostCoaster,  tracksFromPlaylist: tracksFromPlaylist, guestTopPlaylists: guestTopPlaylists, userAttributes: userAttributes)
                 Spacer()
                     .frame(height: 20)
                 // if the user can send mail & the user has an account

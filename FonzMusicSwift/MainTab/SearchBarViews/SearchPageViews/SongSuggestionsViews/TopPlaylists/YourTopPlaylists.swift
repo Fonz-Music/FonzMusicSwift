@@ -92,7 +92,9 @@ struct YourTopPlaylists: View {
         }
         .onAppear {
            connectedToSpotify = UserDefaults.standard.bool(forKey: "connectedToSpotify")
-           
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                guestTopPlaylists.loadTopPlaylists()
+            }
         }
     }
 }

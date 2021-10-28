@@ -41,7 +41,8 @@ class GuestTopArtists: ObservableObject {
 
     init() {
         print("starting this artists")
-        loadTopArtists()
+        products = tempArtists
+//        loadTopArtists()
     }
 
     func loadMoreArtists() {
