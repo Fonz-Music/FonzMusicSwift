@@ -19,6 +19,10 @@
 		2614E87B274829F6007E7E09 /* ItemFromShop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2614E879274829F6007E7E09 /* ItemFromShop.swift */; };
 		2614E87D27482BD1007E7E09 /* ShopItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2614E87C27482BD1007E7E09 /* ShopItems.swift */; };
 		2614E87E27482BD1007E7E09 /* ShopItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2614E87C27482BD1007E7E09 /* ShopItems.swift */; };
+		2614E88027483D00007E7E09 /* ItemsFromWebApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2614E87F27483D00007E7E09 /* ItemsFromWebApi.swift */; };
+		2614E88127483D00007E7E09 /* ItemsFromWebApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2614E87F27483D00007E7E09 /* ItemsFromWebApi.swift */; };
+		2614E88327483D6E007E7E09 /* FonzShopApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2614E88227483D6E007E7E09 /* FonzShopApi.swift */; };
+		2614E88427483D6E007E7E09 /* FonzShopApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2614E88227483D6E007E7E09 /* FonzShopApi.swift */; };
 		261752A526A3436E0069C83D /* Fonz_Music_App_ClipApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EBF67E26A33CDE0094FA60 /* Fonz_Music_App_ClipApp.swift */; };
 		261752C226A3448A0069C83D /* JoinSuccessfulCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26691F71267AC6BF00C83696 /* JoinSuccessfulCircle.swift */; };
 		261752C326A3448A0069C83D /* CoasterDoesNotHaveHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26916FF7268E5DFA00B7281B /* CoasterDoesNotHaveHost.swift */; };
@@ -372,6 +376,8 @@
 		2614E8762748291B007E7E09 /* ShopItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItem.swift; sourceTree = "<group>"; };
 		2614E879274829F6007E7E09 /* ItemFromShop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemFromShop.swift; sourceTree = "<group>"; };
 		2614E87C27482BD1007E7E09 /* ShopItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItems.swift; sourceTree = "<group>"; };
+		2614E87F27483D00007E7E09 /* ItemsFromWebApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsFromWebApi.swift; sourceTree = "<group>"; };
+		2614E88227483D6E007E7E09 /* FonzShopApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FonzShopApi.swift; sourceTree = "<group>"; };
 		2620B8A226792599004FE721 /* MainTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTab.swift; sourceTree = "<group>"; };
 		2620B8A42679261F004FE721 /* SearchBarPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarPage.swift; sourceTree = "<group>"; };
 		2620B8A7267926C2004FE721 /* HomePageDecision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageDecision.swift; sourceTree = "<group>"; };
@@ -599,6 +605,7 @@
 			children = (
 				2614E8762748291B007E7E09 /* ShopItem.swift */,
 				2614E879274829F6007E7E09 /* ItemFromShop.swift */,
+				2614E87F27483D00007E7E09 /* ItemsFromWebApi.swift */,
 			);
 			path = InventoryComps;
 			sourceTree = "<group>";
@@ -889,6 +896,7 @@
 				26AF07C7268D2751006A9504 /* GetVerionApi.swift */,
 				26F1CC6726BA887000CD450A /* SpotifySuggestionsApi.swift */,
 				267E6C6326D9383700C41AF9 /* SpotifyPaginatedApi.swift */,
+				2614E88227483D6E007E7E09 /* FonzShopApi.swift */,
 			);
 			path = GlobalMethods;
 			sourceTree = "<group>";
@@ -1520,6 +1528,7 @@
 				26ECCFDF2682B0DA0053BE1F /* Playlist.swift in Sources */,
 				269EE56826B5A402006D2A00 /* TopArtistView.swift in Sources */,
 				26916FF0268E476500B7281B /* QueueSongSuccess.swift in Sources */,
+				2614E88327483D6E007E7E09 /* FonzShopApi.swift in Sources */,
 				26AC89CC2669600500E1C41E /* AsyncImage.swift in Sources */,
 				26F5350F2697AF300055C188 /* AuthApi.swift in Sources */,
 				26AF07C2268CEF76006A9504 /* SuccessfulTroubleShoot.swift in Sources */,
@@ -1568,6 +1577,7 @@
 				26FBCCE726867CE000399460 /* DisconnectCoasterField.swift in Sources */,
 				26AF07D2268D47C8006A9504 /* TapYourPhoneAmber.swift in Sources */,
 				26EBF65D26A32E3C0094FA60 /* BuyACoasterHomeButton.swift in Sources */,
+				2614E88027483D00007E7E09 /* ItemsFromWebApi.swift in Sources */,
 				2665E01126B3344300AE2AAB /* EncodeCoasterWithUrl.swift in Sources */,
 				26B5A46D27285FFA00FA999E /* PavMenu.swift in Sources */,
 				2648209026C1936900F8E7BE /* CreateAccountHomeButton.swift in Sources */,
@@ -1633,6 +1643,7 @@
 				268E8F4C26A49EE1006451AE /* ConsentedToPrivacy.swift in Sources */,
 				268E8F4A26A49EC5006451AE /* HostCoastersApi.swift in Sources */,
 				2614E87427482877007E7E09 /* ShopHeader.swift in Sources */,
+				2614E88427483D6E007E7E09 /* FonzShopApi.swift in Sources */,
 				268E8F4926A49E94006451AE /* AuthApi.swift in Sources */,
 				268E8F4526A49E8A006451AE /* SignInWithAppleButton.swift in Sources */,
 				265464BC26BC07B7000FB833 /* ProviderApi.swift in Sources */,
@@ -1672,6 +1683,7 @@
 				261752CF26A3448A0069C83D /* PlaylistSongListModal.swift in Sources */,
 				261752D026A3448A0069C83D /* SongListModalSongButton.swift in Sources */,
 				261752D126A3448A0069C83D /* TracksFromArtist.swift in Sources */,
+				2614E88127483D00007E7E09 /* ItemsFromWebApi.swift in Sources */,
 				26B5A4782728664C00FA999E /* PavDrinksMenu.swift in Sources */,
 				261752D226A3448A0069C83D /* TracksFromPlaylist.swift in Sources */,
 				261752D326A3448A0069C83D /* YourTopSongs.swift in Sources */,

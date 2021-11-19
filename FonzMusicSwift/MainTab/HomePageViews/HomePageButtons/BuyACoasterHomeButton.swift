@@ -27,6 +27,7 @@ struct BuyACoasterHomeButton: View {
 //                openURL(url)
 //                print("pressed button")
 
+//                FonzShopApi().getFonzItemsAndPrices()
                 launchShopModal.toggle()
 //                FirebaseAnalytics.Analytics.logEvent("userPressedBuyCoaster", parameters: ["user":"user", "tab": "search","device":"iOS"])
             }, label: {
