@@ -23,6 +23,8 @@
 		2614E88127483D00007E7E09 /* ItemsFromWebApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2614E87F27483D00007E7E09 /* ItemsFromWebApi.swift */; };
 		2614E88327483D6E007E7E09 /* FonzShopApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2614E88227483D6E007E7E09 /* FonzShopApi.swift */; };
 		2614E88427483D6E007E7E09 /* FonzShopApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2614E88227483D6E007E7E09 /* FonzShopApi.swift */; };
+		2614E887274846E8007E7E09 /* BackendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2614E886274846E8007E7E09 /* BackendModel.swift */; };
+		2614E888274846E8007E7E09 /* BackendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2614E886274846E8007E7E09 /* BackendModel.swift */; };
 		261752A526A3436E0069C83D /* Fonz_Music_App_ClipApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EBF67E26A33CDE0094FA60 /* Fonz_Music_App_ClipApp.swift */; };
 		261752C226A3448A0069C83D /* JoinSuccessfulCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26691F71267AC6BF00C83696 /* JoinSuccessfulCircle.swift */; };
 		261752C326A3448A0069C83D /* CoasterDoesNotHaveHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26916FF7268E5DFA00B7281B /* CoasterDoesNotHaveHost.swift */; };
@@ -378,6 +380,7 @@
 		2614E87C27482BD1007E7E09 /* ShopItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItems.swift; sourceTree = "<group>"; };
 		2614E87F27483D00007E7E09 /* ItemsFromWebApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsFromWebApi.swift; sourceTree = "<group>"; };
 		2614E88227483D6E007E7E09 /* FonzShopApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FonzShopApi.swift; sourceTree = "<group>"; };
+		2614E886274846E8007E7E09 /* BackendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendModel.swift; sourceTree = "<group>"; };
 		2620B8A226792599004FE721 /* MainTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTab.swift; sourceTree = "<group>"; };
 		2620B8A42679261F004FE721 /* SearchBarPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarPage.swift; sourceTree = "<group>"; };
 		2620B8A7267926C2004FE721 /* HomePageDecision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageDecision.swift; sourceTree = "<group>"; };
@@ -610,6 +613,14 @@
 			path = InventoryComps;
 			sourceTree = "<group>";
 		};
+		2614E885274846D0007E7E09 /* StripeModel */ = {
+			isa = PBXGroup;
+			children = (
+				2614E886274846E8007E7E09 /* BackendModel.swift */,
+			);
+			path = StripeModel;
+			sourceTree = "<group>";
+		};
 		2620B8A62679268E004FE721 /* MainTab */ = {
 			isa = PBXGroup;
 			children = (
@@ -625,6 +636,7 @@
 		263545BC26A7074E00B415C9 /* Shop */ = {
 			isa = PBXGroup;
 			children = (
+				2614E885274846D0007E7E09 /* StripeModel */,
 				2614E87127482862007E7E09 /* ShopPageComps */,
 				2614E86E274827CE007E7E09 /* ShopPage.swift */,
 			);
@@ -1276,6 +1288,7 @@
 				2677028B26347ECD00B8BC92 /* Resources */,
 				26AF07BE268CE772006A9504 /* ShellScript */,
 				26EBF67726A339540094FA60 /* Embed App Clips */,
+				EC8D415ACDA79385838551D8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1299,6 +1312,7 @@
 				26EBF67826A33CDE0094FA60 /* Sources */,
 				26EBF67926A33CDE0094FA60 /* Frameworks */,
 				26EBF67A26A33CDE0094FA60 /* Resources */,
+				10A584E70669958A77BF517C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1382,6 +1396,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		10A584E70669958A77BF517C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Fonz Music App Clip/Pods-Fonz Music App Clip-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Fonz Music App Clip/Pods-Fonz Music App Clip-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Fonz Music App Clip/Pods-Fonz Music App Clip-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		26AF07BE268CE772006A9504 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1420,6 +1451,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EC8D415ACDA79385838551D8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FonzMusicSwift/Pods-FonzMusicSwift-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FonzMusicSwift/Pods-FonzMusicSwift-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FonzMusicSwift/Pods-FonzMusicSwift-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EE2EADAADF9757A7DF90807A /* [CP] Check Pods Manifest.lock */ = {
@@ -1590,6 +1638,7 @@
 				26B5A4642726C3AD00FA999E /* PavCoreContent.swift in Sources */,
 				26916FF6268E585200B7281B /* LaunchSongResponsePopup.swift in Sources */,
 				265634C12678341E00FD6F27 /* SettingsPage.swift in Sources */,
+				2614E887274846E8007E7E09 /* BackendModel.swift in Sources */,
 				26F5350226975C870055C188 /* SignInView.swift in Sources */,
 				26B5A474272864ED00FA999E /* PavMenuDrinksOrFood.swift in Sources */,
 				2665E00F26B333A700AE2AAB /* OneMoreStep.swift in Sources */,
@@ -1652,6 +1701,7 @@
 				268E8F4626A49E8A006451AE /* SignInWithGoogleButton.swift in Sources */,
 				268E8F4726A49E8A006451AE /* SignUpView.swift in Sources */,
 				268E8F4826A49E8A006451AE /* SignInView.swift in Sources */,
+				2614E888274846E8007E7E09 /* BackendModel.swift in Sources */,
 				265464C526BC632E000FB833 /* GuestTopArtists.swift in Sources */,
 				268E8F4426A49E64006451AE /* CreateAccountView.swift in Sources */,
 				268E8F4326A49E58006451AE /* DetermineHomePageView.swift in Sources */,

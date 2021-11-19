@@ -8,6 +8,8 @@ target 'FonzMusicSwift' do
   # Pods for FonzMusicSwift
   pod 'Firebase/Auth'
   pod 'Firebase/Core'
+  pod 'Stripe'
+  
 
   pod ‘Firebase/Crashlytics’
   pod ‘Firebase/Analytics’
@@ -21,6 +23,7 @@ target 'Fonz Music App Clip' do
   # Pods for FonzMusicSwift
   pod 'Firebase/Auth'
   pod 'Firebase/Core'
+  pod 'Stripe'
 
   pod ‘Firebase/Crashlytics’
   pod ‘Firebase/Analytics’

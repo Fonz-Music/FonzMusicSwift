@@ -8,14 +8,10 @@
 import SwiftUI
 
 struct ShopItems: View {
-//    var shopItemList : Array<ItemFromShop>
-    
-//    var shopItemList : Array<ItemFromShop> = [
-//        ItemFromShop(title: "hangout host", package: "afsgdf", info: "single fonz coaster", price: 10, image: "https://fonzmusic.com/img/coasterMockupPng.a1fe7f43.png", details: "100% waterproof & lightweight. allow your friends to queue songs whenever you're together!"),
-//        ItemFromShop(title: "solo host", package: "hngfysd", info: "double fonz coaster", price: 20, image: "https://fonzmusic.com/img/coasterMockupPng.a1fe7f43.png", details: "100% waterproof & lightweight. allow your friends to queue songs whenever you're together!"),
-//        ItemFromShop(title: "hangout host", package: "afsgdf", info: "single fonz coaster", price: 10, image: "https://fonzmusic.com/img/coasterMockupPng.a1fe7f43.png", details: "100% waterproof & lightweight. allow your friends to queue songs whenever you're together!")
-//    ]
     var shopItemList : Array<ItemFromShop> = ItemsFromWebApi().products
+    
+    @State var cartId : String = ""
+    @State var packageId : String = ""
     
     let layout = [
             GridItem(.flexible())
@@ -27,12 +23,16 @@ struct ShopItems: View {
             ScrollView(showsIndicators: true) {
                 LazyVGrid(columns: layout, spacing: 5) {
                    ForEach(shopItemList, id: \.self) { item in
-                        ShopItem(itemFromShop: item, isExpanded: self.selection.contains(item))
+                       ShopItem(itemFromShop: item, isExpanded: self.selection.contains(item), cartId: cartId)
                             .onTapGesture {
                                 withAnimation {
                                     self.selectDeselect(item)
                                 }
-                                
+                                packageId = item.package
+                                if (cartId == "") {
+                                    // create a cart
+                                    cartId = FonzShopApi().createFonzShopCart(packageId: packageId, currency: "eur")
+                                }
                                 
                             }
                     }

@@ -15,6 +15,8 @@ struct ShopItem: View {
     
     var isExpanded : Bool
     
+    var cartId: String
+    
 
     
     var body: some View {
