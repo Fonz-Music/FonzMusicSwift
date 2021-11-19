@@ -25,6 +25,8 @@ class TrackFromNowPlaying: ObservableObject {
     
     @Published var nowPlaying: String = String()
     
+    @Published var songPlaying = false
+    
     // MARK:- Initiliazer for product via model.
     
     init() {
@@ -113,7 +115,7 @@ class TrackFromNowPlaying: ObservableObject {
                             DispatchQueue.main.async {
                                 // returns searchResults
                                 self.currentSong = searchResults
-                                
+                                self.songPlaying = true
 //                                self.currentSong = NowPlayingInfo(artistName: decodedResponse.artistName, albumArt: newAlbumArt, trackName: decodedResponse.trackName)
 //                                print("this is the active song \(decodedResponse)")
 //                                print("this is the new song \(self.currentSong)")
@@ -121,6 +123,7 @@ class TrackFromNowPlaying: ObservableObject {
                             return
                         }
                     } else {
+                        self.songPlaying = false
                         print("fetch failed: \(error?.localizedDescription ?? "unknown error")")
                     }
                 }.resume()

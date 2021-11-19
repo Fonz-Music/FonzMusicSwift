@@ -32,7 +32,10 @@ struct PavRoute: View {
                         
 //                        Spacer()
 //                            .frame(height: 40)
-                        ActiveSongView(hostName: hostCoaster.hostName, currentSessionId: hostCoaster.sessionId, trackfromNowPlaying: trackFromNowPlaying)
+//                        if trackFromNowPlaying.songPlaying {
+                            ActiveSongView(hostName: hostCoaster.hostName, currentSessionId: hostCoaster.sessionId, trackfromNowPlaying: trackFromNowPlaying)
+//                        }
+                        
                         QueueASongPubButton(showQueuePage: $showQueuePage)
                         Spacer()
                             

@@ -15,21 +15,20 @@ struct BuyACoasterHomeButton: View {
     @Environment(\.colorScheme) var colorScheme
     let sideGraphicHeight = UIScreen.screenHeight * 0.03
     
-    @State var launchWebview = false
+    @State var launchShopModal : Bool = false
     
     var body: some View {
         VStack{
             Button(action: {
                 
-                guard let url = URL(string: "https://www.fonzmusic.com/buy") else {
-                    return
-                }
-                openURL(url)
-                print("pressed button")
+//                guard let url = URL(string: "https://www.fonzmusic.com/buy") else {
+//                    return
+//                }
+//                openURL(url)
+//                print("pressed button")
 
-                launchWebview.toggle()
-                FirebaseAnalytics.Analytics.logEvent("userPressedBuyCoaster", parameters: ["user":"user", "tab": "search",
-                                                                                           "device":"iOS"])
+                launchShopModal.toggle()
+//                FirebaseAnalytics.Analytics.logEvent("userPressedBuyCoaster", parameters: ["user":"user", "tab": "search","device":"iOS"])
             }, label: {
                 Image(systemName: "cart.badge.plus")
                     .resizable()
@@ -47,6 +46,9 @@ struct BuyACoasterHomeButton: View {
 //                ShopWebView()
 //                    .frame(width: 0, height: 0, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
 //            }
+        }
+        .sheet(isPresented: $launchShopModal) {
+            ShopPage(launchShopModal: $launchShopModal)
         }
     }
 }
