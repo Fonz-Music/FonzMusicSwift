@@ -14,6 +14,8 @@ struct ShopPage: View {
     var body: some View {
         VStack{
             ShopHeader(launchShopModal: $launchShopModal)
+            Spacer()
+                .frame(height: 60)
             ShopItems()
             Spacer()
         }

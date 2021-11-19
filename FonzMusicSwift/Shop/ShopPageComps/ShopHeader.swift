@@ -26,7 +26,7 @@ struct ShopHeader: View {
             } label: {
                 Text("return")
                     .foregroundColor(Color.black)
-                    .fonzParagraphTwo()
+                    .fonzParagraphOne()
                     
             }
             .padding(.trailing, .headingFrontIndent)

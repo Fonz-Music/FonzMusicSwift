@@ -13,10 +13,12 @@ struct ShopItem: View {
     // object that stores the songs from the api
     var itemFromShop: ItemFromShop
     
+    var isExpanded : Bool
+    
 
     
     var body: some View {
-        ZStack {
+        VStack {
                 HStack(spacing: 5) {
                     if (itemFromShop.image == "") {
                         HStack{
@@ -59,16 +61,34 @@ struct ShopItem: View {
                             Text(verbatim: itemFromShop.info)
                                 .foregroundColor(Color.white)
                                 .fonzParagraphTwo()
-                        Text(verbatim: String(itemFromShop.price))
-                                .foregroundColor(Color.white)
-                                .fonzParagraphThree()
+                       
                     }
                     Spacer()
+                    Text("€\(String(itemFromShop.price))")
+                            .foregroundColor(Color.white)
+                            .fonzParagraphOne()
+                            
+//                    Spacer()
                     
                 }
 
+            if isExpanded {
+                Text(verbatim: itemFromShop.details)
+                    .foregroundColor(Color.white)
+                    .fonzParagraphTwo()
+                // apple pay button here
+            }
             
         }
+        .padding(10)
+        .background(
+            RoundedRectangle(cornerRadius: .cornerRadiusTasks)
+//                .fill(colorScheme == .light ? Color.white: Color.darkButton)
+                .fill(Color.darkButton)
+                .fonzShadow()
+        )
+        .padding(10)
+
         
 
     }
