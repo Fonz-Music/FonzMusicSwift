@@ -16,6 +16,8 @@ struct HostTab: View {
     // list of coasters connected to the Host
     @ObservedObject var coastersConnectedToHost: CoastersFromApi
 
+    @State var launchShopModal : Bool = false
+    
     @Environment(\.openURL) var openURL
     @Environment(\.colorScheme) var colorScheme
     
@@ -46,10 +48,11 @@ struct HostTab: View {
                     HStack{
                         Spacer()
                         Button {
-                            guard let url = URL(string: "https://www.fonzmusic.com/buy") else {
-                                return
-                            }
-                            openURL(url)
+                            launchShopModal = true
+//                            guard let url = URL(string: "https://www.fonzmusic.com/buy") else {
+//                                return
+//                            }
+//                            openURL(url)
                         } label: {
                             Image(systemName: "cart.badge.plus")
                                 .resizable()
@@ -70,6 +73,9 @@ struct HostTab: View {
                 CoasterDashboardPage(userAttributes: userAttributes, coastersConnectedToHost: coastersConnectedToHost)
             }
             Spacer()
+        }
+        .sheet(isPresented: $launchShopModal) {
+            ShopPage(launchShopModal: $launchShopModal)
         }
         .background(
             ZStack{

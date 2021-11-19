@@ -17,6 +17,8 @@ struct BuyCoasterButton: View {
     
     @State var offset = 0
     
+    @State var launchShopModal : Bool = false
+    
     var body: some View {
         Button(action: {
             
@@ -24,11 +26,12 @@ struct BuyCoasterButton: View {
 //            SpotifyPaginatedApi().getGuestTopSongsPaginated(sessionId: sessionId, offset: offset)
 //            offset += 10
 
-            guard let url = URL(string: "https://www.fonzmusic.com/buy") else {
-                return
-            }
-            openURL(url)
-            print("pressed button")
+//            guard let url = URL(string: "https://www.fonzmusic.com/buy") else {
+//                return
+//            }
+//            openURL(url)
+//            print("pressed button")
+            launchShopModal = true
             FirebaseAnalytics.Analytics.logEvent("userPressedBuyCoaster", parameters: ["user":"user", "tab": "settings"])
         }, label: {
             HStack {
@@ -45,6 +48,10 @@ struct BuyCoasterButton: View {
             
         })
         .buttonStyle(BasicFonzButton(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .amber))
+        .sheet(isPresented: $launchShopModal) {
+            ShopPage(launchShopModal: $launchShopModal)
+        }
 //        .buttonStyle(NeumorphicButtonStyle(bgColor: colorScheme == .light ? Color.white: Color.darkButton, secondaryColor: .amber))
     }
+        
 }
