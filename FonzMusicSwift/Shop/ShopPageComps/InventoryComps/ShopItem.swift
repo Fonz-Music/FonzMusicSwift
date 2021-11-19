@@ -64,9 +64,9 @@ struct ShopItem: View {
                        
                     }
                     Spacer()
-                    Text("€\(String(itemFromShop.price))")
+                    Text("€\(String(Int(itemFromShop.price)))")
                             .foregroundColor(Color.white)
-                            .fonzParagraphOne()
+                            .fonzHeading()
                             
 //                    Spacer()
                     

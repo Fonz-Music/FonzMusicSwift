@@ -26,7 +26,7 @@ struct FonzHeading: ViewModifier {
             .font(Font.custom("MuseoSans-700", size: 40))
             .foregroundColor(Color(.systemGray5))
             .multilineTextAlignment(.center)
-            .padding(.horizontal, 10)
+//            .padding(.horizontal, 10)
 
     }
 }
@@ -36,7 +36,7 @@ struct FonzSubheading: ViewModifier {
             .font(Font.custom("MuseoSans-500", size: 24))
             .foregroundColor(Color(.systemGray5))
             .multilineTextAlignment(.center)
-            .padding(.horizontal)
+//            .padding(.horizontal)
     }
 }
 struct FonzParagraphOne: ViewModifier {
