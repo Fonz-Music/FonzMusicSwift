@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import StripeCore
 
 struct ShopItem: View {
     @Environment(\.colorScheme) var colorScheme
@@ -16,6 +17,10 @@ struct ShopItem: View {
     var isExpanded : Bool
     
     var cartId: String
+    
+    var paymentIntent: String
+    
+    @StateObject var applePayModel = ApplePayModel()
     
 
     
@@ -79,6 +84,46 @@ struct ShopItem: View {
                     .foregroundColor(Color.white)
                     .fonzParagraphTwo()
                 // apple pay button here
+                if paymentIntent != "" {
+                    PaymentButton() {
+                        print("paying now")
+                        // update cart
+                        
+                        
+                        
+                        // update paymentIntent
+                        
+                        // call pay method
+                        applePayModel.pay(clientSecret: paymentIntent, item: itemFromShop)
+                    }.padding()
+                }
+                else {
+                    Text("loading")
+                        .foregroundColor(Color.white)
+                        .fonzParagraphTwo()
+                }
+                
+                if let paymentStatus = applePayModel.paymentStatus {
+                    switch paymentStatus {
+                    case .success:
+                        Text("payment complete!")
+                            .foregroundColor(Color.white)
+                            .fonzParagraphTwo()
+                    case .error:
+                        Text("payment failed!")
+                            .foregroundColor(Color.white)
+                            .fonzParagraphTwo()
+                    case .userCancellation:
+                        Text("payment cancelled.")
+                            .foregroundColor(Color.white)
+                            .fonzParagraphTwo()
+                    @unknown default:
+                        Text("unknown")
+                            .foregroundColor(Color.white)
+                            .fonzParagraphTwo()
+                    }
+                }
+                
             }
             
         }

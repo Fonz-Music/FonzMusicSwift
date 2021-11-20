@@ -125,6 +125,10 @@
 		265634BD267815B900FD6F27 /* Crypto in Frameworks */ = {isa = PBXBuildFile; productRef = 265634BC267815B900FD6F27 /* Crypto */; };
 		265634BF2678163000FD6F27 /* DataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265634BE2678163000FD6F27 /* DataExtension.swift */; };
 		265634C12678341E00FD6F27 /* SettingsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265634C02678341E00FD6F27 /* SettingsPage.swift */; };
+		26653C022748698900A893A6 /* PaymentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26653C012748698900A893A6 /* PaymentButton.swift */; };
+		26653C032748698900A893A6 /* PaymentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26653C012748698900A893A6 /* PaymentButton.swift */; };
+		26653C0527486A9B00A893A6 /* ApplePayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26653C0427486A9B00A893A6 /* ApplePayModel.swift */; };
+		26653C0627486A9B00A893A6 /* ApplePayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26653C0427486A9B00A893A6 /* ApplePayModel.swift */; };
 		26659BC4263BA36B0008FD1F /* LaunchConnectCoasterNfc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26659BC3263BA36B0008FD1F /* LaunchConnectCoasterNfc.swift */; };
 		2665E00B26B1834400AE2AAB /* ActiveSongUserInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2665E00A26B1834400AE2AAB /* ActiveSongUserInterface.swift */; };
 		2665E00C26B183AB00AE2AAB /* ActiveSongUserInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2665E00A26B1834400AE2AAB /* ActiveSongUserInterface.swift */; };
@@ -398,6 +402,8 @@
 		265634B9267814DB00FD6F27 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		265634BE2678163000FD6F27 /* DataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtension.swift; sourceTree = "<group>"; };
 		265634C02678341E00FD6F27 /* SettingsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPage.swift; sourceTree = "<group>"; };
+		26653C012748698900A893A6 /* PaymentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentButton.swift; sourceTree = "<group>"; };
+		26653C0427486A9B00A893A6 /* ApplePayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplePayModel.swift; sourceTree = "<group>"; };
 		26659BC3263BA36B0008FD1F /* LaunchConnectCoasterNfc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchConnectCoasterNfc.swift; sourceTree = "<group>"; };
 		2665E00A26B1834400AE2AAB /* ActiveSongUserInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveSongUserInterface.swift; sourceTree = "<group>"; };
 		2665E00E26B333A700AE2AAB /* OneMoreStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneMoreStep.swift; sourceTree = "<group>"; };
@@ -617,6 +623,7 @@
 			isa = PBXGroup;
 			children = (
 				2614E886274846E8007E7E09 /* BackendModel.swift */,
+				26653C0427486A9B00A893A6 /* ApplePayModel.swift */,
 			);
 			path = StripeModel;
 			sourceTree = "<group>";
@@ -1122,6 +1129,7 @@
 				26FBCCFB2686BE4200399460 /* FrontEndConstants.swift */,
 				26AF07D1268D47C8006A9504 /* TapYourPhoneAmber.swift */,
 				269252D2268E1F18001AC98B /* FonzFonts.swift */,
+				26653C012748698900A893A6 /* PaymentButton.swift */,
 			);
 			path = FrontEnd;
 			sourceTree = "<group>";
@@ -1505,6 +1513,7 @@
 				268B97AE26855C7000984DC4 /* ConnectSpotifyButtonHostView.swift in Sources */,
 				26B5A481272877A800FA999E /* PavSodaMenu.swift in Sources */,
 				263545BB26A6FFC400B415C9 /* LinkSpotifySettingsButton.swift in Sources */,
+				26653C022748698900A893A6 /* PaymentButton.swift in Sources */,
 				26B5A45D2726B3F200FA999E /* PavRoute.swift in Sources */,
 				26B5A4772728664C00FA999E /* PavDrinksMenu.swift in Sources */,
 				2614E87D27482BD1007E7E09 /* ShopItems.swift in Sources */,
@@ -1591,6 +1600,7 @@
 				268B5B3026AE01ED00A93B9E /* ErrorResponse.swift in Sources */,
 				26691F76267ACA9E00C83696 /* HostTab.swift in Sources */,
 				26FBCCD926866C5800399460 /* TroubleShootCoasterButton.swift in Sources */,
+				26653C0527486A9B00A893A6 /* ApplePayModel.swift in Sources */,
 				267E6C6826D93C4D00C41AF9 /* SpotifyConverterPaginated.swift in Sources */,
 				268B97A926838AFF00984DC4 /* URL.swift in Sources */,
 				26F534FD26973F440055C188 /* TextExtension.swift in Sources */,
@@ -1681,6 +1691,7 @@
 			files = (
 				268B5B3126AE020300A93B9E /* ErrorResponse.swift in Sources */,
 				265464C226BC50DA000FB833 /* SpotifyTrackConverter.swift in Sources */,
+				26653C0627486A9B00A893A6 /* ApplePayModel.swift in Sources */,
 				2614E8782748291B007E7E09 /* ShopItem.swift in Sources */,
 				268B5B2E26AE005000A93B9E /* BasicResponseWithCode.swift in Sources */,
 				2614E87E27482BD1007E7E09 /* ShopItems.swift in Sources */,
@@ -1753,6 +1764,7 @@
 				26B5A472272860FE00FA999E /* PavMenuHeader.swift in Sources */,
 				261752DA26A3448B0069C83D /* TracksFromSearch.swift in Sources */,
 				261752DB26A3448B0069C83D /* ActiveSongView.swift in Sources */,
+				26653C032748698900A893A6 /* PaymentButton.swift in Sources */,
 				26DFD8872708FE450062BDE0 /* CannotQueueSongTwice.swift in Sources */,
 				265464C826BC64B2000FB833 /* GuestTopPlaylists.swift in Sources */,
 				261752DC26A3448B0069C83D /* TrackFromNowPlaying.swift in Sources */,

@@ -14,11 +14,11 @@ class BackendModel : ObservableObject {
     @Published var lastPaymentError: NSError?
     var paymentMethodType: String?
     var currency: String?
-    
+
     func preparePaymentIntent(paymentMethodType: String, currency: String) {
         self.paymentMethodType = paymentMethodType
         self.currency = currency
-        
-        
+
+
     }
 }

@@ -14,4 +14,5 @@ struct ItemFromShop: Codable, Hashable {
     var price: Float
     var image: String
     var details: String
+    var quantity: Int
 }

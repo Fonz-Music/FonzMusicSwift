@@ -8,6 +8,10 @@
 		<string>appclips:fonzmusic.com</string>
 		<string>https://www.fonzmusic.com</string>
 	</array>
+	<key>com.apple.developer.in-app-payments</key>
+	<array>
+		<string>merchant.com.fonzmusic.fonz</string>
+	</array>
 	<key>com.apple.developer.nfc.readersession.formats</key>
 	<array>
 		<string>TAG</string>
